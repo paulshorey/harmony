@@ -13,6 +13,7 @@
     "cypress:runbrowserstacklocal": "env-cmd browserstack-cypress run --sync",
     "cypress:runlocal": "cypress run",
     "dev": "next dev",
+    "serve": "next start",
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "lint": "eslint . --fix --ext .tsx,.ts,.js --quiet",
