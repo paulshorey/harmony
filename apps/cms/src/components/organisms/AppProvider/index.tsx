@@ -12,9 +12,7 @@ const AppProvider: FC<AppProviderProps> = ({ children }) => (
   <>
     <RoutesSessionHistory />
     <ThemeProvider>
-          <ErrorProvider>
-                {children}
-          </ErrorProvider>
+      <ErrorProvider>{children}</ErrorProvider>
     </ThemeProvider>
   </>
 );

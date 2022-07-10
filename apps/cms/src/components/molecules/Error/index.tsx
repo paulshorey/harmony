@@ -8,11 +8,12 @@ type Props = {
   title?: string;
 };
 
-const Error: FC<Props> = ({ title, subtitle, ...props }) => {
+const Error: FC<Props> = ({ subtitle, title, ...props }) => {
   return (
-    <div {...props}><h2>Error:</h2>
-    <h3>{title}</h3>
-    <p>{subtitle}</p>
+    <div {...props}>
+      <h2>Error:</h2>
+      <h3>{title}</h3>
+      <p>{subtitle}</p>
     </div>
   );
 };

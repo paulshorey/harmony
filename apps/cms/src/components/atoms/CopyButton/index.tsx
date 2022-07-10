@@ -23,7 +23,7 @@ const CopyButton: FC<CopyButtonProps> = ({
 
   return (
     <button onClick={() => copy(value)} {...rest}>
-        {children}
+      {children}
     </button>
   );
 };

@@ -33,7 +33,10 @@ const RoutesSessionHistory = () => {
   React.useEffect(() => {
     router.events.on('routeChangeComplete', handleUpdateRoutesSessionHistory);
     return () => {
-      router.events.off('routeChangeComplete', handleUpdateRoutesSessionHistory);
+      router.events.off(
+        'routeChangeComplete',
+        handleUpdateRoutesSessionHistory
+      );
     };
   }, [router.events]);
 

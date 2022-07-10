@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { FC, memo } from 'react';
 import { useError } from 'src/context/error';
+
 import Error from '../Error';
 
 const DefaultError: FC = () => {
@@ -8,10 +9,7 @@ const DefaultError: FC = () => {
   const { error } = useError();
   return (
     <div>
-      <Error
-      title={error.name}
-      subtitle={error.description}
-       />
+      <Error subtitle={error.description} title={error.name} />
       <button
         css={{
           color: '#d92e76',
