@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/molecules/NavMenuItem/Desktop Active 1`] = `
+<span
+  className="css-1j7p7i1-Box-DesktopNavMenuItem eyzgrpe0"
+>
+  <div
+    className="css-1el5247-DesktopNavMenuItem"
+  />
+  <span
+    className="css-15jhkft-Box eyzgrpe0"
+  >
+    Home
+  </span>
+</span>
+`;
+
+exports[`Storyshots Design Systems/molecules/NavMenuItem/Desktop Default 1`] = `
+<span
+  className="css-1j7p7i1-Box-DesktopNavMenuItem eyzgrpe0"
+>
+  <div
+    className="css-tinllb-DesktopNavMenuItem"
+  />
+  <span
+    className="css-11vckcn-Box eyzgrpe0"
+  >
+    Home
+  </span>
+</span>
+`;

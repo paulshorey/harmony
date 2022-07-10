@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Molecules/BackButton Default 1`] = `
+<div
+  className="css-1ms2m1i-Box eyzgrpe0"
+>
+  <button
+    className="css-1wegm3p-StyledButton e1852hce0"
+    data-testid="button-back"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="css-1iagsd5-Box eyzgrpe0"
+    >
+      <span
+        className="css-1efsrtw-Box eyzgrpe0"
+      >
+        Go Back
+      </span>
+    </span>
+  </button>
+</div>
+`;

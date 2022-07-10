@@ -1,0 +1,61 @@
+name: PR Source Code Check
+
+on:
+  - pull_request
+
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Run ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: "yarn"
+      - run: yarn
+      - run: yarn lint
+
+  tsc:
+    name: Run Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: "yarn"
+      - run: yarn
+      - run: yarn type-check
+
+  prettier:
+    name: Run Prettier Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: "yarn"
+      - run: yarn
+      - run: yarn format:check
+
+  testing:
+    name: Run Snapshot Testing & Jest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+          cache: "yarn"
+      - run: yarn
+      - run: yarn test:ci
+        env:
+          API_BASE: https://staging-api.spiral.us
+          NONPROFIT_API_BASE: https://biz-stage-api.spiral.us
+          CMS_API_BASE: https://cms-staging-api.spiral.us

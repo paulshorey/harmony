@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Molecules/FullScreenMenu Default 1`] = `
+<div
+  className="css-16fibkk-Box eyzgrpe0"
+>
+  <div
+    className="css-t5aktn-Box-FullScreenMenu eyzgrpe0"
+  >
+    <div
+      className="css-1efsrtw-Box eyzgrpe0"
+      onClick={[Function]}
+    >
+      <img
+        alt="icon small-x"
+        aria-label="small-x"
+        className="css-u3zhyj-FullScreenMenu-Icon"
+        src="/icons/small-x.svg"
+      />
+    </div>
+    <div
+      className="css-4lphe0-Box eyzgrpe0"
+    >
+      Profile & Settings
+    </div>
+  </div>
+  <div
+    className="css-xq6m47-Box eyzgrpe0"
+  >
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 0
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 1
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 2
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 3
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 4
+    </button>
+    <div
+      className="css-19u5gf0-Box eyzgrpe0"
+    />
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 5
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 6
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 7
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 8
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 9
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 10
+    </button>
+    <div
+      className="css-19u5gf0-Box eyzgrpe0"
+    />
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 11
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 12
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 13
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 14
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 15
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 16
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 17
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 18
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 19
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 20
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 21
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 22
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 23
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 24
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 25
+    </button>
+  </div>
+</div>
+`;

@@ -1,0 +1,18 @@
+{
+  "React Component": {
+    "prefix": "spiral-tsx",
+    "body": [
+      "import { FC, memo } from 'react';",
+      "",
+      "export type Props = {};",
+      "",
+      "const $1: FC<Props> = () => {",
+      "  return null;",
+      "};",
+      "",
+      "export default memo($1);",
+      ""
+    ],
+    "description": "Creates a memoized react functional component"
+  }
+}

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Atoms/Breadcrumbs Default 1`] = `
+<div
+  className="css-10ykto9-Box eyzgrpe0"
+>
+  <span
+    className="css-od1ij6-Box eyzgrpe0"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Test0
+  </span>
+  <span
+    className="css-1t75c5v-Box eyzgrpe0"
+  >
+    <img
+      alt="icon chevron-right"
+      aria-label="chevron-right"
+      className="css-1l9wb6x-Icon"
+      src="/icons/chevron-right.svg"
+    />
+  </span>
+  <span
+    className="css-od1ij6-Box eyzgrpe0"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Test1
+  </span>
+  <span
+    className="css-1t75c5v-Box eyzgrpe0"
+  >
+    <img
+      alt="icon chevron-right"
+      aria-label="chevron-right"
+      className="css-1l9wb6x-Icon"
+      src="/icons/chevron-right.svg"
+    />
+  </span>
+  <span
+    className="css-104e52n-Box eyzgrpe0"
+  >
+    Test2
+  </span>
+</div>
+`;

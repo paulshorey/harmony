@@ -1,0 +1,28 @@
+{
+  "React Component": {
+    "prefix": "spiral-test-hook",
+    "body": [
+      "import { MockedProvider } from '@apollo/client/testing';",
+      "import { act, renderHook } from '@testing-library/react-hooks';",
+      "import React from 'react';",
+      "",
+      "import $1 from '.';",
+      "",
+      "const wrapper = ({ children, mocks }: any) => (",
+      "  <MockedProvider addTypename={false} mocks={mocks}>",
+      "    {children}",
+      "  </MockedProvider>",
+      ");",
+      "",
+      "describe('Hook: $1', () => {",
+      "  it('Works', async () => {",
+      "    const { result } = renderHook(() => $1(), { wrapper });",
+      "",
+      "    // Test",
+      "  });",
+      "});",
+      ""
+    ],
+    "description": "Creates a hook test"
+  }
+}

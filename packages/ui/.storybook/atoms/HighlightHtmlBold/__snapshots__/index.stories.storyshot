@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Atoms/HighlightHtmlBold Default 1`] = `
+<span
+  className="css-1tn5023-HighlightHTMLBold"
+>
+  See, I can parse and highlight 
+  <b>
+    BOLD
+  </b>
+   text
+</span>
+`;

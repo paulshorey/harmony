@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Atoms/Flex Default 1`] = `
+<div
+  className="css-h8n43p-Box eyzgrpe0"
+>
+  <div
+    className="css-c2gdpn-Box eyzgrpe0"
+  />
+  <div
+    className="css-c2gdpn-Box eyzgrpe0"
+  />
+</div>
+`;

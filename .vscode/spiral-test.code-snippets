@@ -1,0 +1,31 @@
+{
+  "React Component": {
+    "prefix": "spiral-test",
+    "body": [
+      "import { render } from '@test-utils/index';",
+      "import React from 'react';",
+      "",
+      "import $1, { Props } from '.';",
+      "",
+      "const initialProps = {",
+      "  title: 'Hi there',",
+      "};",
+      "",
+      "const renderComponent = (props?: Props) => {",
+      "  return {",
+      "    ...render(<$1 {...initialProps} {...props} />),",
+      "  };",
+      "};",
+      "",
+      "describe('$1 - default', () => {",
+      "  it('Works', async () => {",
+      "    const { getByText, getByTestId } = renderComponent();",
+      "",
+      "    // Test",
+      "  });",
+      "});",
+      ""
+    ],
+    "description": "Creates a component test"
+  }
+}

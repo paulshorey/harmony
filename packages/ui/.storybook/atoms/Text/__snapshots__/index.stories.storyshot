@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Atoms/Text Default 1`] = `
+<p
+  className="css-103i8bf-Box eyzgrpe0"
+>
+  I am a text paragraph! I can be p or span
+</p>
+`;

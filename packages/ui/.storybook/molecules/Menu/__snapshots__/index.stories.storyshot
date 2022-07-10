@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Molecules/Menu Default 1`] = `
+<button
+  className="eyzgrpe0 css-72dkob-StyledButton-Box e1852hce0"
+  onClick={[Function]}
+  type="button"
+>
+  <span
+    className="css-1iagsd5-Box eyzgrpe0"
+  >
+    <span
+      className="css-1efsrtw-Box eyzgrpe0"
+    >
+      Open The Menu
+    </span>
+  </span>
+</button>
+`;
+
+exports[`Storyshots Design Systems/Molecules/Menu Is Open 1`] = `
+Array [
+  <button
+    className="eyzgrpe0 css-72dkob-StyledButton-Box e1852hce0"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="css-1iagsd5-Box eyzgrpe0"
+    >
+      <span
+        className="css-1efsrtw-Box eyzgrpe0"
+      >
+        Open The Menu
+      </span>
+    </span>
+  </button>,
+  <div
+    className="css-8ilnmd-MenuList"
+  >
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 0
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 1
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 2
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 3
+    </button>
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      test 4
+    </button>
+  </div>,
+]
+`;

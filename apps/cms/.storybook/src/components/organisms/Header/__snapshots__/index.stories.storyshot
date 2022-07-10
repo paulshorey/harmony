@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Organisms/Header Default 1`] = `
+<header
+  className="css-12gsfsr-wrapper"
+>
+  <div
+    className="css-e7eaxg-pageWidth-pageWidth-content-content"
+  >
+    <div
+      className="css-15eulur-logoWrapper"
+    >
+      <a
+        aria-current="page"
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        <img
+          alt="Spiral Financial"
+          className="css-wdj37e-logoImage"
+          src="/images/logo.svg"
+        />
+      </a>
+    </div>
+    <div
+      className="css-167otmu-buttonsWrapper"
+    >
+      <span>
+        <a
+          href="/auth/login"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          <span
+            className="css-lq5o8a-loginLink"
+          >
+            Login
+          </span>
+        </a>
+      </span>
+       • 
+      <a
+        href="https://support.spiral.us/hc/en-us/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        <span
+          className="css-lq5o8a-loginLink"
+        >
+          Knowledgebase
+        </span>
+      </a>
+    </div>
+  </div>
+</header>
+`;

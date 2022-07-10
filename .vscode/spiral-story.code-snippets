@@ -1,0 +1,24 @@
+{
+  "React Component": {
+    "prefix": "spiral-story",
+    "body": [
+      "import { Story } from '@storybook/react';",
+      "import React from 'react';",
+      "",
+      "import $1, { Props } from '.';",
+      "",
+      "export default {",
+      "  component: $1,",
+      "  title: 'Design Systems/FixMe/$1',",
+      "};",
+      "",
+      "const Template: Story<Props> = (args) => <$1 {...args} />;",
+      "",
+      "export const Default = Template.bind({});",
+      "",
+      "Default.args = {};",
+      ""
+    ],
+    "description": "Creates a storybook component"
+  }
+}

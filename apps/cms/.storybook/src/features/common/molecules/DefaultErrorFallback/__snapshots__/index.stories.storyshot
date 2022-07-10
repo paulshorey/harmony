@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/molecules/DefaultErrorFallback Default 1`] = `
+<div
+  className="css-100ol1b-Box-Card eyzgrpe0"
+  data-testid="error-page"
+>
+  <div
+    data-testid="error-text"
+  >
+    <div
+      className="css-pz0mow-Box eyzgrpe0"
+    >
+      <h2
+        className="css-zj2gzf-Box eyzgrpe0"
+      >
+        Something went wrong
+      </h2>
+      <p
+        className="css-11fbvdc-Box eyzgrpe0"
+      >
+        Get in touch with us at nonprofits@spiral.us and we’ll make sure it gets sorted out.
+      </p>
+    </div>
+  </div>
+  <button
+    className="css-utldi3-DefaultError"
+    data-testid="button-go-to-home-page"
+    onClick={[Function]}
+  >
+    Go to home page
+  </button>
+</div>
+`;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Molecules/PasswordInput Default 1`] = `
+<div
+  className="css-1yiolex-Box eyzgrpe0"
+>
+  <input
+    className="css-ahelqy-Box-InputComponent-InputComponent eyzgrpe0"
+    type="password"
+  />
+  <div
+    className="css-9mqj5a-Box eyzgrpe0"
+  >
+    <div
+      className="css-1efsrtw-Box eyzgrpe0"
+      data-testid="pass-icon-off"
+      onClick={[Function]}
+    >
+      <img
+        alt="icon password-off"
+        aria-label="password-off"
+        className="css-1vsmff2-Icon"
+        src="/icons/password-off.svg"
+      />
+    </div>
+  </div>
+</div>
+`;

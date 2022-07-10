@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Molecules/SearchBox Default 1`] = `
+<div
+  className="css-138wanm-Box eyzgrpe0"
+>
+  <div
+    className="css-1yiolex-Box eyzgrpe0"
+  >
+    <div
+      className="css-1v6grgt-Box eyzgrpe0"
+    >
+      <img
+        alt="icon search"
+        aria-label="search"
+        className="css-1vsmff2-Icon"
+        src="/icons/search.svg"
+      />
+    </div>
+    <input
+      className="css-kf6umx-Box-InputComponent-InputComponent eyzgrpe0"
+      data-testid="input-search"
+      id="search"
+      onChange={[Function]}
+      type="text"
+      value="test"
+    />
+    <div
+      className="css-9mqj5a-Box eyzgrpe0"
+    >
+      <button
+        className="css-xp08qm-SearchBox"
+        onClick={[Function]}
+      >
+        <img
+          alt="icon x"
+          aria-label="x"
+          className="css-1vsmff2-Icon"
+          src="/icons/x.svg"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Molecules/MenuList Default 1`] = `
+Array [
+  <button
+    className="eyzgrpe0 css-72dkob-StyledButton-Box e1852hce0"
+    onClick={[Function]}
+    type="button"
+  >
+    <span
+      className="css-1iagsd5-Box eyzgrpe0"
+    >
+      <span
+        className="css-1efsrtw-Box eyzgrpe0"
+      >
+        Menu Toggle
+      </span>
+    </span>
+  </button>,
+  <div
+    className="css-8ilnmd-MenuList"
+  >
+    <button
+      className="css-ttu9zd-Box-MenuItem eyzgrpe0"
+      onClick={[Function]}
+      type="button"
+    >
+      <div>
+        Item with onClick
+      </div>
+    </button>
+  </div>,
+]
+`;
