@@ -5,7 +5,7 @@ const Index = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/home');
+    router.push('/scroll/1');
   }, []);
 
   return <div>... loading ...</div>;
