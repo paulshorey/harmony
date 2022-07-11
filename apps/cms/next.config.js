@@ -6,7 +6,7 @@ const withTM = require('next-transpile-modules')([
 const dotenvLoad = require('dotenv-load');
 const nextBuildId = require('next-build-id');
 
-const ContentSecurityPolicy = require('@spiral/config/auth/contentSecurityPolicy/index');
+// const ContentSecurityPolicy = require('@spiral/config/auth/contentSecurityPolicy/index');
 
 dotenvLoad();
 
@@ -21,10 +21,10 @@ module.exports = withTM({
           /**
            * Content Security Policy - apply to all routes.
            */
-          {
-            key: 'Content-Security-Policy',
-            value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),
-          },
+          // {
+          //   key: 'Content-Security-Policy',
+          //   value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim(),
+          // },
           /**
            * https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
            */
