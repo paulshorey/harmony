@@ -6,11 +6,6 @@
     "apps/*",
     "packages/*"
   ],
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
-  },
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
@@ -89,7 +84,6 @@
     "babel-jest": "^27.0.5",
     "babel-loader": "^8.2.2",
     "browserstack-cypress-cli": "^1.11.0",
-    "commitizen": "^4.2.4",
     "cypress": "^9.2.0",
     "dotenv-load": "^2.0.1",
     "env-cmd": "^10.1.0",

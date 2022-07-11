@@ -5,7 +5,7 @@ const Index = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/scroll/1');
+    router.push('/fullpage-horizontal');
   }, []);
 
   return <div>... loading ...</div>;

@@ -1,4 +1,4 @@
-import Template from 'src/components/templates/S1';
+import Template from 'src/components/templates/fullpage-horizontal';
 
 const S1Page = () => {
   return <Template />;

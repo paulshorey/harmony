@@ -3,33 +3,14 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "src/*": [
-        "src/*"
-      ],
-      "apollo-client/*": [
-        "apollo-client/*"
-      ],
-      "public/*": [
-        "public/*"
-      ],
-      "scripts/*": [
-        "scripts/*"
-      ],
-      "cypress/*": [
-        "cypress/*"
-      ]
+      "src/*": ["src/*"],
+      "apollo-client/*": ["apollo-client/*"],
+      "public/*": ["public/*"],
+      "scripts/*": ["scripts/*"],
+      "cypress/*": ["cypress/*"]
     }
   },
   "extends": "@spiral/config/typescript/nextjs.json",
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js"
-  ],
-  "exclude": [
-    "node_modules",
-    "cypress/**",
-    "dist"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
+  "exclude": ["node_modules", "cypress/**", "dist"]
 }
