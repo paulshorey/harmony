@@ -40,12 +40,5 @@ module.exports = withTM({
   async redirects() {
     return [];
   },
-  env: {
-    API_BASE: process.env.API_BASE,
-    UNIVERSAL_LINK_BASE: process.env.UNIVERSAL_LINK_BASE,
-    SMARTLOOK_TOKEN: process.env.SMARTLOOK_TOKEN,
-    MIXPANEL_TOKEN: process.env.MIXPANEL_TOKEN,
-    APPLE_APP_SITE_ID: process.env.APPLE_APP_SITE_ID,
-    SOCURE_SDK_PUBLIC_TOKEN: process.env.SOCURE_SDK_PUBLIC_TOKEN,
-  },
+  env: {},
 });
