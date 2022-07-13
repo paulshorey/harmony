@@ -10,10 +10,12 @@ const pluginWrapper = () => {
 
 const Fullpage = () => {
   useEffect(() => {
-    const el = document.querySelector('body > div:last-child');
-    if (el) {
-      el.style = 'display:none;';
-    }
+    setTimeout(() => {
+      const el = document.querySelector('body > div:last-child');
+      if (el) {
+        el.style = 'display:none;';
+      }
+    }, 1000);
   }, []);
   return (
     <div css={style}>
@@ -81,7 +83,7 @@ const Fullpage = () => {
                 <p>&nbsp;</p>
                 <p>fullscreen.</p>
                 <p>&nbsp;</p>
-                <p className="show-mobile">( Except in mobile )</p>
+                <p>But it totally can continue to be full-screen sections for as far down as we want.</p>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
