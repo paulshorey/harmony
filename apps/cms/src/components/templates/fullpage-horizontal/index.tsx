@@ -83,7 +83,7 @@ const Fullpage = () => {
                 <p>&nbsp;</p>
                 <p>fullscreen.</p>
                 <p>&nbsp;</p>
-                <p>But it totally can continue to be full-screen sections for as far down as we want.</p>
+                <p>But it totally can continue to be full-screen, for as many slides as we want to have.</p>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
