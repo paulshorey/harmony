@@ -77,13 +77,13 @@ try {
             id: postData.id,
             title: postData.title.rendered,
             summary: postData.excerpt.rendered,
-            body: `# Title \nText`,
+            body: postData.content.rendered,
             slug: postData.slug,
             publishDate: postData.date_gmt + '+00:00',
-            // featuredImage: wp_featuredImageToCloudinaryFormat(
-            //   API_DATA,
-            //   postData
-            // ),
+            featuredImage: wp_featuredImageToCloudinaryFormat(
+              API_DATA,
+              postData
+            ),
             categoriesText: wp_categoryNames(
               API_DATA,
               postData.categories,

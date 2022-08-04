@@ -91,78 +91,77 @@ export function cf_migrateWordpressImagesThenPosts(
 
   let assets = [];
 
-  console.log(`Creating Contentful Assets...`);
+  // UPLOAD IMAGES
+  cconsole.info(`Create and UPLOAD assets to Contentful...`);
   console.log('-----');
 
-  // getAndStoreAssets()
-  Promise.all(
-    assetPromises.map(
-      (asset, index) =>
-        new Promise(async (resolve) => {
-          console.log('createContentfulAssets promise asset', asset);
-          let newAsset;
-          // console.log(`Creating: ${post.slug['en-US']}`)
-          setTimeout(() => {
-            try {
-              newAsset = CF_CLIENT.createAsset({
-                fields: asset,
-              })
-                .then((asset) => asset.processForAllLocales())
-                .then((asset) => asset.publish())
-                .then((asset) => {
-                  console.log(
-                    `Published Asset: ${asset.fields.file['en-US'].fileName}`
-                  );
-                  assets.push({
-                    assetId: asset.sys.id,
-                    fileName: asset.fields.file['en-US'].fileName,
-                  });
-                });
-            } catch (error) {
-              throw Error(error);
-            }
-
-            resolve(newAsset);
-          }, 1000 + 5000 * index);
-        })
+  // Promise.all(
+  //   assetPromises.map(
+  //     (asset, index) =>
+  //       new Promise(async (resolve) => {
+  //         console.log('createContentfulAssets promise asset', asset);
+  //         let newAsset;
+  //         // console.log(`Creating: ${post.slug['en-US']}`)
+  //         setTimeout(() => {
+  //           try {
+  //             newAsset = CF_CLIENT.createAsset({
+  //               fields: asset,
+  //             })
+  //               .then((asset) => asset.processForAllLocales())
+  //               .then((asset) => asset.publish())
+  //               .then((asset) => {
+  //                 console.log(
+  //                   `Published Asset: ${asset.fields.file['en-US'].fileName}`
+  //                 );
+  //                 assets.push({
+  //                   assetId: asset.sys.id,
+  //                   fileName: asset.fields.file['en-US'].fileName,
+  //                 });
+  //               });
+  //           } catch (error) {
+  //             throw Error(error);
+  //           }
+  //           resolve(newAsset);
+  //         }, 1000 + 5000 * index);
+  //       })
+  //   )
+  // ).then((result) => {
+  console.log(`...Done!`);
+  console.log('-----');
+  cconsole.info(`Uploading /public/assets to Contentful...`);
+  axios
+    .get(
+      `https://api.contentful.com/spaces/${CF_CONSTS.spaceId}/environments/${CF_CONSTS.environment}/public/assets`,
+      {
+        headers: {
+          Authorization: `Bearer ${CF_CONSTS.accessToken}`,
+        },
+      }
     )
-  ).then((result) => {
-    console.log(`...Done!`);
-    console.log('-----');
-    cconsole.info(`Uploading /public/assets to Contentful...`);
-    axios
-      .get(
-        `https://api.contentful.com/spaces/${CF_CONSTS.spaceId}/environments/${CF_CONSTS.environment}/public/assets`,
-        {
-          headers: {
-            Authorization: `Bearer ${CF_CONSTS.accessToken}`,
-          },
-        }
-      )
-      .then((result) => {
-        cconsole.success(
-          'getAndStoreAssets result.data?.items',
-          result.data?.items
-        );
-        // console.log(result)
-        CF_DATA.assets = [];
-        for (const item of result.data.items) {
-          CF_DATA.assets.push(item.fields.file['en-US'].url);
-          cconsole.log('CF_DATA.assets', CF_DATA.assets);
-        }
+    .then((result) => {
+      cconsole.success(
+        'getAndStoreAssets result.data?.items',
+        result.data?.items
+      );
+      // console.log(result)
+      CF_DATA.assets = [];
+      for (const item of result.data.items) {
+        CF_DATA.assets.push(item.fields.file['en-US'].url);
+        cconsole.log('CF_DATA.assets', CF_DATA.assets);
+      }
 
-        /*
-         * AFTER ASSETS HAVE BEEN UPLOADED, now migrate the Blog Posts
-         */
-        cf_migrateWordpressBlogsToContentful(WP_DATA, CF_CLIENT, assets);
-      })
-      .catch((err) => {
-        cconsole.error(err);
-        return error;
-      });
-    console.log(`...Done!`);
-    console.log('-----');
-  });
+      /*
+       * AFTER ASSETS HAVE BEEN UPLOADED, now migrate the Blog Posts
+       */
+      cf_migrateWordpressBlogsToContentful(WP_DATA, CF_CLIENT, assets);
+    })
+    .catch((err) => {
+      cconsole.error(err);
+      return error;
+    });
+  console.log(`...Done!`);
+  console.log('-----');
+  // });
 }
 
 /*
@@ -186,13 +185,7 @@ export function cf_migrateWordpressBlogsToContentful(
         postValue = turndownService.turndown(postValue);
       }
 
-      let keysToSkip = [
-        'id',
-        'type',
-        'contentImages',
-        'contentfulAssetImage',
-        'featuredImage',
-      ];
+      let keysToSkip = ['id', 'type', 'contentImages', 'contentfulAssetImage'];
 
       // STANDARD TEXT TYPE
       if (!keysToSkip.includes(postKey)) {
@@ -202,9 +195,6 @@ export function cf_migrateWordpressBlogsToContentful(
       }
 
       // NOT STANDARD TEXT
-      // if (postKey === 'featuredImage') {
-      //   postFields[postKey] = post.featuredImage;
-      // }
       if (postKey === 'contentfulAssetImage') {
         postFields[postKey] = {
           'en-US': {
@@ -223,11 +213,6 @@ export function cf_migrateWordpressBlogsToContentful(
           },
         };
       }
-
-      // No image and Contentful will fail if value is '0', so remove.
-      if (postKey === 'featuredImage' && postValue === 0) {
-        delete postFields.featuredImage;
-      }
     }
     cconsole.log('postFields', postFields);
     blogPosts.push(postFields);
@@ -238,7 +223,7 @@ export function cf_migrateWordpressBlogsToContentful(
   Promise.all(
     blogPosts.map((post, index) => {
       cconsole.log('blogPost post', post);
-      if (!post.urlSlug) return;
+      if (!post.slug) return;
       return new Promise(async (resolve) => {
         let newPost;
 

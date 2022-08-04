@@ -5,9 +5,7 @@ import axios from 'cachios';
  */
 export function fetchData(URL) {
   return axios
-    .get(URL, {
-      ttl: 36000000,
-    })
+    .get(URL)
     .then(function (response) {
       return {
         success: true,
