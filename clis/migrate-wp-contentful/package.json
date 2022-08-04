@@ -1,0 +1,24 @@
+{
+  "name": "wp-to-contentful",
+  "version": "1.0.0",
+  "description": "This is a script that will export all posts from WordPress using the Rest API and import them into Contentful using the Content Management API.",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "@spiral/config": "*"
+  },
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cachios": "^3.1.3",
+    "colorful-console-logger": "*",
+    "contentful-management": "^10.10.0",
+    "fs": "^0.0.1-security",
+    "turndown": "^7.1.1"
+  }
+}
