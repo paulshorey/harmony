@@ -41,9 +41,9 @@ try {
   {
     let promises = [];
 
-    console.log('-----');
-    console.log(`Getting WordPress API data`);
-    console.log('-----');
+   // cconsole.log('-----');
+   // cconsole.log(`Getting WordPress API data`);
+   // cconsole.log('-----');
 
     // get all content from wordpress
     for (const [key, value] of Object.entries(WP_DATA)) {
@@ -64,10 +64,10 @@ try {
         let apiPosts = wp_getApiDataType(API_DATA, 'posts')[0];
         // Loop over posts - note: we probably /should/ be using .map() here.
         for (let [key, postData] of Object.entries(apiPosts.data)) {
-          console.warn(`Parsing ${postData.slug}`);
+         // cconsole.warn(`Parsing ${postData.slug}`);
           if (
-            postData.slug !==
-            'when-could-women-have-a-bank-account-a-short-history-of-financial-gender-equality-and-the-financial-road-ahead'
+            // postData.slug === ''
+            postData.slug !== 'when-could-women-have-a-bank-account-a-short-history-of-financial-gender-equality-and-the-financial-road-ahead'
           ) {
             continue;
           }
@@ -93,8 +93,8 @@ try {
           WP_DATA.posts.push(fieldData);
         }
 
-        console.log(`...Done!`);
-        console.log('-----');
+       // cconsole.log(`...Done!`);
+       // cconsole.log('-----');
 
         CF_CLIENT.getSpace(CF_CONSTS.spaceId)
           .then((space) => space.getEnvironment(CF_CONSTS.environment))
@@ -102,12 +102,12 @@ try {
             cf_migrateWordpressImagesThenPosts(WP_DATA, CF_CONSTS, CF_CLIENT);
           })
           .catch((error) => {
-            console.log(error);
+           // cconsole.log(error);
             return error;
           });
       })
       .catch((error) => {
-        console.log(error);
+       // cconsole.log(error);
       });
   }
 } catch (error) {

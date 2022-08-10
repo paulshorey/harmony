@@ -28,11 +28,9 @@ export function wp_bodyImagesToCloudinaryFormat(postData) {
   let matchedImg;
   while ((matchedImg = imageRegex.exec(postData.content.rendered))) {
     let src = matchedImg[1];
-    cconsole.info('img', matchedImg[0]);
-    cconsole.info('src', src);
     // escape special characters that would break RegExp
     let srcRe = src.replace(/\?/g, '\\?');
-    let re = `<img.*?src="${srcRe}".*?>`;
+    let re = `<img[^<>]*?src="${srcRe}"[^>]*?>`;
     postData.content.rendered = postData.content.rendered.replace(
       new RegExp(re),
       `<img class="wp-blog-body-image" src="${src}" width="750" height="600" />`
@@ -61,7 +59,7 @@ function cloudinaryObjectFromFilename(
     ext = 'jpg';
   }
   if (!imageFile.includes('res.cloudinary')) {
-    cconsole.warn('\n\nNOT CLOUDINARY! imageFile', imageFile, '\n\n');
+    // cconsole.warn('\n\nNOT CLOUDINARY! imageFile', imageFile, '\n\n');
   } else {
     // replace extension of imageFile with ".webp"
     imageFile = imageFile.replace(/\.[^/.]+$/, '.webp');

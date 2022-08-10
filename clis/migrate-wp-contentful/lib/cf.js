@@ -62,7 +62,7 @@ export function cf_migrateWordpressImagesThenPosts(
 ) {
   let assetPromises = [];
 
-  cconsole.info('Building Contentful Asset Objects');
+  // cconsole.info('Building Contentful Asset Objects');
 
   // For every image in every post, create a new asset.
   for (let blog of WP_DATA.posts) {
@@ -92,16 +92,16 @@ export function cf_migrateWordpressImagesThenPosts(
   let assets = [];
 
   // UPLOAD IMAGES
-  cconsole.info(`Create and UPLOAD assets to Contentful...`);
-  console.log('-----');
+  // cconsole.info(`Create and UPLOAD assets to Contentful...`);
+ // cconsole.log('-----');
 
   // Promise.all(
   //   assetPromises.map(
   //     (asset, index) =>
   //       new Promise(async (resolve) => {
-  //         console.log('createContentfulAssets promise asset', asset);
+  //        // cconsole.log('createContentfulAssets promise asset', asset);
   //         let newAsset;
-  //         // console.log(`Creating: ${post.slug['en-US']}`)
+  //         //// cconsole.log(`Creating: ${post.slug['en-US']}`)
   //         setTimeout(() => {
   //           try {
   //             newAsset = CF_CLIENT.createAsset({
@@ -110,7 +110,7 @@ export function cf_migrateWordpressImagesThenPosts(
   //               .then((asset) => asset.processForAllLocales())
   //               .then((asset) => asset.publish())
   //               .then((asset) => {
-  //                 console.log(
+  //                // cconsole.log(
   //                   `Published Asset: ${asset.fields.file['en-US'].fileName}`
   //                 );
   //                 assets.push({
@@ -126,9 +126,9 @@ export function cf_migrateWordpressImagesThenPosts(
   //       })
   //   )
   // ).then((result) => {
-  console.log(`...Done!`);
-  console.log('-----');
-  cconsole.info(`Uploading /public/assets to Contentful...`);
+ // cconsole.log(`...Done!`);
+ // cconsole.log('-----');
+  // cconsole.info(`Uploading /public/assets to Contentful...`);
   axios
     .get(
       `https://api.contentful.com/spaces/${CF_CONSTS.spaceId}/environments/${CF_CONSTS.environment}/public/assets`,
@@ -143,11 +143,11 @@ export function cf_migrateWordpressImagesThenPosts(
         'getAndStoreAssets result.data?.items',
         result.data?.items
       );
-      // console.log(result)
+      //// cconsole.log(result)
       CF_DATA.assets = [];
       for (const item of result.data.items) {
         CF_DATA.assets.push(item.fields.file['en-US'].url);
-        cconsole.log('CF_DATA.assets', CF_DATA.assets);
+        // cconsole.log('CF_DATA.assets', CF_DATA.assets);
       }
 
       /*
@@ -159,8 +159,8 @@ export function cf_migrateWordpressImagesThenPosts(
       cconsole.error(err);
       return error;
     });
-  console.log(`...Done!`);
-  console.log('-----');
+ // cconsole.log(`...Done!`);
+ // cconsole.log('-----');
   // });
 }
 
@@ -172,15 +172,15 @@ export function cf_migrateWordpressBlogsToContentful(
   CF_CLIENT,
   assets
 ) {
-  console.log(`Creating Contentful Posts...`);
-  console.log('-----');
+ // cconsole.log(`Creating Contentful Posts...`);
+ // cconsole.log('-----');
 
   let blogPosts = [];
   for (const post of WP_DATA.posts) {
     let postFields = {};
 
     for (let [postKey, postValue] of Object.entries(post)) {
-      // console.log(`postKey: ${postValue}`)
+      //// cconsole.log(`postKey: ${postValue}`)
       if (postKey === 'content') {
         postValue = turndownService.turndown(postValue);
       }
@@ -214,15 +214,15 @@ export function cf_migrateWordpressBlogsToContentful(
         };
       }
     }
-    cconsole.log('postFields', postFields);
+    // cconsole.log('postFields', postFields);
     blogPosts.push(postFields);
   }
 
-  cconsole.info(`Post objects created, attempting to create entries...`);
-  cconsole.log('promises', blogPosts);
+  // cconsole.info(`Post objects created, attempting to create entries...`);
+  // cconsole.log('promises', blogPosts);
   Promise.all(
     blogPosts.map((post, index) => {
-      cconsole.log('blogPost post', post);
+      // cconsole.log('blogPost post', post);
       if (!post.slug) return;
       return new Promise(async (resolve) => {
         let newPost;
@@ -233,11 +233,11 @@ export function cf_migrateWordpressBlogsToContentful(
               fields: post,
             })
               .then((entry) => {
-                console.log(`Posted`, entry);
+               // cconsole.log(`Posted`, entry);
                 entry.publish();
               })
               .then((entry) => {
-                console.log(`Published`, entry);
+               // cconsole.log(`Published`, entry);
               })
               .catch((error) => {
                 cconsole.error(`Could not post`, error);
@@ -249,13 +249,13 @@ export function cf_migrateWordpressBlogsToContentful(
           resolve(newPost);
         }, 1000 + 5000 * index);
       });
-      cconsole.warn('WTF?');
+      // cconsole.warn('WTF?');
     })
   ).then((result) => {
-    console.log('-----');
-    console.log(`Done!`);
-    console.log('-----');
-    console.log(`The migration has completed.`);
-    console.log('-----');
+   // cconsole.log('-----');
+   // cconsole.log(`Done!`);
+   // cconsole.log('-----');
+   // cconsole.log(`The migration has completed.`);
+   // cconsole.log('-----');
   });
 }
