@@ -263,7 +263,7 @@ const Entry = () => {
         insertdatetime media table paste code help wordcount advlist code emoticons link lists table autoresize`,
           toolbar:
             "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | link blocks",
-          content_css: "/css/writer.css",
+          content_css: "css/writer.css",
           setup: function (editor) {
             editor.on("init", function (e) {
               editor.execCommand("mceFullScreen");
