@@ -13,10 +13,10 @@ const Sidebar = () => {
 
   return (
     <Paragraph style={{ maxHeight: "200px", overflow: "auto" }}>
-      👈 Compose the article content in the{" "}
+      👈 Compose the article content in{" "}
       <b
         style={{
-          padding: "0px 2px 0 2px",
+          padding: "0px 1px 0 2px",
           fontWeight: "600",
           color: "#67728a",
           cursor: "pointer",
@@ -43,13 +43,13 @@ const Sidebar = () => {
             verticalAlign: "middle",
           }}
         >
-          Blog Body
+          Body
         </span>
       </b>{" "}
-      tab. Manage other info like excerpt, slug, title, date, featured image in{" "}
+      tab. Manage other info in{" "}
       <b
         style={{
-          padding: "0px 3px 0 3px",
+          padding: "0px 1px 0 2px",
           fontWeight: "600",
           color: "#67728a",
           cursor: "pointer",

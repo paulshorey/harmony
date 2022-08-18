@@ -1,0 +1,412 @@
+/* 
+TODO: Host HelveticaNeue on our site. Import it here.
+@import url(//fonts.googleapis.com/css?family=Open+Sans); 
+*/
+h1 {
+  color: grey !important;
+  font-size: 12px !important;
+  font-weight: normal !important;
+  border-bottom: solid 2px grey !important;
+}
+h1::after {
+  content: ' (do not use H1 inside body, change the Editor "title" instead)';
+  color: red !important;
+}
+
+.blog-figure {
+  text-align: center;
+  line-height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-weight: normal;
+  font-size: 1rem;
+  margin-top: 45px;
+  margin-bottom: 35px;
+}
+
+.blog-figure-image {
+}
+
+.blog-figure-caption {
+  font-size: 14px;
+}
+
+.tox-tinymce,
+div[role="application"] {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+style {
+  display: none !important;
+}
+
+button {
+  font-family: "HelveticaNeue", Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote {
+  font-family: "HelveticaNeue", Helvetica, sans-serif;
+  margin-top: 1.125em;
+  margin-bottom: 0.675em;
+  line-height: 1.33;
+  padding: 0;
+}
+@media (max-width: 500px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  blockquote {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+h1,
+h1 a,
+h2,
+h2 a,
+h3,
+h3 a,
+h4,
+h4 a,
+h5,
+h5 a,
+h6,
+h6 a,
+blockquote,
+blockquote a {
+  color: #333;
+}
+
+b,
+strong {
+  font-weight: 500;
+}
+
+h1,
+h2 {
+  font-size: 44px;
+  font-weight: 300;
+}
+@media (max-width: 500px) {
+  h1,
+  h2 {
+    font-size: 30px;
+  }
+}
+
+h3,
+h4 {
+  font-size: 24px;
+  font-weight: 300;
+}
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 300;
+}
+
+blockquote {
+  border-left: solid 4px #ccc;
+  padding: 8px 0 8px 16px;
+  font-size: 22px;
+}
+@media (max-width: 500px) {
+  blockquote {
+    font-size: 18px;
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+p {
+  font-weight: 400;
+}
+
+a {
+  color: #d92e76;
+  text-decoration: none;
+}
+a:hover {
+  color: #c80054;
+  text-decoration: underline;
+}
+
+article a {
+  text-decoration: underline;
+}
+article a:hover {
+  text-decoration: underline;
+}
+
+sup {
+  font-size: 50%;
+  padding: 0 0 0 4px;
+}
+
+body {
+  font-family: "HelveticaNeue", Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+  color: #000;
+  font-size: 18px;
+  line-height: 1.33;
+  min-height: 100vh;
+  font-weight: 400;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: auto;
+  padding-right: auto;
+  width: 100%;
+  max-width: 932px;
+  padding-bottom: 90px;
+  word-break: break-word;
+  overflow: auto;
+  font-size: 20px;
+}
+@media (max-width: 990px) {
+  body {
+    width: calc(100% - 60px);
+  }
+}
+@media (max-width: 400px) {
+  body {
+    width: calc(100% - 40px);
+  }
+  body p {
+    padding-left: 1px;
+  }
+}
+@media (max-width: 1230px) {
+  body {
+    padding-bottom: 60px;
+  }
+}
+body .has-small-font-size {
+  font-size: 18px;
+}
+body img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+body img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+body p {
+  font-size: 20px;
+  margin: 30px 0;
+}
+@media (max-width: 400px) {
+  body p {
+    margin: 25px 0;
+  }
+}
+@media (max-width: 400px) {
+  body p {
+    font-size: 17px;
+  }
+}
+body p:after {
+  content: " ";
+  display: inline-block;
+}
+@media (max-width: 400px) {
+  body {
+    font-size: 17px;
+  }
+}
+body p {
+  line-height: 1.5 !important;
+}
+body figure {
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 35px;
+}
+body figcaption {
+  font-size: 14px;
+}
+body h2,
+body h2 b,
+body h2 strong {
+  font-weight: 400;
+  font-size: 33px;
+  margin: 60px 0 10px;
+}
+body h3,
+body h3 b,
+body h3 strong {
+  font-weight: 400;
+  font-size: 28px;
+  margin: 50px 0 10px;
+}
+body h4,
+body h4 b,
+body h4 strong,
+body h5,
+body h5 b,
+body h5 strong,
+body h6,
+body h6 b,
+body h6 strong {
+  font-weight: 500;
+  font-size: 24px;
+  margin: 40px 0 10px;
+}
+body ul {
+  padding-left: 22px;
+}
+body ul,
+body ol {
+  line-height: 1.75 !important;
+}
+body .is-style-none {
+  padding-left: 0;
+}
+body .is-style-none ul,
+body .is-style-none ol {
+  padding-left: 22px;
+}
+body .is-style-none,
+body .is-style-none ul,
+body .is-style-none ol {
+  list-style: none;
+}
+body blockquote.wp-block-coblocks-click-to-tweet {
+  margin-top: 36px;
+  margin-bottom: 50px;
+  position: relative;
+  background: url("https://www.spiral.us/icons/quote.svg") 10px 14px no-repeat;
+  background-size: 39px;
+  border: solid 1px #bac2c5;
+  padding-top: 29px;
+  padding-bottom: 38px;
+  display: block;
+  border-left: none;
+  border-right: none;
+  font-weight: 200;
+  text-align: center;
+}
+body blockquote.wp-block-coblocks-click-to-tweet p {
+  letter-spacing: 0.5px;
+  font-weight: 200;
+  margin: 4px 40px 24px;
+  text-shadow: 0 0 0 #bac2c5;
+}
+body blockquote.wp-block-coblocks-click-to-tweet b,
+body blockquote.wp-block-coblocks-click-to-tweet strong {
+  font-weight: 300;
+}
+body blockquote.wp-block-coblocks-click-to-tweet a.tweetButton,
+.wp-block-coblocks-click-to-tweet__twitter-btn {
+  background: #f1f1f1;
+  padding: 10px 30px;
+  border-radius: 20px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+body blockquote.wp-block-coblocks-click-to-tweet a.tweetButton:hover,
+.wp-block-coblocks-click-to-tweet__twitter-btn::hover {
+  text-decoration: underline;
+}
+body blockquote.wp-block-coblocks-click-to-tweet a.tweetButton::before,
+.wp-block-coblocks-click-to-tweet__twitter-btn::before {
+  content: "Click to ";
+}
+body blockquote.wp-block-coblocks-click-to-tweet a.tweetButton::after,
+.wp-block-coblocks-click-to-tweet__twitter-btn::after {
+  content: "";
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  width: 19px;
+  height: 14px;
+  margin-left: 8px;
+  background: url("https://www.spiral.us/images/icons-color/twitter.svg") right no-repeat;
+  background-size: contain;
+}
+body blockquote.wp-block-coblocks-click-to-tweet .icon-tweet {
+  display: inline-block;
+  padding-left: 2px;
+  position: relative;
+  top: 1px;
+  left: 3px;
+  color: #4ba0ec;
+}
+@media (max-width: 500px) {
+  body blockquote.wp-block-coblocks-click-to-tweet {
+    background: url("https://www.spiral.us/icons/quote.svg") 5px 14px no-repeat;
+    background-size: 30px;
+  }
+  body blockquote.wp-block-coblocks-click-to-tweet p {
+    margin: 4px 30px 24px;
+  }
+}
+body .wp-block-buttons {
+  display: block;
+  border: none;
+  text-align: center;
+  margin: 20px 0;
+}
+body .wp-block-button {
+  display: inline-block;
+  border-radius: 5rem;
+}
+body .wp-block-button__link {
+  display: inline-block;
+  border-radius: 5rem;
+  padding: 10px 35px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 0.33px;
+}
+body hr {
+  border: none;
+  border-bottom: solid 1px #ccc;
+  margin: 60px 0 68px;
+}
+body hr.wp-block-separator.is-style-dots {
+  text-align: center;
+  border: none;
+  color: #ccc;
+  padding: 0;
+  margin: 40px 0 48px;
+}
+body hr.wp-block-separator.is-style-dots::before {
+  content: " ";
+  font-family: serif;
+  width: 250px;
+  height: 1px;
+  display: inline-block;
+  border-top: solid 1px #e3e9ea;
+}
+body h1 a,
+body h2 a,
+body h3 a,
+body h4 a,
+body h5 a,
+body h6 a {
+  color: #d92e76;
+}

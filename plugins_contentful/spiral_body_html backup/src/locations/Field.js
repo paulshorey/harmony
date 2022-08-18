@@ -15,7 +15,7 @@ export default function Field() {
         ☝️ Click the{" "}
         <b
           style={{
-            padding: "0px 7px 0 6px",
+            padding: "0px 5px 0 5px",
             fontWeight: "600",
             color: "#67728a",
             cursor: "pointer",
@@ -42,7 +42,7 @@ export default function Field() {
               verticalAlign: "middle",
             }}
           >
-            Blog Body
+            Body
           </span>
         </b>{" "}
         tab above to edit this content.

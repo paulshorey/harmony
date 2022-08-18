@@ -258,11 +258,11 @@ const Entry = () => {
             custom: { title: "🌄 Insert image / template", items: "img imgCaption tweet toc" },
           },
           menubar: "edit format table insert custom",
-          plugins: `insertTemplate advlist autolink lists link image charmap preview anchor
+          plugins: `insertTemplate advlist autolink lists link image charmap preview anchor code
         searchreplace visualblocks code fullscreen
         insertdatetime media table paste code help wordcount advlist code emoticons link lists table autoresize`,
           toolbar:
-            "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | link blocks",
+            "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | link blocks code",
           content_css: "css/writer.css",
           setup: function (editor) {
             editor.on("init", function (e) {

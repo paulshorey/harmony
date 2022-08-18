@@ -5,11 +5,11 @@ TODO: Host HelveticaNeue on our site. Import it here.
 h1 {
   color: grey !important;
   font-size: 12px !important;
-  font-weight: bold !important;
+  font-weight: normal !important;
   border-bottom: solid 2px grey !important;
 }
 h1::after {
-  content: " (do not use H1 inside blog body)";
+  content: ' (do not use H1 inside body, change the Editor "title" instead)';
   color: red !important;
 }
 
