@@ -3,7 +3,7 @@
  * @param {String} resourceName - specific type of WP endpoint (e.g. posts, media)
  */
 export function wp_getApiDataType(API_DATA, resourceName) {
-  let apiType = API_DATA.filter((obj) => {
+  const apiType = API_DATA.filter((obj) => {
     if (obj.endpoint === resourceName) {
       return obj;
     }
@@ -17,11 +17,11 @@ export function wp_getApiDataType(API_DATA, resourceName) {
  * @returns {array} string - category/tag names
  */
 export function wp_categoryNames(API_DATA, postItems, labelType) {
-  let labels = [];
-  let apiTag = wp_getApiDataType(API_DATA, labelType)[0];
+  const labels = [];
+  const apiTag = wp_getApiDataType(API_DATA, labelType)[0];
 
   for (const labelId of postItems) {
-    let labelName = apiTag.data.filter((obj) => {
+    const labelName = apiTag.data.filter((obj) => {
       if (obj.id === labelId) {
         return obj.name;
       }

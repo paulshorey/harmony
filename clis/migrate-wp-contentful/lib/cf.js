@@ -1,9 +1,9 @@
 import axios from 'axios';
-import TurndownService from 'turndown';
 import cconsole from 'colorful-console-logger';
+import TurndownService from 'turndown';
 
 // Aggregate API responses
-let CF_DATA = [];
+const CF_DATA = [];
 
 // Convert HTML to Markdown
 const turndownService = new TurndownService({
@@ -11,7 +11,7 @@ const turndownService = new TurndownService({
 });
 // Convert HTML codeblocks to Markdown codeblocks.
 turndownService.addRule('fencedCodeBlock', {
-  filter: function (node, options) {
+  filter(node, options) {
     return (
       options.codeBlockStyle === 'fenced' &&
       node.nodeName === 'PRE' &&
@@ -19,9 +19,9 @@ turndownService.addRule('fencedCodeBlock', {
       node.firstChild.nodeName === 'CODE'
     );
   },
-  replacement: function (content, node, options) {
-    let className = node.firstChild.getAttribute('class') || '';
-    let language = (className.match(/language-(\S+)/) || [null, ''])[1];
+  replacement(content, node, options) {
+    const className = node.firstChild.getAttribute('class') || '';
+    const language = (className.match(/language-(\S+)/) || [null, ''])[1];
 
     return (
       '\n\n' +
@@ -38,10 +38,10 @@ turndownService.addRule('fencedCodeBlock', {
 // Convert inline HTML images to inline markdown image format.
 turndownService.addRule('replaceWordPressImages', {
   filter: ['img'],
-  replacement: function (content, node, options) {
-    let assetUrl = CF_DATA.assets.filter((asset) => {
-      let assertFileName = asset.split('/').pop();
-      let nodeFileName = node.getAttribute('src').split('/').pop();
+  replacement(content, node, options) {
+    const assetUrl = CF_DATA.assets.filter((asset) => {
+      const assertFileName = asset.split('/').pop();
+      const nodeFileName = node.getAttribute('src').split('/').pop();
 
       if (assertFileName === nodeFileName) {
         return asset;
@@ -55,27 +55,22 @@ turndownService.addRule('replaceWordPressImages', {
 /*
  * POST to Contentful
  */
-export function cf_migrateWordpressImagesThenPosts(
-  WP_DATA,
-  CF_CONSTS,
-  CF_CLIENT
-) {
-  let assetPromises = [];
+export function cf_migrateWordpressImagesThenPosts(WP_DATA, CF_CONSTS, CF_ENV) {
+  const assetPromises = [];
 
   // cconsole.info('Building Contentful Asset Objects');
 
   // For every image in every post, create a new asset.
-  for (let blog of WP_DATA.posts) {
-    let imagesToUpload = [blog.featuredImage, ...blog.contentImages];
+  for (const blog of WP_DATA.posts) {
+    const imagesToUpload = [blog.featuredImage, ...blog.contentImages];
     for (const image of imagesToUpload) {
+      cconsole.warn('image to upload ' + image);
+
       if (!image || !image.url) {
         continue;
       }
-      let filename = image.url.split('/').pop();
-      let assetObj = {
-        title: {
-          'en-US': filename,
-        },
+      const filename = image.url.split('/').pop();
+      const assetObj = {
         file: {
           'en-US': {
             contentType: 'image/' + image.format,
@@ -83,52 +78,59 @@ export function cf_migrateWordpressImagesThenPosts(
             upload: encodeURI(image.url),
           },
         },
+        title: {
+          'en-US': filename,
+        },
       };
 
+      cconsole.success(
+        'assetObj to upload ' + JSON.stringify(assetObj, null, 2)
+      );
       assetPromises.push(assetObj);
     }
   }
 
-  let assets = [];
+  const assets = [];
 
   // UPLOAD IMAGES
   // cconsole.info(`Create and UPLOAD assets to Contentful...`);
- // cconsole.log('-----');
+  // cconsole.log('-----');
 
-  // Promise.all(
-  //   assetPromises.map(
-  //     (asset, index) =>
-  //       new Promise(async (resolve) => {
-  //        // cconsole.log('createContentfulAssets promise asset', asset);
-  //         let newAsset;
-  //         //// cconsole.log(`Creating: ${post.slug['en-US']}`)
-  //         setTimeout(() => {
-  //           try {
-  //             newAsset = CF_CLIENT.createAsset({
-  //               fields: asset,
-  //             })
-  //               .then((asset) => asset.processForAllLocales())
-  //               .then((asset) => asset.publish())
-  //               .then((asset) => {
-  //                // cconsole.log(
-  //                   `Published Asset: ${asset.fields.file['en-US'].fileName}`
-  //                 );
-  //                 assets.push({
-  //                   assetId: asset.sys.id,
-  //                   fileName: asset.fields.file['en-US'].fileName,
-  //                 });
-  //               });
-  //           } catch (error) {
-  //             throw Error(error);
-  //           }
-  //           resolve(newAsset);
-  //         }, 1000 + 5000 * index);
-  //       })
-  //   )
-  // ).then((result) => {
- // cconsole.log(`...Done!`);
- // cconsole.log('-----');
-  // cconsole.info(`Uploading /public/assets to Contentful...`);
+  Promise.all(
+    assetPromises.map(
+      (asset, index) =>
+        new Promise(async (resolve) => {
+          cconsole.log('createContentfulAssets promise asset', asset);
+          let newAsset;
+          setTimeout(() => {
+            try {
+              newAsset = CF_ENV.createAsset({
+                fields: asset,
+              })
+                .then((asset) => asset.processForAllLocales())
+                .then((asset) => asset.publish())
+                .then((asset) => {
+                  cconsole.success(`Published Asset`, asset);
+                  assets.push({
+                    assetId: asset.sys.id,
+                    fileName: asset.fields.file['en-US'].fileName,
+                  });
+                });
+            } catch (error) {
+              throw Error(error);
+            }
+            resolve(newAsset);
+          }, 1000 + 5000 * index);
+        })
+    )
+  )
+    .then((result) => {
+      cconsole.log(`Done uploading /public/assets to Contentful...`);
+    })
+    .catch((error) => {
+      cconsole.error(error);
+    });
+
   axios
     .get(
       `https://api.contentful.com/spaces/${CF_CONSTS.spaceId}/environments/${CF_CONSTS.environment}/public/assets`,
@@ -143,7 +145,7 @@ export function cf_migrateWordpressImagesThenPosts(
         'getAndStoreAssets result.data?.items',
         result.data?.items
       );
-      //// cconsole.log(result)
+      // // cconsole.log(result)
       CF_DATA.assets = [];
       for (const item of result.data.items) {
         CF_DATA.assets.push(item.fields.file['en-US'].url);
@@ -153,39 +155,36 @@ export function cf_migrateWordpressImagesThenPosts(
       /*
        * AFTER ASSETS HAVE BEEN UPLOADED, now migrate the Blog Posts
        */
-      cf_migrateWordpressBlogsToContentful(WP_DATA, CF_CLIENT, assets);
+      cf_migrateWordpressBlogsToContentful(WP_DATA, CF_ENV, assets);
     })
     .catch((err) => {
       cconsole.error(err);
       return error;
     });
- // cconsole.log(`...Done!`);
- // cconsole.log('-----');
-  // });
 }
 
 /*
  * POST to Contentful
  */
-export function cf_migrateWordpressBlogsToContentful(
-  WP_DATA,
-  CF_CLIENT,
-  assets
-) {
- // cconsole.log(`Creating Contentful Posts...`);
- // cconsole.log('-----');
+export function cf_migrateWordpressBlogsToContentful(WP_DATA, CF_ENV, assets) {
+  // cconsole.log(`Creating Contentful Posts...`);
+  // cconsole.log('-----');
 
-  let blogPosts = [];
+  const blogPosts = [];
   for (const post of WP_DATA.posts) {
-    let postFields = {};
+    const postFields = {};
 
     for (let [postKey, postValue] of Object.entries(post)) {
-      //// cconsole.log(`postKey: ${postValue}`)
       if (postKey === 'content') {
         postValue = turndownService.turndown(postValue);
       }
 
-      let keysToSkip = ['id', 'type', 'contentImages', 'contentfulAssetImage'];
+      const keysToSkip = [
+        'id',
+        'type',
+        'contentImages',
+        'contentfulAssetImage',
+      ];
 
       // STANDARD TEXT TYPE
       if (!keysToSkip.includes(postKey)) {
@@ -199,16 +198,16 @@ export function cf_migrateWordpressBlogsToContentful(
         postFields[postKey] = {
           'en-US': {
             sys: {
-              type: 'Link',
-              linkType: 'Asset',
               id: assets.filter((asset) => {
-                let assertFileName = asset.fileName;
-                let nodeFileName = postValue.split('/').pop();
+                const assertFileName = asset.fileName;
+                const nodeFileName = postValue.split('/').pop();
 
                 if (assertFileName === nodeFileName) {
                   return asset.assetId;
                 }
               })[0],
+              linkType: 'Asset',
+              type: 'Link',
             },
           },
         };
@@ -223,25 +222,43 @@ export function cf_migrateWordpressBlogsToContentful(
   Promise.all(
     blogPosts.map((post, index) => {
       // cconsole.log('blogPost post', post);
-      if (!post.slug) return;
+      if (!post.slug) {
+        return;
+      }
       return new Promise(async (resolve) => {
         let newPost;
 
         setTimeout(() => {
           try {
-            newPost = CF_CLIENT.createEntry('blogPost', {
-              fields: post,
+            CF_ENV.getEntries({
+              'content_type': 'blogPost',
+              'fields.slug': post.slug['en-US'],
+              'include': 10,
+              'limit': 1,
             })
+              .then((entries) => {
+                const entry = entries.items[0];
+                /*
+                 * EDIT EXISTING POST
+                 */
+                if (entry) {
+                  cconsole.info(`Editing existing post `, post.slug['en-US']);
+                  entry.fields.body = { 'en-US': post.body['en-US'] };
+                  return entry.update();
+                }
+                /*
+                 * ADD NEW POST
+                 */
+                cconsole.info(`Creating new post `, post.slug['en-US']);
+                return CF_ENV.createEntry('blogPost', {
+                  fields: post,
+                });
+              })
               .then((entry) => {
-               // cconsole.log(`Posted`, entry);
                 entry.publish();
+                cconsole.success(`Published`);
               })
-              .then((entry) => {
-               // cconsole.log(`Published`, entry);
-              })
-              .catch((error) => {
-                cconsole.error(`Could not post`, error);
-              });
+              .catch(cconsole.error);
           } catch (error) {
             throw new Error(error);
           }
@@ -249,13 +266,8 @@ export function cf_migrateWordpressBlogsToContentful(
           resolve(newPost);
         }, 1000 + 5000 * index);
       });
-      // cconsole.warn('WTF?');
     })
   ).then((result) => {
-   // cconsole.log('-----');
-   // cconsole.log(`Done!`);
-   // cconsole.log('-----');
-   // cconsole.log(`The migration has completed.`);
-   // cconsole.log('-----');
+    cconsole.success(`\n\n\nThe migration has completed.\n\n\n`);
   });
 }

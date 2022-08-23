@@ -8,9 +8,9 @@ export function fetchData(URL) {
     .get(URL)
     .then(function (response) {
       return {
-        success: true,
-        endpoint: '',
         data: response.data,
+        endpoint: '',
+        success: true,
       };
     })
     .catch(function (error) {

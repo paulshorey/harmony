@@ -1,5 +1,5 @@
 {
   "extends": "@spiral/config/typescript/base.json",
-  "include": ["."],
+  "include": [".", ".eslintrc.js"],
   "exclude": ["node_modules"]
 }

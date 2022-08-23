@@ -1,6 +1,6 @@
-const path = require('path');
+import path from 'path';
 
-module.exports = (__dirname) => {
+export default (__dirname) => {
   return {
     env: {
       browser: true,
@@ -83,6 +83,7 @@ module.exports = (__dirname) => {
         },
       ],
       'import/no-named-as-default': 'off',
+      'import/no-named-as-default-member': 'off',
       'import/no-self-import': 'error',
       'import/no-unresolved': 'warn',
       'import/no-useless-path-segments': 'error',
@@ -120,7 +121,6 @@ module.exports = (__dirname) => {
           max: 1,
         },
       ],
-      'no-named-as-default-member': 'off',
       'no-obj-calls': 'error',
       'no-return-assign': 'error',
       'no-setter-return': 'error',
