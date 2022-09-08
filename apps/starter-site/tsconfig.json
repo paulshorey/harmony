@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "@spiral/ui": ["../../packages/ui"],
+      "@spiral/utils": ["../../packages/utils"],
+      "@spiral/config": ["../../packages/config"],
+      "src/*": ["src/*"],
+      "apollo-client/*": ["apollo-client/*"]
+    }
+  },
+  "extends": "@spiral/config/typescript/nextjs.json",
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
+  "exclude": ["node_modules", "cypress/**", "dist"]
+}

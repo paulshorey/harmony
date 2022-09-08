@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Storyshots Design Systems/Molecules/MenuDivider Default 1`] = `
-<div
-  className="css-19u5gf0-Box eyzgrpe0"
-/>
-`;

@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Storyshots Design Systems/Atoms/Confetti Default 1`] = `
-<div
-  className="css-1m3dzle-Box eyzgrpe0"
-  data-testid="confetti"
-/>
-`;

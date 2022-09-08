@@ -1,0 +1,73 @@
+{
+  "name": "starter-site",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "format": "prettier -w .",
+    "format:check": "prettier -c .",
+    "lint": "eslint . --fix --ext .tsx,.ts,.js --quiet",
+    "lint-staged": "lint-staged",
+    "lint:fix": "eslint src --fix && eslint pages --fix && yarn format",
+    "lint:strict": "eslint --max-warnings=0 src",
+    "pre": "cd ../../ && yarn type-check && yarn lint && yarn lint-staged",
+    "serve": "next start",
+    "start": "next start",
+    "test": "jest",
+    "test:run": "start-storybook -p 6006 && wait-port 6008 && jest",
+    "test:watch": "wait-port http://localhost:6008 && jest --coverage --watchAll",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint . --fix --ext .tsx,.ts,.js --quiet",
+      "prettier . -w"
+    ]
+  },
+  "dependencies": {
+    "@brainhubeu/react-carousel": "^2.0.3",
+    "@fullpage/react-fullpage": "^0.1.26",
+    "@jest/types": "^28.1.1",
+    "@pinwheel/react-modal": "^2.3.3",
+    "@spiral/ui": "*",
+    "@spiral/utils": "*",
+    "@styled-system/should-forward-prop": "^5.1.5",
+    "add": "^2.0.6",
+    "axios": "^0.27.2",
+    "canvas": "^2.8.0",
+    "next": "12.0.8",
+    "next-build-id": "^3.0.0",
+    "next-env": "^1.1.1",
+    "next-seo": "^4.24.0",
+    "nookies": "^2.5.2",
+    "number-to-words": "^1.2.4",
+    "path": "^0.12.7",
+    "prop-types": "^15.7.2",
+    "react-datepicker": "^3.5.0",
+    "react-dates": "^21.8.0",
+    "react-dom": "^17.0.0",
+    "react-error-boundary": "^3.1.3",
+    "react-html-parser": "^2.0.2",
+    "react-idle-timer": "^4.6.4",
+    "react-input-autosize": "^3.0.0",
+    "react-minimal-pie-chart": "^8.2.0",
+    "react-modal": "^3.15.1",
+    "react-pdf": "^5.5.0",
+    "react-plaid-link": "^3.2.0",
+    "react-share": "^4.4.0",
+    "react-spinners": "^0.11.0",
+    "react-text-mask": "^5.4.3",
+    "smartlook-client": "^5.0.0",
+    "styled-system": "^5.1.5",
+    "text-mask-addons": "^3.8.0",
+    "use-clipboard-copy": "^0.2.0",
+    "use-debounce": "^7.0.0"
+  },
+  "devDependencies": {
+    "@spiral/config": "*",
+    "@types/brainhubeu__react-carousel": "^2.0.5",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "globby": "11.0.1"
+  }
+}

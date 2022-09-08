@@ -2,6 +2,10 @@
 
 This repo houses Spiral's web apps in one place to easily facilitate code sharing, global code standards, and a consistent developer experience.
 
+## Notes
+
+- **To install a new NPM package for one of the apps/packages, run `yarn add -W <package-name>` while inside the app/package directory.** _This will install the package in the root `node_modules` folder and symlink it to the app/package that needs it. This is a clever way to avoid duplicate packages in the `node_modules` folder._
+
 ## What's inside?
 
 This [turborepo](https://turborepo.org) uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package manager. It includes the following packages/apps:
@@ -162,7 +166,7 @@ All packages follow this naming syntax: `@spiral/*package-name`
 #### To use a Spiral package, simply import your needed file:
 
 ```
-import Button from '@spiral/ui/atoms/Button'
+import Button from '@spiral/ui/src/features/common/atoms/Button'
 ...
 
 ```

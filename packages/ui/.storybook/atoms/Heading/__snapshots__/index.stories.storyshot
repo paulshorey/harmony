@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Storyshots Design Systems/Atoms/Heading Default 1`] = `
-<h1
-  className="css-1m8tro3-Box eyzgrpe0"
->
-  I am a heading! I can be h1, h2, h3, h4, h5
-</h1>
-`;
