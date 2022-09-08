@@ -28,9 +28,9 @@ try {
    * Contentful API
    */
   const CF_CONSTS = {
-    accessToken: 'CFPAT--Xx9N0o6pLLA0jFvNKtWY_U09GYqCF55IZzXergVKmc',
+    accessToken: '', //'CFPAT--Xx9N0o6pLLA0jFvNKtWY_U09GYqCF55IZzXergVKmc',
     environment: 'master',
-    spaceId: 'e0h8mfd7o8nq',
+    spaceId: '', //'e0h8mfd7o8nq',
   };
   const CF_CLIENT = contentful.createClient({
     accessToken: CF_CONSTS.accessToken,
