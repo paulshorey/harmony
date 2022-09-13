@@ -6,7 +6,7 @@
     "apps/*",
     "apis/*",
     "clis/*",
-    "packages-client/*",
+    "packages-browser/*",
     "packages-server/*",
     "packages-universal/*"
   ],
