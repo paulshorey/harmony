@@ -1,11 +1,11 @@
 {
-  "name": "wp-to-contentful",
+  "name": "migrate-wp-contentful",
   "version": "1.0.0",
   "description": "This is a script that will export all posts from WordPress using the Rest API and import them into Contentful using the Content Management API.",
   "main": "index.js",
   "type": "module",
   "devDependencies": {
-    "@spiral/config": "*"
+    "@ps/config": "*"
   },
   "scripts": {
     "dev": "node index.js",

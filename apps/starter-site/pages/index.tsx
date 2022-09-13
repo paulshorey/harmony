@@ -1,5 +1,5 @@
-import Layout from '@spiral/ui/src/features/layout/organisms/Layout';
-import withLayout from '@spiral/ui/src/helpers/withLayout';
+import Layout from '@ps/ui/src/features/layout/organisms/Layout';
+import withLayout from '@ps/ui/src/helpers/withLayout';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useAuth } from 'src/context/auth';

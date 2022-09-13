@@ -2,9 +2,9 @@
 import { ApolloClient, ApolloLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
-import { sanitize } from '@spiral/ui/src/helpers/sanitize';
+import { sanitize } from '@ps/ui/src/helpers/sanitize';
 // import { toCamelCase } from 'src/helpers/toCamelCase';
-import { tsFixMe } from '@spiral/ui/src/types';
+import { tsFixMe } from '@ps/ui/src/types';
 import DebounceLink from 'apollo-link-debounce';
 import { RestLink } from 'apollo-link-rest';
 import nookies, { parseCookies, setCookie } from 'nookies';

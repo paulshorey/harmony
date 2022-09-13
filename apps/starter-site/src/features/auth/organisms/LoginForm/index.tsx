@@ -1,14 +1,14 @@
-import Box from '@spiral/ui/src/features/common/atoms/Box';
+import Box from '@ps/ui/src/features/common/atoms/Box';
 import {
   FormControl,
   FormErrorMessage,
   FormLabel,
   Input,
-} from '@spiral/ui/src/features/common/atoms/Form';
+} from '@ps/ui/src/features/common/atoms/Form';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { FC, useState } from 'react';
-import PasswordInput from '@spiral/ui/src/features/common/molecules/PasswordInput';
+import PasswordInput from '@ps/ui/src/features/common/molecules/PasswordInput';
 import AuthTemplate from 'src/features/auth/templates/AuthTemplate';
 import { htmlChangeEvent, htmlSyntheticEvent, tsFixMe } from 'src/types';
 

@@ -1,5 +1,5 @@
-import { RoutesSessionHistory } from '@spiral/ui/src/components/molecules/RoutesSessionHistory';
-import ThemeProvider from '@spiral/ui/src/providers/theme';
+import { RoutesSessionHistory } from '@ps/ui/src/components/molecules/RoutesSessionHistory';
+import ThemeProvider from '@ps/ui/src/providers/theme';
 import ApolloClientProvider from 'apollo-client/ApolloProvider';
 import React, { FC } from 'react';
 import { AuthProvider } from 'src/context/auth';

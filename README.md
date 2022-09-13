@@ -152,13 +152,13 @@ yarn format
 
 Packages may be shared between all apps/packages in the repo. It's important to note that any global package changes may affect other apps.
 
-All packages follow this naming syntax: `@spiral/*package-name`
+All packages follow this naming syntax: `@ps/*package-name`
 
 #### To include a package to your app, include it in your `package.json` dependencies like so:
 
 ```
 "dependencies": {
-    "@spiral/ui": "*",
+    "@ps/ui": "*",
     ...
  }
 ```
@@ -166,7 +166,7 @@ All packages follow this naming syntax: `@spiral/*package-name`
 #### To use a Spiral package, simply import your needed file:
 
 ```
-import Button from '@spiral/ui/src/features/common/atoms/Button'
+import Button from '@ps/ui/src/features/common/atoms/Button'
 ...
 
 ```
@@ -174,7 +174,7 @@ import Button from '@spiral/ui/src/features/common/atoms/Button'
 #### To use a Spiral config package:
 
 ```
-module.exports = require('@spiral/config/prettier-preset');
+module.exports = require('@ps/config/prettier-preset');
 ```
 
 ## Committing To The Repo

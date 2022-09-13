@@ -1,4 +1,4 @@
-import buildDeviceId from '@spiral/ui/src/helpers/buildDeviceId';
+import buildDeviceId from '@ps/ui/src/helpers/buildDeviceId';
 import { useToken } from 'src/hooks/auth/useToken';
 import { useRouter } from 'next/router';
 import React, {

@@ -1,7 +1,7 @@
 // import { useApolloClient } from '@apollo/client';
-import DefaultError from '@spiral/ui/src/features/error/molecules/DefaultErrorFallback';
+import DefaultError from '@ps/ui/src/features/error/molecules/DefaultErrorFallback';
 // import ApolloClientProvider from '../../../apollo-client/ApolloProvider';
-import { parseError } from '@spiral/ui/src/helpers/parseError';
+import { parseError } from '@ps/ui/src/helpers/parseError';
 import { useRouter } from 'next/router';
 import React, { createContext, FC, useContext, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';

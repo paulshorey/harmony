@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
-import Text from '@spiral/ui/src/features/common/atoms/Text';
-import Box from '@spiral/ui/src/features/common/atoms/Box';
-import Button from '@spiral/ui/src/features/common/atoms/Button';
-import Flex from '@spiral/ui/src/features/common/atoms/Flex';
-import Heading from '@spiral/ui/src/features/common/atoms/Heading';
+import Text from '@ps/ui/src/features/common/atoms/Text';
+import Box from '@ps/ui/src/features/common/atoms/Box';
+import Button from '@ps/ui/src/features/common/atoms/Button';
+import Flex from '@ps/ui/src/features/common/atoms/Flex';
+import Heading from '@ps/ui/src/features/common/atoms/Heading';
 import { NextSeo } from 'next-seo';
 import React from 'react';
 import {

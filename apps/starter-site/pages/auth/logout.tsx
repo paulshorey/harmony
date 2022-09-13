@@ -1,4 +1,4 @@
-import Loading from '@spiral/ui/src/features/common/atoms/Loading';
+import Loading from '@ps/ui/src/features/common/atoms/Loading';
 import React, { useEffect } from 'react';
 import { useAuth } from 'src/context/auth';
 
