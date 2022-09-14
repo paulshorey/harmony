@@ -1,4 +1,4 @@
-import Box from '@ps/ui/src/features/common/atoms/Box';
+import Box from '@ps/ui/src/components/common/atoms/Box';
 import { NextRouter } from 'next/router';
 import React, { FC, memo, ReactNode } from 'react';
 import theme from 'src/styles/theme';

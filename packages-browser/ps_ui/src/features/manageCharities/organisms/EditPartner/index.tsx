@@ -1,5 +1,5 @@
-import MenuDivider from '@ps/ui/src/features/common/molecules/MenuDivider';
-import Loading from '@ps/ui/src/features/common/atoms/Loading';
+import MenuDivider from '@ps/ui/src/components/common/molecules/MenuDivider';
+import Loading from '@ps/ui/src/components/common/atoms/Loading';
 import React from 'react';
 
 import AddEditForm from '../../../manage/molecules/AddEditForm';

@@ -1,4 +1,4 @@
-import Button from '@ps/ui/src/features/common/atoms/Button';
+import Button from '@ps/ui/src/components/common/atoms/Button';
 import React, { useEffect, useState } from 'react';
 import mergeArrays from 'src/helpers/mergeArrays';
 import mergeObjects from 'src/helpers/mergeObjects';

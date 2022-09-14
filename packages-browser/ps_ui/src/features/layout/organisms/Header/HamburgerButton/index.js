@@ -1,6 +1,6 @@
 import { css, useTheme } from '@emotion/react';
 import vars from 'src/styles/vars';
-import Div from 'src/features/layout/atoms/Div';
+import Div from 'src/components/layout/atoms/Div';
 
 const styles = {
   wrapper: (opened) => css`
@@ -28,7 +28,9 @@ const styles = {
       height: 3px;
       border-radius: 1px;
       overflow: hidden;
-      background: ${opened || isScrolled || !inWhitePage ? 'white' : vars.blueTheme.bgColorDarker};
+      background: ${opened || isScrolled || !inWhitePage
+        ? 'white'
+        : vars.blueTheme.bgColorDarker};
     }
 
     &.icon {
@@ -41,7 +43,13 @@ const styles = {
   `,
 };
 
-const HamburgerButton = ({ isScrolled, inWhitePage, opened, className, ...props }) => {
+const HamburgerButton = ({
+  isScrolled,
+  inWhitePage,
+  opened,
+  className,
+  ...props
+}) => {
   return (
     <Div
       as="span"
@@ -56,7 +64,10 @@ const HamburgerButton = ({ isScrolled, inWhitePage, opened, className, ...props 
           className={'icon icon-x'}
         />
       ) : (
-        <Div as="span" css={[styles.icon(opened, isScrolled, inWhitePage), css``]}>
+        <Div
+          as="span"
+          css={[styles.icon(opened, isScrolled, inWhitePage), css``]}
+        >
           <span />
           <span />
           <span />

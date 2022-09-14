@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-cool-inview';
 import { getQueryParam } from 'src/functions/url';
-import Div from 'src/features/layout/atoms/Div';
+import Div from 'src/components/layout/atoms/Div';
 
 const isBetween = (value, min, max) => value && value >= min && value <= max;
 
@@ -61,7 +61,9 @@ const ScrollSlideIn = ({
     // disable for Search Engines, QA, LightHouse test, and other bots
     let disableForBots =
       getQueryParam('qaStatic') ||
-      /bot|googlebot|crawler|spider|robot|crawling|lighthouse/i.test(window.navigator.userAgent);
+      /bot|googlebot|crawler|spider|robot|crawling|lighthouse/i.test(
+        window.navigator.userAgent
+      );
     if (disableForBots && disableForBots !== null) {
       // disabled
       set_visible(true);

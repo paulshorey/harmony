@@ -1,0 +1,100 @@
+{
+  "id": "backstop_default",
+  "viewports": [
+    {
+      "label": "iPhone",
+      "width": 414,
+      "height": 900
+    },
+    {
+      "label": "laptop",
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "Home",
+      "url": "https://staging-blog.spiral.us",
+      "delay": 20000
+    },
+    {
+      "label": "Socially Responsible",
+      "url": "https://staging-blog.spiral.us/sociallyresponsible",
+      "delay": 20000
+    },
+    {
+      "label": "Banking",
+      "url": "https://staging-blog.spiral.us/banking",
+      "delay": 10000
+    },
+    {
+      "label": "Offers",
+      "url": "https://staging-blog.spiral.us/offers",
+      "delay": 5000
+    },
+    {
+      "label": "About",
+      "url": "https://staging-blog.spiral.us/about",
+      "delay": 10000
+    },
+    {
+      "label": "Product",
+      "url": "https://staging-blog.spiral.us/product",
+      "delay": 10000
+    },
+    {
+      "label": "Nonprofits",
+      "url": "https://staging-blog.spiral.us/nonprofits",
+      "delay": 10000
+    },
+    {
+      "label": "Blog",
+      "url": "https://staging-blog.spiral.us/blog",
+      "delay": 10000
+    },
+    {
+      "label": "Blog Article",
+      "url": "https://staging-blog.spiral.us/blog/feature-impact-story-international-medical-corps/",
+      "delay": 10000
+    },
+    {
+      "label": "Disclosures",
+      "url": "https://staging-blog.spiral.us/disclosures",
+      "delay": 5000
+    },
+    {
+      "label": "Disclosures APY",
+      "url": "https://staging-blog.spiral.us/disclosures/apy",
+      "delay": 5000
+    },
+    {
+      "label": "Disclosures Matching",
+      "url": "https://staging-blog.spiral.us/disclosures/matching",
+      "delay": 5000
+    },
+    {
+      "label": "Disclosures Ineligible",
+      "url": "https://staging-blog.spiral.us/disclosures/ineligible",
+      "delay": 5000
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

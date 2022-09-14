@@ -9,8 +9,8 @@ export type validationsType = {
  * This object is used to automatically build a form. Keep all configuration here.
  * AddEditForm.tsx will deep-copy this object and fill it with real live values.
  *
- * These `fieldType` will be used by `src/features/manageContent/molecules/FormField`
- *     and will be passed to `src/features/manageContent/atoms` input components as props.
+ * These `fieldType` will be used by `src/components/manageContent/molecules/FormField`
+ *     and will be passed to `src/components/manageContent/atoms` input components as props.
  * Standard field types like 'number' and 'text' will render a classic `<Input>` element.
  * Custom types like 'CloudinaryImage' and 'categoryTypeId' will render a fancy component.
  *

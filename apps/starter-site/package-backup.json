@@ -1,0 +1,88 @@
+{
+  "name": "content-app",
+  "version": "1.2.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev2": "next dev -p 3002",
+    "build": "next build",
+    "serve": "next start",
+    "start": "next start",
+    "start:cypress": "next start -p 3001",
+    "export": "next export",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook",
+    "test:watch": "wait-port http://localhost:6006 && jest --coverage --watchAll",
+    "test": "wait-port http://localhost:6006 && jest",
+    "test:u": "wait-port http://localhost:6006 && jest -u",
+    "cypress:ci": "start-server-and-test start:cypress http://localhost:3001 cypress:runquiet",
+    "cypress:ciIntegration": "start-server-and-test start:cypress http://localhost:3001 cypress:runquietIntegration",
+    "cypress:open": "cypress open",
+    "cypress:run": "percy exec -- cypress run --browser chrome",
+    "cypress:runIntegration": "percy exec -- cypress run --browser chrome --config '{\"excludeSpecPattern\":[\"cypress/tests/lowPriPercy/*.test.js\"]}'",
+    "cypress:runquiet": "percy exec -- cypress run --browser chrome --quiet",
+    "cypress:runquietIntegration": "percy exec -- cypress run --browser chrome --quiet --config '{\"excludeSpecPattern\":[\"cypress/tests/lowPriPercy/*.test.js\"]}'",
+    "lint": "eslint **/src/**/*.js",
+    "lint:fix": "eslint --fix **/src/**/*.js",
+    "g": "plop"
+  },
+  "dependencies": {
+    "@babel/core": "^7.15.0",
+    "@contentful/rich-text-html-renderer": "^15.12.0",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "airtable": "^0.11.1",
+    "cachios": "^3.0.0",
+    "colorful-console-logger": "^1.1.0",
+    "contentful": "^9.1.5",
+    "dateformat": "^5.0.3",
+    "html-react-parser": "^1.4.10",
+    "infinite-react-carousel": "*",
+    "jquery": "^3.6.0",
+    "markdown-it": "^12.2.0",
+    "next": "^11.0.1",
+    "next-build-id": "^3.0.0",
+    "next-compose-plugins": "^2.2.1",
+    "react": "^17.0.2",
+    "react-cool-inview": "^3.0.1",
+    "react-dom": "^17.0.2",
+    "react-lottie-player": "^1.4.0",
+    "react-modal": "^3.14.3",
+    "react-swipeable": "^6.2.0"
+  },
+  "devDependencies": {
+    "dotenv-load": "^2.0.0",
+    "@storybook/addon-actions": "^6.3.2",
+    "@storybook/addon-essentials": "^6.3.2",
+    "@storybook/addon-links": "^6.3.2",
+    "@storybook/addon-storyshots": "^6.3.9",
+    "@storybook/addon-storyshots-puppeteer": "^6.3.2",
+    "@storybook/react": "^6.3.2",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "babel-jest": "^26.6.3",
+    "babel-plugin-emotion": "^11.0.0",
+    "eslint": "^7.17.0",
+    "eslint-plugin-no-inline-styles": "^1.0.5",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.4",
+    "jest": "^26.6.3",
+    "jest-image-snapshot": "^4.3.0",
+    "jsconfig-paths-jest-mapper": "^1.0.0",
+    "lint-staged": "^10.5.3",
+    "next-compose-plugins": "^2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "bash bin/preCommit.sh"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint . --fix --ext .tsx,.ts,.js --quiet",
+      "prettier . -w"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { css, useTheme } from '@emotion/react';
-import Button from 'src/features/layout/molecules/Button';
+import Button from 'src/components/layout/molecules/Button';
 import AppSignupLink from 'src/components/molecules/AppSignupLink';
 import AppLoginLink from 'src/components/molecules/AppLoginLink';
 import PageContext from 'src/context/Page';
@@ -32,16 +32,26 @@ const styles = {
 const HDesktopButtons = ({ ...props }) => {
   const pageContext = useContext(PageContext) || {};
   return (
-    <span className={'HDesktopButtons ' + (!!pageContext.hideNav ? 'show-if-scrolledVH70' : '')}>
+    <span
+      className={
+        'HDesktopButtons ' +
+        (!!pageContext.hideNav ? 'show-if-scrolledVH70' : '')
+      }
+    >
       {!!pageContext?.showLogin && (
         <span css={styles.loginButton}>
           <AppLoginLink data-qa="header-desktop-button-login">
-            <Button variants={['xsmall', 'square', 'black', 'blueGradient']}>Log in</Button>
+            <Button variants={['xsmall', 'square', 'black', 'blueGradient']}>
+              Log in
+            </Button>
           </AppLoginLink>
         </span>
       )}
       <span css={styles.signupButton}>
-        <AppSignupLink from="primary_header" {...{ 'data-qa': 'header-desktop-button-signup' }}>
+        <AppSignupLink
+          from="primary_header"
+          {...{ 'data-qa': 'header-desktop-button-signup' }}
+        >
           <Button variants={['small']}>Sign up</Button>
         </AppSignupLink>
       </span>

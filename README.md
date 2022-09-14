@@ -166,7 +166,7 @@ All packages follow this naming syntax: `@ps/*package-name`
 #### To use a Spiral package, simply import your needed file:
 
 ```
-import Button from '@ps/ui/src/features/common/atoms/Button'
+import Button from '@ps/ui/src/components/common/atoms/Button'
 ...
 
 ```

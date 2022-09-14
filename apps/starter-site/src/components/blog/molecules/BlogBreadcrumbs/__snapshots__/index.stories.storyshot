@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Organisms/BlogBreadcrumbs Category Selected 1`] = `
+<div
+  className="css-11k97zu-styles"
+>
+  <span
+    className=" css-ihkpod-styles-styles"
+  >
+    <a
+      className="css-14ymbip-styles-styles"
+      href="/"
+      hrefLang="en-us"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      Spiral Home
+    </a>
+    <span
+      className="icon icon-angle-right"
+    />
+  </span>
+  <span
+    className=" css-ihkpod-styles-styles"
+  >
+    <a
+      className="css-14ymbip-styles-styles"
+      href="/blog"
+      hrefLang="en-us"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <span>
+        <span
+          className="hide-small pre"
+        >
+          Blog - 
+        </span>
+        <span>
+          All Articles
+        </span>
+      </span>
+    </a>
+    <span
+      className="icon icon-angle-right"
+    />
+  </span>
+  <span
+    className="is-active css-ihkpod-styles-styles"
+  >
+    <a
+      className="css-14ymbip-styles-styles"
+      href="/blog/category/ethicalbanking"
+      hrefLang="en-us"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      Ethical Banking
+    </a>
+    <span
+      className="icon icon-angle-right"
+    />
+  </span>
+</div>
+`;
+
+exports[`Storyshots Design Systems/Organisms/BlogBreadcrumbs No Category Selected 1`] = `
+<div
+  className="css-11k97zu-styles"
+>
+  <span
+    className=" css-ihkpod-styles-styles"
+  >
+    <a
+      className="css-14ymbip-styles-styles"
+      href="/"
+      hrefLang="en-us"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      Spiral Home
+    </a>
+    <span
+      className="icon icon-angle-right"
+    />
+  </span>
+  <span
+    className="is-active css-ihkpod-styles-styles"
+  >
+    <a
+      className="css-14ymbip-styles-styles"
+      href="/blog"
+      hrefLang="en-us"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <span>
+        <span
+          className="hide-small pre"
+        >
+          Blog - 
+        </span>
+        <span>
+          All Articles
+        </span>
+      </span>
+    </a>
+    <span
+      className="icon icon-angle-right"
+    />
+  </span>
+</div>
+`;

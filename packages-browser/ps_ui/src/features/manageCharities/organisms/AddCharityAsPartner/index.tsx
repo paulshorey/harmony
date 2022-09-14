@@ -1,4 +1,4 @@
-// import Loading from '@ps/ui/src/features/common/atoms/Loading';
+// import Loading from '@ps/ui/src/components/common/atoms/Loading';
 import React, { useEffect, useState } from 'react';
 
 import AddEditForm from '../../../manage/molecules/AddEditForm';

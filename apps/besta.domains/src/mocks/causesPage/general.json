@@ -1,0 +1,90 @@
+{
+  "key": "general",
+  "url": "general",
+  "titleUppercase": "causes you care about",
+  "titleLowercase": "causes you care about",
+  "titleCanHelp": "",
+  "fragmentToSupport": "",
+  "styles": {
+    "navColor": "#3ec1dd",
+    "ctaColor": "#dd468a",
+    "textColor": "hsl(197deg 67% 50%)",
+    "gradientButtonWhite": {
+      "name": "tvv7zz-gradientButtonWhite",
+      "styles": "background:white;*{\n  background: linear-gradient(140deg, #30bac6 5%, #507bcd 115%);\n  background-size: 100%;\n  background-repeat: repeat;\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  -moz-background-clip: text;\n  -moz-text-fill-color: transparent;\n  background-clip: text;\n  text-fill-color: transparent;\n  text-shadow: none;\n;};label:gradientButtonWhite;"
+    },
+    "gradientButton": {
+      "name": "1cq52va",
+      "styles": "background:linear-gradient(115deg, #37CFDC, #5B87E5)"
+    },
+    "gradientBackwards": {
+      "name": "1ixh8ue",
+      "styles": "background:linear-gradient(100deg, #37CFDC, #5B87E5)"
+    },
+    "gradient": {
+      "name": "1cyfxxx",
+      "styles": "background:linear-gradient(290deg, #37CFDC, #5B87E5 100%)"
+    },
+    "gradientText": {
+      "name": "1d2l86j-styles-gradientText",
+      "styles": "color:hsl(197deg 67% 50%);*{color:hsl(197deg 67% 50%);};label:styles-gradientText;"
+    }
+  },
+  "facts": [
+    "71% of all human trafficking involves women and girls – mainly for sexual exploitation",
+    "88% of people investigated for child abuse also hurt animals",
+    "More than 1 in 3 LGBTQ Americans faced discrimination of some kind in the past year",
+    "Every year 2.12 billion tons of waste are dumped",
+    "More than 6 million animals enter shelters in the US every year"
+  ],
+  "helps": [
+    {
+      "text": "Advance women’s rights by ending sexual violence against girls and women.",
+      "ok": true,
+      "photo url": "https://res.cloudinary.com/spiral/image/upload/v1634530560/causes/design1/general/slideshow/1_Advance_women_s_rights_by_ending_sexual_violence_against_girls_and_women.jpg",
+      "page": "general"
+    },
+    {
+      "text": "Green the planet by supporting Indigenous advocates and conserving nature.",
+      "ok": true,
+      "photo url": "https://res.cloudinary.com/spiral/image/upload/v1634530562/causes/design1/general/slideshow/2_Green_the_planet_by_supporting_Indigenous_advocates_and_conserving_nature.jpg",
+      "page": "general"
+    },
+    {
+      "text": "Advance universal prosperity by enabling dignified work and guaranteeing freedom to develop.",
+      "ok": true,
+      "photo url": "https://res.cloudinary.com/spiral/image/upload/v1634530563/causes/design1/general/slideshow/3_Advance_universal_prosperity_by_enabling_dignified_work_and_guaranteeing_freedom_to_develop.jpg",
+      "page": "general"
+    },
+    {
+      "text": "Reduce animal pain by ending cruel human practices.",
+      "ok": true,
+      "photo url": "https://res.cloudinary.com/spiral/image/upload/v1634530559/causes/design1/general/slideshow/4_Reduce_pain_for_animals_in_our_care_through_an_end_to_cruel_human_practices.jpg",
+      "page": "general"
+    },
+    {
+      "text": "Fight for acceptance of genderqueer people and lesbian, gay, bi and queer people.",
+      "ok": true,
+      "photo url": "https://res.cloudinary.com/spiral/image/upload/v1634530559/causes/design1/general/slideshow/5_Fight_for_acceptance_of_genderqueer_people_and_lesbian_gay_bi_and_queer_people.jpg",
+      "page": "general"
+    },
+    {
+      "text": "Protect those suffering from natural or man-made disasters.",
+      "ok": true,
+      "photo url": "https://res.cloudinary.com/spiral/image/upload/v1634530559/causes/design1/general/slideshow/6_Protect_those_suffering_from_natural_or_man-made_disasters.jpg",
+      "page": "general"
+    },
+    {
+      "text": "Provide unrestricted financial support to artists so they can create beauty unhindered by commercial imperatives.",
+      "ok": true,
+      "photo url": "https://res.cloudinary.com/spiral/image/upload/v1634530563/causes/design1/general/slideshow/7_Provide_unrestricted_financial_support_to_artists_so_they_can_create_beauty_unhindered_by_commercial_imperatives.jpg",
+      "page": "general"
+    },
+    {
+      "text": "Return stolen wealth to Black and Indigenous Americans.",
+      "ok": true,
+      "photo url": "https://res.cloudinary.com/spiral/image/upload/v1634530559/causes/design1/general/slideshow/8_8eturn_stolen_wealth_to_Black_and_Indigenous_Americans.jpg",
+      "page": "general"
+    }
+  ]
+}

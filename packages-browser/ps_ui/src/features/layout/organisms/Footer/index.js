@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { css, useTheme } from '@emotion/react';
 import SocialIcons from 'src/components/molecules/SocialIcons';
 import Grid from 'src/components/atoms/Grid';
-import Disclosures from 'src/features/disclosures/atoms/Disclosures';
+import Disclosures from 'src/components/disclosures/atoms/Disclosures';
 import Links from './Links';
 import Title from 'src/components/atoms/Title';
 import Link from 'src/components/atoms/Link';
@@ -158,7 +158,9 @@ const Footer = ({ className, ...props }) => {
               <p>
                 <span className="nowrap">Mon – Fri</span>
                 <span className="nowrap"> | 8am – 5pm EST</span>{' '}
-                <span className="color-grey">&thinsp;(Excluding federal holidays)</span>
+                <span className="color-grey">
+                  &thinsp;(Excluding federal holidays)
+                </span>
               </p>
             </div>
           </Grid>
@@ -178,9 +180,12 @@ const Footer = ({ className, ...props }) => {
             </div>
             <div>
               <p>
-                Please expect an answer within a few hours <span className="nowrap">Mon – Fri</span>
+                Please expect an answer within a few hours{' '}
+                <span className="nowrap">Mon – Fri</span>
                 <span className="nowrap"> | 8am – 5pm EST</span>{' '}
-                <span className="color-grey">&thinsp;(Excluding federal holidays)</span>
+                <span className="color-grey">
+                  &thinsp;(Excluding federal holidays)
+                </span>
               </p>
             </div>
           </Grid>

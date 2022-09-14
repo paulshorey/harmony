@@ -1,0 +1,211 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Atoms/Grid Default 1`] = `
+<div
+  className=" css-tj7jje-styles-styles-customCSS-customCSS-composeCSS-composeCSS"
+>
+  <h1>
+    Grid
+  </h1>
+  <p>
+    No matter what children you pass to this Grid component, it will render them as a CSS Grid. You can define how to render the grid by setting the
+    <code>
+      variant
+    </code>
+     (preferred) or
+
+    <code>
+      <b>
+        customCSS
+      </b>
+    </code>
+    . By default, it will assume 2 children, and put them next to each other in one row.
+  </p>
+  <blockquote>
+    NOTE1: If you pass more children than specified in the CSS, they will wrap to the next row, as they do with CSS Grid.
+    <p>
+      Contents of each cell are centered vertically by default.
+    </p>
+  </blockquote>
+  <blockquote>
+    NOTE2: You must pass multiple elements as children - NOT WRAPPED in a parent div.
+  </blockquote>
+</div>
+`;
+
+exports[`Storyshots Design Systems/Atoms/Grid Default With Custom CSS 1`] = `
+<div
+  className=" css-oivpyy-styles-styles-style-customCSS-composeCSS-composeCSS"
+>
+  <h1>
+    On desktop,
+  </h1>
+  <p>
+    these render horizontally
+    <br />
+    (grid-template-columns: 1fr 1fr 1fr 1fr)
+  </p>
+  <h2>
+    On mobile,
+  </h2>
+  <p>
+    these stack vertically
+    <br />
+    (like they do by default)
+  </p>
+</div>
+`;
+
+exports[`Storyshots Design Systems/Atoms/Grid Variant Our Founders 1`] = `
+<div
+  className=" css-62fgi2-styles-styles-styles-styles-style-composeCSS-composeCSS"
+>
+  <div>
+    <h2
+      className=" css-1qem433-styles-styles-styles-styles-styles-customCSS-customCSS-composeCSS-composeCSS"
+    >
+      Our founders & team
+    </h2>
+    <p
+      className=" css-prl5mz-styles-styles-customCSS-customCSS-composeCSS-composeCSS"
+    >
+      Founded by serial entrepreneurs, our team and investors have extensive experience building successful FinTech companies and running some of the world’s largest financial institutions and tech companies, including Morgan Stanley, Thomson Reuters, the New York Stock Exchange, Aspiration, Microsoft, and GrubHub.
+    </p>
+    <p
+      className=" css-prl5mz-styles-styles-customCSS-customCSS-composeCSS-composeCSS"
+    >
+      We believe we are stronger together and so internally lead a collaborative approach that promotes and embraces diversity of our team and multiple viewpoints. We are very driven and fast moving, but we also promote fun as a key ingredient in our journey together, to bring more creativity and enjoyment of our day to day activities.
+    </p>
+    <p
+      className=" css-prl5mz-styles-styles-customCSS-customCSS-composeCSS-composeCSS"
+    >
+      Are you looking for a company that cares deeply about you? Are you drawn to making a real difference? If so,
+      <span>
+        we’d love to hear from you.
+      </span>
+    </p>
+  </div>
+  <div>
+    <span
+      className=" PictureAtom css-lmrlft-styles-styles"
+    >
+      <picture>
+        <source
+          media="(max-width:500px)"
+          srcSet="https://res.cloudinary.com/spiral/image/upload/g_auto,w_500,h_312,c_fill/v1622235566/aboutus-page/photo-founders.webp"
+          type="image/webp"
+        />
+        <source
+          media="(min-width:501px)"
+          srcSet="https://res.cloudinary.com/spiral/image/upload/g_auto,w_1166,h_728,c_fill/v1622235566/aboutus-page/photo-founders.webp"
+          type="image/webp"
+        />
+        <source
+          media="(min-width:501px)"
+          srcSet="https://res.cloudinary.com/spiral/image/upload/g_auto,w_1166,h_728,c_fill/v1622235566/aboutus-page/photo-founders.png"
+          type="image/png"
+        />
+        <img
+          alt="our founders"
+          height="364"
+          loading=""
+          src="https://res.cloudinary.com/spiral/image/upload/g_auto,w_500,h_312,c_fill/v1622235566/aboutus-page/photo-founders.png"
+          width="583"
+        />
+      </picture>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Design Systems/Atoms/Grid Variant Our Mission 1`] = `
+<div
+  className=" css-10bys1l-styles-styles-styles-styles-style-composeCSS-composeCSS"
+>
+  <div>
+    <h2
+      className=" css-13s5yg5-styles-styles-styles-styles-styles-styles-styles-customCSS-customCSS-composeCSS-composeCSS"
+    >
+      Our mission:
+    </h2>
+    <h1
+      className=" css-c09vqk-styles-styles-styles-customCSS-customCSS-composeCSS-composeCSS"
+    >
+      Simple like the Default Grid. Just 2 children. Title/text on the left. Image/caption on the right.
+    </h1>
+  </div>
+  <div>
+    <span
+      className=" PictureAtom css-1m0lk01-styles-styles"
+    >
+      <picture>
+        <source
+          media="(max-width:500px)"
+          srcSet="https://res.cloudinary.com/spiral/image/upload/g_auto,w_500,h_299,c_fill/v1622235566/aboutus-page/img-1.webp"
+          type="image/webp"
+        />
+        <source
+          media="(min-width:501px)"
+          srcSet="https://res.cloudinary.com/spiral/image/upload/g_auto,w_1120,h_670,c_fill/v1622235566/aboutus-page/img-1.webp"
+          type="image/webp"
+        />
+        <source
+          media="(min-width:501px)"
+          srcSet="https://res.cloudinary.com/spiral/image/upload/g_auto,w_1120,h_670,c_fill/v1622235566/aboutus-page/img-1.png"
+          type="image/png"
+        />
+        <img
+          alt="our mission"
+          height="335"
+          loading=""
+          src="https://res.cloudinary.com/spiral/image/upload/g_auto,w_500,h_299,c_fill/v1622235566/aboutus-page/img-1.png"
+          width="560"
+        />
+      </picture>
+    </span>
+    <p
+      className=" css-jgs06y-styles-styles-styles-customCSS-customCSS-composeCSS-composeCSS"
+    >
+      Caption text below the image.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Design Systems/Atoms/Grid Variant Two Left One Right 1`] = `
+<div
+  className=" css-1rzuflj-styles-styles-styles-styles-style-composeCSS-composeCSS"
+>
+  <div
+    className="leftTop"
+  >
+    <b>
+      Title (className="leftTop")
+    </b>
+  </div>
+  <div
+    className="leftBottom"
+  >
+    This text displays BELOW the image on mobile. Without CSS Grid, it would render ABOVE the image. Resize your browser to test. (className="leftBottom")
+  </div>
+  <div
+    className="right"
+  >
+    <code>
+      [
+      <br />
+      <br />
+      Lets pretend this block is an image. Notice the text to the left below the title.
+      <br />
+      <br />
+      On mobile (small screens), it will be put below this image.
+      <br />
+      <br />
+      (className="right")
+      <br />
+      <br />
+      ]
+    </code>
+  </div>
+</div>
+`;

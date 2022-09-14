@@ -1,12 +1,12 @@
 import React from 'react';
 import { css, useTheme } from '@emotion/react';
 import styles from './styles';
-import Button from 'src/features/layout/molecules/Button';
-import Center from 'src/features/layout/molecules/Center';
+import Button from 'src/components/layout/molecules/Button';
+import Center from 'src/components/layout/molecules/Center';
 import AppLoginLink from 'src/components/molecules/AppLoginLink';
 import AppSignupLink from 'src/components/molecules/AppSignupLink';
 import Link from 'src/components/atoms/Link';
-import { makeLinkPaths } from 'src/features/layout/organisms/Header';
+import { makeLinkPaths } from 'src/components/layout/organisms/Header';
 
 const HMobileDropdown = ({
   paths,
@@ -32,7 +32,9 @@ const HMobileDropdown = ({
           {/* MOBILE nav links */}
           {navLinkPaths.map((path, i) => (
             <Link
-              data-qa={`mobile-dropdown-nav-link-${path[0].replace(/[^\d\w]/g, '').toLowerCase()}`}
+              data-qa={`mobile-dropdown-nav-link-${path[0]
+                .replace(/[^\d\w]/g, '')
+                .toLowerCase()}`}
               key={path + i}
               href={path[1]}
               className={path.active ? 'is-active' : ''}
@@ -55,7 +57,10 @@ const HMobileDropdown = ({
               </>
             )}
             <label>Not a customer yet?</label>
-            <AppSignupLink from="MobileNav" data-qa="mobile-dropdown-nav-button-signup">
+            <AppSignupLink
+              from="MobileNav"
+              data-qa="mobile-dropdown-nav-button-signup"
+            >
               <Button variants={['causeCTA']} className="CTA_primaryButton">
                 Sign up
               </Button>

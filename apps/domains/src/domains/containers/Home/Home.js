@@ -62,7 +62,7 @@ class Home extends React.Component {
               <a name="examples"> </a>
               <center>
                 <h4 className="attention">Witty domain name suggestions!</h4>
-                <p>Here are some examples: 👇</p>
+                <p>Some examples: 👇</p>
                 {/* <h2 className="attention">
                   Use our AI to find an available domain name{" "}
                   <sub className="nowrap">

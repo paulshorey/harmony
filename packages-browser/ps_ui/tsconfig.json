@@ -4,7 +4,7 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "@ps/ui": ["../../packages-browser/ui"],
+      "@ps/ui": [""],
       "@ps/config": ["../../packages-universal/config"]
     }
   },

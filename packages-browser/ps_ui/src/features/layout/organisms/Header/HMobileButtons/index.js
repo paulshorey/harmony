@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { css, useTheme } from '@emotion/react';
-import Button from 'src/features/layout/molecules/Button';
+import Button from 'src/components/layout/molecules/Button';
 import AppLoginLink from 'src/components/molecules/AppLoginLink';
 import PageContext from 'src/context/Page';
 import vars from 'src/styles/vars';

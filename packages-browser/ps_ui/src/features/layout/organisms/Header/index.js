@@ -2,10 +2,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import Link from 'src/components/atoms/Link';
 import { css, useTheme } from '@emotion/react';
 import PageContext from 'src/context/Page';
-import HamburgerButton from 'src/features/layout/organisms/Header/HamburgerButton';
-import HDesktopLinks from 'src/features/layout/organisms/Header/HDesktopLinks';
-import HMobileDropdown from 'src/features/layout/organisms/Header/HMobileDropdown';
-import HMobileButtons from 'src/features/layout/organisms/Header/HMobileButtons';
+import HamburgerButton from 'src/components/layout/organisms/Header/HamburgerButton';
+import HDesktopLinks from 'src/components/layout/organisms/Header/HDesktopLinks';
+import HMobileDropdown from 'src/components/layout/organisms/Header/HMobileDropdown';
+import HMobileButtons from 'src/components/layout/organisms/Header/HMobileButtons';
 import { checkIfWebView } from 'src/functions/window';
 import style from './style';
 import Meta from 'src/components/atoms/Meta';
@@ -114,11 +114,19 @@ const Header = ({
 
       {/* The header (LINKS and BUTTONS) for BOTH mobile and desktop */}
       <header
-        css={style({ isAlwaysOverlay, inWhitePage, isScrolled, isAbsolute, isFixed })}
+        css={style({
+          isAlwaysOverlay,
+          inWhitePage,
+          isScrolled,
+          isAbsolute,
+          isFixed,
+        })}
         className={
           'Header' +
           (className ? ' ' + className : '') +
-          (!!pageContext.hideNav ? ' show-background-only-when-scrolledVH70' : '')
+          (!!pageContext.hideNav
+            ? ' show-background-only-when-scrolledVH70'
+            : '')
         }
       >
         <div className="pageWidth">
@@ -177,8 +185,14 @@ const Header = ({
               </Link>
             )}
           </div>
-          <HDesktopLinks currentPath={location} paths={paths} pageContext={pageContext} />
-          {pageContext.showLogin && <HMobileButtons hidden={!!showMobileDropdown} />}
+          <HDesktopLinks
+            currentPath={location}
+            paths={paths}
+            pageContext={pageContext}
+          />
+          {pageContext.showLogin && (
+            <HMobileButtons hidden={!!showMobileDropdown} />
+          )}
         </div>
       </header>
     </>

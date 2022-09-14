@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
-import Box from '@ps/ui/src/features/common/atoms/Box';
-import Button from '@ps/ui/src/features/common/atoms/Button';
-import Flex from '@ps/ui/src/features/common/atoms/Flex';
-import Loading from '@ps/ui/src/features/common/atoms/Loading';
-import MenuDivider from '@ps/ui/src/features/common/molecules/MenuDivider';
+import Box from '@ps/ui/src/components/common/atoms/Box';
+import Button from '@ps/ui/src/components/common/atoms/Button';
+import Flex from '@ps/ui/src/components/common/atoms/Flex';
+import Loading from '@ps/ui/src/components/common/atoms/Loading';
+import MenuDivider from '@ps/ui/src/components/common/molecules/MenuDivider';
 import React, { useState } from 'react';
 
 import Modal from '../../../ui/atoms/Modal';

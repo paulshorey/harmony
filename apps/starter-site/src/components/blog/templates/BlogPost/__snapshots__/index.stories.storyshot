@@ -1,0 +1,505 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Design Systems/Templates/BlogPost Default 1`] = `
+<div
+  className="css-1c9iqo-styles-styles"
+>
+  <div
+    className="content contentWidth-article css-1i61uqg-styles-styles"
+  >
+    <div
+      className="css-11k97zu-styles"
+    >
+      <span
+        className=" css-ihkpod-styles-styles"
+      >
+        <a
+          className="css-14ymbip-styles-styles"
+          href="/"
+          hrefLang="en-us"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Spiral Home
+        </a>
+        <span
+          className="icon icon-angle-right"
+        />
+      </span>
+      <span
+        className=" css-ihkpod-styles-styles"
+      >
+        <a
+          className="css-14ymbip-styles-styles"
+          href="/blog"
+          hrefLang="en-us"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          <span>
+            <span
+              className="hide-small pre"
+            >
+              Blog -
+            </span>
+            <span>
+              All Articles
+            </span>
+          </span>
+        </a>
+        <span
+          className="icon icon-angle-right"
+        />
+      </span>
+      <span
+        className="is-active css-ihkpod-styles-styles"
+      >
+        <a
+          className="css-14ymbip-styles-styles"
+          href="/blog/category/dogood"
+          hrefLang="en-us"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Do Good
+        </a>
+        <span
+          className="icon icon-angle-right"
+        />
+      </span>
+    </div>
+  </div>
+  <div
+    className="hide-small content contentWidth-article"
+  >
+    <div
+      className="css-pljv6f-styles-styles"
+    >
+      <span
+        className=" PictureAtom css-qdjie1-styles-styles"
+      >
+        <picture>
+          <source
+            media="(max-width:500px)"
+            srcSet="https://res.cloudinary.com/spiral/images/g_auto,w_500,h_238,c_fill/g_auto,w_1860,h_884,c_fill/f_auto,q_auto/v1624059624/wordpress-uploads/Screen-Shot-2021-06-18-at-4.34.36-PM/Screen-Shot-2021-06-18-at-4.34.36-PM.webp"
+            type="image/webp"
+          />
+          <source
+            media="(min-width:501px)"
+            srcSet="https://res.cloudinary.com/spiral/images/g_auto,w_1860,h_884,c_fill/g_auto,w_1860,h_884,c_fill/f_auto,q_auto/v1624059624/wordpress-uploads/Screen-Shot-2021-06-18-at-4.34.36-PM/Screen-Shot-2021-06-18-at-4.34.36-PM.webp"
+            type="image/webp"
+          />
+          <source
+            media="(min-width:501px)"
+            srcSet="https://res.cloudinary.com/spiral/images/g_auto,w_1860,h_884,c_fill/g_auto,w_1860,h_884,c_fill/f_auto,q_auto/v1624059624/wordpress-uploads/Screen-Shot-2021-06-18-at-4.34.36-PM/Screen-Shot-2021-06-18-at-4.34.36-PM.png"
+            type="image/png"
+          />
+          <img
+            alt="blog post image"
+            height={442}
+            loading="lazy"
+            src="https://res.cloudinary.com/spiral/images/g_auto,w_500,h_238,c_fill/g_auto,w_1860,h_884,c_fill/f_auto,q_auto/v1624059624/wordpress-uploads/Screen-Shot-2021-06-18-at-4.34.36-PM/Screen-Shot-2021-06-18-at-4.34.36-PM.png"
+            width={930}
+          />
+        </picture>
+      </span>
+      <div
+        className="categoryTags"
+      >
+        <a
+          className=" css-12jtorb-styles"
+          href="/blog/category/dogood"
+          hrefLang="en-us"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Do Good
+        </a>
+        <a
+          className=" css-12jtorb-styles"
+          href="/blog/category/ethicalbanking"
+          hrefLang="en-us"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Ethical Banking
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="hide-gt-small content contentWidth-article"
+  >
+    <div
+      className="css-pljv6f-styles-styles"
+    >
+      <span
+        className=" PictureAtom css-dbohqf-styles-styles"
+      >
+        <picture>
+          <source
+            media="(max-width:500px)"
+            srcSet="https://res.cloudinary.com/spiral/images/g_auto,w_500,h_330,c_fill/g_auto,w_1034,h_682,c_fill/f_auto,q_auto/v1624059624/wordpress-uploads/Screen-Shot-2021-06-18-at-4.34.36-PM/Screen-Shot-2021-06-18-at-4.34.36-PM.webp"
+            type="image/webp"
+          />
+          <source
+            media="(min-width:501px)"
+            srcSet="https://res.cloudinary.com/spiral/images/g_auto,w_1034,h_682,c_fill/g_auto,w_1034,h_682,c_fill/f_auto,q_auto/v1624059624/wordpress-uploads/Screen-Shot-2021-06-18-at-4.34.36-PM/Screen-Shot-2021-06-18-at-4.34.36-PM.webp"
+            type="image/webp"
+          />
+          <source
+            media="(min-width:501px)"
+            srcSet="https://res.cloudinary.com/spiral/images/g_auto,w_1034,h_682,c_fill/g_auto,w_1034,h_682,c_fill/f_auto,q_auto/v1624059624/wordpress-uploads/Screen-Shot-2021-06-18-at-4.34.36-PM/Screen-Shot-2021-06-18-at-4.34.36-PM.png"
+            type="image/png"
+          />
+          <img
+            alt="blog post image"
+            height={341}
+            loading="lazy"
+            src="https://res.cloudinary.com/spiral/images/g_auto,w_500,h_330,c_fill/g_auto,w_1034,h_682,c_fill/f_auto,q_auto/v1624059624/wordpress-uploads/Screen-Shot-2021-06-18-at-4.34.36-PM/Screen-Shot-2021-06-18-at-4.34.36-PM.png"
+            width={517}
+          />
+        </picture>
+      </span>
+      <div
+        className="categoryTags"
+      >
+        <a
+          className=" css-12jtorb-styles"
+          href="/blog/category/dogood"
+          hrefLang="en-us"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Do Good
+        </a>
+        <a
+          className=" css-12jtorb-styles"
+          href="/blog/category/ethicalbanking"
+          hrefLang="en-us"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Ethical Banking
+        </a>
+      </div>
+    </div>
+  </div>
+  <article
+    className="content contentWidth-article css-1fpfnsw-wordpressArticle-wordpressArticle-styles-styles"
+  >
+    <h1
+      className="thePostTitle css-1oepfus-styles-styles"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "The Article Title",
+        }
+      }
+    />
+    <div
+      className="css-71qdzu-styles-styles"
+      style={Object {}}
+    >
+      <img
+        alt="user"
+        className="image"
+        height={40}
+        src="https://res.cloudinary.com/spiral/images/w_120,h_120,c_fill,q_auto/v1617812731/wordpress-uploads/pexels-photo-5340276/pexels-photo-5340276.jpeg"
+        width={40}
+      />
+
+      <div
+        className="text"
+      >
+        <span
+          className="author"
+        >
+          By
+          Team Spiral
+        </span>
+        <span
+          className="date"
+        >
+          April 26, 2021
+        </span>
+      </div>
+    </div>
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "This is the full text of the content. It contains HTML, so be careful! Display it like this: <pre><code><div className=\\"excerpt\\" dangerouslySetInnerHTML={{ __html: postContent }} /></code></pre>",
+        }
+      }
+    />
+    <div
+      className="css-i3wwl2-styles-styles"
+    >
+      <section
+        className="share"
+      >
+        <h4>
+          <span
+            className="icon icon-brand-spiral"
+          />
+          <div>
+            Share this
+            article
+            :
+          </div>
+        </h4>
+        <div
+          className="socialIcons"
+        >
+          <div
+            className="css-1564951-styles-styles"
+          >
+            <a
+              href="https://www.linkedin.com/company/spiral-gives"
+              onClick={[Function]}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span
+                className="icon icon-brand-linkedin-thin"
+              />
+            </a>
+            <a
+              href="https://www.facebook.com/spiralgives"
+              onClick={[Function]}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span
+                className="icon icon-brand-facebook-thin"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/spiralgives"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span
+                className="icon icon-brand-instagram-thin"
+              />
+            </a>
+            <a
+              href="https://twitter.com/Spiralgives"
+              onClick={[Function]}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span
+                className="icon icon-brand-twitter-thin"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <section
+        className="email"
+      >
+        <h4>
+          Enjoy more stories about using your money for good
+        </h4>
+      </section>
+    </div>
+  </article>
+  <section
+    className="waitinglist"
+  >
+    <div
+      className="css-v5tx9u-styles"
+    >
+      <div
+        className="contentWidth-article css-1s44jq5-styles-styles"
+      >
+        <div
+          className="heading"
+        >
+          <h4>
+            <span
+              className="color-pink"
+            >
+              Banking that gives!
+            </span>
+
+            <span
+              className="nowrap"
+            >
+              Spiral combines
+            </span>
+             powerful banking and giving
+
+            <span
+              className="nowrap"
+            >
+              into one.
+            </span>
+          </h4>
+        </div>
+        <div
+          className="image"
+        >
+          <img
+            alt="Spiral debit card that gives"
+            src="https://res.cloudinary.com/spiral/image/upload/v1618873459/home/debitcard-phones-12.png"
+          />
+        </div>
+        <div
+          className="bottom"
+        >
+          <div
+            className="ul"
+          >
+            <span
+              className="icon icon-brand-spiral"
+            />
+            <span
+              className="text"
+            >
+              Enjoy amazing bank account benefits
+              <span
+                className="sup"
+              >
+                8
+              </span>
+            </span>
+            <span
+              className="icon icon-brand-spiral"
+            />
+            <span
+              className="text"
+            >
+              Anyone can effortlessly support any cause
+              <span
+                className="sup"
+              >
+                2
+              </span>
+            </span>
+            <span
+              className="icon icon-brand-spiral"
+            />
+            <span
+              className="text"
+            >
+              We match our customers' donations
+              <span
+                className="sup"
+              >
+                3
+              </span>
+            </span>
+          </div>
+          <div
+            className="cta"
+          >
+            <div
+              className="css-gpet9j-styles-styles"
+            >
+              <a
+                className="CTA_primaryButton css-12jtorb-styles"
+                href="/"
+                hrefLang="en-us"
+                onClick={[Function]}
+                onMouseEnter={[Function]}
+              >
+                <button
+                  className="css-1g4hkra-styles-styles-composeCSS-composeCSS"
+                  onClick={[Function]}
+                >
+                  Get your app and join
+                </button>
+              </a>
+              <div
+                className="appButtons"
+              >
+                <div>
+                  <div
+                    className="comingsoon"
+                  >
+                     
+                  </div>
+                  <a
+                    className="CTA_appstoreBadge_belowPrimary css-12jtorb-styles"
+                    href="/"
+                    hrefLang="en-us"
+                    onClick={[Function]}
+                    onMouseEnter={[Function]}
+                  >
+                    <span
+                      className=" PictureAtom css-1erbzx3-styles-styles"
+                    >
+                      <picture>
+                        <source
+                          media="(min-width:501px)"
+                          srcSet="https://res.cloudinary.com/spiral/image/upload/g_auto,w_290,h_86,c_fill/v1621831289/home-page/install-app-store.webp"
+                          type="image/webp"
+                        />
+                        <img
+                          alt="img"
+                          height={43}
+                          loading="lazy"
+                          src="https://res.cloudinary.com/spiral/image/upload/g_auto,w_290,h_86,c_fill/v1621831289/home-page/install-app-store.svg"
+                          width={145}
+                        />
+                      </picture>
+                    </span>
+                  </a>
+                </div>
+                <div
+                  style={
+                    Object {
+                      "opacity": "0.25",
+                    }
+                  }
+                >
+                  <div
+                    className="comingsoon"
+                  >
+                    Coming soon..
+                  </div>
+                  <span
+                    className=" PictureAtom css-1923nrr-styles-styles"
+                  >
+                    <picture>
+                      <source
+                        media="(min-width:501px)"
+                        srcSet="https://res.cloudinary.com/spiral/image/upload/g_auto,w_306,h_86,c_fill/v1621831288/home-page/install-google-play.webp"
+                        type="image/webp"
+                      />
+                      <img
+                        alt="img"
+                        height={43}
+                        loading="lazy"
+                        src="https://res.cloudinary.com/spiral/image/upload/g_auto,w_306,h_86,c_fill/v1621831288/home-page/install-google-play.svg"
+                        width={153}
+                      />
+                    </picture>
+                  </span>
+                </div>
+              </div>
+              <p
+                className="disclaimer"
+              >
+                Spiral is a financial technology company, not a bank. Banking products and services provided by nbkc bank. Member FDIC.
+              </p>
+              <p
+                className="fdicInsured"
+              >
+                FDIC-insured up to $5,000,000
+                <span
+                  className="sup"
+                >
+                  4
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

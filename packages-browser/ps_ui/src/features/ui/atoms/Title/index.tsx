@@ -1,4 +1,4 @@
-import Box, { BoxProps } from '@ps/ui/src/features/common/atoms/Box';
+import Box, { BoxProps } from '@ps/ui/src/components/common/atoms/Box';
 import React from 'react';
 import withCSS from 'src/helpers/withCSS';
 

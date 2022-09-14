@@ -204,7 +204,7 @@ class ThisComponent extends React.Component {
             {!!DOMAINS && (
               <StyledToplinks className={home ? "home" : ""}>
                 <>
-                  <a
+                  {/* <a
                     href="/#examples"
                     className="fourth"
                     onClick={(e) => {
@@ -241,6 +241,44 @@ class ThisComponent extends React.Component {
                     }}
                   >
                     features
+                  </a> */}
+                  <a
+                    href="/#pricing"
+                    className="fourth"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      router.push("/");
+                      let scrollDown = function () {
+                        let el = document.querySelector('[name="pricing"]');
+                        if (el) {
+                          el.scrollIntoView({
+                            behavior: "smooth"
+                          });
+                        }
+                      };
+                      setTimeout(scrollDown, home ? 300 : 700);
+                    }}
+                  >
+                    API access
+                  </a>
+                  <a
+                    href="/#admin"
+                    className="fourth"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      router.push("/");
+                      let scrollDown = function () {
+                        let el = document.querySelector('[name="admin"]');
+                        if (el) {
+                          el.scrollIntoView({
+                            behavior: "smooth"
+                          });
+                        }
+                      };
+                      setTimeout(scrollDown, home ? 300 : 700);
+                    }}
+                  >
+                    Admin tools
                   </a>
                 </>
               </StyledToplinks>

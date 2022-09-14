@@ -1,4 +1,4 @@
-import Button from '@ps/ui/src/features/common/atoms/Button';
+import Button from '@ps/ui/src/components/common/atoms/Button';
 import React from 'react';
 
 type Props = {
