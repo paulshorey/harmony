@@ -8,7 +8,7 @@ import {
   useEffect,
 } from 'react';
 
-import useDisclosure, { useDisclosureReturnType } from '../useDisclosure';
+import useDisclosure, { useDisclosureReturnType } from '../useOpen';
 import { useMounted } from '../useMounted';
 
 const MenuContext = createContext<useDisclosureReturnType | undefined>(

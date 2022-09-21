@@ -35,7 +35,6 @@ const Component = () => {
 describe('Hook: useOutsideClick', () => {
   it('calls callback function if you click outside', async () => {
     render(<Component />);
-
     await act(async () => {
       await waitFor(() =>
         expect(screen.queryByTestId('inside')).toBeInTheDocument()

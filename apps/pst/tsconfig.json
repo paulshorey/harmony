@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "src/*": ["src/*"],
+      "public/*": ["public/*"]
+    }
+  },
+  "extends": "./tsconfig.nextjs.json",
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
+  "exclude": ["node_modules", "dist"]
+}

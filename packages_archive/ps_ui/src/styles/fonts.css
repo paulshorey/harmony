@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'sfprorounded';
+  src: url('/fonts/sf-pro-rounded-thin.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'sfprorounded';
+  src: url('/fonts/sf-pro-rounded-light.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'sfprorounded';
+  src: url('/fonts/sf-pro-rounded-regular.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'sfprorounded';
+  src: url('/fonts/sf-pro-rounded-semibold.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 500;
+}

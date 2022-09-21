@@ -19,7 +19,7 @@ Use it instantly in **[CodeSandbox.io](https://codesandbox.io/s/twodashes-univer
 ### ES Modules - import from "/esm/" to support tree-shaking:
 
 ```JavaScript
-  import { sort_by_rating_and_position } from "@twodashes/universal/esm/sort_strings"
+  import { sort_by_rating_and_position } from "@ps/universal/esm/sort_strings"
 ```
 
 ### CommonJS - require from "/umd/" folder:
