@@ -1,5 +1,5 @@
 /*
- PARSE CLI ARGS
+ PARSE CLI ARGS - SERVER SIDE ONLY, THIS ONE IS NOT UNIVERSAL
 
  Example: `node myScript.js -f1 --flag2 var1=whatever`
  args = {
@@ -22,7 +22,7 @@
 function parse_cli_args() {
   // BROWSER JS (front-end) DOES NOT HAVE CLI ARGUMENTS
   if (typeof process === "undefined") {
-    return {}
+    return {};
   }
   // NODE JS (back-end)
   let args = {};
@@ -41,21 +41,5 @@ function parse_cli_args() {
       args[arr[0]] = arr[1];
     }
   }
-  return args
+  return args;
 }
-
-
-/*
- * EXPORT FOR BROWSER
- */
-if (typeof window === "object") {
-  const browser = { parse_cli_args };
-  // set up for export
-  window.__ = window.__ || {};
-  // flatten
-  for (let func in browser) {
-    window.__[func] = browser[func];
-  }
-}
-/* EXPORT FOR NODE */
-export { parse_cli_args };

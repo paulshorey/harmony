@@ -1,0 +1,59 @@
+/**
+ * Alternative to try {} catch(e){} block. Execute it as a function.
+ */
+export function try_catch(tryCode: Function, catchAction: Function): void {
+  try {
+    tryCode();
+  } catch (err) {
+    // cconsole is not a typo, it's the name of a global custom console logger
+    // this is to save time, so you don't have to type console.error() in every handler
+    // @ts-ignore
+    // typeof cconsole === "object" ? cconsole.error(err) : console.error(err);
+    // handle error
+    if (typeof catchAction === "function") catchAction(err);
+  }
+}
+
+/**
+ * Parse simple message string from HTTP JSON response, GraphQL, or Error() object
+ *    Too many libraries to fetch HTTP requests, too many non-standard response formats.
+ *    This handles Axios or standard XMLHTTPRequest, or an Error() object
+ *    Supports either convention, of Twitter or Facebook
+ *    Supports "non-legacy" format described in: https://www.mediawiki.org/wiki/API:Errors_and_warnings
+ *    Response and parsed error can be any type. This will figure it out, with just a few if/else rules.
+ *      NOTE:
+ *      Unless you don't care about performance, this should NOT be used to detect if a variable is an error,
+ *      only to parse the message string from some object/response which you know contains an error message.
+ * @param {object} response - response from HTTP request or Error object
+ * @returns {string} - nice readable text, meant for an alert popup in your front-end user interface
+ */
+export function parse_error_message(response: Record<any, any>): string {
+  if (!response) return "!error";
+  //
+  // maybe input was a string, which is already an error message,
+  // or null/undefined/false, whatever, just output that as is
+  if (typeof response !== "object") return response.toString();
+  //
+  // content from HTTP response:
+  let content = response.response
+    ? response.response.data
+      ? response.response.data
+      : response.response
+    : response.data || response;
+  //
+  // error object:
+  let error = content;
+  if (content.errors) error = content.errors[0] || content.errors;
+  else if (content.warnings) error = content.warnings[0] || content.warnings;
+  else if (content.error) error = content.error;
+  else if (content.warning) error = content.warning;
+  //
+  // something weird:
+  if (typeof error !== "object") return error.toString();
+  //
+  // JS Error object - cut off extra stuff about files/lines:
+  if (error[0] && error[0].length > 3) return error[0];
+  //
+  // JSON object:
+  return error.message || error.toString();
+}

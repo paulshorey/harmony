@@ -2,31 +2,28 @@
  * Sort array of objects by property
  *    NOTE: this is just like _.sortBy() but can only sort by one property instead of multiple
  *    This is simply a simplified copy of `sort_objects_by_property_and_position()`
- *    ```
- *      let list = [{name:'Pasha',age:8}, {name:'Masha',age:9}]
- *      sort_objects_by_property(list, 'age') // Masha will move up to first place
- *    ```
  *    Like `sort_objects_by_property_and_position()`, but without caring about the position.
- *    NOTE: your original array will be modified. Use [...arr] destructuring to keep immutable.
- * @param arr {Array.<Object>} - array of objects to be sorted
- * @param prop1_key {string} - property to use, to sort by. Each object in array must contain this key
- * @param prop1_asc {boolean} - by default, will sort DESC, but if this is true, will sort ASC
- * @param immutable {boolean} - Set this to `true` to make this a pure function, and immutable.
- *    Otherwise, THIS IS NOT A PURE FUNCTION. By default it modifies the original array.
- * @return {Array.<Object>} - array of objects, sorted
+ * @param arr - array of objects to be sorted
+ * @param prop1_key - property to use, to sort by. Each object in array must contain this key
+ * @param prop1_desc {boolean} - by default, will sort ASC, but if this is true, will sort DESC
+ * @return - array of objects, sorted
  */
-export default function sort_objects_by_property(arr, prop1_key, prop1_asc = false, immutable=false) {
-  if (!arr) return []
-  if (immutable) arr = [...arr]
-  return arr.sort(sort_objects_by_property__helper.bind({ arr, prop1_key, prop1_asc }));
-};
+export default function sort_objects_by_property(
+  arr: Array<Record<any, any>>,
+  prop1_key: any,
+  prop1_desc: boolean = false
+): Array<Record<any, any>> {
+  if (!arr) return [];
+  arr = [...arr];
+  return arr.sort(sort_objects_by_property__helper.bind({ arr, prop1_key, prop1_desc }));
+}
 // helper function:
 function sort_objects_by_property__helper(a, b) {
   // sort by rating
   let a_rating = a[this.prop1_key];
   let b_rating = b[this.prop1_key];
   // sort order
-  if (this.prop1_asc) {
+  if (!this.prop1_desc) {
     // prefer lower number
     // if b is lower, then rate it better than a
     return a_rating - b_rating;

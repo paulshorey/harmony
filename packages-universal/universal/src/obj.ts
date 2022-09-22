@@ -21,7 +21,7 @@ export function obj_first_entry(obj: Record<any, any>): [any, any] {
 }
 
 /**
- * Check if object is empty `{}` (or `[]`).
+ * Check if object is empty `{}`. Doesn't check if it's an Array or Record, so passing `[]` will return true.
  * @returns {boolean} - true if empty
  */
 export function obj_is_empty(obj: Record<any, any>): boolean {

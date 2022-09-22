@@ -12,23 +12,20 @@ export default function (
   /**
    * array of strings to be sorted
    */
-  arr: [string],
+  arr: Array<Record<any, any>>,
 
   /**
-   * which property of object to use as sort rating (must be a number)
+   * which property of object to use as sort rating (its value must be a number)
    */
-  rating_key: string,
+  rating_key: any,
   /**
-   * make position x times more important than rating
+   * make position x times more important than rating (default 1)
+   *     It's kind of backwards - Make it less than 1 to make rating more important. 0.5 is a good start. Just need to try it until you get a good value. In a very long list, ok to make it 0.1 or even 0.01.
    */
-  multiply_position: number = 1,
-  /**
-   * By default, this function will modify the arr, using arr.sort(). Set `true` to make this a pure function.
-   */
-  immutable = false
-): [string] | [] {
+  multiply_position: number = 1
+): Array<Record<any, any>> {
   if (!arr) return [];
-  if (immutable) arr = [...arr];
+  arr = [...arr];
   let that: SortThatWithProps = {
     rating_key: rating_key,
     multiply_position: multiply_position
@@ -59,7 +56,11 @@ export default function (
   that.delta_index = that.max_index - that.min_index;
 
   // sort
-  return arr.sort(sort_strings_by_rating_and_position__helper.bind(that));
+  arr = arr.sort(sort_strings_by_rating_and_position__helper.bind(that));
+  return arr.map((obj) => {
+    delete obj.sort_index; // remove *TEMPORARY* value from string
+    return obj;
+  });
 }
 
 /**
