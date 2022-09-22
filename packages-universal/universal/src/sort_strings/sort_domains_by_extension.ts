@@ -7,7 +7,7 @@
  * @returns {array} - sorted array
  */
 export default function sort_domains_by_extension(domains: Array<string>, extensions: Array<string>): Array<string> {
-  if (!domains) return [];
+  if (!domains || !domains.length) return [];
   /**
    * xRs - dictionary of extensions with the dot "R"eplaced
    */

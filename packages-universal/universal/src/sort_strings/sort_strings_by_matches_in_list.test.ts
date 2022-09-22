@@ -1,6 +1,6 @@
-import sort_strings_by_length from "./sort_strings_by_length";
+import sort_strings_by_matches_in_list from "./sort_strings_by_matches_in_list";
 
-describe("sort_strings_by_length", () => {
+describe("sort_strings_by_matches_in_list", () => {
   const arr = [
     "astrobin.ws",
     "lalalalala.la",
@@ -13,34 +13,20 @@ describe("sort_strings_by_length", () => {
     "google.nz",
     "paulshorey.com"
   ];
+  const match = ["google", "paul", "shorey"];
 
   it("sorts ascending", () => {
-    expect(sort_strings_by_length(arr)).toEqual([
-      "google.uk", // if strings are exact same length, will keep original order
-      "google.jp",
-      "google.in",
-      "google.nz",
-      "google.com",
-      "astrobin.ws",
-      "something.in",
-      "lalalalala.la",
-      "artspaces.net",
-      "paulshorey.com"
-    ]);
-  });
-
-  it("sorts descending", () => {
-    expect(sort_strings_by_length(arr, true)).toEqual([
+    expect(sort_strings_by_matches_in_list(arr, match)).toEqual([
       "paulshorey.com",
-      "lalalalala.la",
-      "artspaces.net",
-      "something.in",
-      "astrobin.ws",
-      "google.com",
       "google.uk",
       "google.jp",
+      "google.com",
       "google.in",
-      "google.nz" // if strings are exact same length, will keep original order
+      "google.nz",
+      "astrobin.ws",
+      "lalalalala.la",
+      "something.in",
+      "artspaces.net"
     ]);
   });
 

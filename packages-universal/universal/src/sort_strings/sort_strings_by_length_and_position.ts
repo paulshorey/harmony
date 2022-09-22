@@ -1,4 +1,4 @@
-import sort_strings_by_length_asc from "./sort_strings_by_length_asc.js";
+import sort_strings_by_length from "./sort_strings_by_length";
 type SortThat = {
   min_length?: number;
   max_length?: number;
@@ -12,28 +12,27 @@ type SortThat = {
 };
 
 /**
- * Algorithm sort = by Length + by Position in array
- * @param arr {Array.<String>} - array of strings
- * @param prefer_position {number} - number to multiply position rating, to make it more important than length
- * @param fix_min_length {number} - absolute minimum allowed to be used as min_length (default 4)
+ * Algorithm sort = by string length + by current position in array
+ *     NEEDS REFACTOR: does [].sort() twice!
+ * @param arr - array of strings
+ * @param prefer_position - number to multiply position rating, to make it more important than length
+ * @param fix_min_length - absolute minimum allowed to be used as min_length (default 4)
  *      ex: if 4, algorithm will treat str.length of 2,3,4 the same
- * @param immutable {boolean} - Set this to `true` to make this a pure function, and immutable.
- *    Otherwise, THIS IS NOT A PURE FUNCTION. By default it modifies the original array.
  */
 export default function sort_strings_by_length_and_position(
-  arr: [string],
-  prefer_position: number = 10,
-  fix_min_length: number = 0,
-  immutable: boolean = false
-): [string] | [] {
-  if (!arr) return [];
-  if (immutable) arr = [...arr];
+  arr: Array<string>,
+  /**
+   * make position x times more important than rating (default 1)
+   *     It's kind of backwards - Make it less than 1 to make rating more important. 0.5 is a good start. Just need to try it until you get a good value. In a very long list, ok to make it 0.1 or even 0.01.
+   */
+  prefer_position: number = 1,
+  fix_min_length: number = 0
+): Array<string> {
+  if (!arr || !arr.length) return [];
+  arr = [...arr];
   try {
     // prepare ratings by length
-    let ascending = sort_strings_by_length_asc([...arr]);
-    if (!ascending[0]) {
-      return arr;
-    }
+    let ascending = sort_strings_by_length([...arr]);
     // prepare ratings by position
     let arr_positions = {};
     for (let i in arr) {

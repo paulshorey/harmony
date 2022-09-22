@@ -8,7 +8,8 @@
  *       if false or undefined, will be sorted ascending
  * @returns {array} arr - also modifies original array to returned value!
  */
-export default function sort_strings_by_length(arr: Array<string>, desc = false): Array<string> {
+export default function sort_strings_by_length(arr: Array<string>, desc: boolean = false): Array<string> {
+  if (!arr || !arr.length) return [];
   arr = [...arr];
   let sort_func = help_sort_strings_by_length.bind({ desc });
   return arr.sort(sort_func);
