@@ -1,1 +1,4 @@
-module.exports = require('./babel-preset.json');
+module.exports = {
+  presets: ['@emotion/babel-preset-css-prop'],
+  plugins: ['@emotion'],
+};

@@ -1,4 +1,5 @@
 import { css, useTheme } from '@emotion/react';
+// import { css } from '@emotion/css';
 import useVariants from '@ps/ui/hooks/useVariants';
 import Center from '@ps/ui/components/layout/molecules/Center';
 import styles from './styles';
@@ -23,23 +24,18 @@ const Button = ({
    * Combine styles defined by {variants, variant, css}, in this order
    */
   return (
-    <Div
-      as="button"
-      {...props}
-      css={useVariants({
-        styles,
-        variant,
-        variants,
-        component: 'Button',
-      })}
+    <button
       onClick={onClick}
       disabled={!!disabled}
-      className={className + ' Button'}
+      css={css`
+        background: orange;
+        padding: 20px;
+      `}
     >
       <Center tag="span">
-        <span>{label || children}</span>
+        <span>{label || children}asdfdfd</span>
       </Center>
-    </Div>
+    </button>
   );
 };
 

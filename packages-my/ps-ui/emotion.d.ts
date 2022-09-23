@@ -1,12 +1,13 @@
 /* eslint-disable no-undef */
 import '@emotion/react';
 // import { ThemeType } from './styles/theme';
+type DefaultThemeType = {};
 
-// // Add theme type to useTheme()
-// declare module '@emotion/react' {
-//   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-//   export interface Theme extends EmotionTheme {}
-// }
+// Add theme type to useTheme()
+declare module '@emotion/react' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  export interface Theme extends DefaultThemeType {}
+}
 
 // Support css prop on all HTML elements
 declare module 'react' {
