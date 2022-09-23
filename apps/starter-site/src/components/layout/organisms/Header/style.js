@@ -80,7 +80,7 @@ export default ({ isAlwaysOverlay, isAbsolute, isFixed, inWhitePage, isScrolled 
     ${vars.mq.lg} {
       margin-left: 0;
     }
-    ${vars.break.medium.min} {
+    ${vars.mq.desktop} {
       margin-left: -5px;
     }
 

@@ -1,1 +1,1 @@
-module.exports = require('@ps/config/eslint-preset')(__dirname);
+module.exports = require('@ps/constants/eslint-preset')(__dirname);

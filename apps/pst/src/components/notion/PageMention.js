@@ -4,7 +4,7 @@ import PagePreview from 'src/components/notion/PagePreview';
 
 const style = (theme, color) => css`
   zoom: 0.75;
-  padding: 15px; 
+  padding: 15px;
   border: solid 1px #ccc;
 `;
 
@@ -20,7 +20,7 @@ export default ({ page }) => {
         pages2.push({
           id: page2.id,
           url: page2.url,
-          title: page2.title
+          title: page2.title,
         });
       }
     }
@@ -30,4 +30,4 @@ export default ({ page }) => {
       <PagePreview page={page} />
     </div>
   );
-}
+};

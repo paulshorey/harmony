@@ -3,10 +3,14 @@
     "baseUrl": "./",
     "paths": {
       "src/*": ["src/*"],
-      "public/*": ["public/*"]
+      "public/*": ["public/*"],
+      "apollo-client/*": ["apollo-client/*"],
+      "@ps/ui": ["../../packages-my/ps-ui"],
+      "@ps/constants": ["../../packages-my/ps-constants"],
+      "@ps/fn": ["../../packages-my/ps-fn"]
     }
   },
-  "extends": "@ps/config/typescript/nextjs.json",
+  "extends": "@ps/constants/config/typescript/nextjs.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": ["node_modules", "dist"]
 }

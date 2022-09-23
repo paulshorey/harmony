@@ -1,6 +1,6 @@
 const JsConfigPathsMapper = require('jsconfig-paths-jest-mapper');
 
-const config = require('@ps/config/jest-config');
+const config = require('../../packages/ps_constants/jest-config');
 
 module.exports = {
   ...config,

@@ -1,0 +1,45 @@
+{
+  "name": "@ps/ui",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "./index.tsx",
+  "types": "./index.tsx",
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,tsx,md,js,jsx,json}\"",
+    "lint": "eslint . --fix --ext .tsx,.ts,.js --quiet",
+    "lint-staged": "lint-staged",
+    "storybook": "start-storybook -p 6006",
+    "test": "jest",
+    "test:ci": "jest --testPathIgnorePatterns .storybook/imageShots.test.js",
+    "type-check": "tsc --project tsconfig.json --pretty --noEmit",
+    "build-storybook": "build-storybook"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint . --fix --ext .tsx,.ts,.js --quiet",
+      "prettier . -w"
+    ]
+  },
+  "dependencies": {
+    "use-clipboard-copy": "^0.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@emotion/react": "^11.10.4",
+    "@jest/types": "^29.0.3",
+    "@ps/constants": "*",
+    "@ps/fn": "*",
+    "@ps/ui": "*",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-webpack5": "^6.5.12",
+    "@storybook/manager-webpack5": "^6.5.12",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-loader": "^8.2.5",
+    "react-modal": "^3.15.1",
+    "sb": "^6.5.12"
+  }
+}

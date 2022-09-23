@@ -26,7 +26,11 @@ const TextComponent = ({ text }) => {
 
   let Tag = tag(anno);
   let Text = (
-    <Tag className='notionText' css={style(theme, anno.color)} dangerouslySetInnerHTML={{ __html: content }} />
+    <Tag
+      className="notionText"
+      css={style(theme, anno.color)}
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
   );
   if (text.text && text.text.link) {
     return <Link link={text.text.link}>{Text}</Link>;

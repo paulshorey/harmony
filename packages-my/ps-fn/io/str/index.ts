@@ -1,0 +1,21 @@
+import str_capitalize_imported from "./str_capitalize";
+import str_hash_imported from "./str_hash";
+import str_insert_imported from "./str_insert";
+import str_sanitize_imported from "./str_sanitize";
+import str_syllables_count_imported from "./str_syllables_count";
+import str_to_camel_case_imported from "./str_to_camel_case";
+import str_trim_char_imported from "./str_trim_char";
+import str_trim_non_alpha_imported from "./str_trim_non_alpha";
+import base64_decode_imported from "./base64_decode";
+import base64_encode_imported from "./base64_encode";
+
+export const str_capitalize = str_capitalize_imported;
+export const str_hash = str_hash_imported;
+export const str_insert = str_insert_imported;
+export const str_sanitize = str_sanitize_imported;
+export const str_syllables_count = str_syllables_count_imported;
+export const str_to_camel_case = str_to_camel_case_imported;
+export const str_trim_char = str_trim_char_imported;
+export const str_trim_non_alpha = str_trim_non_alpha_imported;
+export const base64_decode = base64_decode_imported;
+export const base64_encode = base64_encode_imported;

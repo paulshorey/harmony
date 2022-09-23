@@ -90,7 +90,7 @@ export default {
     margin: 35px 0;
     grid-template-columns: 1.5fr 2fr 3fr 10fr;
 
-    ${vars.break.medium.max} {
+    ${vars.mq.mobile} {
       grid-template-columns: 1fr 2fr 3fr 8fr;
     }
 

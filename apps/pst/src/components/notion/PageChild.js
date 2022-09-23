@@ -3,8 +3,7 @@ import { css, useTheme } from '@emotion/react';
 import PagePreview from 'src/components/notion/PagePreview';
 import Card from 'src/components/html/Card';
 
-const style = (theme, color) => css`
-`;
+const style = (theme, color) => css``;
 
 export default ({ page }) => {
   if (!page) return null;
@@ -18,14 +17,14 @@ export default ({ page }) => {
         pages2.push({
           id: page2.id,
           url: page2.url,
-          title: page2.title
+          title: page2.title,
         });
       }
     }
   }
   return (
-    <Card className='notionPageChild' css={style(theme)}>
+    <Card className="notionPageChild" css={style(theme)}>
       <PagePreview page={page} />
     </Card>
   );
-}
+};

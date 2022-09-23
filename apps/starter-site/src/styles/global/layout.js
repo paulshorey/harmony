@@ -27,7 +27,7 @@ const layout = css`
       padding-right: 5px !important;
     }
 
-    ${vars.break.xsmall.max} {
+    ${vars.mq.phone} {
       width: calc(100% - 30px);
     }
   }
@@ -44,7 +44,7 @@ const layout = css`
       width: calc(100% - 60px);
     }
 
-    ${vars.break.xsmall.max} {
+    ${vars.mq.phone} {
       width: calc(100% - 40px);
       p {
         padding-left: 1px;

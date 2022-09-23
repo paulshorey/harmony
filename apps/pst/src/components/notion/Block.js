@@ -9,16 +9,16 @@ const style = (theme) => css`
   //  padding: 25px 0 30px;
   //}
   > p {
-	margin: 10px 0 12px;
+    margin: 10px 0 12px;
   }
 
   pre {
-	font-size: 12px;
+    font-size: 12px;
   }
 
   .notionSitePreview + span br,
   .notionSitePreview + p br {
-	display: none;
+    display: none;
   }
 `;
 
@@ -35,14 +35,21 @@ export default ({ block }) => {
   }
 
   return (
-    <div className='notionBlock' css={style}>
+    <div className="notionBlock" css={style}>
       {tag(block)}
-      {!(block.type === 'paragraph' || block.type === 'child_page' || block.type.substring(0, 7) === 'heading' || block.type === 'unsupported') &&
-      <pre><code>{JSON.stringify(block, null, ' ')}</code></pre>
-      }
+      {!(
+        block.type === 'paragraph' ||
+        block.type === 'child_page' ||
+        block.type.substring(0, 7) === 'heading' ||
+        block.type === 'unsupported'
+      ) && (
+        <pre>
+          <code>{JSON.stringify(block, null, ' ')}</code>
+        </pre>
+      )}
     </div>
   );
-}
+};
 
 function tag(block) {
   switch (block.type) {
@@ -58,15 +65,23 @@ function tag(block) {
       return <PageChild page={block.child_page} />;
     case 'unsupported':
       console.warn('UNSUPPORTED BLOCK TYPE', block);
-      return <>
-        <pre><code>Content coming soon! [some Notion.so types are not yet supported]</code></pre>
-        {/*<pre><code>{JSON.stringify(block, null, ' ')}</code></pre>*/}
-      </>;
+      return (
+        <>
+          <pre>
+            <code>Content coming soon! [some Notion.so types are not yet supported]</code>
+          </pre>
+          {/*<pre><code>{JSON.stringify(block, null, ' ')}</code></pre>*/}
+        </>
+      );
     default:
       console.log('UNFINISHED BLOCK', block);
-      return <>
-        <pre><code>Content coming soon! [unfinished content type]</code></pre>
-        {/*<pre><code>{JSON.stringify(block, null, ' ')}</code></pre>*/}
-      </>;
+      return (
+        <>
+          <pre>
+            <code>Content coming soon! [unfinished content type]</code>
+          </pre>
+          {/*<pre><code>{JSON.stringify(block, null, ' ')}</code></pre>*/}
+        </>
+      );
   }
 }

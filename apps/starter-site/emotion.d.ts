@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import '@emotion/react';
 
-import { Theme as EmotionTheme } from '@ps/ui/styles/theme';
+import { Theme as EmotionTheme } from 'src/styles/theme';
 // Add theme type to useTheme()
 declare module '@emotion/react' {
   export interface Theme extends EmotionTheme {}

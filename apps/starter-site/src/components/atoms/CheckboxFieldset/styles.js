@@ -8,7 +8,7 @@ export default {
     text-align: left;
     margin: 0 0 14px;
 
-    ${vars.break.xsmall.max} {
+    ${vars.mq.phone} {
       margin: 0 0 12px;
     }
 

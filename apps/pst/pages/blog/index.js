@@ -3,7 +3,7 @@ import Notion from 'src/components/templates/Notion';
 import {
   getStaticPaths_fromNotionPages,
   getStaticProps_fromNotionPages,
-} from 'src/functions/pagesRoutes';
+} from 'src/parseNotionAPI/pagesRoutes';
 
 /**
  * For each path, get data, pass to component as props:

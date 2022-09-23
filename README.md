@@ -166,7 +166,7 @@ All packages follow this naming syntax: `@ps/*package-name`
 #### To use a Spiral package, simply import your needed file:
 
 ```
-import Button from '@ps/ui/src/components/common/atoms/Button'
+import Button from 'src/components/common/atoms/Button'
 ...
 
 ```
@@ -174,7 +174,7 @@ import Button from '@ps/ui/src/components/common/atoms/Button'
 #### To use a Spiral config package:
 
 ```
-module.exports = require('@ps/config/prettier-preset');
+module.exports = require('@ps/constants/prettier-preset');
 ```
 
 ## Committing To The Repo

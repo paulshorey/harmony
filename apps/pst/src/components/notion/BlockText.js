@@ -8,7 +8,7 @@ import PageMention from 'src/components/notion/PageMention';
 const style = (theme) => css`
   br:first-of-type,
   br:last-of-type {
-	display: none;
+    display: none;
   }
 `;
 
@@ -18,35 +18,66 @@ export default ({ block }) => {
   let BlockTag = 'div';
   let BlockClass = 'notionBlockText';
   let BlockMentions = '';
-  let Mentions =
-    block[block.type].text.map((text, ti) => {
-      if (text.mention && text.mention.type === 'page' && block.pageMentions && block.pageMentions[text.mention.page.id]) {
+  let Mentions = block[block.type].text
+    .map((text, ti) => {
+      if (
+        text.mention &&
+        text.mention.type === 'page' &&
+        block.pageMentions &&
+        block.pageMentions[text.mention.page.id]
+      ) {
         BlockMentions = 'page';
         return <PageMention key={ti} page={block.pageMentions[text.mention.page.id]} />;
       }
-      if (text.text && text.text.content && text.text.link && text.text.link.url && block.sitePreviews && block.sitePreviews[text.text.link.url + text.text.content]) {
+      if (
+        text.text &&
+        text.text.content &&
+        text.text.link &&
+        text.text.link.url &&
+        block.sitePreviews &&
+        block.sitePreviews[text.text.link.url + text.text.content]
+      ) {
         BlockMentions = 'site';
-        return <SitePreview key={ti} sitePreview={block.sitePreviews[text.text.link.url + text.text.content]} />;
+        return (
+          <SitePreview
+            key={ti}
+            sitePreview={block.sitePreviews[text.text.link.url + text.text.content]}
+          />
+        );
       }
       return null;
-    }).filter(item => !!item);
+    })
+    .filter((item) => !!item);
   let textsLength = 0;
   let TextsClass = '';
   let TextsTag = tag(block);
   BlockClass += ' tag-' + TextsTag;
-  let Texts =
-    block[block.type].text.map((text, ti) => {
-      if (text.mention && text.mention.type === 'page' && block.pageMentions && block.pageMentions[text.mention.page.id]) {
+  let Texts = block[block.type].text
+    .map((text, ti) => {
+      if (
+        text.mention &&
+        text.mention.type === 'page' &&
+        block.pageMentions &&
+        block.pageMentions[text.mention.page.id]
+      ) {
         return null;
       }
-      if (text.text && text.text.content && text.text.link && text.text.link.url && block.sitePreviews && block.sitePreviews[text.text.link.url + text.text.content]) {
+      if (
+        text.text &&
+        text.text.content &&
+        text.text.link &&
+        text.text.link.url &&
+        block.sitePreviews &&
+        block.sitePreviews[text.text.link.url + text.text.content]
+      ) {
         return null;
       }
       if (text.text && text.text.content) {
         textsLength += text.text.content.length;
       }
       return <Text key={ti} text={text} />;
-    }).filter(item => !!item);
+    })
+    .filter((item) => !!item);
 
   if (Mentions.length) {
     // OutputTag = Card;
@@ -59,7 +90,11 @@ export default ({ block }) => {
     if (textsLength <= 3) {
       TextsClass += ' empty';
     }
-    Texts = <TextsTag className={TextsClass} css={style(theme)}>{Texts}</TextsTag>;
+    Texts = (
+      <TextsTag className={TextsClass} css={style(theme)}>
+        {Texts}
+      </TextsTag>
+    );
   } else {
     Texts = null;
   }
@@ -71,12 +106,14 @@ export default ({ block }) => {
   if (!Texts && !Mentions) {
     return null;
   } else {
-    return (<BlockTag className={BlockClass}>
-      {Mentions}
-      {Texts}
-    </BlockTag>);
+    return (
+      <BlockTag className={BlockClass}>
+        {Mentions}
+        {Texts}
+      </BlockTag>
+    );
   }
-}
+};
 
 function tag(block) {
   switch (block.type) {

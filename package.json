@@ -6,15 +6,16 @@
     "apps/*",
     "apis/*",
     "clis/*",
-    "packages-browser/*",
-    "packages-server/*",
-    "packages-universal/*"
+    "packages-my/*",
+    "packages-npm/*"
   ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel"
   },
-  "dependencies": {},
+  "dependencies": {
+    "use-clipboard-copy": "^0.2.0"
+  },
   "devDependencies": {},
   "engines": {
     "node": ">=16.0.0",

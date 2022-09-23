@@ -1,0 +1,3 @@
+import aggregate_req_body_query_params_imported from "./aggregate_req_body_query_params";
+
+export const aggregate_req_body_query_params = aggregate_req_body_query_params_imported;

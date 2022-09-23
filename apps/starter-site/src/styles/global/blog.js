@@ -45,11 +45,11 @@ export const wordpressArticle = css`
     font-size: 20px;
     margin: 30px 0;
 
-    ${vars.break.xsmall.max} {
+    ${vars.mq.phone} {
       margin: 25px 0;
     }
 
-    ${vars.break.xsmall.max} {
+    ${vars.mq.phone} {
       font-size: 17px;
     }
 
@@ -59,7 +59,7 @@ export const wordpressArticle = css`
     }
   }
 
-  ${vars.break.xsmall.max} {
+  ${vars.mq.phone} {
     font-size: 17px;
   }
 

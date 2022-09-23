@@ -12,7 +12,7 @@ export default {
     ${theme.Grid.childrenLength > 2 &&
     `
     ${vars.mq.lg} {
-      ${vars.break.medium.max} {
+      ${vars.mq.mobile} {
         grid-template-columns: 1fr 1fr;
       }
     }

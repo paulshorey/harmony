@@ -7,7 +7,7 @@ const mixins = {
     margin: 0 0 25px;
     list-style: none;
 
-    ${vars.break.xsmall.max} {
+    ${vars.mq.phone} {
       li {
         background-position: left 5.5px !important;
       }
@@ -19,8 +19,8 @@ const mixins = {
     list-style-type: none;
     text-align: left;
 
-    ${vars.break.medium.max} {
-      ${vars.break.xsmall.min} {
+    ${vars.mq.mobile} {
+      ${vars.mq.notPhone} {
         padding: 5px 0 5px 40px;
         margin: 15px 0 15px 0;
       }
@@ -30,7 +30,7 @@ const mixins = {
       //padding-left: 40px;
     }
 
-    ${vars.break.xsmall.max} {
+    ${vars.mq.phone} {
       padding: 5px 15px 5px 38px;
       margin: 15px 0 15px 16px;
     }

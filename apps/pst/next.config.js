@@ -1,11 +1,17 @@
+const withTM = require('next-transpile-modules')([
+  '@ps/constants',
+  '@ps/fn',
+  '@ps/ui',
+  'colorful-console-logger',
+]);
 const withPlugins = require('next-compose-plugins');
 const nextBuildId = require('next-build-id');
 const dotenvLoad = require('dotenv-load');
-const ContentSecurityPolicy = ''; //require('@ps/config/auth/contentSecurityPolicy/index');
+const ContentSecurityPolicy = ''; //require('@ps/constants/auth/contentSecurityPolicy/index');
 
 dotenvLoad();
 
-const nextConfig = {
+const nextConfig = withTM({
   trailingSlash: false,
   webpack5: true,
   generateBuildId: () => nextBuildId({ dir: __dirname, describe: true }),
@@ -50,6 +56,6 @@ const nextConfig = {
   //   });
   //   return config;
   // },
-};
+});
 
 module.exports = withPlugins([], nextConfig);

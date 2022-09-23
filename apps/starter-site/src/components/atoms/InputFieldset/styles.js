@@ -9,7 +9,7 @@ export default {
     max-width: 440px;
     margin: 0 auto 19px;
 
-    ${vars.break.xsmall.max} {
+    ${vars.mq.phone} {
       margin: 0 0 17px;
     }
     ${vars.mq.phone} {

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "styles": ["./styles"],
+      "@ps/ui": ["."],
+      "@ps/fn": ["../../packages/ps_fn"],
+      "@ps/constants": ["../../packages/ps_constants"]
+    }
+  },
+  "extends": "@ps/constants/config/typescript/react-library.json",
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
+}

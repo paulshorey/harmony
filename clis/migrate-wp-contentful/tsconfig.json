@@ -1,5 +1,5 @@
 {
-  "extends": "@ps/config/typescript/base.json",
+  "extends": "@ps/constants/config/typescript/base.json",
   "include": [".", ".eslintrc.js"],
   "exclude": ["node_modules"]
 }

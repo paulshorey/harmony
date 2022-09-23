@@ -3,7 +3,10 @@
     "baseUrl": "./",
     "paths": {
       "src/*": ["src/*"],
-      "public/*": ["public/*"]
+      "public/*": ["public/*"],
+      "@ps/ui": ["../../packages-my/ps-ui"],
+      "@ps/constants": ["../../packages-my/ps-constants"],
+      "@ps/fn": ["../../packages-my/ps-fn"]
     }
   },
   "extends": "./tsconfig.nextjs.json",
