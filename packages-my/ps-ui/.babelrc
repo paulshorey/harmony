@@ -1,16 +1,28 @@
 {
-    "presets": [
-        "next/babel",
-        "@emotion/babel-preset-css-prop"
-    ],
-    "plugins": [
-        [
-            "@emotion",
-            {
-                "sourceMap": false,
-                "autoLabel": "never",
-                "cssPropOptimization": false
-            }
-        ]
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-react": {
+          "runtime": "automatic",
+          "importSource": "@emotion/react"
+        },
+        "preset-css-prop": {
+          "runtime": "automatic",
+          "importSource": "@emotion/babel-preset-css-prop"
+        }
+      }
     ]
+    // "@emotion/babel-preset-css-prop"
+  ],
+  "plugins": [
+    [
+      "@emotion",
+      {
+        "sourceMap": false,
+        "autoLabel": "never",
+        "cssPropOptimization": false
+      }
+    ]
+  ]
 }

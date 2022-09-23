@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import '@emotion/react';
 // import { ThemeType } from './styles/theme';
-type DefaultThemeType = {};
+type DefaultThemeType = any;
 
 // Add theme type to useTheme()
 declare module '@emotion/react' {

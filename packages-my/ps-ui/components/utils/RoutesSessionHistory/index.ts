@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 
-import useSessionStorage from '../../../../hooks/useSessionStorage';
+import useSessionStorage from '../../../hooks/useSessionStorage';
 
 /**
  * A Component to automatically add route change items to session storage history.

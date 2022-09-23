@@ -1,7 +1,7 @@
-import { Global, css } from '@emotion/react';
-import html from 'styles/global/html';
-import classes from '@ps/ui/styles/global/classes';
+import { css, Global } from '@emotion/react';
+import classes from 'styles/global/classes';
 import fonts from 'styles/global/fonts';
+import html from 'styles/global/html';
 import layout from 'styles/global/layout';
 
 const styles = () => {

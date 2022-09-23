@@ -1,4 +1,4 @@
-import { css, useTheme } from '@emotion/react';
+import { jsx, css, useTheme } from '@emotion/react';
 // import { css } from '@emotion/css';
 import useVariants from '@ps/ui/hooks/useVariants';
 import Center from '@ps/ui/components/layout/molecules/Center';
@@ -33,7 +33,10 @@ const Button = ({
       `}
     >
       <Center tag="span">
-        <span>{label || children}asdfdfd</span>
+        <span>
+          {label || children} - {new Date().getHours()}:
+          {new Date().getMinutes()}::{new Date().getSeconds()}
+        </span>
       </Center>
     </button>
   );

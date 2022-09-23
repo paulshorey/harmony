@@ -1,16 +1,20 @@
 {
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "jsx": "preserve",
-    "baseUrl": "./",
-    "paths": {
-      "styles": ["./styles"],
-      "@ps/ui": ["."],
-      "@ps/fn": ["../../packages/ps_fn"],
-      "@ps/constants": ["../../packages/ps_constants"]
-    }
-  },
   "extends": "@ps/constants/config/typescript/react-library.json",
   "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "paths": {
+      "styles/*": ["./styles/*"]
+    },
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "rootDir": "." /* Specify the root folder within your source files. */,
+    "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    "module": "ESNext" /* Specify what module code is generated. */,
+    "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    "strict": false /* Enable all strict type-checking options. */,
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import GlobalStyles from 'src/styles';
-import AppProvider from 'src/components/organisms/AppProvider';
+import GlobalStyles from '../styles';
+// import AppProvider from 'src/components/organisms/AppProvider';
 
 const SUPPORTED_VIEWPORTS = {
   mobile: {
@@ -35,6 +35,7 @@ const SUPPORTED_VIEWPORTS = {
 
 export const parameters = {
   layout: 'fullscreen', // to remove padding in body
+  viewMode: 'docs',
   viewport: {
     viewports: SUPPORTED_VIEWPORTS,
   },
@@ -43,9 +44,9 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <AppProvider>
+    <div>
       <GlobalStyles />
       <Story />
-    </AppProvider>
+    </div>
   ),
 ];
