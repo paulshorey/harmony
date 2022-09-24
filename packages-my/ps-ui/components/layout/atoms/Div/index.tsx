@@ -167,19 +167,22 @@ const Div: FC<DivProps> = forwardRef(
     },
     refFromParent
   ) => {
+    // No need to call hook if there is no css to apply.
     const deviceInfo =
-      (cssIframe ||
-        cssNotIframe ||
-        cssWebview ||
-        cssNotWebview ||
-        cssIPhone ||
-        cssIPad ||
-        cssMac ||
-        cssWindows ||
-        cssLinux ||
-        cssAndroid) &&
-      useDeviceInfo();
-    const TagName = `${as}` as any; // Convert string to DOM element. Ex: "p" will become <p> element.
+      cssIframe ||
+      cssNotIframe ||
+      cssWebview ||
+      cssNotWebview ||
+      cssIPhone ||
+      cssIPad ||
+      cssMac ||
+      cssWindows ||
+      cssLinux ||
+      cssAndroid
+        ? useDeviceInfo()
+        : undefined;
+    // Convert string to DOM element. Ex: "p" will become <p> element.
+    const TagName = `${as}` as any;
     return (
       <TagName
         ref={refFromParent}

@@ -2,7 +2,7 @@ import get_device from '@ps/fn/browser/device/get_device';
 import is_webview from '@ps/fn/browser/device/is_webview';
 import { useEffect, useState } from 'react';
 
-export type returnType = {
+export type deviceInfoType = {
   inWebview: boolean;
   inIframe: boolean;
   device: string;
@@ -11,7 +11,7 @@ export type returnType = {
 /**
  * detect if component is rendered inside an iframe
  */
-const useDeviceInfo = (): returnType => {
+const useDeviceInfo = (): deviceInfoType => {
   const [device, set_device] = useState('');
   const [inIframe, set_inIframe] = useState(false);
   const [inWebview, set_inWebview] = useState(false);
