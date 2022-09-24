@@ -33,7 +33,7 @@ export default {
   `,
   'default': css`
     position: relative;
-    display: grid;
+    display: grid !important;
     grid-template-columns: 1fr 1fr;
 
     ${vars.mq.sm} {

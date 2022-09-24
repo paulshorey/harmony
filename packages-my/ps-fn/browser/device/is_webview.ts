@@ -4,7 +4,7 @@
  * This function detects if the current page is being opened in a webview
  * @returns boolean
  */
-export function is_webview(): boolean {
+export default function is_webview(): boolean {
   if (typeof window !== "object") {
     throw new Error('Must be called from browser. Error: window !== "object"');
   }

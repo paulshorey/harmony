@@ -1,5 +1,6 @@
 import { css, SerializedStyles } from '@emotion/react';
 import emotionToString from '@ps/fn/browser/style/emotion_to_string';
+import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
 import vars from '@ps/ui/styles/vars';
 import { FC, forwardRef, HTMLAttributes, memo } from 'react';
 
@@ -82,6 +83,50 @@ type DivProps = HTMLAttributes<HTMLDivElement> & {
    * Landscape orientation (width > height)
    */
   cssLandscape?: EmotionCSSType | string;
+  /**
+   * Rendered inside iframe
+   */
+  cssIframe?: EmotionCSSType | string;
+  /**
+   * Not in an iframe
+   */
+  cssNotIframe?: EmotionCSSType | string;
+  /**
+   * In an app WebView
+   */
+  cssWebview?: EmotionCSSType | string;
+  /**
+   * Not in WebView
+   */
+  cssNotWebview?: EmotionCSSType | string;
+  /**
+   * OS == 'Mac'
+   */
+  cssMac?: EmotionCSSType | string;
+  /**
+   * OS == 'Windows'
+   */
+  cssWindows?: EmotionCSSType | string;
+  /**
+   * OS == 'Linux'
+   */
+  cssLinux?: EmotionCSSType | string;
+  /**
+   * OS == 'Android'
+   */
+  cssAndroid?: EmotionCSSType | string;
+  /**
+   * OS == 'iOS'
+   */
+  cssIOS?: EmotionCSSType | string;
+  /**
+   * device is 'iPhone'
+   */
+  cssIPhone?: EmotionCSSType | string;
+  /**
+   * device is 'iPad'
+   */
+  cssIPad?: EmotionCSSType | string;
 };
 
 /**
@@ -93,13 +138,21 @@ const Div: FC<DivProps> = forwardRef(
     {
       as = 'div',
       className = '',
+      cssAndroid = '',
       cssDesktop = '',
+      cssIPad = '',
+      cssIPhone = '',
+      cssIframe = '',
       cssLandscape = '',
       cssLargeDesktop = '',
       cssLargeTablet = '',
       cssLg = '',
+      cssLinux = '',
+      cssMac = '',
       cssMobile = '',
+      cssNotIframe = '',
       cssNotPhone = '',
+      cssNotWebview = '',
       cssPhone = '',
       cssPortrait = '',
       cssSm = '',
@@ -107,11 +160,25 @@ const Div: FC<DivProps> = forwardRef(
       cssTablet = '',
       cssTinyPhone = '',
       cssVeryLargeDesktop = '',
+      cssWebview = '',
+      cssWindows = '',
       // ref, // caught by React.forwardRef and forwarded to 2nd argument refFromParent
       ...props
     },
     refFromParent
   ) => {
+    const deviceInfo =
+      (cssIframe ||
+        cssNotIframe ||
+        cssWebview ||
+        cssNotWebview ||
+        cssIPhone ||
+        cssIPad ||
+        cssMac ||
+        cssWindows ||
+        cssLinux ||
+        cssAndroid) &&
+      useDeviceInfo();
     const TagName = `${as}` as any; // Convert string to DOM element. Ex: "p" will become <p> element.
     return (
       <TagName
@@ -121,6 +188,97 @@ const Div: FC<DivProps> = forwardRef(
         css={css`
           /* Must wrap the custom styles in &.Div {} to make specificity more important than default props.css. */
           &.Div {
+            ${cssIframe &&
+            `
+              ${
+                deviceInfo?.inIframe &&
+                `
+                ${emotionToString(cssIframe)}
+              `
+              }
+              `}
+            ${cssNotIframe &&
+            `
+                ${
+                  !deviceInfo?.inIframe &&
+                  `
+                  ${emotionToString(cssNotIframe)}
+                `
+                }
+                `}
+            ${cssWebview &&
+            `
+            ${
+              deviceInfo?.inWebview &&
+              `
+              ${emotionToString(cssWebview)}
+            `
+            }
+            `}
+            ${cssNotWebview &&
+            `
+            ${
+              !deviceInfo?.inWebview &&
+              `
+              ${emotionToString(cssNotWebview)}
+            `
+            }
+            `}
+            ${cssMac &&
+            `
+            ${
+              deviceInfo?.device === 'Mac' &&
+              `
+              ${emotionToString(cssMac)}
+            `
+            }
+            `}
+            ${cssWindows &&
+            `
+            ${
+              deviceInfo?.device === 'Windows' &&
+              `
+              ${emotionToString(cssWindows)}
+            `
+            }
+            `}
+            ${cssLinux &&
+            `
+            ${
+              deviceInfo?.device === 'Linux' &&
+              `
+              ${emotionToString(cssLinux)}
+            `
+            }
+            `}
+            ${cssAndroid &&
+            `
+            ${
+              deviceInfo?.device === 'Android' &&
+              `
+              ${emotionToString(cssAndroid)}
+            `
+            }
+            `}
+            ${cssIPad &&
+            `
+            ${
+              deviceInfo?.device === 'iOS' &&
+              `
+              ${emotionToString(cssIPad)}
+            `
+            }
+            `}
+            ${cssIPhone &&
+            `
+            ${
+              deviceInfo?.device === 'iPhone' &&
+              `
+              ${emotionToString(cssIPhone)}
+            `
+            }
+            `}
+
             ${cssLg &&
             `
             ${vars.mq.lg} {
