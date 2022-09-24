@@ -1,14 +1,18 @@
-import { jsx, css, useTheme } from '@emotion/react';
+// import { css, jsx, useTheme } from '@emotion/react';
+import Div from '@ps/ui/components/layout/atoms/Div';
+import Center from '@ps/ui/components/layout/molecules/Center';
 // import { css } from '@emotion/css';
 import useVariants from '@ps/ui/hooks/useVariants';
-import Center from '@ps/ui/components/layout/molecules/Center';
-import styles from './styles';
-import Div from '@ps/ui/components/layout/atoms/Div';
+import React from 'react';
 
+import styles from './styles';
+
+/**
+ * Pass one or multiple `props.variants` which will determine which `styles` properties (CSS) to include.
+ */
 const Button = ({
   disabled,
   pretendDisabled,
-  className = '',
   label,
   children,
   variant,
@@ -16,7 +20,7 @@ const Button = ({
   onClick = () => {},
   ...props
 }) => {
-  const theme = useTheme();
+  // const theme = useTheme();
   if (disabled || pretendDisabled) {
     variants.push('disabled');
   }
@@ -24,21 +28,24 @@ const Button = ({
    * Combine styles defined by {variants, variant, css}, in this order
    */
   return (
-    <button
+    <Div
+      as="button"
       onClick={onClick}
       disabled={!!disabled}
-      css={css`
-        background: orange;
-        padding: 20px;
-      `}
+      css={useVariants({
+        styles,
+        variant,
+        variants,
+      })}
+      {...props}
     >
-      <Center tag="span">
+      <Center as="span">
         <span>
           {label || children} - {new Date().getHours()}:
           {new Date().getMinutes()}::{new Date().getSeconds()}
         </span>
       </Center>
-    </button>
+    </Div>
   );
 };
 

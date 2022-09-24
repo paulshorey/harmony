@@ -38,14 +38,16 @@ const vars = {
     tablet: `@media (min-width: 501px) and (max-width: 1024px)`,
     largeTablet: `@media (min-width: 931px) and (max-width: 1024px)`,
     desktop: `@media (min-width: 1025px)`,
-    largeDesktop: `@media (min-width: 1440px) and (max-height: 720px)`,
-    veryLargeDesktop: `@media (min-width: 1920px) and (min-height: 900px)`,
+    largeDesktop: `@media (min-width: 1440px)`,
+    veryLargeDesktop: `@media (min-width: 1920px)`,
     mobile: `@media (max-width: 1024px)`, // IMPORTANT: this is very generous width, ENCOMPASSES ALL mobile devices, up to the portrait mode in iPad 12in
     // or binary:
     sm: `@media (max-width: 930px)`,
     lg: `@media (min-width: 931px)`,
     // override other media queries without resorting to "!important":
     any: `@media (min-width: 0px), (min-height: 0px)`,
+    portrait: `@media (orientation: portrait)`,
+    landscape: `@media (orientation: landscape)`,
   },
 };
 //

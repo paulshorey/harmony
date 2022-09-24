@@ -1,40 +1,33 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
+import React from 'react';
+
 import Button from '.';
 import styles from './styles';
 
 const handleClick = action('Button clicked');
 
 export default {
-  title: 'layout/atoms/Button',
   component: Button,
+  title: 'layout/molecules/Buttons',
 };
 
 const Template = (args) => <Button {...args} />;
 const variants = Object.keys(styles);
 const argTypes = {
   variant: {
-    options: variants,
     control: { type: 'select' },
+    options: variants,
   },
   variants: {
-    options: variants,
-    control: { type: 'multi-select' }, // Automatically inferred when 'options' is defined
+    control: { type: 'multi-select' },
+    options: variants, // Automatically inferred when 'options' is defined
   },
 };
 
-export const DefaultVariant = Template.bind({});
-DefaultVariant.argTypes = argTypes;
-DefaultVariant.args = {
+export const Buttons = Template.bind({});
+Buttons.argTypes = argTypes;
+Buttons.args = {
+  variants: [''],
   label: 'Submit',
-  variant: 'default',
-  onClick: handleClick,
-};
-
-export const DefaultVariants = Template.bind({});
-DefaultVariants.argTypes = argTypes;
-DefaultVariants.args = {
-  label: 'Cancel',
-  variants: ['default'],
   onClick: handleClick,
 };

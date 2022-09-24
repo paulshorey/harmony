@@ -2,6 +2,9 @@ const path = require('path');
 
 module.exports = ((__dirname) => {
   return {
+    env: {
+      browser: true,
+    },
     extends: [
       'prettier',
       'eslint:recommended',
@@ -9,7 +12,6 @@ module.exports = ((__dirname) => {
       'plugin:storybook/recommended',
       'plugin:jsx-a11y/recommended',
       'plugin:import/recommended',
-      'plugin:typescript-sort-keys/recommended',
       'plugin:jsx-fragments/recommended',
     ],
     ignorePatterns: [
@@ -26,8 +28,6 @@ module.exports = ((__dirname) => {
       'unused-imports',
       'import',
       'jsx-a11y',
-      'sort-keys-fix',
-      'typescript-sort-keys',
       'prettier',
       'sort-destructure-keys',
     ],
@@ -144,7 +144,6 @@ module.exports = ((__dirname) => {
       'simple-import-sort/exports': 'error',
       'simple-import-sort/imports': 'error',
       'sort-destructure-keys/sort-destructure-keys': 'error',
-      'sort-keys-fix/sort-keys-fix': 'warn',
       'spaced-comment': 'error',
       'strict': ['error', 'never'],
     },

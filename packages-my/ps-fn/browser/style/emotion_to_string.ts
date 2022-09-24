@@ -32,5 +32,6 @@ export default function e2Str(
     cssString += emotion;
   }
   // remove label to clean up className
-  return (cssString ? cssString.replace(/\n/g, ";").replace(/label:(.*?);/g, "") || "" : "") + ";"; // extra trailing semicolon, just in case string was missing it
+  return cssString;
+  // return (cssString ? cssString.replace(/\n/g, ";").replace(/label:(.*?);/g, "") || "" : "") + ";"; // extra trailing semicolon, just in case string was missing it
 }

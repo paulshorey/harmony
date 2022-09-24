@@ -1,22 +1,22 @@
-import React from 'react';
-import Center from '.';
 import { css } from '@emotion/react';
-import vars from '@ps/ui/styles/vars';
+import React from 'react';
+
+import Center from '.';
 
 export default {
-  title: 'layout/molecules/Center',
+  title: 'layout/molecules/Centered Child',
   component: Center,
 };
 
-const Template = (args) => <Center {...args} />;
+const Template = (args: any) => <Center {...args} />;
 
-export const SetCustomCSSWidth = Template.bind({});
-SetCustomCSSWidth.args = {
+export const CenteredChild = Template.bind({});
+CenteredChild.args = {
   css: css`
-    max-width: 500px;
+    max-width: 400px;
   `,
   children: (
-    <div>
+    <>
       Just like the depreciated HTML {'<'}center{'>'} tag, but better, more
       functional. If you set the width narrower than the contents, the contents
       will still be centered! Great for titles!
@@ -41,6 +41,6 @@ SetCustomCSSWidth.args = {
         If you don't set a width, then it will behave like a normal element with
         text-align:center
       </p>
-    </div>
+    </>
   ),
 };

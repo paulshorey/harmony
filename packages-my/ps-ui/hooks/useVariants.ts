@@ -1,7 +1,14 @@
 import { css, useTheme } from '@emotion/react';
 import emotionToString from '@ps/fn/browser/style/emotion_to_string';
-import vars from '@ps/ui/styles/vars';
 
+type Props = {
+  label?: string;
+  style?: any;
+  styles?: any;
+  theme?: any;
+  variant?: string;
+  variants?: string[];
+};
 /**
  * Aggregate styles, return combined css, with good specificity. This one will really benefit from Typescript!
  * ```
@@ -13,17 +20,7 @@ import vars from '@ps/ui/styles/vars';
  * ```
  * This will apply `styles.default` (if exists), then `styles.primary`, then `styles.disabled`
  */
-const _ = function ({
-  theme,
-  label,
-  style,
-  styles,
-  variant,
-  variants,
-  //
-  styleSm,
-  styleLg,
-}) {
+const _ = function ({ label, style, styles, theme, variant, variants }: Props) {
   // Sometimes (atoms/Grid) we may want to modify the theme for a specific component.
   if (!theme) {
     theme = useTheme();
@@ -32,6 +29,17 @@ const _ = function ({
   let cssString = '';
   // Then, add each variant's css (if it exists in styles)
   // If no variants specified, this will try to use `styles.default`.
+  // const dict = { default: true } as Record<string, boolean>;
+  // if (variant) {
+  //   dict[variant] = true;
+  // }
+  // if (variants) {
+  //   variants.forEach((v) => {
+  //     if (v && typeof v === 'string') {
+  //       dict[v] = true;
+  //     }
+  //   });
+  // }
   const theseVariants = ['default', variant, ...(variants || [])];
   for (const variant of theseVariants) {
     if (variant && styles?.[variant]) {
@@ -47,18 +55,6 @@ const _ = function ({
     } else {
       cssString += emotionToString(style, theme);
     }
-  }
-
-  // Responsive styles
-  if (styleSm) {
-    cssString += `${vars.mq.sm} {
-      ${emotionToString(styleSm, theme)};
-    }`;
-  }
-  if (styleLg) {
-    cssString += `${vars.mq.lg} {
-      ${emotionToString(styleLg, theme)};
-    }`;
   }
 
   return css`

@@ -8,16 +8,16 @@ module.exports = {
   ],
   staticDirs: ['../public'],
   stories: ['../components/**/**/**/*.stories.@(js|jsx|ts|tsx)'],
-  typescript: {
-    check: false,
-    checkOptions: {},
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      propFilter: (prop) =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
-      shouldExtractLiteralValuesFromEnum: true,
-    },
-  },
+  // typescript: {
+  //   check: false,
+  //   checkOptions: {},
+  //   reactDocgen: 'react-docgen-typescript',
+  //   reactDocgenTypescriptOptions: {
+  //     propFilter: (prop) =>
+  //       prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+  //     shouldExtractLiteralValuesFromEnum: true,
+  //   },
+  // },
   webpackFinal: async (config) => {
     config.resolve.plugins = [
       ...(config.resolve.plugins || []),

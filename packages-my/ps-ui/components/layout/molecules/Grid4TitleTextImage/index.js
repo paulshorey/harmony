@@ -1,7 +1,8 @@
-import React from 'react';
-import styles from './styles';
-import useVariants from '@ps/ui/hooks/useVariants';
 import Div from '@ps/ui/components/layout/atoms/Div';
+import useVariants from '@ps/ui/hooks/useVariants';
+import React from 'react';
+
+import styles from './styles';
 
 /**
  * IMPORTANT:
@@ -9,12 +10,12 @@ import Div from '@ps/ui/components/layout/atoms/Div';
  */
 function Grid4TitleTextImage({
   className,
+  cssSm,
+  image,
+  text,
+  title,
   variant,
   variants,
-  title,
-  text,
-  image,
-  cssSm,
   ...props
 }) {
   return (

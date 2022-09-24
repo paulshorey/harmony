@@ -4,8 +4,13 @@
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "paths": {
-      "styles/*": ["./styles/*"]
+      "styles": ["./styles"],
+      "@ps/fn": ["../ps-fn"],
+      "@ps/ui": ["."],
+      "@ps/constants": ["../ps-constants"]
     },
+    "types": ["@emotion/react/types/css-prop"],
+    "lib": ["dom", "ESNext"],
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "baseUrl": ".",

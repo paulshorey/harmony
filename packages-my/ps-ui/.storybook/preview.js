@@ -1,5 +1,7 @@
 import React from 'react';
 import GlobalStyles from '../styles';
+import Gradient from '@ps/ui/components/layout/molecules/Gradient';
+import { css } from '@emotion/react';
 // import AppProvider from 'src/components/organisms/AppProvider';
 
 const SUPPORTED_VIEWPORTS = {
@@ -39,14 +41,29 @@ export const parameters = {
   viewport: {
     viewports: SUPPORTED_VIEWPORTS,
   },
+  controls: {
+    expanded: true,
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
 };
 
 export const decorators = [
   (Story) => (
-    <div>
+    <Gradient
+      css={css`
+        position: relative;
+        width: 100%;
+        height: 100%;
+      `}
+      cssLg={`
+      padding: 50px 50px 60px 50px;
+    `}
+      cssSm={`
+      padding: 20px 20px 30px 20px;;
+    `}
+    >
       <GlobalStyles />
       <Story />
-    </div>
+    </Gradient>
   ),
 ];

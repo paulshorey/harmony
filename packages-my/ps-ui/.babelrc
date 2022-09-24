@@ -13,9 +13,9 @@
         }
       }
     ]
-    // "@emotion/babel-preset-css-prop"
   ],
   "plugins": [
+    "react-docgen",
     [
       "@emotion",
       {

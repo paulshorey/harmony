@@ -1,10 +1,10 @@
-import React from 'react';
+/* eslint-disable max-depth */
 import { css } from '@emotion/react';
-// import useIsInView from '@ps/ui/hooks/useIsInview';
-import { useEffect, useState } from 'react';
-import { useInView } from 'react-cool-inview';
-import { getQueryParam } from '@ps/ui/functions/url';
+import get_query_param from '@ps/fn/browser/url/get_query_param';
 import Div from '@ps/ui/components/layout/atoms/Div';
+// import useIsInView from '@ps/ui/hooks/useIsInview';
+import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-cool-inview';
 
 const isBetween = (value, min, max) => value && value >= min && value <= max;
 
@@ -43,14 +43,18 @@ const ScrollSlideIn = ({
   const [visible, set_visible] = useState(true);
   const { observe: ref2 } = useInView({
     onEnter: () => {
-      if (disabled) return;
+      if (disabled) {
+        return;
+      }
       clearTimeout(enterLeaveTimeout);
       enterLeaveTimeout = setTimeout(() => {
         set_visible(true);
       }, 50);
     },
     onLeave: () => {
-      if (disabled) return;
+      if (disabled) {
+        return;
+      }
       clearTimeout(enterLeaveTimeout);
       enterLeaveTimeout = setTimeout(() => {
         set_visible(false);
@@ -59,11 +63,11 @@ const ScrollSlideIn = ({
   });
   useEffect(() => {
     // disable for Search Engines, QA, LightHouse test, and other bots
-    let disableForBots =
-      getQueryParam('qaStatic') ||
-      /bot|googlebot|crawler|spider|robot|crawling|lighthouse/i.test(
-        window.navigator.userAgent
-      );
+    const disableForBots = null;
+    // get_query_param('qaStatic') ||
+    // /bot|googlebot|crawler|spider|robot|crawling|lighthouse/i.test(
+    //   window.navigator.userAgent
+    // );
     if (disableForBots && disableForBots !== null) {
       // disabled
       set_visible(true);
