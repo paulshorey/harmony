@@ -101,22 +101,22 @@ const Template = (args) => (
         `,
       },
       description: {
-        component: `\`<Div />\` is the most atomic component. It is used by most of the other components in this library. It can actually render any HTML tag, not just div. It uses EmotionJS css prop and adds a few other props to help style multiple screen devices without having to remember any annoying media queries.
+        component: `\`<Div />\` is a building block. It is used by most of the other components in this library. It can actually ***render any HTML tag***, not just div. It uses EmotionJS css prop and adds a few other props to help style for multiple devices without having to remember and re-type any media queries.
   
 ### Usage:
-\`<Div as="p" />\` to render a paragraph tag, like in \`styled-system\`. Also inspired by styled-system is an effortless way to add CSS style for multiple breakpoints. But, this uses actual real CSS, and doesn't pollute the props name space. So, it's easy to manage component's props.
+\`<Div as="p" />\` to render a paragraph tag like Box in \`styled-system\`. Also ***inspired by styled-system*** are these multiple props to style for many device quickly and easily. But, this uses real CSS and does not pollute the props name space. As an app grows, it gets many more styles added. If you manage each style rule as a prop, things get messy. It becomes difficult to quickly tell which props are for logic or data.
 
-\`<Div css={defaultStyles} cssDesktop="display:none;" cssTablet="padding:1rem;" cssPhone="font-weight:600;font-size:1.25rem;" cssSmallPhone="font-size:1.5rem;" />\`
-There are many of these cssXxx props you can use, for various sizes. 
+\`<Div css={defaultStyles} cssTablet="padding:1rem;" cssPhone="font-size:1.25rem;" data={someData} />\` 
 
-The simplest way to start is by choosing a pair. Try \`cssLg\`/\`cssSm\` for a 930px breakpoint, or \`cssDesktop\`/\`cssMobile\` for a 1024px breakpoint. 
+There are several css props for different sizes. Some overlap. The simplest way to start is by choosing a pair: \`cssLg\`/\`cssSm\` for a 930px breakpoint, or \`cssDesktop\`/\`cssMobile\` for a 1024px breakpoint. To style only for tablet, use \`cssTablet\`. To style a large tablet, use \`cssLargeTablet\`.
 
-It lets you override specific styles for a specific breakpoint. Phone <= 499px. SmallPhone <= 399px. TinyPhone <= 359px. Tablet is between 500-1024.
-\`<Div as="h2" cssSmallPhone="font-weight:900;">\`. Maybe this element gets styled somewhere else like Bootstrap or Tailwind. It's ok. It's dificult to appreciate this until you've had to do a lot of CSS for different devices. It scales up very well. In fact, this gets much more useful with more complexity.
+***Scroll down to see all sizes/relationships***. Phone <= 499px. SmallPhone <= 399px. TinyPhone <= 359px. Tablet is between 500-1024. Etc.
+
+Ex: \`<Div as="h2" cssSmallPhone="font-weight:900;">\`. The element could also be styled somewhere else like Bootstrap or Tailwind. It's ok. This solution focuses on simplicity, developer experience, and saves a lot of time when managing many rules for many devices, in a complex app.
 
 BTW, the reason it's called Div is it extends HTMLAttributes\\<HTMLDivElement\\>. This type actually works well for most HTML elements. For interactive elements like Input/Form/conteneditable, see the forms section of this library.
 
-All props accept EmotionJS css\\\`\\\`. For convenience, custom props also accept a basic string type. Below is a full list of css props and sizes. 
+All props accept EmotionJS css\\\`\\\`. For additional ease of use, custom props also accept a basic string type.
 `,
       },
     },

@@ -43,11 +43,11 @@ type DivProps = HTMLAttributes<HTMLDivElement> & {
    */
   cssMobile?: EmotionCSSType | string;
   /**
-   * phones only, not tablets ( <= 500px wide )
+   * phones only, not tablets ( <= 499px wide )
    */
   cssPhone?: EmotionCSSType | string;
   /**
-   * extra narrow devices like iPhone 8/X/SE ( <= 400px wide )
+   * extra narrow devices like iPhone 8/X/SE ( <= 399px wide )
    */
   cssSmallPhone?: EmotionCSSType | string;
   /**
@@ -59,7 +59,7 @@ type DivProps = HTMLAttributes<HTMLDivElement> & {
    */
   cssLargeTablet?: EmotionCSSType | string;
   /**
-   * everything >= 501px wide
+   * everything >= 500px wide
    */
   cssNotPhone?: EmotionCSSType | string;
   /**
