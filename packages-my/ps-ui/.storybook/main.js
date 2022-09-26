@@ -23,8 +23,8 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   stories: [
-    './__stories__/**/*.stories.@(js|jsx|ts|tsx)',
-    '../components/**/**/**/*.stories.@(js|jsx|ts|tsx)',
+    './__stories__/**/*.@(js|jsx|ts|tsx|mdx)',
+    '../components/**/**/**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
   staticDirs: ['../public'],
   addons: [
@@ -32,6 +32,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-actions',
     '@storybook/addon-viewport',
+    // '@degjs/storybook-addon-taffy/register',
     // '@storybook/addon-links',
     // {
     //   name: '@storybook/addon-storysource',
@@ -45,9 +46,9 @@ module.exports = {
     //     },
     //   },
     // },
-    // './theme-selector-addon/register',
+    './theme-selector-addon/register',
     './platform-selector-addon/register',
-    './dark-mode-addon/register',
+    // './dark-mode-addon/register',
     // '@storybook/addons',
     // './font-size-addon/register',
     // '@storybook/addon-controls',

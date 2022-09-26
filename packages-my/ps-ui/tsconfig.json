@@ -1,6 +1,6 @@
 {
   "extends": "@ps/constants/config/typescript/react-library.json",
-  "include": [".", ".storybook/about", "components/.storybook"],
+  "include": [".", ".storybook/__stories__/about", "components/.storybook"],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "paths": {

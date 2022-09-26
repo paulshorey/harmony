@@ -34,7 +34,7 @@ export default {
 
   base: 'dark',
   brandTitle: 'My custom storybook',
-  brandUrl: 'https://example.com',
+  brandUrl: '/',
   brandImage: 'https://place-hold.it/350x150',
   brandTarget: '_self',
 };

@@ -7,6 +7,8 @@ import GlobalStyles from '../styles';
 import Gradient from '@ps/ui/components/layout/molecules/Gradient';
 import { css } from '@emotion/react';
 import theme from './theme';
+// import { addDecorator } from '@storybook/react';
+// import { withTaffy } from '@degjs/storybook-addon-taffy';
 
 export const parameters = {
   layout: 'fullscreen', // to remove padding in canvas
@@ -23,13 +25,11 @@ export const parameters = {
     storySort: {
       // https://storybook.js.org/docs/react/writing-stories/naming-components-and-hierarchy
       order: [
-        'Welcome',
         'UI Library',
         'CSS Props',
         'Scroll Slide In',
         'layout/molecules/Buttons',
         'layout/molecules/GradientBackground',
-        'Docs Page',
       ],
     },
   },
@@ -71,6 +71,8 @@ const handleColorSchemeSelected = (...inputs) => {
 
 export const decorators = [
   (Story, context) => {
+    // addDecorator(withTaffy);
+
     React.useEffect(() => {
       const channel = addons.getChannel();
       channel.on('theme-selected', handleThemeSelected);

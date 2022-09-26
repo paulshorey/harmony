@@ -3,7 +3,7 @@ import { addons } from '@storybook/addons';
 import DEFAULT_THEME from './theme';
 
 addons.setConfig({
-  isFullscreen: false,
+  isFullscreen: true,
   showNav: true,
   showPanel: true,
   panelPosition: 'right',
@@ -13,14 +13,14 @@ addons.setConfig({
   selectedPanel: undefined,
   initialActive: 'sidebar',
   sidebar: {
-    showRoots: false,
+    showRoots: true,
     collapsedRoots: ['other'],
   },
   toolbar: {
-    title: { hidden: false },
-    zoom: { hidden: false },
-    eject: { hidden: false },
-    copy: { hidden: false },
+    title: { hidden: true },
+    zoom: { hidden: true },
+    eject: { hidden: true },
+    copy: { hidden: true },
     fullscreen: { hidden: false },
   },
 });

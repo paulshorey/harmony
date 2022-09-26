@@ -1,4 +1,3 @@
-// @ts-check
 import * as React from 'react';
 import { addons, types } from '@storybook/addons';
 import {
@@ -7,12 +6,13 @@ import {
   TooltipLinkList,
 } from '@storybook/components';
 import AVAILABLE_THEMES, { DEFAULT_THEME } from '../themes';
+
 const renderPrimaryColorDot = (theme_key: string) => (
   <div
     style={{
       width: 20,
       height: 20,
-      background: AVAILABLE_THEMES[theme_key].colors.primaryColor,
+      background: AVAILABLE_THEMES[theme_key].colors.primary,
       borderRadius: '50%',
     }}
   />
@@ -21,10 +21,7 @@ const renderPrimaryColorDot = (theme_key: string) => (
 const ThemeSelectorAddon = ({ api }) => {
   const channel = addons.getChannel();
   const [currentThemeKey, set_currentThemeKey] = React.useState(
-    () =>
-      api.getQueryParam('skin') ||
-      api.getQueryParam('theme') ||
-      DEFAULT_THEME.key
+    () => api.getQueryParam('theme') || DEFAULT_THEME.key
   );
 
   React.useEffect(() => {
@@ -33,7 +30,6 @@ const ThemeSelectorAddon = ({ api }) => {
     };
 
     channel.on('story-mounted', notifySkin);
-
     return () => {
       channel.off('story-mounted', notifySkin);
     };
@@ -45,13 +41,13 @@ const ThemeSelectorAddon = ({ api }) => {
     api.setOptions({ theme: AVAILABLE_THEMES[currentThemeKey] });
 
     // We need this timeout because there could be some race condition between addon mount and storybook manager initialization on page load
-    const tid = setTimeout(() => {
-      api.setOptions({ theme: AVAILABLE_THEMES[currentThemeKey] });
-    }, 100);
+    // const tid = setTimeout(() => {
+    //   api.setOptions({ theme: AVAILABLE_THEMES[currentThemeKey] });
+    // }, 100);
 
-    return () => {
-      clearTimeout(tid);
-    };
+    // return () => {
+    //   clearTimeout(tid);
+    // };
   }, [api, channel, currentThemeKey]);
 
   return (
