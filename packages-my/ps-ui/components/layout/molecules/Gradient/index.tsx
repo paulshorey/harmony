@@ -1,16 +1,18 @@
-import Div from '@ps/ui/components/layout/atoms/Div';
+import Div, { DivProps } from '@ps/ui/components/layout/atoms/Div';
 import useVariants from 'hooks/useVariants';
 import { FC } from 'react';
 
 import styles from './styles';
 
-type StyleProps = {
+type Props = DivProps & {
   variant?: string;
   variants?: Array<string>;
   as?: string;
 };
-type Props = StyleProps;
 
+/**
+ * This is the Gradient component description.
+ */
 const Gradient: FC<Props> = ({ as = 'span', variant, variants, ...props }) => {
   return (
     <Div

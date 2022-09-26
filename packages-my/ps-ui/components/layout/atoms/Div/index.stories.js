@@ -5,8 +5,12 @@ import Div from '.';
 
 export default {
   component: Div,
-  title: 'layout/atoms/Div Style Props',
+  title: 'CSS Props',
   parameters: {
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
     docs: {
       source: {
         code: `
@@ -15,7 +19,7 @@ export default {
       Your screen size{' '}
     </Div>
     <Div as="span" cssNotIframe="display:none;">
-      This container <span css={styles.colorGold}></span>
+      This page <span css={styles.colorGold}></span>
     </Div>
     matches following <span css={styles.colorGold}>media queries</span>:
 </h2>
@@ -37,9 +41,6 @@ export default {
 </Div>
 <Div as="code" css={styles.codeResults} cssTablet="display:block;">
   cssTablet
-</Div>
-<Div as="code" css={styles.codeResults} cssLargePhone="display:block;">
-  cssLargePhone
 </Div>
 <Div as="code" css={styles.codeResults} cssPhone="display:block;">
   cssPhone
@@ -94,26 +95,30 @@ export default {
 </Div>
 `,
       },
-      /* \`<Div />\` is a building block. It is used by most of the other components in this library. It can actually ***render any HTML tag***, not just div. It uses EmotionJS css prop and adds a few other props to help style for multiple devices without having to remember and re-type any media queries.*/
+      /* \`<Div />\` is a building block. It is used by most of the other components in this library. It can actually ***render any HTML tag***, not just div. It uses EmotionJS css prop and adds a few other props to help style for multiple devices without having to remember and re-type any media queries.
+      > **This component is best previewed outside of Storybook, <a href="iframe.html?id=layout-atoms-div-style-props--div-style-props&viewMode=story" target="_blank">in its own tab</a>.**
+      Ex: \`<Div as="h2" cssSmallPhone="font-weight:900;">\`.
+      It's probably compatible with CSS-in-JS libraries that pass a JS style object, but that is untested.
+      */
       description: {
-        component: `
-> **This component is best previewed outside of Storybook, <a href="iframe.html?id=layout-atoms-div-style-props--div-style-props&viewMode=story" target="_blank">in its own tab</a>.**  
-    
+        component: `\`import Div from '@ps/ui/components/layout/atoms/Div'; // Call the import Box, El, Span, P, whatever makes sense to you.\`  
+Component is not called "Box" only because styled-system uses that name. So, you can use both libraries and gradually transition to your favorite.
+        
+Use \`<Div as="p" />\` to render a paragraph tag. Similar to Box component in \`styled-system\`. Also ***inspired by styled-system*** are the multiple props for targeting several devices quickly and easily. But, this uses real CSS and does not pollute the props name space. As an app grows, it gets many more styles added. If you manage each style rule as a prop, things get messy. It becomes difficult to quickly tell which props are for logic vs data vs style.
+  
+**This library uses EmotionJS** which is similar to styled-components. This component supports Emotion's css prop, but also adds custom props. Each custom css prop injects styles into a predefined media query. Use Emotion's css\\\`\\\` type or a plain string. Each starts with "css" prefix. Use \`react/jsx-sort-props\` to sort your React props alphabetically, to keep all css props together. See also \`as\`, \`variant\`, and \`variants\` props.
 
-### Usage:
-\`<Div as="p" />\` to render a paragraph tag like Box in \`styled-system\`. Also ***inspired by styled-system*** are these multiple props to style for many device quickly and easily. But, this uses real CSS and does not pollute the props name space. As an app grows, it gets many more styles added. If you manage each style rule as a prop, things get messy. It becomes difficult to quickly tell which props are for logic or data.
+**If you like inline styles**, you should definitely try this. **If not,** this library also includes some great tools for managing stylesheets, variables, and themes.
+\`<Div as="h2" css={defaultStyles} cssTablet="padding:1rem;" cssPhone="font-size:1.25rem;" variant="class1 class2 class3" />\`  
 
-\`<Div css={defaultStyles} cssTablet="padding:1rem;" cssPhone="font-size:1.25rem;" data={someData} />\` 
+**See also [PaulShorey.com/blog/best-css-in-js-system](https://paulshorey.comm/blog/best-css-in-js-system) to read about hooks, variants, themes, and variables** which are difficult to show in Storybook.  
+Basically, this library also provides functionality to recreate the benefits of **cascading stylesheets and classNames** but without any of the issues.
 
-There are several css props for different sizes. Some overlap. The simplest way to start is by choosing a pair: \`cssLg\`/\`cssSm\` for a 930px breakpoint, or \`cssDesktop\`/\`cssMobile\` for a 1024px breakpoint. To style only for tablet, use \`cssTablet\`. To style a large tablet, use \`cssLargeTablet\`.
+**Several css props are provided**, targeting different sizes. Some overlap. Start by simply choosing a pair: \`cssLg\`/\`cssSm\` for a 930px breakpoint, or \`cssDesktop\`/\`cssMobile\` for a 1024px breakpoint. To style only for tablet, use \`cssTablet\`. To style a large tablet, use \`cssLargeTablet\`.
 
-***Scroll down to see all sizes/relationships***. Phone <= 499px. SmallPhone <= 399px. TinyPhone <= 359px. Tablet is between 500-1024. Etc.
+Phone <= 499px. SmallPhone <= 399px. TinyPhone <= 359px. Tablet is 500-1024. LargeTablet is 931-1024... All props are documented below.
 
-Ex: \`<Div as="h2" cssSmallPhone="font-weight:900;">\`. The element could also be styled somewhere else like Bootstrap or Tailwind. It's ok. This solution focuses on simplicity, developer experience, and saves a lot of time when managing many rules for many devices, in a complex app.
-
-BTW, the reason it's called Div is it extends HTMLAttributes\\<HTMLDivElement\\>. This type actually works well for most HTML elements. For interactive elements like Input/Form/conteneditable, see the forms section of this library.
-
-All props accept EmotionJS css\\\`\\\`. For additional ease of use, custom props also accept a basic string type.
+**The reason it's called Div** is it extends HTMLAttributes\\<HTMLDivElement\\>. This type definition actually works for most HTML elements, even buttons, and supports user events like click and mouseover. For truly interactive elements like Input/Form/conteneditable, see components in the "Forms" section.
 `,
       },
     },
@@ -178,7 +183,7 @@ const Template = (args) => (
         Your screen size{' '}
       </Div>
       <Div as="span" cssNotIframe="display:none;">
-        This container <span css={styles.colorGold}></span>
+        This page <span css={styles.colorGold}></span>
       </Div>
       matches following <span css={styles.colorGold}>media queries</span>:
     </h2>
@@ -199,9 +204,6 @@ const Template = (args) => (
     </Div>
     <Div as="code" css={styles.codeResults} cssTablet="display:block;">
       cssTablet
-    </Div>
-    <Div as="code" css={styles.codeResults} cssLargePhone="display:block;">
-      cssLargePhone
     </Div>
     <Div as="code" css={styles.codeResults} cssPhone="display:block;">
       cssPhone
@@ -260,7 +262,7 @@ const Template = (args) => (
     </Div>
     <p>
       <br />
-      Above values are responsive!{' '}
+      Above values are responsive.{' '}
       <Div as="span" cssNotIframe="display:none;">
         Resize your screen or open this component{' '}
         <a
@@ -298,5 +300,5 @@ const Template = (args) => (
     </p>
   </Div>
 );
-export const DivStyleProps = Template.bind({});
-DivStyleProps.args = {};
+export const CSSProps = Template.bind({});
+CSSProps.args = {};

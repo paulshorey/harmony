@@ -5,7 +5,7 @@ import Comp from '.';
 
 export default {
   component: Comp,
-  title: 'layout/atoms/Scroll Slide In',
+  title: 'Scroll Slide In',
   parameters: {
     docs: {
       source: {

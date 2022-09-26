@@ -10,7 +10,7 @@ type EmotionCSSType = (() => any) | Record<any, any> | SerializedStyles;
  * This is to render simple non-interactive read-only elements like span/div/p/h1/sup/a/center.
  * For interactive form elements, use something more specific like components/form/atoms/Input.
  */
-type DivProps = HTMLAttributes<HTMLDivElement> & {
+export type DivProps = HTMLAttributes<HTMLDivElement> & {
   /**
    * HTML element tag name to render. Defaults to 'div'.
    */
