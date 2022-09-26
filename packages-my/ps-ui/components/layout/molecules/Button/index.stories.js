@@ -8,7 +8,7 @@ const handleClick = action('Button clicked');
 
 export default {
   component: Button,
-  title: 'layout/molecules/Buttons',
+  title: 'layout/Button',
 };
 
 const Template = (args) => <Button {...args} />;
@@ -24,9 +24,9 @@ const argTypes = {
   },
 };
 
-export const Buttons = Template.bind({});
-Buttons.argTypes = argTypes;
-Buttons.args = {
+export const Button = Template.bind({});
+Button.argTypes = argTypes;
+Button.args = {
   variants: [''],
   label: 'Submit',
   onClick: handleClick,

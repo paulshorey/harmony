@@ -17,7 +17,7 @@ type Props = StyleProps;
  *   This text fits in a narrow column because it wraps to several lines...
  *   <span style="white-space:nowrap">This text is wider than 200px but can't wrap!</span>
  * </Center>```
- * In this example, the `span` will stick out to the left and right evenly, centered in relation to the surrounding paragraph. Also, the Center component will be rendered as a `<p>` tag, as specified by `props.as`.
+ * In the above example, the `span` will not fit the layout because of `white-space:nowrap`. It will stick out to the left and right. BUT it will still be centered in relation to the surrounding content.`.
  */
 const Center: FC<Props> = ({
   as = 'div',

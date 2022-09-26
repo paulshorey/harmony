@@ -11,7 +11,8 @@ type Props = DivProps & {
 };
 
 /**
- * This is the Gradient component description.
+ * Use the props to change gradient colors/direction/style.
+ * Pass a variant to choose from predefined styles.
  */
 const Gradient: FC<Props> = ({ as = 'span', variant, variants, ...props }) => {
   return (

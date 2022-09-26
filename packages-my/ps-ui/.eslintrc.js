@@ -32,6 +32,7 @@ module.exports = ((__dirname) => {
       'sort-destructure-keys',
     ],
     rules: {
+      'import/no-named-as-default-member': 'off',
       '@next/next/no-css-tags': 'off',
       '@next/next/no-html-link-for-pages': 'off',
       '@next/next/no-img-element': 'off',

@@ -2,10 +2,10 @@ import themeStorybookDashboard from './theme-storybook-dashboard';
 // import { create } from '@storybook/theming';
 // export default create({ theme properties });
 const colors = {
-  primary: '#019DF4',
-  textPrimary: '#313235',
+  primary: '#7A52CB',
+  textPrimary: '#999',
   textPrimaryInverse: '#FFFFFF',
-  textSecondary: '#86888C',
+  textSecondary: '#ccc',
 };
 
 export default {
@@ -25,12 +25,12 @@ export default {
   fontCode: 'monospace',
 
   // Text colors
-  textColor: colors.primary,
-  textInverseColor: colors.primary,
+  // textColor: colors.primary,
+  // textInverseColor: colors.primary,
 
   // Toolbar default and active colors
-  barTextColor: colors.primary,
-  barSelectedColor: colors.primary,
+  // barTextColor: colors.primary,
+  // barSelectedColor: colors.primary,
 
   base: 'dark',
   brandTitle: 'My custom storybook',

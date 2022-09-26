@@ -1,17 +1,17 @@
 import { addons } from '@storybook/addons';
-// import { create } from '@storybook/theming/create';
+import { create } from '@storybook/theming/create';
 import DEFAULT_THEME from './theme';
 
 addons.setConfig({
-  isFullscreen: true,
+  isFullscreen: false,
   showNav: true,
-  showPanel: true,
+  showPanel: false,
   panelPosition: 'right',
   enableShortcuts: true,
   showToolbar: true,
-  theme: DEFAULT_THEME,
+  theme: create(DEFAULT_THEME),
   selectedPanel: undefined,
-  initialActive: 'sidebar',
+  initialActive: '',
   sidebar: {
     showRoots: true,
     collapsedRoots: ['other'],

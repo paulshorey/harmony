@@ -1,10 +1,10 @@
 // import { css, jsx, useTheme } from '@emotion/react';
 import Div from '@ps/ui/components/layout/atoms/Div';
-import Center from '@ps/ui/components/layout/molecules/Center';
 // import { css } from '@emotion/css';
 import useVariants from '@ps/ui/hooks/useVariants';
 import React from 'react';
 
+import Center from '../Centered';
 import styles from './styles';
 
 /**

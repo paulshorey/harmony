@@ -9,7 +9,8 @@
     "test": "jest",
     "test:ci": "jest --testPathIgnorePatterns .storybook/imageShots.test.js",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
-    "sb": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006",
+    "dev": "yarn run storybook",
     "build-sb": "build-storybook"
   },
   "lint-staged": {
@@ -32,7 +33,6 @@
   "maybeNotDependencies": {},
   "devDependencies": {
     "@babel/core": "^7.19.1",
-    "@degjs/storybook-addon-taffy": "^1.0.4",
     "@emotion/babel-plugin": "^11.10.2",
     "@emotion/core": "^11.0.0",
     "@emotion/css": "^11.10.0",

@@ -1,11 +1,11 @@
 import { css } from '@emotion/react';
 import React from 'react';
 
-import Div from '.';
+import Comp from '.';
 
 export default {
-  component: Div,
-  title: 'CSS Props',
+  component: Comp,
+  title: 'atoms/Div',
   parameters: {
     viewMode: 'docs',
     previewTabs: {
@@ -148,8 +148,8 @@ const styles = {
 };
 
 const Template = (args) => (
-  <Div css={styles.wrapper} {...args}>
-    <Div
+  <Comp css={styles.wrapper} {...args}>
+    <Comp
       css={css`
         display: none;
       `}
@@ -172,98 +172,98 @@ const Template = (args) => (
           .
         </span>{' '}
       </p>
-    </Div>
+    </Comp>
     <hr />
     <h2
       css={css`
         font-size: 30px;
       `}
     >
-      <Div as="span" cssIframe="display:none;" css={styles.colorGold}>
+      <Comp as="span" cssIframe="display:none;" css={styles.colorGold}>
         Your screen size{' '}
-      </Div>
-      <Div as="span" cssNotIframe="display:none;">
+      </Comp>
+      <Comp as="span" cssNotIframe="display:none;">
         This page <span css={styles.colorGold}></span>
-      </Div>
+      </Comp>
       matches following <span css={styles.colorGold}>media queries</span>:
     </h2>
-    <Div as="code" css={styles.codeResults} cssLg="display:block;">
+    <Comp as="code" css={styles.codeResults} cssLg="display:block;">
       cssLg
-    </Div>
-    <Div as="code" css={styles.codeResults} cssSm="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssSm="display:block;">
       cssSm
-    </Div>
-    <Div as="code" css={styles.codeResults} cssDesktop="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssDesktop="display:block;">
       cssDesktop
-    </Div>
-    <Div as="code" css={styles.codeResults} cssMobile="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssMobile="display:block;">
       cssMobile
-    </Div>
-    <Div as="code" css={styles.codeResults} cssLargeTablet="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssLargeTablet="display:block;">
       cssLargeTablet
-    </Div>
-    <Div as="code" css={styles.codeResults} cssTablet="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssTablet="display:block;">
       cssTablet
-    </Div>
-    <Div as="code" css={styles.codeResults} cssPhone="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssPhone="display:block;">
       cssPhone
-    </Div>
-    <Div as="code" css={styles.codeResults} cssSmallPhone="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssSmallPhone="display:block;">
       cssSmallPhone
-    </Div>
-    <Div as="code" css={styles.codeResults} cssLargeDesktop="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssLargeDesktop="display:block;">
       cssLargeDesktop
-    </Div>
-    <Div
+    </Comp>
+    <Comp
       as="code"
       css={styles.codeResults}
       cssVeryLargeDesktop="display:block;"
     >
       cssVeryLargeDesktop
-    </Div>
-    <Div as="code" css={styles.codeResults} cssIPhone="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssIPhone="display:block;">
       cssIPhone
-    </Div>
-    <Div as="code" css={styles.codeResults} cssIPad="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssIPad="display:block;">
       cssIPad
-    </Div>
-    <Div as="code" css={styles.codeResults} cssAndroid="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssAndroid="display:block;">
       cssAndroid
-    </Div>
-    <Div as="code" css={styles.codeResults} cssWindows="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssWindows="display:block;">
       cssWindows
-    </Div>
-    <Div as="code" css={styles.codeResults} cssMac="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssMac="display:block;">
       cssMac
-    </Div>
-    <Div as="code" css={styles.codeResults} cssLinux="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssLinux="display:block;">
       cssLinux
-    </Div>
-    <Div as="code" css={styles.codeResults} cssPortrait="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssPortrait="display:block;">
       cssPortrait
-    </Div>
-    <Div as="code" css={styles.codeResults} cssLandscape="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssLandscape="display:block;">
       cssLandscape
-    </Div>
-    <Div as="code" css={styles.codeResults} cssIframe="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssIframe="display:block;">
       cssIframe
-    </Div>
-    <Div as="code" css={styles.codeResults} cssNotIframe="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssNotIframe="display:block;">
       cssNotIframe
-    </Div>
-    <Div as="code" css={styles.codeResults} cssNotPhone="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssNotPhone="display:block;">
       cssNotPhone
-    </Div>
-    <Div as="code" css={styles.codeResults} cssWebview="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssWebview="display:block;">
       cssWebview
-    </Div>
-    <Div as="code" css={styles.codeResults} cssNotWebview="display:block;">
+    </Comp>
+    <Comp as="code" css={styles.codeResults} cssNotWebview="display:block;">
       cssNotWebview
-    </Div>
+    </Comp>
     <p>
       <br />
       Above values are responsive.{' '}
-      <Div as="span" cssNotIframe="display:none;">
+      <Comp as="span" cssNotIframe="display:none;">
         Resize your screen or open this component{' '}
         <a
           href="iframe.html?id=layout-atoms-div-style-props--div-style-props&viewMode=story"
@@ -272,9 +272,9 @@ const Template = (args) => (
           in its own tab
         </a>
         .
-      </Div>
+      </Comp>
     </p>
-    <Div as="p" cssNotIframe="display:none;" css={styles.colorGold}>
+    <Comp as="p" cssNotIframe="display:none;" css={styles.colorGold}>
       If you{' '}
       <a
         href="iframe.html?id=layout-atoms-div-style-props--div-style-props&viewMode=story"
@@ -283,7 +283,7 @@ const Template = (args) => (
         open this outside of Storybook
       </a>
       , all references to Storybook will become hidden!
-    </Div>
+    </Comp>
     <p>
       <i
         css={css`
@@ -292,13 +292,13 @@ const Template = (args) => (
       >
         This story's source code is actually a great example of using this
         component to style for multiple devices.{' '}
-        <Div as="b" cssNotIframe="display:none;" css={styles.colorGold}>
+        <Comp as="b" cssNotIframe="display:none;" css={styles.colorGold}>
           {' '}
           Click "Show code" ↘↘↘
-        </Div>
+        </Comp>
       </i>
     </p>
-  </Div>
+  </Comp>
 );
-export const CSSProps = Template.bind({});
-CSSProps.args = {};
+export const Div = Template.bind({});
+Div.args = {};

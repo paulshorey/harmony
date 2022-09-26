@@ -2,15 +2,15 @@ import { css } from '@emotion/react';
 import vars from '@ps/ui/styles/vars';
 import React from 'react';
 
-import Center from '../Center';
+import Center from '../Centered';
 import TheComponent from '.';
 
 export default {
   component: TheComponent,
-  title: 'layout/molecules/Grid4TitleTextImage',
+  title: 'content/Grid4TitleTextImage',
 };
 
-export const Template = ({ args }) => (
+const Template = ({ args }) => (
   <Center>
     <TheComponent
       variant={'title-image-text-image'}

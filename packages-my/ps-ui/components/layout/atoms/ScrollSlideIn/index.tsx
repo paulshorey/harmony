@@ -1,15 +1,15 @@
 /* eslint-disable max-depth */
 import { css } from '@emotion/react';
-import get_query_param from '@ps/fn/browser/url/get_query_param';
 import Div from '@ps/ui/components/layout/atoms/Div';
 // import useIsInView from '@ps/ui/hooks/useIsInview';
 import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-cool-inview';
 
-const isBetween = (value, min, max) => value && value >= min && value <= max;
+const isBetween = (value: number, min: number, max: number) =>
+  value && value >= min && value <= max;
 
 const styles = {
-  wrapper: (visible, slideInFrom) =>
+  wrapper: (visible: boolean, slideInFrom: 'left' | 'right') =>
     css`
       position: relative;
 
@@ -26,17 +26,24 @@ const styles = {
       `}
     `,
 };
+type Props = {
+  as?: string;
+  children?: React.ReactNode;
+  className?: string;
+  slideInFrom?: 'left' | 'right';
+  // visibleInitially?: boolean;
+};
 
 const ScrollSlideIn = ({
   as = 'div',
   children,
   className = '',
   slideInFrom = 'right',
-  visibleInitially = false,
+  // visibleInitially = false,
   ...props
-}) => {
-  let enterLeaveTimeout;
-  const ref1 = React.createRef();
+}: Props) => {
+  let enterLeaveTimeout: ReturnType<typeof setTimeout>;
+  const ref1 = React.createRef<any>(); // react ref type
   const [disabled, set_disabled] = useState(false);
   // observe
   // BY DEFAULT, all are visible, to prevent any SEO issues with bots and for people with JavaScript disabled
@@ -76,7 +83,7 @@ const ScrollSlideIn = ({
       // if enabled, then
       // hide all elements that are not in view
       // must do this manually, because useInView only works reliably for onEnter/onLeave, not actually inView
-      if (ref1?.current && ref1.current.getBoundingClientRect) {
+      if (ref1?.current && ref1.current?.getBoundingClientRect) {
         const rect = ref1.current.getBoundingClientRect();
         if (rect && rect.top && rect.left && rect.bottom && rect.right) {
           if (
