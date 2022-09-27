@@ -1,18 +1,17 @@
 import { css } from '@emotion/react';
 import disableDefaultArgs from '@ps/ui/.storybook/utils/disable-default-args';
 
-import Gradient from '.';
+import Comp from '.';
 
 export default {
-  title: 'content/GradientBackground',
-  component: Gradient,
+  component: Comp,
   argTypes: {
     ...disableDefaultArgs,
   },
   parameters: {
     docs: {
       description: {
-        component: `This is a \`<Gradient>\` inside a \`<Card>\`. Because the background for all these Storybook components is also a default \`<Gradient>\` component.
+        component: `This is a \`<GradientBackground>\` inside a \`<Card>\`. Because the background for all these Storybook components is also a default \`<GradientBackground>\` component.
         
 Use the props to change gradient colors/direction/style. Pass a variant to choose from predefined styles. Work in progreess.
         `,
@@ -21,7 +20,7 @@ Use the props to change gradient colors/direction/style. Pass a variant to choos
   },
 };
 
-const Template = (args: any) => <Gradient {...args} />;
+const Template = (args: any) => <Comp {...args} />;
 
 export const GradientBackground = Template.bind({});
 GradientBackground.args = {

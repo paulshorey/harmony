@@ -31,6 +31,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-actions',
+    './addons/expand-all/register.js',
     // '@storybook/addon-viewport',
     // '@degjs/storybook-addon-taffy/register',
     // '@storybook/addon-links',

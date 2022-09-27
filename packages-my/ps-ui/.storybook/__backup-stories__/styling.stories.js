@@ -5,7 +5,7 @@ import Div from '@ps/ui/components/layout/atoms/Div';
 
 export default {
   component: Div,
-  title: 'CSS in JS',
+  title: 'Styling System',
   parameters: {
     // viewMode: 'canvas',
     // previewTabs: {

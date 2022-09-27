@@ -1,4 +1,4 @@
-import Div from '@ps/ui/components/layout/atoms/Div';
+import Div, { DivProps } from '@ps/ui/components/layout/atoms/Div';
 import useVariants from 'hooks/useVariants';
 import { FC } from 'react';
 
@@ -9,7 +9,7 @@ type StyleProps = {
   variants?: Array<string>;
   as?: string;
 };
-type Props = StyleProps;
+type Props = DivProps & StyleProps;
 
 /**
  * This works in a very specific way. See code:

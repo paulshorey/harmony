@@ -20,7 +20,14 @@ type Props = {
  * ```
  * This will apply `styles.default` (if exists), then `styles.primary`, then `styles.disabled`
  */
-const _ = function ({ label, style, styles, theme, variant, variants }: Props) {
+const _ = function ({
+  label,
+  style,
+  styles,
+  theme,
+  variant,
+  variants,
+}: Props): string {
   // Sometimes (atoms/Grid) we may want to modify the theme for a specific component.
   if (!theme) {
     theme = useTheme();

@@ -1,7 +1,7 @@
 import { addons } from '@storybook/addons';
 import React from 'react';
 import GlobalStyles from '../styles';
-import Gradient from '@ps/ui/components/layout/molecules/Gradient';
+import Gradient from '../components/layout/molecules/GradientBackground';
 import { css } from '@emotion/react';
 import theme from './theme';
 
@@ -14,13 +14,17 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   // https://storybook.js.org/docs/react/writing-stories/naming-components-and-hierarchy
   options: {
-    // storySort: (a, b) =>
-    //   a[1].kind === b[1].kind
-    //     ? 0
-    //     : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
-    storySort: {
-      order: ['Styling', 'CSS Props'],
+    storySort: (a, b) => {
+      // if (b.toLowerCase() === 'about') {
+      //   return 1;
+      // }
+      return a[1].kind === b[1].kind
+        ? 0
+        : a[1].id.localeCompare(b[1].id, undefined, { numeric: true });
     },
+    // storySort: {
+    //   order: ['Styling System', 'CSS Props', 'About', 'Intro'],
+    // },
   },
   docs: {
     theme,

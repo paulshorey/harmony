@@ -5,7 +5,6 @@ import Comp from '.';
 
 export default {
   component: Comp,
-  title: 'content/Scroll Slide In',
   argTypes: {
     ...disableArgs,
   },

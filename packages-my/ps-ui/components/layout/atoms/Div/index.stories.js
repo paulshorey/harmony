@@ -5,7 +5,6 @@ import Comp from '.';
 
 export default {
   component: Comp,
-  title: 'atoms/Div',
   parameters: {
     viewMode: 'docs',
     previewTabs: {

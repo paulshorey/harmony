@@ -5,7 +5,6 @@ import React from 'react';
 import Center from '.';
 
 export default {
-  title: 'content/Centered',
   component: Center,
   argTypes: {
     ...disableDefaultArgs,

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
+import emotion_variants from '@ps/fn/browser/style/emotion_variants';
 import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
-import emotion_variants from '@ps/fn/browser/style/emotion_variants';
 
 import styles from './styles';
 

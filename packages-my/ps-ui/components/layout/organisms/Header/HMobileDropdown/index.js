@@ -1,12 +1,13 @@
-import React from 'react';
 import { css, useTheme } from '@emotion/react';
-import styles from './styles';
+import Link from '@ps/ui/components/atoms/Link';
 import Button from '@ps/ui/components/layout/molecules/Button';
-import Center from '@ps/ui/components/layout/molecules/Center';
+import Center from '@ps/ui/components/layout/molecules/Centered';
+import { makeLinkPaths } from '@ps/ui/components/layout/organisms/Header';
 import AppLoginLink from '@ps/ui/components/molecules/AppLoginLink';
 import AppSignupLink from '@ps/ui/components/molecules/AppSignupLink';
-import Link from '@ps/ui/components/atoms/Link';
-import { makeLinkPaths } from '@ps/ui/components/layout/organisms/Header';
+import React from 'react';
+
+import styles from './styles';
 
 const HMobileDropdown = ({
   paths,

@@ -1,13 +1,12 @@
 import { css } from '@emotion/react';
+import Center from '@ps/ui/components/layout/molecules/Centered';
 import vars from '@ps/ui/styles/vars';
 import React from 'react';
 
-import Center from '../Centered';
 import TheComponent from '.';
 
 export default {
   component: TheComponent,
-  title: 'content/Grid4TitleTextImage',
 };
 
 const Template = ({ args }) => (

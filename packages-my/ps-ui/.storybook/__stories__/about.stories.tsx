@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import React from 'react';
 
 export default {
-  title: 'Styling',
+  title: 'About',
   parameters: {
     docs: {
       source: {
@@ -38,5 +38,5 @@ const styles = {
 };
 
 const Template = (args) => <div css={styles.wrapper} {...args}></div>;
-export const Styling = Template.bind({});
-Styling.args = {};
+export const About = Template.bind({});
+About.args = {};
