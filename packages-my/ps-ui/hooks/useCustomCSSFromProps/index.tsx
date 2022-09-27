@@ -1,11 +1,14 @@
 import { css } from '@emotion/react';
 import emotionToString from '@ps/fn/browser/style/emotion_to_string';
-import { CustomCSSProps } from '@ps/ui/components/types';
+import { CustomCSSProps, EmotionCSSType } from '@ps/ui/components/types';
 import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
 import vars from '@ps/ui/styles/vars';
-// import { useState } from 'react';
 
 type Props = CustomCSSProps;
+type Output = {
+  otherProps: Record<string, any>;
+  cssFromProps: EmotionCSSType;
+};
 
 const useOpen = ({
   cssAndroid = '',
@@ -33,9 +36,9 @@ const useOpen = ({
   cssWebview = '',
   cssWindows = '',
   ...otherProps
-}: Props) => {
-  // const [outputCSS, set_outputCSS] = useState<boolean>(
-  //   Boolean(props?.outputCSS)
+}: Props): Output => {
+  // const [cssFromProps, set_cssFromProps] = useState<boolean>(
+  //   Boolean(props?.cssFromProps)
   // );
 
   const deviceInfo =
@@ -52,7 +55,7 @@ const useOpen = ({
       ? useDeviceInfo()
       : undefined;
 
-  const outputCSS = css`
+  const cssFromProps = css`
     /* Must wrap the custom styles in &.Div {} to make specificity more important than default props.css. */
     &.Div {
       ${cssIframe &&
@@ -234,7 +237,7 @@ const useOpen = ({
   `;
 
   return {
-    outputCSS,
+    cssFromProps,
     otherProps,
   };
 };

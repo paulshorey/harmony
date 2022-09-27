@@ -3,27 +3,56 @@ import vars from '@ps/ui/styles/vars';
 
 export default {
   default: css`
-    background: ${vars.colors.pink};
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-size: 18px;
-    line-height: 1;
-    font-weight: 400;
+    overflow: hidden;
+    padding: 12px 24px;
+    border-radius: 7px;
+    background-color: white;
+    color: black;
+    position: relative;
+    display: inline-block;
     cursor: pointer;
-    white-space: nowrap;
-    font-family: ${vars.fonts.greycliff};
-    letter-spacing: 0.3px;
 
-    > span {
-      display: block;
-      padding: 15px 52px 17px;
-      overflow: visible;
+    span {
+      position: relative;
+      transition: color 0.6s cubic-bezier(0.53, 0.21, 0, 1);
     }
 
-    > span > span {
+    &:before {
+      content: '';
       display: block;
-      overflow: visible;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: hsl(244, 63%, 69%);
+      transform: scaleX(0);
+      transform-origin: 100% 100%;
+      transition: transform 0.6s cubic-bezier(0.53, 0.21, 0, 1);
+    }
+
+    &:hover {
+      &:before {
+        transform-origin: 0 0;
+        transform: scaleX(1);
+      }
+
+      span {
+        color: white;
+      }
+    }
+  `,
+  pulsing: css`
+    padding: 12px 24px;
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1);
+    animation: pulse 1.5s infinite cubic-bezier(0.66, 0, 0, 1);
+    @keyframes pulse {
+      to {
+        box-shadow: 0 0 0 30px rgba(255, 255, 255, 0);
+      }
     }
   `,
   glowing: css`

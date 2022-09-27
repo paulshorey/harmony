@@ -2,7 +2,8 @@ import { css } from '@emotion/react';
 import React from 'react';
 
 export default {
-  title: 'About',
+  id: 'aboutlibrary',
+  title: 'Why Another UI Library',
   parameters: {
     docs: {
       source: {
@@ -38,5 +39,5 @@ const styles = {
 };
 
 const Template = (args) => <div css={styles.wrapper} {...args}></div>;
-export const About = Template.bind({});
-About.args = {};
+export const WhyAnotherUILibrary = Template.bind({});
+WhyAnotherUILibrary.args = {};

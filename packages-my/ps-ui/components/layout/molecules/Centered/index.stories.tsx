@@ -2,21 +2,25 @@ import { css } from '@emotion/react';
 import disableDefaultArgs from '@ps/ui/.storybook/utils/disable-default-args';
 import React from 'react';
 
-import Center from '.';
+import Comp from '.';
 
 export default {
-  component: Center,
+  component: Comp,
   argTypes: {
     ...disableDefaultArgs,
   },
 };
 
-const Template = (args: any) => <Center {...args} />;
+const Template = (args: any) => <Comp {...args} />;
 
 export const Centered = Template.bind({});
 Centered.args = {
   css: css`
     max-width: 400px;
+    &,
+    & > * {
+      color: white;
+    }
   `,
   children: (
     <>

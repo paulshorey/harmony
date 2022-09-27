@@ -2,31 +2,37 @@ import { SerializedStyles } from '@emotion/react';
 
 export type EmotionCSSType = (() => any) | Record<any, any> | SerializedStyles;
 
+export type VariantsCSSType = {
+  /**
+   * Render one or multiple variants. Pass as array to variants, or space separated string to variant.
+   */
+  variants?: Array<string>;
+  variant?: string;
+};
+
 export type ReactElementProps = {
   /**
-   * Can be any EmotionJS css\`\` type. asdfdf Can NOT accept string type. Wrap your string in css\`\`.
-   * This will be applied outside of any media queries. Standard EmotionJS usage.
-   * The other variants of css (cssLg, cssSm, cssPhone) additionally accept string type for convenience.
-   * Those will be used inside of specialized media queries.
+   * This will be applied outside of any media queries. Standard EmotionJS.
+   * The other css props (cssLg, cssSm, cssPhone) accept string type. This does not.
    */
   css?: EmotionCSSType;
   /**
-   * React ref to pass to the rendered element.
+   * React ref to pass to the rendered element, using React.forwardRef.
    */
   ref?: any;
 };
 
 export type CustomCSSProps = {
   /**
-   * HTML element tag name to render. Defaults to 'div'.
+   * HTML element tag to render instead of the component's default. Same as styled-system.
    */
   as?: string;
   /**
-   * `@media (min-width: 931px)` - Does not target any specific device. Mostly desktop, some tablets. This is simply the size where a desktop layout looks good.
+   * `@media (min-width: 931px)` - Does not target any specific device. Mostly desktop, some tablets. 931px is an arbitrary number. It's just the minimum width where desktop designs look good. Below this, it's very hard to fit all the desktop content.
    */
   cssLg?: EmotionCSSType | string;
   /**
-   * `@media (max-width: 930px)` - Does not target any specific device. Some desktop, some tablets, but mostly phones. Below 931px wide, desktop layout (full header, left sidebar) does not look good.
+   * `@media (max-width: 930px)` - Does not target any specific device. Some desktop, some tablets, but mostly phones. This complements cssLg.
    */
   cssSm?: EmotionCSSType | string;
 

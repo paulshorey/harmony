@@ -1,5 +1,9 @@
 // import { css, jsx, useTheme } from '@emotion/react';
-import { CustomCSSProps, ReactElementProps } from '@ps/ui/components/types';
+import {
+  CustomCSSProps,
+  ReactElementProps,
+  VariantsCSSType,
+} from '@ps/ui/components/types';
 import useCustomCSSFromProps from '@ps/ui/hooks/useCustomCSSFromProps';
 import useVariants from '@ps/ui/hooks/useVariants';
 import React, { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
@@ -18,17 +22,13 @@ export type ButtonProps = ButtonHTMLAttributes<
   HTMLElement & HTMLButtonElement
 > &
   (ReactElementProps &
-    (CustomCSSProps & {
-      /**
-       * Just the HTML attribute disabled
-       */
-      disabled?: boolean;
-      /**
-       * asdf
-       */
-      variants?: Array<string>;
-      variant?: string;
-    }));
+    (VariantsCSSType &
+      (CustomCSSProps & {
+        /**
+         * Just the HTML attribute disabled
+         */
+        disabled?: boolean;
+      })));
 
 /**
  * This is an alternative to styled-system (which is not good for apps/sites that uses a lot of css).
@@ -36,29 +36,34 @@ export type ButtonProps = ButtonHTMLAttributes<
  */
 const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { children, className = '', variant, variants = [], disabled, ...props },
+    {
+      children,
+      as,
+      className = '',
+      variant,
+      variants = [],
+      disabled,
+      ...props
+    },
     refFromParent
   ) => {
-    // Convert string to DOM element. Ex: "p" will become <p> element.
-    // Up to developer to make sure {...HTMLAttributes} are valid. Webpack will print console warning if not.
-    // See also https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-    const { otherProps: HTMLAttributes, outputCSS } =
-      useCustomCSSFromProps(props);
+    const TagName = `${as}` as any;
+    const { cssFromProps, otherProps } = useCustomCSSFromProps(props);
     return (
-      <button
-        {...HTMLAttributes}
+      <TagName
+        {...otherProps}
         disabled={disabled}
         ref={refFromParent}
         className={`Button ${className ? ' ' + className : ''}`} // className "Div" refers to this dir name, not tag name
-        css={
-          outputCSS +
+        css={[
+          cssFromProps,
           useVariants({
             label: 'Button',
             styles,
             variant,
             variants,
-          })
-        }
+          }),
+        ]}
       >
         <Center>
           <span>
@@ -66,7 +71,7 @@ const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
             {new Date().getSeconds()}
           </span>
         </Center>
-      </button>
+      </TagName>
     );
   }
 );

@@ -1,17 +1,15 @@
-import { css } from '@emotion/react';
 import Center from '@ps/ui/components/layout/molecules/Centered';
-import vars from '@ps/ui/styles/vars';
 import React from 'react';
 
-import TheComponent from '.';
+import Comp from '.';
 
 export default {
-  component: TheComponent,
+  component: Comp,
 };
 
 const Template = ({ args }) => (
   <Center>
-    <TheComponent
+    <Comp
       variant={'title-image-text-image'}
       image={
         <img src="https://cdn.sstatic.net/Img/teams/teams-illo-free-sidebar-promo.svg?v=47faa659a05e" />
@@ -23,6 +21,7 @@ const Template = ({ args }) => (
         </p>
       }
       title={<h1>This is the title</h1>}
+      {...args}
     />
   </Center>
 );

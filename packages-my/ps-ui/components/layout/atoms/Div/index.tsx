@@ -6,7 +6,13 @@ import { FC, forwardRef, HTMLAttributes, memo } from 'react';
  * For interactive form elements, use something more specific like components/form/atoms/Input.
  */
 export type DivProps = HTMLAttributes<HTMLDivElement> &
-  (ReactElementProps & CustomCSSProps);
+  (ReactElementProps &
+    (CustomCSSProps & {
+      /**
+       * Support for svg element:
+       */
+      viewBox?: string;
+    }));
 
 /**
  * This is an alternative to styled-system (which is not good for apps/sites that uses a lot of css).
@@ -14,18 +20,14 @@ export type DivProps = HTMLAttributes<HTMLDivElement> &
  */
 const Div: FC<DivProps> = forwardRef(
   ({ as = 'div', children, className = '', ...props }, refFromParent) => {
-    // Convert string to DOM element. Ex: "p" will become <p> element.
     const TagName = `${as}` as any;
-    // Up to developer to make sure {...HTMLAttributes} are valid. Webpack will print console warning if not.
-    // See also https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
-    const { otherProps: HTMLAttributes, outputCSS } =
-      useCustomCSSFromProps(props);
+    const { cssFromProps, otherProps } = useCustomCSSFromProps(props);
     return (
       <TagName
-        {...HTMLAttributes}
+        {...otherProps}
         ref={refFromParent}
         className={`Div ${className ? ' ' + className : ''}`} // className "Div" refers to this dir name, not tag name
-        css={outputCSS}
+        css={cssFromProps}
       >
         {children}
       </TagName>

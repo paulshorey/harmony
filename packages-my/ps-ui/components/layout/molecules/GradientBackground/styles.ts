@@ -10,9 +10,5 @@ export default {
       hsl(272 51% 54%) 0%,
       hsl(226 70% 55%) 100%
     );
-    color: white;
-    * {
-      color: white;
-    }
   `,
 };

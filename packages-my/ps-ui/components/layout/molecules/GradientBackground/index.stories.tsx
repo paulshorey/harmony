@@ -27,6 +27,10 @@ GradientBackground.args = {
   children: (
     <div
       css={css`
+        &,
+        & > * {
+          color: white;
+        }
         padding: 100px;
         border: 2px solid white;
         border-radius: 25px;

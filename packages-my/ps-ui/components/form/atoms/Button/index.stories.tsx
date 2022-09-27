@@ -8,20 +8,18 @@ const handleClick = action('Button clicked');
 
 export default {
   component: Comp,
-  argTypes: {
-    ...disableDefaultArgs,
-  },
 };
 
 const Template = (args: any) => <Comp {...args} />;
 const variants = Object.keys(styles);
 const argTypes = {
-  variant: {
-    control: { type: 'select' },
-    options: variants,
-  },
+  ...disableDefaultArgs,
+  onClick: { table: { disable: true } },
+  variant: { table: { disable: true } },
   variants: {
-    control: { type: 'multi-select' },
+    control: {
+      type: 'multi-select',
+    },
     options: variants, // Automatically inferred when 'options' is defined
   },
 };
