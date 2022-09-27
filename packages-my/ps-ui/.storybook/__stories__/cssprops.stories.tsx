@@ -65,7 +65,7 @@ const codeStyles = {
   `,
 };
 
-export const CustomStyleProps = ({ args }) => {
+export const SimpleStyleStrings = ({ args }) => {
   return (
     <Div {...containerStyleProps}>
       <h5>
@@ -74,7 +74,7 @@ export const CustomStyleProps = ({ args }) => {
       </h5>
       <pre>{`<Div `}</pre>
       <Div as="code" {...codeStyles} style={{ display: 'block' }}>
-        css
+        csss
       </Div>
       <Div as="code" {...codeStyles} cssLg="display:block;">
         cssLg
@@ -192,7 +192,7 @@ export const CustomStyleProps = ({ args }) => {
 export default {
   component: Div,
   id: 'aboutcssprops',
-  title: 'Custom Style Props',
+  title: 'Simple Style Strings',
   argTypes: {},
   isExpanded: true,
   parameters: {
