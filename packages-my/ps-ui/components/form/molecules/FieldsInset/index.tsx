@@ -1,4 +1,4 @@
-import Div, { DivProps } from '@ps/ui/components/content/atoms/Div';
+import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
 import Button from 'components/form/atoms/Button';
 import Input from 'components/form/atoms/Input';
 import useVariants from 'hooks/useVariants';
@@ -10,7 +10,7 @@ type StyleProps = {
   variant?: string;
   variants?: Array<string>;
 };
-type Props = DivProps & StyleProps;
+type Props = BlockProps & StyleProps;
 
 /**
  * code
@@ -21,7 +21,7 @@ const FieldsInset: FC<Props> = ({
   ...props
 }) => {
   return (
-    <Div
+    <Block
       css={useVariants({
         styles,
         variant, // see index.stories.js for example usage
@@ -32,7 +32,7 @@ const FieldsInset: FC<Props> = ({
     >
       <Input value="InputValue" />
       <Button>Button</Button>
-    </Div>
+    </Block>
   );
 };
 

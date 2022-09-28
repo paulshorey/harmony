@@ -58,7 +58,7 @@ const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
         {...otherProps}
         disabled={disabled}
         ref={refFromParent}
-        className={`Button ${className ? ' ' + className : ''}`} // className "Div" refers to this dir name, not tag name
+        className={`Button ${className ? ' ' + className : ''}`} // className "Block" refers to this dir name, not tag name
         css={[
           mqFromProps,
           useVariants({

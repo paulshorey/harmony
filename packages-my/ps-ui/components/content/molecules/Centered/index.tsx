@@ -1,4 +1,4 @@
-import Div, { DivProps } from '@ps/ui/components/content/atoms/Div';
+import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
 import useVariants from 'hooks/useVariants';
 import { FC } from 'react';
 
@@ -9,15 +9,16 @@ type StyleProps = {
   variants?: Array<string>;
   as?: string;
 };
-type Props = DivProps & StyleProps;
+type Props = BlockProps & StyleProps;
 
 /**
- * This works in a very specific way. See code:
  * ```<Centered as="p" style="width:200px">
  *   This text fits in a narrow column because it wraps to several lines...
  *   <span style="white-space:nowrap">This text is wider than 200px but can't wrap!</span>
  * </Centered>```
- * In the above example, the `span` will not fit the layout because of `white-space:nowrap`. It will stick out to the left and right. BUT it will still be centered in relation to the surrounding content.`.
+ * In this example, the `span` will not fit the column because of `white-space:nowrap`. It will stick out to the left and right. BUT with the help of \<Centered\>, it will still be centered in relation to the surrounding content.`.
+ *
+ * You must pass `props.width` for the magic to work. Otherwise it will just function like `text-align:center`.
  */
 const Centered: FC<Props> = ({
   as = 'div',
@@ -27,7 +28,7 @@ const Centered: FC<Props> = ({
   ...props
 }) => {
   return (
-    <Div
+    <Block
       as={as}
       css={useVariants({
         styles,
@@ -38,7 +39,7 @@ const Centered: FC<Props> = ({
       {...props}
     >
       {children}
-    </Div>
+    </Block>
   );
 };
 

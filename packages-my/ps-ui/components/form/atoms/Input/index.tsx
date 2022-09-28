@@ -51,7 +51,7 @@ const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
         value={value}
         disabled={disabled}
         ref={refFromParent}
-        className={`Input ${className ? ' ' + className : ''}`} // className "Div" refers to this dir name, not tag name
+        className={`Input ${className ? ' ' + className : ''}`} // className "Block" refers to this dir name, not tag name
         css={[
           mqFromProps,
           useVariants({

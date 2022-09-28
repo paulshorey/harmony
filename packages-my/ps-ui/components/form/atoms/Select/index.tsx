@@ -53,7 +53,7 @@ const Select: FC<SelectProps> = forwardRef<HTMLSelectElement, SelectProps>(
         value={value}
         disabled={disabled}
         ref={refFromParent}
-        className={`Select ${className ? ' ' + className : ''}`} // className "Div" refers to this dir name, not tag name
+        className={`Select ${className ? ' ' + className : ''}`} // className "Block" refers to this dir name, not tag name
         css={[
           mqFromProps,
           useVariants({

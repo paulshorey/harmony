@@ -1,10 +1,10 @@
-import Div, { DivProps } from '@ps/ui/components/content/atoms/Div';
+import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
 import useVariants from 'hooks/useVariants';
 import { FC } from 'react';
 
 import styles from './styles';
 
-type Props = DivProps & {
+type Props = BlockProps & {
   variant?: string;
   variants?: Array<string>;
   as?: string;
@@ -16,7 +16,7 @@ type Props = DivProps & {
  */
 const Gradient: FC<Props> = ({ as = 'span', variant, variants, ...props }) => {
   return (
-    <Div
+    <Block
       as={as}
       css={useVariants({
         styles,

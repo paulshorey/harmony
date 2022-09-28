@@ -1,4 +1,4 @@
-import Div, { DivProps } from '@ps/ui/components/content/atoms/Div';
+import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
 import useCopyToClipboard from 'hooks/useCopyToClipboard';
 import useVariants from 'hooks/useVariants';
 import { FC } from 'react';
@@ -10,7 +10,7 @@ type StyleProps = {
   variants?: Array<string>;
   string: string;
 };
-type Props = DivProps & StyleProps;
+type Props = BlockProps & StyleProps;
 
 /**
  * code
@@ -24,7 +24,7 @@ const code: FC<Props> = ({
 }) => {
   const [copied, copyToClipboard] = useCopyToClipboard();
   return (
-    <Div
+    <Block
       as={as}
       css={useVariants({
         styles,
@@ -43,7 +43,7 @@ const code: FC<Props> = ({
       >
         {copied ? 'copied' : 'copy'}
       </button>
-    </Div>
+    </Block>
   );
 };
 

@@ -39,14 +39,13 @@ Centered.args = {
       sides, instead of just on one side.
       <p>
         <br />
-        <b>It's hard to explain this use case. Hope this makes sense. </b>You
-        would not actually use this for very long text, just short titles where
-        one of the lines has className="nowrap". Also it's usually only a
-        problem with mobile sizes.
+        You wouldn't need to use this for very long text, just short titles
+        where one of the lines has{' '}
+        <span className="nowrap">`white-space:nowrap`</span>.
       </p>
       <p>
-        If you don't set a width, then it will behave like a normal element with
-        text-align:center
+        If you don't set a width, then it will simply behave like plain old{' '}
+        <span className="nowrap">`text-align:center`</span>
       </p>
     </>
   ),

@@ -56,8 +56,8 @@ const useOpen = ({
       : undefined;
 
   const mqFromProps = css`
-    /* Must wrap the custom styles in &.Div {} to make specificity more important than default props.css. */
-    &.Div {
+    /* Must wrap the custom styles in &.Block {} to make specificity more important than default props.css. */
+    &.Block {
       ${mqIframe &&
       `
       ${

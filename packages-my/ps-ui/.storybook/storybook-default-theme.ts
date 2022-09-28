@@ -1,7 +1,9 @@
-var color = {
+var colors = {
+  // primary: '#FF4785',
+  // secondary: '#1EA7FD',
   // Official color palette
-  primary: '#FF4785',
-  secondary: '#1EA7FD',
+  primary: 'hsl(350deg 70% 70%)',
+  secondary: 'hsl(250deg 70% 70%)',
   tertiary: '#FAFBFC',
   ancillary: '#22a699',
   // Complimentary
@@ -78,30 +80,45 @@ var typography = {
 };
 
 const theme = {
-  base: 'dark',
+  key: 'default',
+  title: 'Default',
+
+  colorScheme: 'dark',
+  i18n: { locale: 'en-US' },
+
+  colors,
   // Storybook-specific color palette
-  colorPrimary: '#FF4785',
-  colorSecondary: '#1EA7FD',
-  // UI
-  appBg: '#2f2f2f',
-  appContentBg: color.darkest,
-  appBorderColor: 'rgba(255,255,255,.1)',
-  appBorderRadius: 4,
-  // Fonts
+  colorPrimary: colors.primary,
+  colorSecondary: colors.secondary,
+
+  // Typography
   fontBase: typography.fonts.base,
   fontCode: typography.fonts.mono,
+
+  base: 'dark',
+  brandTitle: 'My custom storybook',
+  brandUrl: '/',
+  brandImage: 'https://place-hold.it/350x150',
+  brandTarget: '_self',
+
+  //
+  // UI
+  appBg: '#2f2f2f',
+  appContentBg: colors.darkest,
+  appBorderColor: 'rgba(255,255,255,.1)',
+  appBorderRadius: 4,
   // Text colors
-  textColor: color.lightest,
-  textInverseColor: color.darkest,
-  textMutedColor: color.mediumdark,
+  textColor: colors.lightest,
+  textInverseColor: colors.darkest,
+  textMutedColor: colors.mediumdark,
   // Toolbar default and active colors
   barTextColor: '#999999',
-  barSelectedColor: color.secondary,
-  barBg: color.darkest,
+  barSelectedColor: colors.secondary,
+  barBg: colors.darkest,
   // Form colors
   inputBg: '#3f3f3f',
   inputBorder: 'rgba(0,0,0,.3)',
-  inputTextColor: color.lightest,
+  inputTextColor: colors.lightest,
   inputBorderRadius: 4,
 };
 

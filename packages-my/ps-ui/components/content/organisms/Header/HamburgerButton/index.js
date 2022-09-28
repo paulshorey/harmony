@@ -1,5 +1,5 @@
 import { css, useTheme } from '@emotion/react';
-import Div from '@ps/ui/components/content/atoms/Div';
+import Block from '@ps/ui/components/content/atoms/Block';
 import vars from '@ps/ui/styles/vars';
 
 const styles = {
@@ -51,29 +51,29 @@ const HamburgerButton = ({
   ...props
 }) => {
   return (
-    <Div
+    <Block
       as="span"
       className={`HamburgerButton ${className ? ' ' + className : ''}`}
       css={styles.wrapper(opened)}
       {...props}
     >
       {opened ? (
-        <Div
+        <Block
           as="span"
           css={styles.icon(opened, isScrolled, inWhitePage)}
           className={'icon icon-x'}
         />
       ) : (
-        <Div
+        <Block
           as="span"
           css={[styles.icon(opened, isScrolled, inWhitePage), css``]}
         >
           <span />
           <span />
           <span />
-        </Div>
+        </Block>
       )}
-    </Div>
+    </Block>
   );
 };
 

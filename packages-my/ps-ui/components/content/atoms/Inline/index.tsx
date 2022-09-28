@@ -1,17 +1,21 @@
-import { CustomCSSProps, ReactElementProps } from '@ps/ui/components/types';
+import {
+  CustomCSSProps,
+  HtmlContainerTags,
+  ReactElementProps,
+} from '@ps/ui/components/types';
 import useCustomCSSFromProps from '@ps/ui/hooks/useCustomCSSFromProps';
 import { FC, forwardRef, HTMLAttributes, memo } from 'react';
 /**
- * This is to render simple non-interactive read-only elements like span/div/p/h1/sup/a/center.
+ * This is to render simple non-interactive read-only elements like Inline/Span/p/h1/sup/a/center.
  * For interactive form elements, use something more specific like components/form/atoms/Input.
  */
-export type DivProps = HTMLAttributes<HTMLDivElement> &
+export type InlineProps = HTMLAttributes<HTMLSpanElement> &
   (ReactElementProps &
     (CustomCSSProps & {
       /**
-       * HTML element tag to render instead of the component's default
+       * HTML element tag to render instead of the default "span"
        */
-      as?: string;
+      as?: HtmlContainerTags;
       /**
        * Support for svg element
        */
@@ -22,15 +26,15 @@ export type DivProps = HTMLAttributes<HTMLDivElement> &
  * This is an alternative to styled-system (which is not good for apps/sites that uses a lot of css).
  * Styled-system only supports a subset of CSS, and it pollutes the props namespace, making it difficult to see which props are for styling and which are for logic.
  */
-const Div: FC<DivProps> = forwardRef(
-  ({ as = 'div', children, className = '', ...props }, refFromParent) => {
+const Inline: FC<InlineProps> = forwardRef(
+  ({ as = 'span', children, className = '', ...props }, refFromParent) => {
     const TagName = `${as}` as any;
     const { mqFromProps, otherProps } = useCustomCSSFromProps(props);
     return (
       <TagName
         {...otherProps}
         ref={refFromParent}
-        className={`Div ${className ? ' ' + className : ''}`} // className "Div" refers to this dir name, not tag name
+        className={`Inline ${className ? ' ' + className : ''}`} // className "Inline" refers to this dir name, not tag name
         css={mqFromProps}
       >
         {children}
@@ -39,4 +43,4 @@ const Div: FC<DivProps> = forwardRef(
   }
 );
 
-export default memo(Div);
+export default memo(Inline);

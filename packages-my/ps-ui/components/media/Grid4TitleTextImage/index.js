@@ -1,4 +1,4 @@
-import Div from '@ps/ui/components/content/atoms/Div';
+import Block from '@ps/ui/components/content/atoms/Block';
 import useVariants from '@ps/ui/hooks/useVariants';
 import React from 'react';
 
@@ -19,7 +19,7 @@ function Grid4TitleTextImage({
   ...props
 }) {
   return (
-    <Div
+    <Block
       {...props}
       className={'Grid4TitleTextImage ' + (className ? ` ${className}` : '')}
       css={useVariants({
@@ -32,7 +32,7 @@ function Grid4TitleTextImage({
       <div className="Grid4TitleTextImage-title">{title}</div>
       <div className="Grid4TitleTextImage-text">{text}</div>
       <div className="Grid4TitleTextImage-image">{image}</div>
-    </Div>
+    </Block>
   );
 }
 

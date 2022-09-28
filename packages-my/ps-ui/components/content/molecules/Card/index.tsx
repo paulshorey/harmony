@@ -1,4 +1,4 @@
-import Div, { DivProps } from '@ps/ui/components/content/atoms/Div';
+import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
 import useVariants from 'hooks/useVariants';
 import { FC } from 'react';
 
@@ -9,7 +9,7 @@ type StyleProps = {
   variants?: Array<string>;
   as?: string;
 };
-type Props = DivProps & StyleProps;
+type Props = BlockProps & StyleProps;
 
 /**
  * Card
@@ -22,7 +22,7 @@ const Card: FC<Props> = ({
   ...props
 }) => {
   return (
-    <Div
+    <Block
       as={as}
       css={useVariants({
         styles,
@@ -33,7 +33,7 @@ const Card: FC<Props> = ({
       {...props}
     >
       {children}
-    </Div>
+    </Block>
   );
 };
 

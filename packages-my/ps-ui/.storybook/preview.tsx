@@ -1,9 +1,10 @@
 import { addons } from '@storybook/addons';
 import React from 'react';
 import GlobalStyles from '../styles';
-import Gradient from '@ps/ui/components/media/GradientBackground';
+import Gradient from '../components/media/GradientBackground';
 import { css } from '@emotion/react';
-import theme from './theme';
+import theme from './storybook-theme';
+import Block from '../components/content/atoms/Block';
 
 const sortSidebarById = (a, b) => {
   // console.log('a', a, 'b', b);
@@ -61,34 +62,54 @@ export const decorators = [
       };
     }, []);
     return (
-      <Gradient
+      <div
         css={css`
-          position: relative;
-          width: 100%;
-          height: 100%;
-          // &:after {
-          //   content: '';
-          //   color: #ffd454;
-          //   position: absolute;
-          //   bottom: 0;
-          //   right: 0;
-          //   width: 3.5rem;
-          //   height: 0.67rem;
-          //   font-size: 10px;
-          //   border-radius: 20px;
-          //   box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.25);
-          // }
+          background: white;
         `}
-        mqLg={`
-      padding: 30px 30px 40px 30px;
-    `}
-        mqSm={`
-      padding: 20px 20px 30px 20px;;
-    `}
       >
         <GlobalStyles />
-        <Story {...context} />
-      </Gradient>
+        {/* <Block
+          mqLg={`
+      padding: 30px 30px 40px 30px;
+    `}
+          mqSm={`
+      padding: 20px 20px 30px 20px;
+    `}
+        >
+          <Story {...context} />
+        </Block> */}
+
+        {/* <Block
+          css={css`
+            display: block;
+            position: relative;
+            color: black;
+            font-size: 0.67rem;
+            opacity: 0.67;
+            font-weight: 600;
+            background: white;
+          `}
+          mqLg={`
+      padding: 0 30px 0 30px;
+    `}
+          mqSm={`
+      padding: 0 20px 0 20px;;
+    `}
+        >
+          Preview on dark background:
+        </Block> */}
+
+        <Gradient
+          mqLg={`
+      padding: 30px 30px 40px 30px;
+    `}
+          mqSm={`
+      padding: 20px 20px 30px 20px;;
+    `}
+        >
+          <Story {...context} />
+        </Gradient>
+      </div>
     );
   },
 ];

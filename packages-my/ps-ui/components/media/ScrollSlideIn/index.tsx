@@ -1,6 +1,6 @@
 /* eslint-disable max-depth */
 import { css } from '@emotion/react';
-import Div from '@ps/ui/components/content/atoms/Div';
+import Block from '@ps/ui/components/content/atoms/Block';
 // import useIsInView from '@ps/ui/hooks/useIsInview';
 import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-cool-inview';
@@ -104,16 +104,16 @@ const ScrollSlideIn = ({
   }, []);
 
   return (
-    <Div
+    <Block
       as={as}
       css={styles.wrapper(visible, slideInFrom)}
       className={`${visible ? 'visible' : 'hidden'} ${className}`}
       ref={ref1}
     >
-      <Div as={as === 'span' ? 'span' : 'div'} ref={ref2} {...props}>
+      <Block as={as === 'span' ? 'span' : 'div'} ref={ref2} {...props}>
         {children}
-      </Div>
-    </Div>
+      </Block>
+    </Block>
   );
 };
 

@@ -5,7 +5,7 @@ import {
   IconButton,
   TooltipLinkList,
 } from '@storybook/components';
-import AVAILABLE_THEMES, { DEFAULT_THEME } from '../themes';
+import AVAILABLE_THEMES, { DEFAULT_THEME } from '../../storybook-themes';
 
 const renderPrimaryColorDot = (theme_key: string) => (
   <div

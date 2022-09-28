@@ -1,5 +1,5 @@
 import React from 'react';
-import Div from '@ps/ui/components/content/atoms/Div';
+import Block from '@ps/ui/components/content/atoms/Block';
 import { css } from '@emotion/react';
 
 const colors = {
@@ -78,21 +78,21 @@ const codeStyles = {
   `,
 };
 
-export const VariablesAndThemes = ({ args }) => {
+export const VariantsAndThemes = ({ args }) => {
   return (
-    <Div {...containerStyleProps}>
+    <Block {...containerStyleProps}>
       <h5>
         These <span className="gold">props </span> would apply styles to your
         current <span className="orange">page size</span>:
       </h5>
-    </Div>
+    </Block>
   );
 };
 
 export default {
-  component: Div,
+  component: Block,
   id: '8',
-  title: 'Variables And Themes',
+  title: 'Variants And Themes',
   argTypes: {},
   isExpanded: true,
   parameters: {
