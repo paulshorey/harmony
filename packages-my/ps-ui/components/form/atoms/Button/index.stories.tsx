@@ -14,8 +14,6 @@ const Template = (args: any) => <Comp {...args} />;
 const variants = Object.keys(styles);
 const argTypes = {
   ...disableDefaultArgs,
-  onClick: { table: { disable: true } },
-  variant: { table: { disable: true } },
   variants: {
     control: {
       type: 'multi-select',

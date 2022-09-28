@@ -15,7 +15,7 @@ type Props = DivProps & StyleProps;
  * Title
  */
 const Title: FC<Props> = ({
-  as = 'div',
+  as = 'h3',
   children,
   variant = 'default',
   variants,

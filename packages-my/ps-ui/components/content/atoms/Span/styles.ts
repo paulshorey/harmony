@@ -2,10 +2,13 @@ import { css } from '@emotion/react';
 import vars from '@ps/ui/styles/vars';
 
 export default {
-  default: css`
+  default: css``,
+  yellow: css`
+    color: yellow;
+  `,
+  pinkGradient: css`
     display: block;
     position: relative;
-    font-size: 1.5rem;
     position: relative;
     background-image: linear-gradient(
       90deg,
@@ -17,6 +20,5 @@ export default {
     -webkit-text-fill-color: transparent;
     display: block;
     max-width: 1000px;
-    line-height: 1.5;
   `,
 };
