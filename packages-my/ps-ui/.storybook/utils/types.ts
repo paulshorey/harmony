@@ -10,5 +10,5 @@ export type IconProps = {
   color?: string;
   size?: string | number;
   className?: string;
-  style?: React.CSSProperties;
+  style?: React.mqProperties;
 };

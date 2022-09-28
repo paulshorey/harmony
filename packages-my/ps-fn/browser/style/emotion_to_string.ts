@@ -15,23 +15,23 @@ export default function e2Str(
   if (!emotion) {
     return "";
   }
-  let cssString = "";
+  let mqString = "";
   if (typeof emotion === "function") {
     // execute if function
     const style = emotion(theme);
     if (style?.styles) {
-      cssString += style.styles;
+      mqString += style.styles;
     } else if (typeof style === "string") {
-      cssString += style;
+      mqString += style;
     }
   } else if (typeof emotion.styles === "string") {
     // use only styles prop
-    cssString += emotion.styles;
+    mqString += emotion.styles;
   } else if (typeof emotion === "string") {
     // simple string, easy
-    cssString += emotion;
+    mqString += emotion;
   }
   // remove label to clean up className
-  return cssString;
-  // return (cssString ? cssString.replace(/\n/g, ";").replace(/label:(.*?);/g, "") || "" : "") + ";"; // extra trailing semicolon, just in case string was missing it
+  return mqString;
+  // return (mqString ? mqString.replace(/\n/g, ";").replace(/label:(.*?);/g, "") || "" : "") + ";"; // extra trailing semicolon, just in case string was missing it
 }

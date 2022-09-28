@@ -33,7 +33,7 @@ const _ = function ({
     theme = useTheme();
   }
 
-  let cssString = '';
+  let mqString = '';
   // Then, add each variant's css (if it exists in styles)
   // If no variants specified, this will try to use `styles.default`.
   // const dict = { default: true } as Record<string, boolean>;
@@ -50,7 +50,7 @@ const _ = function ({
   const theseVariants = ['default', variant, ...(variants || [])];
   for (const variant of theseVariants) {
     if (variant && styles?.[variant]) {
-      cssString += emotionToString(styles[variant], theme);
+      mqString += emotionToString(styles[variant], theme);
     }
   }
 
@@ -58,14 +58,14 @@ const _ = function ({
   // If type Array, not just object, loop through each item and apply css. Emotion doesn't do that reliably.
   if (style) {
     if (Array.isArray(style)) {
-      cssString = style.map((item) => emotionToString(item, theme)).join(' ');
+      mqString = style.map((item) => emotionToString(item, theme)).join(' ');
     } else {
-      cssString += emotionToString(style, theme);
+      mqString += emotionToString(style, theme);
     }
   }
 
   return css`
-    ${cssString}
+    ${mqString}
     ${label ? `;label: ${label}` : ''};
   `;
 };

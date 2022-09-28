@@ -7,237 +7,237 @@ import vars from '@ps/ui/styles/vars';
 type Props = CustomCSSProps;
 type Output = {
   otherProps: Record<string, any>;
-  cssFromProps: EmotionCSSType;
+  mqFromProps: EmotionCSSType;
 };
 
 const useOpen = ({
-  cssAndroid = '',
-  cssDesktop = '',
-  cssIPad = '',
-  cssIPhone = '',
-  cssIframe = '',
-  cssLandscape = '',
-  cssLargeDesktop = '',
-  cssLargeTablet = '',
-  cssLg = '',
-  cssLinux = '',
-  cssMac = '',
-  cssMobile = '',
-  cssNotIframe = '',
-  cssNotPhone = '',
-  cssNotWebview = '',
-  cssPhone = '',
-  cssPortrait = '',
-  cssSm = '',
-  cssSmallPhone = '',
-  cssTablet = '',
-  cssTinyPhone = '',
-  cssVeryLargeDesktop = '',
-  cssWebview = '',
-  cssWindows = '',
+  mqAndroid = '',
+  mqDesktop = '',
+  mqIPad = '',
+  mqIPhone = '',
+  mqIframe = '',
+  mqLandscape = '',
+  mqLargeDesktop = '',
+  mqLargeTablet = '',
+  mqLg = '',
+  mqLinux = '',
+  mqMac = '',
+  mqMobile = '',
+  mqNotIframe = '',
+  mqNotPhone = '',
+  mqNotWebview = '',
+  mqPhone = '',
+  mqPortrait = '',
+  mqSm = '',
+  mqSmallPhone = '',
+  mqTablet = '',
+  mqTinyPhone = '',
+  mqVeryLargeDesktop = '',
+  mqWebview = '',
+  mqWindows = '',
   ...otherProps
 }: Props): Output => {
-  // const [cssFromProps, set_cssFromProps] = useState<boolean>(
-  //   Boolean(props?.cssFromProps)
+  // const [mqFromProps, set_cssFromProps] = useState<boolean>(
+  //   Boolean(props?.mqFromProps)
   // );
 
   const deviceInfo =
-    cssIframe ||
-    cssNotIframe ||
-    cssWebview ||
-    cssNotWebview ||
-    cssIPhone ||
-    cssIPad ||
-    cssMac ||
-    cssWindows ||
-    cssLinux ||
-    cssAndroid
+    mqIframe ||
+    mqNotIframe ||
+    mqWebview ||
+    mqNotWebview ||
+    mqIPhone ||
+    mqIPad ||
+    mqMac ||
+    mqWindows ||
+    mqLinux ||
+    mqAndroid
       ? useDeviceInfo()
       : undefined;
 
-  const cssFromProps = css`
+  const mqFromProps = css`
     /* Must wrap the custom styles in &.Div {} to make specificity more important than default props.css. */
     &.Div {
-      ${cssIframe &&
+      ${mqIframe &&
       `
       ${
         deviceInfo?.inIframe &&
         `
-        ${emotionToString(cssIframe)}
+        ${emotionToString(mqIframe)}
       `
       }
       `}
-      ${cssNotIframe &&
+      ${mqNotIframe &&
       `
         ${
           !deviceInfo?.inIframe &&
           `
-          ${emotionToString(cssNotIframe)}
+          ${emotionToString(mqNotIframe)}
         `
         }
         `}
-    ${cssWebview &&
+    ${mqWebview &&
       `
     ${
       deviceInfo?.inWebview &&
       `
-      ${emotionToString(cssWebview)}
+      ${emotionToString(mqWebview)}
     `
     }
     `}
-    ${cssNotWebview &&
+    ${mqNotWebview &&
       `
     ${
       !deviceInfo?.inWebview &&
       `
-      ${emotionToString(cssNotWebview)}
+      ${emotionToString(mqNotWebview)}
     `
     }
     `}
-    ${cssMac &&
+    ${mqMac &&
       `
     ${
       deviceInfo?.device === 'Mac' &&
       `
-      ${emotionToString(cssMac)}
+      ${emotionToString(mqMac)}
     `
     }
     `}
-    ${cssWindows &&
+    ${mqWindows &&
       `
     ${
       deviceInfo?.device === 'Windows' &&
       `
-      ${emotionToString(cssWindows)}
+      ${emotionToString(mqWindows)}
     `
     }
     `}
-    ${cssLinux &&
+    ${mqLinux &&
       `
     ${
       deviceInfo?.device === 'Linux' &&
       `
-      ${emotionToString(cssLinux)}
+      ${emotionToString(mqLinux)}
     `
     }
     `}
-    ${cssAndroid &&
+    ${mqAndroid &&
       `
     ${
       deviceInfo?.device === 'Android' &&
       `
-      ${emotionToString(cssAndroid)}
+      ${emotionToString(mqAndroid)}
     `
     }
     `}
-    ${cssIPad &&
+    ${mqIPad &&
       `
     ${
       deviceInfo?.device === 'iOS' &&
       `
-      ${emotionToString(cssIPad)}
+      ${emotionToString(mqIPad)}
     `
     }
     `}
-    ${cssIPhone &&
+    ${mqIPhone &&
       `
     ${
       deviceInfo?.device === 'iPhone' &&
       `
-      ${emotionToString(cssIPhone)}
+      ${emotionToString(mqIPhone)}
     `
     }
     `}
 
-    ${cssLg &&
+    ${mqLg &&
       `
     ${vars.mq.lg} {
-      ${emotionToString(cssLg)}
+      ${emotionToString(mqLg)}
     }
     `}
-    ${cssSm &&
+    ${mqSm &&
       `
     ${vars.mq.sm} {
-      ${emotionToString(cssSm)}
+      ${emotionToString(mqSm)}
     }
     `}
-    ${cssDesktop &&
+    ${mqDesktop &&
       `
     ${vars.mq.desktop} {
-      ${emotionToString(cssDesktop)}
+      ${emotionToString(mqDesktop)}
     }
     `}
-    ${cssMobile &&
+    ${mqMobile &&
       `
     ${vars.mq.mobile} {
-      ${emotionToString(cssMobile)}
+      ${emotionToString(mqMobile)}
     }
     `}
-    ${cssTablet &&
+    ${mqTablet &&
       `
     ${vars.mq.tablet} {
-      ${emotionToString(cssTablet)}
+      ${emotionToString(mqTablet)}
     }
     `}
-    ${cssLargeTablet &&
+    ${mqLargeTablet &&
       `
     ${vars.mq.largeTablet} {
-      ${emotionToString(cssLargeTablet)}
+      ${emotionToString(mqLargeTablet)}
     }
     `}
-    ${cssNotPhone &&
+    ${mqNotPhone &&
       `
     ${vars.mq.notPhone} {
-      ${emotionToString(cssNotPhone)}
+      ${emotionToString(mqNotPhone)}
     }
     `}
-    ${cssPhone &&
+    ${mqPhone &&
       `
     ${vars.mq.phone} {
-      ${emotionToString(cssPhone)}
+      ${emotionToString(mqPhone)}
     }
     `}
-    ${cssSmallPhone &&
+    ${mqSmallPhone &&
       `
     ${vars.mq.smallPhone} {
-      ${emotionToString(cssSmallPhone)}
+      ${emotionToString(mqSmallPhone)}
     }
     `}
-    ${cssTinyPhone &&
+    ${mqTinyPhone &&
       `
     ${vars.mq.tinyPhone} {
-      ${emotionToString(cssTinyPhone)}
+      ${emotionToString(mqTinyPhone)}
     }
     `}
-    ${cssLargeDesktop &&
+    ${mqLargeDesktop &&
       `
     ${vars.mq.largeDesktop} {
-      ${emotionToString(cssLargeDesktop)}
+      ${emotionToString(mqLargeDesktop)}
     }
     `}
-    ${cssVeryLargeDesktop &&
+    ${mqVeryLargeDesktop &&
       `
     ${vars.mq.veryLargeDesktop} {
-      ${emotionToString(cssVeryLargeDesktop)}
+      ${emotionToString(mqVeryLargeDesktop)}
     }
     `}
-    ${cssPortrait &&
+    ${mqPortrait &&
       `
     ${vars.mq.portrait} {
-      ${emotionToString(cssPortrait)}
+      ${emotionToString(mqPortrait)}
     }
     `}
-    ${cssLandscape &&
+    ${mqLandscape &&
       `
     ${vars.mq.landscape} {
-      ${emotionToString(cssLandscape)}
+      ${emotionToString(mqLandscape)}
     }
     `}
     }
   `;
 
   return {
-    cssFromProps,
+    mqFromProps,
     otherProps,
   };
 };

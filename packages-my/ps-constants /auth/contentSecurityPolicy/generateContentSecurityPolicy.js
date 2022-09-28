@@ -18,7 +18,7 @@ const generateContentSecurityPolicy = () => {
   /**
    * @TODO - will have to add production url for tabapay when available or the iframe will be blocked.
    */
-  csp += `frame-src *.getpinwheel.com *.plaid.com *.tabapay.com https://sso.sandbox.tabapay.com:8443;`;
+  csp += `frame-src *.getpinwheel.com *.plaid.com *.tabapay.com https://mqo.sandbox.tabapay.com:8443;`;
   csp += `frame-ancestors 'self';`;
   /**
    * @TODO - media should come from self, cloudinary, guidestar, or authorized providers.

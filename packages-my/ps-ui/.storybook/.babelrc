@@ -21,7 +21,7 @@
       {
         "sourceMap": false,
         "autoLabel": "never",
-        "cssPropOptimization": false
+        "mqPropOptimization": false
       }
     ]
   ]

@@ -1,6 +1,6 @@
 /* eslint-disable max-depth */
 import { css } from '@emotion/react';
-import Div from '@ps/ui/components/layout/atoms/Div';
+import Div from '@ps/ui/components/content/atoms/Div';
 // import useIsInView from '@ps/ui/hooks/useIsInview';
 import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-cool-inview';

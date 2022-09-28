@@ -1,12 +1,15 @@
 import { addons } from '@storybook/addons';
 import React from 'react';
 import GlobalStyles from '../styles';
-import Gradient from '@ps/ui/components/layout/molecules/GradientBackground';
+import Gradient from '@ps/ui/components/media/GradientBackground';
 import { css } from '@emotion/react';
 import theme from './theme';
 
 const sortSidebarById = (a, b) => {
   // console.log('a', a, 'b', b);
+  if (a && a[1]?.componentId.substring(0, 5) === 'intro') {
+    return -2;
+  }
   if (a && a[1]?.componentId.substring(0, 5) === 'about') {
     return -1;
   }
@@ -76,10 +79,10 @@ export const decorators = [
           //   box-shadow: 0 0 30px 20px rgba(255, 255, 255, 0.25);
           // }
         `}
-        cssLg={`
+        mqLg={`
       padding: 30px 30px 40px 30px;
     `}
-        cssSm={`
+        mqSm={`
       padding: 20px 20px 30px 20px;;
     `}
       >

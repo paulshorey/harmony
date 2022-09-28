@@ -1,4 +1,5 @@
 // import { css, jsx, useTheme } from '@emotion/react';
+import Center from '@ps/ui/components/content/molecules/Centered';
 import {
   CustomCSSProps,
   ReactElementProps,
@@ -8,7 +9,6 @@ import useCustomCSSFromProps from '@ps/ui/hooks/useCustomCSSFromProps';
 import useVariants from '@ps/ui/hooks/useVariants';
 import React, { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
 
-import Center from '../../../layout/molecules/Centered';
 import styles from './styles';
 /**
  * This is to mimic the disabled state using CSS, but it is still an active button for some reason.
@@ -24,6 +24,10 @@ export type ButtonProps = ButtonHTMLAttributes<
   (ReactElementProps &
     (VariantsCSSType &
       (CustomCSSProps & {
+        /**
+         * HTML element tag to render instead of the component's default. Same as styled-system.
+         */
+        as?: string;
         /**
          * Just the HTML attribute disabled
          */
@@ -48,7 +52,7 @@ const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
     refFromParent
   ) => {
     const TagName = `${as}` as any;
-    const { cssFromProps, otherProps } = useCustomCSSFromProps(props);
+    const { mqFromProps, otherProps } = useCustomCSSFromProps(props);
     return (
       <TagName
         {...otherProps}
@@ -56,7 +60,7 @@ const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={refFromParent}
         className={`Button ${className ? ' ' + className : ''}`} // className "Div" refers to this dir name, not tag name
         css={[
-          cssFromProps,
+          mqFromProps,
           useVariants({
             label: 'Button',
             styles,
