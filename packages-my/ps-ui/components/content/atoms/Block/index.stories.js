@@ -19,83 +19,83 @@ export default {
       source: {
         code: `
 <h2 css={styles.topTitle}>
-    <Block as="span" mqIframe="display:none;" css={styles.colorGold}>
+    <Block as="span" ssIframe="display:none;" css={styles.colorGold}>
       Your screen size{' '}
     </Block>
-    <Block as="span" mqNotIframe="display:none;">
+    <Block as="span" ssNotIframe="display:none;">
       This page <span css={styles.colorGold}></span>
     </Block>
     matches following <span css={styles.colorGold}>media queries</span>:
 </h2>
 
-<Block as="code" css={styles.codeResults} mqLg="display:block;">
-  mqLg
+<Block as="code" css={styles.codeResults} ssLg="display:block;">
+  ssLg
 </Block>
-<Block as="code" css={styles.codeResults} mqSm="display:block;">
-  mqSm
+<Block as="code" css={styles.codeResults} ssSm="display:block;">
+  ssSm
 </Block>
-<Block as="code" css={styles.codeResults} mqDesktop="display:block;">
-  mqDesktop
+<Block as="code" css={styles.codeResults} ssDesktop="display:block;">
+  ssDesktop
 </Block>
-<Block as="code" css={styles.codeResults} mqMobile="display:block;">
-  mqMobile
+<Block as="code" css={styles.codeResults} ssMobile="display:block;">
+  ssMobile
 </Block>
-<Block as="code" css={styles.codeResults} mqLargeTablet="display:block;">
-  mqLargeTablet
+<Block as="code" css={styles.codeResults} ssLargeTablet="display:block;">
+  ssLargeTablet
 </Block>
-<Block as="code" css={styles.codeResults} mqTablet="display:block;">
-  mqTablet
+<Block as="code" css={styles.codeResults} ssTablet="display:block;">
+  ssTablet
 </Block>
-<Block as="code" css={styles.codeResults} mqPhone="display:block;">
-  mqPhone
+<Block as="code" css={styles.codeResults} ssPhone="display:block;">
+  ssPhone
 </Block>
-<Block as="code" css={styles.codeResults} mqSmallPhone="display:block;">
-  mqSmallPhone
+<Block as="code" css={styles.codeResults} ssSmallPhone="display:block;">
+  ssSmallPhone
 </Block>
-<Block as="code" css={styles.codeResults} mqLargeDesktop="display:block;">
-  mqLargeDesktop
+<Block as="code" css={styles.codeResults} ssLargeDesktop="display:block;">
+  ssLargeDesktop
 </Block>
-<Block as="code" css={styles.codeResults} mqVeryLargeDesktop="display:block;">
-  mqVeryLargeDesktop
+<Block as="code" css={styles.codeResults} ssVeryLargeDesktop="display:block;">
+  ssVeryLargeDesktop
 </Block>
-<Block as="code" css={styles.codeResults} mqIPhone="display:block;">
-  mqIPhone
+<Block as="code" css={styles.codeResults} ssIPhone="display:block;">
+  ssIPhone
 </Block>
-<Block as="code" css={styles.codeResults} mqIPad="display:block;">
-  mqIPad
+<Block as="code" css={styles.codeResults} ssIPad="display:block;">
+  ssIPad
 </Block>
-<Block as="code" css={styles.codeResults} mqAndroid="display:block;">
-  mqAndroid
+<Block as="code" css={styles.codeResults} ssAndroid="display:block;">
+  ssAndroid
 </Block>
-<Block as="code" css={styles.codeResults} mqWindows="display:block;">
-  mqWindows
+<Block as="code" css={styles.codeResults} ssWindows="display:block;">
+  ssWindows
 </Block>
-<Block as="code" css={styles.codeResults} mqMac="display:block;">
-  mqMac
+<Block as="code" css={styles.codeResults} ssMac="display:block;">
+  ssMac
 </Block>
-<Block as="code" css={styles.codeResults} mqLinux="display:block;">
-  mqLinux
+<Block as="code" css={styles.codeResults} ssLinux="display:block;">
+  ssLinux
 </Block>
-<Block as="code" css={styles.codeResults} mqPortrait="display:block;">
-  mqPortrait
+<Block as="code" css={styles.codeResults} ssPortrait="display:block;">
+  ssPortrait
 </Block>
-<Block as="code" css={styles.codeResults} mqLandscape="display:block;">
-  mqLandscape
+<Block as="code" css={styles.codeResults} ssLandscape="display:block;">
+  ssLandscape
 </Block>
-<Block as="code" css={styles.codeResults} mqIframe="display:block;">
-  mqIframe
+<Block as="code" css={styles.codeResults} ssIframe="display:block;">
+  ssIframe
 </Block>
-<Block as="code" css={styles.codeResults} mqNotIframe="display:block;">
-  mqNotIframe
+<Block as="code" css={styles.codeResults} ssNotIframe="display:block;">
+  ssNotIframe
 </Block>
-<Block as="code" css={styles.codeResults} mqNotPhone="display:block;">
-  mqNotPhone
+<Block as="code" css={styles.codeResults} ssNotPhone="display:block;">
+  ssNotPhone
 </Block>
-<Block as="code" css={styles.codeResults} mqWebview="display:block;">
-  mqWebview
+<Block as="code" css={styles.codeResults} ssWebview="display:block;">
+  ssWebview
 </Block>
-<Block as="code" css={styles.codeResults} mqNotWebview="display:block;">
-  mqNotWebview
+<Block as="code" css={styles.codeResults} ssNotWebview="display:block;">
+  ssNotWebview
 </Block>
 `,
       },

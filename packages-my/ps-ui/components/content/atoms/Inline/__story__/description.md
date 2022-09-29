@@ -1,7 +1,7 @@
 `import Inline from '@ps/ui/components/content/atoms/Inline';`
-Then use `<Inline as="b" />` to render a \<b\> tag.
+Then use `<Inline as="code" />` to render a \<code\> tag.
 
-> **It accepts all the same props as [Block](./?path=/docs/content-atoms-block--block).** But it renders a \<span\> by default instead of a \<div\> and does not add any styles.
+> **It accepts all the same props as [Block](./?path=/docs/content-atoms-block--block).** But it renders a \<span\> by default and adds `display:inline-block` style.
 
 ---
 

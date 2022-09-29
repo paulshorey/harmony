@@ -1,12 +1,6 @@
 // import { css, jsx, useTheme } from '@emotion/react';
-import useCustomCSSFromProps from '@ps/ui/hooks/useCustomCSSFromProps';
-import useVariants from '@ps/ui/hooks/useVariants';
-import {
-  CustomCSSProps,
-  ReactFCProps,
-  VariantProps,
-} from '@ps/ui/types/component';
-import { HtmlContainerTags } from '@ps/ui/types/html';
+import { ReactFCProps, StyleProps, VariantProps } from '@ps/ui/types/component';
+import withStyles from 'hooks/withStyles';
 import React, { FC, forwardRef, memo, SelectHTMLAttributes } from 'react';
 
 import styles from './styles';
@@ -23,15 +17,11 @@ export type SelectProps = SelectHTMLAttributes<
 > &
   (ReactFCProps &
     (VariantProps &
-      (CustomCSSProps & {
+      (StyleProps & {
         /**
          * <Select value="ThisValue" />
          */
         value: string | number;
-        /**
-         * HTML element tag to render instead of the default "select".
-         */
-        as?: HtmlContainerTags;
         /**
          * Just the HTML attribute disabled
          */
@@ -39,32 +29,12 @@ export type SelectProps = SelectHTMLAttributes<
       })));
 
 /**
- * This is an alternative to styled-system (which is not good for apps/sites that uses a lot of css).
- * Styled-system only supports a subset of CSS, and it pollutes the props namespace, making it difficult to see which props are for styling and which are for logic.
+ * select element
  */
 const Select: FC<SelectProps> = forwardRef<HTMLSelectElement, SelectProps>(
-  (
-    { value, className = '', variant, variants = [], disabled, ...props },
-    refFromParent
-  ) => {
-    const { cssFromProps, otherProps } = useCustomCSSFromProps(props);
+  ({ disabled, value, ...props }, ref) => {
     return (
-      <select
-        {...otherProps}
-        value={value}
-        disabled={disabled}
-        ref={refFromParent}
-        className={`Select ${className ? ' ' + className : ''}`} // className "Block" refers to this dir name, not tag name
-        css={[
-          cssFromProps,
-          useVariants({
-            label: 'Select',
-            styles,
-            variant,
-            variants,
-          }),
-        ]}
-      >
+      <select {...props} value={value} disabled={disabled} ref={ref}>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -73,4 +43,4 @@ const Select: FC<SelectProps> = forwardRef<HTMLSelectElement, SelectProps>(
   }
 );
 
-export default memo(Select);
+export default memo(withStyles(Select, 'Select', styles));

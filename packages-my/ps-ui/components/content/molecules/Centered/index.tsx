@@ -1,15 +1,10 @@
 import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
-import useVariants from 'hooks/useVariants';
-import { FC } from 'react';
+import withStyles from 'hooks/withStyles';
+import { FC, memo } from 'react';
 
 import styles from './styles';
 
-type StyleProps = {
-  variant?: string;
-  variants?: Array<string>;
-  as?: string;
-};
-type Props = BlockProps & StyleProps;
+type Props = BlockProps;
 
 /**
  * ```<Centered as="p" style="width:200px">
@@ -20,18 +15,8 @@ type Props = BlockProps & StyleProps;
  *
  * You must pass `props.width` for the magic to work. Otherwise it will just function like `text-align:center`.
  */
-const Centered: FC<Props> = ({ variant = 'default', variants, ...props }) => {
-  return (
-    <Block
-      css={useVariants({
-        styles,
-        variant, // see index.stories.js for example usage
-        variants, // see index.stories.js for example usage
-        label: 'Centered',
-      })}
-      {...props}
-    />
-  );
+const Centered: FC<Props> = (props) => {
+  return <Block {...props} />;
 };
 
-export default Centered;
+export default memo(withStyles(Centered, 'Button', styles));

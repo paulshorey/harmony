@@ -51,7 +51,7 @@ const containerStyleProps = {
       font-weight: 700;
     }
   `,
-  mqIframe: `
+  ssIframe: `
   p span {
     display: block;
     white-space: nowrap;

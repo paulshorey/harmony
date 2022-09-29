@@ -15,89 +15,89 @@ export default {
       source: {
         code: `
 <h2 css={styles.topTitle}>
-    <Block as="span" mqIframe="display:none;" css={styles.colorGold}>
+    <Block as="span" ssIframe="display:none;" css={styles.colorGold}>
       Your screen size{' '}
     </Block>
-    <Block as="span" mqNotIframe="display:none;">
+    <Block as="span" ssNotIframe="display:none;">
       This page <span css={styles.colorGold}></span>
     </Block>
     matches following <span css={styles.colorGold}>media queries</span>:
 </h2>
 
-<Block as="code" css={styles.codeResults} mqLg="display:block;">
-  mqLg
+<Block as="code" css={styles.codeResults} ssLg="display:block;">
+  ssLg
 </Block>
-<Block as="code" css={styles.codeResults} mqSm="display:block;">
-  mqSm
+<Block as="code" css={styles.codeResults} ssSm="display:block;">
+  ssSm
 </Block>
-<Block as="code" css={styles.codeResults} mqDesktop="display:block;">
-  mqDesktop
+<Block as="code" css={styles.codeResults} ssDesktop="display:block;">
+  ssDesktop
 </Block>
-<Block as="code" css={styles.codeResults} mqMobile="display:block;">
-  mqMobile
+<Block as="code" css={styles.codeResults} ssMobile="display:block;">
+  ssMobile
 </Block>
-<Block as="code" css={styles.codeResults} mqLargeTablet="display:block;">
-  mqLargeTablet
+<Block as="code" css={styles.codeResults} ssLargeTablet="display:block;">
+  ssLargeTablet
 </Block>
-<Block as="code" css={styles.codeResults} mqTablet="display:block;">
-  mqTablet
+<Block as="code" css={styles.codeResults} ssTablet="display:block;">
+  ssTablet
 </Block>
-<Block as="code" css={styles.codeResults} mqPhone="display:block;">
-  mqPhone
+<Block as="code" css={styles.codeResults} ssPhone="display:block;">
+  ssPhone
 </Block>
-<Block as="code" css={styles.codeResults} mqSmallPhone="display:block;">
-  mqSmallPhone
+<Block as="code" css={styles.codeResults} ssSmallPhone="display:block;">
+  ssSmallPhone
 </Block>
-<Block as="code" css={styles.codeResults} mqLargeDesktop="display:block;">
-  mqLargeDesktop
+<Block as="code" css={styles.codeResults} ssLargeDesktop="display:block;">
+  ssLargeDesktop
 </Block>
-<Block as="code" css={styles.codeResults} mqVeryLargeDesktop="display:block;">
-  mqVeryLargeDesktop
+<Block as="code" css={styles.codeResults} ssVeryLargeDesktop="display:block;">
+  ssVeryLargeDesktop
 </Block>
-<Block as="code" css={styles.codeResults} mqIPhone="display:block;">
-  mqIPhone
+<Block as="code" css={styles.codeResults} ssIPhone="display:block;">
+  ssIPhone
 </Block>
-<Block as="code" css={styles.codeResults} mqIPad="display:block;">
-  mqIPad
+<Block as="code" css={styles.codeResults} ssIPad="display:block;">
+  ssIPad
 </Block>
-<Block as="code" css={styles.codeResults} mqAndroid="display:block;">
-  mqAndroid
+<Block as="code" css={styles.codeResults} ssAndroid="display:block;">
+  ssAndroid
 </Block>
-<Block as="code" css={styles.codeResults} mqWindows="display:block;">
-  mqWindows
+<Block as="code" css={styles.codeResults} ssWindows="display:block;">
+  ssWindows
 </Block>
-<Block as="code" css={styles.codeResults} mqMac="display:block;">
-  mqMac
+<Block as="code" css={styles.codeResults} ssMac="display:block;">
+  ssMac
 </Block>
-<Block as="code" css={styles.codeResults} mqLinux="display:block;">
-  mqLinux
+<Block as="code" css={styles.codeResults} ssLinux="display:block;">
+  ssLinux
 </Block>
-<Block as="code" css={styles.codeResults} mqPortrait="display:block;">
-  mqPortrait
+<Block as="code" css={styles.codeResults} ssPortrait="display:block;">
+  ssPortrait
 </Block>
-<Block as="code" css={styles.codeResults} mqLandscape="display:block;">
-  mqLandscape
+<Block as="code" css={styles.codeResults} ssLandscape="display:block;">
+  ssLandscape
 </Block>
-<Block as="code" css={styles.codeResults} mqIframe="display:block;">
-  mqIframe
+<Block as="code" css={styles.codeResults} ssIframe="display:block;">
+  ssIframe
 </Block>
-<Block as="code" css={styles.codeResults} mqNotIframe="display:block;">
-  mqNotIframe
+<Block as="code" css={styles.codeResults} ssNotIframe="display:block;">
+  ssNotIframe
 </Block>
-<Block as="code" css={styles.codeResults} mqNotPhone="display:block;">
-  mqNotPhone
+<Block as="code" css={styles.codeResults} ssNotPhone="display:block;">
+  ssNotPhone
 </Block>
-<Block as="code" css={styles.codeResults} mqWebview="display:block;">
-  mqWebview
+<Block as="code" css={styles.codeResults} ssWebview="display:block;">
+  ssWebview
 </Block>
-<Block as="code" css={styles.codeResults} mqNotWebview="display:block;">
-  mqNotWebview
+<Block as="code" css={styles.codeResults} ssNotWebview="display:block;">
+  ssNotWebview
 </Block>
 `,
       },
       /* \`<Block />\` is a building block. It is used by most of the other components in this library. It can actually ***render any HTML tag***, not just div. It uses EmotionJS css prop and adds a few other props to help style for multiple devices without having to remember and re-type any media queries.
       > **This component is best previewed outside of Storybook, <a href="iframe.html?id=layout-atoms-div-style-props--div-style-props&viewMode=story" target="_blank">in its own tab</a>.**
-      Ex: \`<Block as="h2" mqSmallPhone="font-weight:900;">\`.
+      Ex: \`<Block as="h2" ssSmallPhone="font-weight:900;">\`.
       It's probably compatible with CSS-in-JS libraries that pass a JS style object, but that is untested.
       */
       description: {
@@ -109,12 +109,12 @@ Use \`<Block as="p" />\` to render a paragraph tag. Similar to Box component in 
 **This library uses EmotionJS** which is similar to styled-components. This component supports Emotion's css prop, but also adds custom props. Each custom css prop injects styles into a predefined media query. Use Emotion's css\\\`\\\` type or a plain string. Each starts with "css" prefix. Use \`react/jsx-sort-props\` to sort your React props alphabetically, to keep all css props together. See also \`as\`, \`variant\`, and \`variants\` props.
 
 **If you like inline styles**, you should definitely try this. **If not,** this library also includes some great tools for managing stylesheets, variables, and themes.
-\`<Block as="h2" css={defaultStyles} mqTablet="padding:1rem;" mqPhone="font-size:1.25rem;" variant="class1 class2 class3" />\`  
+\`<Block as="h2" css={defaultStyles} ssTablet="padding:1rem;" ssPhone="font-size:1.25rem;" variant="class1 class2 class3" />\`  
 
 **See also [PaulShorey.com/blog/best-css-in-js-system](https://paulshorey.comm/blog/best-css-in-js-system) to read about hooks, variants, themes, and variables** which are difficult to show in Storybook.  
 Basically, this library also provides functionality to recreate the benefits of **cascading stylesheets and classNames** but without any of the issues.
 
-**Several css props are provided**, targeting different sizes. Some overlap. Start by simply choosing a pair: \`mqLg\`/\`mqSm\` for a 930px breakpoint, or \`mqDesktop\`/\`mqMobile\` for a 1024px breakpoint. To style only for tablet, use \`mqTablet\`. To style a large tablet, use \`mqLargeTablet\`.
+**Several css props are provided**, targeting different sizes. Some overlap. Start by simply choosing a pair: \`ssLg\`/\`ssSm\` for a 930px breakpoint, or \`ssDesktop\`/\`ssMobile\` for a 1024px breakpoint. To style only for tablet, use \`ssTablet\`. To style a large tablet, use \`ssLargeTablet\`.
 
 Phone <= 499px. SmallPhone <= 399px. TinyPhone <= 359px. Tablet is 500-1024. LargeTablet is 931-1024... All props are documented below.
 
@@ -153,7 +153,7 @@ const Template = (args) => (
       css={css`
         display: none;
       `}
-      mqIframe={`display:block;`}
+      ssIframe={`display:block;`}
     >
       <h3>
         📔 Storybook renders this component in an iFrame, not full screen.
@@ -179,91 +179,91 @@ const Template = (args) => (
         font-size: 30px;
       `}
     >
-      <Block as="span" mqIframe="display:none;" css={styles.colorGold}>
+      <Block as="span" ssIframe="display:none;" css={styles.colorGold}>
         Your screen size{' '}
       </Block>
-      <Block as="span" mqNotIframe="display:none;">
+      <Block as="span" ssNotIframe="display:none;">
         This page <span css={styles.colorGold}></span>
       </Block>
       matches following <span css={styles.colorGold}>media queries</span>:
     </h2>
-    <Block as="code" css={styles.codeResults} mqLg="display:block;">
-      mqLg
+    <Block as="code" css={styles.codeResults} ssLg="display:block;">
+      ssLg
     </Block>
-    <Block as="code" css={styles.codeResults} mqSm="display:block;">
-      mqSm
+    <Block as="code" css={styles.codeResults} ssSm="display:block;">
+      ssSm
     </Block>
-    <Block as="code" css={styles.codeResults} mqDesktop="display:block;">
-      mqDesktop
+    <Block as="code" css={styles.codeResults} ssDesktop="display:block;">
+      ssDesktop
     </Block>
-    <Block as="code" css={styles.codeResults} mqMobile="display:block;">
-      mqMobile
+    <Block as="code" css={styles.codeResults} ssMobile="display:block;">
+      ssMobile
     </Block>
-    <Block as="code" css={styles.codeResults} mqLargeTablet="display:block;">
-      mqLargeTablet
+    <Block as="code" css={styles.codeResults} ssLargeTablet="display:block;">
+      ssLargeTablet
     </Block>
-    <Block as="code" css={styles.codeResults} mqTablet="display:block;">
-      mqTablet
+    <Block as="code" css={styles.codeResults} ssTablet="display:block;">
+      ssTablet
     </Block>
-    <Block as="code" css={styles.codeResults} mqPhone="display:block;">
-      mqPhone
+    <Block as="code" css={styles.codeResults} ssPhone="display:block;">
+      ssPhone
     </Block>
-    <Block as="code" css={styles.codeResults} mqSmallPhone="display:block;">
-      mqSmallPhone
+    <Block as="code" css={styles.codeResults} ssSmallPhone="display:block;">
+      ssSmallPhone
     </Block>
-    <Block as="code" css={styles.codeResults} mqLargeDesktop="display:block;">
-      mqLargeDesktop
+    <Block as="code" css={styles.codeResults} ssLargeDesktop="display:block;">
+      ssLargeDesktop
     </Block>
     <Block
       as="code"
       css={styles.codeResults}
-      mqVeryLargeDesktop="display:block;"
+      ssVeryLargeDesktop="display:block;"
     >
-      mqVeryLargeDesktop
+      ssVeryLargeDesktop
     </Block>
-    <Block as="code" css={styles.codeResults} mqIPhone="display:block;">
-      mqIPhone
+    <Block as="code" css={styles.codeResults} ssIPhone="display:block;">
+      ssIPhone
     </Block>
-    <Block as="code" css={styles.codeResults} mqIPad="display:block;">
-      mqIPad
+    <Block as="code" css={styles.codeResults} ssIPad="display:block;">
+      ssIPad
     </Block>
-    <Block as="code" css={styles.codeResults} mqAndroid="display:block;">
-      mqAndroid
+    <Block as="code" css={styles.codeResults} ssAndroid="display:block;">
+      ssAndroid
     </Block>
-    <Block as="code" css={styles.codeResults} mqWindows="display:block;">
-      mqWindows
+    <Block as="code" css={styles.codeResults} ssWindows="display:block;">
+      ssWindows
     </Block>
-    <Block as="code" css={styles.codeResults} mqMac="display:block;">
-      mqMac
+    <Block as="code" css={styles.codeResults} ssMac="display:block;">
+      ssMac
     </Block>
-    <Block as="code" css={styles.codeResults} mqLinux="display:block;">
-      mqLinux
+    <Block as="code" css={styles.codeResults} ssLinux="display:block;">
+      ssLinux
     </Block>
-    <Block as="code" css={styles.codeResults} mqPortrait="display:block;">
-      mqPortrait
+    <Block as="code" css={styles.codeResults} ssPortrait="display:block;">
+      ssPortrait
     </Block>
-    <Block as="code" css={styles.codeResults} mqLandscape="display:block;">
-      mqLandscape
+    <Block as="code" css={styles.codeResults} ssLandscape="display:block;">
+      ssLandscape
     </Block>
-    <Block as="code" css={styles.codeResults} mqIframe="display:block;">
-      mqIframe
+    <Block as="code" css={styles.codeResults} ssIframe="display:block;">
+      ssIframe
     </Block>
-    <Block as="code" css={styles.codeResults} mqNotIframe="display:block;">
-      mqNotIframe
+    <Block as="code" css={styles.codeResults} ssNotIframe="display:block;">
+      ssNotIframe
     </Block>
-    <Block as="code" css={styles.codeResults} mqNotPhone="display:block;">
-      mqNotPhone
+    <Block as="code" css={styles.codeResults} ssNotPhone="display:block;">
+      ssNotPhone
     </Block>
-    <Block as="code" css={styles.codeResults} mqWebview="display:block;">
-      mqWebview
+    <Block as="code" css={styles.codeResults} ssWebview="display:block;">
+      ssWebview
     </Block>
-    <Block as="code" css={styles.codeResults} mqNotWebview="display:block;">
-      mqNotWebview
+    <Block as="code" css={styles.codeResults} ssNotWebview="display:block;">
+      ssNotWebview
     </Block>
     <p>
       <br />
       Above values are responsive.{' '}
-      <Block as="span" mqNotIframe="display:none;">
+      <Block as="span" ssNotIframe="display:none;">
         Resize your screen or open this component{' '}
         <a
           href="iframe.html?id=layout-atoms-div-style-props--div-style-props&viewMode=story"
@@ -274,7 +274,7 @@ const Template = (args) => (
         .
       </Block>
     </p>
-    <Block as="p" mqNotIframe="display:none;" css={styles.colorGold}>
+    <Block as="p" ssNotIframe="display:none;" css={styles.colorGold}>
       If you{' '}
       <a
         href="iframe.html?id=layout-atoms-div-style-props--div-style-props&viewMode=story"
@@ -292,7 +292,7 @@ const Template = (args) => (
       >
         This story's source code is actually a great example of using this
         component to style for multiple devices.{' '}
-        <Block as="b" mqNotIframe="display:none;" css={styles.colorGold}>
+        <Block as="b" ssNotIframe="display:none;" css={styles.colorGold}>
           {' '}
           Click "Show code" ↘↘↘
         </Block>
@@ -300,5 +300,5 @@ const Template = (args) => (
     </p>
   </Block>
 );
-export const mqProps = Template.bind({});
+export const ssProps = Template.bind({});
 CSSProps.args = {};

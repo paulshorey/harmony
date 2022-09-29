@@ -1,16 +1,17 @@
 /* eslint-disable max-depth */
 import { css } from '@emotion/react';
-import Block, { BlockTypes } from '@ps/ui/components/content/atoms/Block';
-import { HtmlContainerTags } from '@ps/ui/types/html';
+import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
+import withStyles from 'hooks/withStyles';
 // import useIsInView from '@ps/ui/hooks/useIsInview';
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useInView } from 'react-cool-inview';
+import { tsFixMe } from 'types/typescript';
 
 const isBetween = (value: number, min: number, max: number) =>
   value && value >= min && value <= max;
 
 const styles = {
-  wrapper: (visible: boolean, slideInFrom: 'left' | 'right') =>
+  default: (theme: tsFixMe, { slideInFrom, visible }: tsFixMe) =>
     css`
       position: relative;
 
@@ -27,7 +28,7 @@ const styles = {
       `}
     `,
 };
-type Props = BlockTypes & {
+type Props = BlockProps & {
   slideInFrom?: 'left' | 'right';
   // visibleInitially?: boolean;
 };
@@ -104,7 +105,7 @@ const ScrollSlideIn = ({
   return (
     <Block
       as={as}
-      css={styles.wrapper(visible, slideInFrom)}
+      css={styles.default(visible, slideInFrom)}
       className={`${visible ? 'visible' : 'hidden'} ${className}`}
       ref={ref1}
     >
@@ -115,4 +116,4 @@ const ScrollSlideIn = ({
   );
 };
 
-export default ScrollSlideIn;
+export default memo(withStyles(ScrollSlideIn, 'ScrollSlideIn'));

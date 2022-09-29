@@ -69,10 +69,10 @@ export const decorators = [
       >
         <GlobalStyles />
         {/* <Block
-          mqLg={`
+          ssLg={`
       padding: 30px 30px 40px 30px;
     `}
-          mqSm={`
+          ssSm={`
       padding: 20px 20px 30px 20px;
     `}
         >
@@ -89,10 +89,10 @@ export const decorators = [
             font-weight: 600;
             background: white;
           `}
-          mqLg={`
+          ssLg={`
       padding: 0 30px 0 30px;
     `}
-          mqSm={`
+          ssSm={`
       padding: 0 20px 0 20px;;
     `}
         >
@@ -100,10 +100,10 @@ export const decorators = [
         </Block> */}
 
         <Gradient
-          mqLg={`
+          ssLg={`
       padding: 30px 30px 40px 30px;
     `}
-          mqSm={`
+          ssSm={`
       padding: 20px 20px 30px 20px;;
     `}
         >

@@ -1,7 +1,7 @@
 import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
 import useCopyToClipboard from 'hooks/useCopyToClipboard';
-import useVariants from 'hooks/useVariants';
-import { FC } from 'react';
+import withStyles from 'hooks/withStyles';
+import { FC, memo } from 'react';
 
 import styles from './styles';
 
@@ -15,25 +15,10 @@ type Props = BlockProps & StyleProps;
 /**
  * code
  */
-const code: FC<Props> = ({
-  as = 'code',
-  string,
-  variant = 'default',
-  variants,
-  ...props
-}) => {
+const Code: FC<Props> = ({ as = 'code', string, ...props }) => {
   const [copied, copyToClipboard] = useCopyToClipboard();
   return (
-    <Block
-      as={as}
-      css={useVariants({
-        styles,
-        variant, // see index.stories.js for example usage
-        variants, // see index.stories.js for example usage
-        label: 'Code',
-      })}
-      {...props}
-    >
+    <Block {...props} as={as}>
       {string}
       <button
         type="button"
@@ -47,4 +32,4 @@ const code: FC<Props> = ({
   );
 };
 
-export default code;
+export default memo(withStyles(Code, 'Code', styles));

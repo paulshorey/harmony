@@ -1,12 +1,7 @@
 import Center from '@ps/ui/components/content/molecules/Centered';
-import useCustomCSSFromProps from '@ps/ui/hooks/useCustomCSSFromProps';
-import useVariants from '@ps/ui/hooks/useVariants';
-import {
-  CustomCSSProps,
-  ReactFCProps,
-  VariantProps,
-} from '@ps/ui/types/component';
+import { ReactFCProps, StyleProps, VariantProps } from '@ps/ui/types/component';
 import { HtmlContainerTags } from '@ps/ui/types/html';
+import withStyles from 'hooks/withStyles';
 import React, { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
 import { tsFixMe } from 'types/typescript';
 
@@ -24,7 +19,7 @@ export type ButtonProps = ButtonHTMLAttributes<
 > &
   (ReactFCProps &
     (VariantProps &
-      (CustomCSSProps & {
+      (StyleProps & {
         /**
          * HTML element tag to render instead of the default "button".
          */
@@ -40,44 +35,13 @@ export type ButtonProps = ButtonHTMLAttributes<
       })));
 
 /**
- * This is an alternative to styled-system (which is not good for apps/sites that uses a lot of css).
- * Styled-system only supports a subset of CSS, and it pollutes the props namespace, making it difficult to see which props are for styling and which are for logic.
+ * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
 const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      children,
-      as = 'button',
-      className = '',
-      variant,
-      variants = [],
-      disabled,
-      onDark,
-      ...props
-    },
-    refFromParent
-  ) => {
+  ({ as = 'button', children, disabled, ...props }, ref) => {
     const TagName = `${as}` as tsFixMe;
-    const { cssFromProps, otherProps } = useCustomCSSFromProps(props);
     return (
-      <TagName
-        {...otherProps}
-        disabled={disabled}
-        ref={refFromParent}
-        className={`Button ${className ? ' ' + className : ''}`} // className "Block" refers to this dir name, not tag name
-        css={[
-          cssFromProps,
-          useVariants({
-            label: 'Button',
-            styles,
-            variant,
-            variants,
-            options: {
-              onDark,
-            },
-          }),
-        ]}
-      >
+      <TagName {...props} disabled={disabled} ref={ref}>
         <Center>
           <span>{children}</span>
         </Center>
@@ -86,4 +50,4 @@ const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-export default memo(Button);
+export default memo(withStyles(Button, 'Button', styles));

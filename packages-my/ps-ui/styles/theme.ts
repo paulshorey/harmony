@@ -1,5 +1,5 @@
 // ts-fix: Typescript doesn't understand method referring to parent object as `this`?
-import { EmotionCSSType, VariantProps } from '@ps/ui/types/component';
+import { EmotionCssPropType, VariantProps } from '@ps/ui/types/component';
 
 import colors from './colors';
 import fonts from './fonts';
@@ -39,7 +39,7 @@ export type themeType = {
   colors: Record<string, Record<string, string>>;
   fonts: Record<string, string>;
   mq: Record<string, string>;
-  variants: Record<string, Record<string, EmotionCSSType>>;
+  variants: Record<string, Record<string, EmotionCssPropType>>;
   getColor: (color: string, colorScheme: colorSchemeType) => string;
   getVariant: (
     options: VariantProps & {
@@ -52,5 +52,5 @@ export type themeType = {
        */
       label?: string;
     }
-  ) => EmotionCSSType;
+  ) => EmotionCssPropType;
 };

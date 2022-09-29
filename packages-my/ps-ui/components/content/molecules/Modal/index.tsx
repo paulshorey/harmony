@@ -1,22 +1,18 @@
 import { css } from '@emotion/react';
-import emotion_variants from '@ps/fn/browser/style/emotion_variants';
-import React, { useEffect } from 'react';
+import { BlockProps } from 'components/content/atoms/Block';
+import withStyles from 'hooks/withStyles';
+import React, { memo, useEffect } from 'react';
 import ReactModal from 'react-modal';
 
 import styles from './styles';
 
-export type ModalProps = {
-  children?: any;
-  className?: string;
+export type ModalProps = BlockProps & {
   contentLabel?: string;
-  css?: any;
   isOpen: boolean;
   label?: string;
   onClose?: any;
   showClose?: boolean;
-  style?: any;
-  variant?: string;
-  variants?: string[];
+  type?: string;
 };
 
 const Modal: React.FC<ModalProps> = ({
@@ -25,9 +21,7 @@ const Modal: React.FC<ModalProps> = ({
   contentLabel = '',
   children,
   showClose = true,
-  label,
-  variant,
-  variants,
+  type = '',
   ...props
 }) => {
   // I forget what exactly this does and why it was necessary.
@@ -47,12 +41,6 @@ const Modal: React.FC<ModalProps> = ({
     <ReactModal
       {...props}
       contentLabel={contentLabel}
-      css={emotion_variants({
-        styles,
-        label: label || 'Modal',
-        variant,
-        variants,
-      })}
       isOpen={isOpen}
       onRequestClose={onClose}
       overlayClassName="ReactModalOverlay"
@@ -65,7 +53,7 @@ const Modal: React.FC<ModalProps> = ({
           flex-grow: 1;
         `}
       >
-        {variant === 'cloudinary' && (
+        {type === 'cloudinary' && (
           <h3 className="ModalExtraTitle">
             Click: image checkbox, then &quot;Insert&quot;
           </h3>
@@ -103,4 +91,4 @@ const Modal: React.FC<ModalProps> = ({
   );
 };
 
-export default Modal;
+export default memo(withStyles(Modal, 'Modal', styles));

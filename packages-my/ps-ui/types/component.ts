@@ -4,7 +4,15 @@ import { HtmlContainerTags as HtmlContainerTagsImport } from './html';
 
 export type HtmlContainerTags = HtmlContainerTagsImport;
 
-export type EmotionCSSType = SerializedStyles; // ts-fix
+export type EmotionCssPropType =
+  | SerializedStyles
+  | Array<SerializedStyles | ((...args: any) => any)>
+  | ((...args: any) => any);
+
+export type StylesFile = { default: EmotionCssPropType } & Record<
+  string,
+  EmotionCssPropType
+>;
 
 export type ReactFCProps = {
   /**
@@ -21,111 +29,125 @@ export type VariantProps = {
   variant?: string;
 };
 
-export type CustomCSSProps = {
+export type StyleProps = VariantProps & {
   /**
-   * This will be applied outside of any media queries. Standard EmotionJS.
-   * The other css props (mqLg, mqSm, mqPhone) accept string type. This does not.
+   * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged.
    */
-  css?: EmotionCSSType;
+  as?: HtmlContainerTags;
   /**
-   * `@media (min-width: 931px)` - Does not target any specific device. Mostly desktop, some tablets. 931px is an arbitrary number. It's just the minimum width where desktop designs look good. Below this, it's very hard to fit all the desktop content. Same as `theme.mq.lg`.
+   * Style string. This is the only one that will NOT use any conditional logic or media queries.
    */
-  mqLg?: EmotionCSSType | string;
+  ss?: string;
   /**
-   * `@media (max-width: 930px)` - Does not target any specific device. Some desktop, some tablets, but mostly phones. This complements mqLg. Same as `theme.mq.sm`.
+   * `@media (min-width: 931px)` - Does not target any specific device. Mostly desktop, some tablets. 931px is an arbitrary number. It's just the minimum width where desktop designs look good. Below this it's very hard to fit all the desktop content. Same as `theme.mq.lg`.
    */
-  mqSm?: EmotionCSSType | string;
-
+  ssLg?: string;
   /**
-   * `@media (min-width: 1025px)` - Desktop, Laptop, iPad 12in Landscape. Use in conjunction with mqMobile which is <= 1024px. Same as `theme.mq.desktop`.
+   * `@media (max-width: 930px)` - Does not target any specific device. Some desktop, some tablets, but mostly phones. This complements ssLg. Same as `theme.mq.sm`.
    */
-  mqDesktop?: EmotionCSSType | string;
+  ssSm?: string;
   /**
-   * `@media (max-width: 1024px)` - Mobile, Tablet, iPad 12in Portrait, iPad 9in in any orientation. Use in conjunction with mqDesktop which is >= 1025px. Same as `theme.mq.mobile`.
+   * `@media (min-width: 1025px)` - Desktop, Laptop, iPad 12in Landscape. Use in conjunction with ssMobile which is <= 1024px. Same as `theme.mq.desktop`.
    */
-  mqMobile?: EmotionCSSType | string;
+  ssDesktop?: string;
+  /**
+   * `@media (max-width: 1024px)` - Mobile, Tablet, iPad 12in Portrait, iPad 9in in any orientation. Use in conjunction with ssDesktop which is >= 1025px. Same as `theme.mq.mobile`.
+   */
+  ssMobile?: string;
   /**
    * phones only, not tablets ( <= 499px wide ) Same as `theme.mq.phone`.
    */
-  mqPhone?: EmotionCSSType | string;
+  ssPhone?: string;
   /**
    * extra narrow devices like iPhone 8/X/SE ( <= 399px wide ) Same as `theme.mq.smallPhone`.
    */
-  mqSmallPhone?: EmotionCSSType | string;
+  ssSmallPhone?: string;
   /**
    * includes iPad-12 portrait and iPad-9 landscape or portrait ( >= 737px wide, <= 1024px wide ) Same as `theme.mq.tablet`.
    */
-  mqTablet?: EmotionCSSType | string;
+  ssTablet?: string;
   /**
    * the very awkward size where we no longer support the mobile design, but it feels big enough to maybe be desktop ( >= 931px wide, <= 1024px wide ) Same as `theme.mq.largeTablet`.
    */
-  mqLargeTablet?: EmotionCSSType | string;
+  ssLargeTablet?: string;
   /**
    * everything >= 500px wide. Same as `theme.mq.notPhone`.
    */
-  mqNotPhone?: EmotionCSSType | string;
+  ssNotPhone?: string;
   /**
    * <= 359px wide.  Same as `theme.mq.tinyPhone`.
    */
-  mqTinyPhone?: EmotionCSSType | string;
+  ssTinyPhone?: string;
   /**
    * \>= 1440px wide. Same as `theme.mq.largeDesktop`.
    */
-  mqLargeDesktop?: EmotionCSSType | string;
+  ssLargeDesktop?: string;
   /**
    * \>= 1920px wide. Same as `theme.mq.veryLargeDesktop`.
    */
-  mqVeryLargeDesktop?: EmotionCSSType | string;
+  ssVeryLargeDesktop?: string;
   /**
    * Portrait orientation (height > width). Same as `theme.mq.portrait`.
    */
-  mqPortrait?: EmotionCSSType | string;
+  ssPortrait?: string;
   /**
    * Landscape orientation (width > height). Same as `theme.mq.landscape`.
    */
-  mqLandscape?: EmotionCSSType | string;
+  ssLandscape?: string;
   /**
    * Rendered inside iframe. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqIframe?: EmotionCSSType | string;
+  ssIframe?: string;
   /**
    * Not in an iframe. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqNotIframe?: EmotionCSSType | string;
+  ssNotIframe?: string;
   /**
    * In an app WebView. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqWebview?: EmotionCSSType | string;
+  ssWebview?: string;
   /**
    * Not in WebView. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqNotWebview?: EmotionCSSType | string;
+  ssNotWebview?: string;
   /**
    * OS == 'Mac'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqMac?: EmotionCSSType | string;
+  ssMac?: string;
   /**
    * OS == 'Windows'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqWindows?: EmotionCSSType | string;
+  ssWindows?: string;
   /**
    * OS == 'Linux'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqLinux?: EmotionCSSType | string;
+  ssLinux?: string;
   /**
    * OS == 'Android'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqAndroid?: EmotionCSSType | string;
+  ssAndroid?: string;
   /**
    * OS == 'iOS'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqIOS?: EmotionCSSType | string;
+  ssIOS?: string;
   /**
    * device is 'iPhone'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqIPhone?: EmotionCSSType | string;
+  ssIPhone?: string;
   /**
    * device is 'iPad'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  mqIPad?: EmotionCSSType | string;
+  ssIPad?: string;
+  /**
+   * EmotionJS standard css prop. Unlike the custom ss props, this can not be a string.
+   */
+  css?: EmotionCssPropType;
+  /**
+   * Standard React JS object.
+   */
+  style?: Record<string, any>;
+  /**
+   * Used internally by this library to handle variants.
+   */
+  styles?: Record<string, EmotionCssPropType>;
 };

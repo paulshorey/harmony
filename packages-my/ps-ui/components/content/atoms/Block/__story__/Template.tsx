@@ -50,7 +50,7 @@ const containerStyleProps = {
       font-weight: 700;
     }
   `,
-  mqIframe: `
+  ssIframe: `
   p span {
     display: block;
     white-space: nowrap;
@@ -87,74 +87,74 @@ export default function () {
       <Block as="code" {...codeStyles} className="cssDefaultCode">
         css
       </Block>
-      <Block as="code" {...codeStyles} mqLg="display:block;">
-        mqLg
+      <Block as="code" {...codeStyles} ssLg="display:block;">
+        ssLg
       </Block>
-      <Block as="code" {...codeStyles} mqSm="display:block;">
-        mqSm
+      <Block as="code" {...codeStyles} ssSm="display:block;">
+        ssSm
       </Block>
-      <Block as="code" {...codeStyles} mqDesktop="display:block;">
-        mqDesktop
+      <Block as="code" {...codeStyles} ssDesktop="display:block;">
+        ssDesktop
       </Block>
-      <Block as="code" {...codeStyles} mqMobile="display:block;">
-        mqMobile
+      <Block as="code" {...codeStyles} ssMobile="display:block;">
+        ssMobile
       </Block>
-      <Block as="code" {...codeStyles} mqLargeTablet="display:block;">
-        mqLargeTablet
+      <Block as="code" {...codeStyles} ssLargeTablet="display:block;">
+        ssLargeTablet
       </Block>
-      <Block as="code" {...codeStyles} mqTablet="display:block;">
-        mqTablet
+      <Block as="code" {...codeStyles} ssTablet="display:block;">
+        ssTablet
       </Block>
-      <Block as="code" {...codeStyles} mqPhone="display:block;">
-        mqPhone
+      <Block as="code" {...codeStyles} ssPhone="display:block;">
+        ssPhone
       </Block>
-      <Block as="code" {...codeStyles} mqSmallPhone="display:block;">
-        mqSmallPhone
+      <Block as="code" {...codeStyles} ssSmallPhone="display:block;">
+        ssSmallPhone
       </Block>
-      <Block as="code" {...codeStyles} mqLargeDesktop="display:block;">
-        mqLargeDesktop
+      <Block as="code" {...codeStyles} ssLargeDesktop="display:block;">
+        ssLargeDesktop
       </Block>
-      <Block as="code" {...codeStyles} mqVeryLargeDesktop="display:block;">
-        mqVeryLargeDesktop
+      <Block as="code" {...codeStyles} ssVeryLargeDesktop="display:block;">
+        ssVeryLargeDesktop
       </Block>
-      <Block as="code" {...codeStyles} mqIPhone="display:block;">
-        mqIPhone
+      <Block as="code" {...codeStyles} ssIPhone="display:block;">
+        ssIPhone
       </Block>
-      <Block as="code" {...codeStyles} mqIPad="display:block;">
-        mqIPad
+      <Block as="code" {...codeStyles} ssIPad="display:block;">
+        ssIPad
       </Block>
-      <Block as="code" {...codeStyles} mqAndroid="display:block;">
-        mqAndroid
+      <Block as="code" {...codeStyles} ssAndroid="display:block;">
+        ssAndroid
       </Block>
-      <Block as="code" {...codeStyles} mqWindows="display:block;">
-        mqWindows
+      <Block as="code" {...codeStyles} ssWindows="display:block;">
+        ssWindows
       </Block>
-      <Block as="code" {...codeStyles} mqMac="display:block;">
-        mqMac
+      <Block as="code" {...codeStyles} ssMac="display:block;">
+        ssMac
       </Block>
-      <Block as="code" {...codeStyles} mqLinux="display:block;">
-        mqLinux
+      <Block as="code" {...codeStyles} ssLinux="display:block;">
+        ssLinux
       </Block>
-      <Block as="code" {...codeStyles} mqPortrait="display:block;">
-        mqPortrait
+      <Block as="code" {...codeStyles} ssPortrait="display:block;">
+        ssPortrait
       </Block>
-      <Block as="code" {...codeStyles} mqLandscape="display:block;">
-        mqLandscape
+      <Block as="code" {...codeStyles} ssLandscape="display:block;">
+        ssLandscape
       </Block>
-      <Block as="code" {...codeStyles} mqIframe="display:block;">
-        mqIframe
+      <Block as="code" {...codeStyles} ssIframe="display:block;">
+        ssIframe
       </Block>
-      <Block as="code" {...codeStyles} mqNotIframe="display:block;">
-        mqNotIframe
+      <Block as="code" {...codeStyles} ssNotIframe="display:block;">
+        ssNotIframe
       </Block>
-      <Block as="code" {...codeStyles} mqNotPhone="display:block;">
-        mqNotPhone
+      <Block as="code" {...codeStyles} ssNotPhone="display:block;">
+        ssNotPhone
       </Block>
-      <Block as="code" {...codeStyles} mqWebview="display:block;">
-        mqWebview
+      <Block as="code" {...codeStyles} ssWebview="display:block;">
+        ssWebview
       </Block>
-      <Block as="code" {...codeStyles} mqNotWebview="display:block;">
-        mqNotWebview
+      <Block as="code" {...codeStyles} ssNotWebview="display:block;">
+        ssNotWebview
       </Block>
       <pre>&gt;</pre>
       <p>
@@ -168,17 +168,17 @@ export default function () {
         <span>Pass EmotionCSS or a plain string. Up to you. </span>
       </p>
 
-      <Block as="p" mqIframe="display:none;">
+      <Block as="p" ssIframe="display:none;">
         <span className="gold">
           ⚠️ There used to be a paragraph in this spot. But now it's gone!
         </span>{' '}
         That was just an easy media query to check for iframe:{' '}
         <code>
-          {`<`}Block as="p" mqNotIframe="display:none"{`>`}
+          {`<`}Block as="p" ssNotIframe="display:none"{`>`}
         </code>
         . There are similar ones for WebView, Portrait mode, etc.
       </Block>
-      <Block as="p" mqNotIframe="display:none;">
+      <Block as="p" ssNotIframe="display:none;">
         <span className="gold">
           😭 The values above don't actually reflect your true screen size.{' '}
         </span>

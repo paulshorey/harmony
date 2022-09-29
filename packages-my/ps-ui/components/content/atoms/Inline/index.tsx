@@ -1,21 +1,15 @@
-import useCustomCSSFromProps from '@ps/ui/hooks/useCustomCSSFromProps';
-import {
-  CustomCSSProps,
-  HtmlContainerTags,
-  ReactFCProps,
-} from '@ps/ui/types/component';
+import { ReactFCProps, StyleProps } from '@ps/ui/types/component';
+import withStyles from 'hooks/withStyles';
 import { FC, forwardRef, HTMLAttributes, memo } from 'react';
+
+import styles from './styles';
 /**
  * This is to render simple non-interactive read-only elements like Inline/Span/p/h1/sup/a/center.
  * For interactive form elements, use something more specific like components/form/atoms/Input.
  */
 export type InlineProps = HTMLAttributes<HTMLSpanElement> &
   (ReactFCProps &
-    (CustomCSSProps & {
-      /**
-       * HTML element tag to render instead of the default "span"
-       */
-      as?: HtmlContainerTags;
+    (StyleProps & {
       /**
        * Support for svg element
        */
@@ -23,24 +17,13 @@ export type InlineProps = HTMLAttributes<HTMLSpanElement> &
     }));
 
 /**
- * This is an alternative to styled-system (which is not good for apps/sites that uses a lot of css).
- * Styled-system only supports a subset of CSS, and it pollutes the props namespace, making it difficult to see which props are for styling and which are for logic.
+ * Renders inline elements like <span> (default), <b>, <i>, etc. But also renders any HTML tag as an inline DOM element!
  */
 const Inline: FC<InlineProps> = forwardRef(
-  ({ as = 'span', children, className = '', ...props }, refFromParent) => {
+  ({ as = 'span', ...props }, refFromParent) => {
     const TagName = `${as}` as any;
-    const { cssFromProps, otherProps } = useCustomCSSFromProps(props);
-    return (
-      <TagName
-        {...otherProps}
-        ref={refFromParent}
-        className={`Inline ${className ? ' ' + className : ''}`} // className "Inline" refers to this dir name, not tag name
-        css={cssFromProps}
-      >
-        {children}
-      </TagName>
-    );
+    return <TagName {...props} ref={refFromParent} />;
   }
 );
 
-export default memo(Inline);
+export default memo(withStyles(Inline, 'Inline', styles));

@@ -1,9 +1,6 @@
-import useCustomCSSFromProps from '@ps/ui/hooks/useCustomCSSFromProps';
-import {
-  CustomCSSProps,
-  HtmlContainerTags,
-  ReactFCProps,
-} from '@ps/ui/types/component';
+import styles from '@ps/ui/components/content/atoms/Inline/styles';
+import { ReactFCProps, StyleProps } from '@ps/ui/types/component';
+import withStyles from 'hooks/withStyles';
 import { FC, forwardRef, HTMLAttributes, memo } from 'react';
 /**
  * This is to render simple non-interactive read-only elements like span/div/p/h1/sup/a/center.
@@ -11,11 +8,7 @@ import { FC, forwardRef, HTMLAttributes, memo } from 'react';
  */
 export type BlockProps = HTMLAttributes<HTMLDivElement> &
   (ReactFCProps &
-    (CustomCSSProps & {
-      /**
-       * HTML element tag to render instead of the default "div"
-       */
-      as?: HtmlContainerTags;
+    (StyleProps & {
       /**
        * Support for svg element
        */
@@ -26,21 +19,9 @@ export type BlockProps = HTMLAttributes<HTMLDivElement> &
  * This is an alternative to styled-system (which is not good for apps/sites that uses a lot of css).
  * Styled-system only supports a subset of CSS, and it pollutes the props namespace, making it difficult to see which props are for styling and which are for logic.
  */
-const Block: FC<BlockProps> = forwardRef(
-  ({ as = 'div', children, className = '', ...props }, refFromParent) => {
-    const TagName = `${as}` as any;
-    const { cssFromProps, otherProps } = useCustomCSSFromProps(props);
-    return (
-      <TagName
-        {...otherProps}
-        ref={refFromParent}
-        className={`Block ${className ? ' ' + className : ''}`} // className "Block" refers to this dir name, not tag name
-        css={cssFromProps}
-      >
-        {children}
-      </TagName>
-    );
-  }
-);
+const Block: FC<BlockProps> = forwardRef(({ as = 'div', ...props }, ref) => {
+  const TagName = `${as}` as any;
+  return <TagName {...props} ref={ref} />;
+});
 
-export default memo(Block);
+export default memo(withStyles(Block, 'Block', styles));

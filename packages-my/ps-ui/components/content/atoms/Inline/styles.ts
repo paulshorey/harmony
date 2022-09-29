@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 export default {
-  default: { light: css``, dark: css`` },
+  default: css``,
   yellow: css`
     color: yellow;
   `,

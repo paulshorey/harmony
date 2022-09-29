@@ -1,41 +1,13 @@
 import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
-import { HtmlContainerTags } from '@ps/ui/types/html';
-import useVariants from 'hooks/useVariants';
-import { FC } from 'react';
+import withStyles from 'hooks/withStyles';
+import { FC, memo } from 'react';
 
 import styles from './styles';
 
-type StyleProps = {
-  variant?: string;
-  variants?: Array<string>;
-  as?: HtmlContainerTags;
-};
-type Props = BlockProps & StyleProps;
+type Props = BlockProps;
 
-/**
- * Card
- */
-const Card: FC<Props> = ({
-  as = 'div',
-  children,
-  variant = 'default',
-  variants,
-  ...props
-}) => {
-  return (
-    <Block
-      as={as}
-      css={useVariants({
-        styles,
-        variant, // see index.stories.js for example usage
-        variants, // see index.stories.js for example usage
-        label: 'Card',
-      })}
-      {...props}
-    >
-      {children}
-    </Block>
-  );
+const Card: FC<Props> = (props) => {
+  return <Block {...props} />;
 };
 
-export default Card;
+export default memo(withStyles(Card, 'Card', styles));

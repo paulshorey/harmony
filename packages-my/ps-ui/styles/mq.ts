@@ -20,7 +20,7 @@ export default {
   landscape: `@media (orientation: landscape)`,
 };
 
-export const mqKeys = [
+export const ssKeys = [
   'tinyPhone',
   'smallPhone',
   'phone',
@@ -37,4 +37,4 @@ export const mqKeys = [
   'portrait',
   'landscape',
 ];
-export type MqKey = typeof mqKeys[number];
+export type MqKey = typeof ssKeys[number];
