@@ -1,13 +1,13 @@
 import { css } from '@emotion/react';
 import emotionToString from '@ps/fn/browser/style/emotion_to_string';
-import { CustomCSSProps, EmotionCSSType } from '@ps/ui/components/types';
 import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
-import vars from '@ps/ui/styles/vars';
+import theme from '@ps/ui/styles/theme'; // fixTheme
+import { CustomCSSProps, EmotionCSSType } from '@ps/ui/types/component';
 
 type Props = CustomCSSProps;
 type Output = {
   otherProps: Record<string, any>;
-  mqFromProps: EmotionCSSType;
+  cssFromProps: EmotionCSSType;
 };
 
 const useOpen = ({
@@ -37,8 +37,8 @@ const useOpen = ({
   mqWindows = '',
   ...otherProps
 }: Props): Output => {
-  // const [mqFromProps, set_cssFromProps] = useState<boolean>(
-  //   Boolean(props?.mqFromProps)
+  // const [cssFromProps, set_cssFromProps] = useState<boolean>(
+  //   Boolean(props?.cssFromProps)
   // );
 
   const deviceInfo =
@@ -55,9 +55,9 @@ const useOpen = ({
       ? useDeviceInfo()
       : undefined;
 
-  const mqFromProps = css`
-    /* Must wrap the custom styles in &.Block {} to make specificity more important than default props.css. */
-    &.Block {
+  const cssFromProps = css`
+    /* Must wrap the custom styles in &.Block {} to make specificity more important than default Emotion props.css. */
+    & {
       ${mqIframe &&
       `
       ${
@@ -151,85 +151,85 @@ const useOpen = ({
 
     ${mqLg &&
       `
-    ${vars.mq.lg} {
+    ${theme.mq.lg} {
       ${emotionToString(mqLg)}
     }
     `}
     ${mqSm &&
       `
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       ${emotionToString(mqSm)}
     }
     `}
     ${mqDesktop &&
       `
-    ${vars.mq.desktop} {
+    ${theme.mq.desktop} {
       ${emotionToString(mqDesktop)}
     }
     `}
     ${mqMobile &&
       `
-    ${vars.mq.mobile} {
+    ${theme.mq.mobile} {
       ${emotionToString(mqMobile)}
     }
     `}
     ${mqTablet &&
       `
-    ${vars.mq.tablet} {
+    ${theme.mq.tablet} {
       ${emotionToString(mqTablet)}
     }
     `}
     ${mqLargeTablet &&
       `
-    ${vars.mq.largeTablet} {
+    ${theme.mq.largeTablet} {
       ${emotionToString(mqLargeTablet)}
     }
     `}
     ${mqNotPhone &&
       `
-    ${vars.mq.notPhone} {
+    ${theme.mq.notPhone} {
       ${emotionToString(mqNotPhone)}
     }
     `}
     ${mqPhone &&
       `
-    ${vars.mq.phone} {
+    ${theme.mq.phone} {
       ${emotionToString(mqPhone)}
     }
     `}
     ${mqSmallPhone &&
       `
-    ${vars.mq.smallPhone} {
+    ${theme.mq.smallPhone} {
       ${emotionToString(mqSmallPhone)}
     }
     `}
     ${mqTinyPhone &&
       `
-    ${vars.mq.tinyPhone} {
+    ${theme.mq.tinyPhone} {
       ${emotionToString(mqTinyPhone)}
     }
     `}
     ${mqLargeDesktop &&
       `
-    ${vars.mq.largeDesktop} {
+    ${theme.mq.largeDesktop} {
       ${emotionToString(mqLargeDesktop)}
     }
     `}
     ${mqVeryLargeDesktop &&
       `
-    ${vars.mq.veryLargeDesktop} {
+    ${theme.mq.veryLargeDesktop} {
       ${emotionToString(mqVeryLargeDesktop)}
     }
     `}
     ${mqPortrait &&
       `
-    ${vars.mq.portrait} {
+    ${theme.mq.portrait} {
       ${emotionToString(mqPortrait)}
     }
     `}
     ${mqLandscape &&
       `
-    ${vars.mq.landscape} {
+    ${theme.mq.landscape} {
       ${emotionToString(mqLandscape)}
     }
     `}
@@ -237,7 +237,7 @@ const useOpen = ({
   `;
 
   return {
-    mqFromProps,
+    cssFromProps,
     otherProps,
   };
 };

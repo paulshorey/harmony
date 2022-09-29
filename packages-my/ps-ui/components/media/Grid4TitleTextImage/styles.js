@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import vars from '@ps/ui/styles/vars';
 
 export default {
   'title-image-text-image': css`
@@ -31,12 +30,12 @@ export default {
       text-align: center;
     }
   `,
-  'default': css`
+  'default': (theme) => css`
     position: relative;
     display: grid !important;
     grid-template-columns: 1fr 1fr;
 
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       grid-template-columns: auto;
       grid-template-rows: auto;
       grid-template-areas:
@@ -51,7 +50,7 @@ export default {
 
     > div {
       position: relative;
-      ${vars.mq.sm} {
+      ${theme.mq.sm} {
         margin-left: auto;
         margin-right: auto;
       }

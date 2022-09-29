@@ -1,12 +1,12 @@
 import { css } from '@emotion/react';
-import vars from '@ps/ui/styles/vars';
+import theme from '@ps/ui/styles/theme'; // fixTheme
 
 const overlayStyle = ({
-  isScrolled,
-  isAlwaysOverlay,
-  isAbsolute,
-  isFixed,
   inWhitePage,
+  isAbsolute,
+  isAlwaysOverlay,
+  isFixed,
+  isScrolled,
 }) => {
   if (isAlwaysOverlay) {
     return 'background:rgba(0, 0, 0, 0.45);';
@@ -20,11 +20,11 @@ const overlayStyle = ({
   return '';
 };
 const shadowStyle = ({
-  isScrolled,
-  isAlwaysOverlay,
-  isAbsolute,
-  isFixed,
   inWhitePage,
+  isAbsolute,
+  isAlwaysOverlay,
+  isFixed,
+  isScrolled,
 }) => {
   if (inWhitePage && isScrolled) {
     return 'box-shadow: 0 0 5px 0 rgb(0 0 0 / 50%);';
@@ -32,21 +32,21 @@ const shadowStyle = ({
   return '';
 };
 const positionStyle = ({
-  isScrolled,
-  isAlwaysOverlay,
-  isAbsolute,
-  isFixed,
   inWhitePage,
+  isAbsolute,
+  isAlwaysOverlay,
+  isFixed,
+  isScrolled,
 }) => {
   if (isAlwaysOverlay || isFixed) {
     return 'position:fixed;';
   }
   if (isAbsolute) {
     return `
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       position:absolute;
     }
-    ${vars.mq.lg} {
+    ${theme.mq.lg} {
       position: fixed;
     }
     `;
@@ -55,10 +55,10 @@ const positionStyle = ({
 };
 
 export default ({
-  isAlwaysOverlay,
-  isAbsolute,
-  isFixed,
   inWhitePage,
+  isAbsolute,
+  isAlwaysOverlay,
+  isFixed,
   isScrolled,
 }) => css`
   top: 0;
@@ -104,7 +104,7 @@ export default ({
       pointer-events: all;
     }
 
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       padding: 11px 10px 10px 10px;
     }
   }
@@ -113,16 +113,16 @@ export default ({
     box-sizing: border-box;
     margin: 5px 7.5px 0 0;
     padding: 0;
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       position: relative;
       margin-left: auto;
       margin-right: auto;
       width: 25%;
     }
-    ${vars.mq.lg} {
+    ${theme.mq.lg} {
       margin-left: 0;
     }
-    ${vars.mq.desktop} {
+    ${theme.mq.desktop} {
       margin-left: -5px;
     }
 
@@ -130,20 +130,15 @@ export default ({
       width: auto;
       height: 35px;
 
-      ${vars.mq.sm} {
+      ${theme.mq.sm} {
         margin: 5px 0 0 0;
         height: 24px;
-        ${vars.blueTheme &&
-        !inWhitePage &&
-        `
-        height: 24px;
-      `}
       }
     }
   }
 
   .HDesktopLinks {
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       display: none;
     }
     font-size: 14px;
@@ -160,14 +155,9 @@ export default ({
       }
     }
 
-    * {
-      font-family: ${vars.fonts.greycliff};
-      font-weight: 500;
-    }
-
     a {
       &:not(.is-active) {
-        ${!inWhitePage || isScrolled ? `color: white;` : `color: black;`}
+        ${isScrolled ? `color: white;` : `color: black;`}
       }
       text-shadow: 0 0 25px rgb(0 0 0 / 25%);
       margin: 0 13px 0 13px;
@@ -177,13 +167,6 @@ export default ({
       }
       &:last-of-type {
         margin-right: 0px;
-      }
-
-      &.is-active {
-        // color: ${vars.blueTheme?.navColor};
-        ${!inWhitePage || isScrolled
-          ? vars.blueTheme?.gradientTextLighter
-          : vars.blueTheme?.gradientText}
       }
     }
   }

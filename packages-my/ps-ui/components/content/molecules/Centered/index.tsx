@@ -20,16 +20,9 @@ type Props = BlockProps & StyleProps;
  *
  * You must pass `props.width` for the magic to work. Otherwise it will just function like `text-align:center`.
  */
-const Centered: FC<Props> = ({
-  as = 'div',
-  children,
-  variant = 'default',
-  variants,
-  ...props
-}) => {
+const Centered: FC<Props> = ({ variant = 'default', variants, ...props }) => {
   return (
     <Block
-      as={as}
       css={useVariants({
         styles,
         variant, // see index.stories.js for example usage
@@ -37,9 +30,7 @@ const Centered: FC<Props> = ({
         label: 'Centered',
       })}
       {...props}
-    >
-      {children}
-    </Block>
+    />
   );
 };
 

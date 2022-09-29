@@ -1,8 +1,9 @@
+import arr_not_empty from "@ps/fn/io/arr/arr_not_empty";
 /**
- * Style helper - accepts any Emotion format, but always outputs CSS string
+ * Style helper - accepts any EmotionJS format, but always outputs CSS string
  *     Name of this function is _ on purpose, so Emotion library doesn't put this variable name into className.
  */
-export default function e2Str(
+export default function (
   /**
    * type any - that's the point of this function, to wrangle multiple formats, always output a string
    */
@@ -10,7 +11,11 @@ export default function e2Str(
   /**
    * the app's theme object. This function is DEPRECATED. Use hook instead. That way you don't have to pass theme
    */
-  theme?: Record<string, any>
+  theme?: Record<string, any>,
+  /**
+   * object of arguments to pass to the Emotion function (if it is a function, otherwise ignored)
+   */
+  options?: Record<string, any>
 ): string {
   if (!emotion) {
     return "";
@@ -18,7 +23,7 @@ export default function e2Str(
   let mqString = "";
   if (typeof emotion === "function") {
     // execute if function
-    const style = emotion(theme);
+    const style = options && arr_not_empty(options) ? emotion(theme, options) : emotion(theme);
     if (style?.styles) {
       mqString += style.styles;
     } else if (typeof style === "string") {

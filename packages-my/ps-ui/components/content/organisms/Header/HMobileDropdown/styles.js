@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
-import vars from '@ps/ui/styles/vars';
-const cause = vars.blueTheme;
+import theme from '@ps/ui/styles/theme'; // fixTheme
 
 export default {
   wrapper: (opened) => css`
@@ -12,7 +11,7 @@ export default {
     transition: max-height 0.3s;
     background: #ededef;
 
-    ${vars.mq.lg} {
+    ${theme.mq.lg} {
       display: none !important;
     }
 
@@ -27,7 +26,6 @@ export default {
 
       > a {
         display: block;
-        font-family: vars.fonts.greycliff;
         letter-spacing: 0.25px;
         margin: 28px 0;
         color: inherit;
@@ -56,7 +54,6 @@ export default {
 
         font-weight: 400;
         letter-spacing: 0.25px;
-        font-family: ${vars.fonts.greycliff};
       }
     }
 
@@ -67,7 +64,6 @@ export default {
     width: 100%;
     background: blue;
     background: hsla(0, 0%, 0%, 0.45);
-    ${cause?.gradientBackwards};
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 50%);
 
     > section {

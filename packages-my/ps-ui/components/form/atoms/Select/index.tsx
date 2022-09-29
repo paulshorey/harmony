@@ -1,11 +1,12 @@
 // import { css, jsx, useTheme } from '@emotion/react';
-import {
-  CustomCSSProps,
-  ReactElementProps,
-  VariantsCSSType,
-} from '@ps/ui/components/types';
 import useCustomCSSFromProps from '@ps/ui/hooks/useCustomCSSFromProps';
 import useVariants from '@ps/ui/hooks/useVariants';
+import {
+  CustomCSSProps,
+  ReactFCProps,
+  VariantProps,
+} from '@ps/ui/types/component';
+import { HtmlContainerTags } from '@ps/ui/types/html';
 import React, { FC, forwardRef, memo, SelectHTMLAttributes } from 'react';
 
 import styles from './styles';
@@ -20,17 +21,17 @@ import styles from './styles';
 export type SelectProps = SelectHTMLAttributes<
   HTMLElement & HTMLSelectElement
 > &
-  (ReactElementProps &
-    (VariantsCSSType &
+  (ReactFCProps &
+    (VariantProps &
       (CustomCSSProps & {
         /**
          * <Select value="ThisValue" />
          */
         value: string | number;
         /**
-         * HTML element tag to render instead of the component's default. Same as styled-system.
+         * HTML element tag to render instead of the default "select".
          */
-        as?: string;
+        as?: HtmlContainerTags;
         /**
          * Just the HTML attribute disabled
          */
@@ -46,7 +47,7 @@ const Select: FC<SelectProps> = forwardRef<HTMLSelectElement, SelectProps>(
     { value, className = '', variant, variants = [], disabled, ...props },
     refFromParent
   ) => {
-    const { mqFromProps, otherProps } = useCustomCSSFromProps(props);
+    const { cssFromProps, otherProps } = useCustomCSSFromProps(props);
     return (
       <select
         {...otherProps}
@@ -55,7 +56,7 @@ const Select: FC<SelectProps> = forwardRef<HTMLSelectElement, SelectProps>(
         ref={refFromParent}
         className={`Select ${className ? ' ' + className : ''}`} // className "Block" refers to this dir name, not tag name
         css={[
-          mqFromProps,
+          cssFromProps,
           useVariants({
             label: 'Select',
             styles,

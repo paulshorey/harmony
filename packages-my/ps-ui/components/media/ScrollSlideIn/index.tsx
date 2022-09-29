@@ -1,6 +1,7 @@
 /* eslint-disable max-depth */
 import { css } from '@emotion/react';
-import Block from '@ps/ui/components/content/atoms/Block';
+import Block, { BlockTypes } from '@ps/ui/components/content/atoms/Block';
+import { HtmlContainerTags } from '@ps/ui/types/html';
 // import useIsInView from '@ps/ui/hooks/useIsInview';
 import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-cool-inview';
@@ -26,10 +27,7 @@ const styles = {
       `}
     `,
 };
-type Props = {
-  as?: string;
-  children?: React.ReactNode;
-  className?: string;
+type Props = BlockTypes & {
   slideInFrom?: 'left' | 'right';
   // visibleInitially?: boolean;
 };

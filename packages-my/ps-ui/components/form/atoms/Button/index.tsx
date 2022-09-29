@@ -1,13 +1,14 @@
-// import { css, jsx, useTheme } from '@emotion/react';
 import Center from '@ps/ui/components/content/molecules/Centered';
-import {
-  CustomCSSProps,
-  ReactElementProps,
-  VariantsCSSType,
-} from '@ps/ui/components/types';
 import useCustomCSSFromProps from '@ps/ui/hooks/useCustomCSSFromProps';
 import useVariants from '@ps/ui/hooks/useVariants';
+import {
+  CustomCSSProps,
+  ReactFCProps,
+  VariantProps,
+} from '@ps/ui/types/component';
+import { HtmlContainerTags } from '@ps/ui/types/html';
 import React, { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
+import { tsFixMe } from 'types/typescript';
 
 import styles from './styles';
 /**
@@ -21,17 +22,21 @@ import styles from './styles';
 export type ButtonProps = ButtonHTMLAttributes<
   HTMLElement & HTMLButtonElement
 > &
-  (ReactElementProps &
-    (VariantsCSSType &
+  (ReactFCProps &
+    (VariantProps &
       (CustomCSSProps & {
         /**
-         * HTML element tag to render instead of the component's default. Same as styled-system.
+         * HTML element tag to render instead of the default "button".
          */
-        as?: string;
+        as?: HtmlContainerTags;
         /**
-         * Just the HTML attribute disabled
+         * Disable the functionality and style of the button as disabled?
          */
         disabled?: boolean;
+        /**
+         * This will be shown on a dark background?
+         */
+        onDark?: boolean;
       })));
 
 /**
@@ -42,17 +47,18 @@ const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       children,
-      as,
+      as = 'button',
       className = '',
       variant,
       variants = [],
       disabled,
+      onDark,
       ...props
     },
     refFromParent
   ) => {
-    const TagName = `${as}` as any;
-    const { mqFromProps, otherProps } = useCustomCSSFromProps(props);
+    const TagName = `${as}` as tsFixMe;
+    const { cssFromProps, otherProps } = useCustomCSSFromProps(props);
     return (
       <TagName
         {...otherProps}
@@ -60,20 +66,20 @@ const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={refFromParent}
         className={`Button ${className ? ' ' + className : ''}`} // className "Block" refers to this dir name, not tag name
         css={[
-          mqFromProps,
+          cssFromProps,
           useVariants({
             label: 'Button',
             styles,
             variant,
             variants,
+            options: {
+              onDark,
+            },
           }),
         ]}
       >
         <Center>
-          <span>
-            {children} - {new Date().getHours()}:{new Date().getMinutes()}::
-            {new Date().getSeconds()}
-          </span>
+          <span>{children}</span>
         </Center>
       </TagName>
     );

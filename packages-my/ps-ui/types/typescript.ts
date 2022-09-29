@@ -1,5 +1,8 @@
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
+/** Also search for comment string: ts-fix */
+export type tsFixMe = any;
+
 /** Alternative to ` & ` operator */
 export type Merge<M, N> = Omit<M, Extract<keyof M, keyof N>> & N;
 

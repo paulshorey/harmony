@@ -1,17 +1,16 @@
-import { css, useTheme } from '@emotion/react';
+import { css } from '@emotion/react';
 import Block from '@ps/ui/components/content/atoms/Block';
-import vars from '@ps/ui/styles/vars';
 
 const styles = {
-  wrapper: (opened) => css`
+  wrapper: (theme, opened) => css`
     display: none;
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       display: block;
       width: 25%;
     }
     user-select: none;
   `,
-  icon: (opened, isScrolled, inWhitePage) => css`
+  icon: (theme, opened) => css`
     user-select: none;
     cursor: pointer;
     display: inline-block;
@@ -28,14 +27,11 @@ const styles = {
       height: 3px;
       border-radius: 1px;
       overflow: hidden;
-      background: ${opened || isScrolled || !inWhitePage
-        ? 'white'
-        : vars.blueTheme.bgColorDarker};
     }
 
     &.icon {
       font-size: 20px;
-      color: ${opened ? 'white' : vars.colors.pink};
+      color: ${opened ? 'white' : 'pink'};
       margin-top: 8px;
       margin-left: 8px;
       padding: 1px;

@@ -1,8 +1,7 @@
 import { css } from '@emotion/react';
-import vars from '@ps/ui/styles/vars';
 
 export default {
-  default: css`
+  default: (theme: any) => css`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +21,7 @@ export default {
     min-height: 300px;
     transition: min-height 1s, border-radius 0.4s;
 
-    ${vars.mq.mobile} {
+    ${theme.mq.mobile} {
       margin: 0;
       padding: 15px 24px 15px 24px;
       transition: min-height 0.5s, border-radius 0.4s;

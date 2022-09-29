@@ -3,16 +3,15 @@ import Button from '@ps/ui/components/content/molecules/Button';
 import AppLoginLink from '@ps/ui/components/molecules/AppLoginLink';
 import AppSignupLink from '@ps/ui/components/molecules/AppSignupLink';
 import PageContext from '@ps/ui/context/Page';
-import vars from '@ps/ui/styles/vars';
 import React, { useContext } from 'react';
 
 const styles = {
   loginButton: css`
     margin-left: 20px;
   `,
-  signupButton: css`
+  signupButton: (theme) => css`
     display: inline-block;
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       display: none !important;
     }
     margin-left: 20px;

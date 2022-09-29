@@ -1,10 +1,8 @@
 import disableDefaultArgs from '@ps/ui/.storybook/utils/disable-default-args';
-import { action } from '@storybook/addon-actions';
 
+// import { action } from '@storybook/addon-actions';
 import Comp from '.';
 import styles from './styles';
-
-const handleClick = action('Button clicked');
 
 export default {
   component: Comp,
@@ -25,7 +23,6 @@ const argTypes = {
 export const Button = Template.bind({});
 Button.argTypes = argTypes;
 Button.args = {
-  variants: [''],
+  variants: ['default'],
   children: 'Submit',
-  onClick: handleClick,
 };

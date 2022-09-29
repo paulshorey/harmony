@@ -2,7 +2,7 @@ import { css, useTheme } from '@emotion/react';
 import Link from '@ps/ui/components/atoms/Link';
 import { makeLinkPaths } from '@ps/ui/components/content/organisms/Header';
 import DesktopButtons from '@ps/ui/components/content/organisms/Header/HDesktopButtons';
-import vars from '@ps/ui/styles/vars';
+
 import React from 'react';
 
 const HDesktopLinks = ({

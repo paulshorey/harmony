@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import vars from '@ps/ui/styles/vars';
+import theme from '@ps/ui/styles/theme'; // fixTheme
 
 const layout = css`
   .preventOverflow {
@@ -27,7 +27,7 @@ const layout = css`
       padding-right: 5px !important;
     }
 
-    ${vars.mq.phone} {
+    ${theme.mq.phone} {
       width: calc(100% - 30px);
     }
   }
@@ -44,7 +44,7 @@ const layout = css`
       width: calc(100% - 60px);
     }
 
-    ${vars.mq.phone} {
+    ${theme.mq.phone} {
       width: calc(100% - 40px);
       p {
         padding-left: 1px;
@@ -76,7 +76,7 @@ const layout = css`
       width: auto;
       display: inline-block;
     }
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       text-align: center;
       img {
         height: 80%;
@@ -85,7 +85,7 @@ const layout = css`
   }
   body.scrolledVH70 {
     .partnerPageLogo {
-      ${vars.mq.lg} {
+      ${theme.mq.lg} {
         // cursor: pointer;
         // position: fixed;
         // top: 28.5px;

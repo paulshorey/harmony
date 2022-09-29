@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import vars from '@ps/ui/styles/vars';
+import theme from '@ps/ui/styles/theme'; // fixTheme
 
 const classes = css`
   .ReactModalOverlay {
@@ -23,10 +23,6 @@ const classes = css`
     position: fixed;
     top: 0;
     width: 100%;
-  }
-
-  .color-pink {
-    color: ${vars.colors.pink};
   }
 
   /*
@@ -65,7 +61,7 @@ const classes = css`
   h6 {
     .sup {
       font-size: 0.7em;
-      ${vars.mq.sm} {
+      ${theme.mq.sm} {
         top: unset;
       }
     }
@@ -104,46 +100,46 @@ const classes = css`
   }
 
   .hide-largeDesktop {
-    ${vars.mq.largeDesktop} {
+    ${theme.mq.largeDesktop} {
       display: none !important;
     }
   }
 
   .hide-desktop {
-    ${vars.mq.desktop} {
+    ${theme.mq.desktop} {
       display: none !important;
     }
   }
 
   .hide-mobile {
-    ${vars.mq.mobile} {
+    ${theme.mq.mobile} {
       display: none !important;
     }
   }
 
   .hide-phone {
-    ${vars.mq.phone} {
+    ${theme.mq.phone} {
       display: none !important;
     }
   }
 
   .hide-gt-phone {
-    ${vars.mq.tablet} {
+    ${theme.mq.tablet} {
       display: none !important;
     }
-    ${vars.mq.desktop} {
+    ${theme.mq.desktop} {
       display: none !important;
     }
   }
 
   .hide-sm {
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       display: none !important;
     }
   }
 
   .hide-lg {
-    ${vars.mq.lg} {
+    ${theme.mq.lg} {
       display: none !important;
     }
   }
@@ -161,7 +157,7 @@ const classes = css`
   }
 
   .color-white-M {
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       color: #ffffff;
     }
   }
@@ -170,11 +166,11 @@ const classes = css`
     position: absolute;
     top: -133px;
 
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       top: -118px;
     }
 
-    ${vars.mq.smallPhone} {
+    ${theme.mq.smallPhone} {
       top: -98px;
     }
   }

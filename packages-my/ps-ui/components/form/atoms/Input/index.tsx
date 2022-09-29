@@ -1,11 +1,12 @@
 // import { css, jsx, useTheme } from '@emotion/react';
-import {
-  CustomCSSProps,
-  ReactElementProps,
-  VariantsCSSType,
-} from '@ps/ui/components/types';
 import useCustomCSSFromProps from '@ps/ui/hooks/useCustomCSSFromProps';
 import useVariants from '@ps/ui/hooks/useVariants';
+import {
+  CustomCSSProps,
+  ReactFCProps,
+  VariantProps,
+} from '@ps/ui/types/component';
+import { HtmlContainerTags } from '@ps/ui/types/html';
 import React, { FC, forwardRef, InputHTMLAttributes, memo } from 'react';
 
 import styles from './styles';
@@ -18,17 +19,17 @@ import styles from './styles';
  * For interactive form elements, use something more specific like components/form/atoms/Input.
  */
 export type InputProps = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
-  (ReactElementProps &
-    (VariantsCSSType &
+  (ReactFCProps &
+    (VariantProps &
       (CustomCSSProps & {
         /**
          * <input value="ThisValue" />
          */
         value: string | number;
         /**
-         * HTML element tag to render instead of the component's default. Same as styled-system.
+         * HTML element tag to render instead of the default "input".
          */
-        as?: string;
+        as?: HtmlContainerTags;
         /**
          * Just the HTML attribute disabled
          */
@@ -44,7 +45,7 @@ const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
     { value, className = '', variant, variants = [], disabled, ...props },
     refFromParent
   ) => {
-    const { mqFromProps, otherProps } = useCustomCSSFromProps(props);
+    const { cssFromProps, otherProps } = useCustomCSSFromProps(props);
     return (
       <input
         {...otherProps}
@@ -53,7 +54,7 @@ const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
         ref={refFromParent}
         className={`Input ${className ? ' ' + className : ''}`} // className "Block" refers to this dir name, not tag name
         css={[
-          mqFromProps,
+          cssFromProps,
           useVariants({
             label: 'Input',
             styles,

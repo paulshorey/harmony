@@ -4,11 +4,12 @@
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "paths": {
-      "styles": ["./styles"],
+      "styles": ["style"],
       "@ps/fn": ["../ps-fn"],
       "@ps/ui": ["."],
       "@ps/constants": ["../ps-constants"]
     },
+    "jsxImportSource": "@emotion/react",
     "types": ["@emotion/react/types/css-prop"],
     "lib": ["dom", "ESNext"],
     "esModuleInterop": true,

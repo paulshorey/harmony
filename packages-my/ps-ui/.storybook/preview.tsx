@@ -1,6 +1,6 @@
 import { addons } from '@storybook/addons';
 import React from 'react';
-import GlobalStyles from '../styles';
+import GlobalStyles from '../styles/global';
 import Gradient from '../components/media/GradientBackground';
 import { css } from '@emotion/react';
 import theme from './storybook-theme';

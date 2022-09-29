@@ -2,14 +2,14 @@ import { css, useTheme } from '@emotion/react';
 import Button from '@ps/ui/components/content/molecules/Button';
 import AppLoginLink from '@ps/ui/components/molecules/AppLoginLink';
 import PageContext from '@ps/ui/context/Page';
-import vars from '@ps/ui/styles/vars';
+import theme from '@ps/ui/styles/theme'; // fixTheme
 import React, { useContext } from 'react';
 
 const HMobileButtons = ({ className, hidden }) => {
   const pageContext = useContext(PageContext) || {};
   const style = css`
     visibility: ${hidden ? 'hidden' : 'visible'};
-    ${vars.mq.lg} {
+    ${theme.mq.lg} {
       display: none !important;
     }
     width: 25%;

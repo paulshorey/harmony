@@ -5,6 +5,7 @@ import Template from './__story__/Template';
 export const Inline = Template.bind({});
 Inline.args = {
   as: 'h3',
+  onDark: true,
 };
 // export const Code = Template.bind({});
 // Code.args = {

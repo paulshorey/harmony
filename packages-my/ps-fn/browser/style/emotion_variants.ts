@@ -12,7 +12,7 @@ import emotionToString from "./emotion_to_string";
  * ```
  * This will apply `styles.default` (if exists), then `styles.primary`, then `styles.disabled`
  */
-const _ = function ({ theme, label, style, styles, variant, variants }: any /* ts-fixme */) {
+const _ = function ({ theme, label, style, styles, variant, variants }: any /* ts-fix */) {
   // Sometimes (atoms/Grid) we may want to modify the theme for a specific component.
   if (!theme) {
     theme = useTheme();

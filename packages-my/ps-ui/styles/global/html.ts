@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import vars from '@ps/ui/styles/vars';
+import theme from '@ps/ui/styles/theme'; // fixTheme
 
 const html = css`
   html {
@@ -10,25 +10,25 @@ const html = css`
      * Using responsive "rem" units to more easily style for all devices.
      */
     font-size: 22px;
-    ${vars.mq.veryLargeDesktop} {
+    ${theme.mq.veryLargeDesktop} {
       font-size: 24px;
     }
-    ${vars.mq.largeDesktop} {
+    ${theme.mq.largeDesktop} {
       font-size: 23px;
     }
-    ${vars.mq.desktop} {
+    ${theme.mq.desktop} {
       font-size: 22px;
     }
-    ${vars.mq.tablet} {
+    ${theme.mq.tablet} {
       font-size: 21px;
     }
-    ${vars.mq.phone} {
+    ${theme.mq.phone} {
       font-size: 20px;
     }
-    ${vars.mq.smallPhone} {
+    ${theme.mq.smallPhone} {
       font-size: 18.5px;
     }
-    ${vars.mq.tinyPhone} {
+    ${theme.mq.tinyPhone} {
       font-size: 17px;
     }
   }
@@ -44,7 +44,7 @@ const html = css`
     min-height: 100vh;
     font-weight: 400;
 
-    ${vars.mq.phone} {
+    ${theme.mq.phone} {
       font-size: 16px;
     }
   }
@@ -73,7 +73,7 @@ const html = css`
     margin-bottom: 0.675em;
     line-height: 1.33;
     padding: 0;
-    ${vars.mq.sm} {
+    ${theme.mq.sm} {
       margin-left: auto;
       margin-right: auto;
     }
@@ -94,7 +94,7 @@ const html = css`
     font-size: 44px;
     font-weight: 300;
 
-    ${vars.mq.phone} {
+    ${theme.mq.phone} {
       font-size: 30px;
     }
   }
@@ -104,7 +104,7 @@ const html = css`
     font-size: 24px;
     font-weight: 300;
 
-    ${vars.mq.phone} {
+    ${theme.mq.phone} {
     }
   }
 
@@ -119,7 +119,7 @@ const html = css`
     padding: 8px 0 8px 16px;
     font-size: 22px;
 
-    ${vars.mq.phone} {
+    ${theme.mq.phone} {
       font-size: 18px;
     }
   }
@@ -130,16 +130,6 @@ const html = css`
 
   p {
     font-weight: 400;
-  }
-
-  a {
-    color: ${vars.colors.pink};
-    text-decoration: none;
-
-    &:hover {
-      color: ${vars.colors.pinkDark};
-      text-decoration: underline;
-    }
   }
 
   article {

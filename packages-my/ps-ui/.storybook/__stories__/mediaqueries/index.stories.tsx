@@ -19,9 +19,9 @@ export default {
       description: {
         component: `This UI library makes it easier to style React components for multiple devices - with easy to remember JSX props. For convenience, all mq props accept EmotionCSS or string type.
         
-Pass \`props.mqDesktop\` to style desktop devices, \`props.mqPhoneSmall\` for small phones, \`props.mqLargeTablet\` for large tablets, and \`props.css\` for everything else. If you don't like inline styles, that's cool. You can \`import vars from '@ps/ui/style/vars'\` and use \`vars.mq.desktop\`, \`vars.mq.phoneSmall\`, \`vars.mq.largeTablet\`, \`vars.mq.webView\`, etc. 
+Pass \`props.mqDesktop\` to style desktop devices, \`props.mqPhoneSmall\` for small phones, \`props.mqLargeTablet\` for large tablets, and \`props.css\` for everything else. If you don't like inline styles, it's ok. You can always \`useTheme()\` and use \`theme.mq.desktop\`, \`theme.mq.phoneSmall\`, \`theme.mq.largeTablet\`, \`theme.mq.webView\`, etc.
 
-For usage, see <a href="/" style="color:orange;">Block</a> component story or click "Show code" below.
+For usage, see <a href="/" style="color:orange;">Block</a> component story or click "Show code" below. Scroll down to see a full list of props and sizes.
           `,
       },
       source: {

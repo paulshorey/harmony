@@ -1,5 +1,6 @@
 import { css, useTheme } from '@emotion/react';
 import emotionToString from '@ps/fn/browser/style/emotion_to_string';
+import { EmotionCSSType } from 'types/component';
 
 type Props = {
   label?: string;
@@ -7,7 +8,8 @@ type Props = {
   styles?: any;
   theme?: any;
   variant?: string;
-  variants?: string[];
+  variants?: Array<string>;
+  options?: Record<string, any>;
 };
 /**
  * Aggregate styles, return combined css, with good specificity. This one will really benefit from Typescript!
@@ -21,36 +23,28 @@ type Props = {
  * This will apply `styles.default` (if exists), then `styles.primary`, then `styles.disabled`
  */
 const _ = function ({
-  label,
+  // label,
+  options,
   style,
   styles,
   theme,
   variant,
   variants,
-}: Props): string {
+}: Props): EmotionCSSType {
   // Sometimes (atoms/Grid) we may want to modify the theme for a specific component.
   if (!theme) {
     theme = useTheme();
   }
 
+  // Get output ready
   let mqString = '';
-  // Then, add each variant's css (if it exists in styles)
-  // If no variants specified, this will try to use `styles.default`.
-  // const dict = { default: true } as Record<string, boolean>;
-  // if (variant) {
-  //   dict[variant] = true;
-  // }
-  // if (variants) {
-  //   variants.forEach((v) => {
-  //     if (v && typeof v === 'string') {
-  //       dict[v] = true;
-  //     }
-  //   });
-  // }
-  const theseVariants = ['default', variant, ...(variants || [])];
+
+  // Compile variant keys
+  const strvars = variant?.split(' ') || [];
+  const theseVariants = ['default', ...strvars, ...(variants || [])];
   for (const variant of theseVariants) {
     if (variant && styles?.[variant]) {
-      mqString += emotionToString(styles[variant], theme);
+      mqString += emotionToString(styles[variant], theme, options);
     }
   }
 
@@ -58,15 +52,18 @@ const _ = function ({
   // If type Array, not just object, loop through each item and apply css. Emotion doesn't do that reliably.
   if (style) {
     if (Array.isArray(style)) {
-      mqString = style.map((item) => emotionToString(item, theme)).join(' ');
+      mqString = style
+        .map((item) => emotionToString(item, theme, options))
+        .join(' ');
     } else {
-      mqString += emotionToString(style, theme);
+      mqString += emotionToString(style, theme, options);
     }
   }
 
   return css`
     ${mqString}
-    ${label ? `;label: ${label}` : ''};
   `;
 };
 export default _;
+
+// ${label ? `;label: ${label}` : ''};

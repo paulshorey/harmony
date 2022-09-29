@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import vars from '@ps/ui/styles/vars';
 
 const fonts = css`
   // @font-face {
