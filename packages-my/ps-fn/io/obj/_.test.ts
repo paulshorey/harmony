@@ -1,4 +1,4 @@
-import { obj_first_value, obj_first_entry, obj_is_empty, is_obj, obj_keys_from_array } from ".";
+import { is_obj, obj_first_value, obj_first_entry, obj_not_empty, obj_has_key, obj_keys_from_array } from ".";
 
 describe("obj", () => {
   it("obj_keys_from_array", () => {
@@ -11,10 +11,17 @@ describe("obj", () => {
     });
   });
 
-  it("obj_is_empty", () => {
-    expect(obj_is_empty({})).toBe(true);
-    expect(obj_is_empty({ asdf: "asdf" })).toBe(false);
-    expect(obj_is_empty(null)).toBe(false);
+  it("obj_has_key", () => {
+    expect(obj_has_key(null, "")).toBe(false);
+    expect(obj_has_key({}, "")).toBe(false);
+    expect(obj_has_key({ one: 1 }, "two")).toBe(false);
+    expect(obj_has_key({ one: 1, two: 2 }, "two")).toBe(true);
+  });
+
+  it("obj_not_empty", () => {
+    expect(obj_not_empty(null)).toBe(false);
+    expect(obj_not_empty({})).toBe(false);
+    expect(obj_not_empty({ asdf: "asdf" })).toBe(true);
   });
 
   it("obj_first_value", () => {
@@ -29,7 +36,7 @@ describe("obj", () => {
   });
 
   it("is_obj", () => {
-    expect(is_obj({})).toBe(true);
     expect(is_obj(null)).toBe(false);
+    expect(is_obj({})).toBe(true);
   });
 });

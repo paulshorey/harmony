@@ -1,8 +1,9 @@
 import { css, useTheme } from '@emotion/react';
-import emotionToString from '@ps/fn/browser/style/emotion_to_string';
+import style_to_string from '@ps/fn/browser/style/style_to_string';
 import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
 import { StylesFile } from '@ps/ui/types/component';
 import { ComponentType, FC, forwardRef } from 'react';
+import { themeType } from 'styles/theme';
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
@@ -49,15 +50,21 @@ export default (
       }: any,
       ref
     ) => {
-      const theme = useTheme();
+      const theme: themeType = useTheme();
+      let variantsDict: Record<string, boolean>;
 
       // Partial output
-      let ssString = `${cssFromProps && `${emotionToString(cssFromProps)};`}`;
+      let ssString = '';
+      if (cssFromProps) {
+        ssString += style_to_string(cssFromProps) + '\n';
+      }
 
       // Variants
       if (styles) {
         const variantStrs = variant?.split(' ') || [];
-        const variantsDict: Record<string, boolean> = { default: true };
+        variantsDict = {
+          default: true,
+        };
         if (variantStrs.length) {
           for (const str of variantStrs) {
             variantsDict[str] = true;
@@ -69,13 +76,27 @@ export default (
           }
         }
         for (const variant in variantsDict) {
-          if (variant && styles[variant]) {
-            ssString += emotionToString(styles[variant], theme, variantsDict);
+          if (variant) {
+            if (styles[variant]) {
+              // @ts-ignore // tsFixMe // Why it's saying may be undefined?
+              ssString += style_to_string(styles[variant], theme, variantsDict);
+            }
+            // tsFixMe // Not really a typescript issue, but need to think of a better way
+            // to merge the two sets of variants. If 3rd party app extends the theme, then
+            // that should be more important than the predefined local variants. But those would be ignored.
+            // So, need a way for 3rd party app to extend local component variants too. Ideally. Not high priority.
+            else if (theme.variants?.[variant]) {
+              ssString += style_to_string(
+                // @ts-ignore // tsFixMe // Why it's saying may be undefined?
+                theme.variants[variant],
+                theme,
+                variantsDict
+              );
+            }
           }
         }
       }
 
-      // Device-specific styles
       const deviceInfo =
         ssIframe ||
         ssNotIframe ||
@@ -90,167 +111,121 @@ export default (
           ? useDeviceInfo()
           : undefined;
 
-      // Final output
-      ssString += `
-        ${ss && emotionToString(ssIframe)}
+      // Generic style string is less important than below size specific ones
 
-        ${
-          ssIframe &&
-          `${deviceInfo?.inIframe && `${emotionToString(ssIframe)}`}`
-        }
-
-      ${
-        ssNotIframe &&
-        `${!deviceInfo?.inIframe && `${emotionToString(ssNotIframe)}`}`
+      if (ss) {
+        ssString += `\n${style_to_string(ss)}\n`;
       }
 
-      ${
-        ssWebview &&
-        `${deviceInfo?.inWebview && `${emotionToString(ssWebview)}`}`
+      // Device-specific + theme.mq size-specific
+      ssString += `\n& {\n`;
+      if (ssLg) {
+        ssString += `${theme.mq.lg} { ${style_to_string(ssLg)} }\n`;
       }
-        
-      ${
-        ssNotWebview &&
-        `${!deviceInfo?.inWebview && `${emotionToString(ssNotWebview)}`}`
+      if (ssSm) {
+        ssString += `${theme.mq.sm} { ${style_to_string(ssSm)} }\n`;
       }
-        
-      ${
-        ssMac &&
-        `${deviceInfo?.device === 'Mac' && `${emotionToString(ssMac)}`}`
+      if (ssDesktop) {
+        ssString += `${theme.mq.desktop} { ${style_to_string(ssDesktop)} }\n`;
       }
-        
-      ${
-        ssWindows &&
-        `${deviceInfo?.device === 'Windows' && `${emotionToString(ssWindows)}`}`
+      if (ssMobile) {
+        ssString += `${theme.mq.mobile} { ${style_to_string(ssMobile)} }\n`;
       }
-        
-      ${
-        ssLinux &&
-        `${deviceInfo?.device === 'Linux' && `${emotionToString(ssLinux)}`}`
+      if (ssTablet) {
+        ssString += `${theme.mq.tablet} { ${style_to_string(ssTablet)} }\n`;
       }
-        
-      ${
-        ssAndroid &&
-        `${deviceInfo?.device === 'Android' && `${emotionToString(ssAndroid)}`}`
+      if (ssLargeTablet) {
+        ssString += `${theme.mq.largeTablet} { ${style_to_string(
+          ssLargeTablet
+        )} }\n`;
       }
-        
-      ${
-        ssIPad &&
-        `${deviceInfo?.device === 'iOS' && `${emotionToString(ssIPad)}`}`
+      if (ssNotPhone) {
+        ssString += `${theme.mq.notPhone} { ${style_to_string(ssNotPhone)} }\n`;
       }
-        
-      ${
-        ssIPhone &&
-        `${deviceInfo?.device === 'iPhone' && `${emotionToString(ssIPhone)}`}`
+      if (ssPhone) {
+        ssString += `${theme.mq.phone} { ${style_to_string(ssPhone)} }\n`;
       }
-        
-      ${
-        ssLg &&
-        `${theme.mq.lg} {
-        ${emotionToString(ssLg)}
+      if (ssSmallPhone) {
+        ssString += `${theme.mq.smallPhone} { ${style_to_string(
+          ssSmallPhone
+        )} }\n`;
       }
-      `
+      if (ssTinyPhone) {
+        ssString += `${theme.mq.tinyPhone} { ${style_to_string(
+          ssTinyPhone
+        )} }\n`;
       }
-      ${
-        ssSm &&
-        `${theme.mq.sm} {
-        ${emotionToString(ssSm)}
+      if (ssLargeDesktop) {
+        ssString += `${theme.mq.largeDesktop} { ${style_to_string(
+          ssLargeDesktop
+        )} }\n`;
       }
-      `
+      if (ssVeryLargeDesktop) {
+        ssString += `${theme.mq.veryLargeDesktop} { ${style_to_string(
+          ssVeryLargeDesktop
+        )} }\n`;
       }
-      ${
-        ssDesktop &&
-        `${theme.mq.desktop} {
-        ${emotionToString(ssDesktop)}
+      if (ssPortrait) {
+        ssString += `${theme.mq.portrait} { ${style_to_string(ssPortrait)} }\n`;
       }
-      `
+      if (ssLandscape) {
+        ssString += `${theme.mq.landscape} { ${style_to_string(
+          ssLandscape
+        )} }\n`;
       }
-      ${
-        ssMobile &&
-        `${theme.mq.mobile} {
-        ${emotionToString(ssMobile)}
+      if (ssMac) {
+        ssString += `${
+          deviceInfo?.device === 'Mac' && `${style_to_string(ssMac)}`
+        }\n`;
       }
-      `
+      if (ssWindows) {
+        ssString += `${
+          deviceInfo?.device === 'Windows' && `${style_to_string(ssWindows)}`
+        }\n`;
       }
-      ${
-        ssTablet &&
-        `${theme.mq.tablet} {
-        ${emotionToString(ssTablet)}
+      if (ssLinux) {
+        ssString += `${
+          deviceInfo?.device === 'Linux' && `${style_to_string(ssLinux)}`
+        }\n`;
       }
-      `
+      if (ssAndroid) {
+        ssString += `${
+          deviceInfo?.device === 'Android' && `${style_to_string(ssAndroid)}`
+        }\n`;
       }
-      ${
-        ssLargeTablet &&
-        `${theme.mq.largeTablet} {
-        ${emotionToString(ssLargeTablet)}
+      if (ssIPad) {
+        ssString += `${
+          deviceInfo?.device === 'iOS' && `${style_to_string(ssIPad)}`
+        }\n`;
       }
-      `
+      if (ssIPhone) {
+        ssString += `${
+          deviceInfo?.device === 'iPhone' && `${style_to_string(ssIPhone)}`
+        }\n`;
       }
-      ${
-        ssNotPhone &&
-        `${theme.mq.notPhone} {
-        ${emotionToString(ssNotPhone)}
+      if (ssIframe && deviceInfo?.inIframe) {
+        ssString += `${style_to_string(ssIframe)}\n`;
       }
-      `
+      if (ssNotIframe && !deviceInfo?.inIframe) {
+        ssString += `${style_to_string(ssNotIframe)}\n`;
       }
-      ${
-        ssPhone &&
-        `${theme.mq.phone} {
-        ${emotionToString(ssPhone)}
+      if (ssWebview && deviceInfo?.inWebview) {
+        ssString += `${style_to_string(ssWebview)}\n`;
       }
-      `
+      if (ssNotWebview && !deviceInfo?.inWebview) {
+        ssString += `${style_to_string(ssNotWebview)}\n`;
       }
-      ${
-        ssSmallPhone &&
-        `${theme.mq.smallPhone} {
-        ${emotionToString(ssSmallPhone)}
-      }
-      `
-      }
-      ${
-        ssTinyPhone &&
-        `${theme.mq.tinyPhone} {
-        ${emotionToString(ssTinyPhone)}
-      }
-      `
-      }
-      ${
-        ssLargeDesktop &&
-        `${theme.mq.largeDesktop} {
-        ${emotionToString(ssLargeDesktop)}
-      }
-      `
-      }
-      ${
-        ssVeryLargeDesktop &&
-        `${theme.mq.veryLargeDesktop} {
-        ${emotionToString(ssVeryLargeDesktop)}
-      }
-      `
-      }
-      ${
-        ssPortrait &&
-        `${theme.mq.portrait} {
-        ${emotionToString(ssPortrait)}
-      }
-      `
-      }
-      ${
-        ssLandscape &&
-        `${theme.mq.landscape} {
-        ${emotionToString(ssLandscape)}
-      }
-      `
-      }
-    `;
+      ssString += `\n}\n`;
+
       return (
         <Component
           {...props}
-          className={label + (className ? ' ' + className : '')}
-          css={css`
-            ${ssString}
-          `}
+          className={(label || '') + ' ' + (className || '')}
+          css={css(ssString)}
           ref={ref}
+          // variant={variant}
+          // variants={variants}
+          // styles={styles}
         />
       );
     }

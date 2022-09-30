@@ -1,19 +1,29 @@
 export default {
   default: {
-    gradientStart: 'cornflowerblue',
-    gradientEnd: 'mediumslateblue',
+    bg: '#fff',
+    primary: '#333',
+    secondary: '#999',
+    accent: 'hsl(45deg 100% 45%)',
+    gradientA: 'hsl(272 51% 54%)',
+    gradientB: 'hsl(226 70% 55%)',
+    gradientC: 'hsl(272 51% 54%)',
+    gradientSolid: 'hsl(239 70% 60%)',
+    gradientText: 'white',
+    buttonOutline: 'hsla(229, 79%, 69%, 1)',
     error: '#e30000',
     warning: '#e38935',
     success: '#27b30d',
   },
-  light: {
-    bg: '#fff',
-    primary: '#333',
-    secondary: '#999',
-  },
-  dark: {
+  onDark: {
     bg: '#333',
     primary: '#fff',
     secondary: '#999',
+    accent: 'hsl(45deg 100% 45%)',
+    gradientA: '#4dabff',
+    gradientB: '#62ddff',
+    gradientC: '#4dabff',
+    gradientSolid: 'hsla(199, 79%, 89%, 1)',
+    gradientText: 'white',
+    buttonOutline: 'hsla(199, 79%, 99%, 1)',
   },
 };

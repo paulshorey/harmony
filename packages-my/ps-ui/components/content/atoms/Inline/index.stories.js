@@ -1,16 +1,26 @@
 import Comp from '.';
 import descriptionMd from './__story__/description.md';
 import Template from './__story__/Template';
+import LocalStyles from './styles';
+import ThemeStyles from '@ps/ui/styles/variants';
+const styles = { ...LocalStyles, ...ThemeStyles };
 
 export const Inline = Template.bind({});
+Inline.argTypes = {
+  ...Inline.argTypes,
+  variants: {
+    control: {
+      type: 'multi-select',
+    },
+    description:
+      '**`Array<string>`** In Storybook, use multi-select 👉. Hold Cmd to select another. Light colored row means it is selected.',
+    options: Object.keys(styles), // Automatically inferred when 'options' is defined
+  },
+};
 Inline.args = {
   as: 'h3',
-  onDark: true,
+  variants: ['gradientBg', 'onDark', 'padding'],
 };
-// export const Code = Template.bind({});
-// Code.args = {
-//   as: 'code',
-// };
 
 export default {
   component: Comp,

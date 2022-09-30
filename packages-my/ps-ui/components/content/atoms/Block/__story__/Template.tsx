@@ -1,159 +1,84 @@
 import { css } from '@emotion/react';
 import Block from '@ps/ui/components/content/atoms/Block';
 
-const colors = {
-  gold: 'hsl(45deg 100% 45%)',
-  offwhite: '#897DDB',
-};
-const containerStyleProps = {
-  css: css`
-    &,
-    & > * {
-      color: white;
-    }
-    .gold {
-      color: gold;
-      font-weight: 600;
-    }
-    a, .orange {
-      color: ${colors.gold};
-    }
-    svg {
-      display: inline;
-      color: ${colors.gold};
-      padding-left: 0;
-      margin-left: 0;
-      height: 12px;
-      width: auto;
-      position: relative;
-      top: 2px;
-    }
-    h6 {
-      margin-bottom: 0;
-    }
-    b {
-      color: white;
-      white-space: nowrap;
-    }
-    p {
-      display: block;
-      font-size: 0.67em;
-      margin: 0.67rem 0;
-    }
-    pre {
-      color: color: gold;
-      margin: 0;
-      opacity: 0.5;
-    }
-    code {
-      color: gold;
-      font-weight: 700;
-    }
-  `,
-  ssIframe: `
-  p span {
-    display: block;
-    white-space: nowrap;
-  }`,
-};
-const codeStyles = {
-  css: css`
-    text-indent: 1rem;
-    display: none;
-    font-size: 0.75em;
-    &:after {
-      content: "='display:block'";
-      padding-left: 1rem;
-      color: white;
-      opacity: 0.5;
-      font-weight: 400;
-    }
-    &.cssDefaultCode {
-      display: block;
-      &:after {
-        content: '={css\`display:block\`}';
-      }
-    }
-  `,
-};
-export default function () {
+export default function (args: any) {
   return (
-    <Block {...containerStyleProps}>
-      <h5>
+    <Block {...containerStyleProps} {...args}>
+      <Block as="h5" variant="onDark">
         These <span className="gold">props </span> apply to your current{' '}
         <span className="orange">page size</span>:
-      </h5>
-      <pre>{`<Block `}</pre>
-      <Block as="code" {...codeStyles} className="cssDefaultCode">
-        css
       </Block>
-      <Block as="code" {...codeStyles} ssLg="display:block;">
+      <pre>{`<Block `}</pre>
+      <Block as="code" {...codeStyleProps} ss="display:block;">
+        ss
+      </Block>
+      <Block as="code" {...codeStyleProps} ssLg="display:block;">
         ssLg
       </Block>
-      <Block as="code" {...codeStyles} ssSm="display:block;">
+      <Block as="code" {...codeStyleProps} ssSm="display:block;">
         ssSm
       </Block>
-      <Block as="code" {...codeStyles} ssDesktop="display:block;">
+      <Block as="code" {...codeStyleProps} ssDesktop="display:block;">
         ssDesktop
       </Block>
-      <Block as="code" {...codeStyles} ssMobile="display:block;">
+      <Block as="code" {...codeStyleProps} ssMobile="display:block;">
         ssMobile
       </Block>
-      <Block as="code" {...codeStyles} ssLargeTablet="display:block;">
+      <Block as="code" {...codeStyleProps} ssLargeTablet="display:block;">
         ssLargeTablet
       </Block>
-      <Block as="code" {...codeStyles} ssTablet="display:block;">
+      <Block as="code" {...codeStyleProps} ssTablet="display:block;">
         ssTablet
       </Block>
-      <Block as="code" {...codeStyles} ssPhone="display:block;">
+      <Block as="code" {...codeStyleProps} ssPhone="display:block;">
         ssPhone
       </Block>
-      <Block as="code" {...codeStyles} ssSmallPhone="display:block;">
+      <Block as="code" {...codeStyleProps} ssSmallPhone="display:block;">
         ssSmallPhone
       </Block>
-      <Block as="code" {...codeStyles} ssLargeDesktop="display:block;">
+      <Block as="code" {...codeStyleProps} ssLargeDesktop="display:block;">
         ssLargeDesktop
       </Block>
-      <Block as="code" {...codeStyles} ssVeryLargeDesktop="display:block;">
+      <Block as="code" {...codeStyleProps} ssVeryLargeDesktop="display:block;">
         ssVeryLargeDesktop
       </Block>
-      <Block as="code" {...codeStyles} ssIPhone="display:block;">
+      <Block as="code" {...codeStyleProps} ssIPhone="display:block;">
         ssIPhone
       </Block>
-      <Block as="code" {...codeStyles} ssIPad="display:block;">
+      <Block as="code" {...codeStyleProps} ssIPad="display:block;">
         ssIPad
       </Block>
-      <Block as="code" {...codeStyles} ssAndroid="display:block;">
+      <Block as="code" {...codeStyleProps} ssAndroid="display:block;">
         ssAndroid
       </Block>
-      <Block as="code" {...codeStyles} ssWindows="display:block;">
+      <Block as="code" {...codeStyleProps} ssWindows="display:block;">
         ssWindows
       </Block>
-      <Block as="code" {...codeStyles} ssMac="display:block;">
+      <Block as="code" {...codeStyleProps} ssMac="display:block;">
         ssMac
       </Block>
-      <Block as="code" {...codeStyles} ssLinux="display:block;">
+      <Block as="code" {...codeStyleProps} ssLinux="display:block;">
         ssLinux
       </Block>
-      <Block as="code" {...codeStyles} ssPortrait="display:block;">
+      <Block as="code" {...codeStyleProps} ssPortrait="display:block;">
         ssPortrait
       </Block>
-      <Block as="code" {...codeStyles} ssLandscape="display:block;">
+      <Block as="code" {...codeStyleProps} ssLandscape="display:block;">
         ssLandscape
       </Block>
-      <Block as="code" {...codeStyles} ssIframe="display:block;">
+      <Block as="code" {...codeStyleProps} ssIframe="display:block;">
         ssIframe
       </Block>
-      <Block as="code" {...codeStyles} ssNotIframe="display:block;">
+      <Block as="code" {...codeStyleProps} ssNotIframe="display:block;">
         ssNotIframe
       </Block>
-      <Block as="code" {...codeStyles} ssNotPhone="display:block;">
+      <Block as="code" {...codeStyleProps} ssNotPhone="display:block;">
         ssNotPhone
       </Block>
-      <Block as="code" {...codeStyles} ssWebview="display:block;">
+      <Block as="code" {...codeStyleProps} ssWebview="display:block;">
         ssWebview
       </Block>
-      <Block as="code" {...codeStyles} ssNotWebview="display:block;">
+      <Block as="code" {...codeStyleProps} ssNotWebview="display:block;">
         ssNotWebview
       </Block>
       <pre>&gt;</pre>
@@ -212,3 +137,69 @@ export default function () {
     </Block>
   );
 }
+
+const containerStyleProps = {
+  css: (theme) => `
+    // &,
+    // & > * {
+    //   color: white;
+    // }
+    .gold {
+      color: gold;
+      font-weight: 600;
+    }
+    a, .orange {
+      color: ${theme.getColor('gold')};
+    }
+    svg {
+      display: inline;
+      color: ${theme.getColor('gold')};
+      padding-left: 0;
+      margin-left: 0;
+      height: 12px;
+      width: auto;
+      position: relative;
+      top: 2px;
+    }
+    h6 {
+      margin-bottom: 0;
+    }
+    b {
+      color: white;
+      white-space: nowrap;
+    }
+    p {
+      display: block;
+      font-size: 0.67em;
+      margin: 0.67rem 0;
+    }
+    pre {
+      color: color: gold;
+      margin: 0;
+      opacity: 0.5;
+    }
+    code {
+      color: gold;
+      font-weight: 700;
+    }
+  `,
+  ssIframe: `
+  p span {
+    display: block;
+    white-space: nowrap;
+  }`,
+};
+const codeStyleProps = {
+  css: css`
+    text-indent: 1rem;
+    display: none;
+    font-size: 0.75em;
+    &:after {
+      content: "='display:block'";
+      padding-left: 1rem;
+      color: white;
+      opacity: 0.5;
+      font-weight: 400;
+    }
+  `,
+};

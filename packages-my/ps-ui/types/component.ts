@@ -9,10 +9,7 @@ export type EmotionCssPropType =
   | Array<SerializedStyles | ((...args: any) => any)>
   | ((...args: any) => any);
 
-export type StylesFile = { default: EmotionCssPropType } & Record<
-  string,
-  EmotionCssPropType
->;
+export type StylesFile = Record<string, EmotionCssPropType>;
 
 export type ReactFCProps = {
   /**

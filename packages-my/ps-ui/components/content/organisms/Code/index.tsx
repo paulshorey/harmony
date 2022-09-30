@@ -5,15 +5,10 @@ import { FC, memo } from 'react';
 
 import styles from './styles';
 
-type StyleProps = {
-  variant?: string;
-  variants?: Array<string>;
-  string: string;
-};
-type Props = BlockProps & StyleProps;
+type Props = BlockProps;
 
 /**
- * code
+ * code description
  */
 const Code: FC<Props> = ({ as = 'code', string, ...props }) => {
   const [copied, copyToClipboard] = useCopyToClipboard();

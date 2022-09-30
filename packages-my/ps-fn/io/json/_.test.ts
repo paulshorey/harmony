@@ -1,13 +1,13 @@
 import jsp from "./jsp";
 import json_parse from "./json_parse";
-import { obj_is_empty, is_obj } from "../obj";
+import { obj_not_empty, is_obj } from "../obj";
 
 describe("json", () => {
   it("jsp", () => {
     let jspObject = json_parse('{"one":1}') as Record<string, any>;
     let jspEmptyObject = jsp("{}") as Record<string, any>;
     expect(jspObject?.one).toBe(1);
-    expect(is_obj(jspEmptyObject) && obj_is_empty(jspEmptyObject)).toBe(true);
+    expect(is_obj(jspEmptyObject) && !obj_not_empty(jspEmptyObject)).toBe(true);
     expect(jsp("null")).toBe(null);
     expect(jsp("2")).toBe(2);
     expect(jsp("false")).toBe(false);
@@ -20,7 +20,7 @@ describe("json", () => {
     let json_parseObject = json_parse('{"one":1}') as Record<string, any>;
     let json_parseEmptyObject = json_parse("{}") as Record<string, any>;
     expect(json_parseObject?.one).toBe(1);
-    expect(is_obj(json_parseEmptyObject) && obj_is_empty(json_parseEmptyObject)).toBe(true);
+    expect(is_obj(json_parseEmptyObject) && !obj_not_empty(json_parseEmptyObject)).toBe(true);
     expect(json_parse("null")).toBe(null);
     expect(json_parse("2")).toBe(2);
     expect(json_parse("false")).toBe(false);

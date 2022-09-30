@@ -1,7 +1,8 @@
-import styles from '@ps/ui/components/content/atoms/Inline/styles';
 import { ReactFCProps, StyleProps } from '@ps/ui/types/component';
 import withStyles from 'hooks/withStyles';
 import { FC, forwardRef, HTMLAttributes, memo } from 'react';
+
+import styles from './styles';
 /**
  * This is to render simple non-interactive read-only elements like span/div/p/h1/sup/a/center.
  * For interactive form elements, use something more specific like components/form/atoms/Input.

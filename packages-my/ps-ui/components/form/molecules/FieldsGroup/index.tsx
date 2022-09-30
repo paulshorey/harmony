@@ -9,7 +9,7 @@ import styles from './styles';
 type Props = BlockProps;
 
 /**
- * ...
+ * fields group description
  */
 const FieldsGroup: FC<Props> = ({ ...props }) => {
   return (

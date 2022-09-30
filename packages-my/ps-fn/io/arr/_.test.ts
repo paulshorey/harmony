@@ -1,4 +1,12 @@
-import { arr_from_value, arr_clone, arr_fill, arr_remove_item, arr_includes, arr_truthy_values } from ".";
+import {
+  arr_from_value,
+  arr_clone,
+  arr_fill,
+  arr_remove_item,
+  arr_not_empty,
+  arr_includes,
+  arr_truthy_values
+} from ".";
 
 describe("arr", () => {
   it("arr_clone", () => {
@@ -9,6 +17,14 @@ describe("arr", () => {
   it("arr_fill", () => {
     let arr = arr_fill({ one: 1 }, 5);
     expect(arr[4].one).toEqual(1);
+  });
+
+  it("arr_not_empty", () => {
+    expect(arr_not_empty([1])).toEqual(true);
+    expect(arr_not_empty([])).toEqual(false);
+    expect(arr_not_empty({})).toEqual(false);
+    expect(arr_not_empty(null)).toEqual(false);
+    expect(arr_not_empty(undefined)).toEqual(false);
   });
 
   it("arr_from_value", () => {

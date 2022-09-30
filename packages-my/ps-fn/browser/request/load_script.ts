@@ -16,7 +16,7 @@ export default function load_script({ src, scriptAttrs = {} }: Props) {
   if (!src) return false;
   if (typeof window !== "object" || typeof document !== "object") return false;
   return new Promise((resolve, reject) => {
-    let script = document.createElement("script") as any; // ts-fix
+    let script = document.createElement("script") as any; // tsFixMe
 
     // force certain attributes
     script.async = true;

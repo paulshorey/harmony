@@ -19,4 +19,4 @@ const Centered: FC<Props> = (props) => {
   return <Block {...props} />;
 };
 
-export default memo(withStyles(Centered, 'Button', styles));
+export default memo(withStyles(Centered, 'Centered', styles));

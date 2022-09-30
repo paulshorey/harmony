@@ -1,18 +1,16 @@
-import { css, Global } from '@emotion/react';
+import { css, Global, useTheme } from '@emotion/react';
 
-import classes from './classes';
-import fonts from './fonts';
+// import classes from './classes';
+// import fonts from './fonts';
+// import layout from './layout';
 import html from './html';
-import layout from './layout';
 
 const styles = () => {
+  const theme = useTheme();
   return (
     <Global
       styles={css`
-        ${html}
-        ${classes}
-        ${fonts}
-        ${layout}
+        ${html(theme)}
       `}
     />
   );

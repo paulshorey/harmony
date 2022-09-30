@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
-import theme from '@ps/ui/styles/theme'; // fixTheme
 
-const layout = css`
+const layout = (theme) => css`
   .preventOverflow {
     max-width: 100vw;
     overflow: hidden;

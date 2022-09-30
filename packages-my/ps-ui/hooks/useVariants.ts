@@ -1,5 +1,5 @@
 import { css, useTheme } from '@emotion/react';
-import emotionToString from '@ps/fn/browser/style/emotion_to_string';
+import emotionToString from '@ps/fn/browser/style/style_to_string';
 import { EmotionCssPropType } from 'types/component';
 
 type Props = {

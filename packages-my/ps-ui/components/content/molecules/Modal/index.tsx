@@ -1,12 +1,12 @@
 import { css } from '@emotion/react';
-import { BlockProps } from 'components/content/atoms/Block';
+import { Props } from 'components/content/atoms/Block';
 import withStyles from 'hooks/withStyles';
 import React, { memo, useEffect } from 'react';
 import ReactModal from 'react-modal';
 
 import styles from './styles';
 
-export type ModalProps = BlockProps & {
+export type ModalProps = Props & {
   contentLabel?: string;
   isOpen: boolean;
   label?: string;

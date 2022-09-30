@@ -1,10 +1,11 @@
 import { addons } from '@storybook/addons';
 import React from 'react';
 import GlobalStyles from '../styles/global';
-import Gradient from '../components/media/GradientBackground';
-import { css } from '@emotion/react';
-import theme from './storybook-theme';
 import Block from '../components/content/atoms/Block';
+import { css, ThemeProvider } from '@emotion/react';
+import storybookTheme from './storybook-theme';
+import theme from '../styles/theme';
+import './preview.css';
 
 const sortSidebarById = (a, b) => {
   // console.log('a', a, 'b', b);
@@ -32,84 +33,41 @@ export const parameters = {
     // },
   },
   docs: {
-    theme,
+    theme: storybookTheme,
   },
 };
 
-const handleThemeSelected = (...inputs) => {
-  console.log('handleThemeSelected', ...inputs);
-};
-const handlePlatformSelected = (...inputs) => {
-  console.log('handlePlatformSelected', ...inputs);
-};
-const handleColorSchemeSelected = (...inputs) => {
-  console.log('handleColorSchemeSelected', ...inputs);
-};
+// const handleThemeSelected = (...inputs) => {
+//   console.log('handleThemeSelected', ...inputs);
+// };
+// const handlePlatformSelected = (...inputs) => {
+//   console.log('handlePlatformSelected', ...inputs);
+// };
+// const handleColorSchemeSelected = (...inputs) => {
+//   console.log('handleColorSchemeSelected', ...inputs);
+// };
 
 export const decorators = [
   (Story, context) => {
-    React.useEffect(() => {
-      const channel = addons.getChannel();
-      channel.on('theme-selected', handleThemeSelected);
-      channel.on('platform-selected', handlePlatformSelected);
-      channel.on('color-scheme-selected', handleColorSchemeSelected);
-      channel.emit('story-mounted');
+    // React.useEffect(() => {
+    //   const channel = addons.getChannel();
 
-      return () => {
-        channel.off('theme-selected', handleThemeSelected);
-        channel.off('platform-selected', handlePlatformSelected);
-        channel.off('color-scheme-selected', handleColorSchemeSelected);
-      };
-    }, []);
+    //   channel.on('theme-selected', handleThemeSelected);
+    //   channel.on('platform-selected', handlePlatformSelected);
+    //   channel.on('color-scheme-selected', handleColorSchemeSelected);
+    //   channel.emit('story-mounted');
+
+    //   return () => {
+    //     channel.off('theme-selected', handleThemeSelected);
+    //     channel.off('platform-selected', handlePlatformSelected);
+    //     channel.off('color-scheme-selected', handleColorSchemeSelected);
+    //   };
+    // }, []);
     return (
-      <div
-        css={css`
-          background: white;
-        `}
-      >
+      <ThemeProvider theme={theme}>
         <GlobalStyles />
-        {/* <Block
-          ssLg={`
-      padding: 30px 30px 40px 30px;
-    `}
-          ssSm={`
-      padding: 20px 20px 30px 20px;
-    `}
-        >
-          <Story {...context} />
-        </Block> */}
-
-        {/* <Block
-          css={css`
-            display: block;
-            position: relative;
-            color: black;
-            font-size: 0.67rem;
-            opacity: 0.67;
-            font-weight: 600;
-            background: white;
-          `}
-          ssLg={`
-      padding: 0 30px 0 30px;
-    `}
-          ssSm={`
-      padding: 0 20px 0 20px;;
-    `}
-        >
-          Preview on dark background:
-        </Block> */}
-
-        <Gradient
-          ssLg={`
-      padding: 30px 30px 40px 30px;
-    `}
-          ssSm={`
-      padding: 20px 20px 30px 20px;;
-    `}
-        >
-          <Story {...context} />
-        </Gradient>
-      </div>
+        <Story {...context} />
+      </ThemeProvider>
     );
   },
 ];

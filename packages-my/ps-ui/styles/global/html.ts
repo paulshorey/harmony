@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
-import theme from '@ps/ui/styles/theme'; // fixTheme
 
-const html = css`
+const html = (theme) => css`
   html {
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;
@@ -9,27 +8,27 @@ const html = css`
     /*
      * Using responsive "rem" units to more easily style for all devices.
      */
-    font-size: 22px;
+    font-size: 18px;
     ${theme.mq.veryLargeDesktop} {
-      font-size: 24px;
-    }
-    ${theme.mq.largeDesktop} {
-      font-size: 23px;
-    }
-    ${theme.mq.desktop} {
-      font-size: 22px;
-    }
-    ${theme.mq.tablet} {
-      font-size: 21px;
-    }
-    ${theme.mq.phone} {
       font-size: 20px;
     }
+    ${theme.mq.largeDesktop} {
+      font-size: 19px;
+    }
+    ${theme.mq.desktop} {
+      font-size: 18px;
+    }
+    ${theme.mq.tablet} {
+      font-size: 17px;
+    }
+    ${theme.mq.phone} {
+      font-size: 16px;
+    }
     ${theme.mq.smallPhone} {
-      font-size: 18.5px;
+      font-size: 16px;
     }
     ${theme.mq.tinyPhone} {
-      font-size: 17px;
+      font-size: 14px;
     }
   }
 
@@ -69,8 +68,7 @@ const html = css`
   h6,
   blockquote {
     font-family: 'HelveticaNeue', Helvetica, sans-serif;
-    margin-top: 1.125em;
-    margin-bottom: 0.675em;
+    margin: 0;
     line-height: 1.33;
     padding: 0;
     ${theme.mq.sm} {
@@ -87,31 +85,6 @@ const html = css`
   b,
   strong {
     font-weight: 500;
-  }
-
-  h1,
-  h2 {
-    font-size: 44px;
-    font-weight: 300;
-
-    ${theme.mq.phone} {
-      font-size: 30px;
-    }
-  }
-
-  h3,
-  h4 {
-    font-size: 24px;
-    font-weight: 300;
-
-    ${theme.mq.phone} {
-    }
-  }
-
-  h5,
-  h6 {
-    font-size: inherit;
-    font-weight: 300;
   }
 
   blockquote {
@@ -139,72 +112,6 @@ const html = css`
       &:hover {
         text-decoration: underline;
       }
-    }
-  }
-
-  sup {
-    font-size: 50%;
-    padding: 0 0 0 4px;
-  }
-
-  table {
-    border-spacing: 0;
-    border-collapse: separate;
-
-    td:not(:last-child),
-    th:not(:last-child) {
-      border-right: none !important;
-    }
-
-    tr:not(:last-child) td,
-    tr:not(:last-child) th {
-      border-bottom: none !important;
-    }
-  }
-
-  .table {
-    display: flex;
-    flex-direction: column;
-
-    .tr {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-
-      .td,
-      .th {
-        width: 100%;
-      }
-    }
-
-    .td:not(:last-child),
-    .th:not(:last-child) {
-      border-right: none !important;
-    }
-
-    .tr:not(:last-child) .td,
-    .tr:not(:last-child) .th {
-      border-bottom: none !important;
-    }
-
-    .td:first-of-type,
-    .th:first-of-type {
-      border-left: none !important;
-    }
-
-    .td:last-child,
-    .th:last-child {
-      border-right: none !important;
-    }
-
-    .tr:first-of-type .td,
-    .tr:first-of-type .th {
-      border-top: none !important;
-    }
-
-    .tr:last-child .td,
-    .tr:last-child .th {
-      border-bottom: none !important;
     }
   }
 `;

@@ -13,7 +13,7 @@ export default function (queryParamsFromCode = {}) {
 
   // INPUT
   // from page
-  let qs = { ...queryParamsFromCode } as any; // ts-fix
+  let qs = { ...queryParamsFromCode } as any; // tsFixMe
   // from url
   if (typeof URLSearchParams !== "undefined") {
     const urlParams = new URLSearchParams(window.location.search);

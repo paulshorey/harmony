@@ -1,6 +1,7 @@
 import { css, useTheme } from '@emotion/react';
-import emotionToString from '@ps/fn/browser/style/emotion_to_string';
+import emotionToString from '@ps/fn/browser/style/style_to_string';
 import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
+import theme from '@ps/ui/styles/theme'; // fixTheme
 import { EmotionCssPropType } from '@ps/ui/types/component';
 
 /**
@@ -59,7 +60,7 @@ export default ({
   variants,
   ...props
 }: Input): Output => {
-  const theme = useTheme();
+  // const theme = useTheme(); // fixTheme
 
   // Partial output
   let ssString = '';
