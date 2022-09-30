@@ -136,15 +136,11 @@ export type StyleProps = VariantProps & {
    */
   ssIPad?: string;
   /**
-   * EmotionJS standard css prop. Unlike the custom ss props, this can not be a string.
+   * EmotionJS css prop. This component actually does not handle this prop. It must be configured in your app's Babel/Webpack config. See https://emotion.sh/docs/css-prop. It will be applied by your app's compiler, then passed to this component as className, which this component will accept. If you don't want to use the provided custom ss props, or css, you can always pass the standard `style`. It will be forwarded to the HTML element. This component will forward all allowable props to the HTML element as attibutes.
    */
   css?: EmotionCssPropType;
   /**
-   * Standard React JS object.
+   * Standard old fashioned React JS object. Ignored by this component. Simply passed down to the HTML element.
    */
   style?: Record<string, any>;
-  /**
-   * Used internally by this library to handle variants.
-   */
-  styles?: Record<string, EmotionCssPropType>;
 };

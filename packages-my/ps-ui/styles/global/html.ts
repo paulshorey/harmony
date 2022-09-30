@@ -78,7 +78,7 @@ const html = (theme) => css`
 
     &,
     a {
-      color: #333;
+      color: inherit;
     }
   }
 

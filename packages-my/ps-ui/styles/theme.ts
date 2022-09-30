@@ -3,7 +3,7 @@
 
 import { EmotionCssPropType } from 'types/component';
 
-import { colorsOnDark, colorsOnLight } from './colors';
+import { colorsOnDark, colorsOnLight, colorsType } from './colors';
 import fonts from './fonts';
 import mq from './mq';
 import variants from './variants';
@@ -16,14 +16,14 @@ import variants from './variants';
 const theme: themeType = {
   colorScheme: 'onLight',
   variants,
-  colors: { colorsOnDark, colorsOnLight },
+  colors: { onDark: colorsOnDark, onLight: colorsOnLight },
   fonts,
   mq,
+  /**
+   * Colors object for default colorScheme
+   */
   get color() {
     return this.colors[this.colorScheme] || {};
-  },
-  getColor: function (key = '', colorScheme?: string) {
-    return this.colors[colorScheme || this.colorScheme]?.[key] || '';
   },
 };
 
@@ -33,9 +33,8 @@ export type colorSchemeType = 'onLight' | 'onDark';
 export type themeType = {
   colorScheme: colorSchemeType;
   variants: Record<string, EmotionCssPropType>;
-  colors: Record<string, Record<string, string>>;
+  colors: Record<colorSchemeType, colorsType>;
   fonts: Record<string, string>;
   mq: Record<string, string>;
   color: Record<string, string>;
-  getColor: (color: string, colorScheme?: colorSchemeType) => string;
 };

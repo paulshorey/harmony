@@ -2,7 +2,7 @@
 import Block from '@ps/ui/components/content/atoms/Block';
 import Inline from '@ps/ui/components/content/atoms/Inline';
 
-export default function (args) {
+export default function (args: any) {
   return (
     <Block variant="gradientBg padding">
       <Inline {...args} variants={[...(args.variants || []), 'onDark']}>

@@ -4,8 +4,7 @@ import { HtmlContainerTags } from '@ps/ui/types/html';
 import withStyles from 'hooks/withStyles';
 import React, { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
 import { tsFixMe } from 'types/typescript';
-
-import styles from './styles';
+import variants from './variants';
 /**
  * This is to mimic the disabled state using CSS, but it is still an active button for some reason.
  */
@@ -50,4 +49,4 @@ const Button: FC<ButtonProps> = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-export default memo(withStyles(Button, 'Button', styles));
+export default memo(withStyles(Button, 'Button', variants));

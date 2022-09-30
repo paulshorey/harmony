@@ -2,10 +2,9 @@ import { css } from '@emotion/react';
 import { themeType } from '@ps/ui/styles/theme';
 
 export default {
-  cta: (theme, variants) => {
-    const colorScheme = variants.onDark ? 'onDark' : 'onLight';
+  cta: (theme: themeType) => {
     return css`
-      color: ${theme.getColor('primary', 'onDark')} !important;
+      color: ${theme.colors[theme.colorScheme].cta_gradientText};
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
       background-size: 200% auto;
       transition: all 300ms linear 0s;
@@ -18,15 +17,14 @@ export default {
       &:hover {
         background-image: linear-gradient(
           160deg,
-          ${theme.getColor('ctaA', colorScheme)} -10%,
-          ${theme.getColor('ctaB', colorScheme)} 50%,
-          ${theme.getColor('ctaC', colorScheme)} 120%
+          ${theme.colors[theme.colorScheme].cta_gradientA} -10%,
+          ${theme.colors[theme.colorScheme].cta_gradientB} 50%,
+          ${theme.colors[theme.colorScheme].cta_gradientC} 120%
         ) !important;
       }
     `;
   },
-  default: (theme, variants) => {
-    const colorScheme = variants.onDark ? 'onDark' : 'onLight';
+  default: (theme: themeType) => {
     return css`
       border: none;
       box-shadow: inset rgb(155 155 155 / 50%) 0px 0px 0px 1px,
@@ -51,25 +49,19 @@ export default {
         outline: none !important;
         background-image: linear-gradient(
           160deg,
-          #efefef -33%,
-          #ddd 50%,
-          #efefef 133%
+          hsl(0deg, 0%, 95%) -33%,
+          hsl(0deg, 0%, 85%) 50%,
+          hsl(0deg, 0%, 95%) 133%
         );
       }
       &:focus {
-        background-image: linear-gradient(
-          160deg,
-          #efefef -33%,
-          #ddd 50%,
-          #efefef 133%
-        );
-        box-shadow: inset ${theme.getColor('gradientShadow', colorScheme)} 0px
-          0px 0px 1px;
+        box-shadow: inset ${theme.colors[theme.colorScheme].cta_shadow} 0px 0px
+          0px 1px;
       }
     `;
   },
-  pulsing: (theme, variants) => {
-    const pulseColor = variants.onDark ? 255 : 0;
+  pulsing: (theme: themeType) => {
+    const pulseColor = theme.colorScheme === 'onDark' ? 255 : 0;
     return css`
       padding: 12px 24px;
       border-radius: 7px;
@@ -83,7 +75,7 @@ export default {
       }
     `;
   },
-  raised: (theme) => css`
+  raised: (theme: themeType) => css`
     padding: 12px 24px;
     border-blackus: 6px;
     border-bottom: 4px solid hsl(241, 3%, 73%);
@@ -95,7 +87,7 @@ export default {
       border-top-width: 4px;
     }
   `,
-  underlined: (theme) => css`
+  underlined: (theme: themeType) => css`
     position: relative;
 
     span {
@@ -112,21 +104,19 @@ export default {
       transform: scaleY(0.3);
       transition: transform 0.6s cubic-bezier(0.53, 0.21, 0, 1);
       transform-origin: bottom;
-      background-color: ${theme.getColor('primary')};
-      opacity: 0.6;
+      background-color: ${theme.colors[theme.colorScheme].primary} 0.6;
     }
-
     &:hover:before {
       transform: scaleY(1);
     }
   `,
-  loading: (theme) => css`
+  loading: (theme: themeType) => css`
     span {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: ${theme.getColor('primary')};
-      animation: flashing 1.4s infinite linear;
+      background-color: ${theme.colors[theme.colorScheme].primary} flashing 1.4s
+        infinite linear;
       margin: 0 4px;
       display: inline-block;
 
@@ -152,17 +142,8 @@ export default {
     }
   `,
   onDark: (theme: themeType) => css`
-    &:hover,
     &:focus {
-      background-image: linear-gradient(
-        130deg,
-        hsl(0deg 0% 86%) -33%,
-        hsl(0deg 0% 75%) 50%,
-        hsl(0deg 0% 86%) 133%
-      );
-      box-shadow: inset rgb(255 255 255 / 55%) 0px 0px 0px 1px;
-    }
-    &:focus {
+      box-shadow: inset ${theme.colors[theme.colorScheme].accent} 0 0 0 1px;
     }
   `,
 };

@@ -1,7 +1,7 @@
 import disableDefaultArgs from '@ps/ui/.storybook/utils/disable-default-args';
-import Template from './__story__/Template';
+import Template from './index.sb.template';
 import Comp from '.';
-import styles from './styles';
+import variants from './variants';
 
 export default {
   component: Comp,
@@ -27,7 +27,7 @@ Button.argTypes = {
     control: {
       type: 'multi-select',
     },
-    options: Object.keys(styles), // Automatically inferred when 'options' is defined
+    options: Object.keys(variants), // Automatically inferred when 'options' is defined
   },
 };
 Button.args = {

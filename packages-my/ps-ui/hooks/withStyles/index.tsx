@@ -61,7 +61,7 @@ export default (
 
       // Variants
       if (styles) {
-        const variantStrs = variant?.split(' ') || [];
+        const variantStrs = variant?.trim().split(/[^\w\d]+/) || [];
         variantsDict = {
           default: true,
         };

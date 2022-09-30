@@ -1,9 +1,12 @@
 import React from 'react';
 import Block from '@ps/ui/components/content/atoms/Block';
 import { css } from '@emotion/react';
-import BlockTemplate from '@ps/ui/components/content/atoms/Block/__story__/Template';
+import BlockTemplate from '@ps/ui/components/content/atoms/Block/_story';
 
 export const MediaQueries = BlockTemplate;
+MediaQueries.args = {
+  variants: ['gradientBg', 'onDark', 'padding'],
+};
 
 export default {
   component: Block,
