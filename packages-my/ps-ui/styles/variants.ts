@@ -22,7 +22,7 @@ export default {
     );
   `,
   gradientText: (theme: themeType, variants: any) => {
-    const colorScheme = variants.onDark ? 'onDark' : 'default';
+    const colorScheme = variants.onDark ? 'onDark' : 'onLight';
     return css`
       background-image: linear-gradient(
         170deg,

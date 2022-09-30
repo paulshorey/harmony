@@ -2,51 +2,34 @@ import { css } from '@emotion/react';
 import { themeType } from '@ps/ui/styles/theme';
 
 export default {
-  cta: (theme) => css`
-    color: ${theme.getColor('primary', 'onDark')} !important;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
-    background-size: 200% auto;
-    transition: all 300ms linear 0s;
-    &:hover {
-      background-position: right center;
-      color: #fff;
-    }
-    &,
-    &:focus,
-    &:hover {
-      background-image: linear-gradient(
-        to right,
-        ${theme.color.gradientA} 0%,
-        ${theme.color.gradientB} 48%,
-        ${theme.color.gradientC} 100%
-      ) !important;
-    }
-  `,
-  cta2: (theme) => css`
-    color: ${theme.getColor('primary', 'onDark')} !important;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
-    background-size: 200% auto;
-    transition: all 300ms linear 0s;
-    &:hover {
-      background-position: right center;
-      color: #fff;
-    }
-    &,
-    &:focus,
-    &:hover {
-      background-image: linear-gradient(
-        to right,
-        ${theme.color.gradientALighter} 0%,
-        ${theme.color.gradientBLighter} 48%,
-        ${theme.color.gradientCLighter} 100%
-      ) !important;
-    }
-  `,
+  cta: (theme, variants) => {
+    const colorScheme = variants.onDark ? 'onDark' : 'onLight';
+    return css`
+      color: ${theme.getColor('primary', 'onDark')} !important;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
+      background-size: 200% auto;
+      transition: all 300ms linear 0s;
+      &:hover {
+        background-position: right center;
+        color: #fff;
+      }
+      &,
+      &:focus,
+      &:hover {
+        background-image: linear-gradient(
+          160deg,
+          ${theme.getColor('ctaA', colorScheme)} -10%,
+          ${theme.getColor('ctaB', colorScheme)} 50%,
+          ${theme.getColor('ctaC', colorScheme)} 120%
+        ) !important;
+      }
+    `;
+  },
   default: (theme, variants) => {
-    const colorScheme = variants.onDark ? 'onDark' : 'default';
+    const colorScheme = variants.onDark ? 'onDark' : 'onLight';
     return css`
       border: none;
-      box-shadow: inset rgb(155 155 155 / 50%) 0px 0px 0px 2px,
+      box-shadow: inset rgb(155 155 155 / 50%) 0px 0px 0px 1px,
         1px 2px 3px 0 hsl(0, 0%, 0%, 0.2);
       font-size: 1rem;
       overflow: hidden;
@@ -80,25 +63,11 @@ export default {
           #ddd 50%,
           #efefef 133%
         );
-        box-shadow: inset ${theme.getColor('buttonOutline', colorScheme)} 0px
-          0px 0px 2px;
+        box-shadow: inset ${theme.getColor('gradientShadow', colorScheme)} 0px
+          0px 0px 1px;
       }
     `;
   },
-  onDark: (theme: themeType) => css`
-    &:hover,
-    &:focus {
-      background-image: linear-gradient(
-        130deg,
-        hsl(0deg 0% 86%) -33%,
-        hsl(0deg 0% 75%) 50%,
-        hsl(0deg 0% 86%) 133%
-      );
-      box-shadow: inset rgb(255 255 255 / 55%) 0px 0px 0px 2px;
-    }
-    &:focus {
-    }
-  `,
   pulsing: (theme, variants) => {
     const pulseColor = variants.onDark ? 255 : 0;
     return css`
@@ -180,6 +149,20 @@ export default {
       100% {
         opacity: 0.2;
       }
+    }
+  `,
+  onDark: (theme: themeType) => css`
+    &:hover,
+    &:focus {
+      background-image: linear-gradient(
+        130deg,
+        hsl(0deg 0% 86%) -33%,
+        hsl(0deg 0% 75%) 50%,
+        hsl(0deg 0% 86%) 133%
+      );
+      box-shadow: inset rgb(255 255 255 / 55%) 0px 0px 0px 1px;
+    }
+    &:focus {
     }
   `,
 };

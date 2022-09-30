@@ -17,12 +17,29 @@ export type BlockProps = HTMLAttributes<HTMLDivElement> &
     }));
 
 /**
- * This is an alternative to styled-system (which is not good for apps/sites that uses a lot of css).
- * Styled-system only supports a subset of CSS, and it pollutes the props namespace, making it difficult to see which props are for styling and which are for logic.
+ * Block component. Renders <div> by default. All HTMLDivElement props are supported.
  */
-const Block: FC<BlockProps> = forwardRef(({ as = 'div', ...props }, ref) => {
-  const TagName = `${as}` as any;
-  return <TagName {...props} ref={ref} />;
-});
+const Component: FC<BlockProps> = memo(
+  withStyles(
+    forwardRef(({ as = 'div', ...props }, ref) => {
+      const TagName = `${as}` as any;
+      return <TagName {...props} ref={ref} />;
+    }),
+    'Block',
+    styles
+  )
+);
 
-export default memo(withStyles(Block, 'Block', styles));
+/**
+ * Default export is ready to use in your JSX. Like <Block {...yourProps} />
+ */
+export default Component;
+
+/**
+ * Named export is a HOC, like Styled in @emotion/styled or Styled-Components.
+ * First you must call it with an object of props which will be used by all instances.
+ * Then, you can use the returned value as a normal component. Pass to it props that only the specific instance will use.
+ */
+export const Block = (props1: BlockProps) => (props2: BlockProps) => {
+  return <Component {...props1} {...props2} />;
+};
