@@ -4,6 +4,7 @@ import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
 import { StylesFile } from '@ps/ui/types/component';
 import { ComponentType, FC, forwardRef } from 'react';
 import { themeType } from 'styles/theme';
+import { colorsKeyType } from 'styles/colors';
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
@@ -17,6 +18,10 @@ export default (
   forwardRef(
     (
       {
+        color,
+        onDark = false,
+        onLight = false,
+        as,
         className,
         css: cssFromProps,
         ss,
@@ -50,53 +55,80 @@ export default (
       }: any,
       ref
     ) => {
-      const theme: themeType = useTheme();
-      let variantsDict: Record<string, boolean>;
+      const theme: themeType = useTheme(); // style() 1st argument
+      const options: {
+        variants: Record<string, boolean>;
+        color: colorsKeyType;
+      } = {
+        variants: { default: true },
+        color: theme.colorsKey,
+      }; // style() 2nd argument
+      let ssOutput = ''; // will be wrapped in css`` before being passed to component props.css
 
-      // Partial output
-      let ssString = '';
+      // In case EmotionJS props.css handling is not set up for all elements, this handles it at least for this component
       if (cssFromProps) {
-        ssString += style_to_string(cssFromProps) + '\n';
+        ssOutput += style_to_string(cssFromProps) + '\n';
+      }
+
+      // Helpers for variants
+      if (color) {
+        // @ts-ignore // check if specified color is valid
+        if (theme.colors[color]) {
+          // @ts-ignore // if theme.colors[color], then set temporary custom color scheme from variant
+          options.colorsKey = color;
+          // this modified theme will be passed to the variant EmotionJS style function as second argument
+        }
       }
 
       // Variants
       if (styles) {
-        const variantStrs = variant?.trim().split(/[^\w\d]+/) || [];
-        variantsDict = {
-          default: true,
-        };
+        const variantStrs = variant?.trim().split(/[^\w\d-_]+/) || [];
+        // props.variant (strings separated by spaces or any other illegal characters)
         if (variantStrs.length) {
           for (const str of variantStrs) {
-            variantsDict[str] = true;
+            options.variants[str] = true;
           }
         }
+        // props.onDark (passed as its own prop for shorthand)
+        if (onDark !== false) {
+          options.variants.onDark = true;
+        }
+        if (onLight !== false) {
+          options.variants.onLight = true;
+        }
+        // props.variants (string[])
         if (variants?.length) {
           for (const str of variants) {
-            variantsDict[str] = true;
+            options.variants[str] = true;
           }
         }
-        for (const variant in variantsDict) {
+        // apply variants
+        for (const variant in options.variants) {
           if (variant) {
+            // Apply component-specific styles
             if (styles[variant]) {
-              // @ts-ignore // tsFixMe // Why it's saying may be undefined?
-              ssString += style_to_string(styles[variant], theme, variantsDict);
+              ssOutput += style_to_string(
+                // @ts-ignore // styles[variant] is defined, so use it
+                styles[variant],
+                theme,
+                options
+              );
             }
-            // tsFixMe // Not really a typescript issue, but need to think of a better way
-            // to merge the two sets of variants. If 3rd party app extends the theme, then
-            // that should be more important than the predefined local variants. But those would be ignored.
-            // So, need a way for 3rd party app to extend local component variants too. Ideally. Not high priority.
-            else if (theme.variants?.[variant]) {
-              ssString += style_to_string(
-                // @ts-ignore // tsFixMe // Why it's saying may be undefined?
+            // If component-specific style is not defined,
+            // then apply a global style from theme
+            else if (theme.variants[variant]) {
+              ssOutput += style_to_string(
+                // @ts-ignore // theme.variants[variant] is defined, so use it
                 theme.variants[variant],
                 theme,
-                variantsDict
+                options
               );
             }
           }
         }
       }
 
+      // For each device and size, add a media query (but only if custom style for it is specified)
       const deviceInfo =
         ssIframe ||
         ssNotIframe ||
@@ -111,118 +143,146 @@ export default (
           ? useDeviceInfo()
           : undefined;
 
-      // Generic style string is less important than below size specific ones
+      ssOutput += `\n&.ss {\n`;
 
       if (ss) {
-        ssString += `\n${style_to_string(ss)}\n`;
+        ssOutput += `\n${style_to_string(ss, theme)}\n`;
       }
 
-      // Device-specific + theme.mq size-specific
-      ssString += `\n& {\n`;
       if (ssLg) {
-        ssString += `${theme.mq.lg} { ${style_to_string(ssLg)} }\n`;
+        ssOutput += `${theme.mq.lg} { ${style_to_string(ssLg, theme)} }\n`;
       }
       if (ssSm) {
-        ssString += `${theme.mq.sm} { ${style_to_string(ssSm)} }\n`;
+        ssOutput += `${theme.mq.sm} { ${style_to_string(ssSm, theme)} }\n`;
       }
       if (ssDesktop) {
-        ssString += `${theme.mq.desktop} { ${style_to_string(ssDesktop)} }\n`;
+        ssOutput += `${theme.mq.desktop} { ${style_to_string(
+          ssDesktop,
+          theme
+        )} }\n`;
       }
       if (ssMobile) {
-        ssString += `${theme.mq.mobile} { ${style_to_string(ssMobile)} }\n`;
+        ssOutput += `${theme.mq.mobile} { ${style_to_string(
+          ssMobile,
+          theme
+        )} }\n`;
       }
       if (ssTablet) {
-        ssString += `${theme.mq.tablet} { ${style_to_string(ssTablet)} }\n`;
+        ssOutput += `${theme.mq.tablet} { ${style_to_string(
+          ssTablet,
+          theme
+        )} }\n`;
       }
       if (ssLargeTablet) {
-        ssString += `${theme.mq.largeTablet} { ${style_to_string(
-          ssLargeTablet
+        ssOutput += `${theme.mq.largeTablet} { ${style_to_string(
+          ssLargeTablet,
+          theme
         )} }\n`;
       }
       if (ssNotPhone) {
-        ssString += `${theme.mq.notPhone} { ${style_to_string(ssNotPhone)} }\n`;
+        ssOutput += `${theme.mq.notPhone} { ${style_to_string(
+          ssNotPhone,
+          theme
+        )} }\n`;
       }
       if (ssPhone) {
-        ssString += `${theme.mq.phone} { ${style_to_string(ssPhone)} }\n`;
+        ssOutput += `${theme.mq.phone} { ${style_to_string(
+          ssPhone,
+          theme
+        )} }\n`;
       }
       if (ssSmallPhone) {
-        ssString += `${theme.mq.smallPhone} { ${style_to_string(
-          ssSmallPhone
+        ssOutput += `${theme.mq.smallPhone} { ${style_to_string(
+          ssSmallPhone,
+          theme
         )} }\n`;
       }
       if (ssTinyPhone) {
-        ssString += `${theme.mq.tinyPhone} { ${style_to_string(
-          ssTinyPhone
+        ssOutput += `${theme.mq.tinyPhone} { ${style_to_string(
+          ssTinyPhone,
+          theme
         )} }\n`;
       }
       if (ssLargeDesktop) {
-        ssString += `${theme.mq.largeDesktop} { ${style_to_string(
-          ssLargeDesktop
+        ssOutput += `${theme.mq.largeDesktop} { ${style_to_string(
+          ssLargeDesktop,
+          theme
         )} }\n`;
       }
       if (ssVeryLargeDesktop) {
-        ssString += `${theme.mq.veryLargeDesktop} { ${style_to_string(
-          ssVeryLargeDesktop
+        ssOutput += `${theme.mq.veryLargeDesktop} { ${style_to_string(
+          ssVeryLargeDesktop,
+          theme
         )} }\n`;
       }
       if (ssPortrait) {
-        ssString += `${theme.mq.portrait} { ${style_to_string(ssPortrait)} }\n`;
+        ssOutput += `${theme.mq.portrait} { ${style_to_string(
+          ssPortrait,
+          theme
+        )} }\n`;
       }
       if (ssLandscape) {
-        ssString += `${theme.mq.landscape} { ${style_to_string(
-          ssLandscape
+        ssOutput += `${theme.mq.landscape} { ${style_to_string(
+          ssLandscape,
+          theme
         )} }\n`;
       }
       if (ssMac) {
-        ssString += `${
-          deviceInfo?.device === 'Mac' && `${style_to_string(ssMac)}`
+        ssOutput += `${
+          deviceInfo?.device === 'Mac' && `${style_to_string(ssMac, theme)}`
         }\n`;
       }
       if (ssWindows) {
-        ssString += `${
-          deviceInfo?.device === 'Windows' && `${style_to_string(ssWindows)}`
+        ssOutput += `${
+          deviceInfo?.device === 'Windows' &&
+          `${style_to_string(ssWindows, theme)}`
         }\n`;
       }
       if (ssLinux) {
-        ssString += `${
-          deviceInfo?.device === 'Linux' && `${style_to_string(ssLinux)}`
+        ssOutput += `${
+          deviceInfo?.device === 'Linux' && `${style_to_string(ssLinux, theme)}`
         }\n`;
       }
       if (ssAndroid) {
-        ssString += `${
-          deviceInfo?.device === 'Android' && `${style_to_string(ssAndroid)}`
+        ssOutput += `${
+          deviceInfo?.device === 'Android' &&
+          `${style_to_string(ssAndroid, theme)}`
         }\n`;
       }
       if (ssIPad) {
-        ssString += `${
-          deviceInfo?.device === 'iOS' && `${style_to_string(ssIPad)}`
+        ssOutput += `${
+          deviceInfo?.device === 'iOS' && `${style_to_string(ssIPad, theme)}`
         }\n`;
       }
       if (ssIPhone) {
-        ssString += `${
-          deviceInfo?.device === 'iPhone' && `${style_to_string(ssIPhone)}`
+        ssOutput += `${
+          deviceInfo?.device === 'iPhone' &&
+          `${style_to_string(ssIPhone, theme)}`
         }\n`;
       }
       if (ssIframe && deviceInfo?.inIframe) {
-        ssString += `${style_to_string(ssIframe)}\n`;
+        ssOutput += `${style_to_string(ssIframe, theme)}\n`;
       }
       if (ssNotIframe && !deviceInfo?.inIframe) {
-        ssString += `${style_to_string(ssNotIframe)}\n`;
+        ssOutput += `${style_to_string(ssNotIframe, theme)}\n`;
       }
       if (ssWebview && deviceInfo?.inWebview) {
-        ssString += `${style_to_string(ssWebview)}\n`;
+        ssOutput += `${style_to_string(ssWebview, theme)}\n`;
       }
       if (ssNotWebview && !deviceInfo?.inWebview) {
-        ssString += `${style_to_string(ssNotWebview)}\n`;
+        ssOutput += `${style_to_string(ssNotWebview, theme)}\n`;
       }
-      ssString += `\n}\n`;
+      ssOutput += `\n}\n`;
 
       return (
         <Component
           {...props}
-          className={(label || '') + ' ' + (className || '')}
-          css={css(ssString)}
           ref={ref}
+          as={as}
+          // 'ss' className is important - above styles are wrapped in `&.ss` selector for slightly greater specificity
+          className={(label || '') + ' ss ' + (className || '')}
+          // assemble the string above, then wrap it all in EmotionCSS function just one time here
+          css={css(ssOutput)}
           // variant={variant}
           // variants={variants}
           // styles={styles}

@@ -14,7 +14,7 @@ const COLOR_SCHEMES = [
 
 const DarkModeAddon = ({ api }) => {
   const channel = addons.getChannel();
-  const [colorScheme, setColorScheme] = React.useState('dark');
+  const [colorsKey, setColorScheme] = React.useState('dark');
 
   React.useEffect(() => {
     setColorScheme(detect_default_color_scheme());
@@ -22,16 +22,16 @@ const DarkModeAddon = ({ api }) => {
 
   React.useEffect(() => {
     const notifyColorScheme = () => {
-      channel.emit('color-scheme-selected', colorScheme);
+      channel.emit('color-scheme-selected', colorsKey);
     };
 
     channel.on('story-mounted', notifyColorScheme);
-    channel.emit('color-scheme-selected', colorScheme);
+    channel.emit('color-scheme-selected', colorsKey);
 
     return () => {
       channel.off('story-mounted', notifyColorScheme);
     };
-  }, [channel, colorScheme, api]);
+  }, [channel, colorsKey, api]);
 
   return (
     <WithTooltip
@@ -55,7 +55,7 @@ const DarkModeAddon = ({ api }) => {
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <span style={{ marginLeft: 8 }}>
             Color scheme:{' '}
-            {COLOR_SCHEMES.find(({ id }) => id === colorScheme).title}
+            {COLOR_SCHEMES.find(({ id }) => id === colorsKey).title}
           </span>
         </div>
       </IconButton>

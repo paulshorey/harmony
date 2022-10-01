@@ -83,7 +83,7 @@ const theme = {
   key: 'default',
   title: 'Default',
 
-  colorScheme: 'dark',
+  colorsKey: 'dark',
   i18n: { locale: 'en-US' },
 
   colors,

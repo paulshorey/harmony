@@ -91,7 +91,7 @@ export const VariantsAndThemes = ({ args }) => {
 
 export default {
   component: Block,
-  id: '8',
+  id: '3',
   title: 'Variants And Themes',
   argTypes: {},
   isExpanded: true,

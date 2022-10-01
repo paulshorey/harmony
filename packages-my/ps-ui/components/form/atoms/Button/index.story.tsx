@@ -1,5 +1,5 @@
 import disableDefaultArgs from '@ps/ui/.storybook/utils/disable-default-args';
-import Template from './index.sb.template';
+import Template from './_story';
 import Comp from '.';
 import variants from './variants';
 
@@ -8,9 +8,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `
-Try :hover, then :focus on both light/dark variants. Try alternative variants.
-        `,
+        component: `Try :hover, then :focus on both light/dark variants. Try alternative variants.`,
       },
       source: {
         code: `
@@ -31,6 +29,6 @@ Button.argTypes = {
   },
 };
 Button.args = {
-  variants: ['default'],
+  variants: ['default', 'text'],
   children: 'Submit',
 };

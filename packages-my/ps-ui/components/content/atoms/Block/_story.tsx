@@ -155,7 +155,7 @@ const containerStyleProps = {
     }
     svg {
       display: inline;
-      color: ${theme.color.gold};
+      color: ${theme.getColors().gold};
       padding-left: 0;
       margin-left: 0;
       height: 12px;

@@ -15,7 +15,7 @@ export default {
   sm: `@media (max-width: 930px)`,
   lg: `@media (min-width: 931px)`,
   // override other media queries without resorting to "!important":
-  any: `@media (min-width: 0px), (min-height: 0px)`,
+  all: `@media (min-width: 0px), (min-height: 0px)`,
   portrait: `@media (orientation: portrait)`,
   landscape: `@media (orientation: landscape)`,
 };
