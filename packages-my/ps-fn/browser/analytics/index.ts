@@ -15,12 +15,12 @@ export const analytics_track_page = function (options: {
   experiments?: any; // experiments in the page
 }): void {
   // remove trailing slash
-  options.path = options.path.replace(/[\/]+$/, "");
+  opt.path = opt.path.replace(/[\/]+$/, "");
   // keep lash if root
-  if (options.path === "") options.path = "/";
+  if (opt.path === "") opt.path = "/";
 
   // label
-  let label = "PageView: " + options.name;
+  let label = "PageView: " + opt.name;
   mixpanel_track({ label, options });
 
   // Google Analytics
@@ -29,8 +29,8 @@ export const analytics_track_page = function (options: {
   if (typeof window !== "object") return;
   if (DEBUG1) {
     console.warn("gtag track pageview", {
-      page_title: options.name,
-      page_path: options.path
+      page_title: opt.name,
+      page_path: opt.path
     });
   }
   if (!window.gtag) {
@@ -38,8 +38,8 @@ export const analytics_track_page = function (options: {
     return;
   }
   window.gtag("config", process.env.NEXT_PUBLIC_GTAG_ID, {
-    page_path: options.path,
-    page_title: options.name
+    page_path: opt.path,
+    page_title: opt.name
   });
   // Facebook
   // Facebook automatically tracks changes to push state?
@@ -48,12 +48,12 @@ export const analytics_track_page = function (options: {
 /**
  * Track the "Sign up" or "Download our app" button click
  * @param {object} options
- * @param {string} options.from - where in the site the button was clicked
+ * @param {string} opt.from - where in the site the button was clicked
  */
 export const analytics_track_cta = function (options: {
   from: string; // where in the page/site this was displayed
 }): void {
-  let label = "CTA: " + options.from;
+  let label = "CTA: " + opt.from;
   mixpanel_track({ label, options });
   // track Facebook
   if (typeof window === "object" && window.fbq) {
@@ -70,11 +70,11 @@ export const analytics_track_cta = function (options: {
  * Track all link clicks
  * Navigating to a page ("/" internal), or external ("https://..."), and even hash links ("#...")
  * @param {object} options
- * @param {string} options.type - type of the link, internal or external
- * @param {string} options.href - href of the link
- * @param {string} options.fromSection - where in the site the link was clicked
- * @param {string} options.fromPageName - name of the page where the link was clicked
- * @param {string} options.fromPagePath - route of the page where the link was clicked
+ * @param {string} opt.type - type of the link, internal or external
+ * @param {string} opt.href - href of the link
+ * @param {string} opt.fromSection - where in the site the link was clicked
+ * @param {string} opt.fromPageName - name of the page where the link was clicked
+ * @param {string} opt.fromPagePath - route of the page where the link was clicked
  */
 export const analytics_track_link = function (options: {
   from: string; // where in the page/site this link was displayed
@@ -82,18 +82,18 @@ export const analytics_track_link = function (options: {
 }) {
   let label = "link click";
   // format href
-  options.type = href_type(options.href);
-  // options.href = href_canonical(options.href); // use canonical url format
+  opt.type = href_type(opt.href);
+  // opt.href = href_canonical(opt.href); // use canonical url format
   // is CTA
-  if (options.href.includes("1526316317") || options.href.includes("/auth/register")) {
-    if (!options.from) {
-      options.from = "link";
+  if (opt.href.includes("1526316317") || opt.href.includes("/auth/register")) {
+    if (!opt.from) {
+      opt.from = "link";
     }
     analytics_track_cta(options);
     return;
   }
   // is contact, track in TikTok
-  if (options.href.includes("mailto:") || options.href.includes("tel:")) {
+  if (opt.href.includes("mailto:") || opt.href.includes("tel:")) {
     if (typeof window === "object" && window.ttq) {
       window.ttq.track("Contact");
     }

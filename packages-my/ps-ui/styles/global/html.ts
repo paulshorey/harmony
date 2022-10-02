@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
+import { themeType } from '../theme';
 
-const html = (theme) => css`
+const html = (theme: themeType) => css`
   html {
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;

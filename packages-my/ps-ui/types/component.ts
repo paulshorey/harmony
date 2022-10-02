@@ -1,5 +1,5 @@
 import { SerializedStyles } from '@emotion/react';
-import { colorsKeyType } from 'styles/colors';
+import { colorHueType } from 'styles/colors';
 
 import { HtmlContainerTags as HtmlContainerTagsImport } from './html';
 
@@ -10,16 +10,32 @@ export type EmotionCssPropType =
   | Array<SerializedStyles | ((...args: any) => any)>
   | ((...args: any) => any);
 
-export type StylesFile = Record<string, EmotionCssPropType>;
+/**
+ * Good practice is to create a `styles.ts` file next to every React component.
+ * This file should default export an object with keys that match any props.variants that might be passed to the component.
+ * Also include a `default` key for the default styles.
+ */
+export type StylesType = Record<string, EmotionCssPropType>;
 
 export type ReactFCProps = {
   /**
    * React ref to pass to the rendered element, using React.forwardRef.
    */
   ref?: any;
+  /**
+   * EmotionJS css prop is optional. It must be configured in your app's Babel/Webpack config. See https://emotion.sh/docs/css-prop. It will be applied by your app's compiler, then passed to this component as className. As an alternative, you can use the custom `props.ss` - it has the same functionality but require no configuration. In addition to EmotionCssPropType, it accepts css/scss as a plain string type.
+   */
+  css?: EmotionCssPropType;
+  /**
+   * Standard old fashioned React JS object. Ignored by this component. Simply passed down to the HTML element.
+   */
+  style?: Record<string, any>;
 };
 
-export type VariantProps = {
+/**
+ * Props used by this UI library
+ */
+export type StyleProps = {
   /**
    * Render one or multiple variants. Array of strings.
    */
@@ -28,9 +44,6 @@ export type VariantProps = {
    * One or multiple variants as a string, separated by spaces. Will be used in addition to variants. This maybe useful if you apply variants programmatically for all components in the file, but need to amend just one unique instance of the component.
    */
   variant?: string;
-};
-
-export type StyleProps = VariantProps & {
   /**
    * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged.
    */
@@ -140,23 +153,17 @@ export type StyleProps = VariantProps & {
    */
   ssIPad?: string | EmotionCssPropType;
   /**
-   * EmotionJS css prop. This component actually does not handle this prop. It must be configured in your app's Babel/Webpack config. See https://emotion.sh/docs/css-prop. It will be applied by your app's compiler, then passed to this component as className, which this component will accept. If you don't want to use the provided custom ss props, or css, you can always pass the standard `style`. All allowable HTML attributes will be passed to the DOM element.
+   * Shorthand for props.variants['onDark']. It can be undefined. The key will be read and added to props.variants.
    */
-  css?: EmotionCssPropType;
+  onDark?: undefined;
   /**
-   * Standard old fashioned React JS object. Ignored by this component. Simply passed down to the HTML element.
+   * Shorthand for props.variants['onLight']. It can be undefined. The key will be read and added to props.variants.
    */
-  style?: Record<string, any>;
-  /**
-   * Pass props.onDark key as a shorthand for props.variants['onDark']. It can be undefined. Value will be ignored.
-   */
-  onDark?: any;
-  /**
-   * Pass props.onLight key as a shorthand for props.variants['onLight']. It can be undefined. Value will be ignored.
-   */
-  onLight?: any;
+  onLight?: undefined;
   /**
    * Will be passed to 2nd argument of a variants EmotionJS style function, as a property of an object containing other options for that one current instance of the component. Value is not actually a color, but a key of themes.colors.
    */
-  color?: colorsKeyType;
+  color?: colorHueType;
 };
+
+export type allPropsType = ReactFCProps & StyleProps;

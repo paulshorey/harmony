@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { themeType as t, optionsType as o } from '@ps/ui/styles/theme';
 
 export default {
   default: (theme: any) => css`
@@ -29,7 +30,7 @@ export default {
       min-height: 100%;
     }
   `,
-  cloudinary: css`
+  cloudinary: (theme: t, opt: o) => css`
     height: calc(100vh - 32px);
     padding: 0;
     border-radius: 18px;

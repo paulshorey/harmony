@@ -15,7 +15,7 @@ const Template = (args: any) => <Comp {...args} />;
 
 export const Code = Template.bind({});
 Code.args = {
-  css: css`
+  css: (theme: t, opt: o) => css`
     max-width: 400px;
   `,
   string: `Just likeasdfafsd`,

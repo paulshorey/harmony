@@ -30,19 +30,19 @@ type OutputType = {
  * Generate <picture> html tag string from src url. Fix crop/fill dimensions for Cloudinary.com resizer.
  *    WHENEVER POSSIBLE, pass 2 out of 3 props: width, height, or heightWidthRatio.
  *    "Sm" suffix refers to "small screens". Optionally, specify alternative props for mobile devices.
- * @param options.src {string} - required, path to image (can be relative or absolute)
- * @param options.srcSm {string} - for mobile
+ * @param opt.src {string} - required, path to image (can be relative or absolute)
+ * @param opt.srcSm {string} - for mobile
  *
- * @param options.width {number} - required if !height, pixels
- * @param options.widthSm {number} - for mobile
+ * @param opt.width {number} - required if !height, pixels
+ * @param opt.widthSm {number} - for mobile
  *
- * @param options.height {number} - required if !width, pixels
- * @param options.heightSm {number} - for mobile
+ * @param opt.height {number} - required if !width, pixels
+ * @param opt.heightSm {number} - for mobile
  *
- * @param options.heightWidthRatio {number} - 0-1 (divide height by width)
- * @param options.heightWidthRatioSm {number} - for mobile
+ * @param opt.heightWidthRatio {number} - 0-1 (divide height by width)
+ * @param opt.heightWidthRatioSm {number} - for mobile
  *
- * @param options.crop {boolean} - by default, 100% of the picture height and width will be fitted inside the bounding box, with padding around the sides
+ * @param opt.crop {boolean} - by default, 100% of the picture height and width will be fitted inside the bounding box, with padding around the sides
  *    Pass true to fill 100% of the bounding box, and crop the image height/width, whichever dimension does not fit into the bounding box.
  */
 export default function picture_from_src({

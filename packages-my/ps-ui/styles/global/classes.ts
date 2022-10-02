@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
+import { themeType } from '../theme';
 
-const classes = (theme) => css`
+const classes = (theme: themeType) => css`
   .ReactModalOverlay {
     background: rgba(0, 0, 0, 0.4) !important;
     position: fixed;
@@ -24,32 +25,8 @@ const classes = (theme) => css`
     width: 100%;
   }
 
-  /*
-   * .supDisclosure is deprecated. Style inside DisclosureNumber component
-   */
-  .sup,
-  .supDisclosure,
-  .supDisclosureFooter {
-    display: inline-block;
-    vertical-align: top;
-    font-weight: inherit;
-    font-size: 0.95em;
-    margin: 0;
-    padding: 0;
-    font-family: system-ui, helvetica, 'HelveticaNeue', sans-serif !important;
-    opacity: 0.9;
-    padding-left: 0.05em;
-  }
-
-  .supDisclosureFooter {
-    font-size: 0.85em;
-    top: -0.15em;
-    opacity: 1;
-    padding-left: 0;
-  }
-
-  .supSmaller {
-    font-size: 75%;
+  .sup {
+    font-size: 0.7em;
   }
 
   h1,
@@ -58,12 +35,6 @@ const classes = (theme) => css`
   h4,
   h5,
   h6 {
-    .sup {
-      font-size: 0.7em;
-      ${theme.mq.sm} {
-        top: unset;
-      }
-    }
   }
 
   .nowrap {
@@ -123,10 +94,7 @@ const classes = (theme) => css`
   }
 
   .hide-gt-phone {
-    ${theme.mq.tablet} {
-      display: none !important;
-    }
-    ${theme.mq.desktop} {
+    ${theme.mq.notPhone} {
       display: none !important;
     }
   }
@@ -143,25 +111,7 @@ const classes = (theme) => css`
     }
   }
 
-  .color-grey {
-    color: #75868b;
-  }
-
-  .color-black {
-    color: black;
-  }
-
-  .color-white {
-    color: #ffffff;
-  }
-
-  .color-white-M {
-    ${theme.mq.sm} {
-      color: #ffffff;
-    }
-  }
-
-  .aname {
+  .atarget {
     position: absolute;
     top: -133px;
 

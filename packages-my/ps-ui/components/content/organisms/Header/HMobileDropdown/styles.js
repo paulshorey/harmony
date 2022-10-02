@@ -77,7 +77,7 @@ export default {
       }
     }
   `,
-  overlay: css`
+  overlay: (theme) => css`
     position: fixed;
     z-index: 100;
     top: 0;

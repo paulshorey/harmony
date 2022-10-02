@@ -1,6 +1,6 @@
 // import { css, jsx, useTheme } from '@emotion/react';
-import { ReactFCProps, StyleProps, VariantProps } from '@ps/ui/types/component';
-import withStyles from 'hooks/withStyles';
+import { ReactFCProps, StyleProps } from '@ps/ui/types/component';
+import withStyles from 'styles/withStyles';
 import React, { FC, forwardRef, memo, SelectHTMLAttributes } from 'react';
 
 import styles from './styles';
@@ -16,17 +16,16 @@ export type SelectProps = SelectHTMLAttributes<
   HTMLElement & HTMLSelectElement
 > &
   (ReactFCProps &
-    (VariantProps &
-      (StyleProps & {
-        /**
-         * <Select value="ThisValue" />
-         */
-        value: string | number;
-        /**
-         * Just the HTML attribute disabled
-         */
-        disabled?: boolean;
-      })));
+    (StyleProps & {
+      /**
+       * <Select value="ThisValue" />
+       */
+      value: string | number;
+      /**
+       * Just the HTML attribute disabled
+       */
+      disabled?: boolean;
+    }));
 
 /**
  * select element

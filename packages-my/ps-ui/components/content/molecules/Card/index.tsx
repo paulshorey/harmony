@@ -1,6 +1,6 @@
 import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
 import { FC, memo } from 'react';
-import withStyles from 'hooks/withStyles';
+import withStyles from 'styles/withStyles';
 import styles from '@ps/ui/components/content/molecules/Centered/styles';
 
 type Props = BlockProps & {};

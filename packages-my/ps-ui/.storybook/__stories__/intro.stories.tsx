@@ -37,7 +37,7 @@ const styles = {
       font-weight: 700;
     }
     a {
-      color: ${theme.colors.onDark.accent};
+      color: ${theme.getColor('onDark').accent};
       text-decoration: underline;
       &:hover {
         text-decoration: none;
@@ -47,13 +47,13 @@ const styles = {
       margin: 0;
     }
   `,
-  colorGold: css`
+  colorGold: (theme: t, opt: o) => css`
     color: #fedb00;
     * {
       color: #fedb00;
     }
   `,
-  codeResults: css`
+  codeResults: (theme: t, opt: o) => css`
     display: none;
     font-size: 22px;
   `,

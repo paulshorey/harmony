@@ -4,10 +4,10 @@ import { useInView } from 'react-cool-inview';
 // import { throttle } from '@ps/ui/functions/timeouts';
 
 const styles = {
-  wrapper: css`
+  wrapper: (theme: t, opt: o) => css`
     position: relative;
   `,
-  observer: css`
+  observer: (theme: t, opt: o) => css`
     position: absolute;
     top: auto;
     bottom: auto;

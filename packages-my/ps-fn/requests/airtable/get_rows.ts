@@ -4,11 +4,11 @@ let base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process.e
 
 /**
  * Get rows from Airtable table
- * @param options.rec - IDK - forget what this is exactly - find record in table
- * @param options.table {string} - name of the "base" in Airtable (*required*)
- * @param options.columns {string} - specify any column that you want to read data from (*required*)
- * @param options.view {string} - Default is "Grid view". Specify if different.
- * @param options.formula {string} - Airtable "formula". Example: `{page} = "general"`.
+ * @param opt.rec - IDK - forget what this is exactly - find record in table
+ * @param opt.table {string} - name of the "base" in Airtable (*required*)
+ * @param opt.columns {string} - specify any column that you want to read data from (*required*)
+ * @param opt.view {string} - Default is "Grid view". Specify if different.
+ * @param opt.formula {string} - Airtable "formula". Example: `{page} = "general"`.
  * @returns {array} - list of objects. Each object is a row. Each value in the object is a cell.
  */
 export default function getAirtableRows({

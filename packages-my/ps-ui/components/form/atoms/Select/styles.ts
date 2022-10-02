@@ -1,7 +1,8 @@
 import { css } from '@emotion/react';
+import { themeType as t, optionsType as o } from '@ps/ui/styles/theme';
 
 export default {
-  default: css`
+  default: (theme: t, opt: o) => css`
     overflow: hidden;
     padding: 12px 24px;
     border-radius: 7px;
@@ -41,7 +42,7 @@ export default {
       }
     }
   `,
-  pulsing: css`
+  pulsing: (theme: t, opt: o) => css`
     padding: 12px 24px;
     background-color: black;
     color: white;
@@ -54,7 +55,7 @@ export default {
       }
     }
   `,
-  glowing: css`
+  glowing: (theme: t, opt: o) => css`
     position: relative;
     padding: 1px;
     borderradius: 8px;
@@ -93,7 +94,7 @@ export default {
       transition: transform 250ms cubic-bezier(0.2, 0.8, 0.4, 1);
     }
   `,
-  raised: css`
+  raised: (theme: t, opt: o) => css`
     background-color: white;
     padding: 12px 24px;
     color: black;

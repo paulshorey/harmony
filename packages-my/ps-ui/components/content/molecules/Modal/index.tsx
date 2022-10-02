@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { Props } from 'components/content/atoms/Block';
-import withStyles from 'hooks/withStyles';
+import withStyles from 'styles/withStyles';
 import React, { memo, useEffect } from 'react';
 import ReactModal from 'react-modal';
 

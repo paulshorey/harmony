@@ -126,7 +126,7 @@ Phone <= 499px. SmallPhone <= 399px. TinyPhone <= 359px. Tablet is 500-1024. Lar
 };
 
 const styles = {
-  wrapper: css`
+  wrapper: (theme: t, opt: o) => css`
     b {
       font-weight: 700;
     }
@@ -135,13 +135,13 @@ const styles = {
       text-decoration: underline;
     }
   `,
-  colorGold: css`
+  colorGold: (theme: t, opt: o) => css`
     color: #fedb00;
     * {
       color: #fedb00;
     }
   `,
-  codeResults: css`
+  codeResults: (theme: t, opt: o) => css`
     display: none;
     font-size: 22px;
   `,

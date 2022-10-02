@@ -1,5 +1,5 @@
 import { ReactFCProps, StyleProps } from '@ps/ui/types/component';
-import withStyles from 'hooks/withStyles';
+import withStyles from 'styles/withStyles';
 import { FC, forwardRef, HTMLAttributes, memo } from 'react';
 
 import objects_add_values from '@ps/fn/io/objects/objects_add_values';

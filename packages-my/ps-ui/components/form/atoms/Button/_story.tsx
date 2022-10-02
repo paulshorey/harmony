@@ -14,17 +14,21 @@ export default (args: any) => (
       <Title color="cta1">onLight:</Title>
       <Content>
         <Comp variant="gradient" color="cta1" {...args}>
-          CTA 1
+          gradient cta1
+        </Comp>
+        &nbsp;&nbsp;&nbsp;
+        <Comp color="cta1" {...args}>
+          default cta1
         </Comp>
         &nbsp;&nbsp;&nbsp;
         <Comp {...args}>default</Comp>
         &nbsp;&nbsp;&nbsp;
-        <Comp variant="outline" color="cta1" {...args}>
-          outline
-        </Comp>
-        &nbsp;&nbsp;&nbsp;
         <Comp variant="link" color="cta1" {...args}>
           link
+        </Comp>
+        &nbsp;&nbsp;&nbsp;
+        <Comp variant="disabled" color="cta1" {...args}>
+          disabled
         </Comp>
         &nbsp;&nbsp;&nbsp;
       </Content>
@@ -33,19 +37,23 @@ export default (args: any) => (
       <Title color="cta2">onDark:</Title>
       <Content>
         <Comp onDark variant="gradient" color="cta2" {...args}>
-          CTA 2
+          gradient cta2
+        </Comp>
+        &nbsp;&nbsp;&nbsp;
+        <Comp color="cta2" onDark {...args}>
+          default cta2
         </Comp>
         &nbsp;&nbsp;&nbsp;
         <Comp onDark {...args}>
           default
         </Comp>
         &nbsp;&nbsp;&nbsp;
-        <Comp onDark variant="outline" color="cta2" {...args}>
-          outline
-        </Comp>
-        &nbsp;&nbsp;&nbsp;
         <Comp onDark variant="link" color="cta2" {...args}>
           link
+        </Comp>
+        &nbsp;&nbsp;&nbsp;
+        <Comp onDark variant="disabled" color="cta2" {...args}>
+          disabled
         </Comp>
         &nbsp;&nbsp;&nbsp;
       </Content>

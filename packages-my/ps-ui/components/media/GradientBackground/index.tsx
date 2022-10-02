@@ -1,5 +1,5 @@
 import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
-import withStyles from 'hooks/withStyles';
+import withStyles from 'styles/withStyles';
 import { FC, memo } from 'react';
 
 import styles from './styles';

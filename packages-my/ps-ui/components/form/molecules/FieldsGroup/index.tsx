@@ -1,7 +1,7 @@
 import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
 import Button from 'components/form/atoms/Button';
 import Input from 'components/form/atoms/Input';
-import withStyles from 'hooks/withStyles';
+import withStyles from 'styles/withStyles';
 import { FC, memo } from 'react';
 
 import styles from './styles';

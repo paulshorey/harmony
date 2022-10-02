@@ -1,6 +1,6 @@
 // import { css, jsx, useTheme } from '@emotion/react';
-import { ReactFCProps, StyleProps, VariantProps } from '@ps/ui/types/component';
-import withStyles from 'hooks/withStyles';
+import { ReactFCProps, StyleProps } from '@ps/ui/types/component';
+import withStyles from 'styles/withStyles';
 import React, { FC, forwardRef, InputHTMLAttributes, memo } from 'react';
 
 import styles from './styles';
@@ -14,17 +14,16 @@ import styles from './styles';
  */
 export type InputProps = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
   (ReactFCProps &
-    (VariantProps &
-      (StyleProps & {
-        /**
-         * <input value="ThisValue" />
-         */
-        value: string | number;
-        /**
-         * Just the HTML attribute disabled
-         */
-        disabled?: boolean;
-      })));
+    (StyleProps & {
+      /**
+       * <input value="ThisValue" />
+       */
+      value: string | number;
+      /**
+       * Just the HTML attribute disabled
+       */
+      disabled?: boolean;
+    }));
 
 /**
  * Form input field. Any type that can be rendered as inline text. Specify type="password" for password, type="number" for numeric.

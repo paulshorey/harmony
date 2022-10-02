@@ -1,10 +1,9 @@
 import { css, useTheme } from '@emotion/react';
 import style_to_string from '@ps/fn/browser/style/style_to_string';
 import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
-import { StylesFile } from '@ps/ui/types/component';
+import { StylesType } from '@ps/ui/types/component';
 import { ComponentType, FC, forwardRef } from 'react';
-import { themeType } from 'styles/theme';
-import { colorsKeyType } from 'styles/colors';
+import { themeType as t, optionsType as o } from 'styles/theme';
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
@@ -13,7 +12,7 @@ import { colorsKeyType } from 'styles/colors';
 export default (
   Component: ComponentType | FC<any>,
   label: string,
-  styles?: StylesFile
+  styles?: StylesType
 ) =>
   forwardRef(
     (
@@ -55,29 +54,20 @@ export default (
       }: any,
       ref
     ) => {
-      const theme: themeType = useTheme(); // style() 1st argument
-      const options: {
-        variants: Record<string, boolean>;
-        color: colorsKeyType;
-      } = {
+      const theme: t = useTheme(); // style() 1st argument
+      // tsFix any // TS does not read properties of options declared below, instead complains that they maybe undefined.
+      const options: any = {
         variants: { default: true },
-        color: theme.colorsKey,
+        shade: '',
+        // @ts-ignore // If color is not a valid key of theme.getColor('color')], return empty string
+        hue: (color && !!theme.colors[color] && color) || '',
       }; // style() 2nd argument
+      theme.instance = options;
       let ssOutput = ''; // will be wrapped in css`` before being passed to component props.css
 
       // In case EmotionJS props.css handling is not set up for all elements, this handles it at least for this component
       if (cssFromProps) {
         ssOutput += style_to_string(cssFromProps) + '\n';
-      }
-
-      // Helpers for variants
-      if (color) {
-        // @ts-ignore // check if specified color is valid
-        if (theme.colors[color]) {
-          // @ts-ignore // if theme.colors[color], then set temporary custom color scheme from variant
-          options.colorsKey = color;
-          // this modified theme will be passed to the variant EmotionJS style function as second argument
-        }
       }
 
       // Variants
@@ -92,9 +82,14 @@ export default (
         // props.onDark (passed as its own prop for shorthand)
         if (onDark !== false) {
           options.variants.onDark = true;
+          options.shade = 'onDark';
         }
         if (onLight !== false) {
           options.variants.onLight = true;
+          options.shade = 'onLight';
+        }
+        if (props.hasOwnProperty('disabled')) {
+          options.variants.disabled = true;
         }
         // props.variants (string[])
         if (variants?.length) {
@@ -102,7 +97,15 @@ export default (
             options.variants[str] = true;
           }
         }
-        // apply variants
+
+        // check variant for shade specification
+        if (options.variants.onDark) {
+          options.shade = 'onDark';
+        } else if (options.variants.onLight) {
+          options.shade = 'onLight';
+        }
+
+        // Apply variants
         for (const variant in options.variants) {
           if (variant) {
             // Apply component-specific styles

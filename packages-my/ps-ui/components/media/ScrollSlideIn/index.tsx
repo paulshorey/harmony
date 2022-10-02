@@ -1,17 +1,17 @@
 /* eslint-disable max-depth */
 import { css } from '@emotion/react';
 import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
-import withStyles from 'hooks/withStyles';
+import withStyles from 'styles/withStyles';
 // import useIsInView from '@ps/ui/hooks/useIsInview';
 import React, { memo, useEffect, useState } from 'react';
 import { useInView } from 'react-cool-inview';
-import { tsFixMe } from 'types/typescript';
+import { tsFix } from 'types/typescript';
 
 const isBetween = (value: number, min: number, max: number) =>
   value && value >= min && value <= max;
 
 const styles = {
-  default: (theme: tsFixMe, { slideInFrom, visible }: tsFixMe) =>
+  default: (theme: tsFix, { slideInFrom, visible }: tsFix) =>
     css`
       position: relative;
 

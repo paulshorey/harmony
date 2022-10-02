@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import Block from '@ps/ui/components/content/atoms/Block';
-import { themeType } from '@ps/ui/styles/theme';
+import { themeType as t, optionsType as o } from '@ps/ui/styles/theme';
 
 export default function (args: any) {
   return (
@@ -141,7 +141,7 @@ export default function (args: any) {
 }
 
 const containerStyleProps = {
-  css: (theme: themeType) => `
+  css: (theme: t, opt: o) => `
     // &,
     // & > * {
     //   color: white;
@@ -155,7 +155,7 @@ const containerStyleProps = {
     }
     svg {
       display: inline;
-      color: ${theme.getColors().gold};
+      color: ${theme.getColor('gold')};
       padding-left: 0;
       margin-left: 0;
       height: 12px;
@@ -192,7 +192,7 @@ const containerStyleProps = {
   }`,
 };
 const codeStyleProps = {
-  css: css`
+  css: (theme: t, opt: o) => css`
     text-indent: 1rem;
     display: none;
     font-size: 0.75em;

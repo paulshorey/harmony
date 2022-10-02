@@ -1,13 +1,14 @@
 import React from 'react';
 import Block from '@ps/ui/components/content/atoms/Block';
 import { css } from '@emotion/react';
+import { themeType as t, optionsType as o } from '@ps/ui/styles/theme';
 
 const colors = {
   gold: 'hsl(45deg 100% 45%)',
   offwhite: '#897DDB',
 };
 const containerStyleProps = {
-  css: css`
+  css: (theme: t, opt: o) => css`
     &,
     & > * {
       color: white;
@@ -58,7 +59,7 @@ const containerStyleProps = {
   }`,
 };
 const codeStyles = {
-  css: css`
+  css: (theme: t, opt: o) => css`
     text-indent: 1rem;
     display: none;
     font-size: 0.75em;

@@ -15,5 +15,5 @@ const Template = (args: any) => <Comp {...args} />;
 
 export const FieldsGroup = Template.bind({});
 FieldsGroup.args = {
-  css: css``,
+  css: (theme: t, opt: o) => css``,
 };

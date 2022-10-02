@@ -2,7 +2,7 @@ import React from 'react';
 import Block from '@ps/ui/components/content/atoms/Block';
 import { css } from '@emotion/react';
 const containerStyleProps = {
-  css: css``,
+  css: (theme: t, opt: o) => css``,
 };
 
 export const Philosophy = ({ args }) => {

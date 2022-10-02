@@ -1,19 +1,20 @@
 import { css } from '@emotion/react';
+import { themeType as t, optionsType as o } from '@ps/ui/styles/theme';
 
 export default {
-  'title-image-text-image': css`
+  'title-image-text-image': (theme: t, opt: o) => css`
     grid-template-areas:
       'title image'
       'text image';
     grid-template-columns: 1fr 1fr;
   `,
-  'image-title-image-text': css`
+  'image-title-image-text': (theme: t, opt: o) => css`
     grid-template-areas:
       'image title'
       'image text';
     grid-template-columns: 1fr 1fr;
   `,
-  'title-title-text-image': css`
+  'title-title-text-image': (theme: t, opt: o) => css`
     grid-template-areas:
       'title title'
       'text image';
@@ -22,7 +23,7 @@ export default {
       text-align: center;
     }
   `,
-  'title-title-image-text': css`
+  'title-title-image-text': (theme: t, opt: o) => css`
     grid-template-areas:
       'title title'
       'image text';
@@ -30,7 +31,7 @@ export default {
       text-align: center;
     }
   `,
-  'default': (theme) => css`
+  'default': (theme: t, opt: o) => css`
     position: relative;
     display: grid !important;
     grid-template-columns: 1fr 1fr;
