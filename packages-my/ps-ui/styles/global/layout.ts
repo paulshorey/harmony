@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { themeType as t, optionsType as o } from '@ps/ui/styles/theme';
+import { themeType as t, instanceType as o } from '@ps/ui/styles/theme';
 
 const layout = (theme) => css`
   .preventOverflow {

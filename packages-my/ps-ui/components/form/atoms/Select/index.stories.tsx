@@ -2,7 +2,7 @@ import disableDefaultArgs from '@ps/ui/.storybook/utils/disable-default-args';
 import { action } from '@storybook/addon-actions';
 
 import Comp from '.';
-import styles from './styles';
+import styles from './variants';
 
 const handleFocus = action('Select focused');
 

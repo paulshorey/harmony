@@ -1,22 +1,43 @@
-import { css } from '@emotion/react';
-import disableDefaultArgs from '@ps/ui/.storybook/utils/disable-default-args';
-import React from 'react';
-
-import Comp from '.';
-
-export default {
-  component: Comp,
-  argTypes: {
-    ...disableDefaultArgs,
-  },
-};
-
-const Template = (args: any) => <Comp {...args} />;
+import { CardUnstyled } from '.';
+import variants from './variants';
+import Template from './_story';
+const description = ``;
 
 export const Card = Template.bind({});
 Card.args = {
-  css: (theme: t) => css`
-    max-width: 400px;
-  `,
-  children: <>Just likeasdfafsd</>,
+  ss: `max-width: 400px;
+.nowrap {color:orange;}`,
+  variants: Object.keys(variants),
+};
+Card.argTypes = {
+  // ref: { table: { disable: true } },
+  variants: {
+    control: {
+      type: 'multi-select',
+    },
+    options: Object.keys(variants),
+    // description: 'adsfsfdfds asdf s d sf',
+  },
+};
+
+export default {
+  component: CardUnstyled,
+  parameters: {
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    docs: {
+      description: {
+        component: description,
+      },
+      source: {
+        code: ``,
+      },
+    },
+  },
+  // Button.args = {
+  //   variants: ['default', 'text'],
+  //   children: 'Submit',
+  // };
 };

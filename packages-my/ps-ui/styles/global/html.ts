@@ -69,7 +69,6 @@ const html = (theme: themeType) => css`
   h6,
   blockquote {
     font-family: 'HelveticaNeue', Helvetica, sans-serif;
-    margin: 0;
     line-height: 1.33;
     padding: 0;
     ${theme.mq.sm} {

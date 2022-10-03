@@ -1,5 +1,5 @@
 import { SerializedStyles } from '@emotion/react';
-import { colorHueType } from 'styles/colors';
+import { colorHueType, colorShadeType, colorKeyType } from 'styles/colors';
 
 import { HtmlContainerTags as HtmlContainerTagsImport } from './html';
 
@@ -19,13 +19,13 @@ export type StylesType = Record<string, EmotionCssPropType>;
 
 export type ReactFCProps = {
   /**
-   * React ref to pass to the rendered element, using React.forwardRef.
+   * Will be passed to the base DOM element using React.forwardRef.
    */
   ref?: any;
   /**
    * EmotionJS css prop is optional. It must be configured in your app's Babel/Webpack config. See https://emotion.sh/docs/css-prop. It will be applied by your app's compiler, then passed to this component as className. As an alternative, you can use the custom `props.ss` - it has the same functionality but require no configuration. In addition to EmotionCssPropType, it accepts css/scss as a plain string type.
    */
-  css?: EmotionCssPropType;
+  // css?: EmotionCssPropType;
   /**
    * Standard old fashioned React JS object. Ignored by this component. Simply passed down to the HTML element.
    */
@@ -37,11 +37,11 @@ export type ReactFCProps = {
  */
 export type StyleProps = {
   /**
-   * Render one or multiple variants. Array of strings.
+   * Render one or multiple as string[]. Local variants are specific to the component. Higher specificity. There are also global variants, which apply to all components. Part of the theme, in `styles/variants.ts`.
    */
   variants?: Array<string>;
   /**
-   * One or multiple variants as a string, separated by spaces. Will be used in addition to variants. This maybe useful if you apply variants programmatically for all components in the file, but need to amend just one unique instance of the component.
+   * One or multiple variants as a string, separated by spaces. Will be used in addition to variants. This will have higher specificity than variants.
    */
   variant?: string;
   /**
@@ -49,7 +49,7 @@ export type StyleProps = {
    */
   as?: HtmlContainerTags;
   /**
-   * Style string. This is the only one that will NOT use any conditional logic or media queries.
+   * Will not use any media queries or conditional logic.
    */
   ss?: string | EmotionCssPropType;
   /**
@@ -152,18 +152,28 @@ export type StyleProps = {
    * device is 'iPad'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
   ssIPad?: string | EmotionCssPropType;
+  // /**
+  //  * Shorthand for props.variants['onDark']. It can be undefined. The key will be read and added to props.variants.
+  //  */
+  // onDark?: any;
+  // /**
+  //  * Shorthand for props.variants['onLight']. It can be undefined. The key will be read and added to props.variants.
+  //  */
+  // onLight?: any;
   /**
-   * Shorthand for props.variants['onDark']. It can be undefined. The key will be read and added to props.variants.
+   * Pass to theme.getColors() function to retrieve a theme color by key. Hue and shade are added automatically, but you can override them by passing a second argument to theme.getColors().
    */
-  onDark?: any;
+  color?: colorKeyType;
   /**
-   * Shorthand for props.variants['onLight']. It can be undefined. The key will be read and added to props.variants.
+   * Will be used by theme.getColors function to get you the color hue of color. Predefined, like cta1, cta2, accent, primary, default. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color.
    */
-  onLight?: any;
+  hue?: colorHueType;
   /**
-   * Will be passed to 2nd argument of a variants EmotionJS style function, as a property of an object containing other options for that one current instance of the component. Value is not actually a color, but a key of themes.colors.
+   * Will be used by theme.getColors function to get you the color shade of color, 'onLight' or 'onDark'. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color. This tells the component that it is over a dark or light background.
    */
-  color?: colorHueType;
+  shade?: colorShadeType;
 };
 
-export type allPropsType = ReactFCProps & StyleProps;
+export type ComponentPropsType = StyleProps & ReactFCProps;
+
+export default ComponentPropsType;

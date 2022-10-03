@@ -51,5 +51,6 @@ export default function style_to_string(
 
   return ";" + output + ";";
   // Maybe remove labels included by EmotionJS so when converting to EmotionJS it will not make a long combined className
+  // Nah. Move it out to the end when all instances of this function are finished, just do it once.
   // return (output ? output.replace(/\n/g, ";").replace(/label:(.*?);/g, "") || "" : "") + ";"; // extra trailing semicolon, just in case string was missing it
 }

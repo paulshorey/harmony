@@ -5,7 +5,7 @@ import obj_add from '@ps/fn/io/obj/obj_add';
 import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
 import { StylesType } from '@ps/ui/types/component';
 import { ComponentType, FC, forwardRef } from 'react';
-import { themeType as t, optionsType as o } from 'styles/theme';
+import { themeType as t, instanceType as i } from 'styles/theme';
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
@@ -19,12 +19,12 @@ export default (
   forwardRef(
     (
       {
+        // className = '',
         color,
         onDark = false,
         onLight = false,
         as,
-        className,
-        css: cssFromProps,
+        'css': cssFromProps,
         ss,
         ssAndroid,
         ssDesktop,
@@ -52,6 +52,7 @@ export default (
         ssWindows,
         variant,
         variants,
+        'data-variants': dataVariants = '',
         ...props
       }: any,
       ref
@@ -62,7 +63,8 @@ export default (
         shade: '',
         hue: ((color && !!theme.colors[color] && color) || '') + '',
       }; // style() 2nd argument
-      let ssOutput = ''; // will be wrapped in css`` before being passed to component props.css
+      let ssOutput = ''; // will be wrapped in css`` before being passed to component props.css. High specificity.
+      let ssExtra = ''; // global variants. Not sure it's a good idea to include. But might be useful. Low specificity.
 
       // In case EmotionJS props.css handling is not set up for all elements, this handles it at least for this component
       if (cssFromProps) {
@@ -72,30 +74,31 @@ export default (
       // Variants
       if (styles) {
         const variantStrs = variant?.trim().split(/[^\w\d-_]+/) || [];
-        // add tag name and component name variants
-        if (as) {
-          obj_add(theme.instance.variants, as, true);
-        }
+        // add tag name as a variant
+        // not ready yet! it doesn't work if not explicitly passed (need to add Component's default like 'button' or 'input')
+        // if (as) {
+        //   obj_add(theme.instance.variants, as, true);
+        // }
         if (label) {
           obj_add(theme.instance.variants, label, true);
+        }
+        // props.onDark (passed as its own prop for shorthand)
+        // if (onDark !== false) {
+        //   obj_add(theme.instance.variants, 'onDark', true);
+        //   theme.instance.shade = 'onDark';
+        // }
+        // if (onLight !== false) {
+        //   obj_add(theme.instance.variants, 'onLight', true);
+        //   theme.instance.shade = 'onLight';
+        // }
+        if (props.hasOwnProperty('disabled')) {
+          obj_add(theme.instance.variants, 'disabled', true);
         }
         // props.variant (strings separated by spaces or any other illegal characters)
         if (variantStrs.length) {
           for (const str of variantStrs) {
             obj_add(theme.instance.variants, str, true);
           }
-        }
-        // props.onDark (passed as its own prop for shorthand)
-        if (onDark !== false) {
-          obj_add(theme.instance.variants, 'onDark', true);
-          theme.instance.shade = 'onDark';
-        }
-        if (onLight !== false) {
-          obj_add(theme.instance.variants, 'onLight', true);
-          theme.instance.shade = 'onLight';
-        }
-        if (props.hasOwnProperty('disabled')) {
-          obj_add(theme.instance.variants, 'disabled', true);
         }
         // props.variants (string[])
         if (variants?.length) {
@@ -106,14 +109,12 @@ export default (
 
         // check variant for shade specification
         // @ts-ignore // it may not exist. that's why its in an if statement
-        if (theme.instance?.variants?.onDark) {
+        if (onDark !== false || theme.instance?.variants?.onDark) {
           theme.instance.shade = 'onDark';
-          theme.instance.onDark = true;
         }
         // @ts-ignore // it may not exist. that's why its in an if statement
-        else if (theme.instance.variants?.onLight) {
+        if (onLight !== false || theme.instance.variants?.onLight) {
           theme.instance.shade = 'onLight';
-          theme.instance.onLight = true;
         }
 
         // Apply variants
@@ -129,8 +130,8 @@ export default (
             }
             // If component-specific style is not defined,
             // then apply a global style from theme
-            else if (theme.variants[variant]) {
-              ssOutput += style_to_string(
+            if (theme.variants[variant]) {
+              ssExtra += style_to_string(
                 // @ts-ignore // theme.variants[variant] is defined, so use it
                 theme.variants[variant],
                 theme
@@ -139,6 +140,14 @@ export default (
           }
         }
       }
+
+      // Done adding variants ⌃ Now add media-queries ⌄
+
+      // First, generate a unique selector, wrap css in it to make it more specific.
+      // It helps the media queries work better, otherwise they may not have enough specificity.
+      // And also it's nice to look in the DevTools and see what component name and variants belong to which DOM element.
+      dataVariants = Object.keys(theme.instance.variants).join('-');
+      ssOutput += `\n&[data-variants="${dataVariants}"] {\n`;
 
       // For each device and size, add a media query (but only if custom style for it is specified)
       const deviceInfo =
@@ -154,8 +163,6 @@ export default (
         ssAndroid
           ? useDeviceInfo()
           : undefined;
-
-      ssOutput += `\n&.${label} {\n`;
 
       if (ss) {
         ssOutput += `\n${style_to_string(ss, theme)}\n`;
@@ -286,18 +293,20 @@ export default (
       }
       ssOutput += `\n}\n`;
 
+      ssOutput += ssExtra;
+
+      ssOutput = ssOutput.replace(/label:(.*?);/g, '');
+      ssOutput += ';label:' + label + ';';
+
       return (
         <Component
           {...props}
           ref={ref}
           as={as}
-          // 'ss' className is important - above styles are wrapped in `&.ss` selector for slightly greater specificity
-          className={(label || '') + (className ? ' ' + className : '')}
+          // className={label + (className ? ' ' + className : '')}
           // assemble the string above, then wrap it all in EmotionCSS function just one time here
           css={css(ssOutput)}
-          // variant={variant}
-          // variants={variants}
-          // styles={styles}
+          data-variants={dataVariants}
         />
       );
     }

@@ -2,7 +2,7 @@ import Block from '@ps/ui/components/content/atoms/Block';
 import withStyles from '@ps/ui/styles/withStyles';
 import React, { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
 
-import styles from './styles';
+import styles from './variants';
 
 /**
  * IMPORTANT:

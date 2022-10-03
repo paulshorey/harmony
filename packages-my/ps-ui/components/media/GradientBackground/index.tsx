@@ -2,7 +2,7 @@ import Block, { BlockProps } from '@ps/ui/components/content/atoms/Block';
 import withStyles from 'styles/withStyles';
 import { FC, memo } from 'react';
 
-import styles from './styles';
+import styles from './variants';
 
 type Props = BlockProps;
 

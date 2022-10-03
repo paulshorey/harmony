@@ -3,7 +3,7 @@ import { ReactFCProps, StyleProps } from '@ps/ui/types/component';
 import withStyles from 'styles/withStyles';
 import React, { FC, forwardRef, InputHTMLAttributes, memo } from 'react';
 
-import styles from './styles';
+import styles from './variants';
 /**
  * This is to mimic the disabled state using CSS, but it is still an active button for some reason.
  */

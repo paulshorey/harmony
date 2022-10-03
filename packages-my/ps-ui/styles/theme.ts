@@ -20,19 +20,22 @@ const theme: themeType = {
   colors,
   fonts,
   mq,
-  getColor: function (
-    color: colorKeyType = 'bg',
-    options?: optionsType
-  ): string {
+  getColor: function (color: colorKeyType, options?: instanceType): string {
     const opts = options || this.instance || {};
     let output =
-      this.colors[opts.hue || 'default']?.[opts.shade || 'default']?.[color];
+      this.colors[(opts.hue || 'default') as colorHueType]?.[
+        opts.shade || 'default'
+      ]?.[color];
     if (output === undefined) {
       output = this.colors['default']?.['onLight']?.[color];
     }
     return output || '';
   },
-  instance: {},
+  instance: {
+    hue: 'default',
+    shade: 'default',
+    variants: {},
+  },
 };
 
 export default theme;
@@ -48,10 +51,10 @@ export type themeType = {
    * Persists just long enough to be read by the component when it is being styled.
    * It is never destroyed - only overwritten by the next component to be rendered.
    */
-  instance: optionsType;
+  instance: instanceType;
 };
 
-export type optionsType = Record<string, any>;
+export type instanceType = Record<string, any>;
 // {
 //   variants?: Record<string, boolean> | {};
 //   shade?: colorShadeType | '';

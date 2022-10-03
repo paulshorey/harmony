@@ -1,36 +1,23 @@
 import React from 'react';
 import { Component } from '@ps/ui/components/content/atoms/Block';
 import { css } from '@emotion/react';
-import BlockTemplate from '@ps/ui/components/content/atoms/Block/_story';
 import Template from './_story';
 import description from './_story.md';
 
-export const MediaQueries = BlockTemplate;
-MediaQueries.args = {
-  variants: ['bgDarkg', 'onDark', 'padding'],
-};
+export const MediaQueries = Template;
+// MediaQueries.args = {
+//   // variants: ['bgDarkg', 'onDark', 'padding'],
+// };
 
 export default {
   component: Component,
   id: '2',
-  title: 'Media Queries',
   argTypes: {},
   isExpanded: true,
   parameters: {
     docs: {
-      //  Yes, the CSS rules themselves are not typed, but you should probably be using visual regression testing for visual regression bugs anyway. All props, variables, helpers, hooks, and components in this library do use Typescript.
-      // No need for media queries (CSS/SCSS) or to remember which index number controls which breakpoint (styled-system).
-      // Read more about the <a href="/" style="color:orange;">philosophy</a> of this project, and what problems it attempts to solve.
       description: {
-        component: `An easier way to style React components for multiple devices.  
-        
-Pass \`props.ssDesktop\` to style desktop devices, \`props.ssPhoneSmall\` for small phones, \`props.ssLargeTablet\` for large tablets, and \`props.css\` for everything else. Instead of passing a separate style to each device, you can choose a default size to support (mobile first is the best approach). 
-
-If you don't like inline styles, it's ok. You can always \`useTheme()\` and use \`theme.mq.desktop\`, \`theme.mq.phoneSmall\`, \`theme.mq.largeTablet\`, \`theme.mq.webView\`, etc.
-
-Use EmotionCSS or css strings for predefined breakpoints. Extend the default theme object to modify the breakpoints, colors, variants, etc.  
-Click "Show code" below. Scroll down to see a full list of props accepted by every component in this library. 
-          `,
+        component: description,
       },
       source: {
         code: `

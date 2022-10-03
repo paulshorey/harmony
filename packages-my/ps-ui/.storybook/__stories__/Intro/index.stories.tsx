@@ -5,7 +5,6 @@ import Block, { Component } from '@ps/ui/components/content/atoms/Block';
 export default {
   component: Component,
   id: '1',
-  title: 'Intro',
   parameters: {
     docs: {
       source: {

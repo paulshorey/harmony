@@ -1,28 +1,7 @@
-import { css } from '@emotion/react';
-import disableDefaultArgs from '@ps/ui/.storybook/utils/disable-default-args';
-import React from 'react';
-
-import Comp from '.';
-
-export default {
-  component: Comp,
-  argTypes: {
-    ...disableDefaultArgs,
-  },
-};
-
-const Template = (args: any) => (
-  <Comp
-    {...args}
-    as="div"
-    css={css`
-      max-width: 400px;
-      &,
-      & > * {
-        color: white;
-      }
-    `}
-  >
+// import { css } from '@emotion/react';
+import Centered from '.';
+export default (args: any) => (
+  <Centered {...args}>
     Just like the depreciated HTML {'<'}center{'>'} tag, but better, more
     functional. If you set the width narrower than the contents, the contents
     will still be centered! Great for titles!
@@ -45,8 +24,5 @@ const Template = (args: any) => (
       If you don't set a width, then it will simply behave like plain old{' '}
       <span className="nowrap">`text-align:center`</span>
     </p>
-  </Comp>
+  </Centered>
 );
-
-export const Centered = Template.bind({});
-Centered.args = {};

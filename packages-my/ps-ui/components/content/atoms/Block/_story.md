@@ -12,7 +12,3 @@ All components in this library also accept the custom style props explained here
 Basically, this library also provides functionality to recreate the benefits of **cascading stylesheets and classNames** but without any of the issues. -->
 
 **The ss (style-strings) props are provided** to target different sizes. `ssPhone` <= 499px. `ssSmallPhone` <= 399px. `ssTinyPhone` <= 359px. `ssTablet` is 500-1024. `ssLargeTablet` is 931-1024. Start by choosing a pair: `ssLg / ssSm` for a 930px breakpoint, or `ssDesktop / ssMobile` for a 1024px breakpoint. Then, add media queries for edge cases like tablets. Scroll down for all sizes.
-
----
-
-This renders a `<div>` element, with default `display:block;position:relative;` style. But you can restyle this however you like. There are also Inline, Flex, Grid, Input, Select, Button, etc. with other default styles. All components (molecules/organisms) in this library use one of these building blocks.

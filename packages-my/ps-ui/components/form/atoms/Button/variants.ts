@@ -56,7 +56,7 @@ export default {
     `;
   },
   gradient: (theme: t) => css`
-    color: ${theme.getColor('gradientText')};
+    color: ${theme.getColor('textGradient')};
     text-shadow: 1px 1px 1px ${theme.getColor('bgDark')};
     background-size: 200% auto;
     & {

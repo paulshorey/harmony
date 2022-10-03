@@ -34,12 +34,12 @@ import { ssButton } from '@ps/ui/components/form/atoms/Button';
 const Container = ssBlock({
   ss: (theme) =>
     \`padding: 1.2rem 1rem 1.9rem; \${
-      theme.instance.variants.gradient && \`padding-top: 1.3rem;\`
+      theme.instance.variants.bgGradient && \`padding-top: 1.3rem;\`
     }\`,
 });
 const Content = ssBlock({ ss: \`padding: 0\` });
 const Title = ssBlock({
-  variant: 'gradientText',
+  variant: 'textGradient',
   ss: \`padding: 0.125rem 0 0 0.25rem;\`,
 });
 const Button = ssButton({
@@ -51,7 +51,7 @@ export default (args: any) => (
     <Container variant="bg">
       <Title color="cta1">onLight:</Title>
       <Content>
-        <Button variant="gradient" color="cta1" {...args}>
+        <Button variant="bgGradient" color="cta1" {...args}>
           gradient cta1
         </Button>
         <Button color="cta1" {...args}>
@@ -66,12 +66,12 @@ export default (args: any) => (
         </Button>
       </Content>
     </Container>
-    <Container variant="gradient" color="cta1">
+    <Container variant="bgGradient" color="cta1">
       <Title onDark color="cta2">
         onDark:
       </Title>
       <Content>
-        <Button onDark variant="gradient" color="cta2" {...args}>
+        <Button onDark variant="bgGradient" color="cta2" {...args}>
           gradient cta2
         </Button>
         <Button color="cta2" onDark {...args}>

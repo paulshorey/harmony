@@ -1,3 +1,4 @@
+import { ObjectFromList } from '@ps/ui/types/typescript';
 const colors: any = {
   default: {
     default: {
@@ -30,7 +31,7 @@ const colors: any = {
       link: 'hsl(229 75% 70%)',
       subtle: 'hsl(239 80% 75%)',
       border: 'hsla(229, 79%, 69%, 1)',
-      gradientText: 'white',
+      textGradient: 'white',
     },
     onLight: {},
     onDark: {
@@ -46,7 +47,7 @@ const colors: any = {
       link: 'hsla(199, 79%, 89%, 1)',
       subtle: 'hsl(180deg 70% 50%)',
       border: 'hsl(188deg 100% 73%)',
-      gradientText: 'white',
+      textGradient: 'white',
     },
     onLight: {},
     onDark: {
@@ -72,23 +73,13 @@ for (let hue in colors) {
   };
 }
 
-const keys = {
-  bg: true,
-  link: true,
-  text: true,
-  subtle: true,
-  border: true,
-  bgLight: true,
-  bgDark: true,
-  bgMedium: true,
-  gradientText: true,
-  error: true,
-  warning: true,
-  success: true,
-};
-export type colorHueType = string;
-export type colorShadeType = string;
-export type colorKeyType = keyof typeof keys;
+export const colorKeys = Object.keys(colors.default.default);
+export const colorHues = Object.keys(colors);
+export const colorShades = Object.keys(colors.default);
+
+export type colorHueType = keyof ObjectFromList<typeof colorKeys, boolean>;
+export type colorShadeType = keyof ObjectFromList<typeof colorShades, boolean>;
+export type colorKeyType = keyof ObjectFromList<typeof colorHues, boolean>;
 export type colorsType = Record<
   colorHueType,
   Record<colorShadeType, Record<colorKeyType, string>>

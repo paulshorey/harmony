@@ -4,7 +4,7 @@ import withStyles from 'styles/withStyles';
 import React, { memo, useEffect } from 'react';
 import ReactModal from 'react-modal';
 
-import styles from './styles';
+import styles from './variants';
 
 export type ModalProps = Props & {
   contentLabel?: string;

@@ -4,7 +4,7 @@ import Input from 'components/form/atoms/Input';
 import withStyles from 'styles/withStyles';
 import { FC, memo } from 'react';
 
-import styles from './styles';
+import styles from './variants';
 
 type Props = BlockProps;
 
