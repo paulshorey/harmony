@@ -59,7 +59,7 @@ const WrappedInHOC = memo(withStyles(Component, 'Button', variants));
  * First you must call it with an object of props which will be used by all instances.
  * Then, you can use the returned value as a normal component. Pass to it props that only the specific instance will use.
  */
-export const ssButton = (props1: ButtonProps) => (props2: ButtonProps) => {
+export const ButtonHOC = (props1: ButtonProps) => (props2: ButtonProps) => {
   const props = objects_add_values(props1, props2, ';', ['children']);
   return <WrappedInHOC {...props} children={props2.children} />;
 };

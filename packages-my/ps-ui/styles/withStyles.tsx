@@ -58,11 +58,16 @@ export default (
       ref
     ) => {
       const theme: t = useTheme(); // style() 1st argument
-      theme.instance = {
-        variants: { default: true },
-        shade: '',
-        hue: ((color && !!theme.colors[color] && color) || '') + '',
-      }; // style() 2nd argument
+      // Many components extend another component (by returning a modified version of it).
+      // In those cases, the final HTML/DOM element will have run through this function multiple times.
+      // It will be sequential. Child after parent. So, keep the previous theme instance and add to it.
+      if (!dataVariants) {
+        theme.instance = {
+          variants: { default: true },
+          color: ((color && !!theme.colors[color] && color) || '') + '',
+          size: '',
+        }; // style() 2nd argument
+      }
       let ssOutput = ''; // will be wrapped in css`` before being passed to component props.css. High specificity.
       let ssExtra = ''; // global variants. Not sure it's a good idea to include. But might be useful. Low specificity.
 
@@ -85,11 +90,11 @@ export default (
         // props.onDark (passed as its own prop for shorthand)
         // if (onDark !== false) {
         //   obj_add(theme.instance.variants, 'onDark', true);
-        //   theme.instance.shade = 'onDark';
+        //   theme.instance.color = 'onDark';
         // }
         // if (onLight !== false) {
         //   obj_add(theme.instance.variants, 'onLight', true);
-        //   theme.instance.shade = 'onLight';
+        //   theme.instance.color = 'onLight';
         // }
         if (props.hasOwnProperty('disabled')) {
           obj_add(theme.instance.variants, 'disabled', true);
@@ -107,14 +112,14 @@ export default (
           }
         }
 
-        // check variant for shade specification
+        // check variant for color specification
         // @ts-ignore // it may not exist. that's why its in an if statement
         if (onDark !== false || theme.instance?.variants?.onDark) {
-          theme.instance.shade = 'onDark';
+          theme.instance.color = 'onDark';
         }
         // @ts-ignore // it may not exist. that's why its in an if statement
         if (onLight !== false || theme.instance.variants?.onLight) {
-          theme.instance.shade = 'onLight';
+          theme.instance.color = 'onLight';
         }
 
         // Apply variants
@@ -146,7 +151,9 @@ export default (
       // First, generate a unique selector, wrap css in it to make it more specific.
       // It helps the media queries work better, otherwise they may not have enough specificity.
       // And also it's nice to look in the DevTools and see what component name and variants belong to which DOM element.
-      dataVariants = Object.keys(theme.instance.variants).join('-');
+      dataVariants = theme.instance.variants
+        ? Object.keys(theme.instance.variants).join('-')
+        : '';
       ssOutput += `\n&[data-variants="${dataVariants}"] {\n`;
 
       // For each device and size, add a media query (but only if custom style for it is specified)

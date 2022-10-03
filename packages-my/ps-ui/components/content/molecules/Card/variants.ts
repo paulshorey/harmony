@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
-import { themeType as t, instanceType as o } from '@ps/ui/styles/theme';
+import { themeType as t } from '@ps/ui/styles/theme';
 
 export default {
   default: (theme: t) => css`
-    background-color: ${theme.getColor('bg', { shade: 'onLight' })};
+    background-color: ${theme.getColor('bg', 'onLight')};
     background: white;
     padding: 3rem;
   `,

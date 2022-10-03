@@ -1,11 +1,6 @@
 import { EmotionCssPropType } from 'types/component';
 
-import colors, {
-  colorsType,
-  colorHueType,
-  colorShadeType,
-  colorKeyType,
-} from './colors';
+import colors from './colors';
 import fonts from './fonts';
 import mq from './mq';
 import variants from './variants';
@@ -20,20 +15,15 @@ const theme: themeType = {
   colors,
   fonts,
   mq,
-  getColor: function (color: colorKeyType, options?: instanceType): string {
-    const opts = options || this.instance || {};
-    let output =
-      this.colors[(opts.hue || 'default') as colorHueType]?.[
-        opts.shade || 'default'
-      ]?.[color];
-    if (output === undefined) {
-      output = this.colors['default']?.['onLight']?.[color];
-    }
-    return output || '';
+  getColor: function (key, color = '') {
+    const colorGroup = color || this.instance.color || 'default';
+    return (
+      this.colors[colorGroup]?.[key] || this.colors['default']?.[key] || ''
+    );
   },
   instance: {
-    hue: 'default',
-    shade: 'default',
+    color: 'default',
+    size: 'default',
     variants: {},
   },
 };
@@ -42,21 +32,28 @@ export default theme;
 
 export type themeType = {
   variants: Record<string, EmotionCssPropType>;
-  colors: colorsType;
+  colors: Record<string, Record<string, string>>;
   fonts: Record<string, string>;
   mq: Record<string, string>;
-  getColor: any /* already defined above */;
+  getColor: (key: string, color?: string) => {};
   /**
    * Mutable. Temporary. Gets overwritten by each component render, in withStyles().
    * Persists just long enough to be read by the component when it is being styled.
    * It is never destroyed - only overwritten by the next component to be rendered.
    */
-  instance: instanceType;
+  instance: {
+    /**
+     * See what other variants are used by the component. Adjust styles accordingly.
+     */
+    variants?: Record<string, boolean> | {};
+    /**
+     * See colors.ts. Key of the color group to use.
+     */
+    color?: string;
+    /**
+     * Check from your ss/css style function by using `theme.instance.size`.
+     * Adjust padding/margin/font-size according to this variable.
+     */
+    size?: string;
+  };
 };
-
-export type instanceType = Record<string, any>;
-// {
-//   variants?: Record<string, boolean> | {};
-//   shade?: colorShadeType | '';
-//   hue?: colorHueType | '';
-// };

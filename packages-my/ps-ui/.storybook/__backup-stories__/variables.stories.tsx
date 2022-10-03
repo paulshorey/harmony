@@ -1,7 +1,7 @@
 import React from 'react';
 import Block from '@ps/ui/components/content/atoms/Block';
 import { css } from '@emotion/react';
-import { themeType as t, instanceType as o } from '@ps/ui/styles/theme';
+import { themeType as t } from '@ps/ui/styles/theme';
 
 const colors = {
   gold: 'hsl(45deg 100% 45%)',

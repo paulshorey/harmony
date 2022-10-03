@@ -34,7 +34,7 @@ const BlockReadyToUse = memo(withStyles(BlockUnstyled, 'Block', variants));
  * First you must call it with an object of props which will be used by all instances.
  * Then, you can use the returned value as a normal component. Pass to it props that only the specific instance will use.
  */
-export const BlockHOC = (props1: BlockProps) => (props2: BlockProps) => {
+export const withBlock = (props1: BlockProps) => (props2: BlockProps) => {
   const props = objects_add_values(props1, props2, ';', ['children']);
   return <BlockReadyToUse {...props} children={props2.children} />;
 };

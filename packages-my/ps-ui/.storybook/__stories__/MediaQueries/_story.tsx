@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import Block from '@ps/ui/components/content/atoms/Block';
-import { themeType as t, instanceType as o } from '@ps/ui/styles/theme';
+import { themeType as t } from '@ps/ui/styles/theme';
 
 export default function (args: any) {
   return (

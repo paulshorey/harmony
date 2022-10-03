@@ -1,34 +1,29 @@
 import React, { useEffect } from 'react';
-import { ssBlock } from '@ps/ui/components/content/atoms/Block';
-import { ssButton } from '@ps/ui/components/form/atoms/Button';
+import { withBlock } from '@ps/ui/components/content/atoms/Block';
+import { ButtonHOC } from '@ps/ui/components/form/atoms/Button';
+import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 
-const Container = ssBlock({
+const Container = withBlock({
   ss: (theme) =>
     `padding: 1.2rem 1rem 1.9rem; ${
       theme.instance.variants.bgGradient && `padding-top: 1.3rem;`
     }`,
 });
-const Content = ssBlock({ ss: `padding: 0` });
-const Title = ssBlock({
+const Content = withBlock({ ss: `padding: 0` });
+const Title = withBlock({
   variant: 'textGradient',
   ss: `padding: 0.125rem 0 0 0.25rem;`,
 });
-const Button = ssButton({
+const Button = ButtonHOC({
   ss: `margin: 1rem 1rem 0rem 0.25rem;`,
 });
 
 export default (args: any) => {
-  useEffect(() => {
-    if (typeof window === 'object') {
-      let el = window.document.querySelector('.docblock-code-toggle');
-      // @ts-ignore
-      el && el.click && el.click();
-    }
-  }, []);
+  useShowStorybookCode();
 
   return (
     <div>
-      <Container variant="bg">
+      <Container variant="bgColor onLight">
         <Title color="cta1">onLight:</Title>
         <Content>
           <Button variant="bgGradient" color="cta1" {...args}>

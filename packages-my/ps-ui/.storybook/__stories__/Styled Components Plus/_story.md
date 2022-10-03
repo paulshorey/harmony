@@ -1,7 +1,7 @@
 **There are two ways to use a component from this library.**
 
-1. `import { ssButton }` must be instantiated with common props which will apply to all instances, just like styled-components or @emotion/styled:  
-   `const Button = ssButton({variant:"bgGradient"})`. Then for each instance you can add unique local props: `<Button color="cta2" />`.  
+1. `import { ButtonHOC }` must be instantiated with common props which will apply to all instances, just like styled-components or @emotion/styled:  
+   `const Button = ButtonHOC({variant:"bgGradient"})`. Then for each instance you can add unique local props: `<Button color="cta2" />`.  
    <br />
 
 2. `import Button` default export is ready to use: `<Button variant="bgGradient" color="cta2" />`  

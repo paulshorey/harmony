@@ -5,9 +5,15 @@ import Inline from '.';
 export default function (args: any) {
   return (
     <Block variant="padding">
-      All Block props and conditional rules still work here.{' '}
-      <Inline {...args}>But this renders an inline element,</Inline> like a
-      span.
+      <p>
+        All Block props and conditional rules still work here.{' '}
+        <Inline {...args}>But this renders the element inline,</Inline> by
+        default.
+      </p>
+      <p>
+        It's really not that useful now. Styles (variants) coming soon to add
+        functionality.
+      </p>
     </Block>
   );
 }
