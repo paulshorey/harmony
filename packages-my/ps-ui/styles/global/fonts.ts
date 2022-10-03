@@ -1,7 +1,4 @@
-import { css } from '@emotion/react';
-import { themeType as t } from '@ps/ui/styles/theme';
-
-const fonts = (theme) => css`
+const fonts = (theme) => `
   // @font-face {
   //   font-family: 'HelveticaNeue';
   //   src: url('/fonts/HelveticaNeue100.ttf') format('truetype');

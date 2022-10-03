@@ -1,8 +1,7 @@
-import { css } from '@emotion/react';
-import theme from '@ps/ui/styles/theme'; // fixTheme
+import theme from 'styles/theme'; // fixTheme
 
 export default {
-  wrapper: (opened) => css`
+  wrapper: (opened) => `
     position: sticky;
     overflow: auto;
     top: 62px;
@@ -77,7 +76,7 @@ export default {
       }
     }
   `,
-  overlay: (theme) => css`
+  overlay: (theme) => `
     position: fixed;
     z-index: 100;
     top: 0;
@@ -86,7 +85,7 @@ export default {
     height: 100vh;
     background: rgba(0, 0, 0, 0.3);
   `,
-  buttonsBottom: (theme) => css`
+  buttonsBottom: (theme) => `
     padding: 5px 0 30px;
     display: flex;
     flex-direction: column;

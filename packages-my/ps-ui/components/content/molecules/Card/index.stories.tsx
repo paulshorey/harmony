@@ -1,27 +1,23 @@
-import { CardUnstyled } from '.';
-import variants from './variants';
+import { Component } from '.';
 import Template from './_story';
-const description = ``;
+import description from './_story.md';
+import { argTypes } from 'styles/storybook';
+import variants from './variants';
+const variantKeys = Object.keys(variants);
+const args = {
+  ss: '',
+  variants: ['hoverTilt'],
+  variant: '',
+  color: '',
+  shade: '',
+};
 
 export const Card = Template.bind({});
-Card.args = {
-  ss: `max-width: 400px;
-.nowrap {color:orange;}`,
-  variants: Object.keys(variants),
-};
-Card.argTypes = {
-  // ref: { table: { disable: true } },
-  variants: {
-    control: {
-      type: 'multi-select',
-    },
-    options: Object.keys(variants),
-    // description: 'adsfsfdfds asdf s d sf',
-  },
-};
+Card.argTypes = argTypes(variantKeys);
+Card.args = args;
 
 export default {
-  component: CardUnstyled,
+  component: Component,
   parameters: {
     viewMode: 'docs',
     previewTabs: {
@@ -36,8 +32,4 @@ export default {
       },
     },
   },
-  // Button.args = {
-  //   variants: ['default', 'text'],
-  //   children: 'Submit',
-  // };
 };

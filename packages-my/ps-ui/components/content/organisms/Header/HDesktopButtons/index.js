@@ -1,15 +1,15 @@
 import { css, useTheme } from '@emotion/react';
-import Button from '@ps/ui/components/content/molecules/Button';
-import AppLoginLink from '@ps/ui/components/molecules/AppLoginLink';
-import AppSignupLink from '@ps/ui/components/molecules/AppSignupLink';
-import PageContext from '@ps/ui/context/Page';
+import Button from 'components/content/molecules/Button';
+import AppLoginLink from 'components/molecules/AppLoginLink';
+import AppSignupLink from 'components/molecules/AppSignupLink';
+import PageContext from 'context/Page';
 import React, { useContext } from 'react';
 
 const styles = {
-  loginButton: (theme: t) => css`
+  loginButton: (theme: theme) => `
     margin-left: 20px;
   `,
-  signupButton: (theme) => css`
+  signupButton: (theme) => `
     display: inline-block;
     ${theme.mq.sm} {
       display: none !important;

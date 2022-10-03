@@ -1,42 +1,23 @@
-import { css } from '@emotion/react';
-import { BlockUnstyled } from '.';
+import { Component } from '.';
 import Template from './_story';
 import description from './_story.md';
-import localV from './variants';
-import globalV from '@ps/ui/styles/variants';
-import { colorGroups } from '@ps/ui/styles/colors';
-const variants = Object.keys({
-  ...localV,
-  '-----⌃local⌃----------⌄global⌄-----': true,
-  ...globalV,
-});
+import { argTypes } from 'styles/storybook';
+import variants from './variants';
+const variantKeys = Object.keys(variants);
+const args = {
+  ss: '',
+  variants: ['textGradient'],
+  variant: 'bg',
+  color: 'cta1',
+  shade: 'onLight',
+};
 
 export const Block = Template.bind({});
-Block.args = {
-  ss: 'line-height:1.5;',
-  variants: variants,
-  variant: '',
-  color: 'cta1',
-  size: '',
-};
-Block.argTypes = {
-  // ref: { table: { disable: true } },
-  variants: {
-    control: {
-      type: 'multi-select',
-    },
-    options: variants,
-  },
-  color: {
-    control: {
-      type: 'select',
-    },
-    options: colorGroups,
-  },
-};
+Block.argTypes = argTypes(variantKeys);
+Block.args = args;
 
 export default {
-  component: BlockUnstyled,
+  component: Component,
   parameters: {
     viewMode: 'docs',
     previewTabs: {
@@ -51,8 +32,4 @@ export default {
       },
     },
   },
-  // Button.args = {
-  //   variants: ['default', 'text'],
-  //   children: 'Submit',
-  // };
 };

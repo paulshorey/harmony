@@ -1,10 +1,10 @@
 import { css, useTheme } from '@emotion/react';
-import Link from '@ps/ui/components/atoms/Link';
-import Button from '@ps/ui/components/content/molecules/Button';
-import Center from '@ps/ui/components/content/molecules/Centered';
-import { makeLinkPaths } from '@ps/ui/components/content/organisms/Header';
-import AppLoginLink from '@ps/ui/components/molecules/AppLoginLink';
-import AppSignupLink from '@ps/ui/components/molecules/AppSignupLink';
+import Link from 'components/atoms/Link';
+import Button from 'components/content/molecules/Button';
+import Center from 'components/content/atoms/Centered';
+import { makeLinkPaths } from 'components/content/organisms/Header';
+import AppLoginLink from 'components/molecules/AppLoginLink';
+import AppSignupLink from 'components/molecules/AppSignupLink';
 import React from 'react';
 
 import styles from './styles';

@@ -1,7 +1,7 @@
 import { css, useTheme } from '@emotion/react';
-import Link from '@ps/ui/components/atoms/Link';
-import { makeLinkPaths } from '@ps/ui/components/content/organisms/Header';
-import DesktopButtons from '@ps/ui/components/content/organisms/Header/HDesktopButtons';
+import Link from 'components/atoms/Link';
+import { makeLinkPaths } from 'components/content/organisms/Header';
+import DesktopButtons from 'components/content/organisms/Header/HDesktopButtons';
 
 import React from 'react';
 

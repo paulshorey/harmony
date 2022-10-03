@@ -9,7 +9,7 @@ const styles = () => {
   const theme = useTheme();
   return (
     <Global
-      styles={css`
+      styles={`
         ${html(theme)}
         ${classes(theme)}
       `}

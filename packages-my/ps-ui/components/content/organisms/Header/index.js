@@ -1,12 +1,12 @@
 import { css, useTheme } from '@emotion/react';
-import Link from '@ps/ui/components/atoms/Link';
-import Meta from '@ps/ui/components/atoms/Meta';
-import HamburgerButton from '@ps/ui/components/content/organisms/Header/HamburgerButton';
-import HDesktopLinks from '@ps/ui/components/content/organisms/Header/HDesktopLinks';
-import HMobileButtons from '@ps/ui/components/content/organisms/Header/HMobileButtons';
-import HMobileDropdown from '@ps/ui/components/content/organisms/Header/HMobileDropdown';
-import PageContext from '@ps/ui/context/Page';
-import { checkIfWebView } from '@ps/ui/functions/window';
+import Link from 'components/atoms/Link';
+import Meta from 'components/atoms/Meta';
+import HamburgerButton from 'components/content/organisms/Header/HamburgerButton';
+import HDesktopLinks from 'components/content/organisms/Header/HDesktopLinks';
+import HMobileButtons from 'components/content/organisms/Header/HMobileButtons';
+import HMobileDropdown from 'components/content/organisms/Header/HMobileDropdown';
+import PageContext from 'context/Page';
+import { checkIfWebView } from 'functions/window';
 import React, { useContext, useEffect, useState } from 'react';
 
 import style from './style';
@@ -154,14 +154,14 @@ const Header = ({
                   data-qa="header-logo-img"
                   src={pageContext?.partnerPage?.logoInHeader}
                   alt="Spiral Financial"
-                  css={css`
+                  css={`
                     margin: 0 24px 0 0;
                   `}
                 />
                 <img
                   src={logoImg}
                   alt="Spiral Financial"
-                  css={css`
+                  css={`
                     margin: 0;
                   `}
                 />
@@ -176,7 +176,7 @@ const Header = ({
                     alt="Spiral Financial"
                     width={116}
                     height={35}
-                    css={css`
+                    css={`
                       margin: 0;
                     `}
                   />

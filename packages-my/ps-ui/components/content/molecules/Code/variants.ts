@@ -1,8 +1,5 @@
-import { css } from '@emotion/react';
-import { themeType as t } from '@ps/ui/styles/theme';
-
 export default {
-  default: (theme: t) => css`
+  default: (theme: theme) => `
     overflow: hidden;
     padding: 12px 24px;
     border-radius: 7px;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Component } from '@ps/ui/components/content/atoms/Block';
-import { css } from '@emotion/react';
+import GenericComponent from 'components/content/atoms/Block';
+
 import Template from './_story';
 import description from './_story.md';
 
@@ -10,7 +10,7 @@ export const MediaQueries = Template;
 // };
 
 export default {
-  component: Component,
+  component: GenericComponent,
   id: '2',
   argTypes: {},
   isExpanded: true,

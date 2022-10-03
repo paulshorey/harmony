@@ -1,8 +1,8 @@
 import React from 'react';
-import Block from '@ps/ui/components/content/atoms/Block';
-import { css } from '@emotion/react';
+import Block from 'components/content/atoms/Block';
+
 const containerStyleProps = {
-  css: (theme: t) => css``,
+  ss: (theme: theme) => ``,
 };
 
 export const Philosophy = ({ args }) => {

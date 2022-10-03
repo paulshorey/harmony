@@ -1,11 +1,10 @@
 import { css, useTheme } from '@emotion/react';
 import style_to_string from '@ps/fn/browser/style/style_to_string';
-import obj_clone from '@ps/fn/io/obj/obj_clone';
-import obj_add from '@ps/fn/io/obj/obj_add';
-import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
-import { StylesType } from '@ps/ui/types/component';
+// import obj_clone from '@ps/fn/io/obj/obj_clone';
+// import obj_add from '@ps/fn/io/obj/obj_add';
+import useDeviceInfo from 'hooks/useDeviceInfo';
+import { StylesType } from 'types/component';
 import { ComponentType, FC, forwardRef } from 'react';
-import { themeType as t, instanceType as i } from 'styles/theme';
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
@@ -21,8 +20,8 @@ export default (
       {
         // className = '',
         color,
-        onDark = false,
-        onLight = false,
+        shade,
+        size,
         as,
         'css': cssFromProps,
         ss,
@@ -57,18 +56,25 @@ export default (
       }: any,
       ref
     ) => {
-      const theme: t = useTheme(); // style() 1st argument
+      /*
+       *
+       * theme.instance
+       *
+       */
+      const theme: theme = useTheme(); // style() 1st argument
       // Many components extend another component (by returning a modified version of it).
       // In those cases, the final HTML/DOM element will have run through this function multiple times.
       // It will be sequential. Child after parent. So, keep the previous theme instance and add to it.
       if (!dataVariants) {
         theme.instance = {
           variants: { default: true },
+          // @ts-ignore // checking if value exists for color
           color: ((color && !!theme.colors[color] && color) || '') + '',
-          size: '',
+          size,
+          shade,
         }; // style() 2nd argument
       }
-      let ssOutput = ''; // will be wrapped in css`` before being passed to component props.css. High specificity.
+      let ssOutput = ''; // will be wrapped in `` before being passed to component props.css. High specificity.
       let ssExtra = ''; // global variants. Not sure it's a good idea to include. But might be useful. Low specificity.
 
       // In case EmotionJS props.css handling is not set up for all elements, this handles it at least for this component
@@ -76,52 +82,41 @@ export default (
         ssOutput += style_to_string(cssFromProps) + '\n';
       }
 
-      // Variants
+      /*
+       *
+       * Variants
+       *
+       */
       if (styles) {
         const variantStrs = variant?.trim().split(/[^\w\d-_]+/) || [];
         // add tag name as a variant
         // not ready yet! it doesn't work if not explicitly passed (need to add Component's default like 'button' or 'input')
         // if (as) {
-        //   obj_add(theme.instance.variants, as, true);
+        // // @ts-ignore // was undefined, now defining it, so whats the problem?
+        // theme.instance.variants[as] = true;
         // }
         if (label) {
-          obj_add(theme.instance.variants, label, true);
+          // @ts-ignore // was undefined, now defining it, so whats the problem?
+          theme.instance.variants[label] = true;
         }
-        // props.onDark (passed as its own prop for shorthand)
-        // if (onDark !== false) {
-        //   obj_add(theme.instance.variants, 'onDark', true);
-        //   theme.instance.color = 'onDark';
-        // }
-        // if (onLight !== false) {
-        //   obj_add(theme.instance.variants, 'onLight', true);
-        //   theme.instance.color = 'onLight';
-        // }
         if (props.hasOwnProperty('disabled')) {
-          obj_add(theme.instance.variants, 'disabled', true);
+          // @ts-ignore // was undefined, now defining it, so whats the problem?
+          theme.instance.variants.disabled = true;
         }
         // props.variant (strings separated by spaces or any other illegal characters)
         if (variantStrs.length) {
           for (const str of variantStrs) {
-            obj_add(theme.instance.variants, str, true);
+            // @ts-ignore // was undefined, now defining it, so whats the problem?
+            theme.instance.variants[str] = true;
           }
         }
         // props.variants (string[])
         if (variants?.length) {
           for (const str of variants) {
-            obj_add(theme.instance.variants, str, true);
+            // @ts-ignore // was undefined, now defining it, so whats the problem?
+            theme.instance.variants[str] = true;
           }
         }
-
-        // check variant for color specification
-        // @ts-ignore // it may not exist. that's why its in an if statement
-        if (onDark !== false || theme.instance?.variants?.onDark) {
-          theme.instance.color = 'onDark';
-        }
-        // @ts-ignore // it may not exist. that's why its in an if statement
-        if (onLight !== false || theme.instance.variants?.onLight) {
-          theme.instance.color = 'onLight';
-        }
-
         // Apply variants
         for (const variant in theme.instance.variants) {
           if (variant) {
@@ -146,9 +141,7 @@ export default (
         }
       }
 
-      // Done adding variants ⌃ Now add media-queries ⌄
-
-      // First, generate a unique selector, wrap css in it to make it more specific.
+      // Generate a unique selector, wrap css in it to make it more specific.
       // It helps the media queries work better, otherwise they may not have enough specificity.
       // And also it's nice to look in the DevTools and see what component name and variants belong to which DOM element.
       dataVariants = theme.instance.variants
@@ -156,6 +149,11 @@ export default (
         : '';
       ssOutput += `\n&[data-variants="${dataVariants}"] {\n`;
 
+      /*
+       *
+       * Media Queries
+       *
+       */
       // For each device and size, add a media query (but only if custom style for it is specified)
       const deviceInfo =
         ssIframe ||
@@ -305,6 +303,18 @@ export default (
       ssOutput = ssOutput.replace(/label:(.*?);/g, '');
       ssOutput += ';label:' + label + ';';
 
+      /*
+       *
+       * Return component with props applied
+       *
+       */
+      // if (variant === 'bgColor') {
+      //   console.log(
+      //     'theme.instance',
+      //     theme.instance.shade,
+      //     theme.instance.color
+      //   );
+      // }
       return (
         <Component
           {...props}

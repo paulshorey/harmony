@@ -1,53 +1,23 @@
-import { css } from '@emotion/react';
-import { CenteredUnstyled } from '.';
+import { Component } from '.';
 import Template from './_story';
 import description from './_story.md';
-import localV from './variants';
-import globalV from '@ps/ui/styles/variants';
-import { colorKeys, colorHues, colorShades } from '@ps/ui/styles/colors';
-
-export const Centered = Template.bind({});
-Centered.args = {
+import { argTypes } from 'styles/storybook';
+import variants from './variants';
+const variantKeys = Object.keys(variants);
+const args = {
   ss: 'max-width: 400px; .nowrap {color: orange;}',
   variants: ['textGradient'],
   variant: 'bg',
-  hue: 'cta1',
+  color: 'cta1',
   shade: 'onLight',
 };
-Centered.argTypes = {
-  // ref: { table: { disable: true } },
-  variants: {
-    control: {
-      type: 'multi-select',
-    },
-    options: Object.keys({
-      ...localV,
-      '-----⌃local⌃----------⌄global⌄-----': true,
-      ...globalV,
-    }),
-  },
-  // color: {
-  //   control: {
-  //     type: 'select',
-  //   },
-  //   options: colorKeys,
-  // },
-  hue: {
-    control: {
-      type: 'select',
-    },
-    options: colorHues,
-  },
-  shade: {
-    control: {
-      type: 'select',
-    },
-    options: colorShades,
-  },
-};
+
+export const Centered = Template.bind({});
+Centered.argTypes = argTypes(variantKeys);
+Centered.args = args;
 
 export default {
-  component: CenteredUnstyled,
+  component: Component,
   parameters: {
     viewMode: 'docs',
     previewTabs: {
@@ -62,8 +32,4 @@ export default {
       },
     },
   },
-  // Button.args = {
-  //   variants: ['default', 'text'],
-  //   children: 'Submit',
-  // };
 };

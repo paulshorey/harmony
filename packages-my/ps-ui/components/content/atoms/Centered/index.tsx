@@ -1,45 +1,32 @@
 import withStyles from 'styles/withStyles';
-import { FC, forwardRef, memo } from 'react';
-
+import { FC, forwardRef, memo, HTMLAttributes } from 'react';
 import objects_add_values from '@ps/fn/io/objects/objects_add_values';
-import variants from './variants';
-import {
-  BlockProps,
-  BlockUnstyled,
-} from '@ps/ui/components/content/atoms/Block';
+import variants from 'components/content/atoms/Centered/variants';
 
-/**
- * This is to render simple non-interactive read-only elements like span/div/p/h1/sup/a/center.
- * For interactive form elements, use something more specific like components/form/atoms/Input.
+export type Props = HTMLAttributes<HTMLDivElement> & props;
+
+export const Component = forwardRef(({ as = 'center', ...props }: any, ref) => {
+  const TagName = `${as}` as any;
+  return <TagName {...props} ref={ref} />;
+});
+
+/*
+ * Copy/paste everything below to sync code between components. Then change the name of the variables.
  */
-export type CenteredProps = BlockProps;
+const Default = memo(withStyles(Component, 'Centered', variants));
 
-/**
- * This named Component is only for index.storybook.tsx. Storybook will read Types from it.
- * It can not read types if the component is wrapped in an HOC, like this default export.
- * It will also read THIS description. So instead, write the description in ./_story.md
- */
-export const CenteredUnstyled: FC<CenteredProps> = forwardRef(
-  ({ as = 'div', ...props }, refFromParent) => {
-    return <BlockUnstyled as={as} {...props} ref={refFromParent} />;
-  }
-);
-const CenteredReadyToUse = memo(
-  withStyles(CenteredUnstyled, 'Centered', variants)
-);
-
-/**
+/*
  * This is an HOC, like Styled in @emotion/styled or Styled-Components, to help with styling, and managing props.
  * First you must call it with an object of props which will be used by all instances.
  * Then, you can use the returned value as a normal component. Pass to it props that only the specific instance will use.
+ * Can not abstract this to a separate file, because Typescript does not support passing props as args.
  */
-export const CenteredHOC =
-  (props1: CenteredProps) => (props2: CenteredProps) => {
-    const props = objects_add_values(props1, props2, ';', ['children']);
-    return <CenteredReadyToUse {...props} children={props2.children} />;
-  };
+export const withCentered = (props1: Props) => (props2: Props) => {
+  const props = objects_add_values(props1, props2, ';', ['children']);
+  return <Default {...props} children={props2.children} />;
+};
 
 /**
- * Default export wrapped in useful HOC. Ready to use in your JSX. Usage: <Centered {...yourProps} />
+ * Default export is ready to use: <Centered {...yourProps} />
  */
-export default CenteredReadyToUse;
+export default Default;

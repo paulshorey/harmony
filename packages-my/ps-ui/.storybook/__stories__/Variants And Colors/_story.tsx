@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { withBlock } from '@ps/ui/components/content/atoms/Block';
-import { ButtonHOC } from '@ps/ui/components/form/atoms/Button';
+import { withBlock } from 'components/content/atoms/Block';
+import { withButton } from 'components/form/atoms/Button';
 
 const Container = withBlock({
   ss: (theme) =>
@@ -13,7 +13,7 @@ const Title = withBlock({
   variant: 'textGradient',
   ss: `padding: 0.125rem 0 0 0.25rem;`,
 });
-const Button = ButtonHOC({
+const Button = withButton({
   ss: `margin: 1rem 1rem 0rem 0.25rem;`,
 });
 

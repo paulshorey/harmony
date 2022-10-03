@@ -1,7 +1,6 @@
-import { css } from '@emotion/react';
 import { themeType } from '../theme';
 
-const classes = (theme: themeType) => css`
+const classes = (theme: themeType) => `
   .ReactModalOverlay {
     background: rgba(0, 0, 0, 0.4) !important;
     position: fixed;

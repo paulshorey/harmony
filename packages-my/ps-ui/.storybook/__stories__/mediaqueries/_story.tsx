@@ -1,6 +1,4 @@
-import { css } from '@emotion/react';
-import Block from '@ps/ui/components/content/atoms/Block';
-import { themeType as t } from '@ps/ui/styles/theme';
+import Block from 'components/content/atoms/Block';
 
 export default function (args: any) {
   return (
@@ -141,7 +139,7 @@ export default function (args: any) {
 }
 
 const containerStyleProps = {
-  css: (theme: t) => `
+  ss: (theme: theme) => `
     // &,
     // & > * {
     //   color: white;
@@ -192,7 +190,7 @@ const containerStyleProps = {
   }`,
 };
 const codeStyleProps = {
-  css: (theme: t) => css`
+  ss: (theme: theme) => `
     text-indent: 1rem;
     display: none;
     font-size: 0.75em;

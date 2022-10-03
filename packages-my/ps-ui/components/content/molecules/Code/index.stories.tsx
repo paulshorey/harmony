@@ -1,22 +1,35 @@
-import { css } from '@emotion/react';
-import disableDefaultArgs from '@ps/ui/.storybook/utils/disable-default-args';
-import React from 'react';
-
-import Comp from '.';
-
-export default {
-  component: Comp,
-  argTypes: {
-    ...disableDefaultArgs,
-  },
+import { Component } from '.';
+import Template from './_story';
+import description from './_story.md';
+import { argTypes } from 'styles/storybook';
+import variants from './variants';
+const variantKeys = Object.keys(variants);
+const args = {
+  ss: '',
+  variants: [''],
+  variant: '',
+  color: '',
+  shade: '',
 };
 
-const Template = (args: any) => <Comp {...args} />;
-
 export const Code = Template.bind({});
-Code.args = {
-  css: (theme: t) => css`
-    max-width: 400px;
-  `,
-  string: `Just likeasdfafsd`,
+Code.argTypes = argTypes(variantKeys);
+Code.args = args;
+
+export default {
+  component: Component,
+  parameters: {
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    docs: {
+      description: {
+        component: description,
+      },
+      source: {
+        code: ``,
+      },
+    },
+  },
 };

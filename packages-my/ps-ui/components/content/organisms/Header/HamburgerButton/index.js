@@ -1,8 +1,7 @@
-import { css } from '@emotion/react';
-import Block from '@ps/ui/components/content/atoms/Block';
+import Block from 'components/content/atoms/Block';
 
 const styles = {
-  wrapper: (theme, opened) => css`
+  wrapper: (theme, opened) => `
     display: none;
     ${theme.mq.sm} {
       display: block;
@@ -10,7 +9,7 @@ const styles = {
     }
     user-select: none;
   `,
-  icon: (theme, opened) => css`
+  icon: (theme, opened) => `
     user-select: none;
     cursor: pointer;
     display: inline-block;
@@ -62,7 +61,7 @@ const HamburgerButton = ({
       ) : (
         <Block
           as="span"
-          css={[styles.icon(opened, isScrolled, inWhitePage), css``]}
+          css={[styles.icon(opened, isScrolled, inWhitePage), ``]}
         >
           <span />
           <span />

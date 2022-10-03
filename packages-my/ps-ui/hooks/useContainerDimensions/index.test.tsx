@@ -1,4 +1,4 @@
-import { act, render, waitFor } from '@ps/ui/test-utils/index';
+import { act, render, waitFor } from 'test-utils/index';
 import React from 'react';
 
 import { useContainerDimensions } from '.';

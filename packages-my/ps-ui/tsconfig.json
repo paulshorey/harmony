@@ -1,16 +1,21 @@
 {
   "extends": "@ps/constants/config/typescript/react-library.json",
-  "include": [".", ".storybook/__stories__/about", "components/.storybook"],
+  "include": ["."],
   "exclude": ["dist", "build", "node_modules"],
+  "baseUrl": ".",
   "compilerOptions": {
     "paths": {
-      "styles": ["style"],
+      ".storybook": ["./.storybook"],
       "@ps/fn": ["../ps-fn"],
-      "@ps/ui": ["."],
       "@ps/constants": ["../ps-constants"]
     },
     "jsxImportSource": "@emotion/react",
-    "types": ["@emotion/react/types/css-prop"],
+    "types": [
+      "types/d.ts",
+      "types/raw-loader.d.ts",
+      "@emotion/react/types/css-prop",
+      "node"
+    ],
     "lib": ["dom", "ESNext"],
     "esModuleInterop": true,
     "jsx": "react-jsx",
@@ -18,8 +23,8 @@
     "rootDir": "." /* Specify the root folder within your source files. */,
     "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
     "module": "ESNext" /* Specify what module code is generated. */,
-    "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
-    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    "moduleResolution": "node",
+    /* Specify how TypeScript looks up a file from a given module specifier. */ "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
     "strict": false /* Enable all strict type-checking opt. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   }

@@ -1,10 +1,10 @@
 import React from 'react';
-import { css } from '@emotion/react';
-import Block from '@ps/ui/components/content/atoms/Block';
-// import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+
+import Block from 'components/content/atoms/Block';
+// import useShowStorybookCode from 'hooks/useShowStorybookCode';
 
 const styles = {
-  wrapper: (theme) => css`
+  wrapper: (theme) => `
     padding: 50px 5vw 100px;
     h3 {
       font-size: inherit;
@@ -31,13 +31,13 @@ const styles = {
       margin: 0;
     }
   `,
-  colorGold: (theme: t) => css`
+  colorGold: (theme: theme) => `
     color: #fedb00;
     * {
       color: #fedb00;
     }
   `,
-  codeResults: (theme: t) => css`
+  codeResults: (theme: theme) => `
     display: none;
     font-size: 22px;
   `,
@@ -57,7 +57,7 @@ export default (args) => {
       </h3>
       <p>
         It's a styling-system, with some complementary JavaScript functionality.
-        For any React application or website.
+        For any React app.
       </p>
       <p>
         Great for a mono-repo. This library can be imported by multiple apps.
@@ -69,17 +69,17 @@ export default (args) => {
         component or just one individual instance. */}
       </p>
       <p>
-        This is a work in progress, but already works pretty well.{' '}
+        This is a work in progress, but already useful.{' '}
         <span className="nowrap">Read more:</span>
       </p>
       <ul>
         <li>
-          <a href="/">media queries</a> - easily style breakpoints (with inline
-          JSX props or CSS-in-JS variables)
+          <a href="/">media queries</a> - easily style breakpoints (with JSX
+          props, JS variables, or Styled Components HOC)
         </li>
         <li>
-          <a href="/">variants and themes</a> - choose from multiple predefined
-          variants (like classNames but with Typescript) or add/edit your own
+          <a href="/">variants and themes</a> - use/extend multiple predefined
+          variants (like classNames but with Typescript)
         </li>
       </ul>
 
@@ -149,7 +149,7 @@ export default (args) => {
       <h3>This is powered by EmotionJS</h3>
       <p>
         You can pass an EmotionJS object or function to any of the `ss` props -
-        without having to set up the `css` prop in your own app. Just use `ss`
+        without having to set up the `` prop in your own app. Just use `ss`
         instead. To style in a media query, pass `ssLg`/`ssSm`,
         `ssDesktop`/`ssMobile`, `ssPhone`, `ssSmallPhone`, etc. All ss props
         also accept string type. They will be inserted into an EmotionJS

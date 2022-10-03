@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-cool-inview';
-import { getQueryParam } from '@ps/ui/functions/url';
+import { getQueryParam } from 'functions/url';
 // check if variable is inside the bounds of minimum and maximum values
 const isBetween = (value, min, max) => value && value >= min && value <= max;
 

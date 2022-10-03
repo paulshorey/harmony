@@ -1,4 +1,4 @@
-`import Block from '@ps/ui/components/content/atoms/Block';` then render:
+`import Block from 'components/content/atoms/Block';` then render:
 `<Block as="h2" ssTablet="padding:1rem;" ssPhone="font-size:1.25rem;" variant="highlighted" />`
 
 This accepts all props for `HTMLAttributes<HTMLDivElement>` plus custom props explained below.  

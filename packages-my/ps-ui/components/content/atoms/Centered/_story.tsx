@@ -1,4 +1,4 @@
-// import { css } from '@emotion/react';
+//
 import Centered from '.';
 export default (args: any) => (
   <Centered {...args}>

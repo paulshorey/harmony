@@ -1,7 +1,6 @@
-import { css } from '@emotion/react';
 import React from 'react';
 
-import Block from '@ps/ui/components/content/atoms/Block';
+import Block from 'components/content/atoms/Block';
 
 export default {
   component: Block,
@@ -101,7 +100,7 @@ export default {
       It's probably compatible with CSS-in-JS libraries that pass a JS style object, but that is untested.
       */
       description: {
-        component: `\`import Block from '@ps/ui/components/content/atoms/Block'; // Call the import Box, El, Span, P, whatever makes sense to you.\`  
+        component: `\`import Block from 'components/content/atoms/Block'; // Call the import Box, El, Span, P, whatever makes sense to you.\`  
 Component is not called "Box" only because styled-system uses that name. So, you can use both libraries and gradually transition to your favorite.
         
 Use \`<Block as="p" />\` to render a paragraph tag. Similar to Box component in \`styled-system\`. Also ***inspired by styled-system*** are the multiple props for targeting several devices quickly and easily. But, this uses real CSS and does not pollute the props name space. As an app grows, it gets many more styles added. If you manage each style rule as a prop, things get messy. It becomes difficult to quickly tell which props are for logic vs data vs style.
@@ -126,7 +125,7 @@ Phone <= 499px. SmallPhone <= 399px. TinyPhone <= 359px. Tablet is 500-1024. Lar
 };
 
 const styles = {
-  wrapper: (theme: t) => css`
+  wrapper: (theme: theme) => `
     b {
       font-weight: 700;
     }
@@ -135,13 +134,13 @@ const styles = {
       text-decoration: underline;
     }
   `,
-  colorGold: (theme: t) => css`
+  colorGold: (theme: theme) => `
     color: #fedb00;
     * {
       color: #fedb00;
     }
   `,
-  codeResults: (theme: t) => css`
+  codeResults: (theme: theme) => `
     display: none;
     font-size: 22px;
   `,
@@ -150,7 +149,7 @@ const styles = {
 const Template = (args) => (
   <Block css={styles.wrapper} {...args}>
     <Block
-      css={css`
+      css={`
         display: none;
       `}
       ssIframe={`display:block;`}
@@ -175,7 +174,7 @@ const Template = (args) => (
     </Block>
     <hr />
     <h2
-      css={css`
+      css={`
         font-size: 30px;
       `}
     >
@@ -286,7 +285,7 @@ const Template = (args) => (
     </Block>
     <p>
       <i
-        css={css`
+        css={`
           font-size: 0.8em;
         `}
       >

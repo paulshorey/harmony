@@ -18,7 +18,7 @@ This package includes globally shareable UI component to help make building cons
 This will make sure all global theming option
 
 ```
-import ThemeProvider from '@ps/ui/ThemeProvider'
+import ThemeProvider from 'ThemeProvider'
 ...
 
 const MyApp = () => {

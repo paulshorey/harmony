@@ -1,6 +1,6 @@
 import { css, useTheme } from '@emotion/react';
 import emotionToString from '@ps/fn/browser/style/style_to_string';
-import { EmotionCssPropType } from 'types/component';
+import { EmotionCssProp } from 'types/component';
 
 type Props = {
   label?: string;
@@ -13,7 +13,7 @@ type Props = {
 /**
  * Aggregate styles, return combined css, with good specificity. This one will really benefit from Typescript!
  * ```
- *  <button css={useVariants({ styles, sVariant:'outlined', css:{css`padding-left: 30px;`} })}
+ *  <button css={useVariants({ styles, sVariant:'outlined', css:{`padding-left: 30px;`} })}
  * ```
  * This will first apply `styles.default` (if exists), then `styles.outlined`, then `padding-left`
  * ```
@@ -28,7 +28,7 @@ const _ = function ({
   sVariants,
   style,
   styles,
-}: Props): EmotionCssPropType {
+}: Props): EmotionCssProp {
   // Sometimes (atoms/Grid) we may want to modify the theme for a specific component.
   if (!theme) {
     theme = useTheme();
@@ -58,7 +58,7 @@ const _ = function ({
     }
   }
 
-  return css`
+  return `
     ${ssString}
   `;
 };

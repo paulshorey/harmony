@@ -1,9 +1,6 @@
-import { css } from '@emotion/react';
-import { themeType as t } from '@ps/ui/styles/theme';
-
 export default {
-  default: (theme: t) => {
-    return css`
+  default: (theme: theme) => {
+    return `
       font-size: 1rem;
       overflow: hidden;
       border-radius: 7px;
@@ -30,15 +27,17 @@ export default {
         }
       }
       &:hover {
-        ${theme.instance.onDark
-          ? `
+        ${
+          theme.instance.shade === 'onDark'
+            ? `
           box-shadow: 2px 3px 0 0 hsl(0, 0%, 33%, 0.67),
             1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
           `
-          : `
+            : `
           box-shadow: 1px 2px 0 0 hsl(0, 0%, 33%, 0.33),
             1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
-          `};
+          `
+        };
       }
       &:focus {
         border-bottom-color: transparent;
@@ -53,9 +52,19 @@ export default {
           left: 1px;
         }
       }
+      &:focus:hover,
+      &:focus-visible:hover {
+        outline: none !important;
+      }
+      &:focus:not(:hover),
+      &:focus-visible:not(:hover) {
+        outline-style: double !important;
+        outline-width: 1px !important;
+        outline-color: ${theme.getColor('bgDark')} !important;
+      }
     `;
   },
-  bgGradient: (theme: t) => css`
+  bgGradient: (theme: theme) => `
     color: ${theme.getColor('textGradient')};
     text-shadow: 1px 1px 1px ${theme.getColor('bgDark')};
     background-size: 200% auto;
@@ -76,12 +85,12 @@ export default {
     &:focus {
     }
   `,
-  disabled: (theme: t) => {
+  disabled: (theme: theme) => {
     const shadowColor =
       theme.instance.shade === 'onDark'
         ? 'hsla(0, 0%, 80%)'
         : 'hsla(0, 0%, 90%)';
-    return css`
+    return `
       cursor: not-allowed;
       text-shadow: none;
       &,
@@ -90,39 +99,38 @@ export default {
         border: none !important;
         box-shadow: none !important;
         background: ${shadowColor};
-        color: ${theme.getColor('subtle', {
-          shade: 'onLight',
-          hue: 'default',
-        })};
+        color: ${theme.getColor('subtle', 'default', 'onLight')};
       }
     `;
   },
-  link: (theme: t) => {
-    return css`
+  link: (theme: theme) => {
+    return `
       border: none !important;
       box-shadow: none !important;
       background: none !important;
       color: ${theme.getColor('link')};
       &:hover:not(:focus) {
         color: ${theme.getColor('border')};
-        ${theme.instance.onDark
-          ? `
+        ${
+          theme.instance.shade === 'onDark'
+            ? `
             box-shadow: 1px 2px 1px 1px hsl(0, 0%, 33%, 0.33),
               2px 2px 3px 0 hsl(0, 0%, 0%, 0.2) !important;
             `
-          : `
+            : `
             box-shadow: 1px 2px 1px 1px hsl(0, 0%, 33%, 0.33),
               2px 2px 3px 0 hsl(0, 0%, 0%, 0.15) !important;
-            `};
+            `
+        };
       }
       &:focus {
         box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15) !important;
       }
     `;
   },
-  pulsing: (theme: t) => {
-    const shadowColor = theme.instance.onDark ? 255 : 0;
-    return css`
+  pulsing: (theme: theme) => {
+    const shadowColor = theme.instance.shade === 'onDark' ? 255 : 0;
+    return `
       padding: 12px 24px;
       border-radius: 7px;
       box-shadow: 0 0 0 0
@@ -136,7 +144,7 @@ export default {
       }
     `;
   },
-  // raised: (theme: t) => css`
+  // raised: (theme: theme) => `
   //   padding: 12px 24px;
   //   border-blackus: 6px;
   //   border-bottom: 4px solid hsl(241, 3%, 73%);
@@ -148,7 +156,7 @@ export default {
   //     border-top-width: 4px;
   //   }
   // `,
-  // underlineGrow: (theme: t) => css`
+  // underlineGrow: (theme: theme) => `
   //   position: relative;
 
   //   span {
@@ -171,7 +179,7 @@ export default {
   //     transform: scaleY(1);
   //   }
   // `,
-  // loading: (theme: t) => css`
+  // loading: (theme: theme) => `
   //   span {
   //     width: 8px;
   //     height: 8px;
@@ -201,7 +209,7 @@ export default {
   //     }
   //   }
   // `,
-  // underlineSlide: (theme: t) => css`
+  // underlineSlide: (theme: theme) => `
   //   display: inline-block;
   //   position: relative;
   //   color: white;

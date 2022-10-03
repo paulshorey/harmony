@@ -1,32 +1,15 @@
-import { css } from '@emotion/react';
-import { themeType as t } from '@ps/ui/styles/theme';
-
 export default {
-  padding: (theme: t) => css`
+  padding: (theme: theme) => `
     padding: 1.1rem 1rem 1.2rem;
   `,
-  bgColor: (theme: t) => css`
+  bgColor: (theme: theme) => `
     background-color: ${theme.getColor('bg')};
   `,
-  textColor: (theme: t) => css`
+  textColor: (theme: theme) => `
     color: ${theme.getColor('text')};
   `,
-  Button: (theme: t) => {
-    return css`
-      &:focus:hover,
-      &:focus-visible:hover {
-        outline: none !important;
-      }
-      &:focus:not(:hover),
-      &:focus-visible:not(:hover) {
-        outline-style: double !important;
-        outline-width: 1px !important;
-        outline-color: ${theme.getColor('bgDark')} !important;
-      }
-    `;
-  },
-  bgGradient: (theme: t) => {
-    return css`
+  bgGradient: (theme: theme) => {
+    return `
       display: block;
       position: relative;
       color: white;
@@ -38,8 +21,8 @@ export default {
       );
     `;
   },
-  textGradient: (theme: t) => {
-    return css`
+  textGradient: (theme: theme) => {
+    return `
       color: ${theme.getColor('link')};
       @supports (--css: variables) {
         background-image: linear-gradient(

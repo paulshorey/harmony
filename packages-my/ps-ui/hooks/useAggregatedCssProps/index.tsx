@@ -1,8 +1,8 @@
 import { css, useTheme } from '@emotion/react';
 import emotionToString from '@ps/fn/browser/style/style_to_string';
-import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
-import theme from '@ps/ui/styles/theme'; // fixTheme
-import { EmotionCssPropType } from '@ps/ui/types/component';
+import useDeviceInfo from 'hooks/useDeviceInfo';
+import theme from 'styles/theme'; // fixTheme
+import { EmotionCssProp } from 'types/component';
 
 /**
  * All the props your component received. Just pass them along as one big object.
@@ -12,7 +12,7 @@ type Output = {
   /**
    * ss and other custom props aggregated into one EmotionJS CSS prop
    */
-  cssProp: EmotionCssPropType;
+  cssProp: EmotionCssProp;
   /**
    * all the remaining props that were not used
    */
@@ -102,116 +102,160 @@ export default ({
   // Final output
   return {
     otherProps: props,
-    cssProp: (theme: t) => css`
+    cssProp: (theme: theme) => `
       ${cssFromProps && `${emotionToString(cssFromProps)};`}
       ${ssString};
       & {
         ${ss && emotionToString(ssIframe)}
 
-        ${ssIframe &&
-        `${deviceInfo?.inIframe && `${emotionToString(ssIframe)}`}`}
+        ${
+          ssIframe &&
+          `${deviceInfo?.inIframe && `${emotionToString(ssIframe)}`}`
+        }
 
-      ${ssNotIframe &&
-        `${!deviceInfo?.inIframe && `${emotionToString(ssNotIframe)}`}`}
+      ${
+        ssNotIframe &&
+        `${!deviceInfo?.inIframe && `${emotionToString(ssNotIframe)}`}`
+      }
 
-      ${ssWebview &&
-        `${deviceInfo?.inWebview && `${emotionToString(ssWebview)}`}`}
+      ${
+        ssWebview &&
+        `${deviceInfo?.inWebview && `${emotionToString(ssWebview)}`}`
+      }
         
-      ${ssNotWebview &&
-        `${!deviceInfo?.inWebview && `${emotionToString(ssNotWebview)}`}`}
+      ${
+        ssNotWebview &&
+        `${!deviceInfo?.inWebview && `${emotionToString(ssNotWebview)}`}`
+      }
         
-      ${ssMac &&
-        `${deviceInfo?.device === 'Mac' && `${emotionToString(ssMac)}`}`}
+      ${
+        ssMac &&
+        `${deviceInfo?.device === 'Mac' && `${emotionToString(ssMac)}`}`
+      }
         
-      ${ssWindows &&
-        `${
-          deviceInfo?.device === 'Windows' && `${emotionToString(ssWindows)}`
-        }`}
+      ${
+        ssWindows &&
+        `${deviceInfo?.device === 'Windows' && `${emotionToString(ssWindows)}`}`
+      }
         
-      ${ssLinux &&
-        `${deviceInfo?.device === 'Linux' && `${emotionToString(ssLinux)}`}`}
+      ${
+        ssLinux &&
+        `${deviceInfo?.device === 'Linux' && `${emotionToString(ssLinux)}`}`
+      }
         
-      ${ssAndroid &&
-        `${
-          deviceInfo?.device === 'Android' && `${emotionToString(ssAndroid)}`
-        }`}
+      ${
+        ssAndroid &&
+        `${deviceInfo?.device === 'Android' && `${emotionToString(ssAndroid)}`}`
+      }
         
-      ${ssIPad &&
-        `${deviceInfo?.device === 'iOS' && `${emotionToString(ssIPad)}`}`}
+      ${
+        ssIPad &&
+        `${deviceInfo?.device === 'iOS' && `${emotionToString(ssIPad)}`}`
+      }
         
-      ${ssIPhone &&
-        `${deviceInfo?.device === 'iPhone' && `${emotionToString(ssIPhone)}`}`}
+      ${
+        ssIPhone &&
+        `${deviceInfo?.device === 'iPhone' && `${emotionToString(ssIPhone)}`}`
+      }
         
-      ${ssLg &&
+      ${
+        ssLg &&
         `${theme.mq.lg} {
         ${emotionToString(ssLg)}
       }
-      `}
-      ${ssSm &&
+      `
+      }
+      ${
+        ssSm &&
         `${theme.mq.sm} {
         ${emotionToString(ssSm)}
       }
-      `}
-      ${ssDesktop &&
+      `
+      }
+      ${
+        ssDesktop &&
         `${theme.mq.desktop} {
         ${emotionToString(ssDesktop)}
       }
-      `}
-      ${ssMobile &&
+      `
+      }
+      ${
+        ssMobile &&
         `${theme.mq.mobile} {
         ${emotionToString(ssMobile)}
       }
-      `}
-      ${ssTablet &&
+      `
+      }
+      ${
+        ssTablet &&
         `${theme.mq.tablet} {
         ${emotionToString(ssTablet)}
       }
-      `}
-      ${ssLargeTablet &&
+      `
+      }
+      ${
+        ssLargeTablet &&
         `${theme.mq.largeTablet} {
         ${emotionToString(ssLargeTablet)}
       }
-      `}
-      ${ssNotPhone &&
+      `
+      }
+      ${
+        ssNotPhone &&
         `${theme.mq.notPhone} {
         ${emotionToString(ssNotPhone)}
       }
-      `}
-      ${ssPhone &&
+      `
+      }
+      ${
+        ssPhone &&
         `${theme.mq.phone} {
         ${emotionToString(ssPhone)}
       }
-      `}
-      ${ssSmallPhone &&
+      `
+      }
+      ${
+        ssSmallPhone &&
         `${theme.mq.smallPhone} {
         ${emotionToString(ssSmallPhone)}
       }
-      `}
-      ${ssTinyPhone &&
+      `
+      }
+      ${
+        ssTinyPhone &&
         `${theme.mq.tinyPhone} {
         ${emotionToString(ssTinyPhone)}
       }
-      `}
-      ${ssLargeDesktop &&
+      `
+      }
+      ${
+        ssLargeDesktop &&
         `${theme.mq.largeDesktop} {
         ${emotionToString(ssLargeDesktop)}
       }
-      `}
-      ${ssVeryLargeDesktop &&
+      `
+      }
+      ${
+        ssVeryLargeDesktop &&
         `${theme.mq.veryLargeDesktop} {
         ${emotionToString(ssVeryLargeDesktop)}
       }
-      `}
-      ${ssPortrait &&
+      `
+      }
+      ${
+        ssPortrait &&
         `${theme.mq.portrait} {
         ${emotionToString(ssPortrait)}
       }
-      `}
-      ${ssLandscape &&
+      `
+      }
+      ${
+        ssLandscape &&
         `${theme.mq.landscape} {
         ${emotionToString(ssLandscape)}
       }
-      `}
+      `
+      }
       }
     `,
   };

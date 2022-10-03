@@ -1,5 +1,4 @@
-import { css } from '@emotion/react';
-import theme from '@ps/ui/styles/theme'; // fixTheme
+import theme from 'styles/theme'; // fixTheme
 
 const overlayStyle = ({
   inWhitePage,
@@ -60,7 +59,7 @@ export default ({
   isAlwaysOverlay,
   isFixed,
   isScrolled,
-}) => css`
+}) => `
   top: 0;
   width: 100vw;
   z-index: 101;
