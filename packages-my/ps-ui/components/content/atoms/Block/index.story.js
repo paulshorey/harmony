@@ -17,7 +17,7 @@ export const Block = Template.bind({});
 //   },
 // };
 Block.args = {
-  variants: ['gradientBg', 'onDark', 'padding'],
+  variants: ['bgDarkg', 'onDark', 'padding'],
 };
 
 export default {

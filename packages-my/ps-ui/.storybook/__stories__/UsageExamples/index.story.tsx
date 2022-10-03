@@ -1,10 +1,10 @@
 // import disableDefaultArgs from '@ps/ui/.storybook/utils/disable-default-args';
 import Template from './_story';
 import description from './_story.md';
-import { Component } from '.';
+import { Component } from '@ps/ui/components/form/atoms/Button';
 // import variants from './variants';
 
-export const Button = Template.bind({});
+export const Usage = Template.bind({});
 // Button.argTypes = {
 //   ...disableDefaultArgs,
 //   variants: {
@@ -21,6 +21,8 @@ export const Button = Template.bind({});
 
 export default {
   component: Component,
+  id: '4',
+  title: 'Usage',
   parameters: {
     docs: {
       description: {

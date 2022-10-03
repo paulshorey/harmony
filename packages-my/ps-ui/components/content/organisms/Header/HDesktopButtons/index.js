@@ -6,7 +6,7 @@ import PageContext from '@ps/ui/context/Page';
 import React, { useContext } from 'react';
 
 const styles = {
-  loginButton: (theme: t, opt: o) => css`
+  loginButton: (theme: t) => css`
     margin-left: 20px;
   `,
   signupButton: (theme) => css`

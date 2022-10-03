@@ -2,11 +2,11 @@ import { css } from '@emotion/react';
 import { themeType as t, optionsType as o } from '@ps/ui/styles/theme';
 
 export default {
-  default: (theme: t, opt: o) => css``,
-  yellow: (theme: t, opt: o) => css`
+  default: (theme: t) => css``,
+  yellow: (theme: t) => css`
     color: yellow;
   `,
-  pinkGradient: (theme: t, opt: o) => css`
+  pinkGradient: (theme: t) => css`
     display: block;
     position: relative;
     position: relative;

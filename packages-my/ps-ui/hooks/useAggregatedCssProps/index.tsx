@@ -102,7 +102,7 @@ export default ({
   // Final output
   return {
     otherProps: props,
-    cssProp: (theme: t, opt: o) => css`
+    cssProp: (theme: t) => css`
       ${cssFromProps && `${emotionToString(cssFromProps)};`}
       ${ssString};
       & {

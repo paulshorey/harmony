@@ -1,6 +1,28 @@
-import { is_obj, obj_first_value, obj_first_entry, obj_not_empty, obj_has_key, obj_keys_from_array } from ".";
+import {
+  is_obj,
+  obj_add,
+  obj_clone,
+  obj_first_value,
+  obj_first_entry,
+  obj_not_empty,
+  obj_has_key,
+  obj_keys_from_array
+} from ".";
 
 describe("obj", () => {
+  it("obj_add", () => {
+    const obj = { a: 1 };
+    obj_add(obj, "b", 2);
+    expect(obj).toBe({ a: 1, b: 2 });
+  });
+
+  it("obj_clone", () => {
+    let obj1 = { a: 1 };
+    let obj2 = obj_clone(obj1);
+    obj2.b = 2;
+    expect(obj1).toBe({ a: 1 });
+  });
+
   it("obj_keys_from_array", () => {
     const arr = [1, 2, 3];
     const obj = obj_keys_from_array(arr);

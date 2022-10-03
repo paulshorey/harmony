@@ -1,5 +1,7 @@
 import { css, useTheme } from '@emotion/react';
 import style_to_string from '@ps/fn/browser/style/style_to_string';
+import obj_clone from '@ps/fn/io/obj/obj_clone';
+import obj_add from '@ps/fn/io/obj/obj_add';
 import useDeviceInfo from '@ps/ui/hooks/useDeviceInfo';
 import { StylesType } from '@ps/ui/types/component';
 import { ComponentType, FC, forwardRef } from 'react';
@@ -55,14 +57,11 @@ export default (
       ref
     ) => {
       const theme: t = useTheme(); // style() 1st argument
-      // tsFix any // TS does not read properties of options declared below, instead complains that they maybe undefined.
-      const options: any = {
+      theme.instance = {
         variants: { default: true },
         shade: '',
-        // @ts-ignore // If color is not a valid key of theme.getColor('color')], return empty string
-        hue: (color && !!theme.colors[color] && color) || '',
+        hue: ((color && !!theme.colors[color] && color) || '') + '',
       }; // style() 2nd argument
-      theme.instance = options;
       let ssOutput = ''; // will be wrapped in css`` before being passed to component props.css
 
       // In case EmotionJS props.css handling is not set up for all elements, this handles it at least for this component
@@ -73,48 +72,59 @@ export default (
       // Variants
       if (styles) {
         const variantStrs = variant?.trim().split(/[^\w\d-_]+/) || [];
+        // add tag name and component name variants
+        if (as) {
+          obj_add(theme.instance.variants, as, true);
+        }
+        if (label) {
+          obj_add(theme.instance.variants, label, true);
+        }
         // props.variant (strings separated by spaces or any other illegal characters)
         if (variantStrs.length) {
           for (const str of variantStrs) {
-            options.variants[str] = true;
+            obj_add(theme.instance.variants, str, true);
           }
         }
         // props.onDark (passed as its own prop for shorthand)
         if (onDark !== false) {
-          options.variants.onDark = true;
-          options.shade = 'onDark';
+          obj_add(theme.instance.variants, 'onDark', true);
+          theme.instance.shade = 'onDark';
         }
         if (onLight !== false) {
-          options.variants.onLight = true;
-          options.shade = 'onLight';
+          obj_add(theme.instance.variants, 'onLight', true);
+          theme.instance.shade = 'onLight';
         }
         if (props.hasOwnProperty('disabled')) {
-          options.variants.disabled = true;
+          obj_add(theme.instance.variants, 'disabled', true);
         }
         // props.variants (string[])
         if (variants?.length) {
           for (const str of variants) {
-            options.variants[str] = true;
+            obj_add(theme.instance.variants, str, true);
           }
         }
 
         // check variant for shade specification
-        if (options.variants.onDark) {
-          options.shade = 'onDark';
-        } else if (options.variants.onLight) {
-          options.shade = 'onLight';
+        // @ts-ignore // it may not exist. that's why its in an if statement
+        if (theme.instance?.variants?.onDark) {
+          theme.instance.shade = 'onDark';
+          theme.instance.onDark = true;
+        }
+        // @ts-ignore // it may not exist. that's why its in an if statement
+        else if (theme.instance.variants?.onLight) {
+          theme.instance.shade = 'onLight';
+          theme.instance.onLight = true;
         }
 
         // Apply variants
-        for (const variant in options.variants) {
+        for (const variant in theme.instance.variants) {
           if (variant) {
             // Apply component-specific styles
             if (styles[variant]) {
               ssOutput += style_to_string(
                 // @ts-ignore // styles[variant] is defined, so use it
                 styles[variant],
-                theme,
-                options
+                theme
               );
             }
             // If component-specific style is not defined,
@@ -123,8 +133,7 @@ export default (
               ssOutput += style_to_string(
                 // @ts-ignore // theme.variants[variant] is defined, so use it
                 theme.variants[variant],
-                theme,
-                options
+                theme
               );
             }
           }
@@ -146,7 +155,7 @@ export default (
           ? useDeviceInfo()
           : undefined;
 
-      ssOutput += `\n&.ss {\n`;
+      ssOutput += `\n&.${label} {\n`;
 
       if (ss) {
         ssOutput += `\n${style_to_string(ss, theme)}\n`;
@@ -283,7 +292,7 @@ export default (
           ref={ref}
           as={as}
           // 'ss' className is important - above styles are wrapped in `&.ss` selector for slightly greater specificity
-          className={(label || '') + ' ss ' + (className || '')}
+          className={(label || '') + (className ? ' ' + className : '')}
           // assemble the string above, then wrap it all in EmotionCSS function just one time here
           css={css(ssOutput)}
           // variant={variant}

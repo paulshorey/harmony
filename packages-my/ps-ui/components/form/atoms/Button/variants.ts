@@ -1,100 +1,127 @@
 import { css } from '@emotion/react';
-import { themeType as t, optionsAny as o } from '@ps/ui/styles/theme';
+import { themeType as t } from '@ps/ui/styles/theme';
 
 export default {
-  default: (theme: t, opt: o) => {
+  default: (theme: t) => {
     return css`
-      border: none;
       font-size: 1rem;
       overflow: hidden;
       border-radius: 7px;
       position: relative;
       display: inline-block;
       cursor: pointer;
-      outline: none !important;
-      box-shadow: inset ${theme.getColor('shadow')} 0px 0px 0px 1px,
-        1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
+      border: solid 1px;
+      border-color: ${theme.getColor('bgDark')};
+      box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
       padding: 12px 24px;
-      color: ${theme.getColor('text', { shade: opt.hue ? '' : 'onLight' })};
-      background: linear-gradient(
+      color: ${theme.getColor('bgDark')};
+      background-image: linear-gradient(
         160deg,
         hsl(0, 0%, 89%, 0.95),
         hsl(0, 0%, 92%, 0.95),
         hsl(0, 0%, 89%, 0.95)
       ) !important;
-      &:hover,
-      &:focus {
-        outline: none !important;
+      &:not(:hover):not(:focus) {
+        border-top-color: transparent;
+        border-left-color: transparent;
+        > * {
+          top: 0;
+          left: 0;
+        }
       }
-      &:focus,
       &:hover {
-        background: hsl(0deg, 0%, 88%);
-        box-shadow: inset ${theme.getColor('shadow')} 0 0 0 1px;
+        ${theme.instance.onDark
+          ? `
+          box-shadow: 2px 3px 0 0 hsl(0, 0%, 33%, 0.67),
+            1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
+          `
+          : `
+          box-shadow: 1px 2px 0 0 hsl(0, 0%, 33%, 0.33),
+            1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
+          `};
       }
       &:focus {
-        box-shadow: inset rgba(0, 0, 0, 0.5) 0 0 0 1px;
+        border-bottom-color: transparent;
+        border-right-color: transparent;
+        > * {
+          top: 1px;
+          left: 1px;
+        }
+        box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
+        > * {
+          top: 1px;
+          left: 1px;
+        }
       }
     `;
   },
-  onDark: (theme: t, opt: o) => css`
-    &:focus,
-    &:hover {
-      background: hsl(0deg, 0%, 81%);
-      box-shadow: inset rgba(0, 0, 0, 0.33) 0 0 0 1px;
-    }
-    &:focus {
-      color: white;
-      box-shadow: inset white 0 0 0 1px;
-    }
-  `,
-  gradient: (theme: t, opt: o) => css`
+  gradient: (theme: t) => css`
     color: ${theme.getColor('gradientText')};
-    box-shadow: inset ${theme.getColor('gradientB')} 0px 0px 0px 1px,
-      1px 2px 3px 0 hsl(0, 0%, 0%, 0.3);
-    text-shadow: 1px 1px 1px ${theme.getColor('gradientB')};
+    text-shadow: 1px 1px 1px ${theme.getColor('bgDark')};
     background-size: 200% auto;
-    transition: background-image 500ms linear 0s;
-    &:hover {
-      background-position: right center;
-    }
-    &,
-    &:focus,
-    &:hover {
+    & {
       background-image: linear-gradient(
-        160deg,
-        ${theme.getColor('gradientA')},
-        ${theme.getColor('gradientB')}
-          ${theme.getColor('gradientC')
-            ? ', ' + theme.getColor('gradientC')
-            : ''}
+        150deg,
+        ${theme.getColor('bgLight')} -10%,
+        ${theme.getColor('bgDark')} 60%,
+        ${theme.getColor('bgLight')} 100%
       ) !important;
     }
+    &:hover,
+    &:focus:not(:hover) {
+      transition: background-position 300ms linear 0s;
+      background-position: right center;
+      border-color: ${theme.getColor('bgLight')};
+    }
+    &:focus {
+    }
   `,
-  disabled: (theme: t, opt: o) => {
+  disabled: (theme: t) => {
     const shadowColor =
-      opt.shade === 'onDark' ? 'hsla(0, 0%, 80%)' : 'hsla(0, 0%, 90%)';
+      theme.instance.shade === 'onDark'
+        ? 'hsla(0, 0%, 80%)'
+        : 'hsla(0, 0%, 90%)';
     return css`
       cursor: not-allowed;
       text-shadow: none;
-      box-shadow: none !important;
-      background: ${shadowColor};
-      color: ${theme.getColor('subtle', opt)};
+      &,
       &:hover,
       &:focus {
-        background: auto !important;
-        box-shadow: auto !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: ${shadowColor};
+        color: ${theme.getColor('subtle', {
+          shade: 'onLight',
+          hue: 'default',
+        })};
       }
     `;
   },
-  link: (theme: t, opt: o) => {
+  link: (theme: t) => {
     return css`
+      border: none !important;
       box-shadow: none !important;
       background: none !important;
-      color: ${theme.getColor('text')};
+      color: ${theme.getColor('link')};
+      &:hover:not(:focus) {
+        color: ${theme.getColor('border')};
+        ${theme.instance.onDark
+          ? `
+            box-shadow: 1px 2px 1px 1px hsl(0, 0%, 33%, 0.33),
+              2px 2px 3px 0 hsl(0, 0%, 0%, 0.2) !important;
+            `
+          : `
+            box-shadow: 1px 2px 1px 1px hsl(0, 0%, 33%, 0.33),
+              2px 2px 3px 0 hsl(0, 0%, 0%, 0.15) !important;
+            `};
+      }
+      &:focus {
+        box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15) !important;
+      }
     `;
   },
-  pulsing: (theme: t, opt: o) => {
-    const shadowColor = opt?.variants?.onDark ? 255 : 0;
+  pulsing: (theme: t) => {
+    const shadowColor = theme.instance.onDark ? 255 : 0;
     return css`
       padding: 12px 24px;
       border-radius: 7px;
@@ -109,7 +136,7 @@ export default {
       }
     `;
   },
-  // raised: (theme: t, opt: o) => css`
+  // raised: (theme: t) => css`
   //   padding: 12px 24px;
   //   border-blackus: 6px;
   //   border-bottom: 4px solid hsl(241, 3%, 73%);
@@ -121,7 +148,7 @@ export default {
   //     border-top-width: 4px;
   //   }
   // `,
-  // underlineGrow: (theme: t, opt: o) => css`
+  // underlineGrow: (theme: t) => css`
   //   position: relative;
 
   //   span {
@@ -144,7 +171,7 @@ export default {
   //     transform: scaleY(1);
   //   }
   // `,
-  // loading: (theme: t, opt: o) => css`
+  // loading: (theme: t) => css`
   //   span {
   //     width: 8px;
   //     height: 8px;
@@ -174,7 +201,7 @@ export default {
   //     }
   //   }
   // `,
-  // underlineSlide: (theme: t, opt: o) => css`
+  // underlineSlide: (theme: t) => css`
   //   display: inline-block;
   //   position: relative;
   //   color: white;

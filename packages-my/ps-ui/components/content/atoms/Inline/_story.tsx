@@ -4,7 +4,7 @@ import Inline from '@ps/ui/components/content/atoms/Inline';
 
 export default function (args: any) {
   return (
-    <Block variant="gradientBg padding">
+    <Block variant="bgDarkg padding">
       <Inline {...args} variants={[...(args.variants || []), 'onDark']}>
         All Block props and conditional rules still work here.
       </Inline>

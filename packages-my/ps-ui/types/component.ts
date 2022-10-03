@@ -155,11 +155,11 @@ export type StyleProps = {
   /**
    * Shorthand for props.variants['onDark']. It can be undefined. The key will be read and added to props.variants.
    */
-  onDark?: undefined;
+  onDark?: any;
   /**
    * Shorthand for props.variants['onLight']. It can be undefined. The key will be read and added to props.variants.
    */
-  onLight?: undefined;
+  onLight?: any;
   /**
    * Will be passed to 2nd argument of a variants EmotionJS style function, as a property of an object containing other options for that one current instance of the component. Value is not actually a color, but a key of themes.colors.
    */

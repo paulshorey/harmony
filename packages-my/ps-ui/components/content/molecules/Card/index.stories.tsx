@@ -15,7 +15,7 @@ const Template = (args: any) => <Comp {...args} />;
 
 export const Card = Template.bind({});
 Card.args = {
-  css: (theme: t, opt: o) => css`
+  css: (theme: t) => css`
     max-width: 400px;
   `,
   children: <>Just likeasdfafsd</>,

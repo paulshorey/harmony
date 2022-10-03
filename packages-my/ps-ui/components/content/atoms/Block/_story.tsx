@@ -141,7 +141,7 @@ export default function (args: any) {
 }
 
 const containerStyleProps = {
-  css: (theme: t, opt: o) => `
+  css: (theme: t) => `
     // &,
     // & > * {
     //   color: white;
@@ -192,7 +192,7 @@ const containerStyleProps = {
   }`,
 };
 const codeStyleProps = {
-  css: (theme: t, opt: o) => css`
+  css: (theme: t) => css`
     text-indent: 1rem;
     display: none;
     font-size: 0.75em;

@@ -8,7 +8,7 @@ const colors = {
   offwhite: '#897DDB',
 };
 const containerStyleProps = {
-  css: (theme: t, opt: o) => css`
+  css: (theme: t) => css`
     &,
     & > * {
       color: white;
@@ -59,7 +59,7 @@ const containerStyleProps = {
   }`,
 };
 const codeStyles = {
-  css: (theme: t, opt: o) => css`
+  css: (theme: t) => css`
     text-indent: 1rem;
     display: none;
     font-size: 0.75em;

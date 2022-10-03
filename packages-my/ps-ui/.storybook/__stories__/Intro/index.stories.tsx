@@ -47,20 +47,20 @@ const styles = {
       margin: 0;
     }
   `,
-  colorGold: (theme: t, opt: o) => css`
+  colorGold: (theme: t) => css`
     color: #fedb00;
     * {
       color: #fedb00;
     }
   `,
-  codeResults: (theme: t, opt: o) => css`
+  codeResults: (theme: t) => css`
     display: none;
     font-size: 22px;
   `,
 };
 
 const Template = (args) => (
-  <Block ss={styles.wrapper} variant="onDark gradientBg" {...args}>
+  <Block ss={styles.wrapper} variant="onDark bgDarkg" {...args}>
     <h2>This is not a UI Component Library...</h2>
     <hr />
     <h3>

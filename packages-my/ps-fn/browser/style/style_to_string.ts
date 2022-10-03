@@ -1,11 +1,9 @@
-import arr_not_empty from "@ps/fn/io/arr/arr_not_empty";
 import obj_has_key from "@ps/fn/io/obj/obj_has_key";
 import { SerializedStyles } from "@emotion/react";
 
 /**
- * Accepts any EmotionJS CSS Prop format, string, or array of strings.
- * Always returns CSS string
- * Name of this function is _ only so Emotion library doesn't add this variable name (sometimes multiple times) into the generated className.
+ * Accepts any EmotionCssProp format, string, or array of strings. Always returns SCSS string.
+ * COMING SOON: Might be nice to have this transcribe JS style objects too.
  */
 export default function style_to_string(
   /**

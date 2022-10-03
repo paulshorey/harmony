@@ -19,7 +19,7 @@ export const Inline = Template.bind({});
 // };
 // Inline.args = {
 //   as: 'h3',
-//   variants: ['gradientBg', 'onDark', 'padding'],
+//   variants: ['bgDarkg', 'onDark', 'padding'],
 // };
 
 export default {

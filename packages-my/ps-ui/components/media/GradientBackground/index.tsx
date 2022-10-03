@@ -10,10 +10,8 @@ type Props = BlockProps;
  * Use the props to change gradient colors/direction/style.
  * Pass a variant to choose from predefined styles.
  */
-const GradientBackground: FC<Props> = ({ ...props }) => {
+const bgDarkackground: FC<Props> = ({ ...props }) => {
   return <Block {...props} />;
 };
 
-export default memo(
-  withStyles(GradientBackground, 'GradientBackground', styles)
-);
+export default memo(withStyles(bgDarkackground, 'bgDarkackground', styles));

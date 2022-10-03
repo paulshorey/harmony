@@ -2,44 +2,11 @@ import { css } from '@emotion/react';
 import { themeType as t, optionsType as o } from '@ps/ui/styles/theme';
 
 export default {
-  default: (theme: t, opt: o) => css`
-    overflow: hidden;
-    padding: 12px 24px;
-    border-radius: 7px;
-    background-color: white;
-    color: black;
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-
-    span {
-      position: relative;
-      transition: color 0.6s cubic-bezier(0.53, 0.21, 0, 1);
-    }
-
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: hsl(244, 63%, 69%);
-      transform: scaleX(0);
-      transform-origin: 100% 100%;
-      transition: transform 0.6s cubic-bezier(0.53, 0.21, 0, 1);
-    }
-
+  default: (theme: t) => css``,
+  hoverTilt: (theme: t) => css`
     &:hover {
-      &:before {
-        transform-origin: 0 0;
-        transform: scaleX(1);
-      }
-
-      span {
-        color: white;
-      }
+      box-shadow: 0 0 50px rgb(17 17 17 / 50%);
+      transform: rotate(-2deg) translateY(-5px) scale(1.025);
     }
   `,
 };

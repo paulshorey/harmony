@@ -11,7 +11,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: `This is a \`<GradientBackground>\` inside a \`<Card>\`. Because the background for all these Storybook components is also a default \`<GradientBackground>\` component.
+        component: `This is a \`<bgDarkackground>\` inside a \`<Card>\`. Because the background for all these Storybook components is also a default \`<bgDarkackground>\` component.
         
 Use the props to change gradient colors/direction/style. Pass a variant to choose from predefined styles. Work in progreess.
         `,
@@ -22,8 +22,8 @@ Use the props to change gradient colors/direction/style. Pass a variant to choos
 
 const Template = (args: any) => <Comp {...args} />;
 
-export const GradientBackground = Template.bind({});
-GradientBackground.args = {
+export const bgDarkackground = Template.bind({});
+bgDarkackground.args = {
   children: (
     <div
       css={css`

@@ -1,5 +1,3 @@
-// tsFix: Typescript doesn't understand method referring to parent object as `this`?
-
 import { EmotionCssPropType } from 'types/component';
 
 import colors, {
@@ -26,11 +24,13 @@ const theme: themeType = {
     color: colorKeyType = 'bg',
     options?: optionsType
   ): string {
-    return (
-      this.colors?.[this.instance.hue || options?.hue || 'default']?.[
-        this.instance.shade || options?.shade || 'default'
-      ]?.[color] || ''
-    );
+    const opts = options || this.instance || {};
+    let output =
+      this.colors[opts.hue || 'default']?.[opts.shade || 'default']?.[color];
+    if (output === undefined) {
+      output = this.colors['default']?.['onLight']?.[color];
+    }
+    return output || '';
   },
   instance: {},
 };
@@ -42,16 +42,18 @@ export type themeType = {
   colors: colorsType;
   fonts: Record<string, string>;
   mq: Record<string, string>;
-  getColor: (color: colorKeyType, options?: optionsType) => string;
+  getColor: any /* already defined above */;
   /**
-   * Mutable. Temporary object. Gets overwritten when applying withStyles() to each component.
-   * Lives just long enough to be read by the component when styles are being applied.
+   * Mutable. Temporary. Gets overwritten by each component render, in withStyles().
+   * Persists just long enough to be read by the component when it is being styled.
+   * It is never destroyed - only overwritten by the next component to be rendered.
    */
   instance: optionsType;
 };
 
-export type optionsType = {
-  variants?: Record<string, boolean>;
-  shade?: colorShadeType | '';
-  hue?: colorHueType | '';
-};
+export type optionsType = Record<string, any>;
+// {
+//   variants?: Record<string, boolean> | {};
+//   shade?: colorShadeType | '';
+//   hue?: colorHueType | '';
+// };
