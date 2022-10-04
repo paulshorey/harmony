@@ -1,8 +1,8 @@
 import Template from './_story';
 import description from './_story.md';
-import { Component } from '../../../../components/form/atoms/Button';
+import { Component } from '../../../components/form/atoms/Button';
 
-export const StyledHOC = Template.bind({});
+export const UseInstantly = Template.bind({});
 
 export default {
   component: Component,

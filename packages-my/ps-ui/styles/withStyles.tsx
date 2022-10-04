@@ -25,6 +25,7 @@ export default (
         as,
         'css': cssFromProps,
         ss,
+        ssAll,
         ssAndroid,
         ssDesktop,
         ssIPad,
@@ -172,7 +173,9 @@ export default (
       if (ss) {
         ssOutput += `\n${style_to_string(ss, theme)}\n`;
       }
-
+      if (ssAll) {
+        ssOutput += `${theme.mq.all} { ${style_to_string(ssAll, theme)} }\n`;
+      }
       if (ssLg) {
         ssOutput += `${theme.mq.lg} { ${style_to_string(ssLg, theme)} }\n`;
       }

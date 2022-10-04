@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { withBlock } from '../../../../components/content/atoms/Block';
-import { withButton } from '../../../../components/form/atoms/Button';
-import useShowStorybookCode from '../../../../hooks/useShowStorybookCode';
+import { withBlock } from '../../../components/content/atoms/Block';
+import { withButton } from '../../../components/form/atoms/Button';
+import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 
 export default (args: any) => {
   useShowStorybookCode();
