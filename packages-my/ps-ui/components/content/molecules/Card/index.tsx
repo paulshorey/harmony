@@ -6,7 +6,7 @@ import variants from './variants';
 import Block, { Props as BlockProps } from 'components/content/atoms/Block';
 
 export type Props = BlockProps;
-const Component = Block;
+export const Component = Block;
 
 /*
  * Copy/paste everything below to sync code between components. Then change the name of the variables.

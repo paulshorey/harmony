@@ -2,8 +2,9 @@ import withStyles from 'styles/withStyles';
 import { FC, forwardRef, memo, HTMLAttributes } from 'react';
 import objects_add_values from '@ps/fn/io/objects/objects_add_values';
 import variants from 'components/content/atoms/Inline/variants';
+import ComponentPropsType from 'types/component';
 
-export type Props = HTMLAttributes<HTMLDivElement> & props;
+export type Props = HTMLAttributes<HTMLDivElement> & ComponentPropsType;
 
 export const Component = forwardRef(({ as = 'span', ...props }: any, ref) => {
   const TagName = `${as}` as any;

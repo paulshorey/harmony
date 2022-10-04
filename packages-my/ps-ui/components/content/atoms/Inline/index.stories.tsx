@@ -6,7 +6,7 @@ import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
   ss: '',
-  variants: ['borderBottom', 'textColor'],
+  variants: ['border-bottom', 'text-color'],
   variant: '',
   color: 'accent',
   shade: '',
@@ -28,7 +28,11 @@ export default {
         component: description,
       },
       source: {
-        code: ``,
+        code: `<p>
+  All Block props and conditional rules still work here.{' '}
+  <Inline variant="borderBottom">But this renders the element inline</Inline> by
+  default.
+</p>`,
       },
     },
   },

@@ -4,9 +4,10 @@ import React, { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
 import { tsFix } from 'types/typescript';
 import variants from 'components/form/atoms/Button/variants';
 import objects_add_values from '@ps/fn/io/objects/objects_add_values';
+import ComponentPropsType from 'types/component';
 
 export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
-  (props & {
+  (ComponentPropsType & {
     /**
      * Disable the functionality and style of the button as disabled?
      */

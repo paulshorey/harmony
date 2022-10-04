@@ -1,5 +1,7 @@
 import { SerializedStyles } from '@emotion/react';
-import { colorHueType, colorShadeType, colorKeyType } from 'styles/colors';
+// import { colorGroupType, colorShadeType } from 'styles/colors';
+type colorGroupType = string;
+type colorShadeType = string;
 
 import { HtmlContainerTags as HtmlContainerTagsImport } from './html';
 
@@ -161,13 +163,9 @@ export type StyleProps = {
   //  */
   // onLight?: any;
   /**
-   * Pass to theme.getColors() function to retrieve a theme color by key. Hue and shade are added automatically, but you can override them by passing a second argument to theme.getColors().
+   * Specify how to color the component. Will be seen by variants and all styles as theme.instance.color. Pass to theme.getColors() function as 2nd argument, to specify the color group to use.
    */
-  color?: colorKeyType;
-  /**
-   * Will be used by theme.getColors function to get you the color hue of color. Predefined, like cta1, cta2, accent, primary, default. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color.
-   */
-  hue?: colorHueType;
+  color?: colorGroupType;
   /**
    * Will be used by theme.getColors function to get you the color shade of color, 'onLight' or 'onDark'. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color. This tells the component that it is over a dark or light background.
    */

@@ -16,9 +16,6 @@ const theme: theme = {
   getColor: function (key, color = '', shade = '') {
     const colorGroup = color || this.instance.color;
     const colorShade = shade || this.instance.shade;
-    if (key === 'bg') {
-      console.log('bg', color, shade, [colorGroup, colorShade]);
-    }
     // group / scheme
     if (colorGroup && colorShade) {
       const color = this.colors[colorGroup]?.[colorShade]?.[key];

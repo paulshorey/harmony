@@ -1,14 +1,16 @@
+import React from 'react';
 import withStyles from 'styles/withStyles';
 import { FC, forwardRef, memo, HTMLAttributes } from 'react';
 import objects_add_values from '@ps/fn/io/objects/objects_add_values';
 import variants from 'components/content/atoms/Block/variants';
+import ComponentPropsType from 'types/component';
 
-export type Props = HTMLAttributes<HTMLDivElement> & props;
+export type Props = HTMLAttributes<HTMLDivElement> & ComponentPropsType;
 
-export const Component = forwardRef(({ as = 'div', ...props }: any, ref) => {
+export const Component: React.FC<Props> = ({ as = 'div', ...props }) => {
   const TagName = `${as}` as any;
-  return <TagName {...props} ref={ref} />;
-});
+  return <TagName {...props} />;
+};
 
 /*
  * Copy/paste everything below to sync code between components. Then change the name of the variables.

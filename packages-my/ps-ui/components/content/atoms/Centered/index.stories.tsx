@@ -6,7 +6,7 @@ import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
   ss: 'max-width: 400px; .nowrap {color: orange;}',
-  variants: ['textGradient'],
+  variants: ['text-gradient'],
   variant: 'bg',
   color: 'cta1',
   shade: 'onLight',

@@ -17,7 +17,7 @@ const Code = withBlock({
 
 export default function (args: any) {
   return (
-    <Block {...containerStyleProps} variant="bgGradient padding" color="cta1">
+    <Block {...containerStyleProps} variant="bg-gradient padding" color="cta1">
       <Block as="h5">
         These <span className="gold">props </span> apply to your current{' '}
         <span className="orange">page size</span>:

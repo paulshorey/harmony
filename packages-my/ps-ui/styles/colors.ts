@@ -11,6 +11,7 @@ const colors: colors = {
       error: '#e30000',
       warning: '#e38935',
       success: '#27b30d',
+      buttonText: '#666',
     },
     onDark: {
       bg: '#333',
@@ -30,13 +31,13 @@ const colors: colors = {
   },
   cta1: {
     onLight: {
-      bg: 'hsl(239 70% 70%)',
-      bgDark: 'hsl(226 73% 63%)',
-      bgLight: 'hsl(272 57% 67%)',
+      bg: 'hsl(239 75% 70%)',
+      bgDark: 'hsl(226 75% 63%)',
+      bgLight: 'hsl(272 60% 67%)',
       link: 'hsl(229 75% 70%)',
       subtle: 'hsl(239 80% 75%)',
-      border: 'hsla(229, 79%, 69%, 1)',
-      textGradient: 'white',
+      border: 'hsla(229, 80%, 69%, 1)',
+      buttonText: 'white',
     },
     onDark: {
       link: 'hsl(229 70% 70%)',
@@ -51,11 +52,15 @@ const colors: colors = {
       link: 'hsla(199, 79%, 89%, 1)',
       subtle: 'hsl(180deg 70% 50%)',
       border: 'hsl(188deg 100% 73%)',
-      textGradient: 'white',
+      buttonText: 'white',
     },
     onDark: {
       link: 'hsl(188deg 75% 65%)',
-      subtle: 'hsl(188deg 85% 80%)',
+      subtle: 'hsl(188deg 75% 95%)',
+      border: 'hsl(185deg 90% 51%)',
+      bg: 'hsl(185deg 95% 45%)',
+      bgDark: 'hsl(210deg 90% 55%)',
+      bgLight: 'hsl(185deg 90% 50%)',
     },
   },
 };

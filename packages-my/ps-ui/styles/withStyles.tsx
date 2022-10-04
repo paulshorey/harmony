@@ -98,7 +98,7 @@ export default (
         // }
         if (label) {
           // @ts-ignore // was undefined, now defining it, so whats the problem?
-          theme.instance.variants[label] = true;
+          theme.instance.variants[label.toLowerCase()] = true;
         }
         if (props.hasOwnProperty('disabled')) {
           // @ts-ignore // was undefined, now defining it, so whats the problem?
@@ -108,14 +108,14 @@ export default (
         if (variantStrs.length) {
           for (const str of variantStrs) {
             // @ts-ignore // was undefined, now defining it, so whats the problem?
-            theme.instance.variants[str] = true;
+            theme.instance.variants[str.toLowerCase()] = true;
           }
         }
         // props.variants (string[])
         if (variants?.length) {
           for (const str of variants) {
             // @ts-ignore // was undefined, now defining it, so whats the problem?
-            theme.instance.variants[str] = true;
+            theme.instance.variants[str.toLowerCase()] = true;
           }
         }
         // Apply variants
@@ -311,13 +311,6 @@ export default (
        * Return component with props applied
        *
        */
-      // if (variant === 'bgColor') {
-      //   console.log(
-      //     'theme.instance',
-      //     theme.instance.shade,
-      //     theme.instance.color
-      //   );
-      // }
       return (
         <Component
           {...props}

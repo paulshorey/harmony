@@ -13,7 +13,7 @@ In the code below, notice this subtle feature: `theme.instance`. For any compone
 
 ```
 ss: (theme) => `padding: 1.2rem 1rem 1.9rem; ${
-  theme.instance.variants.bgGradient && `padding-top: 1.3rem;`}
+  theme.instance.variants.bg-gradient && `padding-top: 1.3rem;`}
 }`
 ```
 

@@ -21,12 +21,12 @@ import { withButton } from '../../../components/form/atoms/Button';
 const Container = withBlock({
   ss: (theme) =>
     \`padding: 1.2rem 1rem 1.9rem; \${
-      theme.instance.variants.bgGradient && \`padding-top: 1.3rem;\`
+      theme.instance.variants.bg-gradient && \`padding-top: 1.3rem;\`
     }\`,
 });
 const Content = withBlock({ ss: \`padding: 0\` });
 const Title = withBlock({
-  variant: 'textGradient',
+  variant: 'text-gradient',
   ss: \`padding: 0.125rem 0 0 0.25rem;\`,
 });
 const Button = withButton({
@@ -35,10 +35,10 @@ const Button = withButton({
 
 ...
 
-<Container variant="bgColor">
+<Container variant="bg-color">
   <Title color="cta1">on light:</Title>
   <Content>
-    <Button variant="bgGradient" color="cta1" {...args}>
+    <Button variant="bg-gradient" color="cta1" {...args}>
       gradient cta1
     </Button>
     <Button color="cta1" {...args}>
@@ -54,10 +54,10 @@ const Button = withButton({
   </Content>
 </Container>
 
-<Container variant="bgGradient" color="cta1">
+<Container variant="bg-gradient" color="cta1">
   <Title color="cta2">on gradient:</Title>
   <Content>
-    <Button variant="bgGradient" color="cta2" {...args}>
+    <Button variant="bg-gradient" color="cta2" {...args}>
       gradient cta2
     </Button>
     <Button color="cta2" {...args}>
@@ -73,10 +73,10 @@ const Button = withButton({
   </Content>
 </Container>
 
-<Container variant="bgColor" shade="onDark">
+<Container variant="bg-color" shade="onDark">
   <Title shade="onDark">on dark:</Title>
   <Content>
-    <Button variant="bgGradient" color="cta1" {...args}>
+    <Button variant="bg-gradient" color="cta1" {...args}>
       gradient cta1
     </Button>
     <Button color="cta1" {...args}>

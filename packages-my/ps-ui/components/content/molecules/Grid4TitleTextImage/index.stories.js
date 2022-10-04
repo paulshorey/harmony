@@ -6,7 +6,7 @@ import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
   ss: '',
-  variants: [''],
+  variants: ['title-image-text-image'],
   variant: '',
   color: '',
   shade: '',

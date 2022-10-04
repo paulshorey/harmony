@@ -1,8 +1,7 @@
 `import Block from 'components/content/atoms/Block';` then render:
 `<Block as="h2" ssTablet="padding:1rem;" ssPhone="font-size:1.25rem;" variant="highlighted" />`
 
-This accepts all props for `HTMLAttributes<HTMLDivElement>` plus custom props explained below.  
-All components in this library also accept the custom style props explained here.
+Accepts all props for `HTMLAttributes<HTMLDivElement>`. Plus custom props.
 
 <!-- **This library uses EmotionJS**. This component supports Emotion's css prop, but also adds custom props. Each mq prop injects styles into a predefined media query. Use Emotion's css\`\` type or a plain string. Each starts with "css" prefix. Use `react/jsx-sort-props` to sort your React props alphabetically, to keep all css props together. See also `as` and `variants` props. <a href="#anchor--content-atoms-block--block">Scroll down to read about mq props.</a> -->
 

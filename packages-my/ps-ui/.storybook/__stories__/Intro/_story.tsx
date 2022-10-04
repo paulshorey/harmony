@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Block from 'components/content/atoms/Block';
+import Block from '../../../components/content/atoms/Block';
 // import useShowStorybookCode from 'hooks/useShowStorybookCode';
 
 const styles = {
@@ -46,7 +46,7 @@ const styles = {
 export default (args) => {
   // useShowStorybookCode();
   return (
-    <Block ss={styles.wrapper} variant="bgGradient" color="cta1" {...args}>
+    <Block ss={styles.wrapper} variant="bg-gradient" color="cta1" {...args}>
       <h2>This is not a UI Component Library...</h2>
       <hr />
       <h3>

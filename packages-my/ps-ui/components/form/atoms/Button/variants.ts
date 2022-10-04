@@ -1,5 +1,8 @@
 export default {
-  default: (theme: theme) => {
+  'default': (theme: theme) => {
+    const isDark =
+      theme.instance.variants?.['bg-gradient'] ||
+      theme.instance.shade === 'onDark';
     return `
       font-size: 1rem;
       overflow: hidden;
@@ -12,12 +15,26 @@ export default {
       box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
       padding: 12px 24px;
       color: ${theme.getColor('bgDark')};
-      background-image: linear-gradient(
-        160deg,
-        hsl(0, 0%, 89%, 0.95),
-        hsl(0, 0%, 92%, 0.95),
-        hsl(0, 0%, 89%, 0.95)
-      ) !important;
+      // text-shadow: 1px 1px 1px rgba(255,255,255,0.15);
+      ${
+        isDark
+          ? `
+          background-image: linear-gradient(
+            160deg,
+            hsl(0, 0%, 95%) 0%,
+            hsl(0, 0%, 77%) 67%,
+            hsl(0, 0%, 80%) 100%
+          )!important
+        `
+          : `
+          background-image: linear-gradient(
+            160deg,
+            hsl(0, 0%, 93%) 0%,
+            hsl(0, 0%, 85%) 67%,
+            hsl(0, 0%, 93%) 100%
+          ) !important;
+        `
+      };
       &:not(:hover):not(:focus) {
         border-top-color: transparent;
         border-left-color: transparent;
@@ -28,9 +45,9 @@ export default {
       }
       &:hover {
         ${
-          theme.instance.shade === 'onDark'
+          isDark
             ? `
-          box-shadow: 2px 3px 0 0 hsl(0, 0%, 33%, 0.67),
+          box-shadow: 1.5px 2.25px 0 0 hsl(0, 0%, 33%, 0.67),
             1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
           `
             : `
@@ -43,10 +60,13 @@ export default {
         border-bottom-color: transparent;
         border-right-color: transparent;
         > * {
+          position:relative;
           top: 1px;
           left: 1px;
         }
-        box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
+        box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, ${
+          isDark ? '0.5' : '0.15'
+        });
         > * {
           top: 1px;
           left: 1px;
@@ -64,8 +84,8 @@ export default {
       }
     `;
   },
-  bgGradient: (theme: theme) => `
-    color: ${theme.getColor('textGradient')};
+  'bg-gradient': (theme: theme) => `
+    color: ${theme.getColor('buttonText')};
     text-shadow: 1px 1px 1px ${theme.getColor('bgDark')};
     background-size: 200% auto;
     & {
@@ -85,7 +105,7 @@ export default {
     &:focus {
     }
   `,
-  disabled: (theme: theme) => {
+  'disabled': (theme: theme) => {
     const shadowColor =
       theme.instance.shade === 'onDark'
         ? 'hsla(0, 0%, 80%)'
@@ -103,7 +123,7 @@ export default {
       }
     `;
   },
-  link: (theme: theme) => {
+  'link': (theme: theme) => {
     return `
       border: none !important;
       box-shadow: none !important;
@@ -128,7 +148,7 @@ export default {
       }
     `;
   },
-  pulsing: (theme: theme) => {
+  'pulsing': (theme: theme) => {
     const shadowColor = theme.instance.shade === 'onDark' ? 255 : 0;
     return `
       padding: 12px 24px;
@@ -144,92 +164,4 @@ export default {
       }
     `;
   },
-  // raised: (theme: theme) => `
-  //   padding: 12px 24px;
-  //   border-blackus: 6px;
-  //   border-bottom: 4px solid hsl(241, 3%, 73%);
-  //   border-top: 0px;
-  //   transition: all 0.1s ease-in-out;
-
-  //   &:hover {
-  //     border-bottom-width: 0;
-  //     border-top-width: 4px;
-  //   }
-  // `,
-  // underlineGrow: (theme: theme) => `
-  //   position: relative;
-
-  //   span {
-  //     position: relative;
-  //   }
-
-  //   &:before {
-  //     content: '';
-  //     position: absolute;
-  //     left: -0.1px;
-  //     right: -0.1px;
-  //     bottom: 0;
-  //     height: 100%;
-  //     transform: scaleY(0.3);
-  //     transition: transform 0.6s cubic-bezier(0.53, 0.21, 0, 1);
-  //     transform-origin: bottom;
-  //     background-color: ${theme.getColor('solid')} 0.6;
-  //   }
-  //   &:hover:before {
-  //     transform: scaleY(1);
-  //   }
-  // `,
-  // loading: (theme: theme) => `
-  //   span {
-  //     width: 8px;
-  //     height: 8px;
-  //     border-radius: 50%;
-  //     background-color: ${theme.getColor('solid')} flashing 1.4s infinite linear;
-  //     margin: 0 4px;
-  //     display: inline-block;
-
-  //     &:nth-child(2) {
-  //       animation-delay: 0.2s;
-  //     }
-
-  //     &:nth-child(3) {
-  //       animation-delay: 0.4s;
-  //     }
-  //   }
-
-  //   @keyframes flashing {
-  //     0% {
-  //       opacity: 0.2;
-  //     }
-  //     20% {
-  //       opacity: 1;
-  //     }
-  //     100% {
-  //       opacity: 0.2;
-  //     }
-  //   }
-  // `,
-  // underlineSlide: (theme: theme) => `
-  //   display: inline-block;
-  //   position: relative;
-  //   color: white;
-
-  //   &:after {
-  //     content: '';
-  //     position: absolute;
-  //     width: 100%;
-  //     transform: scaleX(0);
-  //     height: 2px;
-  //     bottom: 0;
-  //     left: 0;
-  //     background-color: white;
-  //     transform-origin: bottom right;
-  //     transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-  //   }
-
-  //   &:hover::after {
-  //     transform: scaleX(1);
-  //     transform-origin: bottom left;
-  //   }
-  // `,
 };

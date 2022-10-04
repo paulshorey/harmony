@@ -15,6 +15,10 @@ export default function objects_add_values(
   if (!val1 && !val2) return null; // What is the ideal way to handle this?
   if (!val1 && val2) return val2;
   if (val1 && !val2) return val1;
+  if (val1 === val2) return val1;
+  if (typeof val1 !== typeof val2) {
+    return val2;
+  }
   if (typeof val1 === "string" || typeof val2 === "string") {
     return val1 + stringDelimeter + val2;
   }
