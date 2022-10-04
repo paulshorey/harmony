@@ -47,10 +47,6 @@ export type StyleProps = {
    */
   variant?: string;
   /**
-   * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged.
-   */
-  as?: HtmlContainerTags;
-  /**
    * Will not use any media queries or conditional logic.
    */
   ss?: string | EmotionCssProp;

@@ -148,6 +148,13 @@ export default (
       dataVariants = theme.instance.variants
         ? Object.keys(theme.instance.variants).join('-')
         : '';
+      if (shade) {
+        dataVariants += '-' + shade;
+      }
+      if (color) {
+        dataVariants += '-' + color;
+      }
+
       ssOutput += `\n&[data-variants="${dataVariants}"] {\n`;
 
       /*

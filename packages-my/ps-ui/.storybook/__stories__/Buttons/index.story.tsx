@@ -2,7 +2,7 @@ import Template, { code } from './_story';
 import description from './_story.md';
 import { Component } from '.';
 
-export const Button = Template.bind({});
+export const Buttons = Template.bind({});
 
 export default {
   component: Component,

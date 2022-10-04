@@ -3,12 +3,13 @@ import Template from './_story';
 import description from './_story.md';
 import { argTypes } from 'styles/storybook';
 import variants from './variants';
+import Block from '../Block';
 const variantKeys = Object.keys(variants);
 const args = {
   ss: '',
-  variants: ['border-bottom', 'text-color'],
+  variants: ['border-bottom', 'text-gradient'],
   variant: '',
-  color: 'accent',
+  color: 'cta1',
   shade: '',
 };
 
@@ -28,11 +29,11 @@ export default {
         component: description,
       },
       source: {
-        code: `<p>
+        code: `<Block as="p" shade="onDark" variant="text-color" ss="padding:2rem;">
   All Block props and conditional rules still work here.{' '}
-  <Inline variant="borderBottom">But this renders the element inline</Inline> by
+  <Inline variant="borderBottom text-gradient" color="cta1">But this renders the element inline</Inline> by
   default.
-</p>`,
+</Block>`,
       },
     },
   },

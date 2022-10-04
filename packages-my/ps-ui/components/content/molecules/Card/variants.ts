@@ -25,5 +25,9 @@ export default {
         display: inline-block;
       }
     }
+    `,
+  'code': (theme: theme) => `
+    font-family: ${theme.fonts.code};
+    padding: 1rem;
   `,
 };

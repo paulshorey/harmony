@@ -5,8 +5,8 @@ import { argTypes } from 'styles/storybook';
 import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
-  ss: 'padding:50px;',
-  variants: ['text-gradient'],
+  ss: 'max-width: 400px; .nowrap {color: orange;}',
+  variants: ['text-gradient', 'centered'],
   variant: 'bg',
   color: 'cta1',
   shade: 'onLight',

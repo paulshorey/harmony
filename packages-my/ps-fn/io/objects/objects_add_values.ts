@@ -9,7 +9,9 @@ export default function objects_add_values(
   val1: any,
   val2: any,
   stringDelimeter: string = "",
-  ignoreKeys?: Array<string>
+  removeKeys?: Array<string>,
+  addKeys?: Array<string>,
+  key?: string
 ): any {
   // The order of each if statement is important.
   if (!val1 && !val2) return null; // What is the ideal way to handle this?
@@ -19,14 +21,18 @@ export default function objects_add_values(
   if (typeof val1 !== typeof val2) {
     return val2;
   }
-  if (typeof val1 === "string" || typeof val2 === "string") {
-    return val1 + stringDelimeter + val2;
+  if (typeof val1 === "number" || typeof val1 === "string" || typeof val2 === "string") {
+    if (addKeys && key) {
+      for (let addKey of addKeys) {
+        if (key.substring(0, addKey.length) === addKey) {
+          return val1 + stringDelimeter + val2;
+        }
+      }
+    }
+    return val2;
   }
   if (typeof val1 !== typeof val2) {
     return val2 || val1;
-  }
-  if (typeof val1 === "number") {
-    return val1 + val2;
   }
   if (typeof val1 === "boolean") {
     return val2 || val1;
@@ -38,7 +44,9 @@ export default function objects_add_values(
     let obj = {};
     let keys = [...new Set([...Object.keys(val1), ...Object.keys(val2)])];
     for (let key of keys) {
-      if (ignoreKeys && ignoreKeys.includes(key)) continue;
+      if (removeKeys && removeKeys.includes(key)) {
+        continue;
+      }
       obj[key] = objects_add_values(val1[key], val2[key], stringDelimeter);
     }
     return obj;

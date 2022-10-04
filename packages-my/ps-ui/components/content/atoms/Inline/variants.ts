@@ -35,7 +35,7 @@ export default {
     `;
   },
   'text-gradient': (theme: theme) => {
-    return `w
+    return `
       color: ${theme.getColor('link')};
       @supports (--css: variables) {
         background-image: linear-gradient(

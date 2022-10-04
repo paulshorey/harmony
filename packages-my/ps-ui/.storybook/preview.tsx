@@ -1,4 +1,4 @@
-import { addons } from '@storybook/addons';
+// import { addons } from '@storybook/addons';
 import React from 'react';
 import GlobalStyles from '../styles/global';
 import { css, ThemeProvider } from '@emotion/react';
@@ -36,37 +36,37 @@ export const parameters = {
   },
 };
 
-const handleThemeSelected = (...inputs) => {
-  console.log('handleThemeSelected', ...inputs);
-};
-const handlePlatformSelected = (...inputs) => {
-  console.log('handlePlatformSelected', ...inputs);
-};
-const handleColorSchemeSelected = (...inputs) => {
-  console.log('handleColorSchemeSelected', ...inputs);
-};
+// const handleThemeSelected = (...inputs) => {
+//   console.log('handleThemeSelected', ...inputs);
+// };
+// const handlePlatformSelected = (...inputs) => {
+//   console.log('handlePlatformSelected', ...inputs);
+// };
+// const handleColorSchemeSelected = (...inputs) => {
+//   console.log('handleColorSchemeSelected', ...inputs);
+// };
 
 export const decorators = [
   (Story, context) => {
-    const [colorScheme, set_colorScheme] = React.useState('onLight');
-    React.useEffect(() => {
-      const channel = addons.getChannel();
+    // const [colorScheme, set_colorScheme] = React.useState('onLight');
+    // React.useEffect(() => {
+    //   const channel = addons.getChannel();
 
-      channel.on('theme-selected', handleThemeSelected);
-      channel.on('platform-selected', handlePlatformSelected);
-      channel.on('color-scheme-selected', handleColorSchemeSelected);
-      channel.emit('story-mounted');
+    //   channel.on('theme-selected', handleThemeSelected);
+    //   channel.on('platform-selected', handlePlatformSelected);
+    //   channel.on('color-scheme-selected', handleColorSchemeSelected);
+    //   channel.emit('story-mounted');
 
-      return () => {
-        channel.off('theme-selected', handleThemeSelected);
-        channel.off('platform-selected', handlePlatformSelected);
-        channel.off('color-scheme-selected', handleColorSchemeSelected);
-      };
-    }, []);
+    //   return () => {
+    //     channel.off('theme-selected', handleThemeSelected);
+    //     channel.off('platform-selected', handlePlatformSelected);
+    //     channel.off('color-scheme-selected', handleColorSchemeSelected);
+    //   };
+    // }, []);
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Story colorScheme={colorScheme} {...context} />
+        <Story {...context} />
       </ThemeProvider>
     );
   },

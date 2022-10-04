@@ -4,23 +4,23 @@ const DEBUG1 = false; // log
 
 /**
  * Track page view (when a new route is written to browser history)
- * Read more about Mixpanel options:
- * https://docs.google.com/spreadsheets/d/1xXqXaUCOuUJ4EThrkZRwTzMAlBXr3Yr7pQHR2tw2ZEU/edit#gid=0
  */
-export const analytics_track_page = function (options: {
-  name: string; // name of the page
-  path: string; // route of the page, relative to the site, starting with slash
-  postSlug?: string; // slug of the blog post, if any
-  categorySlug?: string; // slug of the blog category, if any
-  experiments?: any; // experiments in the page
-}): void {
+export const analytics_track_page = function (
+  options: {
+    name: string; // name of the page
+    path: string; // route of the page, relative to the site, starting with slash
+    postSlug?: string; // slug of the blog post, if any
+    categorySlug?: string; // slug of the blog category, if any
+    experiments?: any; // experiments in the page
+  } & Record<string, any>
+): void {
   // remove trailing slash
-  opt.path = opt.path.replace(/[\/]+$/, "");
+  options.path = options.path.replace(/[\/]+$/, "");
   // keep lash if root
-  if (opt.path === "") opt.path = "/";
+  if (options.path === "") options.path = "/";
 
   // label
-  let label = "PageView: " + opt.name;
+  let label = "PageView: " + options.name;
   mixpanel_track({ label, options });
 
   // Google Analytics
@@ -29,18 +29,18 @@ export const analytics_track_page = function (options: {
   if (typeof window !== "object") return;
   if (DEBUG1) {
     console.warn("gtag track pageview", {
-      page_title: opt.name,
-      page_path: opt.path
+      page_title: options.name,
+      page_path: options.path
     });
   }
-  if (!window.gtag) {
-    console.error("!window.gtag");
-    return;
-  }
-  window.gtag("config", process.env.NEXT_PUBLIC_GTAG_ID, {
-    page_path: opt.path,
-    page_title: opt.name
-  });
+  // if (!window.gtag) {
+  //   console.error("!window.gtag");
+  //   return;
+  // }
+  // window.gtag("config", process.env.NEXT_PUBLIC_GTAG_ID, {
+  //   page_path: options.path,
+  //   page_title: options.name
+  // });
   // Facebook
   // Facebook automatically tracks changes to push state?
 };
@@ -51,52 +51,50 @@ export const analytics_track_page = function (options: {
  * @param {string} opt.from - where in the site the button was clicked
  */
 export const analytics_track_cta = function (options: {
-  from: string; // where in the page/site this was displayed
+  from?: string; // where in the page/site this was displayed
 }): void {
-  let label = "CTA: " + opt.from;
+  let label = "CTA: " + options.from;
   mixpanel_track({ label, options });
   // track Facebook
-  if (typeof window === "object" && window.fbq) {
-    console.log("tracking Facebook Lead click");
-    window.fbq("track", "Lead");
-  }
+  // if (typeof window === "object" && window.fbq) {
+  //   console.log("tracking Facebook Lead click");
+  //   window.fbq("track", "Lead");
+  // }
   // track in TikTok
-  if (typeof window === "object" && window.ttq) {
-    window.ttq.track("ClickButton");
-  }
+  // if (typeof window === "object" && window.ttq) {
+  //   window.ttq.track("ClickButton");
+  // }
 };
 
 /**
  * Track all link clicks
  * Navigating to a page ("/" internal), or external ("https://..."), and even hash links ("#...")
- * @param {object} options
- * @param {string} opt.type - type of the link, internal or external
- * @param {string} opt.href - href of the link
- * @param {string} opt.fromSection - where in the site the link was clicked
- * @param {string} opt.fromPageName - name of the page where the link was clicked
- * @param {string} opt.fromPagePath - route of the page where the link was clicked
  */
 export const analytics_track_link = function (options: {
-  from: string; // where in the page/site this link was displayed
+  from?: string; // where in the page/site this link was displayed
   href: string; // href of the link
+  type?: string; // type of the link, internal or external
+  fromPageName?: string; // name of the page where the link was clicked
+  fromPagePath?: string; // route of the page where the link was clicked
+  fromSection?: string; // where in the page/site this link was displayed
 }) {
   let label = "link click";
   // format href
-  opt.type = href_type(opt.href);
+  options.type = href_type(options.href);
   // opt.href = href_canonical(opt.href); // use canonical url format
   // is CTA
-  if (opt.href.includes("1526316317") || opt.href.includes("/auth/register")) {
-    if (!opt.from) {
-      opt.from = "link";
+  if (options.href.includes("/sign-up")) {
+    if (!options.from) {
+      options.from = "link";
     }
     analytics_track_cta(options);
     return;
   }
   // is contact, track in TikTok
-  if (opt.href.includes("mailto:") || opt.href.includes("tel:")) {
-    if (typeof window === "object" && window.ttq) {
-      window.ttq.track("Contact");
-    }
+  if (options.href.includes("mailto:") || options.href.includes("tel:")) {
+    // if (typeof window === "object" && window.ttq) {
+    //   window.ttq.track("Contact");
+    // }
   }
   // track in Mixpanel
   mixpanel_track({ label, options });
@@ -105,10 +103,14 @@ export const analytics_track_link = function (options: {
 /*
  * PRIVATE HELPERS
  */
-const href_type = function (href): "internal" | "hashtag" | "external" | "contact" {
+const href_type = function (href: string): "internal" | "hashtag" | "external" | "contact" {
   if (href.substring(0, 1) === "#") {
     return "hashtag";
-  } else if (href.substring(0, 4) === "http" && !/spiral\.us|localhost:/.test(href.substring(0, 22))) {
+  } else if (
+    href.substring(0, 4) === "http" &&
+    !href.includes(window.location.hostname) &&
+    !href.includes("localhost:")
+  ) {
     // how to know host name in lib ?
     return "external";
   } else if (href.substring(0, 7) === "mailto:" || href.substring(0, 4) === "tel:") {

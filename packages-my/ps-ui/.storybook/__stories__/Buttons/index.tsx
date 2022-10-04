@@ -1,10 +1,10 @@
-import Block from 'components/content/atoms/Block';
-import withStyles from 'styles/withStyles';
+import Block from '../../../components/content/atoms/Block';
+import withStyles from '../../../styles/withStyles';
 import React, { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
-import { tsFix } from 'types/typescript';
-import variants from 'components/form/atoms/Button/variants';
+import { tsFix } from '../../../types/typescript';
+import variants from '../../../components/form/atoms/Button/variants';
 import objects_add_values from '@ps/fn/io/objects/objects_add_values';
-import ComponentPropsType from 'types/component';
+import ComponentPropsType from '../../../types/component';
 
 export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
   (ComponentPropsType & {
