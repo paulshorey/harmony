@@ -7,9 +7,9 @@ import { Block } from 'components/content/atoms/Block';
 const variantKeys = Object.keys(variants);
 const args = {
   ss: '',
-  variants: [],
+  variants: ['bg-gradient'],
   color: 'cta2',
-  shade: 'default',
+  shade: 'onDark',
 };
 
 export const Button = Template.bind({});
