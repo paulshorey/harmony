@@ -1,8 +1,8 @@
-import Centered from 'components/content/atoms/Centered';
+import Block from 'components/content/atoms/Block';
 import Component from '.';
 
 export default (props: props) => (
-  <Centered>
+  <Block variant="centered">
     <Component
       variant={'title-image-text-image'}
       image={
@@ -17,5 +17,5 @@ export default (props: props) => (
       title={<h1>This is the title</h1>}
       {...props}
     />
-  </Centered>
+  </Block>
 );

@@ -1,90 +1,85 @@
 export default {
-  'default': (theme: theme) => {
-    const isDark =
-      theme.instance.variants?.['bg-gradient'] ||
-      theme.instance.shade === 'onDark';
-    return `
-      font-size: 1rem;
-      overflow: hidden;
-      border-radius: 7px;
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-      border: solid 1px;
-      border-color: ${theme.getColor('bgDark')};
-      box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
-      padding: 12px 24px;
-      color: ${theme.getColor('bgDark')};
-      // text-shadow: 1px 1px 1px rgba(255,255,255,0.15);
+  'default': (theme: theme) => `
+    font-size: 1rem;
+    overflow: hidden;
+    border-radius: 7px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border: solid 1px;
+    border-color: ${theme.getColor('bgDark')};
+    box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
+    padding: 12px 24px;
+    color: ${theme.getColor('bgDark')};
+    // text-shadow: 1px 1px 1px rgba(255,255,255,0.15);
+    ${
+      theme.instance.shade === 'onDark'
+        ? `
+        background-image: linear-gradient(
+          160deg,
+          hsl(0, 0%, 90%) 0%,
+          hsl(0, 0%, 75%) 67%,
+          hsl(0, 0%, 80%) 100%
+        )!important
+      `
+        : `
+        background-image: linear-gradient(
+          160deg,
+          hsl(0, 0%, 97%) 0%,
+          hsl(0, 0%, 81%) 67%,
+          hsl(0, 0%, 93%) 100%
+        ) !important;
+        text-shadow: 1px 1px 1px rgba(255,255,255,0.15);
+      `
+    };
+    &:not(:hover):not(:focus) {
+      border-top-color: transparent;
+      border-left-color: transparent;
+      > * {
+        top: 0;
+        left: 0;
+      }
+    }
+    &:hover {
       ${
-        isDark
+        theme.instance.shade === 'onDark'
           ? `
-          background-image: linear-gradient(
-            160deg,
-            hsl(0, 0%, 90%) 0%,
-            hsl(0, 0%, 75%) 67%,
-            hsl(0, 0%, 80%) 100%
-          )!important
+        box-shadow: 1.5px 2.25px 0 0 hsl(0, 0%, 33%, 0.67),
+          1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
         `
           : `
-          background-image: linear-gradient(
-            160deg,
-            hsl(0, 0%, 97%) 0%,
-            hsl(0, 0%, 81%) 67%,
-            hsl(0, 0%, 93%) 100%
-          ) !important;
-          text-shadow: 1px 1px 1px rgba(255,255,255,0.15);
+        box-shadow: 1px 2px 0 0 hsl(0, 0%, 33%, 0.33),
+          1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
         `
       };
-      &:not(:hover):not(:focus) {
-        border-top-color: transparent;
-        border-left-color: transparent;
-        > * {
-          top: 0;
-          left: 0;
-        }
+    }
+    &:focus {
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+      > * {
+        position:relative;
+        top: 1px;
+        left: 1px;
       }
-      &:hover {
-        ${
-          isDark
-            ? `
-          box-shadow: 1.5px 2.25px 0 0 hsl(0, 0%, 33%, 0.67),
-            1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
-          `
-            : `
-          box-shadow: 1px 2px 0 0 hsl(0, 0%, 33%, 0.33),
-            1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
-          `
-        };
+      box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, ${
+        theme.instance.shade === 'onDark' ? '0.5' : '0.15'
+      });
+      > * {
+        top: 1px;
+        left: 1px;
       }
-      &:focus {
-        border-bottom-color: transparent;
-        border-right-color: transparent;
-        > * {
-          position:relative;
-          top: 1px;
-          left: 1px;
-        }
-        box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, ${
-          isDark ? '0.5' : '0.15'
-        });
-        > * {
-          top: 1px;
-          left: 1px;
-        }
-      }
-      &:focus:hover,
-      &:focus-visible:hover {
-        outline: none !important;
-      }
-      &:focus:not(:hover),
-      &:focus-visible:not(:hover) {
-        outline-style: double !important;
-        outline-width: 1px !important;
-        outline-color: ${theme.getColor('bgDark')} !important;
-      }
-    `;
-  },
+    }
+    &:focus:hover,
+    &:focus-visible:hover {
+      outline: none !important;
+    }
+    &:focus:not(:hover),
+    &:focus-visible:not(:hover) {
+      outline-style: double !important;
+      outline-width: 1px !important;
+      outline-color: ${theme.getColor('bgDark')} !important;
+    }
+  `,
   'bg-gradient': (theme: theme) => `
     color: ${theme.getColor('buttonText')};
     text-shadow: 1px 1px 1px ${theme.getColor('bgDark')};

@@ -1,12 +1,18 @@
 import Block from 'components/content/atoms/Block';
-import withStyles from 'styles/withStyles';
-import { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
+import {
+  ButtonHTMLAttributes,
+  FC,
+  forwardRef,
+  memo,
+  ReactElement,
+} from 'react';
 import variants from 'components/form/atoms/Button/variants';
 import useComponentWithProps12 from 'hooks/useComponentWithProps12';
-import ComponentPropsType from 'types/component';
+import ssComponentPropsType from 'types/component';
+import useStyledVariants from 'styles/useStyledVariants';
 
 export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
-  (ComponentPropsType & {
+  (ssComponentPropsType & {
     /**
      * Disable the functionality and style of the button as disabled?
      */
@@ -16,38 +22,34 @@ export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
 /**
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
-export const Component: FC<Props> = forwardRef(
-  ({ children, disabled, ...props }, ref) => {
-    if (ref) {
-      props.ref = ref;
-    }
-    return (
-      <button {...props} disabled={disabled}>
-        <Block variant="centered">
-          <span>{children}</span>
-        </Block>
-      </button>
-    );
-  }
-);
-
-/*
- * Copy/paste everything below to sync code between components. Then change the name of the variables.
- */
-const Default = memo(withStyles(Component, 'Button', variants));
-
-/*
- * This is an HOC, like Styled in @emotion/styled or Styled-Components, to help with styling, and managing props.
- * First you must call it with an object of props which will be used by all instances.
- * Then, you can use the returned value as a normal component. Pass to it props that only the specific instance will use.
- * Can not abstract this to a separate file, because Typescript does not support passing props as args.
- */
-export const withButton = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Default, props1, props2);
+export const Component: (
+  props: Props,
+  ref?: ReactForwardedRef
+) => ReactElement = ({ children, ...props }, ref) => {
+  const Styled = useStyledVariants(props, 'button', 'Button', variants);
+  return (
+    <Styled {...props} ref={ref}>
+      <Block variant="centered">
+        <span>{children}</span>
+      </Block>
+    </Styled>
+  );
 };
 
-/**
- * Default export is ready to use: <Button {...yourProps} />
+/*
+ * Like StyledComponents' div`` but with added functionality:
+ * import { withButton } from 'components/content/molecules/Button';
+ * const Button = withButton({ ...thesePropsWillApplyToAllInstances });
+ * <Button {...optionalUniquePropsForCurrentInstance} />
  */
-export const Button = Default;
-export default Default;
+export const withButton = (props1: Props) => (props2: Props) => {
+  return useComponentWithProps12(Button, props1, props2);
+};
+
+/*
+ * Default export is a ready-to-use component:
+ * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
+ * Named "Button" is same as default export. But IDEs like VSCode can read a named import better.
+ */
+export const Button = memo(forwardRef(Component));
+export default Button;

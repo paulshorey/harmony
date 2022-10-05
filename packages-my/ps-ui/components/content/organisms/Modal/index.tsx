@@ -1,9 +1,9 @@
 import { Props as BlockProps } from 'components/content/atoms/Block';
-import withStyles from 'styles/withStyles';
-import React, { memo, useEffect } from 'react';
+import { memo, useEffect, forwardRef, ReactElement } from 'react';
 import ReactModal from 'react-modal';
 import variants from './variants';
 import useComponentWithProps12 from 'hooks/useComponentWithProps12';
+import useStyledVariants from 'styles/useStyledVariants';
 
 export type Props = BlockProps & {
   contentLabel?: string;
@@ -14,15 +14,23 @@ export type Props = BlockProps & {
   type?: string;
 };
 
-export const Component: React.FC<Props> = ({
-  isOpen,
-  onClose = () => {},
-  contentLabel = '',
-  children,
-  showClose = true,
-  type = '',
-  ...props
-}) => {
+export const Component: (
+  props: Props,
+  ref?: ReactForwardedRef
+) => ReactElement = (
+  {
+    isOpen,
+    onClose = () => {},
+    contentLabel = '',
+    children,
+    showClose = true,
+    type = '',
+    ...props
+  },
+  ref
+) => {
+  const Styled = useStyledVariants(props, 'div', 'Modal', variants);
+
   // I forget what exactly this does and why it was necessary.
   useEffect(() => {
     if (typeof window === 'object') {
@@ -44,38 +52,11 @@ export const Component: React.FC<Props> = ({
       onRequestClose={onClose}
       overlayClassName="ReactModalOverlay"
     >
-      <div
-        css={`
-          width: 100%;
-          height: 100%;
-          overflow: auto;
-          flex-grow: 1;
-        `}
-      >
-        {type === 'cloudinary' && (
-          <h3 className="ModalExtraTitle">
-            Click: image checkbox, then &quot;Insert&quot;
-          </h3>
-        )}
+      <Styled ref={ref}>
         {children}
         {showClose && (
           <span
             className="ModalCloseX"
-            css={`
-              position: absolute;
-              top: 24px;
-              right: 20px;
-              z-index: 1000000;
-              display: block;
-              background: none;
-              border: none;
-              outline: none;
-              cursor: pointer;
-              img {
-                width: 18px;
-                height: 18px;
-              }
-            `}
             onClick={() => {
               onClose();
             }}
@@ -85,28 +66,25 @@ export const Component: React.FC<Props> = ({
             <img alt="x" src="/icons/x-nocircle.svg" />
           </span>
         )}
-      </div>
+      </Styled>
     </ReactModal>
   );
 };
 
 /*
- * Copy/paste everything below to sync code between components. Then change the name of the variables.
- */
-const Default = memo(withStyles(Component, 'Modal', variants));
-
-/*
- * This is an HOC, like Styled in @emotion/styled or Styled-Components, to help with styling, and managing props.
- * First you must call it with an object of props which will be used by all instances.
- * Then, you can use the returned value as a normal component. Pass to it props that only the specific instance will use.
- * Can not abstract this to a separate file, because Typescript does not support passing props as args.
+ * Like StyledComponents' div`` but with added functionality:
+ * import { withModal } from 'components/content/molecules/Modal';
+ * const Modal = withModal({ ...thesePropsWillApplyToAllInstances });
+ * <Modal {...optionalUniquePropsForCurrentInstance} />
  */
 export const withModal = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Default, props1, props2);
+  return useComponentWithProps12(Modal, props1, props2);
 };
 
-/**
- * Default export is ready to use: <Modal {...yourProps} />
+/*
+ * Default export is a ready-to-use component:
+ * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
+ * Named "Modal" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const Modal = Default;
-export default Default;
+export const Modal = memo(forwardRef(Component));
+export default Modal;

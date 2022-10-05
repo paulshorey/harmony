@@ -9,7 +9,6 @@ const args = {
   ss: '',
   variants: ['bg-gradient'],
   color: 'cta2',
-  shade: 'onDark',
 };
 
 export const Button = Template.bind({});

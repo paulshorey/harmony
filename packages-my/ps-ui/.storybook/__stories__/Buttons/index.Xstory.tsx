@@ -6,6 +6,7 @@ export const Buttons = Template.bind({});
 
 export default {
   component: Component,
+  id: '7',
   parameters: {
     docs: {
       description: {

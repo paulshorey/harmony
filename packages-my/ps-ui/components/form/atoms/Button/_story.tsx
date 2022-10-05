@@ -11,7 +11,9 @@ export default (args: any) => {
         <Button {...args}>Button text</Button>
       </Block>
       <Block variant="bg-gradient" color="cta1">
-        <Button {...args}>Button text</Button>
+        <Button shade="onDark" {...args}>
+          Button text
+        </Button>
       </Block>
     </div>
   );

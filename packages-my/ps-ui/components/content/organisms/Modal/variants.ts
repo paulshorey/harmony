@@ -1,5 +1,24 @@
 export default {
   default: (theme: any) => `
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  flex-grow: 1;
+  > span {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    z-index: 1000000;
+    display: block;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
     display: flex;
     flex-direction: column;
     align-items: center;

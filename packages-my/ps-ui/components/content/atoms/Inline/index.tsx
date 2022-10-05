@@ -1,33 +1,33 @@
-import withStyles from 'styles/withStyles';
-import { FC, forwardRef, memo, HTMLAttributes } from 'react';
+import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import useComponentWithProps12 from 'hooks/useComponentWithProps12';
 import variants from 'components/content/atoms/Inline/variants';
-import ComponentPropsType from 'types/component';
+import ssComponentPropsType from 'types/component';
+import useStyledVariants from 'styles/useStyledVariants';
 
-export type Props = HTMLAttributes<HTMLDivElement> & ComponentPropsType;
+export type Props = HTMLAttributes<HTMLDivElement> & ssComponentPropsType;
 
-export const Component = forwardRef(({ as = 'span', ...props }: any, ref) => {
-  const TagName = `${as}` as any;
-  return <TagName {...props} ref={ref} />;
-});
-
-/*
- * Copy/paste everything below to sync code between components. Then change the name of the variables.
- */
-const Default = memo(withStyles(Component, 'Inline', variants));
-
-/*
- * This is an HOC, like Styled in @emotion/styled or Styled-Components, to help with styling, and managing props.
- * First you must call it with an object of props which will be used by all instances.
- * Then, you can use the returned value as a normal component. Pass to it props that only the specific instance will use.
- * Can not abstract this to a separate file, because Typescript does not support passing props as args.
- */
-export const withInline = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Default, props1, props2);
+export const Component: (
+  props: Props,
+  ref?: ReactForwardedRef
+) => ReactElement = ({ as, ...props }, ref) => {
+  const Styled = useStyledVariants(props, as || 'span', 'Block', variants);
+  return <Styled ref={ref} {...props} />;
 };
 
-/**
- * Default export is ready to use: <Inline {...yourProps} />
+/*
+ * Like StyledComponents' div`` but with added functionality:
+ * import { withBlock } from 'components/content/molecules/Block';
+ * const Block = withBlock({ ...thesePropsWillApplyToAllInstances });
+ * <Block {...optionalUniquePropsForCurrentInstance} />
  */
-export const Inline = Default;
-export default Default;
+export const withBlock = (props1: Props) => (props2: Props) => {
+  return useComponentWithProps12(Block, props1, props2);
+};
+
+/*
+ * Default export is a ready-to-use component:
+ * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
+ * Named "Block" is same as default export. But IDEs like VSCode can read a named import better.
+ */
+export const Block = memo(forwardRef(Component));
+export default Block;

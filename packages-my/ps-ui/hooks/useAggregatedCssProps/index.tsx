@@ -2,7 +2,7 @@ import { css, useTheme } from '@emotion/react';
 import emotionToString from '@ps/fn/browser/style/style_to_string';
 import useDeviceInfo from 'hooks/useDeviceInfo';
 import theme from 'styles/theme'; // fixTheme
-import { EmotionCssProp } from 'types/component';
+import { cssPropType } from 'types/component';
 
 /**
  * All the props your component received. Just pass them along as one big object.
@@ -12,7 +12,7 @@ type Output = {
   /**
    * ss and other custom props aggregated into one EmotionJS CSS prop
    */
-  cssProp: EmotionCssProp;
+  cssProp: cssPropType;
   /**
    * all the remaining props that were not used
    */

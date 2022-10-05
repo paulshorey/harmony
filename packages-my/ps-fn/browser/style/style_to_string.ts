@@ -1,5 +1,6 @@
 import obj_has_key from "@ps/fn/io/obj/obj_has_key";
 import { SerializedStyles } from "@emotion/react";
+import { ssPropType, cssPropType } from "../../../ps-ui/types/component";
 
 /**
  * Accepts any EmotionCssProp format, string, or array of strings. Always returns SCSS string.
@@ -7,14 +8,9 @@ import { SerializedStyles } from "@emotion/react";
  */
 export default function style_to_string(
   /**
-   * EmotionJS css prop type. Will be converted to string.
+   * EmotionJS css prop type. Will be converted to string. Or string. Or array of strings.
    */
-  style:
-    | SerializedStyles
-    | Array<SerializedStyles | ((...args: any) => any)>
-    | ((...args: any) => any)
-    | string
-    | Array<string>, // EmotionCssPropType or plain string. Will be converted to string.
+  style: ssPropType | cssPropType, // EmotionCssPropType or plain string. Will be converted to string.
   /**
    * the theme. It will be passed to the EmotionJS function as the 1st argument (if it is a function. Otherwise ignored)
    */

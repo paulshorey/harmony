@@ -1,6 +1,6 @@
 import { css, useTheme } from '@emotion/react';
 import emotionToString from '@ps/fn/browser/style/style_to_string';
-import { EmotionCssProp } from 'types/component';
+import { cssPropType } from 'types/component';
 
 type Props = {
   label?: string;
@@ -28,7 +28,7 @@ const _ = function ({
   sVariants,
   style,
   styles,
-}: Props): EmotionCssProp {
+}: Props): cssPropType {
   // Sometimes (atoms/Grid) we may want to modify the theme for a specific component.
   if (!theme) {
     theme = useTheme();

@@ -3,7 +3,6 @@ import { withBlock } from '../../../components/content/atoms/Block';
 import { withButton } from '../../../components/form/atoms/Button';
 
 const Container = withBlock({
-  shade: 'onDark',
   ss: (theme) =>
     `padding: 1.2rem 1rem 1.9rem; ${
       theme.instance.variants['bg-gradient'] && `padding-top: 1.3rem;`
@@ -13,14 +12,11 @@ const Content = withBlock({ ss: `padding: 0` });
 const Title = withBlock({
   variant: 'text-gradient',
   ss: `padding: 0.125rem 0 0 0.25rem;`,
-  shade: 'onDark',
 });
 const Button = withButton({
   ss: `margin: 1rem 1rem 0rem 0.25rem;`,
   onClick: () => console.log('click'),
   onFocus: () => console.log('focus'),
-  // This also: set by default, but will be overwritten in the first container.
-  shade: 'onDark',
 });
 
 export default (args: any) => {
@@ -34,10 +30,8 @@ export default (args: any) => {
 
   return (
     <div>
-      <Container variant="bg-color" shade="default">
-        <Title color="cta1" shade="default">
-          on light:
-        </Title>
+      <Container variant="bg-white">
+        <Title color="cta1">on light:</Title>
         <Content>
           <Button
             variant="bg-gradient"
@@ -47,30 +41,26 @@ export default (args: any) => {
           >
             gradient cta1
           </Button>
-          <Button
-            variant="text-gradient"
-            color="cta1"
-            shade="default"
-            {...args}
-          >
+          <Button variant="text-gradient" color="cta1" {...args}>
             default cta1
           </Button>
-          <Button shade="default" {...args}>
-            default
-          </Button>
-          <Button variant="link" color="cta1" shade="default" {...args}>
+          <Button {...args}>default</Button>
+          <Button variant="link" color="cta1" {...args}>
             link
           </Button>
-          <Button variant="disabled" color="cta1" shade="default" {...args}>
+          <Button variant="disabled" color="cta1" {...args}>
             disabled
           </Button>
         </Content>
       </Container>
 
       <Container variant="bg-gradient" color="cta1">
-        <Title color="cta2">on dark:</Title>
+        <Title shade="onDark" color="cta2">
+          on dark:
+        </Title>
         <Content>
           <Button
+            shade="onDark"
             variant="bg-gradient"
             color="cta2"
             onClick={() => console.log('clicked CTA #2')}
@@ -78,14 +68,16 @@ export default (args: any) => {
           >
             gradient cta2
           </Button>
-          <Button variant="text-gradient" color="cta2" {...args}>
+          <Button shade="onDark" variant="text-gradient" color="cta2" {...args}>
             default cta2
           </Button>
-          <Button {...args}>default</Button>
-          <Button variant="link" color="cta2" {...args}>
+          <Button shade="onDark" {...args}>
+            default
+          </Button>
+          <Button shade="onDark" variant="link" color="cta2" {...args}>
             link
           </Button>
-          <Button variant="disabled" color="cta2" {...args}>
+          <Button shade="onDark" variant="disabled" color="cta2" {...args}>
             disabled
           </Button>
         </Content>
@@ -118,7 +110,7 @@ const Button = withButton({
   onClick: () => console.log('click'),
   onFocus: () => console.log('focus'),
   // This also: set by default, but will be overwritten in the first container.
-  shade: "onDark",
+  on: "dark",
 });
 
 ...
@@ -126,17 +118,17 @@ const Button = withButton({
 <Container variant="bg-color">
   <Title color="cta1">on light:</Title>
   <Content>
-    <Button variant="bg-gradient" color="cta1" onClick={() => console.log('clicked CTA #1')} shade="default" {...args}>
+    <Button variant="bg-gradient" color="cta1" onClick={() => console.log('clicked CTA #1')} {...args}>
       gradient cta1
     </Button>
-    <Button color="cta1" shade="default" {...args}>
+    <Button color="cta1" {...args}>
       default cta1
     </Button>
-    <Button shade="default" {...args}>default</Button>
-    <Button variant="link" color="cta1" shade="default" {...args}>
+    <Button {...args}>default</Button>
+    <Button variant="link" color="cta1" {...args}>
       link
     </Button>
-    <Button variant="disabled" color="cta1" shade="default" {...args}>
+    <Button variant="disabled" color="cta1" {...args}>
       disabled
     </Button>
   </Content>

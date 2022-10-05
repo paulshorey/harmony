@@ -1,6 +1,6 @@
 const colors: colors = {
-  default: {
-    default: {
+  '': {
+    '': {
       bg: 'white',
       link: 'hsla(199, 79%, 89%, 1)',
       text: '#666',
@@ -13,7 +13,7 @@ const colors: colors = {
       success: '#27b30d',
       buttonText: '#666',
     },
-    onDark: {
+    'onDark': {
       bg: '#333',
       link: '#333',
       text: '#efefef',
@@ -21,8 +21,8 @@ const colors: colors = {
       border: '#777',
     },
   },
-  accent: {
-    default: {
+  'accent': {
+    '': {
       text: 'hsl(39deg 100% 46%)',
       bg: 'hsl(39deg 95% 50%)',
       bgDark: 'hsl(39deg 100% 45%)',
@@ -32,12 +32,13 @@ const colors: colors = {
       border: 'orange',
       buttonText: 'white',
     },
-    onDark: {
+    'onDark': {
       text: 'gold',
     },
   },
-  cta1: {
-    default: {
+  'cta1': {
+    '': {
+      text: 'hsl(239 80% 75%)',
       bg: 'hsl(239 75% 70%)',
       bgDark: 'hsl(226 75% 63%)',
       bgLight: 'hsl(272 60% 67%)',
@@ -46,13 +47,14 @@ const colors: colors = {
       border: 'hsla(229, 80%, 69%, 1)',
       buttonText: 'white',
     },
-    onDark: {
+    'onDark': {
       link: 'hsl(229 70% 70%)',
       subtle: 'hsl(239 80% 80%)',
     },
   },
-  cta2: {
-    default: {
+  'cta2': {
+    '': {
+      text: 'hsl(180deg 70% 50%)',
       bg: 'hsl(198deg 100% 70%)',
       bgDark: 'hsl(208deg 100% 65%)',
       bgLight: 'hsl(188deg 100% 70%)',
@@ -61,7 +63,7 @@ const colors: colors = {
       border: 'hsl(188deg 100% 73%)',
       buttonText: 'white',
     },
-    onDark: {
+    'onDark': {
       link: 'hsl(188deg 75% 65%)',
       subtle: 'hsl(188deg 75% 95%)',
       border: 'hsl(185deg 90% 51%)',
@@ -75,10 +77,10 @@ const colors: colors = {
 // export const colorGroups = Object.keys(colors);
 // export type colorGroupsType = typeof colorGroups[number];
 
-// export const colorShades = ['default', 'onDark'];
+// export const colorShades = [[''][''], 'onDark'];
 // export type colorShadesType = typeof colorShades[number];
 
-// export const colorKeys = Object.keys(colors.default.default);
+// export const colorKeys = Object.keys(colors.[''].['']);
 // export type colorKeysType = typeof colorKeys[number];
 
 // const iconNames = ['plus', 'arrow', 'trash'] as const;

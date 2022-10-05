@@ -3,6 +3,7 @@ import React from 'react';
 import storybookTheme from './storybook-theme';
 import AppProvider from '../components/utils/AppProvider';
 import './preview.css';
+// import { RouterContext } from 'next/dist/shared/lib/router-context'; // next 12
 
 const sortSidebarById = (a, b) => {
   // console.log('a', a, 'b', b);
@@ -32,6 +33,9 @@ export const parameters = {
   docs: {
     theme: storybookTheme,
   },
+  // nextRouter: {
+  //   Provider: RouterContext.Provider,
+  // },
 };
 
 // const handleThemeSelected = (...inputs) => {

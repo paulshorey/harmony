@@ -64,6 +64,7 @@ module.exports = {
     //     transcludeMarkdown: true,
     //   },
     // },
+    // 'storybook-addon-next-router',
   ],
   // typescript: {
   //   check: true,

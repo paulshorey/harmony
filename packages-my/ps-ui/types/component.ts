@@ -3,162 +3,148 @@ import { SerializedStyles } from '@emotion/react';
 type colorGroupType = string;
 type colorShadeType = string;
 
-import { HtmlContainerTags as HtmlContainerTagsImport } from './html';
+import { htmlContainerTags as htmlContainerTagsImport } from './html';
 
-export type HtmlContainerTags = HtmlContainerTagsImport;
+export type htmlContainerTags = htmlContainerTagsImport;
 
-export type EmotionCssProp =
+export type cssPropType =
   | SerializedStyles
   | Array<SerializedStyles | ((...args: any) => SerializedStyles)>
   | ((...args: any) => SerializedStyles);
 
 export type ssPropType =
-  | EmotionCssProp
+  | string
   | ((...args: any) => string)
-  | Array<(...args: any) => string>;
-
-/**
- * Good practice is to create a `styles.ts` file next to every React component.
- * This file should default export an object with keys that match any props.variants that might be passed to the component.
- * Also include a `default` key for the default styles.
- */
-export type StylesType = Record<string, ssPropType>;
-
-export type ReactFCProps = {
-  /**
-   * Will be passed to the base DOM element using React.forwardRef.
-   */
-  ref?: any;
-  /**
-   * EmotionJS css prop is optional. It must be configured in your app's Babel/Webpack config. See https://emotion.sh/docs/css-prop. It will be applied by your app's compiler, then passed to this component as className. As an alternative, you can use the custom `props.ss` - it has the same functionality but require no configuration. In addition to EmotionCssProp, it accepts css/scss as a plain string type.
-   */
-  // css?: EmotionCssProp;
-  /**
-   * Standard old fashioned React JS object. Ignored by this component. Simply passed down to the HTML element.
-   */
-  style?: Record<string, any>;
-};
+  | Array<string | ((...args: any) => string)>;
 
 /**
  * Props used by this UI library
  */
-export type StyleProps = {
+export type ssProps = {
   /**
    * Render one or multiple as string[]. Local variants are specific to the component. Higher specificity. There are also global variants, which apply to all components. Part of the theme, in `styles/variants.ts`.
    */
-  variants?: Array<string>;
+  'variants'?: Array<string>;
   /**
-   * Specify how to color the component. Will be seen by variants and all styles as theme.instance.color. Pass to theme.getColors() function as 2nd argument, to specify the color group to use.
+   * Specify how to color the component. Will be seen by variants and all styles as theme.instance.color. Pass to theme.getColors function as 2nd argument, to specify the color group to use.
    */
-  color?: colorGroupType;
+  'color'?: colorGroupType;
   /**
    * Will be used by theme.getColors function to get you the color shade of color, 'default' or 'onDark'. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color. This tells the component that it is over a dark or light background.
    */
-  shade?: colorShadeType;
+  'shade'?: colorShadeType;
   /**
-   * Will not use any media queries or conditional logic.
+   * Similar to color/shade, will be read by the variant/style function.
    */
-  ss?: string | EmotionCssProp;
+  'size'?: colorShadeType;
+  /**
+   * Styled string. Or a function that accepts theme and returns a string. Or array of either. Same as other ssXxx props below, but without any media queries or conditional logic.
+   */
+  'ss'?: ssPropType;
   /**
    * `@media (min-width: 931px)` - Does not target any specific device. Mostly desktop, some tablets. 931px is an arbitrary number. It's just the minimum width where desktop designs look good. Below this it's very hard to fit all the desktop content. Same as `theme.mq.lg`.
    */
-  ssLg?: string | EmotionCssProp;
+  'ssLg'?: ssPropType;
   /**
    * `@media (max-width: 930px)` - Does not target any specific device. Some desktop, some tablets, but mostly phones. This complements ssLg. Same as `theme.mq.sm`.
    */
-  ssSm?: string | EmotionCssProp;
+  'ssSm'?: ssPropType;
   /**
    * `@media (min-width: 1025px)` - Desktop, Laptop, iPad 12in Landscape. Use in conjunction with ssMobile which is <= 1024px. Same as `theme.mq.desktop`.
    */
-  ssDesktop?: string | EmotionCssProp;
+  'ssDesktop'?: ssPropType;
   /**
    * `@media (max-width: 1024px)` - Mobile, Tablet, iPad 12in Portrait, iPad 9in in any orientation. Use in conjunction with ssDesktop which is >= 1025px. Same as `theme.mq.mobile`.
    */
-  ssMobile?: string | EmotionCssProp;
+  'ssMobile'?: ssPropType;
   /**
    * phones only, not tablets ( <= 499px wide ) Same as `theme.mq.phone`.
    */
-  ssPhone?: string | EmotionCssProp;
+  'ssPhone'?: ssPropType;
   /**
    * extra narrow devices like iPhone 8/X/SE ( <= 399px wide ) Same as `theme.mq.smallPhone`.
    */
-  ssSmallPhone?: string | EmotionCssProp;
+  'ssSmallPhone'?: ssPropType;
   /**
    * includes iPad-12 portrait and iPad-9 landscape or portrait ( >= 737px wide, <= 1024px wide ) Same as `theme.mq.tablet`.
    */
-  ssTablet?: string | EmotionCssProp;
+  'ssTablet'?: ssPropType;
   /**
    * the very awkward size where we no longer support the mobile design, but it feels big enough to maybe be desktop ( >= 931px wide, <= 1024px wide ) Same as `theme.mq.largeTablet`.
    */
-  ssLargeTablet?: string | EmotionCssProp;
+  'ssLargeTablet'?: ssPropType;
   /**
    * everything >= 500px wide. Same as `theme.mq.notPhone`.
    */
-  ssNotPhone?: string | EmotionCssProp;
+  'ssNotPhone'?: ssPropType;
   /**
    * <= 359px wide.  Same as `theme.mq.tinyPhone`.
    */
-  ssTinyPhone?: string | EmotionCssProp;
+  'ssTinyPhone'?: ssPropType;
   /**
    * \>= 1440px wide. Same as `theme.mq.largeDesktop`.
    */
-  ssLargeDesktop?: string | EmotionCssProp;
+  'ssLargeDesktop'?: ssPropType;
   /**
    * \>= 1920px wide. Same as `theme.mq.veryLargeDesktop`.
    */
-  ssVeryLargeDesktop?: string | EmotionCssProp;
+  'ssVeryLargeDesktop'?: ssPropType;
   /**
    * Portrait orientation (height > width). Same as `theme.mq.portrait`.
    */
-  ssPortrait?: string | EmotionCssProp;
+  'ssPortrait'?: ssPropType;
   /**
    * Landscape orientation (width > height). Same as `theme.mq.landscape`.
    */
-  ssLandscape?: string | EmotionCssProp;
+  'ssLandscape'?: ssPropType;
   /**
    * Rendered inside iframe. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssIframe?: string | EmotionCssProp;
+  'ssIframe'?: ssPropType;
   /**
    * Not in an iframe. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssNotIframe?: string | EmotionCssProp;
+  'ssNotIframe'?: ssPropType;
   /**
    * In an app WebView. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssWebview?: string | EmotionCssProp;
+  'ssWebview'?: ssPropType;
   /**
    * Not in WebView. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssNotWebview?: string | EmotionCssProp;
+  'ssNotWebview'?: ssPropType;
   /**
    * OS == 'Mac'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssMac?: string | EmotionCssProp;
+  'ssMac'?: ssPropType;
   /**
    * OS == 'Windows'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssWindows?: string | EmotionCssProp;
+  'ssWindows'?: ssPropType;
   /**
    * OS == 'Linux'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssLinux?: string | EmotionCssProp;
+  'ssLinux'?: ssPropType;
   /**
    * OS == 'Android'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssAndroid?: string | EmotionCssProp;
+  'ssAndroid'?: ssPropType;
   /**
    * OS == 'iOS'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssIOS?: string | EmotionCssProp;
+  'ssIOS'?: ssPropType;
   /**
    * device is 'iPhone'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssIPhone?: string | EmotionCssProp;
+  'ssIPhone'?: ssPropType;
   /**
    * device is 'iPad'. Does not have a `theme.mq` equivalent. This is implemented using JavaScript, not media queries.
    */
-  ssIPad?: string | EmotionCssProp;
+  'ssIPad'?: ssPropType;
+  /**
+   * applies to all sizes and devices, like ss, but this is wrapped inside a media query, to force-add specificity. Same as `theme.mq.all`.
+   */
+  'ssAll'?: ssPropType;
   // /**
   //  * Shorthand for props.variants['onDark']. It can be undefined. The key will be read and added to props.variants.
   //  */
@@ -170,9 +156,15 @@ export type StyleProps = {
   /**
    * One or multiple variants as a string, separated by spaces. Will be used in addition to variants. This will have higher specificity than variants.
    */
-  variant?: string;
+  'variant'?: string;
+  /**
+   * Will be used internally, to keep track of variants. Will be rendered on the HTML element as data-variant so you can debug, see which variants were applied to the element.
+   */
+  'data-variants'?: string;
 };
 
-export type ComponentPropsType = StyleProps & ReactFCProps;
+export type ReactForwardedRefType = any; // tsFix - what is the type of "ref" as returned by React.forwardRef()?
 
-export default ComponentPropsType;
+export type ssComponentPropsType = ssProps;
+
+export default ssComponentPropsType;

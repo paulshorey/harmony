@@ -7,8 +7,8 @@ const variantKeys = Object.keys(variants);
 const args = {
   ss: '',
   variants: ['title-image-text-image'],
-  variant: '',
-  color: '',
+  variant: 'text-color',
+  color: 'cta1',
   shade: '',
 };
 

@@ -1,7 +1,6 @@
 import { css, useTheme } from '@emotion/react';
 import Link from 'components/atoms/Link';
 import Button from 'components/content/molecules/Button';
-import Center from 'components/content/atoms/Centered';
 import { makeLinkPaths } from 'components/content/organisms/Header';
 import AppLoginLink from 'components/molecules/AppLoginLink';
 import AppSignupLink from 'components/molecules/AppSignupLink';
@@ -44,7 +43,7 @@ const HMobileDropdown = ({
             </Link>
           ))}
           {/* MOBILE dropdown buttons */}
-          <Center css={styles.buttonsBottom(theme)}>
+          <Block variant="centered" css={styles.buttonsBottom(theme)}>
             {!!showLogin && (
               <>
                 <label>Already a customer?</label>
@@ -66,7 +65,7 @@ const HMobileDropdown = ({
                 Sign up
               </Button>
             </AppSignupLink>
-          </Center>
+          </Block>
         </section>
       </div>
     </>

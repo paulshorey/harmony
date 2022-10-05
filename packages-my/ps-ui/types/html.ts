@@ -1,4 +1,5 @@
-export type HtmlContainerTags =
+export type htmlContainerTags =
+  | 'a'
   | 'p'
   | 'h1'
   | 'h2'

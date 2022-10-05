@@ -1,13 +1,13 @@
 import { SerializedStyles } from '@emotion/react';
-import { ComponentPropsType } from './component';
+import { ssComponentPropsType, ReactForwardedRefType } from './component';
 import { CSSInterpolation } from '@emotion/serialize';
 export {};
 
 declare global {
-  type props = ComponentPropsType;
+  type props = ssComponentPropsType;
 
   type EmotionCssFunction = (theme: theme, ...args: any) => SerializedStyles;
-  type EmotionCssProp =
+  type cssPropType =
     | CSSInterpolation
     | EmotionCssFunction
     | SerializedStyles
@@ -18,16 +18,15 @@ declare global {
    */
   type ssFunction = (theme: theme, ...args: any) => string;
 
-  type colorShade = 'default' | 'onDark';
-  // tsFix // typescript can't javascript variable, so idk how to make this more specific, but dynamic
-  type colorGroupKey = 'default' | 'accent' | 'cta1' | 'cta2'; // tsFix
+  type colorShade = '' | 'onDark' | string;
+  type colorGroupKey = '' | 'accent' | 'cta1' | 'cta2' | string;
   type colorGroupValue = Record<colorShade, Record<string, string>>;
   type colors = Record<string, colorGroupValue>;
 
   type theme = {
     colorGroupDefault: colorGroupKey;
     colorShadeDefault: colorShade;
-    variants: Record<string, EmotionCssProp | ssFunction>;
+    variants: Record<string, cssPropType | ssFunction>;
     /**
      * Colors should not be accessed directly. Use theme.getColor() instead.
      */
@@ -62,4 +61,6 @@ declare global {
     globalStyles: Record<string, EmotionCssFunction>;
     getGlobalStyles: () => Array<EmotionCssFunction>;
   };
+
+  type ReactForwardedRef = ReactForwardedRefType;
 }

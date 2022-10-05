@@ -3,11 +3,11 @@ import withStyles from '../../../styles/withStyles';
 import React, { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
 import { tsFix } from '../../../types/typescript';
 import variants from '../../../components/form/atoms/Button/variants';
-import useComponentWithProps12 from 'hooks/useComponentWithProps12';
-import ComponentPropsType from '../../../types/component';
+import useComponentWithProps12 from '../../../hooks/useComponentWithProps12';
+import ssComponentPropsType from '../../../types/component';
 
 export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
-  (ComponentPropsType & {
+  (ssComponentPropsType & {
     /**
      * Disable the functionality and style of the button as disabled?
      */

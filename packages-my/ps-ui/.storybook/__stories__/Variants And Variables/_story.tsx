@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
-import { withDiv } from '../../../components/content/atoms/Div';
+import { withBlock } from '../../../components/content/atoms/Block';
 import { withButton } from '../../../components/form/atoms/Button';
 
-const Container = withDiv({
+const Container = withBlock({
   ss: (theme) =>
     `padding: 1.2rem 1rem 1.9rem; ${
       theme.instance.variants['bg-gradient'] && `padding-top: 1.3rem;`
     }`,
 });
-const Content = withDiv({ ss: `padding: 0` });
-const Title = withDiv({
+const Content = withBlock({ ss: `padding: 0` });
+const Title = withBlock({
   variant: 'text-gradient',
   ss: `padding: 0.125rem 0 0 0.25rem;`,
 });
@@ -86,19 +86,19 @@ export default (args: any) => {
   );
 };
 
-export const code = `import { withDiv } from '../../../components/content/atoms/Div';
+export const code = `import { withBlock } from '../../../components/content/atoms/Block';
 import { withButton } from '../../../components/form/atoms/Button';
 
 ...
 
-const Container = withDiv({
+const Container = withBlock({
   ss: (theme) =>
     \`padding: 1.1rem 1rem 1.9rem; \${
       theme.instance.variants.bg-gradient && \`padding-top: 1.3rem;\`
     }\`,
 });
-const Content = withDiv({ ss: \`padding: 0\` });
-const Title = withDiv({
+const Content = withBlock({ ss: \`padding: 0\` });
+const Title = withBlock({
   variant: 'text-gradient',
   ss: \`padding: 0.125rem 0 0 0.25rem;\`,
 });

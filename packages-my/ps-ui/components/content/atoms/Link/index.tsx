@@ -1,16 +1,15 @@
-import { memo, FC, AnchorHTMLAttributes } from 'react';
+import { memo, AnchorHTMLAttributes, forwardRef, ReactElement } from 'react';
+import withNextLink from './withNextLink';
 // import PageContext from 'src/context/Page';
 // import ABTestContext from 'src/context/ABTest';
-import NextLink from 'next/link';
-import { css } from '@emotion/react';
 import { analytics_track_link } from '@ps/fn/browser/analytics';
-import withStyles from 'styles/withStyles';
 import useComponentWithProps12 from 'hooks/useComponentWithProps12';
 import variants from './variants';
-import ComponentPropsType from 'types/component';
+import ssComponentPropsType from 'types/component';
+import useStyledVariants from 'styles/useStyledVariants';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> &
-  ComponentPropsType & {
+  ssComponentPropsType & {
     href: string;
     /**
      * For analytics record - where in the site/page the click happened.
@@ -18,19 +17,21 @@ export type Props = AnchorHTMLAttributes<HTMLAnchorElement> &
     from?: string;
   };
 
-export const Component: FC<Props> = ({
+export const Component: (
+  props: Props,
+  ref?: ReactForwardedRef
+) => ReactElement = ({
   href,
   children,
   rel,
   target,
-  className,
   onClick,
-  variant,
-  variants,
   hrefLang = 'en-us',
   from,
   ...props
 }) => {
+  const Styled = useStyledVariants(props, 'a', 'Link', variants);
+
   // const contextPage = useContext(PageContext) || {};
   // const contextABTest = useContext(ABTestContext) || {};
   // fix attributes
@@ -70,61 +71,42 @@ export const Component: FC<Props> = ({
     // track event
     analytics_track_link(options);
   };
-  // variants
-  let variantCSS = '';
-  if (variant === 'black' || variants?.includes('black')) {
-    variantCSS += 'color: #000;';
-  }
-  if (variant === 'underline' || variants?.includes('underline')) {
-    variantCSS +=
-      'text-decoration: underline; &:hover { text-decoration: none; }';
-  }
 
   // render children
   let A = (
-    <a
+    <Styled
       {...props}
       rel={rel}
       target={target}
       onClick={trackOnClick}
       href={href}
       hrefLang={hrefLang}
-      className={'Link' + (className ? ' ' + className : '')}
-      style={{ cursor: 'pointer' }}
-      css={css(variantCSS)}
     >
       {children}
-    </a>
+    </Styled>
   );
   // render parent
   if (href[0] === '#') {
     return A;
   } else {
-    return (
-      <NextLink href={href} passHref={true}>
-        {A}
-      </NextLink>
-    );
+    return withNextLink(A, href);
   }
 };
 
 /*
- * Copy/paste everything below to sync code between components. Then change the name of the variables.
- */
-const Default = memo(withStyles(Component, 'Link', variants));
-
-/*
- * This is an HOC, like Styled in @emotion/styled or Styled-Components, to help with styling, and managing props.
- * First you must call it with an object of props which will be used by all instances.
- * Then, you can use the returned value as a normal component. Pass to it props that only the specific instance will use.
- * Can not abstract this to a separate file, because Typescript does not support passing props as args.
+ * Like StyledComponents' div`` but with added functionality:
+ * import { withLink } from 'components/content/molecules/Link';
+ * const Link = withLink({ ...thesePropsWillApplyToAllInstances });
+ * <Link {...optionalUniquePropsForCurrentInstance} />
  */
 export const withLink = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Default, props1, props2);
+  return useComponentWithProps12(Link, props1, props2);
 };
 
-/**
- * Default export is ready to use: <Link {...yourProps} />
+/*
+ * Default export is a ready-to-use component:
+ * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
+ * Named "Link" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const Link = Default;
-export default Default;
+export const Link = memo(forwardRef(Component));
+export default Link;

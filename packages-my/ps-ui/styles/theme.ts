@@ -13,15 +13,15 @@ import html from './global/html';
  * that means the uniquely named object will **extend** the default object properties.
  */
 const theme: theme = {
-  colorGroupDefault: 'default',
-  colorShadeDefault: 'default',
+  colorGroupDefault: '',
+  colorShadeDefault: '',
   variants,
   colors,
   fonts,
   mq,
   getColor: function (key, color, shade) {
-    const colorGroup = color || this.instance.color || 'default';
-    const colorShade = shade || this.instance.shade || 'default';
+    const colorGroup = color || this.instance.color || '';
+    const colorShade = shade || this.instance.shade || '';
     // group / scheme
     if (colorGroup && colorShade) {
       // @ts-ignore // tsFix - this.colorGroup must be dynamic, but how to type it?
@@ -50,8 +50,8 @@ const theme: theme = {
     );
   },
   instance: {
-    color: 'default',
-    shade: 'default',
+    color: '',
+    shade: '',
     size: '',
     variants: {},
   },

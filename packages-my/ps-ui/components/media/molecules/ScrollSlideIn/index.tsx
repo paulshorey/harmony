@@ -108,7 +108,7 @@ export const Component = ({
   return (
     <Block
       as={as}
-      css={styles.default(visible, slideInFrom)}
+      ss={styles.default(visible, slideInFrom)}
       className={`${visible ? 'visible' : 'hidden'} ${className}`}
       ref={ref1}
     >
