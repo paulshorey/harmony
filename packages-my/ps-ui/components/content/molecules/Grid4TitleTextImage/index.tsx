@@ -1,7 +1,7 @@
 import Block from 'components/content/atoms/Block';
 import withStyles from 'styles/withStyles';
 import { FC, forwardRef, memo, HTMLAttributes } from 'react';
-import objects_add_values from '@ps/fn/io/objects/objects_add_values';
+import useComponentWithProps12 from 'hooks/useComponentWithProps12';
 import variants from './variants';
 import { Props as BlockProps } from 'components/content/atoms/Block';
 
@@ -35,18 +35,11 @@ const Default = memo(withStyles(Component, 'Grid4TitleTextImage', variants));
  * Can not abstract this to a separate file, because Typescript does not support passing props as args.
  */
 export const withGrid4TitleTextImage = (props1: Props) => (props2: Props) => {
-  const props = objects_add_values(
-    props1,
-    props2,
-    ';',
-    ['children'],
-    ['ss'],
-    'props'
-  );
-  return <Default {...props} children={props2.children} />;
+  return useComponentWithProps12(Default, props1, props2);
 };
 
 /**
  * Default export is ready to use: <Grid4TitleTextImage {...yourProps} />
  */
+export const Grid4TitleTextImage = Default;
 export default Default;

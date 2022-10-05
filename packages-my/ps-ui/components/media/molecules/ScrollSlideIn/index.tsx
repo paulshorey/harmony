@@ -6,7 +6,7 @@ import React, { memo, useEffect, useState } from 'react';
 import { useInView } from 'react-cool-inview';
 import { tsFix } from 'types/typescript';
 import variants from '../../../content/organisms/Modal/variants';
-import objects_add_values from '@ps/fn/io/objects/objects_add_values';
+import useComponentWithProps12 from 'hooks/useComponentWithProps12';
 
 const isBetween = (value: number, min: number, max: number) =>
   value && value >= min && value <= max;
@@ -131,18 +131,11 @@ const Default = memo(withStyles(Component, 'Modal', variants));
  * Can not abstract this to a separate file, because Typescript does not support passing props as args.
  */
 export const withModal = (props1: Props) => (props2: Props) => {
-  const props = objects_add_values(
-    props1,
-    props2,
-    ';',
-    ['children'],
-    ['ss'],
-    'props'
-  );
-  return <Default {...props} children={props2.children} />;
+  return useComponentWithProps12(Default, props1, props2);
 };
 
 /**
  * Default export is ready to use: <Modal {...yourProps} />
  */
+export const ScrollSlideIn = Default;
 export default Default;

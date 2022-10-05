@@ -3,19 +3,18 @@ import Template from './_story';
 import description from './_story.md';
 import { argTypes } from 'styles/storybook';
 import variants from './variants';
-import Block from '../Block';
 const variantKeys = Object.keys(variants);
 const args = {
-  ss: '',
-  variants: ['border-bottom', 'text-gradient'],
+  ss: 'max-width: 400px; .nowrap {color: orange;}',
+  variants: ['text-gradient', 'centered'],
   variant: '',
   color: 'cta1',
-  shade: '',
+  shade: 'onLight',
 };
 
-export const Inline = Template.bind({});
-Inline.argTypes = argTypes(variantKeys);
-Inline.args = args;
+export const Box = Template.bind({});
+Box.argTypes = argTypes(variantKeys);
+Box.args = args;
 
 export default {
   component: Component,
@@ -29,11 +28,7 @@ export default {
         component: description,
       },
       source: {
-        code: `<Div as="p" shade="onDark" variant="text-color" ss="padding:2rem;">
-  All div props and conditional rules still work here.{' '}
-  <Span variant="borderBottom text-gradient" color="cta1">But this renders the element inline</Span> by
-  default.
-</Div>`,
+        code: ``,
       },
     },
   },

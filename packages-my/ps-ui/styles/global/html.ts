@@ -1,6 +1,4 @@
-import { themeType } from '../theme';
-
-const html = (theme: themeType) => `
+const html = (theme: theme) => `
   html {
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;

@@ -1,9 +1,4 @@
-const layout = (theme) => `
-  .preventOverflow {
-    max-width: 100vw;
-    overflow: hidden;
-  }
-
+const layout = (theme: theme) => `
   .pagePadding {
     position: relative;
     padding: 10px 20px;
@@ -60,36 +55,6 @@ const layout = (theme) => `
     padding-bottom: 90px;
     @media (max-width: ${1170 + 30 + 30}px) {
       padding-bottom: 60px;
-    }
-  }
-
-  // .pagePartnerLogo must be styled globally, because it relies on the <body> tag className (scrolledVH70).
-  // NOTE: it appears twice in the codebase. Once in the header, and again in the partner landing page template.
-  .partnerPageLogo {
-    display: block;
-    height: 39px;
-    img {
-      height: 100%;
-      width: auto;
-      display: inline-block;
-    }
-    ${theme.mq.sm} {
-      text-align: center;
-      img {
-        height: 80%;
-      }
-    }
-  }
-  body.scrolledVH70 {
-    .partnerPageLogo {
-      ${theme.mq.lg} {
-        // cursor: pointer;
-        // position: fixed;
-        // top: 28.5px;
-        // z-index: 200;
-        zoom: 0.8;
-        padding-top: -8px;
-      }
     }
   }
 `;

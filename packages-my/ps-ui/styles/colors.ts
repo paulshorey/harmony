@@ -66,7 +66,15 @@ const colors: colors = {
 };
 
 export const colorGroups = Object.keys(colors);
-export const colorShades = ['onLight', 'onDark'];
-export const colorKeys = Object.keys(colors.neutral.onLight);
+export type colorGroupsType = typeof colorGroups[number];
 
-export default colors as typeof colors;
+export const colorShades = ['onLight', 'onDark'] as const;
+export type colorShadesType = typeof colorShades[number];
+
+export const colorKeys = Object.keys(colors.neutral.onLight);
+export type colorKeysType = typeof colorKeys[number];
+
+// const iconNames = ['plus', 'arrow', 'trash'] as const;
+// type IconNamesType = typeof iconNames[number];
+
+export default colors;

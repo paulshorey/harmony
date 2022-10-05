@@ -43,9 +43,13 @@ export type StyleProps = {
    */
   variants?: Array<string>;
   /**
-   * One or multiple variants as a string, separated by spaces. Will be used in addition to variants. This will have higher specificity than variants.
+   * Specify how to color the component. Will be seen by variants and all styles as theme.instance.color. Pass to theme.getColors() function as 2nd argument, to specify the color group to use.
    */
-  variant?: string;
+  color?: colorGroupType;
+  /**
+   * Will be used by theme.getColors function to get you the color shade of color, 'onLight' or 'onDark'. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color. This tells the component that it is over a dark or light background.
+   */
+  shade?: colorShadeType;
   /**
    * Will not use any media queries or conditional logic.
    */
@@ -159,13 +163,9 @@ export type StyleProps = {
   //  */
   // onLight?: any;
   /**
-   * Specify how to color the component. Will be seen by variants and all styles as theme.instance.color. Pass to theme.getColors() function as 2nd argument, to specify the color group to use.
+   * One or multiple variants as a string, separated by spaces. Will be used in addition to variants. This will have higher specificity than variants.
    */
-  color?: colorGroupType;
-  /**
-   * Will be used by theme.getColors function to get you the color shade of color, 'onLight' or 'onDark'. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color. This tells the component that it is over a dark or light background.
-   */
-  shade?: colorShadeType;
+  variant?: string;
 };
 
 export type ComponentPropsType = StyleProps & ReactFCProps;

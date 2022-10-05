@@ -1,9 +1,10 @@
-import Block from 'components/content/atoms/Block';
-import withStyles from 'styles/withStyles';
-import { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
-import variants from 'components/form/atoms/Button/variants';
-import useComponentWithProps12 from 'hooks/useComponentWithProps12';
-import ComponentPropsType from 'types/component';
+import Block from '../../../components/content/atoms/Block';
+import withStyles from '../../../styles/withStyles';
+import React, { ButtonHTMLAttributes, FC, forwardRef, memo } from 'react';
+import { tsFix } from '../../../types/typescript';
+import variants from '../../../components/form/atoms/Button/variants';
+import useComponentWithProps12 from '../../../hooks/useComponentWithProps12';
+import ComponentPropsType from '../../../types/component';
 
 export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
   (ComponentPropsType & {
@@ -17,16 +18,14 @@ export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
 export const Component: FC<Props> = forwardRef(
-  ({ children, disabled, ...props }, ref) => {
-    if (ref) {
-      props.ref = ref;
-    }
+  ({ as = 'button', children, disabled, ...props }, ref) => {
+    const TagName = `${as}` as tsFix;
     return (
-      <button {...props} disabled={disabled}>
+      <TagName {...props} disabled={disabled} ref={ref}>
         <Block variant="centered">
           <span>{children}</span>
         </Block>
-      </button>
+      </TagName>
     );
   }
 );
@@ -49,5 +48,4 @@ export const withButton = (props1: Props) => (props2: Props) => {
 /**
  * Default export is ready to use: <Button {...yourProps} />
  */
-export const Button = Default;
 export default Default;

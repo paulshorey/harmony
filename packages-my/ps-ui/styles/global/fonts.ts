@@ -1,10 +1,4 @@
 const fonts = (theme) => `
-  // @font-face {
-  //   font-family: 'HelveticaNeue';
-  //   src: url('/fonts/HelveticaNeue100.ttf') format('truetype');
-  //   font-display: swap;
-  //   font-weight: 200;
-  // }
   @font-face {
     font-family: 'HelveticaNeue';
     src: url('/fonts/HelveticaNeue300.ttf') format('truetype');
@@ -29,19 +23,7 @@ const fonts = (theme) => `
     font-display: swap;
     font-weight: 700;
   }
-  // @font-face {
-  //   font-family: 'HelveticaNeue';
-  //   src: url('/fonts/HelveticaNeue900.ttf') format('truetype');
-  //   font-display: swap;
-  //   font-weight: 900;
-  // }
-
-  // @font-face {
-  //   font-family: 'greycliff';
-  //   src: url('/fonts/greycliff/GreycliffCF-Thin.woff2') format('woff2');
-  //   font-display: swap;
-  //   font-weight: 200;
-  // }
+  
   @font-face {
     font-family: 'greycliff';
     src: url('/fonts/greycliff/GreycliffCF-Light.woff2') format('woff2');
@@ -72,12 +54,6 @@ const fonts = (theme) => `
     font-display: swap;
     font-weight: 800;
   }
-  // @font-face {
-  //   font-family: 'greycliff';
-  //   src: url('/fonts/greycliff/GreycliffCF-Heavy.woff2') format('woff2');
-  //   font-display: swap;
-  //   font-weight: 900;
-  // }
 `;
 
 export default fonts;

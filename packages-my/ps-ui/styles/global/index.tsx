@@ -2,7 +2,7 @@ import { css, Global, useTheme } from '@emotion/react';
 
 import classes from './classes';
 // import fonts from './fonts';
-// import layout from './layout';
+import layout from './layout';
 import html from './html';
 
 const styles = () => {
@@ -11,6 +11,7 @@ const styles = () => {
     <Global
       styles={`
         ${html(theme)}
+        ${layout(theme)}
         ${classes(theme)}
       `}
     />
