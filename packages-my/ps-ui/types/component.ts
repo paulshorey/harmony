@@ -9,15 +9,20 @@ export type HtmlContainerTags = HtmlContainerTagsImport;
 
 export type EmotionCssProp =
   | SerializedStyles
-  | Array<SerializedStyles | ((...args: any) => any)>
-  | ((...args: any) => any);
+  | Array<SerializedStyles | ((...args: any) => SerializedStyles)>
+  | ((...args: any) => SerializedStyles);
+
+export type ssPropType =
+  | EmotionCssProp
+  | ((...args: any) => string)
+  | Array<(...args: any) => string>;
 
 /**
  * Good practice is to create a `styles.ts` file next to every React component.
  * This file should default export an object with keys that match any props.variants that might be passed to the component.
  * Also include a `default` key for the default styles.
  */
-export type StylesType = Record<string, EmotionCssProp>;
+export type StylesType = Record<string, ssPropType>;
 
 export type ReactFCProps = {
   /**
@@ -47,7 +52,7 @@ export type StyleProps = {
    */
   color?: colorGroupType;
   /**
-   * Will be used by theme.getColors function to get you the color shade of color, 'onLight' or 'onDark'. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color. This tells the component that it is over a dark or light background.
+   * Will be used by theme.getColors function to get you the color shade of color, 'default' or 'onDark'. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color. This tells the component that it is over a dark or light background.
    */
   shade?: colorShadeType;
   /**
@@ -159,9 +164,9 @@ export type StyleProps = {
   //  */
   // onDark?: any;
   // /**
-  //  * Shorthand for props.variants['onLight']. It can be undefined. The key will be read and added to props.variants.
+  //  * Shorthand for props.variants['default']. It can be undefined. The key will be read and added to props.variants.
   //  */
-  // onLight?: any;
+  // default?: any;
   /**
    * One or multiple variants as a string, separated by spaces. Will be used in addition to variants. This will have higher specificity than variants.
    */

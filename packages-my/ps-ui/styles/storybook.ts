@@ -1,5 +1,5 @@
 import globalV from './variants';
-import { colorGroups, colorShades } from 'styles/colors';
+import colors from 'styles/colors';
 
 export const argTypes = (localVariants: string[] = []) => {
   const allV = [
@@ -22,13 +22,13 @@ export const argTypes = (localVariants: string[] = []) => {
       control: {
         type: 'select',
       },
-      options: colorGroups,
+      options: Object.keys(colors),
     },
     shade: {
       control: {
         type: 'select',
       },
-      options: colorShades,
+      options: Object.keys(colors.default || {}),
     },
     size: {
       control: {

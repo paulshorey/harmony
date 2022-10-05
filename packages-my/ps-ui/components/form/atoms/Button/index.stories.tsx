@@ -9,7 +9,7 @@ const args = {
   ss: '',
   variants: [],
   color: 'cta2',
-  shade: 'onLight',
+  shade: 'default',
 };
 
 export const Button = Template.bind({});

@@ -1,6 +1,6 @@
 const colors: colors = {
-  neutral: {
-    onLight: {
+  default: {
+    default: {
       bg: 'white',
       link: 'hsla(199, 79%, 89%, 1)',
       text: '#666',
@@ -22,15 +22,22 @@ const colors: colors = {
     },
   },
   accent: {
-    onLight: {
-      text: 'orange',
+    default: {
+      text: 'hsl(39deg 100% 46%)',
+      bg: 'hsl(39deg 95% 50%)',
+      bgDark: 'hsl(39deg 100% 45%)',
+      bgLight: 'hsl(39deg 93% 73%)',
+      link: 'orange',
+      subtle: 'orange',
+      border: 'orange',
+      buttonText: 'white',
     },
     onDark: {
       text: 'gold',
     },
   },
   cta1: {
-    onLight: {
+    default: {
       bg: 'hsl(239 75% 70%)',
       bgDark: 'hsl(226 75% 63%)',
       bgLight: 'hsl(272 60% 67%)',
@@ -45,7 +52,7 @@ const colors: colors = {
     },
   },
   cta2: {
-    onLight: {
+    default: {
       bg: 'hsl(198deg 100% 70%)',
       bgDark: 'hsl(208deg 100% 65%)',
       bgLight: 'hsl(188deg 100% 70%)',
@@ -65,14 +72,14 @@ const colors: colors = {
   },
 };
 
-export const colorGroups = Object.keys(colors);
-export type colorGroupsType = typeof colorGroups[number];
+// export const colorGroups = Object.keys(colors);
+// export type colorGroupsType = typeof colorGroups[number];
 
-export const colorShades = ['onLight', 'onDark'] as const;
-export type colorShadesType = typeof colorShades[number];
+// export const colorShades = ['default', 'onDark'];
+// export type colorShadesType = typeof colorShades[number];
 
-export const colorKeys = Object.keys(colors.neutral.onLight);
-export type colorKeysType = typeof colorKeys[number];
+// export const colorKeys = Object.keys(colors.default.default);
+// export type colorKeysType = typeof colorKeys[number];
 
 // const iconNames = ['plus', 'arrow', 'trash'] as const;
 // type IconNamesType = typeof iconNames[number];

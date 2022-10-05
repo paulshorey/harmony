@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
-import { withBlock } from '../../../components/content/atoms/Block';
+import { withDiv } from '../../../components/content/atoms/Div';
 import { withButton } from '../../../components/form/atoms/Button';
 
-const Container = withBlock({
+const Container = withDiv({
   ss: (theme) =>
     `padding: 1.2rem 1rem 1.9rem; ${
       theme.instance.variants['bg-gradient'] && `padding-top: 1.3rem;`
     }`,
 });
-const Content = withBlock({ ss: `padding: 0` });
-const Title = withBlock({
-  class: 'text-gradient',
+const Content = withDiv({ ss: `padding: 0` });
+const Title = withDiv({
+  variant: 'text-gradient',
   ss: `padding: 0.125rem 0 0 0.25rem;`,
 });
 const Button = withButton({
@@ -30,48 +30,54 @@ export default (args: any) => {
 
   return (
     <div>
-      <Container className="bg-white color-cta1">
-        <Title>on light:</Title>
+      <Container variant="bg-white">
+        <Title color="cta1">on light:</Title>
         <Content>
           <Button
-            className="bg-gradient"
+            variant="bg-gradient"
+            color="cta1"
             onClick={() => console.log('clicked CTA #1')}
             {...args}
           >
             gradient cta1
           </Button>
-          <Button className="text-gradient" {...args}>
+          <Button variant="text-gradient" color="cta1" {...args}>
             default cta1
           </Button>
           <Button {...args}>default</Button>
-          <Button className="link" {...args}>
+          <Button variant="link" color="cta1" {...args}>
             link
           </Button>
-          <Button className="disabled" {...args}>
+          <Button variant="disabled" color="cta1" {...args}>
             disabled
           </Button>
         </Content>
       </Container>
 
-      <Container className="bg-gradient">
-        <Title color="cta2">on dark:</Title>
+      <Container variant="bg-gradient" color="cta1">
+        <Title shade="onDark" color="cta2">
+          on dark:
+        </Title>
         <Content>
           <Button
-            className="bg-gradient"
+            shade="onDark"
+            variant="bg-gradient"
             color="cta2"
             onClick={() => console.log('clicked CTA #2')}
             {...args}
           >
             gradient cta2
           </Button>
-          <Button className="text-gradient" color="cta2" {...args}>
+          <Button shade="onDark" variant="text-gradient" color="cta2" {...args}>
             default cta2
           </Button>
-          <Button {...args}>default</Button>
-          <Button className="link" color="cta2" {...args}>
+          <Button shade="onDark" {...args}>
+            default
+          </Button>
+          <Button shade="onDark" variant="link" color="cta2" {...args}>
             link
           </Button>
-          <Button className="disabled" color="cta2" {...args}>
+          <Button shade="onDark" variant="disabled" color="cta2" {...args}>
             disabled
           </Button>
         </Content>
@@ -80,19 +86,19 @@ export default (args: any) => {
   );
 };
 
-export const code = `import { withBlock } from '../../../components/content/atoms/Block';
+export const code = `import { withDiv } from '../../../components/content/atoms/Div';
 import { withButton } from '../../../components/form/atoms/Button';
 
 ...
 
-const Container = withBlock({
+const Container = withDiv({
   ss: (theme) =>
     \`padding: 1.1rem 1rem 1.9rem; \${
       theme.instance.variants.bg-gradient && \`padding-top: 1.3rem;\`
     }\`,
 });
-const Content = withBlock({ ss: \`padding: 0\` });
-const Title = withBlock({
+const Content = withDiv({ ss: \`padding: 0\` });
+const Title = withDiv({
   variant: 'text-gradient',
   ss: \`padding: 0.125rem 0 0 0.25rem;\`,
 });
@@ -104,44 +110,44 @@ const Button = withButton({
   onClick: () => console.log('click'),
   onFocus: () => console.log('focus'),
   // This also: set by default, but will be overwritten in the first container.
-  shade: "onDark",
+  on: "dark",
 });
 
 ...
 
-<Container className="bg-solid">
-  <Title>on light:</Title>
+<Container variant="bg-color">
+  <Title color="cta1">on light:</Title>
   <Content>
-    <Button className="bg-gradient" onClick={() => console.log('clicked CTA #1')} {...args}>
+    <Button variant="bg-gradient" color="cta1" onClick={() => console.log('clicked CTA #1')} {...args}>
       gradient cta1
     </Button>
-    <Button {...args}>
+    <Button color="cta1" {...args}>
       default cta1
     </Button>
     <Button {...args}>default</Button>
-    <Button className="link" {...args}>
+    <Button variant="link" color="cta1" {...args}>
       link
     </Button>
-    <Button className="disabled" {...args}>
+    <Button variant="disabled" color="cta1" {...args}>
       disabled
     </Button>
   </Content>
 </Container>
 
-<Container className="bg-gradient">
+<Container variant="bg-gradient" color="cta1">
   <Title color="cta2">on dark:</Title>
   <Content>
-    <Button className="bg-gradient" color="cta2" onClick={() => console.log('clicked CTA #2')} {...args}>
+    <Button variant="bg-gradient" color="cta2" onClick={() => console.log('clicked CTA #2')} {...args}>
       gradient cta2
     </Button>
     <Button color="cta2" {...args}>
       default cta2
     </Button>
     <Button {...args}>default</Button>
-    <Button className="link" color="cta2" {...args}>
+    <Button variant="link" color="cta2" {...args}>
       link
     </Button>
-    <Button className="disabled" color="cta2" {...args}>
+    <Button variant="disabled" color="cta2" {...args}>
       disabled
     </Button>
   </Content>

@@ -1,9 +1,7 @@
 // import { addons } from '@storybook/addons';
 import React from 'react';
-import GlobalStyles from '../styles/global';
-import { css, ThemeProvider } from '@emotion/react';
 import storybookTheme from './storybook-theme';
-import theme from '../styles/theme';
+import AppProvider from '../components/utils/AppProvider';
 import './preview.css';
 
 const sortSidebarById = (a, b) => {
@@ -48,7 +46,7 @@ export const parameters = {
 
 export const decorators = [
   (Story, context) => {
-    // const [colorScheme, set_colorScheme] = React.useState('onLight');
+    // const [colorScheme, set_colorScheme] = React.useState('default');
     // React.useEffect(() => {
     //   const channel = addons.getChannel();
 
@@ -63,11 +61,11 @@ export const decorators = [
     //     channel.off('color-scheme-selected', handleColorSchemeSelected);
     //   };
     // }, []);
+    console.log('story preview');
     return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
+      <AppProvider>
         <Story {...context} />
-      </ThemeProvider>
+      </AppProvider>
     );
   },
 ];

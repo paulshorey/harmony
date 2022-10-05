@@ -29,7 +29,7 @@ export default (args: any) => {
   return (
     <div>
       <Container variant="bg">
-        <Title color="cta1">onLight:</Title>
+        <Title color="cta1">default:</Title>
         <Content>
           <Button variant="bg-gradient" color="cta1" {...args}>
             gradient cta1

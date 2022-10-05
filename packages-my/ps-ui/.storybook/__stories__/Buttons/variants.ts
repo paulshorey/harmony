@@ -119,7 +119,7 @@ export default {
         border: none !important;
         box-shadow: none !important;
         background: ${shadowColor};
-        color: ${theme.getColor('subtle', 'default', 'onLight')};
+        color: ${theme.getColor('subtle', 'default', 'default')};
       }
     `;
   },

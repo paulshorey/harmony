@@ -34,8 +34,8 @@ export default (args: any) => {
 
   return (
     <div>
-      <Container variant="bg-color" shade="onLight">
-        <Title color="cta1" shade="onLight">
+      <Container variant="bg-color" shade="default">
+        <Title color="cta1" shade="default">
           on light:
         </Title>
         <Content>
@@ -50,18 +50,18 @@ export default (args: any) => {
           <Button
             variant="text-gradient"
             color="cta1"
-            shade="onLight"
+            shade="default"
             {...args}
           >
             default cta1
           </Button>
-          <Button shade="onLight" {...args}>
+          <Button shade="default" {...args}>
             default
           </Button>
-          <Button variant="link" color="cta1" shade="onLight" {...args}>
+          <Button variant="link" color="cta1" shade="default" {...args}>
             link
           </Button>
-          <Button variant="disabled" color="cta1" shade="onLight" {...args}>
+          <Button variant="disabled" color="cta1" shade="default" {...args}>
             disabled
           </Button>
         </Content>
@@ -126,17 +126,17 @@ const Button = withButton({
 <Container variant="bg-color">
   <Title color="cta1">on light:</Title>
   <Content>
-    <Button variant="bg-gradient" color="cta1" onClick={() => console.log('clicked CTA #1')} shade="onLight" {...args}>
+    <Button variant="bg-gradient" color="cta1" onClick={() => console.log('clicked CTA #1')} shade="default" {...args}>
       gradient cta1
     </Button>
-    <Button color="cta1" shade="onLight" {...args}>
+    <Button color="cta1" shade="default" {...args}>
       default cta1
     </Button>
-    <Button shade="onLight" {...args}>default</Button>
-    <Button variant="link" color="cta1" shade="onLight" {...args}>
+    <Button shade="default" {...args}>default</Button>
+    <Button variant="link" color="cta1" shade="default" {...args}>
       link
     </Button>
-    <Button variant="disabled" color="cta1" shade="onLight" {...args}>
+    <Button variant="disabled" color="cta1" shade="default" {...args}>
       disabled
     </Button>
   </Content>

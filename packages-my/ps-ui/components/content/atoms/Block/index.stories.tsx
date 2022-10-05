@@ -9,7 +9,7 @@ const args = {
   variants: ['text-gradient', 'centered'],
   variant: 'bg',
   color: 'cta1',
-  shade: 'onLight',
+  shade: 'default',
 };
 
 export const Block = Template.bind({});

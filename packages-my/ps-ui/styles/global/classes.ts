@@ -1,4 +1,5 @@
-const classes = (theme: theme) => `
+import { css } from '@emotion/react';
+const classes = (theme: theme) => css`
   .bg-gradient {
     color: white;
     background: ${theme.getColor('bg')};
@@ -8,7 +9,7 @@ const classes = (theme: theme) => `
       ${theme.getColor('bgDark')} 100%
     );
   }
-  
+
   .text-gradient {
     color: ${theme.getColor('link')};
     @supports (--css: variables) {

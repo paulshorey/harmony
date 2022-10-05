@@ -1,6 +1,6 @@
-import Block from '.';
+import Div from '.';
 export default (args: any) => (
-  <Block {...args}>
+  <Div {...args}>
     Just like the depreciated HTML {'<'}center{'>'} tag, but better, more
     functional. If you set the width narrower than the contents, the contents
     will still be centered! Great for titles!
@@ -23,5 +23,5 @@ export default (args: any) => (
       If you don't set a width, then it will simply behave like plain old{' '}
       <span className="nowrap">`text-align:center`</span>
     </p>
-  </Block>
+  </Div>
 );

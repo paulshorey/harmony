@@ -1,4 +1,5 @@
-const layout = (theme: theme) => `
+import { css } from '@emotion/react';
+const layout = (theme: theme) => css`
   .pagePadding {
     position: relative;
     padding: 10px 20px;

@@ -1,4 +1,5 @@
-const html = (theme: theme) => `
+import { css } from '@emotion/react';
+const html = (theme: theme) => css`
   html {
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;
@@ -37,7 +38,7 @@ const html = (theme: theme) => `
     margin: 0;
     color: #000;
     font-size: 18px;
-    line-height:1.33rem;
+    line-height: 1.33rem;
     min-height: 100vh;
     font-weight: 400;
 

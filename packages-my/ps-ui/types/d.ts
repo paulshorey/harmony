@@ -1,29 +1,40 @@
 import { SerializedStyles } from '@emotion/react';
 import { ComponentPropsType } from './component';
+import { CSSInterpolation } from '@emotion/serialize';
 export {};
 
 declare global {
   type props = ComponentPropsType;
 
+  type EmotionCssFunction = (theme: theme, ...args: any) => SerializedStyles;
   type EmotionCssProp =
+    | CSSInterpolation
+    | EmotionCssFunction
     | SerializedStyles
-    | Array<SerializedStyles | ((...args: any) => any)>
-    | ((...args: any) => any);
+    | Array<SerializedStyles | EmotionCssFunction | CSSInterpolation>;
 
-  type colorShade = 'onLight' | 'onDark';
-  type colorGroupKey = 'neutral' | 'accent' | 'cta1' | 'cta2';
+  /**
+   * This accepts many different types. It will be passed to style_to_string(), and parsed according to type.
+   */
+  type ssFunction = (theme: theme, ...args: any) => string;
+
+  type colorShade = 'default' | 'onDark';
+  // tsFix // typescript can't javascript variable, so idk how to make this more specific, but dynamic
+  type colorGroupKey = 'default' | 'accent' | 'cta1' | 'cta2'; // tsFix
   type colorGroupValue = Record<colorShade, Record<string, string>>;
-  type colors = Record<colorGroupKey, colorGroupValue>;
+  type colors = Record<string, colorGroupValue>;
 
   type theme = {
-    variants: Record<string, EmotionCssProp>;
+    colorGroupDefault: colorGroupKey;
+    colorShadeDefault: colorShade;
+    variants: Record<string, EmotionCssProp | ssFunction>;
     /**
      * Colors should not be accessed directly. Use theme.getColor() instead.
      */
     colors: colors;
     fonts: Record<string, string>;
     mq: Record<string, string>;
-    getColor: (key: string, color?: string, shade?: string) => {};
+    getColor: (key: string, color?: colorGroupKey, shade?: colorShade) => {};
     /**
      * Mutable. Temporary. Gets overwritten by each component render, in withStyles().
      * Persists just long enough to be read by the component when it is being styled.
@@ -37,16 +48,18 @@ declare global {
       /**
        * See colors.ts - key of the color group to use
        */
-      color?: string;
+      color: colorGroupKey;
       /**
-       * See colors.ts - onLight or onDark
+       * See colors.ts - default or onDark
        */
-      shade?: string;
+      shade: colorShade;
       /**
        * Check from your ss/css style function by using `theme.instance.size`.
        * Adjust padding/margin/font-size according to this variable.
        */
-      size?: string;
+      size: string;
     };
+    globalStyles: Record<string, EmotionCssFunction>;
+    getGlobalStyles: () => Array<EmotionCssFunction>;
   };
 }

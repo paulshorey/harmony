@@ -5,6 +5,7 @@ import style_to_string from '@ps/fn/browser/style/style_to_string';
 import useDeviceInfo from 'hooks/useDeviceInfo';
 import { StylesType } from 'types/component';
 import { ComponentType, FC, forwardRef } from 'react';
+import { useEffect } from 'react';
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
@@ -155,7 +156,7 @@ export default (
         dataVariants += '-' + color;
       }
 
-      ssOutput += `\n&[data-variants="${dataVariants}"] {\n`;
+      // ssOutput += `\n&[data-variants="${dataVariants}"] {\n`;
 
       /*
        *
@@ -310,14 +311,28 @@ export default (
 
       ssOutput += ssExtra;
 
-      ssOutput = ssOutput.replace(/label:(.*?);/g, '');
-      ssOutput += ';label:' + label + ';';
+      ssOutput = ssOutput.replace(/label:(.*?);/g, '').replace(/([;]+)/g, ';');
+      // ssOutput += ';label:' + label + ';';
+
+      /*
+       *
+       * Do something on DOM ready
+       *
+       */
+      // useEffect(() => {
+      //   if (typeof window !== 'undefined') {
+      //     const ss = document.createElement('style');
+      //     ss.innerHTML = ssOutput;
+      //     document.head.appendChild(ss);
+      //   }
+      // }, []);
 
       /*
        *
        * Return component with props applied
        *
        */
+      // console.log('ssOutput', ssOutput);
       return (
         <Component
           {...props}

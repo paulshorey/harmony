@@ -22,4 +22,4 @@ In any case, you can define styles a function. The function returns a string or 
 
 - `theme.instance.variants` contains `Record<string, true>` all variants that were passed to the component
 - `theme.instance.hue` contains the key of which color family will be used (`cta`, `accent`, `neutral`)
-- `theme.instance.shade` contains the key of which color scheme will be used (`onDark`, `onLight`, you can define others in your app)
+- `theme.instance.shade` contains the key of which color scheme will be used (`onDark`, `default`, you can define others in your app)

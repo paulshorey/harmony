@@ -9,12 +9,12 @@ const args = {
   variants: ['text-gradient', 'centered'],
   variant: '',
   color: 'cta1',
-  shade: 'onLight',
+  shade: 'default',
 };
 
-export const Box = Template.bind({});
-Box.argTypes = argTypes(variantKeys);
-Box.args = args;
+export const Div = Template.bind({});
+Div.argTypes = argTypes(variantKeys);
+Div.args = args;
 
 export default {
   component: Component,

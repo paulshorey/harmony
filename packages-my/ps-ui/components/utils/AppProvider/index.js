@@ -1,10 +1,12 @@
-import { ThemeProvider } from '@emotion/react';
+import { css, ThemeProvider, Global } from '@emotion/react';
 import React from 'react';
-import theme from 'styles/theme';
+import theme from '../../../styles/theme';
+import GlobalStyles from '../../../styles/global';
 
-const AppProvider = ({ children, page }) => {
+const AppProvider = ({ children }) => {
   return (
-    <ThemeProvider theme={{ ...theme, cause: page.cause }}>
+    <ThemeProvider theme={{ ...theme }}>
+      <GlobalStyles />
       {children}
     </ThemeProvider>
   );

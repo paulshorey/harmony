@@ -21,18 +21,19 @@ export default {
           ? `
           background-image: linear-gradient(
             160deg,
-            hsl(0, 0%, 95%) 0%,
-            hsl(0, 0%, 77%) 67%,
+            hsl(0, 0%, 90%) 0%,
+            hsl(0, 0%, 75%) 67%,
             hsl(0, 0%, 80%) 100%
           )!important
         `
           : `
           background-image: linear-gradient(
             160deg,
-            hsl(0, 0%, 93%) 0%,
-            hsl(0, 0%, 85%) 67%,
+            hsl(0, 0%, 97%) 0%,
+            hsl(0, 0%, 81%) 67%,
             hsl(0, 0%, 93%) 100%
           ) !important;
+          text-shadow: 1px 1px 1px rgba(255,255,255,0.15);
         `
       };
       &:not(:hover):not(:focus) {
@@ -119,7 +120,7 @@ export default {
         border: none !important;
         box-shadow: none !important;
         background: ${shadowColor};
-        color: ${theme.getColor('subtle', 'default', 'onLight')};
+        color: ${theme.getColor('subtle', 'default', 'default')};
       }
     `;
   },
