@@ -11,7 +11,6 @@ export default {
     box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
     padding: 12px 24px;
     color: ${theme.getColor('bgDark')};
-    // text-shadow: 1px 1px 1px rgba(255,255,255,0.15);
     ${
       theme.instance.shade === 'onDark'
         ? `

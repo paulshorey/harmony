@@ -1,10 +1,10 @@
 import React from 'react';
-
-import Block from '../../../components/content/atoms/Block';
+import Block from 'components/content/atoms/Block';
+import { useEffect } from 'react';
 // import useShowStorybookCode from 'hooks/useShowStorybookCode';
 
 const styles = {
-  wrapper: (theme) => `
+  wrapper: (theme: theme) => `
     padding: 50px 5vw 100px;
     h3 {
       font-size: inherit;
@@ -43,10 +43,27 @@ const styles = {
   `,
 };
 
-export default (args) => {
+export default (args: any) => {
+  useEffect(() => {
+    let loc: any = window.top?.location || {};
+    if (loc.search?.includes('/docs/')) {
+      const goto = loc.pathname + loc.search.replace('/docs/', '/canvas/');
+      console.log(
+        '😆😭😋⏳⏳⏳🕺😎🚀 Refreshing the screen to force Storybook to show full-screen Canvas tab, instead of the Docs tab.'
+      );
+      if (window.top) {
+        window.top.location.href = goto;
+      }
+    }
+  }, []);
   // useShowStorybookCode();
   return (
-    <Block ss={styles.wrapper} variant="bg-gradient" color="cta1" {...args}>
+    <Block
+      ss={styles.wrapper}
+      variant="bg-gradient text-color"
+      color="cta1"
+      {...args}
+    >
       <h2>This is not a UI Component Library...</h2>
       <hr />
       <h3>

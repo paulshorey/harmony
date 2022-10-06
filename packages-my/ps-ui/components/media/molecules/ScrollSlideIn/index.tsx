@@ -1,12 +1,12 @@
-/* eslint-disable max-depth */
-
-import Block, { Props as BlockProps } from 'components/content/atoms/Block';
-import withStyles from 'styles/withStyles';
-import React, { memo, useEffect, useState } from 'react';
+import { forwardRef, memo, ReactElement, useEffect, useState } from 'react';
+import useComponentWithProps12 from 'hooks/useComponentWithProps12';
+import React from 'react';
+import Block from 'components/content/atoms/Block';
+import { Props as BlockProps } from 'components/content/atoms/Block';
 import { useInView } from 'react-cool-inview';
 import { tsFix } from 'types/typescript';
-import variants from '../../../content/organisms/Modal/variants';
-import useComponentWithProps12 from 'hooks/useComponentWithProps12';
+import variants from './variants';
+import useStyledVariants from 'styles/useStyledVariants';
 
 const isBetween = (value: number, min: number, max: number) =>
   value && value >= min && value <= max;
@@ -36,7 +36,7 @@ export type Props = BlockProps & {
   // visibleInitially?: boolean;
 };
 
-export const Component = ({
+export const Component: (props: Props) => ReactElement = ({
   as = 'div',
   children,
   className = '',
@@ -44,6 +44,13 @@ export const Component = ({
   // visibleInitially = false,
   ...props
 }: Props) => {
+  const Styled = useStyledVariants(
+    props,
+    as === 'span' ? 'span' : 'div',
+    'ScrollSlideIn',
+    variants
+  );
+
   let enterLeaveTimeout: ReturnType<typeof setTimeout>;
   const ref1 = React.createRef<any>(); // react ref type
   const [disabled, set_disabled] = useState(false);
@@ -104,7 +111,6 @@ export const Component = ({
       }
     }
   }, []);
-
   return (
     <Block
       as={as}
@@ -112,30 +118,27 @@ export const Component = ({
       className={`${visible ? 'visible' : 'hidden'} ${className}`}
       ref={ref1}
     >
-      <Block as={as === 'span' ? 'span' : 'div'} ref={ref2} {...props}>
+      <Styled ref={ref2} {...props}>
         {children}
-      </Block>
+      </Styled>
     </Block>
   );
 };
 
 /*
- * Copy/paste everything below to sync code between components. Then change the name of the variables.
+ * Like StyledComponents' div`` but with added functionality:
+ * import { withScrollSlideIn } from 'components/content/molecules/ScrollSlideIn';
+ * const ScrollSlideIn = withScrollSlideIn({ ...thesePropsWillApplyToAllInstances });
+ * <ScrollSlideIn {...optionalUniquePropsForCurrentInstance} />
  */
-const Default = memo(withStyles(Component, 'Modal', variants));
-
-/*
- * This is an HOC, like Styled in @emotion/styled or Styled-Components, to help with styling, and managing props.
- * First you must call it with an object of props which will be used by all instances.
- * Then, you can use the returned value as a normal component. Pass to it props that only the specific instance will use.
- * Can not abstract this to a separate file, because Typescript does not support passing props as args.
- */
-export const withModal = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Default, props1, props2);
+export const withScrollSlideIn = (props1: Props) => (props2: Props) => {
+  return useComponentWithProps12(ScrollSlideIn, props1, props2);
 };
 
-/**
- * Default export is ready to use: <Modal {...yourProps} />
+/*
+ * Default export is a ready-to-use component:
+ * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
+ * Named "ScrollSlideIn" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const ScrollSlideIn = Default;
-export default Default;
+export const ScrollSlideIn = memo(forwardRef(Component));
+export default ScrollSlideIn;

@@ -38,7 +38,7 @@ const colors: colors = {
   },
   'cta1': {
     '': {
-      text: 'hsl(239 80% 75%)',
+      text: 'hsl(239 80% 100% / 0.75)',
       bg: 'hsl(239 75% 70%)',
       bgDark: 'hsl(226 75% 63%)',
       bgLight: 'hsl(272 60% 67%)',

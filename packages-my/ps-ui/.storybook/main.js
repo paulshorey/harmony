@@ -22,10 +22,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 // };
 
 module.exports = {
-  stories: [
-    './__stories__/**/*.(stories|story).@(js|jsx|ts|tsx|mdx)',
-    '../components/**/*.(stories|story).@(js|jsx|ts|tsx|mdx)',
-  ],
+  stories: ['../components/**/*.(stories|story).@(js|jsx|ts|tsx|mdx)'],
   staticDirs: ['../public'],
   addons: [
     '@storybook/addon-links',

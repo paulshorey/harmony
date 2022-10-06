@@ -8,19 +8,15 @@ import variants from './variants';
 import ssComponentPropsType from 'types/component';
 import useStyledVariants from 'styles/useStyledVariants';
 
-export type Props = AnchorHTMLAttributes<HTMLAnchorElement> &
-  ssComponentPropsType & {
-    href: string;
-    /**
-     * For analytics record - where in the site/page the click happened.
-     */
-    from?: string;
-  };
+export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
+  href: string;
+  /**
+   * For analytics record - where in the site/page the click happened.
+   */
+  from?: string;
+} & ssComponentPropsType;
 
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = ({
+const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = ({
   href,
   children,
   rel,

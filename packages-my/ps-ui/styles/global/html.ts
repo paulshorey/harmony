@@ -1,5 +1,14 @@
 import { css } from '@emotion/react';
 const html = (theme: theme) => css`
+  :root {
+    --onDark: ${theme.colorShadeDefault === 'onDark'
+      ? ''
+      : 'initial'}; /* initial means NO */
+    --onLight: ${theme.colorShadeDefault === 'onLight'
+      ? ''
+      : 'initial'}; /* initial means NO */
+  }
+
   html {
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;

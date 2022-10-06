@@ -1,6 +1,5 @@
 import Block, { Props as BlockProps } from 'components/content/atoms/Block';
 import useCopyToClipboard from 'hooks/useCopyToClipboard';
-import withStyles from 'styles/withStyles';
 import { FC, memo, forwardRef, ReactElement } from 'react';
 import useComponentWithProps12 from 'hooks/useComponentWithProps12';
 import variants from './variants';

@@ -3,7 +3,8 @@ import styled from '@emotion/styled';
 import style_to_string from '@ps/fn/browser/style/style_to_string';
 // import obj_clone from '@ps/fn/io/obj/obj_clone';
 // import obj_add from '@ps/fn/io/obj/obj_add';
-import useDeviceInfo from 'hooks/useDeviceInfo';
+import { returnDeviceInfo, deviceInfoType } from 'hooks/useDeviceInfo';
+import { useEffect, useState } from 'react';
 import {
   ssComponentPropsType,
   htmlContainerTags, // or maybe React.ElementType ?
@@ -27,6 +28,8 @@ export default (
     color = '',
     shade = '',
     size = '',
+    onDark = false,
+    onLight = false,
     ss,
     ssAll,
     ssAndroid,
@@ -159,7 +162,7 @@ export default (
    *
    */
   // For each device and size, add a media query (but only if custom style for it is specified)
-  const deviceInfo =
+  const checkDeviceInfo =
     ssIframe ||
     ssNotIframe ||
     ssWebview ||
@@ -169,9 +172,14 @@ export default (
     ssMac ||
     ssWindows ||
     ssLinux ||
-    ssAndroid
-      ? useDeviceInfo()
-      : undefined;
+    ssAndroid;
+
+  const [deviceInfo, set_deviceInfo] = useState<deviceInfoType>();
+  useEffect(() => {
+    if (checkDeviceInfo) {
+      set_deviceInfo(returnDeviceInfo());
+    }
+  }, []);
 
   if (ss) {
     ssOutput += `\n${style_to_string(ss, theme)}\n`;
@@ -315,5 +323,5 @@ export default (
    * Return component with props applied
    *
    */
-  return styled[as](ssOutput); // tsFix - what keys does emotion/styled support?
+  return styled(as)(ssOutput); // tsFix - what keys does StyledComponents HOC support?
 };

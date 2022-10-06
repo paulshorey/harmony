@@ -1,5 +1,5 @@
 import React from 'react';
-import GenericComponent from '../../../components/content/atoms/Block';
+import GenericComponent from 'components/content/atoms/Block';
 
 import Template from './_story';
 import description from './_story.md';

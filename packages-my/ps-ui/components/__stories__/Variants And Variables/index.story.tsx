@@ -1,12 +1,12 @@
 import Template, { code } from '../Buttons/_story';
 import description from './_story.md';
-import { Component } from '../../../components/form/atoms/Button';
+import { Component } from 'components/form/atoms/Button';
 
-export const StyledStrings = Template.bind({});
+export const VariantsAndVariables = Template.bind({});
 
 export default {
   component: Component,
-  id: '4',
+  id: '5',
   parameters: {
     docs: {
       description: {

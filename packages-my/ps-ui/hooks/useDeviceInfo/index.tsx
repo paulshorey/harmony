@@ -9,6 +9,19 @@ export type deviceInfoType = {
 };
 
 /**
+ * To use as a regular helper function, inside your own useEffect function.
+ * In case you can't call the hook for some reason, try this.
+ */
+export const returnDeviceInfo = (): deviceInfoType => {
+  return {
+    inWebview: is_webview(),
+    inIframe:
+      typeof self === 'object' && typeof top === 'object' && self !== top,
+    device: get_device(),
+  };
+};
+
+/**
  * detect if component is rendered inside an iframe
  */
 const useDeviceInfo = (): deviceInfoType => {

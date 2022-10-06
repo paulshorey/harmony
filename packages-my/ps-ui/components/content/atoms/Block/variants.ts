@@ -2,12 +2,16 @@ export default {
   'default': (theme: theme) => `
     position: relative;
   `,
+  'text-white': (theme: theme) => `
+    color: white;
+  `,
+  'text-color': (theme: theme) => `
+    color: ${theme.getColor('text')};
+  `,
   'bg-white': (theme: theme) => `
-    color: ${theme.getColor('text')};;
     background: white;
   `,
   'bg-gradient': (theme: theme) => `
-    color: ${theme.getColor('text')};;
     background: ${theme.getColor('bg')};
     background-image: linear-gradient(
       330deg,

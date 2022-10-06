@@ -26,7 +26,7 @@ export type ssProps = {
    */
   'variants'?: Array<string>;
   /**
-   * Specify how to color the component. Will be seen by variants and all styles as theme.instance.color. Pass to theme.getColors function as 2nd argument, to specify the color group to use.
+   * Will be used by theme.getColors function to use the specified color group theme.colors[colorGroup]. Alternatively, you may pass this to theme.getColors function as 2nd argument from your style function.
    */
   'color'?: colorGroupType;
   /**
@@ -161,6 +161,14 @@ export type ssProps = {
    * Will be used internally, to keep track of variants. Will be rendered on the HTML element as data-variant so you can debug, see which variants were applied to the element.
    */
   'data-variants'?: string;
+  /**
+   * This component and all elements inside it will use theme.colors[colorGroup].onDark (if defined), if not will fall back to alternative
+   */
+  'onDark'?: boolean;
+  /**
+   * This component and all elements inside it will use theme.colors[colorGroup].onLight (if defined), if not will fall back to alternative
+   */
+  'onLight'?: boolean;
 };
 
 export type ReactForwardedRefType = any; // tsFix - what is the type of "ref" as returned by React.forwardRef()?

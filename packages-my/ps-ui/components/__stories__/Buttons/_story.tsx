@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { withBlock } from '../../../components/content/atoms/Block';
-import { withButton } from '../../../components/form/atoms/Button';
+import { withBlock } from 'components/content/atoms/Block';
+import { withButton } from 'components/form/atoms/Button';
 
 const Container = withBlock({
   ss: (theme) =>
@@ -86,8 +86,8 @@ export default (args: any) => {
   );
 };
 
-export const code = `import { withBlock } from '../../../components/content/atoms/Block';
-import { withButton } from '../../../components/form/atoms/Button';
+export const code = `import { withBlock } from 'components/content/atoms/Block';
+import { withButton } from 'components/form/atoms/Button';
 
 ...
 
