@@ -4,7 +4,7 @@ import GenericComponent from 'components/content/atoms/Block';
 import Template from './_story';
 import description from './_story.md';
 
-export const Etc = Template;
+export const Tailwind = Template;
 
 export default {
   component: GenericComponent,
