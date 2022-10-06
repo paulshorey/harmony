@@ -1,4 +1,4 @@
-> **There are two ways to use a component from this library:**
+**There are two ways to use these components:**
 
 <br />
 

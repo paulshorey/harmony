@@ -12,6 +12,11 @@ const colors: colors = {
       warning: '#e38935',
       success: '#27b30d',
       buttonText: '#666',
+      // 100: 'hsl(0deg 0% 10%)',
+      // 300: 'hsl(0deg 0% 30%)',
+      // 500: 'hsl(0deg 0% 50%)',
+      // 700: 'hsl(0deg 0% 70%)',
+      // 900: 'hsl(0deg 0% 90%)',
     },
     'onDark': {
       bg: '#333',

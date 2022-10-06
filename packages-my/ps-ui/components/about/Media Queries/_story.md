@@ -1,8 +1,9 @@
-An easier way to style React components for multiple devices.
+<p><span style="color:hsl(45deg 85% 65%);font-size:inherit;">What is mq[3]?</span> Large tablet or small desktop? I forget. <span style="color:hsl(45deg 85% 65%);font-size:inherit;">What if I need to style for both tablets and desktop?</span> How do I specify "greater than phone"?</p>
 
-Pass \`props.ssDesktop\` to style desktop devices, \`props.ssPhoneSmall\` for small phones, \`props.ssLargeTablet\` for large tablets, and \`props.css\` for everything else. Instead of passing a separate style to each device, you can choose a default size to support (mobile first is the best approach).
+This library organizes breakpoints not by index or arbitrary sm/md/lg/xl, but by semantic labels. You have access to like 20 breakpoints, but don't have to maintain styles for each one. Use it if you need it. Concise, flexible, extensible, but also quick and easy!
 
-If you don't like inline styles, it's ok. You can always \`useTheme()\` and use \`theme.mq.desktop\`, \`theme.mq.phoneSmall\`, \`theme.mq.largeTablet\`, \`theme.mq.webView\`, etc.
+Use whatever style props make sense for your design: `ssPhone` to style only phones, `ssSmallPhone` for small phones, `ssLargeTablet` for large tablets, etc. Obviously you can customize the breakpoints in your `theme.mq`.
 
-Use EmotionCSS or css strings for predefined breakpoints. Extend the default theme object to modify the breakpoints, colors, variants, etc.  
-Click "Show code" below. Scroll down to see a full list of props accepted by every component in this library.
+Or use min/max pairs targeting a single breakpoint: `ssDesktop`/`ssMobile` (1024px), `ssLg`/`ssSm` (930px), `ssPhone`/`ssNotPhone` (500px).
+
+If you don't like inline styles, it's ok. You can use variables `theme.mq.smallPhone`, `theme.mq.largeTablet`, `theme.mq.webView`, etc.

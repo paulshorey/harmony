@@ -30,6 +30,7 @@
     "react-cool-inview": "^3.0.1",
     "react-modal": "^3.15.1",
     "styled-components": "^5.3.6",
+    "tailwindcss-radix": "^2.6.0",
     "use-clipboard-copy": "^0.2.0"
   },
   "maybeNotDependencies": {},

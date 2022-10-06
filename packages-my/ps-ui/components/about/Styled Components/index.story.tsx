@@ -2,7 +2,7 @@ import Template, { code } from '../Buttons/_story';
 import description from './_story.md';
 import { Component } from 'components/form/atoms/Button';
 
-export const StyledStrings = Template.bind({});
+export const StyledComponents = Template.bind({});
 
 export default {
   component: Component,

@@ -8,7 +8,7 @@ export const MediaQueries = Template;
 
 export default {
   component: GenericComponent,
-  id: '8',
+  id: '3',
   argTypes: {},
   isExpanded: true,
   parameters: {

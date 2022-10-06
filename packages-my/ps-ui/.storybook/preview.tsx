@@ -2,6 +2,7 @@
 import React from 'react';
 import storybookTheme from './storybook-theme';
 import AppProvider from '../components/utils/AppProvider';
+import { useEffect } from 'react';
 import './preview.css';
 // import { RouterContext } from 'next/dist/shared/lib/router-context'; // next 12
 
@@ -65,7 +66,34 @@ export const decorators = [
     //     channel.off('color-scheme-selected', handleColorSchemeSelected);
     //   };
     // }, []);
-    console.log('story preview');
+
+    /**
+     * Inject a CSS string as a <style> tag into the DOM of the window.top frame
+     */
+    const injectCSS = `
+  .search-field { 
+    top: -1px;
+    left: -2px;
+  }
+  .sidebar-header * {
+    display:none !important;
+  }
+  .sidebar-header:before {
+    content: 'Styling Systems';
+    color: white;
+    font-size: 1.01rem;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0.5;
+  }
+  `;
+    useEffect(() => {
+      const style = document.createElement('style');
+      style.innerHTML = injectCSS;
+      window.top?.document.body.appendChild(style);
+    }, []);
+
+    // console.log('story preview');
     return (
       <AppProvider>
         <Story {...context} />

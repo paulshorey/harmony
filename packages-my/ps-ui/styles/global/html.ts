@@ -10,6 +10,33 @@ const html = (theme: theme) => css`
   }
   // Maybe implement CSS variables for dark/light - cascading down to child components - would be great, but very limiting, so idk.
   // https://twitter.com/paulshoreytech/status/1577905462934134784
+  /*
+  body {
+    :root {
+      --onDark: initial;
+      --onLight: ;
+    }
+  }
+  .onLight {
+    --onDark: initial;
+    --onLight: ;
+  }
+  .onDark {
+    --onDark: ;
+    --onLight: initial;
+  }
+  div {
+    padding: 1rem; margin: 0;
+    
+    --color-onDark: var(--onDark) orange;
+    --color-onLight: var(--onLight) blue;
+    color: var(--color-onDark, var(--color-onLight));
+    
+    --bg-onDark: var(--onDark) #333;
+    --bg-onLight: var(--onLight) #ccc;
+    background: var(--bg-onDark, var(--bg-onLight));
+  }
+  */
 
   html {
     -webkit-overflow-scrolling: none;

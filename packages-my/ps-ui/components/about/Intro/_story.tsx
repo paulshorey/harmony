@@ -60,32 +60,6 @@ export default (args: any) => {
     }
   }, []);
 
-  /**
-   * Inject a CSS string as a <style> tag into the DOM of the window.top frame
-   */
-  const injectCSS = `
-.search-field { 
-  top: -1px;
-  left: -2px;
-}
-.sidebar-header * {
-  display:none !important;
-}
-.sidebar-header:before {
-  content: 'Styling Systems';
-  color: white;
-  font-size: 1.01rem;
-  font-weight: bold;
-  white-space: nowrap;
-  opacity: 0.5;
-}
-`;
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.innerHTML = injectCSS;
-    window.top?.document.body.appendChild(style);
-  }, []);
-
   /*
    * Render the story
    */
@@ -105,8 +79,9 @@ export default (args: any) => {
         </b>
       </h3>
       <p>
-        It's a styling-system, with some complementary JavaScript functionality.
-        For any React app.
+        It's a styling-system with shortcuts for media queries, devices,
+        variables, and colors chemes. Includes interactive JavaScript
+        functionality.
       </p>
       <p>
         Great for a mono-repo. This library can be imported by multiple apps.

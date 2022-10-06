@@ -64,6 +64,15 @@ export default function (args: any) {
           <Code as="code" ssIPad="display:block;">
             ssIPad
           </Code>
+          <Code as="code" ssNotPhone="display:block;">
+            ssNotPhone
+          </Code>
+          <Code as="code" ssPortrait="display:block;">
+            ssPortrait
+          </Code>
+          <Code as="code" ssLandscape="display:block;">
+            ssLandscape
+          </Code>
           <Code as="code" ssAndroid="display:block;">
             ssAndroid
           </Code>
@@ -76,20 +85,11 @@ export default function (args: any) {
           <Code as="code" ssLinux="display:block;">
             ssLinux
           </Code>
-          <Code as="code" ssPortrait="display:block;">
-            ssPortrait
-          </Code>
-          <Code as="code" ssLandscape="display:block;">
-            ssLandscape
-          </Code>
           <Code as="code" ssIframe="display:block;">
             ssIframe
           </Code>
           <Code as="code" ssNotIframe="display:block;">
             ssNotIframe
-          </Code>
-          <Code as="code" ssNotPhone="display:block;">
-            ssNotPhone
           </Code>
           <Code as="code" ssWebview="display:block;">
             ssWebview
@@ -100,15 +100,23 @@ export default function (args: any) {
           <pre>&gt;</pre>
           <p>
             <span className="gold">
-              ☝️ Try to resize. It's responsive. Styles use plain CSS, no JS.{' '}
+              ☝️ Try to resize. It's responsive. Styles use plain CSS, not JS.{' '}
             </span>
             <span>
               There are many preconfigured breakpoints, explained below.{' '}
             </span>
+            <span>Not all get rendered, just the ones you've specified.</span>
             <span>
-              Only the media queries you use get rendered, not all of them.
+              <span className="nowrap">
+                Pass a css string (to style something quickly, inline) - or a
+                function
+              </span>
+              <span className="nowrap">
+                that accepts theme as first argument and returns a string.
+              </span>{' '}
+              Use theme.instance to get color/shade/size of the current
+              component.{' '}
             </span>
-            <span>Pass EmotionCSS or a plain string. Up to you. </span>
           </p>
 
           <Block as="p" ssIframe="display:none;">

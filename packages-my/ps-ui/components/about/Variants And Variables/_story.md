@@ -1,25 +1,22 @@
-**Variants are like classNames but written in Typescript.** So naturally, they have even more powerful than standard css classNames.
+<h3 style="color:hsl(45deg 85% 65%)">🎭 &nbsp;Variants</h3>
+Like classNames, but not only for styling. They are also used in the component code. They can change logic or layout. Each component directory has a `variants.ts` file in it. In this storybook stories, open any component, then scroll down and select a variant to see what each one does.
 
-- When this project gets a bit more finished, you'll be able to click any component in the menu and preview its variants and colors combinations.
-- Each variant/color combination will be mocked with various content, unit-tested, and visual-regression-tested before every Git push.
+You can add/edit variants by setting `theme.variants[ComponentName][variantName]` when you set up your theme.
 
-<br />
+<h3 style="color:hsl(45deg 85% 65%)">💅 &nbsp;Variables</h3>
 
-### In your css styles,
+In your `ss`/`ssTablet`/`ssPhone` props, which define custom styles... Pass a function that takes theme as the first argument and returns a string.
 
-use both **theme variables** and **current component props**.
+In your style function, you can access your app's `theme` object. You can also read dynamic variables of the current component instance. Use `theme.instance.color` to see the color family (primary, secondary, accent, cta, etc.). Use `theme.instance.shade` to see if the current component is onLight or onDark background. There's also `theme.instance.size` and more coming soon. These can help you write smarter/richer style rules.
 
-In the code below, notice this subtle feature: `theme.instance`. For any component, in any ss prop, or in a theme variant, you can see all other variants/colors/schemes that were passed to the component. Just like with classNames, but without any namespace collisions! This is powerful!
+Another helpful utility accessible in your style function is `theme.getColor`. Pass the color key as the first argument. It will automatically read the color group and shade of your current component instance, and return the value from the correct `theme.colors` object.
+
+<h3 style="color:hsl(45deg 85% 65%)">😈 Subtle details</h3>
+
+Notice `theme.instance.variants` in the example below. In any component style function, or a custom variant style, you can see all current variants used by the current component. Like with CSS classNames `&.math.physics`, but without any namespace collisions! This is powerful!
 
 ```
 ss: (theme) => `padding: 1.2rem 1rem 1.9rem; ${
-  theme.instance.variants.bg-gradient && `padding-top: 1.3rem;`}
+  theme.instance.variants['bg-gradient'] && `padding-top: 1.4rem;`}
 }`
 ```
-
-Pass `props.variants` to use predefine styles. Pass `props.ss` for general styles or `props.ssTablet`/`props.phone`/etc. for media queries.
-In any case, you can define styles a function. The function returns a string or EmotionJS type. The first argument of the function is `theme`, which is just your normal predefined theme. However, for each component, a property `theme.instance` is updated in the theme.
-
-- `theme.instance.variants` contains `Record<string, true>` all variants that were passed to the component
-- `theme.instance.hue` contains the key of which color family will be used (`cta`, `accent`, `neutral`)
-- `theme.instance.shade` contains the key of which color scheme will be used (`onDark`, `default`, you can define others in your app)
