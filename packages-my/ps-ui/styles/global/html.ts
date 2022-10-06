@@ -8,6 +8,8 @@ const html = (theme: theme) => css`
       ? ''
       : 'initial'}; /* initial means NO */
   }
+  // Maybe implement CSS variables for dark/light - cascading down to child components - would be great, but very limiting, so idk.
+  // https://twitter.com/paulshoreytech/status/1577905462934134784
 
   html {
     -webkit-overflow-scrolling: none;

@@ -96,10 +96,10 @@ const theme = {
   fontCode: typography.fonts.mono,
 
   base: 'dark',
-  brandTitle: 'My custom storybook',
+  brandTitle: 'Styled Components',
   brandUrl: '/',
-  brandImage: 'https://place-hold.it/350x150',
-  brandTarget: '_self',
+  // brandImage: 'https://place-hold.it/350x150',
+  brandTarget: '_top',
 
   //
   // UI

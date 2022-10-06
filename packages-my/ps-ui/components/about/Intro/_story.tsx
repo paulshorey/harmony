@@ -44,6 +44,9 @@ const styles = {
 };
 
 export default (args: any) => {
+  /*
+   * Force this story to be full screen canvas, not just docs in the little iframe
+   */
   useEffect(() => {
     let loc: any = window.top?.location || {};
     if (loc.search?.includes('/docs/')) {
@@ -56,7 +59,36 @@ export default (args: any) => {
       }
     }
   }, []);
-  // useShowStorybookCode();
+
+  /**
+   * Inject a CSS string as a <style> tag into the DOM of the window.top frame
+   */
+  const injectCSS = `
+.search-field { 
+  top: -1px;
+  left: -2px;
+}
+.sidebar-header * {
+  display:none !important;
+}
+.sidebar-header:before {
+  content: 'Styling Systems';
+  color: white;
+  font-size: 1.01rem;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0.5;
+}
+`;
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.innerHTML = injectCSS;
+    window.top?.document.body.appendChild(style);
+  }, []);
+
+  /*
+   * Render the story
+   */
   return (
     <Block
       ss={styles.wrapper}

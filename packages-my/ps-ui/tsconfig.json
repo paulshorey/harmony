@@ -1,6 +1,6 @@
 {
   "extends": "@ps/constants/config/typescript/react-library.json",
-  "include": ["."],
+  "include": [".", ".storybook/about-archive/Etc"],
   "exclude": ["dist", "build", "node_modules"],
   "baseUrl": ".",
   "compilerOptions": {
