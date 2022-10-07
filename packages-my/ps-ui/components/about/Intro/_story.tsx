@@ -70,7 +70,9 @@ export default (args: any) => {
       color="cta1"
       {...args}
     >
-      <h2>This is not a UI Component Library...</h2>
+      <h2 className="text-3xl font-bold underline">
+        This is not a UI Component Library...
+      </h2>
       <hr />
       <h3>
         <b>

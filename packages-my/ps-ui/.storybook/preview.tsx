@@ -49,6 +49,8 @@ export const parameters = {
 //   console.log('handleColorSchemeSelected', ...inputs);
 // };
 
+import '../styles/global/tailwind.css';
+
 export const decorators = [
   (Story, context) => {
     // const [colorScheme, set_colorScheme] = React.useState('default');
