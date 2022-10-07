@@ -1,5 +1,5 @@
 import obj_has_key from "@ps/fn/io/obj/obj_has_key";
-import { SerializedStyles } from "@emotion/react";
+// import { SerializedStyles } from "@emotion/react";
 import { ssPropType, cssPropType } from "../../../ps-ui/types/component";
 
 /**

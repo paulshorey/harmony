@@ -1,0 +1,1 @@
+This renders an `<a>` Anchor tag. Intelligently parses props and corrects or fills in missing information to ensure the rendered anchor tag is valid. Needs to configure `next/router` and `next/link` before it can be previewed and tested in Storybook.

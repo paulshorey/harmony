@@ -1,6 +1,6 @@
 {
   "extends": "@ps/constants/config/typescript/react-library.json",
-  "include": [".", ".storybook/about-archive/Etc"],
+  "include": [".", "@/.storybook/about-archive/Etc"],
   "exclude": ["dist", "build", "node_modules"],
   "baseUrl": ".",
   "compilerOptions": {
@@ -11,8 +11,8 @@
     },
     "jsxImportSource": "@emotion/react",
     "types": [
-      "types/d.ts",
-      "types/raw-loader.d.ts",
+      "@/types/d.ts",
+      "@/types/raw-loader.d.ts",
       "@emotion/react/types/css-prop",
       "node"
     ],
