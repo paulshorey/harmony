@@ -1,13 +1,13 @@
 {
-  "name": "spiral-monorepo",
+  "name": "ps-monorepo",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
     "apps/*",
     "apis/*",
     "clis/*",
-    "packages-my/*",
-    "packages-npm/*"
+    "new/*",
+    "npm/*"
   ],
   "scripts": {
     "build": "turbo run build",
