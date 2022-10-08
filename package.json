@@ -6,8 +6,8 @@
     "apps/*",
     "apis/*",
     "clis/*",
-    "new/*",
-    "npm/*"
+    "my_modules/*",
+    "not_my_modules/*"
   ],
   "scripts": {
     "build": "turbo run build",
