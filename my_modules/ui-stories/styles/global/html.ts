@@ -1,42 +1,4 @@
-const html = (theme: theme) => `
-  :root {
-    --onDark: ${theme.colorShadeDefault === "onDark" ? "" : "initial"}; /* initial means NO */
-    --onLight: ${theme.colorShadeDefault === "onLight" ? "" : "initial"}; /* initial means NO */
-  }
-  // Maybe implement CSS variables for dark/light - cascading down to child components - would be great, but very limiting, so idk.
-  // https://twitter.com/paulshoreytech/status/1577905462934134784
-  /*
-  body {
-    :root {
-      --onDark: initial;
-      --onLight: ;
-    }
-  }
-  .onLight {
-    --onDark: initial;
-    --onLight: ;
-  }
-  .onDark {
-    --onDark: ;
-    --onLight: initial;
-  }
-  div {
-    padding: 1rem; margin: 0;
-    
-    --color-onDark: var(--onDark) orange;
-    --color-onLight: var(--onLight) blue;
-    color: var(--color-onDark, var(--color-onLight));
-    
-    --bg-onDark: var(--onDark) #333;
-    --bg-onLight: var(--onLight) #ccc;
-    background: var(--bg-onDark, var(--bg-onLight));
-  }
-  */
-
-  body {
-    margin: 0;
-    padding: 0;
-  }
+const html = (theme) => `
   h1 {
     text-decoration: underline;
   }
@@ -109,7 +71,7 @@ const html = (theme: theme) => `
   h4,
   h5,
   h6,
-  blockquote {
+  Boxquote {
     font-family: "HelveticaNeue", Helvetica, sans-serif;
     line-height: 1.33;
     padding: 0;
@@ -129,7 +91,7 @@ const html = (theme: theme) => `
     font-weight: 500;
   }
 
-  blockquote {
+  Boxquote {
     border-left: solid 4px #ccc;
     padding: 8px 0 8px 16px;
     font-size: 22px;

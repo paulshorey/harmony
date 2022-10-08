@@ -1,9 +1,13 @@
 module.exports = {
   reactStrictMode: true,
   serverRuntimeConfig: {
-    mySecret: 'secret'
+    mySecret: "secret",
   },
   publicRuntimeConfig: {
-    message: 'notice how serverRuntimeConfig is empty'
-  }
-}
+    message: "notice how serverRuntimeConfig is empty",
+  },
+  compiler: {
+    styledComponents: true,
+  },
+  swcMinify: true,
+};

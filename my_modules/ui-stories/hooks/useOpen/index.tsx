@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 
 export type useOpenReturnType = {
   isOpen: boolean;
@@ -17,7 +17,7 @@ export type useOpenReturnType = {
 };
 
 type Props = {
-  blocked?: boolean;
+  Boxed?: boolean;
   /**
    * Initial isOpen state
    */
@@ -40,13 +40,13 @@ const useOpen = (props?: Props): useOpenReturnType => {
   const onClose = useCallback(() => {
     setIsOpen(false);
 
-    if (props?.onClose && typeof props?.onClose === 'function') {
+    if (props?.onClose && typeof props?.onClose === "function") {
       props.onClose();
     }
   }, []);
 
   const onToggle = useCallback(() => {
-    if (props?.blocked) {
+    if (props?.Boxed) {
       return;
     }
     setIsOpen((curr) => !curr);

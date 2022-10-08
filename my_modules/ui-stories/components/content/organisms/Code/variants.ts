@@ -6,7 +6,7 @@ export default {
     background-color: white;
     color: black;
     position: relative;
-    display: inline-block;
+    display: inline-Box;
     cursor: pointer;
 
     white-space: pre;

@@ -1,6 +1,7 @@
 {
   "name": "ui-stories",
   "private": true,
+  "version": "0.0.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,15 +13,14 @@
     "serve-storybook": "serve storybook-static"
   },
   "dependencies": {
+    "@ps/fn": "*",
     "next": "^12.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sass": "^1.49.0",
-    "styled-components": "^5.3.6",
-    "@ps/fn": "*"
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.7",
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-essentials": "^6.5.12",
     "@storybook/addon-links": "^6.5.12",
@@ -28,11 +28,13 @@
     "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/react": "^6.5.12",
     "@types/styled-components": "^5.1.26",
-    "babel-loader": "^8.2.3",
-    "babel-plugin-styled-components": "^2.0.7",
     "serve": "^13.0.2",
-    "storybook-addon-next": "*"
+    "storybook-addon-next": "*",
+    "@babel/core": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "babel-plugin-styled-components": "^2.0.7"
   },
+  "xDependencies": {},
   "resolutions": {
     "styled-components": "^5"
   }

@@ -1,16 +1,13 @@
-import { forwardRef, memo, ReactElement } from 'react';
-import useComponentWithProps12 from 'hooks/useComponentWithProps12';
-import variants from './variants';
-import Block, { Props as BlockProps } from 'components/content/atoms/Block';
-import useStyledVariants from 'styles/useStyledVariants';
+import { forwardRef, memo, ReactElement } from "react";
+import useComponentWithProps12 from "hooks/useComponentWithProps12";
+import variants from "./variants";
+import Box, { Props as BoxProps } from "@/components/content/atoms/Box";
+import useStyledVariants from "styles/useStyledVariants";
 
-export type Props = BlockProps;
+export type Props = BoxProps;
 
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = ({ as, ...props }, ref) => {
-  const Styled = useStyledVariants(props, as || 'div', 'Card', variants);
+export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = ({ as, ...props }, ref) => {
+  const Styled = useStyledVariants(props, as || "div", "Card", variants);
   return <Styled ref={ref} {...props} />;
 };
 

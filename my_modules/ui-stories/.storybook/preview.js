@@ -1,6 +1,8 @@
 import AppProvider from "@/components/utils/AppProvider";
 import React, { useEffect } from "react";
 import { themes } from "@storybook/theming";
+import Box from "@/components/content/atoms/Box";
+import "@/styles/global/variables.css";
 
 export const parameters = {
   docs: {
@@ -68,7 +70,9 @@ export const decorators = [
     // console.log('story preview');
     return (
       <AppProvider>
-        <Story {...context} />
+        <Box variant="bg-gradient on-dark" ss="margin: -50px -30px;">
+          <Story {...context} />
+        </Box>
       </AppProvider>
     );
   },

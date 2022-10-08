@@ -3,7 +3,7 @@
     [
       "babel-plugin-styled-components",
       {
-        "ssr": false, // https://styled-components.com/docs/tooling#serverside-rendering
+        "ssr": true, // https://styled-components.com/docs/tooling#serverside-rendering
         "displayName": false, // https://styled-components.com/docs/tooling#better-debugging
         "fileName": false, // https://styled-components.com/docs/tooling#control-the-components-displayname
         "meaninglessFileNames": ["index", "styles", "variants"],

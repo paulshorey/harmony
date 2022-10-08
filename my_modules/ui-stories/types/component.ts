@@ -1,5 +1,5 @@
-type colorGroupType = string;
-type colorShadeType = string;
+type colorGroupType = string; // tsFix
+type colorShadeType = string; // tsFix
 
 import { htmlContainerTags as htmlContainerTagsImport } from "./html";
 

@@ -1,11 +1,11 @@
-import Block, { Props as BlockProps } from "@/components/content/atoms/Block";
+import Box, { Props as BoxProps } from "@/components/content/atoms/Box";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 import { FC, memo, forwardRef, ReactElement } from "react";
 import useComponentWithProps12 from "@/hooks/useComponentWithProps12";
 import variants from "./variants";
 import useStyledVariants from "@/styles/useStyledVariants";
 
-export type Props = BlockProps & {
+export type Props = BoxProps & {
   string: string;
 };
 

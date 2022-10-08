@@ -1,0 +1,63 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import Box from "@/components/content/atoms/Box";
+import AppProvider from "@/components/utils/AppProvider";
+import { Container, Title, Content, Button } from "./Components";
+
+<Meta title="Styled Components" id="about-3" />
+
+<AppProvider>
+<Wrapper>
+
+<Container variant="bg-color">
+  <Title color="cta1">on light:</Title>
+  <Content>
+    <Button variant="bg-gradient" color="cta1">
+      gradient cta1
+    </Button>
+    <Button color="cta1">default cta1</Button>
+    <Button>default</Button>
+    <Button variant="link" color="cta1">
+      link
+    </Button>
+    <Button variant="disabled" color="cta1">
+      disabled
+    </Button>
+  </Content>
+</Container>
+
+<Container variant="bg-gradient" color="cta1">
+  <Title color="cta2">on gradient:</Title>
+  <Content>
+    <Button variant="bg-gradient" color="cta2">
+      gradient cta2
+    </Button>
+    <Button color="cta2">default cta2</Button>
+    <Button>default</Button>
+    <Button variant="link" color="cta2">
+      link
+    </Button>
+    <Button variant="disabled" color="cta2">
+      disabled
+    </Button>
+  </Content>
+</Container>
+
+<Container variant="bg-color" shade="onDark">
+  <Title shade="onDark">on dark:</Title>
+  <Content>
+    <Button variant="bg-gradient" color="cta1">
+      gradient cta1
+    </Button>
+    <Button color="cta1">default cta1</Button>
+    <Button>default</Button>
+    <Button variant="link" color="cta1">
+      link
+    </Button>
+    <Button variant="disabled" color="cta1">
+      disabled
+    </Button>
+  </Content>
+</Container>
+
+</Wrapper>
+</AppProvider>
