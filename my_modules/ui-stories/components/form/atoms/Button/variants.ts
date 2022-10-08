@@ -1,5 +1,7 @@
 export default {
-  default: (theme: theme) => `
+  default: (theme: theme) => {
+    console.log("theme from Button", theme);
+    return `
     font-size: 1rem;
     overflow: hidden;
     border-radius: 7px;
@@ -7,10 +9,10 @@ export default {
     display: inline-Box;
     cursor: pointer;
     border: solid 1px;
-    border-color: ${theme.getColor("bgDark")};
+    border-color: var(--color-cta-to);
     box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
     padding: 12px 24px;
-    color: ${theme.getColor("bgDark")};
+    color: var(--color-cta-to);
     ${
       theme.instance.shade === "onDark"
         ? `
@@ -74,18 +76,19 @@ export default {
     &:focus-visible:not(:hover) {
       outline-style: double !important;
       outline-width: 1px !important;
-      outline-color: ${theme.getColor("bgDark")} !important;
+      outline-color: var(--color-cta-to) !important;
     }
-  `,
+  `;
+  },
   bgGradient: (theme: theme) => `
     color: ${theme.getColor("buttonText")};
-    text-shadow: 1px 1px 1px ${theme.getColor("bgDark")};
+    text-shadow: 1px 1px 1px var(--color-cta-to);
     background-size: 200% auto;
     & {
       background-image: linear-gradient(
         150deg,
         ${theme.getColor("bgLight")} -10%,
-        ${theme.getColor("bgDark")} 60%,
+        var(--color-cta-to) 60%,
         ${theme.getColor("bgLight")} 100%
       ) !important;
     }

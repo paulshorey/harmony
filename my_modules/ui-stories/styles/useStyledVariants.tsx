@@ -66,11 +66,15 @@ export default (
    *
    */
   const theme: theme = useTheme(); // style() 1st argument
+  props.theme = theme;
   // Many components extend another component (by returning a modified version of it).
   // In those cases, the final HTML/DOM element will have run through this function multiple times.
   // It will be sequential. Child after parent. So, keep the previous theme instance and add to it.
+
   if (!dataVariants) {
-    theme.instance = {
+    // In styled-components function, first argument is props.
+    // Replicate that functionality, but without all these extra ss props.
+    props.instance = {
       variants: { default: true },
       // @ts-ignore // checking if value exists for color
       color: ((color && !!theme.colors[color] && color) || "") + "",
@@ -96,7 +100,7 @@ export default (
     // }
     if (name) {
       // @ts-ignore // was undefined, now defining it, so whats the problem?
-      theme.instance.variants[name.toLowerCase()] = true;
+      theme.instance.variants[name] = true;
     }
     if (props.hasOwnProperty("disabled")) {
       // @ts-ignore // was undefined, now defining it, so whats the problem?
@@ -106,14 +110,14 @@ export default (
     if (variantStrs.length) {
       for (const str of variantStrs) {
         // @ts-ignore // was undefined, now defining it, so whats the problem?
-        theme.instance.variants[str.toLowerCase()] = true;
+        theme.instance.variants[str] = true;
       }
     }
     // props.variants (string[])
     if (variants?.length) {
       for (const str of variants) {
         // @ts-ignore // was undefined, now defining it, so whats the problem?
-        theme.instance.variants[str.toLowerCase()] = true;
+        theme.instance.variants[str] = true;
       }
     }
     // Apply variants
@@ -124,7 +128,7 @@ export default (
           ssOutput += style_to_string(
             // @ts-ignore // styles[variant] is defined, so use it
             styles[variant],
-            theme
+            props
           );
         }
         // If component-specific style is not defined,
@@ -133,7 +137,7 @@ export default (
           ssExtra += style_to_string(
             // @ts-ignore // theme.variants[variant] is defined, so use it
             theme.variants[variant],
-            theme
+            props
           );
         }
       }
@@ -169,82 +173,82 @@ export default (
   }, []);
 
   if (ss) {
-    ssOutput += `\n${style_to_string(ss, theme)}\n`;
+    ssOutput += `\n${style_to_string(ss, props)}\n`;
   }
   if (ssAll) {
-    ssOutput += `${theme.mq.all} { ${style_to_string(ssAll, theme)} }\n`;
+    ssOutput += `${theme.mq.all} { ${style_to_string(ssAll, props)} }\n`;
   }
   if (ssLg) {
-    ssOutput += `${theme.mq.lg} { ${style_to_string(ssLg, theme)} }\n`;
+    ssOutput += `${theme.mq.lg} { ${style_to_string(ssLg, props)} }\n`;
   }
   if (ssSm) {
-    ssOutput += `${theme.mq.sm} { ${style_to_string(ssSm, theme)} }\n`;
+    ssOutput += `${theme.mq.sm} { ${style_to_string(ssSm, props)} }\n`;
   }
   if (ssDesktop) {
-    ssOutput += `${theme.mq.desktop} { ${style_to_string(ssDesktop, theme)} }\n`;
+    ssOutput += `${theme.mq.desktop} { ${style_to_string(ssDesktop, props)} }\n`;
   }
   if (ssMobile) {
-    ssOutput += `${theme.mq.mobile} { ${style_to_string(ssMobile, theme)} }\n`;
+    ssOutput += `${theme.mq.mobile} { ${style_to_string(ssMobile, props)} }\n`;
   }
   if (ssTablet) {
-    ssOutput += `${theme.mq.tablet} { ${style_to_string(ssTablet, theme)} }\n`;
+    ssOutput += `${theme.mq.tablet} { ${style_to_string(ssTablet, props)} }\n`;
   }
   if (ssLargeTablet) {
-    ssOutput += `${theme.mq.largeTablet} { ${style_to_string(ssLargeTablet, theme)} }\n`;
+    ssOutput += `${theme.mq.largeTablet} { ${style_to_string(ssLargeTablet, props)} }\n`;
   }
   if (ssNotPhone) {
-    ssOutput += `${theme.mq.notPhone} { ${style_to_string(ssNotPhone, theme)} }\n`;
+    ssOutput += `${theme.mq.notPhone} { ${style_to_string(ssNotPhone, props)} }\n`;
   }
   if (ssPhone) {
-    ssOutput += `${theme.mq.phone} { ${style_to_string(ssPhone, theme)} }\n`;
+    ssOutput += `${theme.mq.phone} { ${style_to_string(ssPhone, props)} }\n`;
   }
   if (ssSmallPhone) {
-    ssOutput += `${theme.mq.smallPhone} { ${style_to_string(ssSmallPhone, theme)} }\n`;
+    ssOutput += `${theme.mq.smallPhone} { ${style_to_string(ssSmallPhone, props)} }\n`;
   }
   if (ssTinyPhone) {
-    ssOutput += `${theme.mq.tinyPhone} { ${style_to_string(ssTinyPhone, theme)} }\n`;
+    ssOutput += `${theme.mq.tinyPhone} { ${style_to_string(ssTinyPhone, props)} }\n`;
   }
   if (ssLargeDesktop) {
-    ssOutput += `${theme.mq.largeDesktop} { ${style_to_string(ssLargeDesktop, theme)} }\n`;
+    ssOutput += `${theme.mq.largeDesktop} { ${style_to_string(ssLargeDesktop, props)} }\n`;
   }
   if (ssVeryLargeDesktop) {
-    ssOutput += `${theme.mq.veryLargeDesktop} { ${style_to_string(ssVeryLargeDesktop, theme)} }\n`;
+    ssOutput += `${theme.mq.veryLargeDesktop} { ${style_to_string(ssVeryLargeDesktop, props)} }\n`;
   }
   if (ssPortrait) {
-    ssOutput += `${theme.mq.portrait} { ${style_to_string(ssPortrait, theme)} }\n`;
+    ssOutput += `${theme.mq.portrait} { ${style_to_string(ssPortrait, props)} }\n`;
   }
   if (ssLandscape) {
-    ssOutput += `${theme.mq.landscape} { ${style_to_string(ssLandscape, theme)} }\n`;
+    ssOutput += `${theme.mq.landscape} { ${style_to_string(ssLandscape, props)} }\n`;
   }
   if (ssMac) {
-    ssOutput += `${deviceInfo?.device === "Mac" && `${style_to_string(ssMac, theme)}`}\n`;
+    ssOutput += `${deviceInfo?.device === "Mac" && `${style_to_string(ssMac, props)}`}\n`;
   }
   if (ssWindows) {
-    ssOutput += `${deviceInfo?.device === "Windows" && `${style_to_string(ssWindows, theme)}`}\n`;
+    ssOutput += `${deviceInfo?.device === "Windows" && `${style_to_string(ssWindows, props)}`}\n`;
   }
   if (ssLinux) {
-    ssOutput += `${deviceInfo?.device === "Linux" && `${style_to_string(ssLinux, theme)}`}\n`;
+    ssOutput += `${deviceInfo?.device === "Linux" && `${style_to_string(ssLinux, props)}`}\n`;
   }
   if (ssAndroid) {
-    ssOutput += `${deviceInfo?.device === "Android" && `${style_to_string(ssAndroid, theme)}`}\n`;
+    ssOutput += `${deviceInfo?.device === "Android" && `${style_to_string(ssAndroid, props)}`}\n`;
   }
   if (ssIPad) {
-    ssOutput += `${deviceInfo?.device === "iOS" && `${style_to_string(ssIPad, theme)}`}\n`;
+    ssOutput += `${deviceInfo?.device === "iOS" && `${style_to_string(ssIPad, props)}`}\n`;
   }
   if (ssIPhone) {
-    ssOutput += `${deviceInfo?.device === "iPhone" && `${style_to_string(ssIPhone, theme)}`}\n`;
+    ssOutput += `${deviceInfo?.device === "iPhone" && `${style_to_string(ssIPhone, props)}`}\n`;
   }
   if (ssIframe && deviceInfo?.inIframe) {
-    ssOutput += `${style_to_string(ssIframe, theme)}\n`;
+    ssOutput += `${style_to_string(ssIframe, props)}\n`;
   }
   if (ssNotIframe && !deviceInfo?.inIframe) {
-    ssOutput += `${style_to_string(ssNotIframe, theme)}\n`;
+    ssOutput += `${style_to_string(ssNotIframe, props)}\n`;
   }
   if (ssWebview && deviceInfo?.inWebview) {
-    ssOutput += `${style_to_string(ssWebview, theme)}\n`;
+    ssOutput += `${style_to_string(ssWebview, props)}\n`;
   }
   if (ssNotWebview && !deviceInfo?.inWebview) {
-    ssOutput += `${style_to_string(ssNotWebview, theme)}\n`;
+    ssOutput += `${style_to_string(ssNotWebview, props)}\n`;
   }
   // ssOutput += `\n}\n`;
 
@@ -271,9 +275,11 @@ export default (
    * Return component with props applied
    *
    */
-  console.log(name, as, ssOutput);
   // tsFix - what keys does StyledComponents HOC support?
-  return styled.div`
+  return styled[as]`
+    ${(props) => {
+      console.log("props", props);
+    }}
     ${ssOutput}
-  `;
+  ` as React.ElementType;
 };

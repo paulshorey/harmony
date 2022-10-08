@@ -21,7 +21,7 @@
   --color-bg-to: #ccc;
   --color-bgText: #666;
 }
-.on-dark {
+.onDark {
   --color-text: #fff;
 }
 
@@ -36,7 +36,7 @@
   --color-deep-to: hsl(39deg 100% 46%);
   --color-deep-text: #000;
 }
-.on-dark .colors-accent {
+.onDark .colors-accent {
   --color-text: gold;
 }
 
@@ -51,7 +51,7 @@
   --color-deep-to: hsl(239 80% 100% / 0.75);
   --color-deep-text: #000;
 }
-.on-dark .colors-primary {
+.onDark .colors-primary {
 }
 
 .colors-secondary {
@@ -65,5 +65,5 @@
   --color-deep-to: hsl(239 80% 100% / 0.75);
   --color-deep-text: #000;
 }
-.on-dark .colors-secondary {
+.onDark .colors-secondary {
 }
