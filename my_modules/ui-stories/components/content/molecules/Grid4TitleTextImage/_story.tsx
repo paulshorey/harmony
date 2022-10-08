@@ -4,7 +4,7 @@ import Component from ".";
 export default (props: props) => (
   <Box variant="centered">
     <Component
-      variant={"title-image-text-image"}
+      variant={"titleImageTextImage"}
       image={<img src="https://cdn.mqtatic.net/Img/teams/teams-illo-free-sidebar-promo.svg?v=47faa659a05e" />}
       text={
         <p>

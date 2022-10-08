@@ -12,7 +12,7 @@ AnyHtmlTag.argTypes = argTypes(variantKeys);
 AnyHtmlTag.args = {
   as: "span",
   ss: "max-width: 400px; .nowrap {color: orange;}",
-  variants: ["text-gradient", "border-bottom"],
+  variants: ["textGradient", "borderBottom"],
   variant: "",
   color: "cta1",
   shade: "default",
@@ -22,7 +22,7 @@ Center.argTypes = argTypes(variantKeys);
 Center.args = {
   as: "center",
   ss: "max-width: 400px; .nowrap {color: orange;}",
-  variants: ["text-gradient"],
+  variants: ["textGradient"],
   variant: "",
   color: "cta1",
   shade: "default",
@@ -32,7 +32,7 @@ Code.argTypes = argTypes(variantKeys);
 Code.args = {
   as: "code",
   ss: "max-width: 400px; .nowrap {color: orange;}",
-  variants: ["text-gradient", "code"],
+  variants: ["textGradient", "code"],
   variant: "",
   color: "cta1",
   shade: "default",

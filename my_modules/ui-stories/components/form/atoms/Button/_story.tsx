@@ -3,14 +3,14 @@ import Button from ".";
 export default (args: any) => {
   const Box = withBox({
     ss: "padding:1rem;",
-    variant: "bg-white",
+    variant: "bgWhite",
   });
   return (
     <div>
       <Box>
         <Button {...args}>Button text</Button>
       </Box>
-      <Box variant="bg-gradient" color="cta1">
+      <Box variant="bgGradient" color="cta1">
         <Button shade="onDark" {...args}>
           Button text
         </Button>

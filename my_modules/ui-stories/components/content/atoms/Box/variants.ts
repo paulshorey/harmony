@@ -2,7 +2,7 @@ export default {
   default: (theme: theme) => `
     position: relative;
   `,
-  "border-bottom": (theme: theme) => `
+  borderBottom: (theme: theme) => `
     text-decoration: none;
     padding: 0;
     display: inline-Box;
@@ -29,7 +29,7 @@ export default {
     color: var(--color-cta-text);
     background: var(--color-cta);
   `,
-  "bg-gradient": (theme: theme) => `
+  bgGradient: (theme: theme) => `
     box-decoration-break: clone;
     color: var(--color-cta-text);
     background: var(--color-cta);
@@ -42,7 +42,7 @@ export default {
   text: (theme: theme) => `
     color: var(--color-text);  
   `,
-  "text-gradient": (theme: theme) => `
+  textGradient: (theme: theme) => `
     color: var(--color-cta-text);
     @supports (--css: variables) {
       background-image: linear-gradient(

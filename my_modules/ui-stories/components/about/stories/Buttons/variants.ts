@@ -1,6 +1,6 @@
 export default {
   default: (theme: theme) => {
-    const isDark = theme.instance.variants?.["bg-gradient"] || theme.instance.shade === "onDark";
+    const isDark = theme.instance.variants?.["bgGradient"] || theme.instance.shade === "onDark";
     return `
       font-size: 1rem;
       overflow: hidden;
@@ -80,7 +80,7 @@ export default {
       }
     `;
   },
-  "bg-gradient": (theme: theme) => `
+  bgGradient: (theme: theme) => `
     color: ${theme.getColor("buttonText")};
     text-shadow: 1px 1px 1px ${theme.getColor("bgDark")};
     background-size: 200% auto;
@@ -157,7 +157,7 @@ export default {
       }
     `;
   },
-  "loading-circle": (theme: theme) => `
+  loadingCircle: (theme: theme) => `
       @keyframes donut-spin {
         0% {
           transform: rotate(0deg);

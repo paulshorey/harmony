@@ -7,7 +7,7 @@ import { Box } from "@/components/content/atoms/Box";
 const variantKeys = Object.keys(variants);
 const args = {
   ss: "",
-  variants: ["bg-gradient"],
+  variants: ["bgGradient"],
   color: "cta2",
 };
 

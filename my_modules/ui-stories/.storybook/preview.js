@@ -70,7 +70,7 @@ export const decorators = [
     // console.log('story preview');
     return (
       <AppProvider>
-        <Box variant="bg-gradient on-dark" ss="margin: -50px -30px;">
+        <Box variant="bgGradient on-dark" ss="margin: -50px -30px;">
           <Story {...context} />
         </Box>
       </AppProvider>

@@ -1,17 +1,17 @@
 export default {
-  'title-image-text-image': (theme: theme) => `
+  titleImageTextImage: (theme: theme) => `
     grid-template-areas:
       'title image'
       'text image';
     grid-template-columns: 1fr 1fr;
   `,
-  'image-title-image-text': (theme: theme) => `
+  imageTitleImageText: (theme: theme) => `
     grid-template-areas:
       'image title'
       'image text';
     grid-template-columns: 1fr 1fr;
   `,
-  'title-title-text-image': (theme: theme) => `
+  titleTitleTextImage: (theme: theme) => `
     grid-template-areas:
       'title title'
       'text image';
@@ -20,7 +20,7 @@ export default {
       text-align: center;
     }
   `,
-  'title-title-image-text': (theme: theme) => `
+  titleTitleImageText: (theme: theme) => `
     grid-template-areas:
       'title title'
       'image text';
@@ -28,7 +28,7 @@ export default {
       text-align: center;
     }
   `,
-  'default': (theme: theme) => `
+  default: (theme: theme) => `
     position: relative;
     display: grid !important;
     grid-template-columns: 1fr 1fr;

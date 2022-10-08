@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas } from "@storybook/addon-docs";
 import Box from "@/components/content/atoms/Box";
 import AppProvider from "@/components/utils/AppProvider";
+import { Wrapper } from "../../components/Components";
 import { Container, Title, Content, Button } from "./Components";
 
 <Meta title="Styled Components" id="about-3" />
@@ -8,10 +9,10 @@ import { Container, Title, Content, Button } from "./Components";
 <AppProvider>
 <Wrapper>
 
-<Container variant="bg-color">
+<Container variant="bgColor">
   <Title color="cta1">on light:</Title>
   <Content>
-    <Button variant="bg-gradient" color="cta1">
+    <Button variant="bgGradient" color="cta1">
       gradient cta1
     </Button>
     <Button color="cta1">default cta1</Button>
@@ -25,10 +26,10 @@ import { Container, Title, Content, Button } from "./Components";
   </Content>
 </Container>
 
-<Container variant="bg-gradient" color="cta1">
+<Container variant="bgGradient" color="cta1">
   <Title color="cta2">on gradient:</Title>
   <Content>
-    <Button variant="bg-gradient" color="cta2">
+    <Button variant="bgGradient" color="cta2">
       gradient cta2
     </Button>
     <Button color="cta2">default cta2</Button>
@@ -42,10 +43,10 @@ import { Container, Title, Content, Button } from "./Components";
   </Content>
 </Container>
 
-<Container variant="bg-color" shade="onDark">
+<Container variant="bgColor" shade="onDark">
   <Title shade="onDark">on dark:</Title>
   <Content>
-    <Button variant="bg-gradient" color="cta1">
+    <Button variant="bgGradient" color="cta1">
       gradient cta1
     </Button>
     <Button color="cta1">default cta1</Button>

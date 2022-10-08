@@ -19,7 +19,7 @@
   --color-bg: #fff;
   --color-bg-from: #efefef;
   --color-bg-to: #ccc;
-  --color-bg-text: #666;
+  --color-bgText: #666;
 }
 .on-dark {
   --color-text: #fff;

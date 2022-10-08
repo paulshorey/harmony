@@ -5,8 +5,8 @@ import useShowStorybookCode from "hooks/useShowStorybookCode";
 export default function (args: any) {
   useShowStorybookCode();
   return (
-    <Box variant="padding text-color" shade="onDark">
-      <Box variant="bg-gradient text-white" color="cta1" ss="padding:1rem 2rem;margin:0;">
+    <Box variant="padding textColor" shade="onDark">
+      <Box variant="bgGradient textWhite" color="cta1" ss="padding:1rem 2rem;margin:0;">
         <p>
           <Link href="#" target="_blank">
             Link

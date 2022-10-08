@@ -77,7 +77,7 @@ export default {
       outline-color: ${theme.getColor("bgDark")} !important;
     }
   `,
-  "bg-gradient": (theme: theme) => `
+  bgGradient: (theme: theme) => `
     color: ${theme.getColor("buttonText")};
     text-shadow: 1px 1px 1px ${theme.getColor("bgDark")};
     background-size: 200% auto;
@@ -154,7 +154,7 @@ export default {
       }
     `;
   },
-  "loading-circle": (theme: theme) => `
+  loadingCircle: (theme: theme) => `
       @keyframes donut-spin {
         0% {
           transform: rotate(0deg);

@@ -23,60 +23,74 @@ export const Code = withBox({
   `,
 });
 
-export const Wrapper = withBox({
-  variant: "bg-gradient text-color",
-  color: "cta1",
-  ss: (theme) => `
-    margin: -4rem -20px;
-    padding: 50px 5vw 100px;
+export const Wrapper = ({ children, ...props }) => (
+  <Box
+    {...props}
+    variant={"bgGradient textColor"}
+    ss={(theme) => `
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      padding: 3.5rem 5vw 100px;
 
-    .gold {
-      color: gold;
-      font-weight: 600;
-    }
-    a, .orange {
-      color: orange;
-    }
-    svg {
-      display: inline;
-      color: var(--color-cta-text);
-      padding-left: 0;
-      margin-left: 0;
-      height: 12px;
-      width: auto;
-      position: relative;
-      top: 2px;
-    }
-    h6 {
-      margin-bottom: 0;
-    }
-    b {
-      color: white;
-      white-space: nowrap;
-    }
-    p {
-      font-size: 0.9em;
-      margin: 0.9rem 0;
-    }
-    pre {
-      color: color: gold;
-      margin: 0;
-      opacity: 0.5;
-    }
-    code {
-      font-size: 0.9em;
-      line-height: 1.2em;
-      color: gold;
-      font-weight: 700;
-    }
-  `,
-  ssIframe: `
-    p span {
-      display: block;
-      white-space: nowrap;
-    }
-  `,
-});
+      .gold {
+        color: gold;
+        font-weight: 600;
+      }
+      a, .orange {
+        color: orange;
+      }
+      svg {
+        display: inline;
+        color: var(--color-cta-text);
+        padding-left: 0;
+        margin-left: 0;
+        height: 12px;
+        width: auto;
+        position: relative;
+        top: 2px;
+      }
+      h6 {
+        margin-bottom: 0;
+      }
+      b {
+        color: white;
+        white-space: nowrap;
+      }
+      p {
+        font-size: 0.9em;
+        margin: 0.9rem 0;
+      }
+      pre {
+        color: color: gold;
+        margin: 0;
+        opacity: 0.5;
+      }
+      code {
+        font-size: 0.9em;
+        line-height: 1.2em;
+        color: gold;
+        font-weight: 700;
+      }
+    `}
+    ssIframe={`
+      p span {
+        display: block;
+        white-space: nowrap;
+      }
+    `}
+  >
+    <Box
+      ss={`
+      max-width: 1000px;
+      margin: 0 auto;
+    `}
+    >
+      {children}
+    </Box>
+  </Box>
+);
 
 export const MediaQueriesDemo = () => (
   <>

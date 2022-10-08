@@ -6,7 +6,7 @@ import variants from "./variants";
 const variantKeys = Object.keys(variants);
 const args = {
   ss: "",
-  variants: ["border-bottom", "text-gradient"],
+  variants: ["borderBottom", "textGradient"],
   variant: "",
   color: "cta1",
   shade: "",

@@ -1,7 +1,7 @@
-import { createGlobalStyle, useTheme } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import style_to_string from "@ps/fn/browser/style/style_to_string";
 
-const useGlobalStyles = (theme: any) => {
+const useGlobalStyles = (theme: theme) => {
   // get updated theme (in case 3rd party app changed it) before unpacking below
   const themeGlobalStyles = theme && theme?.getGlobalStyles ? theme?.getGlobalStyles() : "";
   // unpack each style from the current theme
