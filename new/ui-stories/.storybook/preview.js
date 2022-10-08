@@ -1,18 +1,10 @@
 import AppProvider from "@/components/utils/AppProvider";
 import React, { useEffect } from "react";
+import { themes } from "@storybook/theming";
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
-  },
-  nextRouter: {
-    query: {
-      foo: "this-is-a-global-override",
-    },
+  docs: {
+    theme: themes.dark,
   },
 };
 

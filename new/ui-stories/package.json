@@ -1,5 +1,5 @@
 {
-  "name": "storybook-addon-next--v12",
+  "name": "ui-stories",
   "private": true,
   "scripts": {
     "dev": "next dev",

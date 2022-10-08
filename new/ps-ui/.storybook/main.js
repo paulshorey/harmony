@@ -28,6 +28,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-actions',
+    'storybook-dark-mode',
     './addons/expand-all/register.js',
     // 'storybook-addon-next',
     // '@storybook/addon-viewport',

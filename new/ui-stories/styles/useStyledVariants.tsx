@@ -271,5 +271,8 @@ export default (
    * Return component with props applied
    *
    */
-  return styled(as)(ssOutput); // tsFix - what keys does StyledComponents HOC support?
+  console.log("ssOutput", ssOutput);
+  return styled[as]`
+    ${ssOutput}
+  `; // tsFix - what keys does StyledComponents HOC support?
 };
