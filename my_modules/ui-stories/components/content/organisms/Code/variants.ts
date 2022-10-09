@@ -1,5 +1,5 @@
 export default {
-  default: (theme: theme) => `
+  default: (props: any) => `
     overflow: hidden;
     padding: 12px 24px;
     border-radius: 7px;

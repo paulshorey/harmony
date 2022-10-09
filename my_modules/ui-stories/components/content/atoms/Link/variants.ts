@@ -1,15 +1,15 @@
 export default {
-  default: (theme: theme) => `
+  default: (props: any) => `
     `,
-  textGradient: (theme: theme) => {
+  textGradient: (props: any) => {
     return `
-        color: ${theme.getColor("link")};
+        color: var(--color-cta);
         @supports (--css: variables) {
           background-image: linear-gradient(
             to right,
-            ${theme.getColor("subtle")},
-            ${theme.getColor("bgLight")},
-            ${theme.getColor("bgDark")}
+            var(--color-subtle),
+            var(--color-cta-from),
+            var(--color-cta-to)
           );
           color: transparent;
           background-size: 100%;

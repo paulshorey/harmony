@@ -13,16 +13,18 @@ import {
 } from "@/types/component";
 // import { useEffect } from 'react';
 
+type asType = keyof JSX.IntrinsicElements | React.ComponentType<any>;
+
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
  * It takes all the custom ss props, plus styles, variants, css, and aggregates them into one css prop.
  */
 export default (
   props: ssComponentPropsType,
-  as: htmlContainerTags = "div",
-  name: string,
+  tagName: asType = "div",
+  componentName: string,
   styles?: Record<string, ssPropType | cssPropType> // obj - style for each variant - Record<VariantKey, StyleString | FunctionThatReturnsString>
-) => {
+): [React.ElementType, Record<string, any>] => {
   let {
     // className = '',
     color = "",
@@ -66,7 +68,7 @@ export default (
    * theme.instance
    *
    */
-  const theme: theme = useTheme(); // style() 1st argument
+  const theme = useTheme(); // style() 1st argument
   props.theme = theme;
   // Many components extend another component (by returning a modified version of it).
   // In those cases, the final HTML/DOM element will have run through this function multiple times.
@@ -75,7 +77,7 @@ export default (
   if (!dataVariants) {
     // In @emotion/styled function, first argument is props.
     // Replicate that functionality, but without all these extra ss props.
-    props.instance = {
+    theme.instance = {
       variants: { default: true },
       // @ts-ignore // checking if value exists for color
       color: ((color && !!theme.colors[color] && color) || "") + "",
@@ -99,9 +101,9 @@ export default (
     // // @ts-ignore // was undefined, now defining it, so whats the problem?
     // theme.instance.variants[as] = true;
     // }
-    if (name) {
+    if (componentName) {
       // @ts-ignore // was undefined, now defining it, so whats the problem?
-      theme.instance.variants[name] = true;
+      theme.instance.variants[componentName] = true;
     }
     if (props.hasOwnProperty("disabled")) {
       // @ts-ignore // was undefined, now defining it, so whats the problem?
@@ -254,33 +256,16 @@ export default (
   // ssOutput += `\n}\n`;
 
   ssOutput += ssExtra;
-
   ssOutput = ssOutput.replace(/label:(.*?);/g, "").replace(/([;]+)/g, ";");
-  // ssOutput += ';label:' + label + ';';
-
-  /*
-   *
-   * Maybe add global
-   *
-   */
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const ss = document.createElement('style');
-  //     ss.innerHTML = ssOutput;
-  //     document.head.appendChild(ss);
-  //   }
-  // }, []);
 
   /*
    *
    * Return component with props applied
    *
    */
-  // tsFix - what keys does StyledComponents HOC support?
-  return styled[as]`
-    ${(props) => {
-      console.log("props", props);
-    }}
+  const styledFunction = styled[tagName];
+  const styledComponent = styledFunction`
     ${ssOutput}
-  ` as React.ElementType;
+  `;
+  return [styledComponent, otherProps];
 };

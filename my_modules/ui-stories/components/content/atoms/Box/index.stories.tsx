@@ -1,7 +1,7 @@
 import { Component } from ".";
 import _block from "./_block";
 import _centered from "./_centered";
-import _inline from "./_inline";
+import _code from "./_code";
 import description from "./_story.md";
 import { argTypes } from "styles/storybook";
 import variants from "./variants";
@@ -27,7 +27,7 @@ Center.args = {
   color: "cta1",
   shade: "default",
 };
-export const Code = _centered.bind({});
+export const Code = _code.bind({});
 Code.argTypes = argTypes(variantKeys);
 Code.args = {
   as: "code",

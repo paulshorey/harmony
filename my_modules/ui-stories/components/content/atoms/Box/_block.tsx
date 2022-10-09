@@ -6,7 +6,7 @@ export default function (args: any) {
   const Code = withBox({ as: "code", ...args });
   const U = withBox({ as: "u", variant: "textColor", ...args });
   return (
-    <Box as="p" shade="onDark" ss="padding:2rem;">
+    <Box as="p" onDark ss="padding:2rem;">
       Box can be used as a <Code>div</Code>{" "}
       <U {...args}>
         or as a <Code>u</Code>

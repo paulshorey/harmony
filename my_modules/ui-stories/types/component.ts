@@ -5,10 +5,10 @@ import { htmlContainerTags as htmlContainerTagsImport } from "./html";
 
 export type htmlContainerTags = htmlContainerTagsImport;
 
-// tsFix - any used to mean SerializedStyles - maybe upgrade to get type from styled-components
+// tsFix - any used to mean SerializedStyles - maybe upgrade to get type from @emotion/styled
 export type cssPropType = any | Array<any | ((...args: any) => any)> | ((...args: any) => any);
 
-// custom "styled strings" type for this library - should accept styled-components too
+// custom "styled strings" type for this library - should accept @emotion/styled too
 export type ssPropType = string | ((...args: any) => string) | Array<string | ((...args: any) => string)>;
 
 /**
@@ -158,11 +158,11 @@ export type ssProps = {
   /**
    * This component and all elements inside it will use theme.colors[colorGroup].onDark (if defined), if not will fall back to alternative
    */
-  onDark?: boolean;
+  onDark?: any;
   /**
    * This component and all elements inside it will use theme.colors[colorGroup].onLight (if defined), if not will fall back to alternative
    */
-  onLight?: boolean;
+  onLight?: any;
 };
 
 export type ReactForwardedRefType = any; // tsFix - what is the type of "ref" as returned by React.forwardRef()?

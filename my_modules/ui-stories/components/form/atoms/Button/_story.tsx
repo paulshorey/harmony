@@ -11,8 +11,8 @@ export default (args: any) => {
       <Box variant="bgWhite">
         <Button {...args}>Button text</Button>
       </Box>
-      <Box variant="bgGradient" onDark className="onDark">
-        <Button shade="onDark" {...args}>
+      <Box variant="bgGradient" onDark>
+        <Button onDark {...args}>
           Button text
         </Button>
       </Box>

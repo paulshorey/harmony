@@ -1,7 +1,5 @@
 export default {
-  default: (theme: theme) => {
-    console.log("theme from Button", theme);
-    return `
+  default: (props: any) => `
     font-size: 1rem;
     overflow: hidden;
     border-radius: 7px;
@@ -13,26 +11,6 @@ export default {
     box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
     padding: 12px 24px;
     color: var(--color-cta-to);
-    ${
-      theme.instance.shade === "onDark"
-        ? `
-        background-image: linear-gradient(
-          160deg,
-          hsl(0, 0%, 90%) 0%,
-          hsl(0, 0%, 75%) 67%,
-          hsl(0, 0%, 80%) 100%
-        )!important
-      `
-        : `
-        background-image: linear-gradient(
-          160deg,
-          hsl(0, 0%, 97%) 0%,
-          hsl(0, 0%, 81%) 67%,
-          hsl(0, 0%, 93%) 100%
-        ) !important;
-        text-shadow: 1px 1px 1px rgba(255,255,255,0.15);
-      `
-    };
     &:not(:hover):not(:focus) {
       border-top-color: transparent;
       border-left-color: transparent;
@@ -40,19 +18,6 @@ export default {
         top: 0;
         left: 0;
       }
-    }
-    &:hover {
-      ${
-        theme.instance.shade === "onDark"
-          ? `
-        box-shadow: 1.5px 2.25px 0 0 hsl(0, 0%, 33%, 0.67),
-          1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
-        `
-          : `
-        box-shadow: 1px 2px 0 0 hsl(0, 0%, 33%, 0.33),
-          1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
-        `
-      };
     }
     &:focus {
       border-bottom-color: transparent;
@@ -62,7 +27,7 @@ export default {
         top: 1px;
         left: 1px;
       }
-      box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, ${theme.instance.shade === "onDark" ? "0.5" : "0.15"});
+      box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, 0.25);
       > * {
         top: 1px;
         left: 1px;
@@ -78,31 +43,65 @@ export default {
       outline-width: 1px !important;
       outline-color: var(--color-cta-to) !important;
     }
-  `;
-  },
-  bgGradient: (theme: theme) => `
-    color: ${theme.getColor("buttonText")};
+  `,
+  // onDark: (props: any) => `
+  // ${
+  //   props?.onDark
+  //     ? `
+  //     background-image: linear-gradient(
+  //       160deg,
+  //       hsl(0, 0%, 90%) 0%,
+  //       hsl(0, 0%, 75%) 67%,
+  //       hsl(0, 0%, 80%) 100%
+  //     )!important
+  //   `
+  //     : `
+  //     background-image: linear-gradient(
+  //       160deg,
+  //       hsl(0, 0%, 97%) 0%,
+  //       hsl(0, 0%, 81%) 67%,
+  //       hsl(0, 0%, 93%) 100%
+  //     ) !important;
+  //     text-shadow: 1px 1px 1px rgba(255,255,255,0.15);
+  //   `
+  // };
+  // &:hover {
+  //   ${
+  //     props?.onDark
+  //       ? `
+  //     box-shadow: 1.5px 2.25px 0 0 hsl(0, 0%, 33%, 0.67),
+  //       1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
+  //     `
+  //       : `
+  //     box-shadow: 1px 2px 0 0 hsl(0, 0%, 33%, 0.33),
+  //       1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
+  //     `
+  //   };
+  // }
+  // `,
+  bgGradient: (props: any) => `
+    color: var(--color-cta-text);
     text-shadow: 1px 1px 1px var(--color-cta-to);
     background-size: 200% auto;
     & {
       background-image: linear-gradient(
         150deg,
-        ${theme.getColor("bgLight")} -10%,
+        var(--color-cta-from) -10%,
         var(--color-cta-to) 60%,
-        ${theme.getColor("bgLight")} 100%
+        var(--color-cta-from) 100%
       ) !important;
     }
     &:hover,
     &:focus:not(:hover) {
       transition: background-position 300ms linear 0s;
       background-position: right center;
-      border-color: ${theme.getColor("bgLight")};
+      border-color: var(--color-cta-from);
     }
     &:focus {
     }
   `,
-  disabled: (theme: theme) => {
-    const shadowColor = theme.instance.shade === "onDark" ? "hsla(0, 0%, 80%)" : "hsla(0, 0%, 90%)";
+  disabled: (props: any) => {
+    const shadowColor = props?.onDark ? "hsla(0, 0%, 80%)" : "hsla(0, 0%, 90%)";
     return `
       cursor: not-allowed;
       text-shadow: none;
@@ -112,20 +111,20 @@ export default {
         border: none !important;
         box-shadow: none !important;
         background: ${shadowColor};
-        color: ${theme.getColor("subtle", "default", "default")};
+        color: var(--color-subtle);
       }
     `;
   },
-  link: (theme: theme) => {
+  link: (props: any) => {
     return `
       border: none !important;
       box-shadow: none !important;
       background: none !important;
-      color: ${theme.getColor("link")};
+      color: var(--color-cta);
       &:hover:not(:focus) {
-        color: ${theme.getColor("border")};
+        color: var(--color-cta-to);
         ${
-          theme.instance.shade === "onDark"
+          props?.onDark
             ? `
             box-shadow: 1px 2px 1px 1px hsl(0, 0%, 33%, 0.33),
               2px 2px 3px 0 hsl(0, 0%, 0%, 0.2) !important;
@@ -141,8 +140,8 @@ export default {
       }
     `;
   },
-  pulsing: (theme: theme) => {
-    const shadowColor = theme.instance.shade === "onDark" ? 255 : 0;
+  pulsing: (props: any) => {
+    const shadowColor = props?.onDark ? 255 : 0;
     return `
       padding: 12px 24px;
       border-radius: 7px;
@@ -157,7 +156,7 @@ export default {
       }
     `;
   },
-  loadingCircle: (theme: theme) => `
+  loadingCircle: (props: any) => `
       @keyframes donut-spin {
         0% {
           transform: rotate(0deg);

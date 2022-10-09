@@ -12,9 +12,9 @@ export default function style_to_string(
    */
   style: ssPropType | cssPropType, // EmotionCssPropType or plain string. Will be converted to string.
   /**
-   * the theme. It will be passed to the EmotionJS function as the 1st argument (if it is a function. Otherwise ignored)
+   * props, just like in a styled-components function
    */
-  theme?: Record<string, any>,
+  props?: Record<string, any>,
   /**
    * options object to pass to the style function as 2nd argument (if it is a function. Otherwise ignored)
    */
@@ -31,12 +31,12 @@ export default function style_to_string(
   // if array
   else if (Array.isArray(style)) {
     style.forEach((item) => {
-      output += style_to_string(item, theme, options);
+      output += style_to_string(item, props, options);
     });
   }
   // if function
   else if (typeof style === "function") {
-    output += style_to_string(style(theme, options));
+    output += style_to_string(style(props, options));
   }
   // if emotion is SerializedStyles type
   else if (obj_has_key(style, "styles") && typeof style.styles === "string") {

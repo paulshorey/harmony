@@ -1,4 +1,3 @@
-import { createGlobalStyle } from "styled-components";
 import style_to_string from "@ps/fn/browser/style/style_to_string";
 
 const useGlobalStyles = (theme: theme) => {
@@ -10,9 +9,7 @@ const useGlobalStyles = (theme: theme) => {
     globalStyleString += style_to_string(html, theme) + "\n";
   }
   // use the global styles from theme
-  return createGlobalStyle`
-  ${globalStyleString}
-  `;
+  return globalStyleString;
 };
 
 export default useGlobalStyles;

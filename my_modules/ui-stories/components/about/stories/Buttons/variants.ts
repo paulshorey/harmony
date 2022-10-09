@@ -1,7 +1,5 @@
 export default {
-  default: (theme: theme) => {
-    const isDark = theme.instance.variants?.["bgGradient"] || theme.instance.shade === "onDark";
-    return `
+  default: (props: any) => `
       font-size: 1rem;
       overflow: hidden;
       border-radius: 7px;
@@ -9,13 +7,13 @@ export default {
       display: inline-Box;
       cursor: pointer;
       border: solid 1px;
-      border-color: ${theme.getColor("bgDark")};
+      border-color: var(--color-cta-to);
       box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
       padding: 12px 24px;
-      color: ${theme.getColor("bgDark")};
+      color: var(--color-cta-to);
       // text-shadow: 1px 1px 1px rgba(255,255,255,0.15);
       ${
-        isDark
+        props.onDark
           ? `
           background-image: linear-gradient(
             160deg,
@@ -43,7 +41,7 @@ export default {
       }
       &:hover {
         ${
-          isDark
+          props.onDark
             ? `
           box-shadow: 1.5px 2.25px 0 0 hsl(0, 0%, 33%, 0.67),
             1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
@@ -62,7 +60,7 @@ export default {
           top: 1px;
           left: 1px;
         }
-        box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, ${isDark ? "0.5" : "0.15"});
+        box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, ${props.onDark ? "0.5" : "0.15"});
         > * {
           top: 1px;
           left: 1px;
@@ -76,34 +74,31 @@ export default {
       &:focus-visible:not(:hover) {
         outline-style: double !important;
         outline-width: 1px !important;
-        outline-color: ${theme.getColor("bgDark")} !important;
+        outline-color: var(--color-cta-to) !important;
       }
-    `;
-  },
-  bgGradient: (theme: theme) => `
-    color: ${theme.getColor("buttonText")};
-    text-shadow: 1px 1px 1px ${theme.getColor("bgDark")};
+    `,
+  bgGradient: (props: any) => `
+    color: var(--color-cta-text);
+    text-shadow: 1px 1px 1px var(--color-cta-to);
     background-size: 200% auto;
     & {
       background-image: linear-gradient(
         150deg,
-        ${theme.getColor("bgLight")} -10%,
-        ${theme.getColor("bgDark")} 60%,
-        ${theme.getColor("bgLight")} 100%
+        var(--color-cta-from) -10%,
+        var(--color-cta-to) 60%,
+        var(--color-cta-from) 100%
       ) !important;
     }
     &:hover,
     &:focus:not(:hover) {
       transition: background-position 300ms linear 0s;
       background-position: right center;
-      border-color: ${theme.getColor("bgLight")};
+      border-color: var(--color-cta-from);
     }
     &:focus {
     }
   `,
-  disabled: (theme: theme) => {
-    const shadowColor = theme.instance.shade === "onDark" ? "hsla(0, 0%, 80%)" : "hsla(0, 0%, 90%)";
-    return `
+  disabled: (props: any) => `
       cursor: not-allowed;
       text-shadow: none;
       &,
@@ -111,21 +106,20 @@ export default {
       &:focus {
         border: none !important;
         box-shadow: none !important;
-        background: ${shadowColor};
-        color: ${theme.getColor("subtle", "default", "default")};
+        background: ${props.onDark ? "hsla(0, 0%, 80%)" : "hsla(0, 0%, 90%)"};
+        color: var(--color-subtle);
       }
-    `;
-  },
-  link: (theme: theme) => {
+    `,
+  link: (props: any) => {
     return `
       border: none !important;
       box-shadow: none !important;
       background: none !important;
-      color: ${theme.getColor("link")};
+      color: var(--color-cta);
       &:hover:not(:focus) {
-        color: ${theme.getColor("border")};
+        color: var(--color-cta-to);
         ${
-          theme.instance.shade === "onDark"
+          props.onDark
             ? `
             box-shadow: 1px 2px 1px 1px hsl(0, 0%, 33%, 0.33),
               2px 2px 3px 0 hsl(0, 0%, 0%, 0.2) !important;
@@ -141,8 +135,8 @@ export default {
       }
     `;
   },
-  pulsing: (theme: theme) => {
-    const shadowColor = theme.instance.shade === "onDark" ? 255 : 0;
+  pulsing: (props: any) => {
+    const shadowColor = props.onDark ? 255 : 0;
     return `
       padding: 12px 24px;
       border-radius: 7px;
@@ -157,7 +151,7 @@ export default {
       }
     `;
   },
-  loadingCircle: (theme: theme) => `
+  loadingCircle: (props: any) => `
       @keyframes donut-spin {
         0% {
           transform: rotate(0deg);

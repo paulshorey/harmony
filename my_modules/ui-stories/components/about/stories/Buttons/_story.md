@@ -2,7 +2,7 @@
 
 ---
 
-Two ways to use all components in this library. First one is very similar to 'styled-components' or '@emotion/styled'.
+Two ways to use all components in this library. First one is very similar to '@emotion/styled' or '@emotion/styled'.
 
 1. `import { withButton }` must be instantiated with common props which will apply to all instances: `Button = withButton({variant:"bgGradient"})`  
    Then for each instance you can add more unique props which will be intelligently combined with the common ones `<Button color="cta2" />`

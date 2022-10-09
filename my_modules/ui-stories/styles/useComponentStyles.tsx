@@ -19,7 +19,6 @@ import {
  */
 export default (
   props: ssComponentPropsType,
-  as: htmlContainerTags = "div",
   name: string,
   styles?: Record<string, ssPropType | cssPropType> // obj - style for each variant - Record<VariantKey, StyleString | FunctionThatReturnsString>
 ) => {
@@ -254,33 +253,12 @@ export default (
   // ssOutput += `\n}\n`;
 
   ssOutput += ssExtra;
-
   ssOutput = ssOutput.replace(/label:(.*?);/g, "").replace(/([;]+)/g, ";");
-  // ssOutput += ';label:' + label + ';';
-
-  /*
-   *
-   * Maybe add global
-   *
-   */
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const ss = document.createElement('style');
-  //     ss.innerHTML = ssOutput;
-  //     document.head.appendChild(ss);
-  //   }
-  // }, []);
 
   /*
    *
    * Return component with props applied
    *
    */
-  // tsFix - what keys does StyledComponents HOC support?
-  return styled[as]`
-    ${(props) => {
-      console.log("props", props);
-    }}
-    ${ssOutput}
-  ` as React.ElementType;
+  return [ssOutput, otherProps];
 };

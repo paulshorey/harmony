@@ -1,17 +1,17 @@
 export default {
-  titleImageTextImage: (theme: theme) => `
+  titleImageTextImage: (props: any) => `
     grid-template-areas:
       'title image'
       'text image';
     grid-template-columns: 1fr 1fr;
   `,
-  imageTitleImageText: (theme: theme) => `
+  imageTitleImageText: (props: any) => `
     grid-template-areas:
       'image title'
       'image text';
     grid-template-columns: 1fr 1fr;
   `,
-  titleTitleTextImage: (theme: theme) => `
+  titleTitleTextImage: (props: any) => `
     grid-template-areas:
       'title title'
       'text image';
@@ -20,7 +20,7 @@ export default {
       text-align: center;
     }
   `,
-  titleTitleImageText: (theme: theme) => `
+  titleTitleImageText: (props: any) => `
     grid-template-areas:
       'title title'
       'image text';
@@ -28,7 +28,7 @@ export default {
       text-align: center;
     }
   `,
-  default: (theme: theme) => `
+  default: (props: any) => `
     position: relative;
     display: grid !important;
     grid-template-columns: 1fr 1fr;

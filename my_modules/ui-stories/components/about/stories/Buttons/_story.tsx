@@ -47,23 +47,23 @@ export default (args: any) => {
       </Container>
 
       <Container variant="bgGradient" color="cta1">
-        <Title shade="onDark" color="cta2">
+        <Title onDark color="cta2">
           on dark:
         </Title>
         <Content>
-          <Button shade="onDark" variant="bgGradient" color="cta2" onClick={() => console.log("clicked CTA #2")} {...args}>
+          <Button onDark variant="bgGradient" color="cta2" onClick={() => console.log("clicked CTA #2")} {...args}>
             gradient cta2
           </Button>
-          <Button shade="onDark" variant="textGradient" color="cta2" {...args}>
+          <Button onDark variant="textGradient" color="cta2" {...args}>
             default cta2
           </Button>
-          <Button shade="onDark" {...args}>
+          <Button onDark {...args}>
             default
           </Button>
-          <Button shade="onDark" variant="link" color="cta2" {...args}>
+          <Button onDark variant="link" color="cta2" {...args}>
             link
           </Button>
-          <Button shade="onDark" variant="disabled" color="cta2" {...args}>
+          <Button onDark variant="disabled" color="cta2" {...args}>
             disabled
           </Button>
         </Content>

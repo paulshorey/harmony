@@ -7,7 +7,7 @@
 `import Button from ... ` default export is ready to use: `<Button variant="bgGradient" color="cta2" ss="padding:1rem" />`  
  <br />
 
-### #2 styled-components
+### #2 @emotion/styled
 
 1. **Import:** `import { withButton } from ...` named export
 2. **Instantiate:** <code>Button = withButton({ color:'cta1', variant="textGradient" ss:'font-size:1rem;' })</code> with "common" props

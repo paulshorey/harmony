@@ -5,7 +5,7 @@ export {};
 declare global {
   type props = ssComponentPropsType;
 
-  // tsFix - any used to by SerializedStyled from @emotion/styled - update this to use styled-components
+  // tsFix - any used to by SerializedStyled from @emotion/styled - update this to use @emotion/styled
   type EmotionCssFunction = (theme: theme, ...args: any) => any;
   type cssPropType = CSSInterpolation | EmotionCssFunction | any | Array<any | EmotionCssFunction | CSSInterpolation>;
 
@@ -24,7 +24,7 @@ declare global {
     colorShadeDefault: colorShade;
     variants: Record<string, cssPropType | ssFunction>;
     /**
-     * Colors should not be accessed directly. Use theme.getColor() instead.
+     * Colors should not be accessed directly. This JS object will be used to generate CSS variables.
      */
     colors: colors;
     fonts: Record<string, string>;

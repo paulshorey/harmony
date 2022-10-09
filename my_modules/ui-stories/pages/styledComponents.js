@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export default function Home() {
   const H1 = styled.h1`

@@ -1,8 +1,8 @@
 export default {
-  default: (theme: theme) => `
+  default: (props: any) => `
     position: relative;
   `,
-  borderBottom: (theme: theme) => `
+  borderBottom: (props: any) => `
     text-decoration: none;
     padding: 0;
     display: inline-Box;
@@ -13,7 +13,7 @@ export default {
       border-color: transparent;
     }
   `,
-  code: (theme: theme) => `
+  code: (props: any) => `
     padding: 0.25rem;
     white-space: pre;
     font-family: var(--font-family-mono);
@@ -25,11 +25,11 @@ export default {
     color: var(--color-subtle-text);
     border-radius: 4px;
   `,
-  bg: (theme: theme) => `
+  bg: (props: any) => `
     color: var(--color-cta-text);
     background: var(--color-cta);
   `,
-  bgGradient: (theme: theme) => `
+  bgGradient: (props: any) => `
     box-decoration-break: clone;
     color: var(--color-cta-text);
     background: var(--color-cta);
@@ -39,10 +39,10 @@ export default {
       var(--color-cta-end) 100%
     );
   `,
-  text: (theme: theme) => `
+  text: (props: any) => `
     color: var(--color-text);  
   `,
-  textGradient: (theme: theme) => `
+  textGradient: (props: any) => `
     color: var(--color-cta-text);
     @supports (--css: variables) {
       background-image: linear-gradient(

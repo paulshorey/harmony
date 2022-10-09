@@ -46,7 +46,7 @@ export default {
       min-height: 100%;
     }
   `,
-  cloudinary: (theme: theme) => `
+  cloudinary: (props: any) => `
     height: calc(100vh - 32px);
     padding: 0;
     border-radius: 18px;
