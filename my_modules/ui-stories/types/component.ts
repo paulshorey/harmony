@@ -1,12 +1,14 @@
-type colorGroupType = string; // tsFix
-type colorShadeType = string; // tsFix
+type colorGroupType = string; // tsFix - possible to be more specific?
+type colorShadeType = string; // tsFix - possible to be more specific?
 
 import { htmlContainerTags as htmlContainerTagsImport } from "./html";
 
 export type htmlContainerTags = htmlContainerTagsImport;
 
-// tsFix - any used to mean SerializedStyles - maybe upgrade to get type from @emotion/styled
-export type cssPropType = any | Array<any | ((...args: any) => any)> | ((...args: any) => any);
+// tsFix - need definitive type of any kind of EmotionJS css prop type - SerializedStyles, Interpolation
+// export type cssPropType = any | Array<any | ((...args: any) => any)> | ((...args: any) => any);
+// import { CSSInterpolation } from "@emotion/serialize";
+// CSSInterpolation | EmotionCssFunction | any | Array<any | EmotionCssFunction | CSSInterpolation>;
 
 // custom "styled strings" type for this library - should accept @emotion/styled too
 export type ssPropType = string | ((...args: any) => string) | Array<string | ((...args: any) => string)>;

@@ -6,7 +6,7 @@ import { Props as BoxProps } from "@/components/content/atoms/Box";
 import { useInView } from "react-cool-inview";
 import { tsFix } from "types/typescript";
 import variants from "./variants";
-import useStyledVariants from "styles/useStyledVariants";
+import useStyleProps from "@/styles/useStyleProps";
 
 const isBetween = (value: number, min: number, max: number) => value && value >= min && value <= max;
 
@@ -35,15 +35,18 @@ export type Props = BoxProps & {
   // visibleInitially?: boolean;
 };
 
-export const Component: (props: Props) => ReactElement = ({
-  as = "div",
-  children,
-  className = "",
-  slideInFrom = "right",
-  // visibleInitially = false,
-  ...props
-}: Props) => {
-  const Styled = useStyledVariants(props, as === "span" ? "span" : "div", "ScrollSlideIn", variants);
+export const Component: (props: Props, ref: any) => ReactElement = (
+  {
+    as = "div",
+    children,
+    className = "",
+    slideInFrom = "right",
+    // visibleInitially = false,
+    ...props
+  }: Props,
+  ref: any
+) => {
+  const [Styled, otherProps] = useStyleProps(props, as === "span" ? "span" : "div", "ScrollSlideIn", variants);
 
   let enterLeaveTimeout: ReturnType<typeof setTimeout>;
   const ref1 = React.createRef<any>(); // react ref type
@@ -107,7 +110,7 @@ export const Component: (props: Props) => ReactElement = ({
   }, []);
   return (
     <Box as={as} ss={styles.default(visible, slideInFrom)} className={`${visible ? "visible" : "hidden"} ${className}`} ref={ref1}>
-      <Styled ref={ref2} {...props}>
+      <Styled ref={ref2} {...otherProps}>
         {children}
       </Styled>
     </Box>

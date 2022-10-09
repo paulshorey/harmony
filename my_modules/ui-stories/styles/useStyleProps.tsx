@@ -1,29 +1,22 @@
 import styled from "@emotion/styled";
 import { useTheme } from "@emotion/react";
 import style_to_string from "@ps/fn/browser/style/style_to_string";
-// import obj_clone from '@ps/fn/io/obj/obj_clone';
-// import obj_add from '@ps/fn/io/obj/obj_add';
 import { returnDeviceInfo, deviceInfoType } from "@/hooks/useDeviceInfo";
 import { useEffect, useState } from "react";
-import {
-  ssComponentPropsType,
-  htmlContainerTags, // or maybe React.ElementType ?
-  cssPropType,
-  ssPropType,
-} from "@/types/component";
-// import { useEffect } from 'react';
+import { ssPropType } from "@/types/component";
+import themeType from "@/types/theme";
 
-type asType = keyof JSX.IntrinsicElements | React.ComponentType<any>;
+type styledTags = keyof JSX.IntrinsicElements | React.ComponentType<any>;
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
  * It takes all the custom ss props, plus styles, variants, css, and aggregates them into one css prop.
  */
 export default (
-  props: ssComponentPropsType,
-  tagName: asType = "div",
+  props: any,
+  tagName: styledTags = "div",
   componentName: string,
-  styles?: Record<string, ssPropType | cssPropType> // obj - style for each variant - Record<VariantKey, StyleString | FunctionThatReturnsString>
+  styles?: Record<string, ssPropType>
 ): [React.ElementType, Record<string, any>] => {
   let {
     // className = '',
@@ -68,13 +61,13 @@ export default (
    * theme.instance
    *
    */
-  const theme = useTheme(); // style() 1st argument
+  const theme: themeType = useTheme(); // style() 1st argument
   props.theme = theme;
+  // Reuse theme.instance for all nested components that end up creating just one HTML element:
   // Many components extend another component (by returning a modified version of it).
   // In those cases, the final HTML/DOM element will have run through this function multiple times.
   // It will be sequential. Child after parent. So, keep the previous theme instance and add to it.
-
-  if (!dataVariants) {
+  if (!dataVariants || !theme.instance) {
     // In @emotion/styled function, first argument is props.
     // Replicate that functionality, but without all these extra ss props.
     theme.instance = {

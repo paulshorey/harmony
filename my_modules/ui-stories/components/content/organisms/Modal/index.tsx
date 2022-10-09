@@ -3,7 +3,7 @@ import { memo, useEffect, forwardRef, ReactElement } from "react";
 import ReactModal from "react-modal";
 import variants from "./variants";
 import useComponentWithProps12 from "hooks/useComponentWithProps12";
-import useStyledVariants from "styles/useStyledVariants";
+import useStyleProps from "@/styles/useStyleProps";
 
 export type Props = BoxProps & {
   contentLabel?: string;
@@ -18,7 +18,7 @@ export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement 
   { isOpen, onClose = () => {}, contentLabel = "", children, showClose = true, type = "", ...props },
   ref
 ) => {
-  const Styled = useStyledVariants(props, "div", "Modal", variants);
+  const [Styled, otherProps] = useStyleProps(props, "div", "Modal", variants);
 
   // I forget what exactly this does and why it was necessary.
   useEffect(() => {
@@ -34,7 +34,7 @@ export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement 
   }, [isOpen]);
 
   return (
-    <ReactModal {...props} contentLabel={contentLabel} isOpen={isOpen} onRequestClose={onClose} overlayClassName="ReactModalOverlay">
+    <ReactModal {...otherProps} contentLabel={contentLabel} isOpen={isOpen} onRequestClose={onClose} overlayClassName="ReactModalOverlay">
       <Styled ref={ref}>
         {children}
         {showClose && (

@@ -3,7 +3,7 @@ import useComponentWithProps12 from "hooks/useComponentWithProps12";
 import variants from "@/components/content/atoms/Box/variants";
 import ssComponentPropsType from "types/component";
 import { htmlContainerTags } from "../../../../types/component";
-import useStyled from "@/styles/useStyleProps";
+import useStyleProps from "@/styles/useStyleProps";
 
 export type Props = HTMLAttributes<HTMLDivElement> &
   ssComponentPropsType & {
@@ -14,7 +14,7 @@ export type Props = HTMLAttributes<HTMLDivElement> &
   };
 
 export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = ({ as, ...props }, ref) => {
-  const [Styled, otherProps] = useStyled(props, as || "div", "Box", variants);
+  const [Styled, otherProps] = useStyleProps(props, as || "div", "Box", variants);
   return <Styled ref={ref} {...otherProps} />;
 };
 

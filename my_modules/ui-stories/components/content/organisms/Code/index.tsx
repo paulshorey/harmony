@@ -3,17 +3,17 @@ import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 import { FC, memo, forwardRef, ReactElement } from "react";
 import useComponentWithProps12 from "@/hooks/useComponentWithProps12";
 import variants from "./variants";
-import useStyledVariants from "@/styles/useStyledVariants";
+import useStyleProps from "@/styles/useStyleProps";
 
 export type Props = BoxProps & {
   string: string;
 };
 
 export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = ({ as = "code", string, ...props }, ref) => {
-  const Styled = useStyledVariants(props, as || "div", "Card", variants);
+  const [Styled, otherProps] = useStyleProps(props, as || "div", "Card", variants);
   const [copied, copyToClipboard] = useCopyToClipboard();
   return (
-    <Styled {...props} as={as} ref={ref}>
+    <Styled {...otherProps} as={as} ref={ref}>
       {string}
       <button
         type="button"

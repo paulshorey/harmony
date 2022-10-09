@@ -1,13 +1,15 @@
-import { ssComponentPropsType, ReactForwardedRefType } from "./component";
-import { CSSInterpolation } from "@emotion/serialize";
+import { ssComponentPropsType, ReactForwardedRefType, ssPropType } from "./component";
+import themeType from "./theme";
 export {};
 
 declare global {
   type props = ssComponentPropsType;
+  type theme = themeType;
+
+  type ssProp = ssPropType;
 
   // tsFix - any used to by SerializedStyled from @emotion/styled - update this to use @emotion/styled
   type EmotionCssFunction = (theme: theme, ...args: any) => any;
-  type cssPropType = CSSInterpolation | EmotionCssFunction | any | Array<any | EmotionCssFunction | CSSInterpolation>;
 
   /**
    * This accepts many different types. It will be passed to style_to_string(), and parsed according to type.
@@ -18,45 +20,6 @@ declare global {
   type colorGroupKey = "" | "accent" | "cta1" | "cta2" | string;
   type colorGroupValue = Record<colorShade, Record<string, string>>;
   type colors = Record<string, colorGroupValue>;
-
-  type theme = {
-    colorGroupDefault: colorGroupKey;
-    colorShadeDefault: colorShade;
-    variants: Record<string, cssPropType | ssFunction>;
-    /**
-     * Colors should not be accessed directly. This JS object will be used to generate CSS variables.
-     */
-    colors: colors;
-    fonts: Record<string, string>;
-    mq: Record<string, string>;
-    getColor: (key: string, color?: colorGroupKey, shade?: colorShade) => {};
-    /**
-     * Mutable. Temporary. Gets overwritten by each component render, in withStyles().
-     * Persists just long enough to be read by the component when it is being styled.
-     * It is never destroyed - only overwritten by the next component to be rendered.
-     */
-    instance: {
-      /**
-       * See what other variants are used by the component. Adjust styles accordingly.
-       */
-      variants?: Record<string, boolean>;
-      /**
-       * See colors.ts - key of the color group to use
-       */
-      color: colorGroupKey;
-      /**
-       * See colors.ts - default or onDark
-       */
-      shade: colorShade;
-      /**
-       * Check from your ss/css style function by using `theme.instance.size`.
-       * Adjust padding/margin/font-size according to this variable.
-       */
-      size: string;
-    };
-    globalStyles: Record<string, EmotionCssFunction>;
-    getGlobalStyles: () => Array<EmotionCssFunction>;
-  };
 
   type ReactForwardedRef = ReactForwardedRefType;
 }

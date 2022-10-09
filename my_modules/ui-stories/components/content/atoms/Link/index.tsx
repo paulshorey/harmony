@@ -6,7 +6,7 @@ import { analytics_track_link } from "@ps/fn/browser/analytics";
 import useComponentWithProps12 from "hooks/useComponentWithProps12";
 import variants from "./variants";
 import ssComponentPropsType from "types/component";
-import useStyledVariants from "styles/useStyledVariants";
+import useStyleProps from "@/styles/useStyleProps";
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -20,7 +20,7 @@ export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement 
   { href, children, rel, target, onClick, hrefLang = "en-us", from, ...props },
   ref
 ) => {
-  const Styled = useStyledVariants(props, "a", "Link", variants);
+  const [Styled, otherProps] = useStyleProps(props, "a", "Link", variants);
 
   // const contextPage = useContext(PageContext) || {};
   // const contextABTest = useContext(ABTestContext) || {};
@@ -64,7 +64,7 @@ export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement 
 
   // render children
   let A = (
-    <Styled {...props} ref={ref} rel={rel} target={target} onClick={trackOnClick} href={href} hrefLang={hrefLang}>
+    <Styled {...otherProps} ref={ref} rel={rel} target={target} onClick={trackOnClick} href={href} hrefLang={hrefLang}>
       {children}
     </Styled>
   );
