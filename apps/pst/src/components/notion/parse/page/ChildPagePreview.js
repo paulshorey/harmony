@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { css, useTheme } from '@emotion/react';
-import Text from 'src/components/notion/TextBlock';
+import Text from './Text';
 
 const style = (theme, color) => css`
   padding-left: 0.75rem;
@@ -47,7 +47,7 @@ export default ({ page }) => {
       <h4>
         <a href={'/blog' + page.url}>{page.title}</a>
       </h4>
-      {page.paragraph && <Text block={page.paragraph} />}
+      {page.paragraph && <Text data={page.paragraph} />}
       {!!pages2 && !!pages2.length && (
         <p>
           {pages2.map((page, pi) => (

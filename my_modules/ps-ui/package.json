@@ -1,5 +1,5 @@
 {
-  "name": "ps-ui",
+  "name": "@ps/ui",
   "private": true,
   "version": "0.0.1",
   "scripts": {

@@ -1,6 +1,6 @@
 // import { get_sitePreviews_from_blockString, pageIds_from_blockString } from 'src/functions/notionAPI';
-// import { obj_first_value } from '@ps/fn/src/pure/obj';
-// import cconsole from 'colorful-console-logger';
+// import { obj_first_value } from '@ps/fn/pure/obj';
+import cconsole from 'colorful-console-logger';
 
 export default function (page) {
   // flatten page, cut off children of its children
@@ -13,10 +13,13 @@ export default function (page) {
       if (block.paragraph && !page.paragraph) {
         // only use first paragraph which does not have any links!
         let is_only_text_p = true;
-        for (let text of block.paragraph.text) {
-          if (text.href) {
-            is_only_text_p = false;
-            break;
+        cconsole.info('block', block);
+        if (block.paragraph.text) {
+          for (let text of block.paragraph.text) {
+            if (text.href) {
+              is_only_text_p = false;
+              break;
+            }
           }
         }
         if (is_only_text_p) {

@@ -10,6 +10,12 @@
     }
   },
   "extends": "./tsconfig.nextjs.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "src/components/notion/parse/Page/index.jsx"
+  ],
   "exclude": ["node_modules", "dist"]
 }

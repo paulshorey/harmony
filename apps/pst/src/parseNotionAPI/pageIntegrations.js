@@ -1,4 +1,4 @@
-import getSitePreview from '@ps/fn/src/requests/site_info/linkpreview';
+import getSitePreview from '@ps/fn/requests/site_info/linkpreview';
 import cconsole from 'colorful-console-logger';
 
 export default async function (page, pagesIdToUrl) {
@@ -46,7 +46,7 @@ export const get_sitePreviews_from_blockString = async function (text) {
   for (let siteUrl in sites) {
     let siteName = sites[siteUrl];
     if (output[siteUrl]) continue;
-    output[siteUrl + siteName] = await getSitePreview(siteUrl, siteName);
+    // output[siteUrl + siteName] = await getSitePreview(siteUrl, siteName);
   }
   return output || null;
 };

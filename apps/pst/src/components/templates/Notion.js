@@ -1,12 +1,14 @@
 import React from 'react';
-import Block from 'src/components/notion/Block';
+import usePage from 'src/components/notion/usePage';
 import Main from 'src/components/html/Main';
 import Header from 'src/components/html/Header';
 
 const TemplateNotion = ({ page }) => {
+  const parsedPage = usePage({ data: page });
+
   if (!page || !page.blocks || !page.id || !page.title) {
     return (
-      <pre>
+      <pre key={page.id + 'TemplateNotion'}>
         <code>{JSON.stringify(page, null, ' ')}</code>
       </pre>
     );
@@ -23,7 +25,7 @@ const TemplateNotion = ({ page }) => {
         {page.parent_page_url && (
           <>
             <a href={(page.parent_page_url !== '/blog' ? '/blog' : '') + page.parent_page_url}>
-              {page.parent_page_title}
+              {page.parent_page_title}s
             </a>{' '}
             /{' '}
           </>
@@ -33,8 +35,8 @@ const TemplateNotion = ({ page }) => {
       </Header>
 
       <Main variant="full">
-        {page.blocks.map((block, bi) => (
-          <Block key={bi} block={block} />
+        {parsedPage.children?.map((Child, i) => (
+          <Child key={page.id + 'TemplateNotion_' + i} />
         ))}
       </Main>
     </div>

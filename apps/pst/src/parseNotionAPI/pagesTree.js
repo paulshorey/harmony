@@ -1,4 +1,4 @@
-import { get_pageBlocks, get_pageMeta } from '@ps/fn/src/requests/notion/2021-05-13';
+import { get_pageBlocks, get_pageMeta } from '@ps/fn/requests/notion/2022-06-28';
 // import cconsole from 'colorful-console-logger';
 
 // does not return anything, only modifies passed in objects

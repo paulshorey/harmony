@@ -1,1 +1,1 @@
-module.exports = require('../../packages/ps_constants/babel-preset.json');
+module.exports = require('./babel-preset.json');

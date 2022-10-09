@@ -3,31 +3,9 @@ const theme = {
     link: 'blue',
   },
   fonts: {
-    helvetica: 'Roboto,Helvetica,sans-serif'
+    helvetica: 'Roboto,Helvetica,sans-serif',
   },
-  breakpoints: {
-    /*
-     * Filled below...
-     *
-     * Usage (window less than 710px wide):
-     *
-     wrapper: theme => css`
-       ${theme.breakpoints.xsmall.max} {
-         display:block;
-         width: ${theme.breakpoints.xsmall.num/2}px;
-       }
-     `,
-     *
-     * Or (window greater than or equal to 710px wide):
-     *
-     wrapper: theme => css`
-       ${theme.breakpoints.xsmall.min} {
-         font-size: 30px;
-       }
-     `,
-     *
-    */
-  }
+  breakpoints: {},
 };
 
 const width = {
@@ -37,7 +15,7 @@ const width = {
   medium: { num: 1080 },
   large: { num: 1130 },
   xlarge: { num: 1440 },
-  xxlarge: { num: 1920 }
+  xxlarge: { num: 1920 },
 };
 for (let size in width) {
   let obj = {};

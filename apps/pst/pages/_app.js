@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import Head from 'next/head';
 
-import theme from 'src/emotion/theme';
-import GlobalStyle from 'src/emotion/global';
+// import theme from 'src/emotion/theme';
+// import GlobalStyle from 'src/emotion/global';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {});
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
+    <ThemeProvider theme={{}}>
+      {/* <GlobalStyle /> */}
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />

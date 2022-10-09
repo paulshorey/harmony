@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { css, useTheme } from '@emotion/react';
-import Link from 'src/components/notion/Link';
+import TextLink from 'src/components/notion/TextLink';
 
 const style = (theme, color) => css`
   ${color ? `color: ${color};` : ''}
@@ -33,7 +33,7 @@ const TextComponent = ({ text }) => {
     />
   );
   if (text.text && text.text.link) {
-    return <Link link={text.text.link}>{Text}</Link>;
+    return <TextLink link={text.text.link}>{Text}</TextLink>;
   }
   return Text;
 };

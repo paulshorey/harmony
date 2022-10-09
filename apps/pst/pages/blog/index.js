@@ -9,7 +9,7 @@ import {
  * For each path, get data, pass to component as props:
  */
 export async function getStaticProps() {
-  await getStaticPaths_fromNotionPages({ pageId: '7893c77c97794abf82deb18b226b4122', depth: 0 });
+  await getStaticPaths_fromNotionPages({ pageId: '2c377bf61ba6454fb607e52b07171015', depth: 0 });
   let context = {
     params: {
       page_path1: '',
