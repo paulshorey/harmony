@@ -1,0 +1,81 @@
+:root {
+  --font-family-primary: "Roboto", sans-serif;
+  --font-family-secondary: "Roboto", sans-serif;
+  --font-family-mono: "Roboto Mono", monospace;
+
+  --color-error: #e30000;
+  --color-warning: #e38935;
+  --color-success: #27b30d;
+  --color-info: #1e90ff;
+
+  --color-text: #333;
+  --color-subtle: #999;
+  --color-accent: #3eaaae;
+  --color-dark: #7c3bec;
+
+  --color-cta: cornflowerblue;
+  --color-cta-from: cornflowerblue;
+  --color-cta-to: violet;
+  --color-cta-text: white;
+
+  --color-bg: #fff;
+  --color-bg-from: #efefef;
+  --color-bg-to: #ccc;
+  --color-bgText: #666;
+}
+.onDark {
+  --color-text: #fff;
+}
+
+.colors-primary {
+  --color-text: #202124;
+  --color-subtle: hsl(239 75% 70%);
+  --color-subtle-dark: hsl(226 75% 63%);
+  --color-subtle-light: hsl(272 60% 67%);
+  --color-subtle-text: #111;
+  --color-deep: hsl(234deg 100% 61%);
+  --color-deep-dark: #394dfe;
+  --color-deep-light: hsl(205deg 100% 50%);
+  --color-deep-text: #fff;
+}
+.onDark .colors-primary {
+  --color-text: hsl(239 80% 100% / 0.75);
+  --color-accent: #8ab4f8;
+  --color-subtle: hsl(239 75% 70%);
+  --color-subtle-dark: #8ab4f8;
+  --color-subtle-light: #c58af9;
+  --color-subtle-text: #ddeeff;
+  --color-deep: hsl(234deg 100% 61%);
+  --color-deep-dark: #394dfe;
+  --color-deep-light: hsl(205deg 100% 50%);
+  --color-deep-text: #ddeeff;
+}
+
+.colors-secondary {
+  --color-text: hsl(239 80% 100% / 0.75);
+  --color-subtle: hsl(239 75% 70%);
+  --color-subtle-from: hsl(226 75% 63%);
+  --color-subtle-to: hsl(272 60% 67%);
+  --color-subtle-text: #000;
+  --color-deep: hsl(239 80% 100% / 0.5);
+  --color-deep-from: hsl(239 80% 100% / 0.75);
+  --color-deep-to: hsl(239 80% 100% / 0.75);
+  --color-deep-text: #000;
+}
+.onDark .colors-secondary {
+}
+
+.colors-accent {
+  --color-text: hsl(39deg 100% 46%);
+  --color-subtle: hsl(39deg 95% 50%);
+  --color-subtle-dark: hsl(39deg 100% 45%);
+  --color-subtle-light: hsl(39deg 93% 73%);
+  --color-subtle-text: #000;
+  --color-deep: orange;
+  --color-deep-from: hsl(39deg 100% 46%);
+  --color-deep-to: hsl(39deg 100% 46%);
+  --color-deep-text: #000;
+}
+.onDark .colors-accent {
+  --color-text: gold;
+}

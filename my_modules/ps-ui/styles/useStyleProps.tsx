@@ -263,6 +263,10 @@ export default (
    * Return component with props applied
    *
    */
+  props["data-variants"] = dataVariants;
+  if (theme.instance.variants.onDark) {
+    props.className = (props.className ? props.className + " " : "") + "onDark";
+  }
   // @ts-ignore // Idk how to get a list of valid styled tags. Put in a typeof check below that should take care of it.
   let styledFunction = styled[tagName];
   if (typeof styledFunction !== "function") {

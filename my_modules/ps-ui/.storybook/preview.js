@@ -2,7 +2,7 @@ import AppProvider from "@/components/utils/AppProvider";
 import React, { useEffect } from "react";
 import { themes } from "@storybook/theming";
 import Box from "@/components/content/atoms/Box";
-import "@/styles/variables.css";
+import "@/styles/theme.css";
 
 export const parameters = {
   docs: {
