@@ -1,11 +1,11 @@
-import colors from './colors';
-import fonts from './fonts';
-import mq from './mq';
-import variants from './variants';
-import classes from './global/classes';
+import colors from "./colors";
+import fonts from "./fonts";
+import mq from "./mq";
+import variants from "./variants";
+import html from "./global/html";
+import layout from "./global/layout";
+import classes from "./global/classes";
 // import fonts from './global/fonts';
-import layout from './global/layout';
-import html from './global/html';
 
 /**
  * Theme can be extended/modified in the app which uses this library.
@@ -13,15 +13,15 @@ import html from './global/html';
  * that means the uniquely named object will **extend** the default object properties.
  */
 const theme: theme = {
-  colorGroupDefault: '',
-  colorShadeDefault: '',
+  colorGroupDefault: "",
+  colorShadeDefault: "",
   variants,
   colors,
   fonts,
   mq,
   getColor: function (key, color, shade) {
-    const colorGroup = color || this.instance.color || '';
-    const colorShade = shade || this.instance.shade || '';
+    const colorGroup = color || this.instance.color || "";
+    const colorShade = shade || this.instance.shade || "";
     // group / scheme
     if (colorGroup && colorShade) {
       // @ts-ignore // tsFix - this.colorGroup must be dynamic, but how to type it?
@@ -45,14 +45,12 @@ const theme: theme = {
       }
     }
     // default / default
-    return (
-      this.colors[this.colorGroupDefault]?.[this.colorShadeDefault]?.[key] || ''
-    );
+    return this.colors[this.colorGroupDefault]?.[this.colorShadeDefault]?.[key] || "";
   },
   instance: {
-    color: '',
-    shade: '',
-    size: '',
+    color: "",
+    shade: "",
+    size: "",
     variants: {},
   },
   globalStyles: { html, layout, classes },

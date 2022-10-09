@@ -1,6 +1,6 @@
 import { addons } from '@storybook/addons';
 import { create } from '@storybook/theming/create';
-import DEFAULT_THEME from './storybook-theme';
+import DEFAULT_THEME from './storybook-default-theme';
 
 addons.setConfig({
   isFullscreen: false,

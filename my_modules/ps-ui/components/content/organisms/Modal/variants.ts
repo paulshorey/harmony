@@ -46,7 +46,7 @@ export default {
       min-height: 100%;
     }
   `,
-  cloudinary: (theme: theme) => `
+  cloudinary: (props: any) => `
     height: calc(100vh - 32px);
     padding: 0;
     border-radius: 18px;
@@ -57,7 +57,7 @@ export default {
       background: #0c153a;
       height: auto;
       width: auto;
-      display: inline-block;
+      display: inline-Box;
       padding: 15px 23px 14px 21px;
       border-radius: 18px;
       letter-spacing: 0.5px;

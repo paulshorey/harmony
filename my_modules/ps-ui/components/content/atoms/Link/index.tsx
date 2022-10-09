@@ -1,12 +1,12 @@
-import { memo, AnchorHTMLAttributes, forwardRef, ReactElement } from 'react';
-import withNextLink from './withNextLink';
+import { memo, AnchorHTMLAttributes, forwardRef, ReactElement } from "react";
+import withNextLink from "./withNextLink";
 // import PageContext from 'src/context/Page';
 // import ABTestContext from 'src/context/ABTest';
-import { analytics_track_link } from '@ps/fn/browser/analytics';
-import useComponentWithProps12 from 'hooks/useComponentWithProps12';
-import variants from './variants';
-import ssComponentPropsType from 'types/component';
-import useStyledVariants from 'styles/useStyledVariants';
+import { analytics_track_link } from "@ps/fn/browser/analytics";
+import useComponentWithProps12 from "hooks/useComponentWithProps12";
+import variants from "./variants";
+import ssComponentPropsType from "types/component";
+import useStyleProps from "@/styles/useStyleProps";
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -16,39 +16,33 @@ export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   from?: string;
 } & ssComponentPropsType;
 
-const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = ({
-  href,
-  children,
-  rel,
-  target,
-  onClick,
-  hrefLang = 'en-us',
-  from,
-  ...props
-}) => {
-  const Styled = useStyledVariants(props, 'a', 'Link', variants);
+export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = (
+  { href, children, rel, target, onClick, hrefLang = "en-us", from, ...props },
+  ref
+) => {
+  const [Styled, otherProps] = useStyleProps(props, "a", "Link", variants);
 
   // const contextPage = useContext(PageContext) || {};
   // const contextABTest = useContext(ABTestContext) || {};
   // fix attributes
   if (/@[\w]+\./.test(href)) {
-    if (!href.includes('mailto:')) {
-      href = 'mailto:' + href;
+    if (!href.includes("mailto:")) {
+      href = "mailto:" + href;
     }
   } else if (
-    href.substring(0, 4) === 'http' &&
+    href.substring(0, 4) === "http" &&
     // all other domains, including app.spiral.us
-    !href.substring(0, 22).includes('//spiral.us') &&
-    !href.substring(0, 22).includes('www.spiral.us')
+    !href.substring(0, 22).includes("//spiral.us") &&
+    !href.substring(0, 22).includes("www.spiral.us")
     // && !href.includes('1526316317')
   ) {
-    target = target || '_blank';
-    rel = rel || 'noopener noreferrer';
-  } else if (href.includes('/#') || href[0] === '#') {
-    target = target || '';
+    target = target || "_blank";
+    rel = rel || "noopener noreferrer";
+  } else if (href.includes("/#") || href[0] === "#") {
+    target = target || "";
   } else {
-    target = target || '';
-    rel = '';
+    target = target || "";
+    rel = "";
   }
   // track link click
   const trackOnClick = (e: any) => {
@@ -70,19 +64,12 @@ const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = ({
 
   // render children
   let A = (
-    <Styled
-      {...props}
-      rel={rel}
-      target={target}
-      onClick={trackOnClick}
-      href={href}
-      hrefLang={hrefLang}
-    >
+    <Styled {...otherProps} ref={ref} rel={rel} target={target} onClick={trackOnClick} href={href} hrefLang={hrefLang}>
       {children}
     </Styled>
   );
   // render parent
-  if (href[0] === '#') {
+  if (href[0] === "#") {
     return A;
   } else {
     return withNextLink(A, href);

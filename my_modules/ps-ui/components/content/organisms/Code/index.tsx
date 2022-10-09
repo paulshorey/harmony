@@ -1,22 +1,26 @@
-import Block, { Props as BlockProps } from 'components/content/atoms/Block';
-import useCopyToClipboard from 'hooks/useCopyToClipboard';
-import { FC, memo, forwardRef, ReactElement } from 'react';
-import useComponentWithProps12 from 'hooks/useComponentWithProps12';
-import variants from './variants';
-import useStyledVariants from 'styles/useStyledVariants';
+import Box, { Props as BoxProps } from "@/components/content/atoms/Box";
+import useCopyToClipboard from "@/hooks/useCopyToClipboard";
+import { FC, memo, forwardRef, ReactElement } from "react";
+import useComponentWithProps12 from "@/hooks/useComponentWithProps12";
+import variants from "./variants";
+import useStyleProps from "@/styles/useStyleProps";
+// import {rehype} from 'rehype'
+// import rehypeHighlight from 'rehype-highlight'
 
-export type Props = BlockProps & {
+// async function main() {
+//   const file = await rehype()
+//     .data('settings', {fragment: true})
+//     .use(rehypeHighlight)
+
+export type Props = BoxProps & {
   string: string;
 };
 
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = ({ as = 'code', string, ...props }, ref) => {
-  const Styled = useStyledVariants(props, as || 'div', 'Card', variants);
+export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = ({ as = "code", string, ...props }, ref) => {
+  const [Styled, otherProps] = useStyleProps(props, as || "div", "Card", variants);
   const [copied, copyToClipboard] = useCopyToClipboard();
   return (
-    <Styled {...props} as={as} ref={ref}>
+    <Styled {...otherProps} as={as} ref={ref}>
       {string}
       <button
         type="button"
@@ -24,7 +28,7 @@ export const Component: (
           copyToClipboard(string);
         }}
       >
-        {copied ? 'copied' : 'copy'}
+        {copied ? "copied" : "copy"}
       </button>
     </Styled>
   );

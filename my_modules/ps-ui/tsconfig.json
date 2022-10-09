@@ -1,31 +1,28 @@
 {
-  "extends": "@ps/constants/config/typescript/react-library.json",
-  "include": [".", "@/.storybook/about-archive/Etc"],
-  "exclude": ["dist", "build", "node_modules"],
-  "baseUrl": ".",
   "compilerOptions": {
-    "paths": {
-      ".storybook": ["./.storybook"],
-      "@ps/fn": ["../ps-fn"],
-      "@ps/constants": ["../ps-constants"]
-    },
-    "jsxImportSource": "@emotion/react",
-    "types": [
-      "@/types/d.ts",
-      "@/types/raw-loader.d.ts",
-      "@emotion/react/types/css-prop",
-      "node"
-    ],
-    "lib": ["dom", "ESNext"],
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "baseUrl": ".",
-    "rootDir": "." /* Specify the root folder within your source files. */,
-    "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-    "module": "ESNext" /* Specify what module code is generated. */,
+    "target": "es5",
+    "module": "esnext",
     "moduleResolution": "node",
-    /* Specify how TypeScript looks up a file from a given module specifier. */ "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
-    "strict": false /* Enable all strict type-checking opt. */,
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
-  }
+    "incremental": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "strict": false,
+    "composite": true,
+    "resolveJsonModule": true,
+    "noImplicitReturns": true,
+    "jsx": "preserve",
+    "allowJs": true,
+    "checkJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "exclude": ["node_modules", ".next", "out", "storybook-static"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.mjs", "**/*.jsx", "@/.storybook/*.@(ts|js|tsx)", "styles/global/variables.ccss"]
 }

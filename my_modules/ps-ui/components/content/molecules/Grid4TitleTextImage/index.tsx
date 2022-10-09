@@ -1,27 +1,19 @@
-import useStyledVariants from 'styles/useStyledVariants';
-import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
-import useComponentWithProps12 from 'hooks/useComponentWithProps12';
-import variants from './variants';
-import { Props as BlockProps } from 'components/content/atoms/Block';
+import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from "react";
+import useComponentWithProps12 from "hooks/useComponentWithProps12";
+import variants from "./variants";
+import { Props as BoxProps } from "@/components/content/atoms/Box";
+import useStyleProps from "@/styles/useStyleProps";
 
-export type Props = BlockProps;
+export type Props = BoxProps;
 
 /**
  * IMPORTANT:
  * title, text, and image must each contain exactly one React JSX child. DO NOT USE the React.Fragment <></>
  */
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = ({ image, text, title, as, ...props }: any, ref?: any) => {
-  const Styled = useStyledVariants(
-    props,
-    as || 'div',
-    'Grid4TitleTextImage',
-    variants
-  );
+export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = ({ image, text, title, as, ...props }: any, ref?: any) => {
+  const [Styled, otherProps] = useStyleProps(props, as || "div", "Grid4TitleTextImage", variants);
   return (
-    <Styled ref={ref} {...props}>
+    <Styled ref={ref} {...otherProps}>
       <div className="Grid4TitleTextImage-title">{title}</div>
       <div className="Grid4TitleTextImage-text">{text}</div>
       <div className="Grid4TitleTextImage-image">{image}</div>

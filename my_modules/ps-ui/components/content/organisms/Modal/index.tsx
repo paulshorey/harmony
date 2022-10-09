@@ -1,11 +1,11 @@
-import { Props as BlockProps } from 'components/content/atoms/Block';
-import { memo, useEffect, forwardRef, ReactElement } from 'react';
-import ReactModal from 'react-modal';
-import variants from './variants';
-import useComponentWithProps12 from 'hooks/useComponentWithProps12';
-import useStyledVariants from 'styles/useStyledVariants';
+import { Props as BoxProps } from "@/components/content/atoms/Box";
+import { memo, useEffect, forwardRef, ReactElement } from "react";
+import ReactModal from "react-modal";
+import variants from "./variants";
+import useComponentWithProps12 from "hooks/useComponentWithProps12";
+import useStyleProps from "@/styles/useStyleProps";
 
-export type Props = BlockProps & {
+export type Props = BoxProps & {
   contentLabel?: string;
   isOpen: boolean;
   label?: string;
@@ -14,44 +14,27 @@ export type Props = BlockProps & {
   type?: string;
 };
 
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = (
-  {
-    isOpen,
-    onClose = () => {},
-    contentLabel = '',
-    children,
-    showClose = true,
-    type = '',
-    ...props
-  },
+export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = (
+  { isOpen, onClose = () => {}, contentLabel = "", children, showClose = true, type = "", ...props },
   ref
 ) => {
-  const Styled = useStyledVariants(props, 'div', 'Modal', variants);
+  const [Styled, otherProps] = useStyleProps(props, "div", "Modal", variants);
 
   // I forget what exactly this does and why it was necessary.
   useEffect(() => {
-    if (typeof window === 'object') {
+    if (typeof window === "object") {
       if (isOpen) {
         setTimeout(function () {
-          document.body.style.overflow = 'hidden';
+          document.body.style.overflow = "hidden";
         }, 100);
       } else {
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = "auto";
       }
     }
   }, [isOpen]);
 
   return (
-    <ReactModal
-      {...props}
-      contentLabel={contentLabel}
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      overlayClassName="ReactModalOverlay"
-    >
+    <ReactModal {...otherProps} contentLabel={contentLabel} isOpen={isOpen} onRequestClose={onClose} overlayClassName="ReactModalOverlay">
       <Styled ref={ref}>
         {children}
         {showClose && (

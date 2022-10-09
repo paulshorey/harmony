@@ -1,15 +1,9 @@
-import Block from 'components/content/atoms/Block';
-import {
-  ButtonHTMLAttributes,
-  FC,
-  forwardRef,
-  memo,
-  ReactElement,
-} from 'react';
-import variants from 'components/form/atoms/Button/variants';
-import useComponentWithProps12 from 'hooks/useComponentWithProps12';
-import ssComponentPropsType from 'types/component';
-import useStyledVariants from 'styles/useStyledVariants';
+import Box from "@/components/content/atoms/Box";
+import { ButtonHTMLAttributes, FC, forwardRef, memo, ReactElement } from "react";
+import variants from "components/form/atoms/Button/variants";
+import useComponentWithProps12 from "hooks/useComponentWithProps12";
+import ssComponentPropsType from "types/component";
+import useStyleProps from "@/styles/useStyleProps";
 
 export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
   (ssComponentPropsType & {
@@ -22,16 +16,13 @@ export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
 /**
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = ({ children, ...props }, ref) => {
-  const Styled = useStyledVariants(props, 'button', 'Button', variants);
+export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = ({ children, ...props }, ref) => {
+  const [Styled, otherProps] = useStyleProps(props, "button", "Button", variants);
   return (
-    <Styled {...props} ref={ref}>
-      <Block variant="centered">
+    <Styled {...otherProps} ref={ref}>
+      <Box variant="centered">
         <span>{children}</span>
-      </Block>
+      </Box>
     </Styled>
   );
 };

@@ -1,42 +1,10 @@
-import { css } from '@emotion/react';
-const html = (theme: theme) => css`
-  :root {
-    --onDark: ${theme.colorShadeDefault === 'onDark'
-      ? ''
-      : 'initial'}; /* initial means NO */
-    --onLight: ${theme.colorShadeDefault === 'onLight'
-      ? ''
-      : 'initial'}; /* initial means NO */
+const html = (theme) => `
+  h1 {
+    text-decoration: underline;
   }
-  // Maybe implement CSS variables for dark/light - cascading down to child components - would be great, but very limiting, so idk.
-  // https://twitter.com/paulshoreytech/status/1577905462934134784
-  /*
-  body {
-    :root {
-      --onDark: initial;
-      --onLight: ;
-    }
+  h2 {
+    color: orange !important;
   }
-  .onLight {
-    --onDark: initial;
-    --onLight: ;
-  }
-  .onDark {
-    --onDark: ;
-    --onLight: initial;
-  }
-  div {
-    padding: 1rem; margin: 0;
-    
-    --color-onDark: var(--onDark) orange;
-    --color-onLight: var(--onLight) blue;
-    color: var(--color-onDark, var(--color-onLight));
-    
-    --bg-onDark: var(--onDark) #333;
-    --bg-onLight: var(--onLight) #ccc;
-    background: var(--bg-onDark, var(--bg-onLight));
-  }
-  */
 
   html {
     -webkit-overflow-scrolling: none;
@@ -71,7 +39,7 @@ const html = (theme: theme) => css`
 
   body {
     overflow-x: hidden;
-    font-family: 'HelveticaNeue', Helvetica, sans-serif;
+    font-family: "HelveticaNeue", Helvetica, sans-serif;
     padding: 0;
     margin: 0;
     color: #000;
@@ -94,7 +62,7 @@ const html = (theme: theme) => css`
   }
 
   button {
-    font-family: 'HelveticaNeue', Helvetica, sans-serif;
+    font-family: "HelveticaNeue", Helvetica, sans-serif;
   }
 
   h1,
@@ -103,8 +71,8 @@ const html = (theme: theme) => css`
   h4,
   h5,
   h6,
-  blockquote {
-    font-family: 'HelveticaNeue', Helvetica, sans-serif;
+  Boxquote {
+    font-family: "HelveticaNeue", Helvetica, sans-serif;
     line-height: 1.33;
     padding: 0;
     ${theme.mq.sm} {
@@ -123,7 +91,7 @@ const html = (theme: theme) => css`
     font-weight: 500;
   }
 
-  blockquote {
+  Boxquote {
     border-left: solid 4px #ccc;
     padding: 8px 0 8px 16px;
     font-size: 22px;

@@ -1,16 +1,16 @@
 export default {
-  'default': (theme: theme) => `
-    background-color: ${theme.getColor('bg', 'default')};
+  default: (props: any) => `
+    background-color: var(--color-bg);
     background: white;
     padding: 3rem;
   `,
-  'hover-tilt': (theme: theme) => `
+  hoverTilt: (props: any) => `
     &:hover {
       box-shadow: 0 0 50px rgb(17 17 17 / 50%);
       transform: rotate(-2deg) translateY(-5px) scale(1.025);
     }
   `,
-  'centered': (theme: theme) => `
+  centered: (props: any) => `
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -20,14 +20,14 @@ export default {
     align-items: center;
 
     > * {
-      display: inline-block;
+      display: inline-Box;
       > * {
-        display: inline-block;
+        display: inline-Box;
       }
     }
     `,
-  'code': (theme: theme) => `
-    font-family: ${theme.fonts.code};
+  code: (props: any) => `
+    font-family: var(--font-family-mono);
     padding: 1rem;
   `,
 };
