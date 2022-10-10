@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TextBlock from 'src/components/notion/TextBlock';
 import ChildPage from 'src/components/notion/ChildPage';
+import Image from './Image';
 
 export default ({ block }) => {
   if (!block) return null;
@@ -14,11 +15,7 @@ export default ({ block }) => {
     console.warn('block.object !== "block"', block);
   }
   // Render the block
-  return (
-    <div key={block.id} className="notionBlock">
-      {parse(block)}
-    </div>
-  );
+  return parse(block);
 };
 
 function parse(block) {
@@ -31,11 +28,15 @@ function parse(block) {
     case 'heading_5':
     case 'heading_6':
     case 'bulleted_list_item':
+    case 'bulleted_list_item':
+    case 'quote':
       return <TextBlock block={block} />;
+    case 'image':
+      return <Image image={block} />;
     case 'child_page':
       return <ChildPage page={block.child_page} />;
     case 'unsupported':
-      console.warn('UNSUPPORTED BLOCK TYPE', block.type, block);
+      console.warn('Block: UNSUPPORTED BLOCK TYPE:', block.type, block);
       return (
         <>
           <pre>
@@ -47,7 +48,7 @@ function parse(block) {
         </>
       );
     default:
-      console.log('UNFINISHED BLOCK', block.type, block);
+      console.log('Block: UNFINISHED BLOCK:', block.type, block);
       return (
         <>
           <pre>

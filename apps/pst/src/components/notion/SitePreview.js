@@ -19,11 +19,7 @@ export default ({ sitePreview }) => {
   }
 
   return (
-    <div
-      className="notionSitePreview"
-      data-block-id="821fe0dc-6677-492e-a537-bceb4ff8dd06"
-      css={style}
-    >
+    <div className="notionSitePreview" css={style}>
       <div>
         <div
           css={css`

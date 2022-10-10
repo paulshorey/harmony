@@ -8,74 +8,107 @@
   --color-success: #27b30d;
   --color-info: #1e90ff;
 
+  /* Values below will likely be overwritten by a colors variant: */
+
   --color-text: #333;
   --color-subtle: #999;
   --color-accent: #3eaaae;
-  --color-dark: #7c3bec;
+  --color-notice: #c336e5;
 
   --color-cta: cornflowerblue;
   --color-cta-from: cornflowerblue;
   --color-cta-to: violet;
   --color-cta-text: white;
 
+  --color-hero: hsl(239 75% 70%);
+  --color-hero-from: hsl(226 75% 63%);
+  --color-hero-to: hsl(272 60% 67%);
+  --color-hero-text: white;
+
   --color-bg: #fff;
   --color-bg-from: #efefef;
   --color-bg-to: #ccc;
-  --color-bgText: #666;
+  --color-bg-text: #666;
 }
-.onDark {
+.dark {
   --color-text: #fff;
+  --color-bg: #012546;
 }
 
 .colors-primary {
   --color-text: #202124;
-  --color-subtle: hsl(239 75% 70%);
-  --color-subtle-dark: hsl(226 75% 63%);
-  --color-subtle-light: hsl(272 60% 67%);
-  --color-subtle-text: #111;
-  --color-deep: hsl(234deg 100% 61%);
-  --color-deep-dark: #394dfe;
-  --color-deep-light: hsl(205deg 100% 50%);
-  --color-deep-text: #fff;
+
+  --color-cta: #2a9de4;
+  --color-cta-from: #007bff;
+  --color-cta-to: #c336e5;
+
+  --color-hero: #755dd5;
+  --color-hero-from: #755dd5;
+  --color-hero-to: #3788d1;
+  --color-hero-text: #fff;
+
+  --color-bg: #d9effe;
+  --color-bg-from: #d9effe;
+  --color-bg-to: #d9effe;
 }
-.onDark .colors-primary {
-  --color-text: hsl(239 80% 100% / 0.75);
-  --color-accent: #8ab4f8;
-  --color-subtle: hsl(239 75% 70%);
-  --color-subtle-dark: #8ab4f8;
-  --color-subtle-light: #c58af9;
-  --color-subtle-text: #ddeeff;
-  --color-deep: hsl(234deg 100% 61%);
-  --color-deep-dark: #394dfe;
-  --color-deep-light: hsl(205deg 100% 50%);
-  --color-deep-text: #ddeeff;
+.dark .colors-primary {
 }
 
 .colors-secondary {
-  --color-text: hsl(239 80% 100% / 0.75);
-  --color-subtle: hsl(239 75% 70%);
-  --color-subtle-from: hsl(226 75% 63%);
-  --color-subtle-to: hsl(272 60% 67%);
-  --color-subtle-text: #000;
-  --color-deep: hsl(239 80% 100% / 0.5);
-  --color-deep-from: hsl(239 80% 100% / 0.75);
-  --color-deep-to: hsl(239 80% 100% / 0.75);
-  --color-deep-text: #000;
+  --color-text: #202124;
+
+  --color-cta: #c336e5;
+  --color-cta-from: rgb(55, 136, 209);
+  --color-cta-to: rgb(117, 93, 213);
+
+  --color-hero: rgb(117, 93, 213);
+  --color-hero-from: rgb(55, 136, 209);
+  --color-hero-to: rgb(117, 93, 213);
+
+  --color-hero-text: #fff;
 }
-.onDark .colors-secondary {
+.dark .colors-secondary {
 }
 
 .colors-accent {
   --color-text: hsl(39deg 100% 46%);
-  --color-subtle: hsl(39deg 95% 50%);
-  --color-subtle-dark: hsl(39deg 100% 45%);
-  --color-subtle-light: hsl(39deg 93% 73%);
-  --color-subtle-text: #000;
-  --color-deep: orange;
-  --color-deep-from: hsl(39deg 100% 46%);
-  --color-deep-to: hsl(39deg 100% 46%);
-  --color-deep-text: #000;
+
+  --color-cta: hsl(39deg 95% 50%);
+  --color-cta-from: hsl(39deg 100% 45%);
+  --color-cta-to: hsl(39deg 93% 73%);
+  --color-cta-text: #000;
+
+  --color-hero: orange;
+  --color-hero-from: hsl(39deg 100% 46%);
+  --color-hero-to: hsl(39deg 100% 46%);
+  --color-hero-text: #000;
 }
-.onDark .colors-accent {
+.dark .colors-accent {
   --color-text: gold;
+}
+
+.colors-archive {
+  --color-text: #333;
+  --color-subtle: #999;
+  --color-accent: #3eaaae;
+  --color-notice: #7c3bec;
+
+  --color-cta: cornflowerblue;
+  --color-cta-from: cornflowerblue;
+  --color-cta-to: violet;
+  --color-cta-text: white;
+
+  --color-hero: hsl(239 75% 70%);
+  --color-hero-from: hsl(226 75% 63%);
+  --color-hero-to: hsl(272 60% 67%);
+  --color-hero-text: white;
+
+  --color-bg: #fff;
+  --color-bg-from: #efefef;
+  --color-bg-to: #ccc;
+  --color-bg-text: #666;
+}
+.dark {
+  --color-text: #fff;
+  --color-bg: #012546;
 }

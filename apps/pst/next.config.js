@@ -12,6 +12,9 @@ const ContentSecurityPolicy = ''; //require('@ps/constants/auth/contentSecurityP
 dotenvLoad();
 
 const nextConfig = withTM({
+  images: {
+    domains: ['s3.us-west-2.amazonaws.com'],
+  },
   trailingSlash: false,
   webpack5: true,
   generateBuildId: () => nextBuildId({ dir: __dirname, describe: true }),

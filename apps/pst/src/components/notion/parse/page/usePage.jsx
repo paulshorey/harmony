@@ -6,7 +6,6 @@ import Block from './Block';
 const usePage = ({ data }) => {
   let parsed = {};
   if (!data) {
-    cconsole.error('usePage !data');
     return parsed;
   }
   parsed.title = data?.title;

@@ -13,7 +13,7 @@ export default function (page) {
       if (block.paragraph && !page.paragraph) {
         // only use first paragraph which does not have any links!
         let is_only_text_p = true;
-        cconsole.info('block', block);
+
         if (block.paragraph.text) {
           for (let text of block.paragraph.text) {
             if (text.href) {

@@ -26,7 +26,7 @@ export type ssProps = {
    */
   color?: colorGroupType;
   /**
-   * Will be used by theme.getColors function to get you the color shade of color, 'default' or 'onDark'. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color. This tells the component that it is over a dark or light background.
+   * Will be used by theme.getColors function to get you the color shade of color, 'default' or 'dark'. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color. This tells the component that it is over a dark or light background.
    */
   shade?: colorShadeType;
   /**
@@ -142,9 +142,9 @@ export type ssProps = {
    */
   ssAll?: ssPropType;
   // /**
-  //  * Shorthand for props.variants['onDark']. It can be undefined. The key will be read and added to props.variants.
+  //  * Shorthand for props.variants['dark']. It can be undefined. The key will be read and added to props.variants.
   //  */
-  // onDark?: any;
+  // dark?: any;
   // /**
   //  * Shorthand for props.variants['default']. It can be undefined. The key will be read and added to props.variants.
   //  */
@@ -158,13 +158,13 @@ export type ssProps = {
    */
   "data-variants"?: string;
   /**
-   * This component and all elements inside it will use theme.colors[colorGroup].onDark (if defined), if not will fall back to alternative
+   * This component and all elements inside it will use theme.colors[colorGroup].dark (if defined), if not will fall back to alternative
    */
-  onDark?: any;
+  dark?: boolean;
   /**
-   * This component and all elements inside it will use theme.colors[colorGroup].onLight (if defined), if not will fall back to alternative
+   * This component and all elements inside it will use theme.colors[colorGroup].light (if defined), if not will fall back to alternative
    */
-  onLight?: any;
+  light?: boolean;
 };
 
 export type ReactForwardedRefType = any; // tsFix - what is the type of "ref" as returned by React.forwardRef()?

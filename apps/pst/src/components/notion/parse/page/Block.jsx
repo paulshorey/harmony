@@ -4,7 +4,6 @@ import Text from './Text';
 
 const Block = ({ data }) => {
   if (!data) {
-    cconsole.error('Block !data');
     return null;
   }
   if (!data.type || !data[data.type]) {

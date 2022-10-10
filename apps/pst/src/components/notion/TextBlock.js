@@ -13,108 +13,69 @@ export default ({ block }) => {
   let data_mentioned_site = false;
   let el_tagName = tag(block);
   let el_className = 'notionBlockText';
-
-  /*
-   * Parse mentioned pages and sites from text
-   */
-  let Mentions = !(block[block.type].text || block[block.type].rich_text)
-    ? []
-    : (block[block.type].text || block[block.type].rich_text)
-        .map((text, ti) => {
-          if (
-            text.mention &&
-            text.mention.type === 'page' &&
-            block.pageMentions &&
-            block.pageMentions[text.mention.page.id]
-          ) {
-            data_mentioned_page = 'mentioned-page';
-            return <PageMention key={ti} page={block.pageMentions[text.mention.page.id]} />;
-          }
-          if (
-            text.text &&
-            text.text.content &&
-            text.text.link &&
-            text.text.link.url &&
-            block.sitePreviews &&
-            block.sitePreviews[text.text.link.url + text.text.content]
-          ) {
-            data_mentioned_site = 'mentioned-site';
-            return (
-              <SitePreview
-                key={ti}
-                sitePreview={block.sitePreviews[text.text.link.url + text.text.content]}
-              />
-            );
-          }
-          return null;
-        })
-        .filter((item) => !!item);
-  let textsLength = 0;
-  el_className += ' tag-' + el_tagName;
+  let text = block[block.type].text || block[block.type].rich_text;
+  let Texts = [];
 
   /*
    * Parse inline text
    */
-  let Texts = !(block[block.type].text || block[block.type].rich_text)
-    ? []
-    : (block[block.type].text || block[block.type].rich_text)
-        .map((text, ti) => {
-          if (
-            text.mention &&
-            text.mention.type === 'page' &&
-            block.pageMentions &&
-            block.pageMentions[text.mention.page.id]
-          ) {
-            return null;
-          }
-          if (
-            text.text &&
-            text.text.content &&
-            text.text.link &&
-            text.text.link.url &&
-            block.sitePreviews &&
-            block.sitePreviews[text.text.link.url + text.text.content]
-          ) {
-            return null;
-          }
-          if (text.text && text.text.content) {
-            textsLength += text.text.content.length;
-          }
-          return <TextInline key={ti} text={text} />;
-        })
-        .filter((item) => !!item);
-
-  /*
-   * only text, no links ?
-   */
-  // if (!Mentions || textsLength > 2) {
-  //   el_className += ' length' + textsLength;
-  //   if (textsLength <= 3) {
-  //     el_className += ' empty';
-  //   }
-  // }
+  text.forEach((text, ti) => {
+    // the text
+    Texts.push(<TextInline key={ti} text={text} />);
+    // page/site/mentions
+    if (
+      text.mention &&
+      text.mention.type === 'page' &&
+      block.pageMentions &&
+      block.pageMentions[text.mention.page.id]
+    ) {
+      data_mentioned_page = 'mentioned-page';
+      Texts.push(<PageMention key={ti} page={block.pageMentions[text.mention.page.id]} />);
+    }
+    if (
+      text.text &&
+      text.text.content &&
+      text.text.link &&
+      text.text.link.url &&
+      block.sitePreviews &&
+      block.sitePreviews[text.text.link.url + text.text.content]
+    ) {
+      data_mentioned_site = 'mentioned-site';
+      Texts.push(
+        <SitePreview
+          key={ti}
+          sitePreview={block.sitePreviews[text.text.link.url + text.text.content]}
+        />
+      );
+    }
+  });
 
   /*
    * Render
    */
-  if (Texts.length || Mentions.length) {
-    let Styled = styled[el_tagName]``;
-    return (
-      <Styled
-        key={el_tagName + data_id}
-        className={el_className}
-        data-id={data_id}
-        data-type={data_type}
-        data-mentioned_page={data_mentioned_page}
-        data-mentioned_site={data_mentioned_site}
-      >
-        {Mentions}
-        {Texts}
-      </Styled>
-    );
-  } else {
-    return null;
+  if (!Texts.length) {
+    // empty paragraph
+    if (text && !text.length) {
+      Texts.push(<span key={0}>&nbsp;</span>);
+    } else {
+      console.log('unfinished textblock', block);
+      Texts.push(<code>[UNFINISHED BLOCK "{block.type}"]</code>);
+    }
   }
+
+  let Styled = styled[el_tagName]``;
+  return (
+    <Styled
+      key={el_tagName + data_id}
+      className={el_className}
+      data-id={data_id}
+      data-type={data_type}
+      data-mentioned_page={data_mentioned_page}
+      data-mentioned_site={data_mentioned_site}
+    >
+      {Texts}
+    </Styled>
+  );
 };
 
 function tag(block) {
@@ -135,11 +96,15 @@ function tag(block) {
       return 'h6';
     case 'bulleted_list_item':
       return 'li';
+    case 'numbered_list_item':
+      return 'li';
+    case 'quote':
+      return 'blockquote';
     case 'unsupported':
-      console.warn('UNSUPPORTED BLOCK TYPE', block);
+      console.warn('TextBlock: UNSUPPORTED BLOCK TYPE:', block);
       return 'h1';
     default:
-      console.log('UNFINISHED BLOCK (div)', block);
+      console.log('TextBlock: UNFINISHED BLOCK (div):', block);
       return 'div';
   }
 }

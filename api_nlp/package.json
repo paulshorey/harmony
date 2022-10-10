@@ -1,0 +1,34 @@
+{
+  "name": "nlp-be",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "the backend - API, business logic, algorithms, database",
+  "private": true,
+  "dependencies": {
+    "@airbrake/node": "^1.0.7",
+    "@supercharge/request-ip": "^1.1.2",
+    "@twodashes/universal": "^0.5.8",
+    "api": "file:./api",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "colorful-console-logger": "^1.1.0",
+    "common": "file:./common",
+    "cors": "^2.8.5",
+    "data": "file:./data",
+    "dotenv-flow": "^3.2.0",
+    "express": "^4.17.1",
+    "logdna": "^3.5.0",
+    "node-localstorage": "^2.1.6",
+    "pg": "^8.7.3",
+    "pg-pool": "^3.5.1",
+    "pm2": "^5.2.0",
+    "tmp": "file:./tmp"
+  },
+  "scripts": {
+    "mac": "bash _bash/_start_mac.sh && echo 'this is for development on APPLE MAC OS ONLY'",
+    "dev": "bash _bash/_start_dev.sh && echo 'this starts the server, and restarts on code change'",
+    "pro": "bash _bash/_start_pro.sh && echo 'this is a quick start, for staging production'",
+    "deploy": "bash _bash/_deploy.sh && echo 'this is the startup process, for production'",
+    "docs": "jsdoc2md pauls-pure-functions/functions/**.js > pauls-pure-functions/README.md"
+  }
+}

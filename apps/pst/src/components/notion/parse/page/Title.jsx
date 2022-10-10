@@ -3,7 +3,6 @@ import cconsole from 'colorful-console-logger';
 
 const Title = ({ data }) => {
   if (!data) {
-    cconsole.error('Title !data');
     return null;
   }
   if (!data?.title) {

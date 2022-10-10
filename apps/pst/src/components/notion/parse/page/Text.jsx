@@ -3,7 +3,6 @@ import cconsole from 'colorful-console-logger';
 
 const Text = ({ data }) => {
   if (!data) {
-    cconsole.error('Text !data');
     return null;
   }
   if (!data?.rich_text) {

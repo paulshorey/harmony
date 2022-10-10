@@ -23,8 +23,8 @@ export default (
     color = "",
     shade = "",
     size = "",
-    onDark = false,
-    onLight = false,
+    dark = false,
+    light = false,
     ss,
     ssAll,
     ssAndroid,
@@ -89,11 +89,11 @@ export default (
   if (styles) {
     const variantStrs = variant?.trim().split(/[^\w\d-_]+/) || [];
     // special cases
-    if (onDark !== "false") {
-      theme.instance.variants["onDark"] = true;
+    if (dark !== "false") {
+      theme.instance.variants["dark"] = true;
     }
-    if (onLight !== "false") {
-      theme.instance.variants["onLight"] = true;
+    if (light !== "false") {
+      theme.instance.variants["light"] = true;
     }
     // add tag name as a variant
     // it only works if manually added (<Box as="h2" /> will add h2). Doesn't work for default (<Box /> will NOT add div).
@@ -264,8 +264,8 @@ export default (
    *
    */
   props["data-variants"] = dataVariants;
-  if (theme.instance.variants.onDark) {
-    props.className = (props.className ? props.className + " " : "") + "onDark";
+  if (theme.instance.variants.dark) {
+    props.className = (props.className ? props.className + " " : "") + "dark";
   }
   // @ts-ignore // Idk how to get a list of valid styled tags. Put in a typeof check below that should take care of it.
   let styledFunction = styled[tagName];
