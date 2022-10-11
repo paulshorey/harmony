@@ -1,9 +1,8 @@
+/* Visit https://aka.ms/tsconfig to read more about this file */
 {
   "include": ["src/browser/**/*/*", "./io/**/*", "./requests/**/*", "./server/**/*"],
   "compilerOptions": {
-    "out": "./out",
-    /* Visit https://aka.ms/tsconfig to read more about this file */
-
+    "out": "./dist",
     /* Projects */
     // "incremental": true,                              /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
     // "composite": true,                                /* Enable constraints that allow a TypeScript project to be used with project references. */

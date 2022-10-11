@@ -1,4 +1,4 @@
-const CConsoleLog = require("./function/CConsoleLog");
+import CConsoleLog from "./function/CConsoleLog";
 
 /**
  * Log to console, and optionally to your custom cloud functions
@@ -16,7 +16,7 @@ const CConsoleLog = require("./function/CConsoleLog");
  *    Tested, and works well with LogDNA. `options.logToCloud = logdna.createLogger()`
  *    See github project for more documentation and examples.
  */
-const cconsoleInit = function (options = {}) {
+const cconsoleInitFunction = function (options = {}) {
   // so different actions (log/info/debug/etc) can communicate with eachother:
   let sharedContext = {};
   // log
@@ -74,4 +74,5 @@ const cconsoleInit = function (options = {}) {
 /*
  * Export cconsole
  */
-module.exports = cconsoleInit;
+export const cconsoleInit = cconsoleInitFunction; // named export must be configured
+export default cconsoleInit(); // default ready to use

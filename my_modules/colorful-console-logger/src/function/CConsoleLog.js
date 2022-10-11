@@ -1,5 +1,5 @@
-const destroyCircular = require("./destroyCircular");
-const serializeError = require("./serializeError");
+import destroyCircular from "./destroyCircular";
+import serializeError from "./serializeError";
 
 // use "browser" colors if in browser
 let NODEJSCOLORS = typeof window !== "object";
@@ -11,7 +11,7 @@ let NODEJSCOLORS = typeof window !== "object";
 /*
  * Log to console
  */
-module.exports = function () {
+export default function () {
   let args = [...arguments];
   // optionally, pass log-To-Cloud versions of each log action (log,info,error,etc.)
   if (!this.options) this.options = {};
@@ -243,4 +243,4 @@ module.exports = function () {
   if (error_message) {
     return error_message;
   }
-};
+}

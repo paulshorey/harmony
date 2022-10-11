@@ -34,7 +34,7 @@
     "@emotion/styled": "^11.3.0",
     "airtable": "^0.11.1",
     "cachios": "^3.0.0",
-    "colorful-console-logger": "^1.1.0",
+    "colorful-console-logger": "*",
     "contentful": "^9.1.5",
     "dateformat": "^5.0.3",
     "html-react-parser": "^1.4.10",
