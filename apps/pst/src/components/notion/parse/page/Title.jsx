@@ -1,5 +1,5 @@
 import React from 'react';
-import cconsole from 'colorful-console-logger';
+import cconsole from '@ps/cconsole';
 
 const Title = ({ data }) => {
   if (!data) {

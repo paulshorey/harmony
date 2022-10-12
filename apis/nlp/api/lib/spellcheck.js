@@ -2,7 +2,7 @@ import bing_spellcheck from "api/3rdparty/promise/bing_spellcheck.js"
 // import google_autocomplete from "api/3rdparty/promise/google_autocomplete.js"
 // import bing_autosuggest from "api/3rdparty/promise/bing_autosuggest.js"
 import stopwords_dict from "data/words/stopwords"
-import { sort_objects_by_property } from "@twodashes/universal/esm/sort_objects"
+import sort_objects_by_property from "@ps/fn/io/sort_objects/sort_objects_by_property"
 
 let DEBUG1 = false
 const mymodule = async function (string) {

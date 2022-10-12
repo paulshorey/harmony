@@ -1,6 +1,6 @@
-import { sort_strings_by_rating_and_position } from "@twodashes/universal/esm/sort_strings"
-// import { sort_strings_by_length } from "@twodashes/universal/esm/sort_words.js"
-// import * as sh from "@twodashes/universal/esm/sh.js"
+import sort_strings_by_rating_and_position from "@ps/fn/io/sort_strings/sort_strings_by_rating_and_position"
+// import { sort_strings_by_length } from "@ps/fn/io/sort_words.js"
+// import * as sh from "@ps/fn/io/sh.js"
 
 /**
  * Replace each word in a phrase, X times

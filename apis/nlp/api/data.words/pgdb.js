@@ -2,8 +2,8 @@
  * Dependencies
  */
 import import_pg from "pg"
-import { json_parse } from "@twodashes/universal/esm/json.js"
-import { is_number } from "@twodashes/universal/esm/numbers.js"
+import json_parse from "@ps/fn/io/json/json_parse"
+import is_number from "@ps/fn/io/num/is_number"
 import { phrase_capitalize } from "api/data.words/functions/pos.js"
 import dict_info from "./function/dict_info"
 import str_row from "./promise/str_row"

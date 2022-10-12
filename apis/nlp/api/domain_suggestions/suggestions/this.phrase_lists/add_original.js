@@ -1,8 +1,8 @@
 // import original_replace_original from "api/domain_suggestions/suggestions/this.phrase_lists/word_dict/original_replace_one.js"
 // import original_one_word from "api/domain_suggestions/suggestions/this.phrase_lists/word_dict/original_one_word.js"
 // import self_before_after from "./phrase_list/self_before_after"
-import { sort_strings_by_length } from "@twodashes/universal/esm/sort_words"
-import { matrix_flatten_to_strings } from "@twodashes/universal/esm/strings"
+import { sort_strings_by_length } from "@ps/fn/io/sort_words"
+import { matrix_flatten_to_strings } from "@ps/fn/io/strings"
 
 /**
  * Replace each word in a phrase, X times

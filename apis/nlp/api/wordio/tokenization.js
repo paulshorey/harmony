@@ -1,7 +1,7 @@
 /*
  * IMPORTS
  */
-// import { aggregate_req_body_query } from "@twodashes/universal/esm/req"
+// import { aggregate_req_body_query } from "@ps/fn/io/req"
 import spellcheck from "api/lib/spellcheck"
 import wordbreak from "api/lib/wordbreak"
 import spellcheck_wordbreak from "api/lib/spellcheck-wordbreak"
@@ -76,7 +76,7 @@ export default function ({ expressApp, http_response, req_authenticate, req_erro
     expressApp[req_method](req_endpoint, async function (req, res) {
       try {
         let time_start = Date.now()
-        let output = await spellcheck_wordbreak_wordchunk(req.query.str, {spellcheck:false})
+        let output = await spellcheck_wordbreak_wordchunk(req.query.str, { spellcheck: false })
         http_response(res, 200, output, { time: Date.now() - time_start })
       } catch (err) {
         req_error({ err, req, res, req_method, req_endpoint })
@@ -89,7 +89,7 @@ export default function ({ expressApp, http_response, req_authenticate, req_erro
     expressApp[req_method](req_endpoint, async function (req, res) {
       try {
         let time_start = Date.now()
-        let output = await spellcheck_wordbreak_wordchunk(req.query.str, {spellcheck:false})
+        let output = await spellcheck_wordbreak_wordchunk(req.query.str, { spellcheck: false })
         output = await wordchunk_tokenize(output)
         http_response(res, 200, output, { time: Date.now() - time_start })
       } catch (err) {

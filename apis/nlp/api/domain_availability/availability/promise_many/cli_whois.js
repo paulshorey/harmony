@@ -1,5 +1,5 @@
 import cli_whois from "api/domain_availability/availability/promise_one/cli_whois"
-// import { sleep } from "@twodashes/universal/esm/promises"
+// import { sleep } from "@ps/fn/io/promises"
 // import import_localstorage from "node-localstorage"
 // let { LocalStorage } = import_localstorage
 // let localStorage = new LocalStorage("tmp/localStorage-whoisUndefined")

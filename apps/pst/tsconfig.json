@@ -4,17 +4,21 @@
     "paths": {
       "src/*": ["src/*"],
       "public/*": ["public/*"],
-      "@ps/ui": ["../../packages-my/ps-ui"],
-      "@ps/constants": ["../../packages-my/ps-constants"],
-      "@ps/fn": ["../../packages-my/ps-fn"]
+      "@ps/ui": ["../../packages-ps/ui"],
+      "@ps/constants": ["../../packages-ps/constants"],
+      "@ps/fn": ["../../packages-ps/fn"]
     }
   },
   "extends": "./tsconfig.nextjs.json",
   "include": [
-    "next-env.d.ts",
+    "../../packages-ps/**/*.js",
+    "../../packages-ps/**/*.ts",
+    "../../packages-ps/**/*.tsx",
+    "../../packages-ps/**/*.d.ts",
     "**/*.ts",
-    "**/*.tsx",
     "**/*.js",
+    "**/*.tsx",
+    "**/*.d.ts",
     "src/components/notion/parse/Page/index.jsx"
   ],
   "exclude": ["node_modules", "dist"]

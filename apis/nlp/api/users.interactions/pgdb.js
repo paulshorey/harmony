@@ -2,9 +2,9 @@
  * Dependencies
  */
 import import_pg from "pg"
-import { json_parse } from "@twodashes/universal/esm/json.js"
+import json_parse from "@ps/fn/io/json/json_parse"
 import { makeSQLString } from "../lib/pgdb"
-import { str_hash } from "@twodashes/universal/esm/string"
+import str_hash from "@ps/fn/io/str/str_hash"
 const { Pool } = import_pg
 const pool = new Pool()
 

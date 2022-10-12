@@ -1,4 +1,4 @@
-import { parse_error_message } from "@twodashes/universal/esm/requests.js"
+import parse_error_message from "@ps/fn/io/err/parse_error_message"
 
 /*
  * Global API response - just pass original response variable

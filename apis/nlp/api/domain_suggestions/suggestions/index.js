@@ -1,5 +1,5 @@
 // import { responseDataType } from "../types"
-// import {objects_merge} from "@twodashes/universal/esm/objects.js";
+// import {objects_merge} from "@ps/fn/io/objects.js";
 import nlp from "./nlp"
 import phrase_lists from "./this.phrase_lists"
 import tlds from "./this.tlds"
@@ -9,7 +9,7 @@ import domains_lists from "./this.domains_lists"
 import phrases from "./this.phrases"
 import word_hacks from "./this.word_hacks"
 import phrase_hacks from "./this.phrase_hacks"
-import { syllable_count } from "@twodashes/universal/esm/words"
+import syllable_count from "@ps/fn/io/word/syllable_count"
 
 const rate_word = function (key, dict) {
   if (key && dict[key] && !this.chunks_dicts[key]) {

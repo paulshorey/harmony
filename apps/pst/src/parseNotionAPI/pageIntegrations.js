@@ -1,12 +1,12 @@
 import getSitePreview from '@ps/fn/requests/site_info/linkpreview';
-import cconsole from 'colorful-console-logger';
+// import cconsole from '@ps/cconsole';
 
 export default async function (page, pagesIdToUrl) {
   for (let block of page.blocks) {
     let blockString = JSON.stringify(block);
     block.pageMentions = {};
     await get_pagePreviews_from_blockString(blockString, pagesIdToUrl, block.pageMentions); // {}
-    block.sitePreviews = await get_sitePreviews_from_blockString(blockString); // {}
+    // block.sitePreviews = await get_sitePreviews_from_blockString(blockString); // {}
     // console.log('\n\n\npage.pageMentions', page.pageMentions, '\n\n\n');
   }
 }

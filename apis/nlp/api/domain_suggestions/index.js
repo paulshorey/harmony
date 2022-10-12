@@ -2,8 +2,8 @@
 import get_domains_suggestions from "./suggestions/index"
 import chunk_string from "api/lib/chunk_string"
 import { performance } from "perf_hooks"
-import { aggregate_req_body_query } from "@twodashes/universal/esm/req"
-import { responseData } from "./mocks"
+import aggregate_req_body_query from "@ps/fn/io/req/aggregate_req_body_query_params"
+// import { responseData } from "./mocks"
 // import auth_captcha from "../auth_captcha"
 
 /*

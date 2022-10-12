@@ -3,7 +3,7 @@
  */
 import str_row from "api/data.words/promise/str_row.js"
 import { data_word_get_parsed } from "api/data.words/pgdb.js"
-import { aggregate_req_body_query } from "@twodashes/universal/esm/req"
+import aggregate_req_body_query from "@ps/fn/io/req/aggregate_req_body_query_params"
 
 /*
  * API

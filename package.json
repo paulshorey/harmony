@@ -1,13 +1,13 @@
 {
   "name": "ps-monorepo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "workspaces": [
     "apps/*",
     "apis/*",
-    "clis/*",
-    "my_modules/*",
-    "not_my_modules/*"
+    "packages_ps/*",
+    "packages_npm/*",
+    "clis/*"
   ],
   "scripts": {
     "build": "turbo run build",

@@ -1,6 +1,6 @@
 // import { get_sitePreviews_from_blockString, pageIds_from_blockString } from 'src/functions/notionAPI';
 // import { obj_first_value } from '@ps/fn/pure/obj';
-import cconsole from 'colorful-console-logger';
+import cconsole from '@ps/cconsole';
 
 export default function (page) {
   // flatten page, cut off children of its children

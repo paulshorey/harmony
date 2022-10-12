@@ -1,6 +1,6 @@
 import str_row from "api/data.words/promise/str_row"
 import wordbreak from "api/lib/wordbreak"
-import { str_insert } from "@twodashes/universal/esm/string"
+import str_insert from "@ps/fn/io/str/str_insert"
 import spellcheck from "api/lib/spellcheck"
 
 /**

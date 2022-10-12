@@ -1,4 +1,4 @@
-import cconsole from 'colorful-console-logger';
+import cconsole from '@ps/cconsole';
 import contentful from 'contentful-management';
 
 import { cf_migrateWordpressImagesThenPosts } from './lib/cf.js';

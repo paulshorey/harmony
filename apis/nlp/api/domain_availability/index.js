@@ -3,7 +3,7 @@
  */
 import get_domains_availability from "./availability"
 import { performance } from "perf_hooks"
-import { aggregate_req_body_query } from "@twodashes/universal/esm/req"
+import { aggregate_req_body_query } from "@ps/fn/io/req"
 // import auth_captcha from "../auth_captcha"
 
 /*

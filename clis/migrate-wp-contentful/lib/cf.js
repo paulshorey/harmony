@@ -1,5 +1,5 @@
 import axios from 'axios';
-import cconsole from 'colorful-console-logger';
+import cconsole from '@ps/cconsole';
 import TurndownService from 'turndown';
 
 // Aggregate API responses

@@ -6,7 +6,7 @@ import check_cli_host from "api/domain_availability/availability/promise_many/cl
 import check_cli_whois from "api/domain_availability/availability/promise_many/cli_whois.js"
 // import tlds_name from "data/domains/availability/donuts.js"
 // import tlds_whoisxmlapi from "data/domains/availability/whoisxmlapi.js"
-// import { is_number } from "@twodashes/universal/esm/numbers.js"
+// import is_number from "@ps/fn/io/num/is_number"
 // import { data_word_get } from "api/data.words/pgdb.js"
 
 import import_localstorage from "node-localstorage"

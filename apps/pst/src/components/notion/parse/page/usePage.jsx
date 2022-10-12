@@ -1,6 +1,6 @@
 import React from 'react';
 // import Text from './Text';
-import cconsole from 'colorful-console-logger';
+import cconsole from '@ps/cconsole';
 import Block from './Block';
 
 const usePage = ({ data }) => {

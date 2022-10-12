@@ -1,5 +1,5 @@
 import { get_pageBlocks, get_pageMeta } from '@ps/fn/requests/notion/2022-06-28';
-// import cconsole from 'colorful-console-logger';
+// import cconsole from '@ps/cconsole';
 
 // does not return anything, only modifies passed in objects
 const pagesTree = async (page, pages) => {

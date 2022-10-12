@@ -1,5 +1,5 @@
-import { arrays_mix } from "@twodashes/universal/esm/arrays"
-// import { sort_strings_by_length } from "@twodashes/universal/esm/sort_words"
+import arrays_mix from "@ps/fn/io/arrays/arrays_mix"
+// import { sort_strings_by_length } from "@ps/fn/io/sort_words"
 
 /**
  * Replace each word in a phrase, X timesover.

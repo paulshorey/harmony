@@ -1,4 +1,4 @@
-import { arr_subtract } from "@twodashes/universal/esm/arrays"
+import arr_subtract from "@ps/fn/io/arrays/arrays_subtract"
 
 export default function (row) {
   row.food = false
@@ -21,5 +21,4 @@ export default function (row) {
     row.tlds[1] = arr_subtract(row.tlds[1], row.tlds[0])
     row.tlds[2] = arr_subtract(row.tlds[2], row.tlds[1])
   }
-
 }

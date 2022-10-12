@@ -1,5 +1,5 @@
 import { wp_getApiDataType } from './wp.js';
-import cconsole from 'colorful-console-logger';
+import cconsole from '@ps/cconsole';
 
 export function wp_featuredImageToCloudinaryFormat(API_DATA, postData) {
   const cloudinaryImages = [];

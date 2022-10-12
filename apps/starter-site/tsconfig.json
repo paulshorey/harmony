@@ -8,9 +8,9 @@
       "src/*": ["src/*"],
       "public/*": ["public/*"],
       "apollo-client/*": ["apollo-client/*"],
-      "@ps/ui": ["../../packages-my/ps-ui"],
-      "@ps/constants": ["../../packages-my/ps-constants"],
-      "@ps/fn": ["../../packages-my/ps-fn"]
+      "@ps/ui": ["../../packages-ps/ui"],
+      "@ps/constants": ["../../packages-ps/constants"],
+      "@ps/fn": ["../../packages-ps/fn"]
     }
   }
 }

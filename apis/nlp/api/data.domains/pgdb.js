@@ -3,9 +3,9 @@
  */
 import import_pg from "pg"
 
-import { json_parse } from "@twodashes/universal/esm/json.js"
-import { objects_merge } from "@twodashes/universal/esm/objects.js"
-import { sort_objects_by_property } from "@twodashes/universal/esm/sort_objects"
+import json_parse from "@ps/fn/io/json/json_parse"
+import objects_merge from "@ps/fn/io/objects/objects_merge_keys"
+import sort_objects_by_property from "@ps/fn/io/objects/sort_objects_by_property"
 import { performance } from "perf_hooks"
 
 const { Pool } = import_pg

@@ -1,8 +1,8 @@
-// import { sort_strings_by_width } from "@twodashes/universal/esm/sort_words.js"
-// import { sort_strings_by_length_and_position, sort_strings_by_matches_in_list } from "@twodashes/universal/esm/sort_strings/index.js"
+// import { sort_strings_by_width } from "@ps/fn/io/sort_words.js"
+// import { sort_strings_by_length_and_position, sort_strings_by_matches_in_list } from "@ps/fn/io/sort_strings/index.js"
 // import remove_tld_from_phrase from "./function/remove_tld_from_phrase.js"
 // import list_domains_phrases_ending_in_tld from "./list_domains_phrases_ending_in_tld"
-// import * as sh from "@twodashes/universal/esm/sh.js"
+// import * as sh from "@ps/fn/io/sh.js"
 // import generic_tlds from "data/domains/mixins/generic"
 
 /**

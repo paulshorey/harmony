@@ -1,6 +1,6 @@
 // import fws from "data/words/fw/fw"
 // import sort_preferences from "data/domains/sort_preferences.js"
-// import { sort_strings_by_rating_and_position } from "@twodashes/universal/esm/sort_strings"
+// import { sort_strings_by_rating_and_position } from "@ps/fn/io/sort_strings"
 import str_row from "../../../../data.words/promise/str_row"
 import tlds_all from "data/domains/all"
 

@@ -1,5 +1,5 @@
-// import { arrays_mix } from "@twodashes/universal/esm/arrays"
-import { syllable_count } from "@twodashes/universal/esm/words"
+// import { arrays_mix } from "@ps/fn/io/arrays"
+import { syllable_count } from "@ps/fn/io/words"
 /*
  * IDEAS to add:
  * un____

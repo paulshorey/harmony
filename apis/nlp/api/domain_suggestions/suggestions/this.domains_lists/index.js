@@ -1,11 +1,10 @@
-// import { sort_objects_by_property_and_position } from "@twodashes/universal/esm/sort_objects"
+// import { sort_objects_by_property_and_position } from "@ps/fn/io/sort_objects"
 import rate_domain from "./function/rate_domain"
-import {
-  sort_strings_by_length_and_position,
-  sort_strings_by_rating_and_position
-} from "@twodashes/universal/esm/sort_strings"
-import { strings_shuffle_last_strict, strings_shuffle_first_last } from "@twodashes/universal/esm/strings"
-// import { sort_strings_by_length } from "@twodashes/universal/esm/sort_words"
+import sort_strings_by_length_and_position from "@ps/fn/io/sort_strings/sort_strings_by_length_and_position"
+import sort_strings_by_rating_and_position from "@ps/fn/io/sort_strings/sort_strings_by_rating_and_position"
+import strings_shuffle_last from "@ps/fn/io/strings/strings_shuffle_last2"
+import strings_shuffle_first_last from "@ps/fn/io/strings/strings_shuffle_first_last2"
+// import { sort_strings_by_length } from "@ps/fn/io/sort_words"
 
 /**
  * Separate flat dict of { domname: listname } into dict of groups { listname: [ domname, ], }
@@ -91,7 +90,7 @@ export default function () {
     if (listname === "word hack" || listname === "phrase hack") {
       list = list.slice(0, 100)
       list = strings_shuffle_first_last(list)
-      list = strings_shuffle_last_strict(list)
+      list = strings_shuffle_last(list)
       list = list.slice(0, 50)
     } else {
       // list = list.slice(0, 250)

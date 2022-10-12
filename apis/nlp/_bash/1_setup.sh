@@ -31,7 +31,7 @@ ssh-add ~/.ssh/newssh
 #git add .
 #git reset HEAD --hard
 #git pull
-#cd colorful-console-logger ||
+#cd @ps/cconsole ||
 #git add .
 #git reset HEAD --hard
 #git pull

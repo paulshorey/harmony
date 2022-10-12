@@ -1,7 +1,7 @@
-import { syllable_count } from "@twodashes/universal/esm/words"
-// import { sort_strings_by_length_asc } from "@twodashes/universal/esm/sort_strings"
+import { syllable_count } from "@ps/fn/io/words"
+// import { sort_strings_by_length_asc } from "@ps/fn/io/sort_strings"
 // import fws from "data/words/fw/fw"
-import { strings_shuffle_first_last_strict } from "@twodashes/universal/esm/strings"
+// import strings_shuffle_first_last_strict from "@ps/fn/io/strings/strings_shuffle_first_last2"
 
 /**
  * Lists

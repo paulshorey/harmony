@@ -1,7 +1,7 @@
 // import { sleep } from 'pauls-pure-functions/functions/promises.js';
-import '../../global.js' // contains secret keys ~ never push to GIT!
-import { data_word_get, data_get_words, data_word_put } from 'api/data.words/pgdb.js'
-import { json_parse } from "@twodashes/universal/esm/json.js"
+import "../../global.js" // contains secret keys ~ never push to GIT!
+import { data_word_get, data_get_words, data_word_put } from "api/data.words/pgdb.js"
+import json_parse from "@ps/fn/io/json/json_parse"
 // import { arr_subtract } from 'pauls-pure-functions/functions/arrays.js';
 
 /*
@@ -21,13 +21,15 @@ import { json_parse } from "@twodashes/universal/esm/json.js"
  * GET FIRST SET OF ROWS:
  *
  */
-(async function () {
+;(async function () {
   // get words list
-  let rows = await data_get_words(`vrsn < 10 AND list_count IS NOT NULL AND list_count>=1 ORDER BY vrsn DESC LIMIT 1000`) // vrsn < 6000 AND
+  let rows = await data_get_words(
+    `vrsn < 10 AND list_count IS NOT NULL AND list_count>=1 ORDER BY vrsn DESC LIMIT 1000`
+  ) // vrsn < 6000 AND
   // validate
   if (!rows || !rows.length) {
     console.error(!rows ? "!rows" : "!rows.length")
-    global.execute('pm2 stop all')
+    global.execute("pm2 stop all")
     throw new Error(!rows ? "!rows" : "!rows.length")
   }
   /*
@@ -53,7 +55,7 @@ import { json_parse } from "@twodashes/universal/esm/json.js"
       let posdict = row.pos_dict[pos]
       for (let word in posdict) {
         let info = posdict[word]
-        let wrow = await data_word_get(word, 'ws_sentiment, proper')
+        let wrow = await data_word_get(word, "ws_sentiment, proper")
         if (wrow) {
           info[0] = wrow.ws_sentiment === -1 ? 0 : 1
         }
@@ -86,7 +88,7 @@ import { json_parse } from "@twodashes/universal/esm/json.js"
     let setRow = {
       key: row.key,
       vrsn: 10,
-      pos_dict: new_pos_dict,
+      pos_dict: new_pos_dict
     }
     // console.log(setRow);
     // console.log(row.key);

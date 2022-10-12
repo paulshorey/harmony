@@ -1,5 +1,5 @@
 import add_from_words from "./add_from_words"
-import { sort_strings_by_length_asc } from "@twodashes/universal/esm/sort_strings"
+// import { sort_strings_by_length_asc } from "@ps/fn/io/sort_strings"
 export default function () {
   // only enable if single word, with generic tld
   // if (this.keys_words.length > 1 || this.tld_chunk.list_count>50) {
@@ -37,7 +37,7 @@ export default function () {
         ...words_to_use,
         ...((row.pos1 === "nou" || row.pos1 === "ver" || row.pos1 === "adj" || row.pos1 === "int") && row.poss[row.pos1]
           ? row.poss[row.pos1]
-          : []),
+          : [])
       ]
     }
   }
@@ -46,5 +46,5 @@ export default function () {
   add_from_words.call(this, { words: [...new Set([...words_to_use])] })
 
   // sort words by length
-  this.word_hacks = (this.word_hacks).slice(0, 10)
+  this.word_hacks = this.word_hacks.slice(0, 10)
 }

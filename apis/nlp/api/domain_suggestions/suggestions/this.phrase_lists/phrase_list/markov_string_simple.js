@@ -1,4 +1,4 @@
-import { arr_from_value } from "@twodashes/universal/esm/arrays.js"
+import arr_from_value from "@ps/fn/io/arr/arr_from_value"
 
 /**
  * Simple suggestions - using Markov Strings

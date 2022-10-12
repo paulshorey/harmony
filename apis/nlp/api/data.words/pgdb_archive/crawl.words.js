@@ -1,7 +1,7 @@
 /*
  * Dependencies
  */
-import { json_parse } from "@twodashes/universal/esm/json.js"
+import json_parse from "@ps/fn/io/json/json_parse"
 // DB
 import { Pool } from "pg"
 

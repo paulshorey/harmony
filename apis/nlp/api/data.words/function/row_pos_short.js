@@ -1,7 +1,7 @@
 // import {
 //   sort_strings_by_length_and_position,
 //   sort_strings_by_rating_and_position
-// } from "@twodashes/universal/esm/sort_strings"
+// } from "@ps/fn/io/sort_strings"
 // import dict_info from "api/data.words/function/dict_info.js"
 
 /**

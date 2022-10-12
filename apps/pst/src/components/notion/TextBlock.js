@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import TextInline from 'src/components/notion/TextInline';
 import SitePreview from 'src/components/notion/SitePreview';
 import PageMention from 'src/components/notion/PageMention';
-import cconsole from 'colorful-console-logger';
+import cconsole from '@ps/cconsole';
 
 export default ({ block }) => {
   if (!block) return null;

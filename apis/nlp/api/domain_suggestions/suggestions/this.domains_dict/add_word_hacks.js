@@ -1,5 +1,5 @@
 import tlds from "data/domains/all"
-import { is_vowel } from "@twodashes/universal/esm/words"
+import is_vowel from "@ps/fn/io/word/is_vowel"
 let DEBUG1 = false
 export default function () {
   /*

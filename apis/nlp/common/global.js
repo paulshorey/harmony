@@ -126,7 +126,7 @@ const cloudConsoleError = function () {
 //
 // log to console
 //
-import { cconsoleInit } from "colorful-console-logger"
+import cconsoleInit from "@ps/cconsole/cconsoleInit"
 // debug
 global["cconsole"] = cconsoleInit({
   useTrace: true,

@@ -1,5 +1,5 @@
 import domainr_many from "api/domain_availability/availability/promise_many/domainr"
-// import { sleep } from "@twodashes/universal/esm/promises"
+// import { sleep } from "@ps/fn/io/promises"
 
 // import import_localstorage from "node-localstorage"
 // let { LocalStorage } = import_localstorage

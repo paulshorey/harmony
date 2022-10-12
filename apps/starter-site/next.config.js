@@ -2,7 +2,7 @@ const withTM = require('next-transpile-modules')([
   'src',
   '@ps/constants',
   '@ps/fn',
-  'colorful-console-logger',
+  '@ps/cconsole',
 ]);
 const withPlugins = require('next-compose-plugins');
 const nextBuildId = require('next-build-id');
