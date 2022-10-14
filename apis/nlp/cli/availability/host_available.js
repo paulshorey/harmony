@@ -3,18 +3,18 @@
  * 1) Check 3 long random strings for every TLD
  * 2) If all 3 come back as available, then this TLD is able to be reliably checked using CLI host command.
  */
-import { sleep } from "pauls-pure-functions/functions/promises.js"
+import { sleep } from "pauls-pure-functions/functions/promises"
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import tlds_all from "data/domains/all.js"
-import tlds_name from "data/domains/availability/name.js"
-import many_domainr from "api/domains/availability/promise_many/domainr.js"
-import many_name from "api/domains/availability/promise_many/name.js"
-import one_domainr from "api/domains/availability/promise_one/domainr.js"
-import one_name from "api/domains/availability/promise_one/name.js"
-import many_whois from "api/domains/availability/promise_many/cli_whois.js"
-import many_host from "api/domains/availability/promise_many/cli_host.js"
-import one_host from "api/domains/availability/promise_one/cli_host.js"
+import tlds_all from "@ps/nlp/data/domains/all"
+import tlds_name from "@ps/nlp/data/domains/availability/name"
+import many_domainr from "@ps/nlp/api/domains/availability/promise_many/domainr"
+import many_name from "@ps/nlp/api/domains/availability/promise_many/name"
+import one_domainr from "@ps/nlp/api/domains/availability/promise_one/domainr"
+import one_name from "@ps/nlp/api/domains/availability/promise_one/name"
+import many_whois from "@ps/nlp/api/domains/availability/promise_many/cli_whois"
+import many_host from "@ps/nlp/api/domains/availability/promise_many/cli_host"
+import one_host from "@ps/nlp/api/domains/availability/promise_one/cli_host"
 import { performance } from "perf_hooks"
 
 const myArgs = process.argv.slice(2)
@@ -25,15 +25,15 @@ const slds = myArgs[1]
 
 let tlds = tld ? [tld] : Object.keys(tlds_all)
 let DEBUG1 = false
-let results = {}
+let results: any = {}
 ;(async function () {
   for (let tld of tlds) {
     // wrapper for all sources
-    let res = (results[tld] = {})
+    let res = ((results[tld]: any) = {})
     let doms = [...slds].map((dom) => dom + "." + tld)
-    let problem_doms = {}
-    let available_doms = {}
-    let correct_doms = {}
+    let problem_doms: any = {}
+    let available_doms: any = {}
+    let correct_doms: any = {}
     // {
     //   // name
     //   res.name = {}
@@ -62,8 +62,8 @@ let results = {}
       res.whois_time = Math.round((performance.now() - time) / doms.length)
       let success = 0
       let failed = 0
-      let available = {}
-      let problem = {}
+      let available: any = {}
+      let problem: any = {}
       for (let dom of doms) {
         let code = res.whois[dom] ? res.whois[dom][0] : -2
         if (code < 1) {
@@ -82,7 +82,7 @@ let results = {}
             success++
           } else if (code > 10000000) {
             // not available, CHECK cli_host
-            let host_dict = await one_host(dom)
+            let host_dict: any = await one_host(dom)
             if (host_dict && host_dict[dom]) {
               code = host_dict[dom][0] || code
             }

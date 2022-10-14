@@ -3,14 +3,14 @@
  * 1) Check 3 long random strings for every TLD
  * 2) If all 3 come back as available, then this TLD is able to be reliably checked using CLI host command.
  */
-// import sort_objects_by_property from "pauls-pure-functions/functions/sort_objects/sort_objects_by_property.js"
+// import sort_objects_by_property from "pauls-pure-functions/functions/sort_objects/sort_objects_by_property"
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import all_tlds from "data/domains/all.js"
-import domainr_all from "api/domains/availability/promise_async/domainr.js"
-import host_many from "api/domains/availability/promise_many/cli_host.js"
-import whois_many from "api/domains/availability/promise_many/cli_whois.js"
-import check from "./test_words/100-4-14.js"
+import all_tlds from "@ps/nlp/data/domains/all"
+import domainr_all from "@ps/nlp/api/domains/availability/promise_async/domainr"
+import host_many from "@ps/nlp/api/domains/availability/promise_many/cli_host"
+import whois_many from "@ps/nlp/api/domains/availability/promise_many/cli_whois"
+import check from "./test_words/100-4-14"
 
 let label = function (code) {
   if (code === 501) code = 1
@@ -23,9 +23,9 @@ let label = function (code) {
 
 ;(async function () {
   for (let tld of Object.keys(all_tlds)) {
-    let host_dict = await host_many([...check].map((sld) => sld + "." + tld))
-    let domainr_dict = await domainr_all([...check].map((sld) => sld + "." + tld))
-    let whois_dict = await whois_many([...check].map((sld) => sld + "." + tld))
+    let host_dict: any = await host_many([...check].map((sld) => sld + "." + tld))
+    let domainr_dict: any = await domainr_all([...check].map((sld) => sld + "." + tld))
+    let whois_dict: any = await whois_many([...check].map((sld) => sld + "." + tld))
     for (let sld of check) {
       let dom = sld + "." + tld
       let whois_code = (whois_dict[dom] || [])[0] || 0

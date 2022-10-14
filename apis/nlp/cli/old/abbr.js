@@ -1,11 +1,11 @@
-import { sort_strings_by_length } from "pauls-pure-functions/functions/sort_words.js"
-import { sleep } from "pauls-pure-functions/functions/promises.js"
-import { anonFunction } from "pauls-pure-functions/functions/functions.js"
+import { sort_strings_by_length } from "pauls-pure-functions/functions/sort_words"
+import { sleep } from "pauls-pure-functions/functions/promises"
+import { anonFunction } from "pauls-pure-functions/functions/functions"
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import { data_word_get_parsed, data_word_put } from "api/data.words/pgdb.js"
-import key_row from "api/data.words/promise/key.js"
-import abbreviations from "data/words/samisaurus/abbr.js"
+import { data_word_get_parsed, data_word_put } from "@ps/nlp/api/data.words/pgdb"
+import key_row from "@ps/nlp/api/data.words/promise/key"
+import abbreviations from "@ps/nlp/data/words/samisaurus/abbr"
 global.exit = function () {
   process.exit()
 }
@@ -44,7 +44,7 @@ anonFunction(async () => {
     let words_rows = []
     for (let word of words) {
       // row
-      let row = await key_row(word)
+      let row: any = await key_row(word)
       global.cconsole.success("got row from key_row()", row ? row.key : row)
       words_rows.push(row)
       // fix
@@ -78,7 +78,7 @@ anonFunction(async () => {
         row.abbreviation = [...abbrs_set].join(",")
       }
       // fix abbreviations
-      let uabbrs = {}
+      let uabbrs: any = {}
       for (let str of row.abbreviation
         .split(",")
         .map((str) => str.trim())
@@ -123,7 +123,7 @@ anonFunction(async () => {
     for (let abbr of abbrs) {
       // get row (or make if does not exist)
       // add words
-      let row = await key_row(abbr, { synonyms: words_to_add_to_abbrs })
+      let row: any = await key_row(abbr, { synonyms: words_to_add_to_abbrs })
       // save row
       if (DEBUG1) {
         global.cconsole.info(`adding words "${words_to_add_to_abbrs.map((row) => row.key)}" to abbreviation "${abbr}"`)

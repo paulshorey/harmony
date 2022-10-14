@@ -3,12 +3,12 @@
  * 1) Check 3 long random strings for every TLD
  * 2) If all 3 come back as available, then this TLD is able to be reliably checked using CLI host command.
  */
-import { sleep } from "pauls-pure-functions/functions/promises.js"
+import { sleep } from "pauls-pure-functions/functions/promises"
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import all_tlds from "data/domains/all.js"
-import cli_whois from "api/domain_availability/availability/promise_one/cli_whois.js"
-// import cli_whois_many from "api/domain_availability/availability/promise_many/cli_whois.js"
+import all_tlds from "@ps/nlp/data/domains/all"
+import cli_whois from "@ps/nlp/api/domain_availability/availability/promise_one/cli_whois"
+// import cli_whois_many from "@ps/nlp/api/domain_availability/availability/promise_many/cli_whois"
 import { performance } from "perf_hooks"
 
 import import_localstorage from "node-localstorage"
@@ -30,7 +30,7 @@ let DEBUG1 = false
     let unknown = []
     for (let sld of slds) {
       let dom = sld + "." + tld
-      let whois = await cli_whois(dom)
+      let whois: any = await cli_whois(dom)
       // log debug
       if (tlds.length === 1) {
         console.log(whois)

@@ -26,7 +26,6 @@ So,
 
 If either WHOIS or HOST is not able to check a TLD, then use Name/Domainr
 
-
 ###
 
 ##
@@ -42,8 +41,8 @@ let code = 0;
  * 10000000 (aftermarket, price unknown), vs: 4995 (aftermarket, price found), use: 4995
  * REFER TO README/API-DOCUMENTATION FOR CODE MEANING
  */
-let host = await cli_host(dom) || 0
-let whois = await cli_whois(dom) || 0
+let host: any = await cli_host(dom) || 0
+let whois: any = await cli_whois(dom) || 0
 let host_exact = host!==10 && host!==501 && host!==1501 ? host : 0
 let whois_exact = whois!==10 && whois!==501 && whois!==1501 ? whois : 0
 code = Math.max(host_exact, whois_exact)

@@ -1,5 +1,5 @@
-import all from './all'
-import sort_preferences from './sort_preferences'
+import all from "./all"
+import sort_preferences from "./sort_preferences"
 
 /*
  * If no score, give it zero
@@ -10,6 +10,3 @@ for (let tld in all) {
 }
 
 export default ratings
-
-
-

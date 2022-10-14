@@ -1,4 +1,4 @@
-import all from './all'
+import all from "./all"
 
 let arr = Object.keys(all)
 
@@ -13,6 +13,3 @@ for (let tld of arr) {
 
 // console.log('scores', scores)
 export default scores
-
-
-

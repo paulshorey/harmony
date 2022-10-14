@@ -1,4 +1,4 @@
-type SortRatings = Record<string, number>;
+type SortRatings = Record<string, number> | {};
 type SortThat = {
   min_rating?: number;
   max_rating?: number;

@@ -1,10 +1,10 @@
 // import { sleep } from 'pauls-pure-functions/functions/promises.js';
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import { data_word_put } from "api/data.words/pgdb.js"
-import str_row from "api/data.words/promise/str_row"
-import words from "data/words/dict/contractions.js"
-// let names = {"haq":1,"pon":1,"aly":1}
+import { data_word_put } from "@ps/nlp/api/data.words/pgdb"
+import str_row from "@ps/nlp/api/data.words/promise/str_row"
+import words from "@ps/nlp/data/words/dict/contractions"
+// let names: any = {"haq":1,"pon":1,"aly":1}
 
 /*
  *
@@ -31,7 +31,7 @@ import words from "data/words/dict/contractions.js"
      */
     done++
     // try {
-    //   let check = await data_word_get(name, "key,name,list_count")
+    //   let check: any = await data_word_get(name, "key,name,list_count")
     //   if (
     //     check &&
     //     (check.list_count >= 25 ||
@@ -48,7 +48,7 @@ import words from "data/words/dict/contractions.js"
     /*
      * Get/Edit row
      */
-    let row = await str_row(name)
+    let row: any = await str_row(name)
 
     /*
      * Save to DB (changes)

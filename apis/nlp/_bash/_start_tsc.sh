@@ -7,5 +7,4 @@ cd $rootdir
 pm2 stop all
 pm2 delete all
 
-# npx nodemon --exec 'ts-node --esm --experimental-specifier-resolution=node api' -e ts,js,json
-ts-node --esm --experimental-specifier-resolution=node api
+ts-node --esm --experimental-specifier-resolution=node -r tsconfig-paths/register api

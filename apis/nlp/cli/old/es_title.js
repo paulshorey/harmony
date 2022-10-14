@@ -2,7 +2,7 @@ import { Client } from "@elastic/elasticsearch"
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
 const client = new Client({ node: "http://localhost:9200" })
-// import { object_keys_from_array_values } from "pauls-pure-functions/esm/objects.js"
+// import { object_keys_from_array_values } from "pauls-pure-functions/esm/objects"
 const myArgs = process.argv.slice(2)
 const searchStr = myArgs[0]
 const time_start = Date.now()
@@ -18,8 +18,8 @@ const time_start = Date.now()
       }
     }
   })
-  let output_lower = {}
-  let output = {}
+  let output_lower: any = {}
+  let output: any = {}
 
   if (result.body.hits.hits) {
     // console.log("result.body.hits.hits.length", result.body.hits.hits.length)

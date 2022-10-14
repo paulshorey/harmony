@@ -4,12 +4,12 @@
 
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import check_ping from "api/domains/availability/promise_one/cli_host"
+import check_ping from "@ps/nlp/api/domains/availability/promise_one/cli_host"
 
 // ok go
 ;(async function () {
   // ping
-  let ava = await check_ping("asdfdfdfdfdfdfd.com")
+  let ava: any = await check_ping("asdfdfdfdfdfdfd.com")
   console.log("pinged")
   console.log(ava)
 

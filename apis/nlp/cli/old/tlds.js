@@ -1,9 +1,9 @@
-// import { sleep } from "pauls-pure-functions/functions/promises.js"
+// import { sleep } from "pauls-pure-functions/functions/promises"
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
-import { data_domains_get_parsed, data_domain_put } from "api/data.domains/pgdb.js"
-// import domain_syns_of_syns from "api/data.domains/promise/key_syns_of_syns.js"
-// import str_row from "api/data.words/promise/str_row"
+import { data_domains_get_parsed, data_domain_put } from "@ps/nlp/api/data.domains/pgdb"
+// import domain_syns_of_syns from "@ps/nlp/api/data.domains/promise/key_syns_of_syns"
+// import str_row from "@ps/nlp/api/data.words/promise/str_row"
 
 /*
  *
@@ -11,7 +11,7 @@ import { data_domains_get_parsed, data_domain_put } from "api/data.domains/pgdb.
  *
  */
 let DEBUG2 = false
-import domain_row_update from "api/data.domains/promise/row_update"
+import domain_row_update from "@ps/nlp/api/data.domains/promise/row_update"
 ;(async function () {
   /*
    * Rows to loop through and fix
@@ -54,7 +54,7 @@ import domain_row_update from "api/data.domains/promise/row_update"
     /*
      * Save to DB (failsafe, new version)
      */
-    // let tld_row = await str_row(row.key)
+    // let tld_row: any = await str_row(row.key)
     // if (tld_row && tld_row.pos_short && tld_row) {
     //   if (tld_row.pos_short.all) {
     //     row.syns = [...new Set([...row.syns, ...tld_row.pos_short.all])]
@@ -65,7 +65,7 @@ import domain_row_update from "api/data.domains/promise/row_update"
     /*
      * Get/Edit row
      */
-    let rowEdited = await domain_row_update(row)
+    let rowEdited: any = await domain_row_update(row)
     if (rowEdited) {
       if (DEBUG2) global.cconsole.success(`updated ${rowEdited.key}`)
       if (DEBUG2) global.cconsole.log(rowEdited)

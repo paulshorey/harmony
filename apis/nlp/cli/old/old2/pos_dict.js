@@ -1,6 +1,6 @@
 // import { sleep } from 'pauls-pure-functions/functions/promises.js';
 import "../../global.js" // contains secret keys ~ never push to GIT!
-import { data_word_get, data_get_words, data_word_put } from "api/data.words/pgdb.js"
+import { data_word_get, data_get_words, data_word_put } from "@ps/nlp/api/data.words/pgdb"
 import json_parse from "@ps/fn/io/json/json_parse"
 // import { arr_subtract } from 'pauls-pure-functions/functions/arrays.js';
 
@@ -23,7 +23,7 @@ import json_parse from "@ps/fn/io/json/json_parse"
  */
 ;(async function () {
   // get words list
-  let rows = await data_get_words(
+  let rows: any = await data_get_words(
     `vrsn < 10 AND list_count IS NOT NULL AND list_count>=1 ORDER BY vrsn DESC LIMIT 1000`
   ) // vrsn < 6000 AND
   // validate
@@ -50,12 +50,12 @@ import json_parse from "@ps/fn/io/json/json_parse"
      * First, compile dictionary of { word:info, },
      * where key is word string, and value is [1,0,0]
      */
-    let all_words_dict = {}
+    let all_words_dict: any = {}
     for (let pos in row.pos_dict) {
       let posdict = row.pos_dict[pos]
       for (let word in posdict) {
         let info = posdict[word]
-        let wrow = await data_word_get(word, "ws_sentiment, proper")
+        let wrow: any = await data_word_get(word, "ws_sentiment, proper")
         if (wrow) {
           info[0] = wrow.ws_sentiment === -1 ? 0 : 1
         }
@@ -66,7 +66,7 @@ import json_parse from "@ps/fn/io/json/json_parse"
      * Then, iterate row.list words, because they are in order!
      * And re-assemble row.pos_dict in this order.
      */
-    let new_pos_dict = {}
+    let new_pos_dict: any = {}
     for (let word of row.list) {
       let obj = all_words_dict[word]
       if (obj) {
@@ -85,7 +85,7 @@ import json_parse from "@ps/fn/io/json/json_parse"
      * SAVE ROW
      *
      */
-    let setRow = {
+    let setRow: any = {
       key: row.key,
       vrsn: 10,
       pos_dict: new_pos_dict

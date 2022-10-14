@@ -3,9 +3,9 @@ import "common/global.js" // contains secret keys ~ never push to GIT!
 import { parse_cli_args } from "pauls-pure-functions/functions/cli"
 import fs from "fs"
 // variables
-import all_tlds from "data/domains/all_tlds_first_level"
+import all_tlds from "@ps/nlp/data/domains/all_tlds_first_level"
 // functions
-import check_cli_whois from "api/domain_availability/availability/promise_one/cli_whois"
+import check_cli_whois from "@ps/nlp/api/domain_availability/availability/promise_one/cli_whois"
 // fs
 const fsPromises = fs.promises
 const args = parse_cli_args()
@@ -25,7 +25,7 @@ const append_to_file = async function (name, text) {
  * do stuff
  */
 const research_domain = async function (domstr) {
-  let data = await check_cli_whois(domstr)
+  let data: any = await check_cli_whois(domstr)
   delete data.whois
   return data
 }
@@ -60,7 +60,7 @@ const research_domain = async function (domstr) {
       "asffsddddfdfdfsdffsdfdasfdfdsfsdf",
       "dafdfsfdjiljjajlkjkkkjhkhkjhkhkjh"
     ]) {
-      let data = await research_domain(str + "." + tld)
+      let data: any = await research_domain(str + "." + tld)
       console.log(tld, data)
       await append_to_file("log", JSON.stringify(data))
       datas.push()

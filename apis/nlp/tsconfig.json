@@ -1,7 +1,27 @@
+/*
+Most challenging thing about Node JS right now is 
+loading full ESM support like in Webpack including baseUrl paths and smart extension + Typescript + Tests
+Read discussion: https://github.com/TypeStrong/ts-node/discussions/1450#discussioncomment-1749469
+ */
 /* Visit https://aka.ms/tsconfig to read more about this file */
 {
-  "include": ["./api/*", "./api/**/*", "common/global.js", "common/global.js"],
+  "ts-node": {
+    // Do not forget to `npm i -D tsconfig-paths`
+    "require": ["tsconfig-paths/register"]
+  },
+  "include": ["./api/*", "./api/**/*", "common/global.ts", "common/global.ts"],
   "compilerOptions": {
+    // baseUrl+paths do not work with ESM+Typescript Instead, refer to root by the name of this package @ps/nlp/
+    // "baseUrl": ".",
+    // "paths": {
+    //   "api": ["api"],
+    //   "app": ["app"],
+    //   "common": ["common"],
+    //   "data": ["data"],
+    //   "docs": ["docs"],
+    //   "modules": ["modules"],
+    //   "tmp": ["tmp"]
+    // },
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": false, // very loose, temporary debugging new javascsript codebase conversions
     "rootDirs": ["./api", "./cli", "./common"],
@@ -9,6 +29,7 @@
     "checkJs": true,
     "outDir": "./dist",
     "module": "ESNext", // (A)
+    "target": "ESNext", // (A)
     "moduleResolution": "Node", // (B)
     /* Projects */
     // "incremental": true,                              /* Save .tsbuildinfo files to allow for incremental compilation of projects. */

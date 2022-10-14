@@ -12,7 +12,7 @@ import puppeteer from "puppeteer"
   let browser = null
   try {
     browser = await getBrowser()
-    let page = await browser.newPage()
+    let page: any = await browser.newPage()
     console.log(`Navigating to ${URL}...`)
     // Navigate
     await page.goto(URL, {
@@ -23,10 +23,10 @@ import puppeteer from "puppeteer"
     // Load
     await page.waitForSelector("#search-result-list .item-result")
     // Scrape
-    let results = await page.$$eval(".item-result", (elements) => {
+    let results: any = await page.$$eval(".item-result", (elements) => {
       let doms = []
       Array.from(elements).forEach((el, ei) => {
-        let dom = {}
+        let dom: any = {}
         try {
           dom.name = el.querySelector(".domainname").innerText.trim() + el.querySelector(".domaintld").innerText.trim()
           dom.price = el
