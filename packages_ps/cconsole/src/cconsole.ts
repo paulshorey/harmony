@@ -1,4 +1,4 @@
-import cconsoleInit from "./cconsoleInit";
+import cconsoleInit from "./cconsoleInit.js";
 
 /*
  * Ready to use cconsole.success('label',data)

@@ -1,6 +1,6 @@
 import obj_has_key from "@ps/fn/io/obj/obj_has_key";
 // import { SerializedStyles } from "@emotion/react";
-import { ssPropType, cssPropType } from "../../../ui/types/component";
+// import { ssPropType } from "../../../ui/types/component";
 
 /**
  * Accepts any EmotionCssProp format, string, or array of strings. Always returns SCSS string.
@@ -10,7 +10,7 @@ export default function style_to_string(
   /**
    * EmotionJS css prop type. Will be converted to string. Or string. Or array of strings.
    */
-  style: ssPropType | cssPropType, // EmotionCssPropType or plain string. Will be converted to string.
+  style: any, // EmotionCssPropType or plain string. Will be converted to string.
   /**
    * props, just like in a styled-components function
    */

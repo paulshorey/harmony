@@ -1,28 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "incremental": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "importHelpers": true,
-    "strict": false,
-    "composite": true,
-    "resolveJsonModule": true,
-    "noImplicitReturns": true,
-    "jsx": "preserve",
-    "allowJs": true,
-    "checkJs": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "paths": {},
+    "noEmit": true,
+    "incremental": true,
+    "jsx": "preserve"
   },
-  "exclude": ["node_modules", ".next", "out", "storybook-static"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.mjs", "**/*.jsx", "@/.storybook/*.@(ts|js|tsx)", "styles/global/variables.ccss"]
+  "extends": "@ps/constants/config/typescript/react-library.json",
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.mdx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

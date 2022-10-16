@@ -37,6 +37,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "cachios": "^4.0.0",
+    "@ps/constants": "*",
     "@ps/cconsole": "*"
   },
   "devDependencies": {

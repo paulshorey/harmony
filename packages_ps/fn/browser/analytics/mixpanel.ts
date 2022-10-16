@@ -1,3 +1,4 @@
+// @ts-nocheck
 // import get_attribution_params from "../url/get_attribution_params";
 
 const DEBUG1 = true; // warn - when actually sending request to analytics company
@@ -10,7 +11,7 @@ const DEBUG2 = false; // log - for helper functions, not sending anything yet
  * @param {object} options - options properties
  */
 export const mixpanel_track = function ({ label, options }) {
-  if (typeof window !== "object" || !window.mixpanel || !window.mixpanel || !window.mixpanel?.track) return;
+  if (typeof window !== "object" || !window?.mixpanel?.track) return;
   mixpanel_add_to_queue({ label, options });
 };
 
@@ -22,7 +23,7 @@ export const mixpanel_track = function ({ label, options }) {
 const mixpanel_track_event_now = function ({ label, options }) {
   if (!label || !options) return;
   if (DEBUG1) console.warn('mixpanel track "' + label + '"', options);
-  window.mixpanel?.track(label, options);
+  window?.mixpanel?.track(label, options);
 };
 
 const mixpanel_track_all_from_queue = function () {

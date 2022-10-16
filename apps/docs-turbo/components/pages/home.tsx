@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Turborepo</title>
+        <title>Paul Shorey</title>
         <meta
           name="og:description"
           content="Turborepo is a high-performance build system for JavaScript and

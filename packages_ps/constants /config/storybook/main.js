@@ -23,6 +23,7 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    'storybook-addon-apollo-client',
     '@storybook/addon-actions',
     '@storybook/addon-viewport',
   ],

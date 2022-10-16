@@ -1,4 +1,4 @@
-import destroyCircular from "./destroyCircular";
+import destroyCircular from "./destroyCircular.js";
 export default (value) => {
     if (typeof value === "object") {
         return destroyCircular(value, []);

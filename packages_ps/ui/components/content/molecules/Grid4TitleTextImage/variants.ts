@@ -33,7 +33,7 @@ export default {
     display: grid !important;
     grid-template-columns: 1fr 1fr;
 
-    ${theme.mq.sm} {
+    ${props.theme.mq.sm} {
       grid-template-columns: auto;
       grid-template-rows: auto;
       grid-template-areas:
@@ -48,7 +48,7 @@ export default {
 
     > div {
       position: relative;
-      ${theme.mq.sm} {
+      ${props.theme.mq.sm} {
         margin-left: auto;
         margin-right: auto;
       }

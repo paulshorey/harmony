@@ -17,6 +17,10 @@
     "noImplicitAny": false,
     "strict": false,
     "sourceMap": false,
+    "strictNullChecks": true,
+    "checkJs": true,
+    "allowJs": true,
+    "jsx": "preserve",
     "types": ["@emotion/core", "jest", "node", "@testing-library/jest-dom"]
   },
   "exclude": ["node_modules"]

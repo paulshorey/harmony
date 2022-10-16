@@ -1,4 +1,4 @@
-import style_to_string from "@ps/fn/browser/style/style_to_string";
+import style_to_string from "@ps/ui/styles/sstring";
 
 const useGlobalStyles = (theme: theme) => {
   // get updated theme (in case 3rd party app changed it) before unpacking below

@@ -12,10 +12,16 @@
       "toc": true
     }
   },
-  "docs": "Docs",
-  "blog": "Blog",
-  "enterprise": {
-    "title": "Enterprise",
+  "docs": "Notes and tips",
+  "blog": "Thoughts",
+  "componentLibrary": {
+    "title": "Component Library",
+    "type": "page",
+    "href": "https://vercel.com/contact/turborepo?utm_source=turborepo.org&utm_medium=referral&utm_campaign=header-enterpriseLink",
+    "newWindow": true
+  },
+  "apiReference": {
+    "title": "API Reference",
     "type": "page",
     "href": "https://vercel.com/contact/turborepo?utm_source=turborepo.org&utm_medium=referral&utm_campaign=header-enterpriseLink",
     "newWindow": true

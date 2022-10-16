@@ -259,7 +259,7 @@ export const data_word_put = async function (row, REBUILD = false) {
   }
   // required parameters
   if (!row[primaryKey]) {
-    return
+    return undefined
   }
 
   // manually edited
@@ -280,7 +280,7 @@ export const data_word_put = async function (row, REBUILD = false) {
     DEBUG2 || DEBUG1 ? global.ccconsole.error(e) : null
     global.cconsole.warn("pg pool failed", e)
     if (EXITONERROR) process.exit()
-    return
+    return undefined
   }
 
   // done, fixed row
@@ -297,7 +297,7 @@ export const data_word_sentiment_of_synonym = function (key, synonym, sentiment)
     // prep
     let row: any = await data_word_get_parsed(key, "key,dict")
     if (!row || !row.dict) {
-      return
+      return undefined
     }
 
     /*

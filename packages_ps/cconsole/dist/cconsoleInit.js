@@ -1,4 +1,4 @@
-import CConsoleLog from "./function/CConsoleLog";
+import CConsoleLog from "./function/CConsoleLog.js";
 /**
  * Log to console, and optionally to your custom cloud functions
  *    In console, will color code each message:

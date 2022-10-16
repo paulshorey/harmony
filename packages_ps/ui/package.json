@@ -13,15 +13,19 @@
     "serve-storybook": "serve storybook-static"
   },
   "dependencies": {
-    "@ps/ui": "*",
-    "@ps/fn": "*",
-    "next": "^12.0.9",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "rehype-highlight": "^5.0.2",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@ps/cconsole": "*"
+    "@headlessui/react": "^1.7.3",
+    "@ps/cconsole": "*",
+    "@ps/constants": "*",
+    "@ps/fn": "*",
+    "@ps/ui": "*",
+    "@radix-ui/react-popover": "^1.0.0",
+    "next": "^12.0.4",
+    "next-transpile-modules": "^9.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rehype-highlight": "^5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
@@ -32,10 +36,10 @@
     "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/react": "^6.5.12",
     "babel-loader": "^8.2.3",
-    "serve": "^13.0.2",
-    "storybook-addon-next": "*",
+    "rehype": "^12.0.1",
     "sass": "^1.49.0",
-    "rehype": "^12.0.1"
+    "serve": "^13.0.2",
+    "storybook-addon-next": "*"
   },
   "peerDependencies": {}
 }

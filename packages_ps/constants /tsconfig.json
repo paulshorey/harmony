@@ -1,11 +1,5 @@
 {
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "jsx": "preserve",
-    "baseUrl": "./",
-    "paths": {}
-  },
-  "extends": "@ps/constants/config/typescript/react-library.json",
+  "extends": "@ps/constants/config/typescript/base.json",
   "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["node_modules"]
 }

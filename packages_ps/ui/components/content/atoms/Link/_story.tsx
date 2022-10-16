@@ -1,5 +1,5 @@
 import Box from "@ps/ui/components/content/atoms/Box";
-import Link from "components/content/atoms/Link";
+import Link from "@ps/ui/components/content/atoms/Link";
 import useShowStorybookCode from "@ps/ui/hooks/useShowStorybookCode";
 
 export default function (args: any) {

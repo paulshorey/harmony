@@ -4,9 +4,9 @@ import { Footer } from "./components/Footer";
 import TurboLogo from "./components/logos/Turbo";
 
 const theme = {
-  project: {
-    link: "https://github.com/vercel/turborepo",
-  },
+  // project: {
+  //   link: "https://github.com/vercel/turborepo",
+  // },
   docsRepositoryBase:
     "https://github.com/vercel/turborepo/blob/main/docs/pages",
   titleSuffix: " | Turborepo",
@@ -16,30 +16,16 @@ const theme = {
     float: true,
   },
   font: false,
-  chat: {
-    link: "https://turborepo.org/discord",
-  },
+  // chat: {
+  //   link: "https://turborepo.org/discord",
+  // },
   feedback: {
     link: "Question? Give us feedback →",
   },
-  // banner: function Banner() {
-  //   return (
-  //     <a
-  //       href="https://vercel.com/blog/vercel-acquires-turborepo?utm_source=turbo-site&amp;utm_medium=banner&amp;utm_campaign=turbo-website"
-  //       target="_blank"
-  //       rel="noopener noreferrer"
-  //       className="font-medium text-current no-underline"
-  //       title="Go to the Vercel website"
-  //     >
-  //       Turborepo has joined Vercel. Read More →
-  //     </a>
-  //   );
-  // },
   logo: function LogoActual() {
     return (
       <>
-        <TurboLogo height={32} />
-        <span className="sr-only">Turborepo</span>
+        <h3>PS Dev</h3>
       </>
     );
   },

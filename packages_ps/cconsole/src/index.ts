@@ -1,4 +1,4 @@
-import cconsoleInitFunction from "./cconsoleInit";
+import cconsoleInitFunction from "./cconsoleInit.js";
 /*
  * Export BOTH the default (ready to use) and the named (to init with custom options).
  */

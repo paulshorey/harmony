@@ -1,7 +1,7 @@
 import AppProvider from "@ps/ui/components/utils/AppProvider";
 import { AppProps } from "next/app";
 import React from "react";
-import "@/styles/theme.css";
+import "@ps/ui/styles/theme.css";
 
 const MyApp = ({ Component, pageProps }: AppProps): any => {
   return (

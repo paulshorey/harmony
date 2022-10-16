@@ -11,7 +11,7 @@ export type Props = HTMLAttributes<HTMLDivElement> &
      * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged.
      */
     as?: styledTags;
-  };
+  } & Record<string, any>;
 
 export const Component: (props: Props, ref?: ReactForwardedRef) => ReactElement = ({ as, ...props }, ref) => {
   const [Styled, otherProps] = useStyleProps(props, as || "div", "Box", variants);

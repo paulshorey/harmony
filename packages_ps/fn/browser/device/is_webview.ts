@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * A webpage sometimes opens in Facebook or other app's built-in "webview" browser
  *

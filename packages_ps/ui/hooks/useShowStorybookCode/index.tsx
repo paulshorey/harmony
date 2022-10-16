@@ -3,8 +3,8 @@ export default () => {
   // runs once on dom ready
   useEffect(() => {
     if (typeof window === "object") {
-      let el = window.document.querySelector(".docBox-code-toggle:not(.docBox-code-toggle--expanded)");
       // @ts-ignore
+      let el = window.document.querySelector(".docBox-code-toggle:not(.docBox-code-toggle--expanded)");
       el && el.click && el.click();
     }
   }, []);

@@ -1,11 +1,11 @@
-import { useTheme } from "@emotion/react";
-import style_to_string from "@ps/fn/browser/style/style_to_string";
-import { returnDeviceInfo, deviceInfoType } from "@ps/ui/hooks/useDeviceInfo";
-import { useEffect, useState } from "react";
-import { ssPropType, styledTags } from "@ps/ui/types/component";
-import themeType from "@ps/ui/types/theme";
-import styled from "@emotion/styled";
-import cconsole from "@ps/cconsole";
+import { useTheme } from '@emotion/react';
+import style_to_string from '@ps/fn/browser/style/style_to_string';
+import { returnDeviceInfo, deviceInfoType } from '@ps/ui/hooks/useDeviceInfo';
+import { useEffect, useState } from 'react';
+import { ssPropType, styledTags } from '@ps/ui/types/component';
+import themeType from '@ps/ui/types/theme';
+import styledWithEmotion from '@emotion/styled';
+import cconsole from '@ps/cconsole';
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
@@ -13,15 +13,15 @@ import cconsole from "@ps/cconsole";
  */
 export default (
   props: any,
-  tagName: styledTags = "div",
+  tagName: styledTags = 'div',
   componentName: string,
   styles?: Record<string, ssPropType>
 ): [React.ElementType, Record<string, any>] => {
   let {
     // className = '',
-    color = "",
-    shade = "",
-    size = "",
+    color = '',
+    shade = '',
+    size = '',
     dark = false,
     light = false,
     ss,
@@ -52,7 +52,7 @@ export default (
     ssWindows,
     variant,
     variants,
-    "data-variants": dataVariants = "",
+    'data-variants': dataVariants = '',
     ...otherProps
   } = props;
   /*
@@ -60,14 +60,17 @@ export default (
    * theme.instance
    *
    */
-  if (typeof styled === "undefined" || !styled?.div) {
-    cconsole.error("!styled", typeof styled);
+  if (typeof styledWithEmotion === 'undefined' || !styledWithEmotion?.div) {
+    cconsole.error('!styledWithEmotion', typeof styledWithEmotion);
     return [null, otherProps];
   }
   const theme: themeType = useTheme(); // style() 1st argument
   if (!theme?.variants) {
-    cconsole.warn("!theme - Must include @emotion/react ThemeProvider, import theme from @ps/ui/styles/theme", theme);
-    return [styled.div``, otherProps];
+    cconsole.warn(
+      '!theme - Must include @emotion/react ThemeProvider, import theme from @ps/ui/styles/theme',
+      theme
+    );
+    return [styledWithEmotion.div``, otherProps];
   }
   props.theme = theme;
   // Reuse theme.instance for all nested components that end up creating just one HTML element:
@@ -80,13 +83,13 @@ export default (
     theme.instance = {
       variants: { default: true },
       // @ts-ignore // checking if value exists for color
-      color: ((color && !!theme.colors[color] && color) || "") + "",
+      color: ((color && !!theme.colors[color] && color) || '') + '',
       size,
       shade,
     }; // style() 2nd argument
   }
-  let ssOutput = ""; // will be wrapped in `` before being passed to component props.css. High specificity.
-  let ssExtra = ""; // global variants. Not sure it's a good idea to include. But might be useful. Low specificity.
+  let ssOutput = ''; // will be wrapped in `` before being passed to component props.css. High specificity.
+  let ssExtra = ''; // global variants. Not sure it's a good idea to include. But might be useful. Low specificity.
 
   /*
    *
@@ -96,11 +99,11 @@ export default (
   if (styles) {
     const variantStrs = variant?.trim().split(/[^\w\d-_]+/) || [];
     // special cases
-    if (dark !== "false") {
-      theme.instance.variants["dark"] = true;
+    if (dark !== 'false') {
+      theme.instance.variants['dark'] = true;
     }
-    if (light !== "false") {
-      theme.instance.variants["light"] = true;
+    if (light !== 'false') {
+      theme.instance.variants['light'] = true;
     }
     // add tag name as a variant
     // it only works if manually added (<Box as="h2" /> will add h2). Doesn't work for default (<Box /> will NOT add div).
@@ -112,7 +115,7 @@ export default (
       // @ts-ignore // was undefined, now defining it, so whats the problem?
       theme.instance.variants[componentName] = true;
     }
-    if (props.hasOwnProperty("disabled")) {
+    if (props.hasOwnProperty('disabled')) {
       // @ts-ignore // was undefined, now defining it, so whats the problem?
       theme.instance.variants.disabled = true;
     }
@@ -157,12 +160,14 @@ export default (
   // Generate a unique selector, wrap css in it to make it more specific.
   // It helps the media queries work better, otherwise they may not have enough specificity.
   // And also it's nice to look in the DevTools and see what component name and variants belong to which DOM element.
-  dataVariants = theme.instance.variants ? Object.keys(theme.instance.variants).join("-") : "";
+  dataVariants = theme.instance.variants
+    ? Object.keys(theme.instance.variants).join('-')
+    : '';
   if (shade) {
-    dataVariants += "-" + shade;
+    dataVariants += '-' + shade;
   }
   if (color) {
-    dataVariants += "-" + color;
+    dataVariants += '-' + color;
   }
 
   // ssOutput += `\n&[data-variants="${dataVariants}"] {\n`;
@@ -173,7 +178,17 @@ export default (
    *
    */
   // For each device and size, add a media query (but only if custom style for it is specified)
-  const checkDeviceInfo = ssIframe || ssNotIframe || ssWebview || ssNotWebview || ssIPhone || ssIPad || ssMac || ssWindows || ssLinux || ssAndroid;
+  const checkDeviceInfo =
+    ssIframe ||
+    ssNotIframe ||
+    ssWebview ||
+    ssNotWebview ||
+    ssIPhone ||
+    ssIPad ||
+    ssMac ||
+    ssWindows ||
+    ssLinux ||
+    ssAndroid;
 
   const [deviceInfo, set_deviceInfo] = useState<deviceInfoType>();
   useEffect(() => {
@@ -195,7 +210,10 @@ export default (
     ssOutput += `${theme.mq.sm} { ${style_to_string(ssSm, props)} }\n`;
   }
   if (ssDesktop) {
-    ssOutput += `${theme.mq.desktop} { ${style_to_string(ssDesktop, props)} }\n`;
+    ssOutput += `${theme.mq.desktop} { ${style_to_string(
+      ssDesktop,
+      props
+    )} }\n`;
   }
   if (ssMobile) {
     ssOutput += `${theme.mq.mobile} { ${style_to_string(ssMobile, props)} }\n`;
@@ -204,49 +222,85 @@ export default (
     ssOutput += `${theme.mq.tablet} { ${style_to_string(ssTablet, props)} }\n`;
   }
   if (ssLargeTablet) {
-    ssOutput += `${theme.mq.largeTablet} { ${style_to_string(ssLargeTablet, props)} }\n`;
+    ssOutput += `${theme.mq.largeTablet} { ${style_to_string(
+      ssLargeTablet,
+      props
+    )} }\n`;
   }
   if (ssNotPhone) {
-    ssOutput += `${theme.mq.notPhone} { ${style_to_string(ssNotPhone, props)} }\n`;
+    ssOutput += `${theme.mq.notPhone} { ${style_to_string(
+      ssNotPhone,
+      props
+    )} }\n`;
   }
   if (ssPhone) {
     ssOutput += `${theme.mq.phone} { ${style_to_string(ssPhone, props)} }\n`;
   }
   if (ssSmallPhone) {
-    ssOutput += `${theme.mq.smallPhone} { ${style_to_string(ssSmallPhone, props)} }\n`;
+    ssOutput += `${theme.mq.smallPhone} { ${style_to_string(
+      ssSmallPhone,
+      props
+    )} }\n`;
   }
   if (ssTinyPhone) {
-    ssOutput += `${theme.mq.tinyPhone} { ${style_to_string(ssTinyPhone, props)} }\n`;
+    ssOutput += `${theme.mq.tinyPhone} { ${style_to_string(
+      ssTinyPhone,
+      props
+    )} }\n`;
   }
   if (ssLargeDesktop) {
-    ssOutput += `${theme.mq.largeDesktop} { ${style_to_string(ssLargeDesktop, props)} }\n`;
+    ssOutput += `${theme.mq.largeDesktop} { ${style_to_string(
+      ssLargeDesktop,
+      props
+    )} }\n`;
   }
   if (ssVeryLargeDesktop) {
-    ssOutput += `${theme.mq.veryLargeDesktop} { ${style_to_string(ssVeryLargeDesktop, props)} }\n`;
+    ssOutput += `${theme.mq.veryLargeDesktop} { ${style_to_string(
+      ssVeryLargeDesktop,
+      props
+    )} }\n`;
   }
   if (ssPortrait) {
-    ssOutput += `${theme.mq.portrait} { ${style_to_string(ssPortrait, props)} }\n`;
+    ssOutput += `${theme.mq.portrait} { ${style_to_string(
+      ssPortrait,
+      props
+    )} }\n`;
   }
   if (ssLandscape) {
-    ssOutput += `${theme.mq.landscape} { ${style_to_string(ssLandscape, props)} }\n`;
+    ssOutput += `${theme.mq.landscape} { ${style_to_string(
+      ssLandscape,
+      props
+    )} }\n`;
   }
   if (ssMac) {
-    ssOutput += `${deviceInfo?.device === "Mac" && `${style_to_string(ssMac, props)}`}\n`;
+    ssOutput += `${
+      deviceInfo?.device === 'Mac' && `${style_to_string(ssMac, props)}`
+    }\n`;
   }
   if (ssWindows) {
-    ssOutput += `${deviceInfo?.device === "Windows" && `${style_to_string(ssWindows, props)}`}\n`;
+    ssOutput += `${
+      deviceInfo?.device === 'Windows' && `${style_to_string(ssWindows, props)}`
+    }\n`;
   }
   if (ssLinux) {
-    ssOutput += `${deviceInfo?.device === "Linux" && `${style_to_string(ssLinux, props)}`}\n`;
+    ssOutput += `${
+      deviceInfo?.device === 'Linux' && `${style_to_string(ssLinux, props)}`
+    }\n`;
   }
   if (ssAndroid) {
-    ssOutput += `${deviceInfo?.device === "Android" && `${style_to_string(ssAndroid, props)}`}\n`;
+    ssOutput += `${
+      deviceInfo?.device === 'Android' && `${style_to_string(ssAndroid, props)}`
+    }\n`;
   }
   if (ssIPad) {
-    ssOutput += `${deviceInfo?.device === "iOS" && `${style_to_string(ssIPad, props)}`}\n`;
+    ssOutput += `${
+      deviceInfo?.device === 'iOS' && `${style_to_string(ssIPad, props)}`
+    }\n`;
   }
   if (ssIPhone) {
-    ssOutput += `${deviceInfo?.device === "iPhone" && `${style_to_string(ssIPhone, props)}`}\n`;
+    ssOutput += `${
+      deviceInfo?.device === 'iPhone' && `${style_to_string(ssIPhone, props)}`
+    }\n`;
   }
   if (ssIframe && deviceInfo?.inIframe) {
     ssOutput += `${style_to_string(ssIframe, props)}\n`;
@@ -263,22 +317,22 @@ export default (
   // ssOutput += `\n}\n`;
 
   ssOutput += ssExtra;
-  ssOutput = ssOutput.replace(/label:(.*?);/g, "").replace(/([;]+)/g, ";");
+  ssOutput = ssOutput.replace(/label:(.*?);/g, '').replace(/([;]+)/g, ';');
 
   /*
    *
    * Return component with props applied
    *
    */
-  props["data-variants"] = dataVariants;
+  props['data-variants'] = dataVariants;
   if (theme.instance.variants.dark) {
-    props.className = (props.className ? props.className + " " : "") + "dark";
+    props.className = (props.className ? props.className + ' ' : '') + 'dark';
   }
   // @ts-ignore // Idk how to get a list of valid styled tags. Put in a typeof check below that should take care of it.
-  let styledFunction = styled[tagName];
-  if (typeof styledFunction !== "function") {
+  let styledFunction = styledWithEmotion[tagName];
+  if (typeof styledFunction !== 'function') {
     cconsole.warn(`styled.${tagName} was not found. Using instead styled.div`);
-    styledFunction = styled.div;
+    styledFunction = styledWithEmotion.div;
   }
   const styledComponent = styledFunction`
     ${ssOutput}

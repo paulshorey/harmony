@@ -1,6 +1,6 @@
 import Box from "@ps/ui/components/content/atoms/Box";
 import { ButtonHTMLAttributes, FC, forwardRef, memo, ReactElement } from "react";
-import variants from "components/form/atoms/Button/variants";
+import variants from "@ps/ui/components/form/atoms/Button/variants";
 import useComponentWithProps12 from "@ps/ui/hooks/useComponentWithProps12";
 import ssComponentPropsType from "@ps/ui/types/component";
 import useStyleProps from "@ps/ui/styles/useStyleProps";
