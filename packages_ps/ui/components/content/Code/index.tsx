@@ -16,6 +16,7 @@ export const Component = (props: Props) => {
   );
   const {
     code,
+    showNumbers,
     language,
     prismTheme,
     'data-variants': dataVariants,
@@ -27,6 +28,7 @@ export const Component = (props: Props) => {
         code={code}
         language={language}
         prismTheme={prismTheme}
+        showNumbers={showNumbers}
         data-variants={dataVariants}
       />
     </Styled>

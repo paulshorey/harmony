@@ -4,85 +4,124 @@ import AppProvider from '@ps/ui/components/utils/AppProvider';
 import {
   Wrapper,
   Container,
+  ButtonCTA,
+  CanvasContainer,
+  CanvasContent,
   Title,
   Content,
   Button,
 } from '@ps/ui/.storybook/components/Components';
+import Code from '@ps/ui/components/content/Code';
 
-<Meta title="Styled Components" id="about-3" />
+<Meta title="Styled Components + " id="about-3" />
 
 <AppProvider>
 <Wrapper>
 
-<code>
-  {`
-import Box, { withBox } from "@ps/ui/components/content/Box";
-import { withButton } from "@ps/ui/components/form/Button";
+### <em>Like styled.button``,</em> you can define generic styles for all instances, in one place.
+
+But you can also set any default props. You can override each one later per instance.
+
+<>
+  {/*Just like you would with StyledComponents. But with this library you can pre-define any prop (variants, data, custom), not just styles.*/}
+</>
+
+<Code
+  ss="font-size: 0.85rem;"
+  code={`import { withButton } from "@ps/ui/components/form/Button";
 \n
-export const Container = withBox({
-  ss: (props) => \`padding: 1.2rem 1rem 1.9rem; \${props.theme.instance.variants["bgGradient"] && \`padding-top: 1.3rem;\`}\`,
-});
-export const Content = withBox({ ss: \`padding: 0\` });
-export const Title = withBox({
-  variant: "textGradient",
-  ss: \`padding: 0.125rem 0 0 0.25rem;\`,
-});
 export const Button = withButton({
-  ss: \`margin: 1rem 1rem 0rem 0.25rem;\`,
+  size: 'small',
+  variant: 'textGradient',
+  ss: \`margin: 1rem 1rem 0.25rem 0.25rem;\`,
 });
-`}
-</code>
+\n
+export const CTAButton = withButton({
+  variant: 'bgGradient',
+  ss: (props) => \`
+    margin: 0.75rem 0.75rem 0rem 0; font-size: 1.25em; 
+    font-family: \${props.theme.fonts.cta};
+  \`,
+});`}
+/>
 
-<Container variant="bgLight">
-  <Title color="cta1">on light:</Title>
-  <Content>
-    <Button variant="bgGradient" color="cta1">
-      gradient cta1
-    </Button>
-    <Button color="cta1">default cta1</Button>
-    <Button>default</Button>
-    <Button variant="link" color="cta1">
-      link
-    </Button>
-    <Button variant="disabled" color="cta1">
-      disabled
-    </Button>
-  </Content>
-</Container>
+<br />
 
-<Container variant="bgGradient" color="cta1">
-  <Title color="cta2">on gradient:</Title>
-  <Content>
-    <Button variant="bgGradient" color="cta2">
-      gradient cta2
-    </Button>
-    <Button color="cta2">default cta2</Button>
-    <Button>default</Button>
-    <Button variant="link" color="cta2">
-      link
-    </Button>
-    <Button variant="disabled" color="cta2">
-      disabled
-    </Button>
-  </Content>
-</Container>
+### <em>Use your predefined components.</em> They'll accept any prop without clashing
 
-<Container variant="bgDark" onDark>
-  <Title onDark>on dark:</Title>
-  <Content>
-    <Button variant="bgGradient" color="cta1">
-      gradient cta1
-    </Button>
-    <Button color="cta1">default cta1</Button>
-    <Button>default</Button>
-    <Button variant="link" color="cta1">
-      link
-    </Button>
-    <Button variant="disabled" color="cta1">
-      disabled
-    </Button>
-  </Content>
-</Container>
+with the defaults. The old/new props will be intelligently merged. <a>Read more...</a>
+
+<>
+  {/*Each instance will inherit your pre-defined styles and props. Now you may also add unique styles and props specific to each instance.*/}
+</>
+
+<Canvas>
+  <CanvasContainer variant="bgSubtleGradient light">
+    <CanvasContent>
+      <Title color="cta2">on light:</Title>
+      <ButtonCTA color="cta2">gradient cta2</ButtonCTA>
+      <Button color="cta2">default cta2</Button>
+      <Button>default</Button>
+      <Button variant="link" color="cta2">
+        link
+      </Button>
+      <Button variant="disabled" color="cta2">
+        disabled
+      </Button>
+    </CanvasContent>
+  </CanvasContainer>
+</Canvas>
+
+<Canvas>
+  <CanvasContainer variant="bgSubtleGradient dark">
+    <CanvasContent>
+      <Title color="cta2">on dark:</Title>
+      <ButtonCTA color="cta2">gradient cta2</ButtonCTA>
+      <Button color="cta2">default cta2</Button>
+      <Button>default</Button>
+      <Button variant="link" color="cta2">
+        link
+      </Button>
+      <Button variant="disabled" color="cta2">
+        disabled
+      </Button>
+    </CanvasContent>
+  </CanvasContainer>
+</Canvas>
+
+<Canvas>
+  <CanvasContainer variant="bgGradient" color="cta1">
+    <CanvasContent>
+      <Title color="cta2">on hero1:</Title>
+      <ButtonCTA color="cta2">gradient cta2</ButtonCTA>
+      <Button color="cta2">default cta2</Button>
+      <Button>default</Button>
+      <Button variant="link" color="cta2">
+        link
+      </Button>
+      <Button variant="disabled" color="cta2">
+        disabled
+      </Button>
+    </CanvasContent>
+  </CanvasContainer>
+</Canvas>
+
+<Canvas>
+  <CanvasContainer variant="bgGradient" color="cta1">
+    <CanvasContent>
+      <Title color="cta2">on hero2:</Title>
+      <ButtonCTA color="cta2">gradient cta2</ButtonCTA>
+      <Button color="cta2">default cta2</Button>
+      <Button>default</Button>
+      <Button variant="link" color="cta2">
+        link
+      </Button>
+      <Button variant="disabled" color="cta2">
+        disabled
+      </Button>
+    </CanvasContent>
+  </CanvasContainer>
+</Canvas>
 
 </Wrapper>
 </AppProvider>

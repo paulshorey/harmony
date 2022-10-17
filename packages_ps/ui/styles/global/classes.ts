@@ -1,4 +1,24 @@
 const classes = (theme: theme) => `
+  .bg {
+    color: var(--color-text);
+    background: var(--color-bg);
+  }
+
+  .text {
+    color: var(--color-text);  
+  }
+
+  .bgGradient {
+    box-decoration-break: clone;
+    color: var(--color-bg-text);
+    background: var(--color-bg);
+    background-image: linear-gradient(
+      333deg,
+      var(--color-bg-to) 0%,
+      var(--color-bg-from) 75%
+    );
+  }
+
   .ReactModalOverlay {
     background: rgba(0, 0, 0, 0.4) !important;
     position: fixed;

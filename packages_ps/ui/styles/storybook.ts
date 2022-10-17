@@ -1,11 +1,10 @@
-import globalV from "./variants";
-import colors from "@ps/ui/styles/colors";
+import globalV from './variants';
 
 export const argTypes = (localVariants: string[] = []) => {
   const allV = [
     ...localVariants,
     ...Object.keys({
-      "-----⌃local⌃----------⌄global⌄-----": true,
+      '-----⌃local⌃----------⌄global⌄-----': true,
       ...globalV,
     }),
   ];
@@ -14,33 +13,21 @@ export const argTypes = (localVariants: string[] = []) => {
     // ref: { table: { disable: true } },
     variants: {
       control: {
-        type: "multi-select",
+        type: 'multi-select',
       },
       options: allV,
     },
     variant: {
       control: {
-        type: "select",
+        type: 'select',
       },
       options: allV,
     },
-    color: {
-      control: {
-        type: "select",
-      },
-      options: Object.keys(colors),
-    },
-    shade: {
-      control: {
-        type: "select",
-      },
-      options: Object.keys(colors.default || {}),
-    },
     size: {
       control: {
-        type: "select",
+        type: 'select',
       },
-      options: [""],
+      options: [''],
     },
   };
 

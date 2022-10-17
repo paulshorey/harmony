@@ -27,29 +27,12 @@ export default {
     border-radius: 4px;
   `,
   bgLight: (props: any) => `
-  color: var(--color-900);
-  background: var(--color-100);
+  color: var(--color-text);
+  background: var(--color-bg);
   `,
   bgDark: (props: any) => `
-    color: var(--color-100);
-    background: var(--color-900);
-  `,
-  bgColor: (props: any) => `
-    color: var(--color-cta-text);
-    background: var(--color-cta);
-  `,
-  bgGradient: (props: any) => `
-    box-decoration-break: clone;
-    color: var(--color-cta-text);
-    background: var(--color-cta);
-    background-image: linear-gradient(
-      333deg,
-      var(--color-cta-to) 0%,
-      var(--color-cta-from) 75%
-    );
-  `,
-  text: (props: any) => `
-    color: var(--color-text);  
+  color: var(--color-text);
+  background: var(--color-bg);
   `,
   textGradient: (props: any) => `
     color: var(--color-cta-text);

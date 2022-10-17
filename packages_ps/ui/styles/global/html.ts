@@ -1,11 +1,4 @@
 const html = (theme) => `
-  h1 {
-    text-decoration: underline;
-  }
-  h2 {
-    color: orange !important;
-  }
-
   html {
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;
@@ -91,7 +84,7 @@ const html = (theme) => `
     font-weight: 500;
   }
 
-  Boxquote {
+  boxquote {
     border-left: solid 4px #ccc;
     padding: 8px 0 8px 16px;
     font-size: 22px;

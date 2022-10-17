@@ -1,6 +1,22 @@
 import Box, { withBox } from '@ps/ui/components/content/Box';
 import { withButton } from '@ps/ui/components/form/Button';
 
+export const CanvasContainer = withBox({
+  variant: 'bgGradient',
+  color: 'purple',
+  ss: (props) =>
+    `
+    margin:0;
+    // margin: -2rem -1.175rem;
+    padding:1.75rem 1.5rem 2.25rem;
+      display:block;
+      overflow:auto;
+    `,
+});
+export const CanvasContent = withBox({
+  ss: ``,
+});
+
 export const Container = withBox({
   ss: (props) =>
     `padding: 1.2rem 1rem 1.9rem; ${
@@ -9,10 +25,14 @@ export const Container = withBox({
 });
 export const Content = withBox({ ss: `padding: 0` });
 export const Title = withBox({
-  variant: 'textGradient',
+  // variant: 'textGradient',
   ss: `padding: 0.125rem 0 0 0.25rem;`,
 });
 export const Button = withButton({
+  ss: `margin: 1rem 1rem 0rem 0.25rem;`,
+});
+export const ButtonCTA = withButton({
+  variant: 'bgGradient',
   ss: `margin: 1rem 1rem 0rem 0.25rem;`,
 });
 
@@ -43,12 +63,19 @@ export const Wrapper = ({ children, ...props }) => (
   <Box
     {...props}
     variant={'bgGradient textColor'}
+    color="purple"
     ss={(theme) => `
       position:absolute;
       top:0;
       left:0;
       width:100%;
       padding: 3.5rem 5vw 100px;
+
+      em {
+        color: gold;
+        font-style: inherit;
+        font-weight: 700;
+      }
 
       h3 {
         font-weight: 600;
@@ -87,7 +114,7 @@ export const Wrapper = ({ children, ...props }) => (
       }
       p {
         font-size: 0.9em;
-        margin: 0.9rem 0;
+        margin: 0.25rem 0 1.25rem;
       }
       code {
         color: color: gold;

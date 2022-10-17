@@ -1,4 +1,6 @@
-const layout = (theme: theme) => `
+import theme from '../theme';
+
+const layout = () => `
   .pagePadding {
     position: relative;
     padding: 10px 20px;

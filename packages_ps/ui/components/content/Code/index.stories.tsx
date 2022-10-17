@@ -19,6 +19,7 @@ function Example() {
     </div>
   );
 }`,
+  showNumbers: true,
   language: 'jsx',
   variants: ['transparentDark'],
   prismTheme: {},

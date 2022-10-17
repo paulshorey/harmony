@@ -84,7 +84,7 @@ export default (
     props.theme.instance = {
       variants: { default: true },
       // @ts-ignore // checking if value exists for color
-      color: ((color && !!theme.colors[color] && color) || '') + '',
+      color,
       size,
       shade,
     };
@@ -98,25 +98,17 @@ export default (
    *
    */
   if (styles) {
-    const variantStrs = variant?.trim().split(/[^\w\d-_]+/) || [];
     // special cases
-    if (dark !== 'false') {
-      theme.instance.variants['dark'] = true;
-    }
-    if (light !== 'false') {
-      theme.instance.variants['light'] = true;
-    }
-    // add tag name as a variant
-    // it only works if manually added (<Box as="h2" /> will add h2). Doesn't work for default (<Box /> will NOT add div).
-    if (tagName) {
-      theme.instance.variants[tagName] = true;
-    }
-    if (componentName) {
-      theme.instance.variants[componentName] = true;
-    }
-    if (props.hasOwnProperty('disabled')) {
-      theme.instance.variants.disabled = true;
-    }
+    // if (dark && dark !== 'false') {
+    //   theme.instance.variants['dark'] = true;
+    // }
+    // if (light && light !== 'false') {
+    //   theme.instance.variants['light'] = true;
+    // }
+    // add custom specified (props.as) tag name as a variant
+    // if (tagName) {
+    //   theme.instance.variants[tagName] = true;
+    // }
     // props.variants (string[])
     if (variants?.length) {
       for (const str of variants) {
@@ -125,6 +117,7 @@ export default (
       }
     }
     // props.variant (strings separated by spaces or any other illegal characters)
+    const variantStrs = variant?.trim().split(/[^\w\d-_]+/) || [];
     if (variantStrs.length) {
       for (const str of variantStrs) {
         theme.instance.variants[str] = true;
@@ -327,11 +320,9 @@ export default (
   props['data-variants'] = props['data-variants'];
   props.className =
     (props.className ? props.className + ' ' : '') + componentName;
-  // if (theme.instance.variants.dark) {
-  //   props.className =
-  //     (props.className ? props.className + ' ' : '') + 'dark';
-  // }
-  // @ts-ignore // Idk how to get a list of valid styled tags. Put in a typeof check below that should take care of it.
+  if (color) {
+    props.className += ' colors-' + color;
+  }
   let styledFunction = styledWithEmotion[tagName];
   if (typeof styledFunction !== 'function') {
     cconsole.warn(`styled.${tagName} was not found. Using instead styled.div`);

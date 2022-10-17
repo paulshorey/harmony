@@ -24,7 +24,7 @@ export const decorators = [
     display:none !important;
   }
   .sidebar-header:before {
-    content: 'Styled+';
+    content: 'S+';
     color: white;
     font-size: 1.01rem;
     font-weight: bold;

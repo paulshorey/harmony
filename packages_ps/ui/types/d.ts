@@ -1,5 +1,9 @@
-import { ssComponentPropsType, ReactForwardedRefType, ssPropType } from "./component";
-import themeType from "./theme";
+import {
+  ssComponentPropsType,
+  ReactForwardedRefType,
+  ssPropType,
+} from './component';
+import themeType from './theme';
 export {};
 
 declare global {
@@ -15,11 +19,6 @@ declare global {
    * This accepts many different types. It will be passed to style_to_string(), and parsed according to type.
    */
   type ssFunction = (theme: theme, ...args: any) => string;
-
-  type colorShade = "" | "onDark" | string;
-  type colorGroupKey = "" | "accent" | "cta1" | "cta2" | string;
-  type colorGroupValue = Record<colorShade, Record<string, string>>;
-  type colors = Record<string, colorGroupValue>;
 
   type ReactForwardedRef = ReactForwardedRefType;
 }

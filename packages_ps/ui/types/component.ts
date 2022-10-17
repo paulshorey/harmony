@@ -25,18 +25,6 @@ export type ssProps = {
    */
   'variants'?: Array<string>;
   /**
-   * Will be used by theme.getColors function to use the specified color group theme.colors[colorGroup]. Alternatively, you may pass this to theme.getColors function as 2nd argument from your style function.
-   */
-  'color'?: colorGroupType;
-  /**
-   * Will be used by theme.getColors function to get you the color shade of color, 'default' or 'dark'. Also, CSS-in-JS styles will see this and use it to return the appropriate background/border/text color. This tells the component that it is over a dark or light background.
-   */
-  'shade'?: colorShadeType;
-  /**
-   * Similar to color/shade, will be read by the variant/style function.
-   */
-  'size'?: colorShadeType;
-  /**
    * Styled string. Or a function that accepts theme and returns a string. Or array of either. Same as other ssXxx props below, but without any media queries or conditional logic.
    */
   'ss'?: ssPropType;

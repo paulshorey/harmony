@@ -37,4 +37,4 @@ export const ssKeys = [
   'portrait',
   'landscape',
 ];
-export type MqKey = typeof ssKeys[number];
+export type ssKeysType = typeof ssKeys[number]; // tsFix: I don't think Typescript can actually make enum from keys or values

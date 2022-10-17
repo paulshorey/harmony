@@ -6,7 +6,8 @@ import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
   variants: ['hoverTilt'],
-  color: '',
+  color: 'white',
+  variant: 'bg',
   shade: '',
   ss: '',
 };

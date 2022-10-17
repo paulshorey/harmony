@@ -1,7 +1,7 @@
-import Box from 'components/content/Box';
 import Component from '.';
+import { CanvasContainer } from '@ps/ui/.storybook/components/Components';
 export default (args: any) => (
-  <Box ss="padding:1.33rem;">
+  <CanvasContainer>
     <Component {...args} />
-  </Box>
+  </CanvasContainer>
 );

@@ -1,11 +1,11 @@
-import Box from '@ps/ui/components/content/Box';
 import Card from '.';
+import { CanvasContainer } from '@ps/ui/.storybook/components/Components';
 export default (args: any) => (
-  <Box ss="padding:1.75rem 1.5rem 2.25rem;">
+  <CanvasContainer>
     <Card {...args}>
       Here is some text. Try :hover mouse-over this area. Storybook default
       variant is set to "hoverTilt". You can change the props below this
       example.
     </Card>
-  </Box>
+  </CanvasContainer>
 );

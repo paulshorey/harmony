@@ -7,30 +7,32 @@ import themeLight from 'prism-react-renderer/themes/vsLight';
 export type CodeThemeType = typeof themeDark;
 
 export type Props = {
-  code: string;
-  language?: Language;
-  prismTheme?: CodeThemeType;
-  variant?: string;
-  dataVariants?: string;
+  'code': string;
+  'language'?: Language;
+  'prismTheme'?: CodeThemeType;
+  'variant'?: string;
+  'data-variants'?: string;
+  'showNumbers'?: boolean;
 };
 
 const Code = ({
   code = '',
   language = 'jsx',
-  prismTheme: themeProp,
-  dataVariants = '',
+  'prismTheme': themeProp,
+  'data-variants': dataVariants = '',
+  showNumbers = false,
 }: Props) => {
   let theme;
   // customize theme from variants
   if (dataVariants) {
-    if (dataVariants.includes('-prismLight')) {
+    if (dataVariants.includes('prismLight')) {
       theme = { ...themeLight };
-    } else if (dataVariants.includes('-transparentDark')) {
+    } else if (dataVariants.includes('transparentDark')) {
       theme = {
         ...themeDark,
         ...{ plain: { backgroundColor: 'rgba(0,0,0,0.54)' } },
       };
-    } else if (dataVariants.includes('-transparentLight')) {
+    } else if (dataVariants.includes('transparentLight')) {
       theme = {
         ...themeLight,
         ...{ plain: { backgroundColor: 'rgba(222,222,222,0.22)' } },
@@ -55,7 +57,7 @@ const Code = ({
         <Pre className={className} style={style}>
           {tokens.map((line, i) => (
             <Line key={i} {...getLineProps({ line, key: i })}>
-              <LineNo>{i + 1}</LineNo>
+              {showNumbers ? <LineNo>{i + 1}</LineNo> : <>&nbsp;</>}&nbsp;
               <LineContent>
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token, key })} />
