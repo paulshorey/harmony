@@ -5,11 +5,11 @@ export default {
     display: block;
     cursor: pointer;
     white-space: pre;
-    font-size: 0.9rem;
     border-radius: 0.5rem;
     margin:0;
     padding:0;
     overflow:auto;
+    font-size: 0.9rem;
     pre {
       margin:0;
       padding: 1.5rem 0.75rem 1rem 1.25rem;

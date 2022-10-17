@@ -12,7 +12,7 @@ import cconsole from '@ps/cconsole';
  * It takes all the custom ss props, plus styles, variants, css, and aggregates them into one css prop.
  */
 export default (
-  props: any,
+  inputProps: any,
   tagName: styledTags = 'div',
   componentName: string,
   styles?: Record<string, ssPropType>
@@ -53,9 +53,9 @@ export default (
     ssWindows,
     variant,
     variants,
-    'data-variants': dataVariants = '',
-    ...otherProps
-  } = props;
+    ...props
+  } = inputProps;
+
   /*
    *
    * theme.instance
@@ -72,21 +72,22 @@ export default (
       '!theme - Must include @emotion/react ThemeProvider, import theme from @ps/ui/styles/theme'
     );
   }
-  props.theme = theme;
-  // Reuse theme.instance for all nested components that end up creating just one HTML element:
-  // Many components extend another component (by returning a modified version of it).
-  // In those cases, the final HTML/DOM element will have run through this function multiple times.
-  // It will be sequential. Child after parent. So, keep the previous theme instance and add to it.
-  if (!dataVariants || !theme.instance) {
-    // In @emotion/styled function, first argument is props.
-    // Replicate that functionality, but without all these extra ss props.
-    theme.instance = {
+
+  // Extend the temporary props.theme.instance. If property already exists, do not overwrite it.
+  // It may exist because some components in this library include a child component also from this library.
+  // This hook is called for each component. Sometimes multiple nested components are combined to make one HTML element.
+  if (!props['data-variants'] || !theme.instance) {
+    // In @emotion/styled functions, first argument is props, which contains an injected theme property.
+    // This library also includes that functionality. This also includes a bit of added functionality...
+    // Style functions will be able to read not just the props and theme but also "instance" properties.
+    props.theme = theme;
+    props.theme.instance = {
       variants: { default: true },
       // @ts-ignore // checking if value exists for color
       color: ((color && !!theme.colors[color] && color) || '') + '',
       size,
       shade,
-    }; // style() 2nd argument
+    };
   }
   let ssOutput = ''; // will be wrapped in `` before being passed to component props.css. High specificity.
   let ssExtra = ''; // global variants. Not sure it's a good idea to include. But might be useful. Low specificity.
@@ -156,23 +157,25 @@ export default (
   // Generate a unique selector, wrap css in it to make it more specific.
   // It helps the media queries work better, otherwise they may not have enough specificity.
   // And also it's nice to look in the DevTools and see what component name and variants belong to which DOM element.
-  dataVariants = theme.instance.variants
+  props['data-variants'] = theme.instance.variants
     ? Object.keys(theme.instance.variants).join('-')
     : '';
   if (shade) {
-    dataVariants += '-' + shade;
+    props['data-variants'] += '-' + shade;
   }
   if (color) {
-    dataVariants += '-' + color;
+    props['data-variants'] += '-' + color;
   }
-
-  // ssOutput += `\n&[data-variants="${dataVariants}"] {\n`;
 
   /*
    *
-   * Media Queries
+   * props.ss
    *
    */
+
+  // Increase specificity of ss props:
+  // ssOutput += `\n&[data-variants="${props['data-variants']}"] {\n`;
+
   // For each device and size, add a media query (but only if custom style for it is specified)
   const checkDeviceInfo =
     ssIframe ||
@@ -312,6 +315,7 @@ export default (
   }
   // ssOutput += `\n}\n`;
 
+  // add global variants, with lower specificity
   ssOutput += ssExtra;
   ssOutput = ssOutput.replace(/label:(.*?);/g, '').replace(/([;]+)/g, ';');
 
@@ -320,12 +324,12 @@ export default (
    * Return component and props/attributes
    *
    */
-  otherProps['data-variants'] = dataVariants;
-  otherProps.className =
-    (otherProps.className ? otherProps.className + ' ' : '') + componentName;
+  props['data-variants'] = props['data-variants'];
+  props.className =
+    (props.className ? props.className + ' ' : '') + componentName;
   // if (theme.instance.variants.dark) {
-  //   otherProps.className =
-  //     (otherProps.className ? otherProps.className + ' ' : '') + 'dark';
+  //   props.className =
+  //     (props.className ? props.className + ' ' : '') + 'dark';
   // }
   // @ts-ignore // Idk how to get a list of valid styled tags. Put in a typeof check below that should take care of it.
   let styledFunction = styledWithEmotion[tagName];
@@ -338,5 +342,5 @@ export default (
     ${ssOutput}
   `;
   // return
-  return [styledComponent, otherProps];
+  return [styledComponent, props];
 };

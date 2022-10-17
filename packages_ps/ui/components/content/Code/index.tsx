@@ -1,32 +1,41 @@
-import Box, { Props as BoxProps } from '@ps/ui/components/content/atoms/Box';
-// import useCopyToClipboard from '@ps/ui/hooks/useCopyToClipboard';
-import { FC, memo, forwardRef, ReactElement } from 'react';
+import { Props as BoxProps } from '@ps/ui/components/content/Box';
+import { memo } from 'react';
 import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
 import variants from './variants';
 import useStyleProps from '@ps/ui/styles/useStyleProps';
-import ImportComponent, { Props as CodeProps } from './Code';
+import CodeComponent, { Props as CodeProps } from './Code';
 
-// Accepts these props:
 export type Props = BoxProps & CodeProps;
 
-export const Component: (props: Props) => ReactElement = ({ ...props }) => {
+export const Component = (props: Props) => {
   const [Styled, otherProps]: any = useStyleProps(
     props,
     'div',
     'Code',
     variants
   );
-  // Real component lives in sibling file. This file just wraps it in a styled component and packages for export/storybook.
+  const {
+    code,
+    language,
+    prismTheme,
+    'data-variants': dataVariants,
+    ...containerProps
+  } = otherProps;
   return (
-    <Styled>
-      <ImportComponent {...otherProps} />
+    <Styled data-variants={dataVariants} {...containerProps}>
+      <CodeComponent
+        code={code}
+        language={language}
+        prismTheme={prismTheme}
+        data-variants={dataVariants}
+      />
     </Styled>
   );
 };
 
 /*
  * Like StyledComponents' div`` but with added functionality:
- * import { withCode } from 'components/content/molecules/Code';
+ * import { withCode } from 'components/content/Code';
  * const Code = withCode({ ...thesePropsWillApplyToAllInstances });
  * <Code {...optionalUniquePropsForCurrentInstance} />
  */
