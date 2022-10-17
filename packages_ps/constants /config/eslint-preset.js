@@ -167,7 +167,7 @@ module.exports = (__dirname) => {
     },
     settings: {
       'import/parsers': {
-        '@typescript-eslint/parser': ['.ts', '.tsx'],
+        '@typescript-eslint/parser': ['.ts', '.tsx', '.mdx'],
       },
       'import/resolver': {
         typescript: {

@@ -24,7 +24,6 @@
     "sourceMap": true,
     "strictFunctionTypes": true,
     "alwaysStrict": true,
-    "noImplicitAny": true,
     "noUnusedLocals": false,
     "noImplicitThis": true,
     "strictPropertyInitialization": true,
