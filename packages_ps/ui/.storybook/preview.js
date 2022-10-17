@@ -1,8 +1,8 @@
-import AppProvider from "@ps/ui/components/utils/AppProvider";
-import React, { useEffect } from "react";
-import { themes } from "@storybook/theming";
-import Box from "@ps/ui/components/content/atoms/Box";
-import "@ps/ui/styles/theme.css";
+import AppProvider from '@ps/ui/components/utils/AppProvider';
+import React, { useEffect } from 'react';
+import { themes } from '@storybook/theming';
+import Box from '@ps/ui/components/content/Box';
+import '@ps/ui/styles/theme.css';
 
 export const parameters = {
   docs: {
@@ -47,20 +47,24 @@ export const decorators = [
     useEffect(() => {
       // TOP FRAME
       {
-        let el = window.top?.document.getElementById("storybook-customized-css");
+        let el = window.top?.document.getElementById(
+          'storybook-customized-css'
+        );
         if (!el) {
-          const style = document.createElement("style");
-          style.id = "storybook-top-change-css";
+          const style = document.createElement('style');
+          style.id = 'storybook-top-change-css';
           style.innerHTML = topCSS;
           window.top?.document.body.appendChild(style);
         }
       }
       // STORY FRAME
       {
-        let el = window.selfCSS?.document.getElementById("storybook-customized-css");
+        let el = window.selfCSS?.document.getElementById(
+          'storybook-customized-css'
+        );
         if (!el) {
-          const style = document.createElement("style");
-          style.id = "storybook-selfCSS-change-css";
+          const style = document.createElement('style');
+          style.id = 'storybook-selfCSS-change-css';
           style.innerHTML = selfCSS;
           window.selfCSS?.document.body.appendChild(style);
         }
@@ -70,7 +74,11 @@ export const decorators = [
     // console.log('story preview');
     return (
       <AppProvider>
-        <Box onDark variant="bgGradient" ss="position:relative;overflow:auto;margin: -30px -20px;">
+        <Box
+          onDark
+          variant="bgGradient"
+          ss="position:relative;overflow:auto;margin: -30px -20px;"
+        >
           <Story {...context} />
         </Box>
       </AppProvider>

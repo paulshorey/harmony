@@ -1,6 +1,6 @@
 /*
  * THESE ARE HELPERS FOR OUR CUSTOM AB TESTING FRAMEWORK
- * See /src/components/atoms/AbTest, usage in /pages
+ * See /src/components/AbTest, usage in /pages
  * That framework is experimental!
  *
  * THIS NEEDS FURTHER DEVELOPMENT AND TESTING. NOT FINISHED.

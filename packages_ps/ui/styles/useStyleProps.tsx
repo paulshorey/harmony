@@ -3,9 +3,9 @@ import style_to_string from '@ps/fn/browser/style/style_to_string';
 import { returnDeviceInfo, deviceInfoType } from '@ps/ui/hooks/useDeviceInfo';
 import { useEffect, useState } from 'react';
 import { ssPropType, styledTags } from '@ps/ui/types/component';
-import themeType from '@ps/ui/types/theme';
 import styledWithEmotion from '@emotion/styled';
 import cconsole from '@ps/cconsole';
+// import themeType from '@ps/ui/types/theme';
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
@@ -18,12 +18,13 @@ export default (
   styles?: Record<string, ssPropType>
 ): [React.ElementType, Record<string, any>] => {
   let {
-    // className = '',
     color = '',
     shade = '',
     size = '',
     dark = false,
     light = false,
+    onDark = false, // old, deprecated, ignored
+    onLight = false, // old, deprecated, ignored
     ss,
     ssAll,
     ssAndroid,
@@ -61,16 +62,15 @@ export default (
    *
    */
   if (typeof styledWithEmotion === 'undefined' || !styledWithEmotion?.div) {
-    cconsole.error('!styledWithEmotion', typeof styledWithEmotion);
-    return [null, otherProps];
-  }
-  const theme: themeType = useTheme(); // style() 1st argument
-  if (!theme?.variants) {
-    cconsole.warn(
-      '!theme - Must include @emotion/react ThemeProvider, import theme from @ps/ui/styles/theme',
-      theme
+    throw new Error(
+      '!styledWithEmotion ... typeof = ' + typeof styledWithEmotion
     );
-    return [styledWithEmotion.div``, otherProps];
+  }
+  const theme: any = useTheme(); // tsFix (causes notices when setting new properties, see @ps/ui/types/theme for types)
+  if (!theme?.variants) {
+    throw new Error(
+      '!theme - Must include @emotion/react ThemeProvider, import theme from @ps/ui/styles/theme'
+    );
   }
   props.theme = theme;
   // Reuse theme.instance for all nested components that end up creating just one HTML element:
@@ -108,28 +108,24 @@ export default (
     // add tag name as a variant
     // it only works if manually added (<Box as="h2" /> will add h2). Doesn't work for default (<Box /> will NOT add div).
     if (tagName) {
-      // @ts-ignore // was undefined, now defining it, so whats the problem?
       theme.instance.variants[tagName] = true;
     }
     if (componentName) {
-      // @ts-ignore // was undefined, now defining it, so whats the problem?
       theme.instance.variants[componentName] = true;
     }
     if (props.hasOwnProperty('disabled')) {
-      // @ts-ignore // was undefined, now defining it, so whats the problem?
       theme.instance.variants.disabled = true;
-    }
-    // props.variant (strings separated by spaces or any other illegal characters)
-    if (variantStrs.length) {
-      for (const str of variantStrs) {
-        // @ts-ignore // was undefined, now defining it, so whats the problem?
-        theme.instance.variants[str] = true;
-      }
     }
     // props.variants (string[])
     if (variants?.length) {
       for (const str of variants) {
-        // @ts-ignore // was undefined, now defining it, so whats the problem?
+        // @ts-ignore // was undefined, now defining it
+        theme.instance.variants[str] = true;
+      }
+    }
+    // props.variant (strings separated by spaces or any other illegal characters)
+    if (variantStrs.length) {
+      for (const str of variantStrs) {
         theme.instance.variants[str] = true;
       }
     }
@@ -321,21 +317,26 @@ export default (
 
   /*
    *
-   * Return component with props applied
+   * Return component and props/attributes
    *
    */
-  props['data-variants'] = dataVariants;
-  if (theme.instance.variants.dark) {
-    props.className = (props.className ? props.className + ' ' : '') + 'dark';
-  }
+  otherProps['data-variants'] = dataVariants;
+  otherProps.className =
+    (otherProps.className ? otherProps.className + ' ' : '') + componentName;
+  // if (theme.instance.variants.dark) {
+  //   otherProps.className =
+  //     (otherProps.className ? otherProps.className + ' ' : '') + 'dark';
+  // }
   // @ts-ignore // Idk how to get a list of valid styled tags. Put in a typeof check below that should take care of it.
   let styledFunction = styledWithEmotion[tagName];
   if (typeof styledFunction !== 'function') {
     cconsole.warn(`styled.${tagName} was not found. Using instead styled.div`);
     styledFunction = styledWithEmotion.div;
   }
+  // apply styles
   const styledComponent = styledFunction`
     ${ssOutput}
   `;
+  // return
   return [styledComponent, otherProps];
 };

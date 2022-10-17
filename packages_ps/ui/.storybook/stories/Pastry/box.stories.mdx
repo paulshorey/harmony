@@ -1,0 +1,38 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Div, Span, Center } from '@ps/ui/components/content/Box';
+import Inline from '@ps/ui/components/content/Box';
+import AppProvider from '@ps/ui/components/utils/AppProvider';
+import { Wrapper } from '../../components/Components';
+import Box, { Component } from '@ps/ui/components/content/Box';
+
+export const Template = (args) => (
+  <Box as="p" {...args}>
+    Component
+  </Box>
+);
+export const Pastry = (args) => (
+  <Box as="p" {...args}>
+    Component
+  </Box>
+);
+
+<Meta
+  title="Pastry"
+  id="pastry-123"
+  component={Box}
+  argTypes={{
+    fluid: {
+      name: 'fluid',
+      description: 'Let the container grow to max',
+      table: {},
+      control: {
+        type: 'boolean',
+      },
+    },
+  }}
+/>
+
+### Properties
+
+{' '}
+<ArgsTable story="Template" of={Component} />

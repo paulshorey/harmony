@@ -1,3 +1,3 @@
-import styledComponents from "./styledComponents";
+import Home from './Home';
 
-export default styledComponents;
+export default Home;
