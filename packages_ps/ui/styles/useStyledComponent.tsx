@@ -294,7 +294,7 @@ export default (
   // return styled component
   let styledFunction = styled[tagName];
   if (typeof styledFunction !== 'function') {
-    cconsole.warn(`styled.${tagName} was not found. Using instead styled.div`);
+    console.warn(`styled.${tagName} was not found. Using instead styled.div`);
     styledFunction = styled.div;
   }
   // apply styles

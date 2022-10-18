@@ -1,5 +1,5 @@
 export default {
-  default: (props: any) => `
+  default: `
     background-color: var(--color-bg);
     background: white;
     padding: 3rem 2rem 2.25rem 2.5rem;

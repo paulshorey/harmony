@@ -161,6 +161,23 @@ const classes = (theme: theme) => `
     background: none !important;
     box-shadow: none !important;
   }
+
+  /*
+   * Don't look down
+   */
+  
+  /* This is for the Modal component, but this overlay must be outside the component, at the bottom of the page <body> */
+  .ReactModalOverlay {
+    background: rgba(0, 0, 0, 0.4) !important;
+    position: fixed;
+    inset: 0px;
+    z-index: 1000;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export default classes;
