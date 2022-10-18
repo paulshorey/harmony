@@ -8,7 +8,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     'storybook-addon-next',
-    './addons/expand-all/register.js',
+    'storybook-css-modules',
     {
       name: 'storybook-addon-sass-postcss',
       options: {
@@ -28,4 +28,28 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
+  // webpackFinal: async function supportCssModules(config) {
+  //   // console.log('1=================================')
+  //   // console.log('>>>config', config.module.rules)
+  //   // console.log('1=================================')
+
+  //   config.module.rules.find(
+  //     (rule) => rule.test.toString() === '/\\.css$/'
+  //   ).exclude = /\.module\.css$/;
+
+  //   config.module.rules.push({
+  //     test: /\.module\.css$/,
+  //     use: [
+  //       'style-loader',
+  //       {
+  //         loader: 'css-loader',
+  //         options: {
+  //           modules: true,
+  //         },
+  //       },
+  //     ],
+  //   });
+
+  //   return config;
+  // },
 };

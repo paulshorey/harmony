@@ -66,12 +66,6 @@ const Wrapper = ({ children, ...props }) => (
         font-weight: 700;
       }
     `}
-    ssIframe={`
-      p span {
-        display: block;
-        white-space: nowrap;
-      }
-    `}
   >
     <Box
       ss={`

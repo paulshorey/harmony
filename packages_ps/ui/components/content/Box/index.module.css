@@ -1,0 +1,11 @@
+.default {
+  position: relative;
+}
+
+.textColor {
+  color: var(--color-text);
+}
+
+.textNotice {
+  color: var(--color-notice);
+}

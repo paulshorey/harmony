@@ -1,14 +1,22 @@
 import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
-import Box, { withBox } from '.';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
+import Box, { withBox } from '.';
 
-export default function (args: any) {
+export default function (props: any) {
   useShowStorybookCode();
-  const Heading = withBox({ as: 'h2', ...args });
-  const Code = withBox({ as: 'code', ...args });
+  const Heading = withBox({
+    as: 'h2',
+    variant: 'textNotice',
+    ...props,
+  });
+  const Code = withBox({
+    as: 'code',
+    variant: 'textNotice',
+    ...props,
+  });
   return (
-    <CanvasContainer>
-      <Box {...args}>
+    <CanvasContainer color="dark">
+      <Box>
         Box can be used <Heading> as h2</Heading>,{' '}
         <Code> or as &lt;code&gt;</Code>, or as any other HTML container
         element. By default, it's a div.
@@ -16,3 +24,18 @@ export default function (args: any) {
     </CanvasContainer>
   );
 }
+
+export const code = `import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
+import Box, { withBox } from '.';
+
+const Heading = withBox({ as: 'h2', ...props });
+const Code = withBox({ as: 'code', ...props });
+
+<CanvasContainer color="dark">
+  <Box>
+    Box can be used <Heading> as h2</Heading>,{' '}
+    <Code> or as &lt;code&gt;</Code>, or as any other HTML container
+    element. By default, it's a div.
+  </Box>
+</CanvasContainer>
+`;

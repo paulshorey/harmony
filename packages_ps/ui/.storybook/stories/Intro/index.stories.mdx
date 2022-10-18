@@ -3,7 +3,7 @@ import Box from '@ps/ui/components/content/Box';
 import AppProvider from '@ps/ui/components/utils/AppProvider';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 
-<Meta title="Why is this useful?" id="about-1" />
+<Meta title="Why another UI library ?" id="about-1" />
 
 <AppProvider>
 
@@ -11,98 +11,47 @@ import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 
 ## This is not a UI Component Library...
 
-### It's a starter kit for easily making <span className="colors-accent">your own</span> <span className="colors-rainbow"> custom-branded </span> UI library.
+**It's a starter kit for easily maintianing <span className="colors-accent">your own</span> <span className="colors-rainbow"> custom-branded </span> UI library.**
 
 <br />
 
-### It's a styling-system for enterprise.
+## A UI development kit for enterprise.
 
-Scalable, with shortcuts for media queries, devices, variables, and colors schemes.
+**Maintainable** - Great developer experience. Easily manage media queries, variables, colors, markup, and interactive functionality.  
+**Mono-repo** - Maintain just one set of components and styles. Import into multiple apps.  
+**Extensible** - Add functionality and style to the base library as a "variant". Then select that variant in your app. This way if you need to customize a component, you don't have to duplicate code, but can build on top of the base component - without affecting other apps.
 
-Great for a mono-repo. This library can be imported by multiple apps. Each app
-can extend the base theme and functionality.
+<br />
 
-- <a href="/">media queries</a> - easily style breakpoints (with JSX props, JS variables,
-  or Styled Components HOC)
-- <a href="/">variants and themes</a> - use/extend multiple predefined variants (like
-  classNames but with Typescript)
+## CSS-in-JS is no longer tedious:
 
----
+- <a href="/">media queries</a> - easily style breakpoints with JSX props, JS variables,
+  or a Styled Component (HOC)
+- <a href="/">variants and variables</a> - use/extend multiple predefined variants
+  (like classNames but with Typescript)
 
-### Compatible with most component libraries.
+<br />
+
+## Compatible with most component libraries.
 
 ### Peer dependencies:
 
 - React
 - Typescript
-- Next (for components that generate a link or image)
+- Next (optional, required for variants that use next/link)
 - @emotion/styled (same as styled-components)
 - @emotion/react (to load global styles and theme)
 
----
+<br />
 
-  <h3>Funny thing...</h3>
-  <p>
-    The "C" in "CSS" stands for "Cascading" - each more specific set of rules inherits from / extends the previous. But, so-called CSS-in-JS solutions
-    actually don't support the "C" part. They're usually just S-in-JS. But that's not as catchy. 😆{" "}
-  </p>
-  <p>
-    This library attempts to bring back the Cascading functionality. It's not finished, but there's already some inheritance of variants. Variants are like
-    classNames. Variant styles can see what other variants/colors/sizes/etc are used in the component just like classNames were able to refer to sibling or
-    child classNames.
-  </p>
-  <hr />
-  <h3>This project is made to replace the following patterns:</h3>
-  <ol>
-    <li>Install a 3rd-party open-source UI component library</li>
-    <li>
-      Find a compatible styling solution to customize that component library. You'll need to make a new component for each 3rd-party component to override
-      its styles, essentially building your own custom component library. Or, if the component library uses class names, then you'll have to manage a long
-      complex stylesheet of overrides.
-    </li>
-  </ol>
-  Box, <Box as="h4" ss="margin-top:0;">
-    or
-  Box, </Box>
-  <ol>
-    <li>Build your own custom component library from scratch.</li>
-    <li>Set up your own styling system, variables, and media queries.</li>
-    <li>Manage functions/hooks/helpers to handle user interactions and device specific edge cases.</li>
-  </ol>
-  <h4>Instead, you can</h4>
-  <ol>
-    <li>Use this starter component library, or copy the entire mono-repo.</li>
-    <li>
-      As you build out your product/app/website, add a new component as needed with a good base functionality and styles to suit any of your apps. Add more
-      properties to the theme, hooks, helpers, whatever you need.
-    </li>
-    <li>In each app, extend this library's theme to match the app's specific requirements.</li>
-  </ol>
-  <hr />
-  <h3>This is powered by EmotionJS</h3>
-  <p>
-    You can pass an EmotionJS object or function to any of the `ss` props - without having to set up the `` prop in your own app. Just use `ss` instead. To
-    style in a media query, pass `ssLg`/`ssSm`, `ssDesktop`/`ssMobile`, `ssPhone`, `ssSmallPhone`, etc. All ss props also accept string type. They will be
-    inserted into an EmotionJS function after being wrapped in the appropriate media query.
-  </p>
-  <hr />
-  <h3>Typescript and testing</h3>
-  <p>
-    Theme, colors, variants, css variables, hooks, functions, and everything else here is written in Typescript. But css properties themselves are old
-    fashioned strings. That's actually ok. With current tooling, it's actually not even possible to effectively type check CSS properties. Consider padding
-    "1em 2em calc(1em+5px)" (forgot spaces around the plus) or "1ems" (typo s character). Type is correct, but it's not valid css. There are many edge cases
-    with styling that Typescript will not catch even if the variable type is correct. It's not worth the effort to do CSS-in-JS objects, because "visual
-    regression testing" is much more effective at preventing styling regressions.
-  </p>
-  <p>
-    Unit tests are important and coming soon to this library. But, this library is not yet stable. Unit tests are great for ensuring specific in/out
-    functionality does not change. But right now functionality is still changing. The function library @ps/fn that's a sibling to this package does already
-    have unit tests in place. Open that and run `yarn dev`. The goal is to have the same with this library.
-  </p>
-  <p>
-    Since this library is mostly visual however, the more immediate plan is to put in visual regression tests that run before Git can push changes. Coming
-    son.
-  </p>
+## Putting the "C" back into "CSS"...
+
+The "C" in "CSS" stands for "Cascading" - styles can be applied based on parent/grandparent styles/variables. Unfortunately, this is lost in modern "CSS-in-JS" solutions. They should be called "S-in-JS", but that's not as catchy. 😆
+
+This library attempts to bring back inheritance to style rules, but without the class name conflicts. Components should be able to know if they are inside a dark theme or on top of a color gradient, and adjust the text/button colors automatically. Using CSS variables and HTML data attributes, components are able to adapt to their surroundings, without the developer having to set a specific color shade and subtle style rules for each instance of a component
+
+It's a work in progress. This library is not ready for production use yet, but so far it's looking promising! 🚀 Now testing and optimizing.
+
 </Wrapper>
 
 </AppProvider>

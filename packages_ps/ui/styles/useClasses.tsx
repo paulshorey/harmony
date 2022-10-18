@@ -9,13 +9,13 @@ import styled from '@emotion/styled';
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
- * It takes all the custom ss props, plus styles, variants, css, and aggregates them into one css prop.
+ * It takes all the custom ss props, plus classes, variants, css, and aggregates them into one css prop.
  */
 export default (
   inputProps: any,
   tagName: styledTags = 'div',
   componentName: string,
-  styles?: Record<string, ssPropType>
+  classes?: Record<string, ssPropType>
 ): [React.ElementType, Record<string, any>] => {
   let {
     color = '',
@@ -56,6 +56,14 @@ export default (
     ...props
   } = inputProps;
 
+  // className
+  props.className = props.className || '';
+
+  // style strings
+  let ssVariants = '';
+  let ssImportant = '';
+  let ssGlobal = '';
+
   // theme
   // In @emotion/styled functions, first argument is props, which contains an injected theme property.
   // This library also includes that functionality. This also includes a bit of added functionality...
@@ -79,13 +87,8 @@ export default (
     };
   }
 
-  // styled strings
-  let ssVariants = '';
-  let ssImportant = '';
-  let ssGlobal = '';
-
   // variants
-  if (styles) {
+  if (classes) {
     // props.variants (string[])
     if (variants?.length) {
       for (const str of variants) {
@@ -100,24 +103,12 @@ export default (
         theme.instance.variants[str] = true;
       }
     }
-    // Apply variants
+    // apply class
     for (const variant in theme.instance.variants) {
       if (variant) {
-        // Apply component-specific styles
-        if (styles[variant]) {
-          ssVariants += style_to_string(
-            // @ts-ignore // styles[variant] is defined, so use it
-            styles[variant],
-            props
-          );
-        }
-        // If component-specific style is not defined, apply a global style from theme
-        if (theme.variants[variant]) {
-          ssGlobal += style_to_string(
-            // @ts-ignore // theme.variants[variant] is defined, so use it
-            theme.variants[variant],
-            props
-          );
+        // Apply component-specific classes
+        if (classes[variant]) {
+          props.className += ' ' + variant;
         }
       }
     }
@@ -297,7 +288,7 @@ export default (
     console.warn(`styled.${tagName} was not found. Using instead styled.div`);
     styledFunction = styled.div;
   }
-  // apply styles
+  // apply classes
   const styledComponent = styledFunction`
     ${ssGlobal}
     ${ssVariants}
