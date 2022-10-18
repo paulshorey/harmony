@@ -57,7 +57,7 @@ export default {
       background: #0c153a;
       height: auto;
       width: auto;
-      display: inline-Box;
+      display: inline-block;
       padding: 15px 23px 14px 21px;
       border-radius: 18px;
       letter-spacing: 0.5px;

@@ -6,7 +6,7 @@ export default (Default: any, props1: any, props2: any) => {
     props2,
     ';',
     ['children'],
-    ['ss', 'className'],
+    ['ss', 'className', 'variant'],
     'props'
   );
   return <Default {...props} children={props2.children} />;

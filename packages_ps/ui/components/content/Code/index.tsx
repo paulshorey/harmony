@@ -2,13 +2,13 @@ import { Props as BoxProps } from '@ps/ui/components/content/Box';
 import { memo } from 'react';
 import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
 import variants from './variants';
-import useStyleProps from '@ps/ui/styles/useStyleProps';
+import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 import CodeComponent, { Props as CodeProps } from './Code';
 
 export type Props = BoxProps & CodeProps;
 
 export const Component = (props: Props) => {
-  const [Styled, otherProps]: any = useStyleProps(
+  const [Styled, otherProps]: any = useStyledComponent(
     props,
     'div',
     'Code',

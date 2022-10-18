@@ -6,42 +6,67 @@ export default {
   borderBottom: (props: any) => `
     text-decoration: none;
     padding: 0;
-    display: inline-Box;
-    color: var(--color-cta-to);
-    border-bottom: solid 2px var(--color-cta-to);
+    display: inline-block;
+    color: var(--color-cta-darker);
+    border-bottom: solid 2px var(--color-cta-darker);
     margin: 0 2px 4px;
     &:hover {
       border-color: transparent;
     }
   `,
-  code: (props: any) => `
-    padding: 0.25rem;
-    white-space: pre;
-    font-family: var(--font-family-mono);
-    font-size: 0.9rem;
-    font-style: normal;
-    text-decoration: none;
-    background: var(--color-subtle);
-    border: solid 1px var(--color-subtle-text);
-    color: var(--color-subtle-text);
-    border-radius: 4px;
-  `,
-  bgLight: (props: any) => `
-  color: var(--color-text);
-  background: var(--color-bg);
-  `,
-  bgDark: (props: any) => `
-  color: var(--color-text);
-  background: var(--color-bg);
+  center: (props: any) => `
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > * {
+      display: inline-block;
+    }
   `,
   textGradient: (props: any) => `
+  box-decoration-break: clone;
     color: var(--color-cta-text);
     @supports (--css: variables) {
       background-image: linear-gradient(
-        to right,
-        var(--color-cta),
-        var(--color-cta-from),
-        var(--color-cta-to)
+        -333deg,
+        var(--color-cta-lighter),
+        var(--color-cta-darker)
+      );
+      color: transparent;
+      background-size: 100%;
+      background-repeat: repeat;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+  `,
+  textGradientReversed: (props: any) => `
+  box-decoration-break: clone;
+    color: var(--color-cta-text);
+    @supports (--css: variables) {
+      background-image: linear-gradient(
+        333deg,
+        var(--color-cta-lighter),
+        var(--color-cta-darker)
+      );
+      color: transparent;
+      background-size: 100%;
+      background-repeat: repeat;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+    }
+  `,
+  textGradientSubtle: (props: any) => `
+  box-decoration-break: clone;
+    color: var(--color-cta-text);
+    @supports (--css: variables) {
+      background-image: linear-gradient(
+        333deg,
+        var(--color-cta-lighter) -50%,
+        var(--color-cta-darker) 150%
       );
       color: transparent;
       background-size: 100%;

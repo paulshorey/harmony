@@ -18,7 +18,11 @@ export default function Home() {
         <H1>This is styled using a styled component</H1>
         <h2>This is styled using a global styled component</h2>
         <Box as="h1">Test box</Box>
-        <Code />
+        <Code
+          className="bg"
+          code={`ad fad dasf afdafddfsfds  dsf afds afd fds adfs afd fds`}
+          language="markdown"
+        />
       </main>
     </div>
   );

@@ -3,8 +3,8 @@ import style_to_string from '@ps/fn/browser/style/style_to_string';
 import { returnDeviceInfo, deviceInfoType } from '@ps/ui/hooks/useDeviceInfo';
 import { useEffect, useState } from 'react';
 import { ssPropType, styledTags } from '@ps/ui/types/component';
-import styledWithEmotion from '@emotion/styled';
-import cconsole from '@ps/cconsole';
+import styled from '@emotion/styled';
+// import cconsole from '@ps/cconsole';
 // import themeType from '@ps/ui/types/theme';
 
 /**
@@ -56,30 +56,19 @@ export default (
     ...props
   } = inputProps;
 
-  /*
-   *
-   * theme.instance
-   *
-   */
-  if (typeof styledWithEmotion === 'undefined' || !styledWithEmotion?.div) {
-    throw new Error(
-      '!styledWithEmotion ... typeof = ' + typeof styledWithEmotion
-    );
-  }
+  // theme
+  // In @emotion/styled functions, first argument is props, which contains an injected theme property.
+  // This library also includes that functionality. This also includes a bit of added functionality...
+  // Style functions will be able to read not just the props and theme but also "instance" properties.
   const theme: any = useTheme(); // tsFix (causes notices when setting new properties, see @ps/ui/types/theme for types)
-  if (!theme?.variants) {
-    throw new Error(
-      '!theme - Must include @emotion/react ThemeProvider, import theme from @ps/ui/styles/theme'
-    );
+  if (typeof styled === 'undefined' || !styled?.div) {
+    throw new Error('!styledWithEmotion ... typeof = ' + typeof styled);
   }
-
-  // Extend the temporary props.theme.instance. If property already exists, do not overwrite it.
+  // theme.instance
+  // Extend the temporary theme.instance. If property already exists, do not overwrite it.
   // It may exist because some components in this library include a child component also from this library.
   // This hook is called for each component. Sometimes multiple nested components are combined to make one HTML element.
   if (!props['data-variants'] || !theme.instance) {
-    // In @emotion/styled functions, first argument is props, which contains an injected theme property.
-    // This library also includes that functionality. This also includes a bit of added functionality...
-    // Style functions will be able to read not just the props and theme but also "instance" properties.
     props.theme = theme;
     props.theme.instance = {
       variants: { default: true },
@@ -89,26 +78,14 @@ export default (
       shade,
     };
   }
-  let ssOutput = ''; // will be wrapped in `` before being passed to component props.css. High specificity.
-  let ssExtra = ''; // global variants. Not sure it's a good idea to include. But might be useful. Low specificity.
 
-  /*
-   *
-   * Variants
-   *
-   */
+  // styled strings
+  let ssVariants = '';
+  let ssImportant = '';
+  let ssGlobal = '';
+
+  // variants
   if (styles) {
-    // special cases
-    // if (dark && dark !== 'false') {
-    //   theme.instance.variants['dark'] = true;
-    // }
-    // if (light && light !== 'false') {
-    //   theme.instance.variants['light'] = true;
-    // }
-    // add custom specified (props.as) tag name as a variant
-    // if (tagName) {
-    //   theme.instance.variants[tagName] = true;
-    // }
     // props.variants (string[])
     if (variants?.length) {
       for (const str of variants) {
@@ -128,16 +105,15 @@ export default (
       if (variant) {
         // Apply component-specific styles
         if (styles[variant]) {
-          ssOutput += style_to_string(
+          ssVariants += style_to_string(
             // @ts-ignore // styles[variant] is defined, so use it
             styles[variant],
             props
           );
         }
-        // If component-specific style is not defined,
-        // then apply a global style from theme
+        // If component-specific style is not defined, apply a global style from theme
         if (theme.variants[variant]) {
-          ssExtra += style_to_string(
+          ssGlobal += style_to_string(
             // @ts-ignore // theme.variants[variant] is defined, so use it
             theme.variants[variant],
             props
@@ -146,28 +122,6 @@ export default (
       }
     }
   }
-
-  // Generate a unique selector, wrap css in it to make it more specific.
-  // It helps the media queries work better, otherwise they may not have enough specificity.
-  // And also it's nice to look in the DevTools and see what component name and variants belong to which DOM element.
-  props['data-variants'] = theme.instance.variants
-    ? Object.keys(theme.instance.variants).join('-')
-    : '';
-  if (shade) {
-    props['data-variants'] += '-' + shade;
-  }
-  if (color) {
-    props['data-variants'] += '-' + color;
-  }
-
-  /*
-   *
-   * props.ss
-   *
-   */
-
-  // Increase specificity of ss props:
-  // ssOutput += `\n&[data-variants="${props['data-variants']}"] {\n`;
 
   // For each device and size, add a media query (but only if custom style for it is specified)
   const checkDeviceInfo =
@@ -190,147 +144,166 @@ export default (
   }, []);
 
   if (ss) {
-    ssOutput += `\n${style_to_string(ss, props)}\n`;
+    ssImportant += `\n${style_to_string(ss, props)}\n`;
   }
   if (ssAll) {
-    ssOutput += `${theme.mq.all} { ${style_to_string(ssAll, props)} }\n`;
+    ssImportant += `${theme.mq.all} { ${style_to_string(ssAll, props)} }\n`;
   }
   if (ssLg) {
-    ssOutput += `${theme.mq.lg} { ${style_to_string(ssLg, props)} }\n`;
+    ssImportant += `${theme.mq.lg} { ${style_to_string(ssLg, props)} }\n`;
   }
   if (ssSm) {
-    ssOutput += `${theme.mq.sm} { ${style_to_string(ssSm, props)} }\n`;
+    ssImportant += `${theme.mq.sm} { ${style_to_string(ssSm, props)} }\n`;
   }
   if (ssDesktop) {
-    ssOutput += `${theme.mq.desktop} { ${style_to_string(
+    ssImportant += `${theme.mq.desktop} { ${style_to_string(
       ssDesktop,
       props
     )} }\n`;
   }
   if (ssMobile) {
-    ssOutput += `${theme.mq.mobile} { ${style_to_string(ssMobile, props)} }\n`;
+    ssImportant += `${theme.mq.mobile} { ${style_to_string(
+      ssMobile,
+      props
+    )} }\n`;
   }
   if (ssTablet) {
-    ssOutput += `${theme.mq.tablet} { ${style_to_string(ssTablet, props)} }\n`;
+    ssImportant += `${theme.mq.tablet} { ${style_to_string(
+      ssTablet,
+      props
+    )} }\n`;
   }
   if (ssLargeTablet) {
-    ssOutput += `${theme.mq.largeTablet} { ${style_to_string(
+    ssImportant += `${theme.mq.largeTablet} { ${style_to_string(
       ssLargeTablet,
       props
     )} }\n`;
   }
   if (ssNotPhone) {
-    ssOutput += `${theme.mq.notPhone} { ${style_to_string(
+    ssImportant += `${theme.mq.notPhone} { ${style_to_string(
       ssNotPhone,
       props
     )} }\n`;
   }
   if (ssPhone) {
-    ssOutput += `${theme.mq.phone} { ${style_to_string(ssPhone, props)} }\n`;
+    ssImportant += `${theme.mq.phone} { ${style_to_string(ssPhone, props)} }\n`;
   }
   if (ssSmallPhone) {
-    ssOutput += `${theme.mq.smallPhone} { ${style_to_string(
+    ssImportant += `${theme.mq.smallPhone} { ${style_to_string(
       ssSmallPhone,
       props
     )} }\n`;
   }
   if (ssTinyPhone) {
-    ssOutput += `${theme.mq.tinyPhone} { ${style_to_string(
+    ssImportant += `${theme.mq.tinyPhone} { ${style_to_string(
       ssTinyPhone,
       props
     )} }\n`;
   }
   if (ssLargeDesktop) {
-    ssOutput += `${theme.mq.largeDesktop} { ${style_to_string(
+    ssImportant += `${theme.mq.largeDesktop} { ${style_to_string(
       ssLargeDesktop,
       props
     )} }\n`;
   }
   if (ssVeryLargeDesktop) {
-    ssOutput += `${theme.mq.veryLargeDesktop} { ${style_to_string(
+    ssImportant += `${theme.mq.veryLargeDesktop} { ${style_to_string(
       ssVeryLargeDesktop,
       props
     )} }\n`;
   }
   if (ssPortrait) {
-    ssOutput += `${theme.mq.portrait} { ${style_to_string(
+    ssImportant += `${theme.mq.portrait} { ${style_to_string(
       ssPortrait,
       props
     )} }\n`;
   }
   if (ssLandscape) {
-    ssOutput += `${theme.mq.landscape} { ${style_to_string(
+    ssImportant += `${theme.mq.landscape} { ${style_to_string(
       ssLandscape,
       props
     )} }\n`;
   }
   if (ssMac) {
-    ssOutput += `${
+    ssImportant += `${
       deviceInfo?.device === 'Mac' && `${style_to_string(ssMac, props)}`
     }\n`;
   }
   if (ssWindows) {
-    ssOutput += `${
+    ssImportant += `${
       deviceInfo?.device === 'Windows' && `${style_to_string(ssWindows, props)}`
     }\n`;
   }
   if (ssLinux) {
-    ssOutput += `${
+    ssImportant += `${
       deviceInfo?.device === 'Linux' && `${style_to_string(ssLinux, props)}`
     }\n`;
   }
   if (ssAndroid) {
-    ssOutput += `${
+    ssImportant += `${
       deviceInfo?.device === 'Android' && `${style_to_string(ssAndroid, props)}`
     }\n`;
   }
   if (ssIPad) {
-    ssOutput += `${
+    ssImportant += `${
       deviceInfo?.device === 'iOS' && `${style_to_string(ssIPad, props)}`
     }\n`;
   }
   if (ssIPhone) {
-    ssOutput += `${
+    ssImportant += `${
       deviceInfo?.device === 'iPhone' && `${style_to_string(ssIPhone, props)}`
     }\n`;
   }
   if (ssIframe && deviceInfo?.inIframe) {
-    ssOutput += `${style_to_string(ssIframe, props)}\n`;
+    ssImportant += `${style_to_string(ssIframe, props)}\n`;
   }
   if (ssNotIframe && !deviceInfo?.inIframe) {
-    ssOutput += `${style_to_string(ssNotIframe, props)}\n`;
+    ssImportant += `${style_to_string(ssNotIframe, props)}\n`;
   }
   if (ssWebview && deviceInfo?.inWebview) {
-    ssOutput += `${style_to_string(ssWebview, props)}\n`;
+    ssImportant += `${style_to_string(ssWebview, props)}\n`;
   }
   if (ssNotWebview && !deviceInfo?.inWebview) {
-    ssOutput += `${style_to_string(ssNotWebview, props)}\n`;
+    ssImportant += `${style_to_string(ssNotWebview, props)}\n`;
   }
-  // ssOutput += `\n}\n`;
 
-  // add global variants, with lower specificity
-  ssOutput += ssExtra;
-  ssOutput = ssOutput.replace(/label:(.*?);/g, '').replace(/([;]+)/g, ';');
+  // cleanup classNames generated by Emotion
+  // ssOutput = ssOutput.replace(/label:(.*?);/g, '').replace(/([;]+)/g, ';');
 
   /*
-   *
-   * Return component and props/attributes
-   *
+   * Modify props/attributes
    */
-  props['data-variants'] = props['data-variants'];
-  props.className =
-    (props.className ? props.className + ' ' : '') + componentName;
-  if (color) {
-    props.className += ' colors-' + color;
+  props['data-variants'] = theme.instance.variants
+    ? Object.keys(theme.instance.variants).join('-')
+    : '';
+  if (shade) {
+    props['data-variants'] += '-' + shade;
   }
-  let styledFunction = styledWithEmotion[tagName];
+  if (color) {
+    props['data-variants'] += '-' + color;
+  }
+  // will use this in CSS to target the component
+  props['data-component'] = componentName;
+  props.className = props.className
+    ? props.className + ' ' + componentName
+    : componentName;
+  // color (put on data attribute to not clash with 3rd party classNames)
+  if (color) {
+    props['data-color'] = color;
+  }
+  // return styled component
+  let styledFunction = styled[tagName];
   if (typeof styledFunction !== 'function') {
     cconsole.warn(`styled.${tagName} was not found. Using instead styled.div`);
-    styledFunction = styledWithEmotion.div;
+    styledFunction = styled.div;
   }
   // apply styles
   const styledComponent = styledFunction`
-    ${ssOutput}
+    ${ssGlobal}
+    ${ssVariants}
+    &.${componentName} {
+      ${ssImportant}
+    }
   `;
   // return
   return [styledComponent, props];

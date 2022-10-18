@@ -3,7 +3,7 @@ import style_to_string from '@ps/ui/styles/sstring';
 const useGlobalStyles = (theme: theme) => {
   // get updated theme (in case 3rd party app changed it) before unpacking below
   const themeGlobalStyles =
-    theme && theme?.getGlobalStyles
+    theme && theme?.globalStyles
       ? Object.values(theme?.globalStyles || {})
       : '';
   // unpack each style from the current theme

@@ -6,7 +6,7 @@ import { Props as BoxProps } from '@ps/ui/components/content/Box';
 import { useInView } from 'react-cool-inview';
 import { tsFix } from '@ps/ui/types/typescript';
 import variants from './variants';
-import useStyleProps from '@ps/ui/styles/useStyleProps';
+import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
 const isBetween = (value: number, min: number, max: number) =>
   value && value >= min && value <= max;
@@ -47,7 +47,7 @@ export const Component: (props: Props, ref: any) => ReactElement = (
   }: Props,
   ref: any
 ) => {
-  const [Styled, otherProps] = useStyleProps(
+  const [Styled, otherProps] = useStyledComponent(
     props,
     as === 'span' ? 'span' : 'div',
     'ScrollSlideIn',

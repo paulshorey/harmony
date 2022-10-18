@@ -2,7 +2,7 @@ import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
 import variants from './variants';
 import { Props as BoxProps } from '@ps/ui/components/content/Box';
-import useStyleProps from '@ps/ui/styles/useStyleProps';
+import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
 export type Props = BoxProps;
 
@@ -14,7 +14,7 @@ export const Component: (
   props: Props,
   ref?: ReactForwardedRef
 ) => ReactElement = ({ image, text, title, as, ...props }: any, ref?: any) => {
-  const [Styled, otherProps] = useStyleProps(
+  const [Styled, otherProps] = useStyledComponent(
     props,
     as || 'div',
     'Grid4TitleTextImage',

@@ -3,7 +3,7 @@ import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
 import variants from '@ps/ui/components/content/Box/variants';
 import ssComponentPropsType from '@ps/ui/types/component';
 import { styledTags } from '@ps/ui/types/component';
-import useStyleProps from '@ps/ui/styles/useStyleProps';
+import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
 export type Props = HTMLAttributes<HTMLDivElement> &
   ssComponentPropsType & {
@@ -17,7 +17,7 @@ export const Component: (
   props: Props,
   ref?: ReactForwardedRef
 ) => ReactElement = ({ as, ...props }, ref) => {
-  const [Styled, otherProps] = useStyleProps(
+  const [Styled, otherProps] = useStyledComponent(
     props,
     as || 'div',
     'Box',
@@ -26,46 +26,10 @@ export const Component: (
   return <Styled ref={ref} {...otherProps} />;
 };
 
-export const Div = memo(
-  forwardRef(({ as, ...props }: Props, ref) => {
-    const [Styled, otherProps] = useStyleProps(
-      props,
-      as || 'div',
-      'BoxDiv',
-      variants
-    );
-    return <Styled ref={ref} {...otherProps} />;
-  })
-);
-
-export const Span = memo(
-  forwardRef(({ as, ...props }: Props, ref) => {
-    const [Styled, otherProps] = useStyleProps(
-      props,
-      as || 'span',
-      'BoxSpan',
-      variants
-    );
-    return <Styled ref={ref} {...otherProps} />;
-  })
-);
-
-export const Center = memo(
-  forwardRef(({ as, ...props }: Props, ref) => {
-    props.variant = (props.variant || '') + ' center';
-    const [Styled, otherProps] = useStyleProps(
-      props,
-      as || 'div',
-      'BoxCenter',
-      variants
-    );
-    return <Styled ref={ref} {...otherProps} />;
-  })
-);
-
 export const Code = memo(
   forwardRef(({ as, ...props }: Props, ref) => {
-    const [Styled, otherProps] = useStyleProps(
+    props.variant = props.variant ? props.variant + ' code' : 'code';
+    const [Styled, otherProps] = useStyledComponent(
       props,
       as || 'code',
       'BoxCode',

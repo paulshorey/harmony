@@ -1,5 +1,5 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
-import { Div, Span, Center } from '@ps/ui/components/content/Box';
+import Box from '@ps/ui/components/content/Box';
 import Inline from '@ps/ui/components/content/Box';
 import AppProvider from '@ps/ui/components/utils/AppProvider';
 import { Wrapper } from '../../components/Components';
@@ -34,7 +34,7 @@ export const Template = (args) => (
   <h2 className="text-3xl font-bold underline">This is not a UI Component Library...</h2>
   <hr />
   <h3>
-    It's a starter kit for easily making <Span va="text-rainbow"> and branding </Span> your own UI library.
+    It's a starter kit for easily making <Box as="span" className="text-rainbow"> and branding </Box> your own UI library.
   </h3>
 
 <Code code={`import { Box } from '@ps/ui/components/content/Box';`} />
@@ -85,9 +85,9 @@ export const Template = (args) => (
       complex stylesheet of overrides.
     </li>
   </ol>
-  <Div as="h4" ss="margin-top:0;">
+  <Box as="h4" ss="margin-top:0;">
     or
-  </Div>
+  </Box>
   <ol>
     <li>Build your own custom component library from scratch.</li>
     <li>Set up your own styling system, variables, and media queries.</li>

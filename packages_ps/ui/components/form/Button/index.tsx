@@ -9,7 +9,7 @@ import {
 import variants from '@ps/ui/components/form/Button/variants';
 import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
 import ssComponentPropsType from '@ps/ui/types/component';
-import useStyleProps from '@ps/ui/styles/useStyleProps';
+import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
 export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
   (ssComponentPropsType & {
@@ -26,7 +26,7 @@ export const Component: (
   props: Props,
   ref?: ReactForwardedRef
 ) => ReactElement = ({ children, ...props }, ref) => {
-  const [Styled, otherProps] = useStyleProps(
+  const [Styled, otherProps] = useStyledComponent(
     props,
     'button',
     'Button',

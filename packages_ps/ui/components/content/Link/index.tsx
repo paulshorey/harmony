@@ -6,7 +6,7 @@ import { analytics_track_link } from '@ps/fn/browser/analytics';
 import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
 import variants from './variants';
 import ssComponentPropsType from '@ps/ui/types/component';
-import useStyleProps from '@ps/ui/styles/useStyleProps';
+import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -23,7 +23,7 @@ export const Component: (
   { href, children, rel, target, onClick, hrefLang = 'en-us', from, ...props },
   ref
 ) => {
-  const [Styled, otherProps] = useStyleProps(props, 'a', 'Link', variants);
+  const [Styled, otherProps] = useStyledComponent(props, 'a', 'Link', variants);
 
   // const contextPage = useContext(PageContext) || {};
   // const contextABTest = useContext(ABTestContext) || {};

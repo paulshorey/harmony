@@ -64,7 +64,9 @@ const html = (theme) => `
   h4,
   h5,
   h6,
-  Boxquote {
+  boxquote {
+    text-decoration:none;
+    border:none;
     font-family: "HelveticaNeue", Helvetica, sans-serif;
     line-height: 1.33;
     padding: 0;

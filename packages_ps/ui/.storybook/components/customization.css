@@ -1,9 +1,0 @@
-.customization {
-  --pa-grid-gutter-horizontal: 0.35rem;
-  --pa-grid-gutter-vertical: 0.25rem;
-
-  &__label {
-    font-weight: var(--pa-font-weight-medium);
-    padding-top: 0.5rem;
-  }
-}

@@ -4,13 +4,13 @@ export default {
     overflow: hidden;
     border-radius: 7px;
     position: relative;
-    display: inline-Box;
+    display: inline-block;
     cursor: pointer;
     border: solid 1px;
-    border-color: var(--color-cta-to);
+    border-color: var(--color-cta-darker);
     box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
     padding: 12px 24px;
-    color: var(--color-cta-to);
+    color: var(--color-cta-darker);
     &:not(:hover):not(:focus) {
       border-top-color: transparent;
       border-left-color: transparent;
@@ -41,7 +41,7 @@ export default {
     &:focus-visible:not(:hover) {
       outline-style: double !important;
       outline-width: 1px !important;
-      outline-color: var(--color-cta-to) !important;
+      outline-color: var(--color-cta-darker) !important;
     }
   `,
   // onDark: (props: any) => `
@@ -81,27 +81,27 @@ export default {
   // `,
   bgGradient: (props: any) => `
     color: var(--color-cta-text);
-    text-shadow: 1px 1px 1px var(--color-cta-to);
+    text-shadow: 1px 1px 1px var(--color-cta-darker);
     background-size: 200% auto;
     & {
       background-image: linear-gradient(
         150deg,
-        var(--color-cta-to) -10%,
+        var(--color-cta-darker) -10%,
         var(--color-cta-fro) 60%,
-        var(--color-cta-to) 100%
+        var(--color-cta-darker) 100%
       ) !important;
     }
     &:hover,
     &:focus:not(:hover) {
       transition: background-position 300ms linear 0s;
       background-position: right center;
-      border-color: var(--color-cta-to);
+      border-color: var(--color-cta-darker);
     }
     &:focus {
     }
   `,
   disabled: (props: any) => {
-    const shadowColor = props?.onDark ? "hsla(0, 0%, 80%)" : "hsla(0, 0%, 90%)";
+    const shadowColor = props?.onDark ? 'hsla(0, 0%, 80%)' : 'hsla(0, 0%, 90%)';
     return `
       cursor: not-allowed;
       text-shadow: none;
@@ -122,7 +122,7 @@ export default {
       background: none !important;
       color: var(--color-cta);
       &:hover:not(:focus) {
-        color: var(--color-cta-to);
+        color: var(--color-cta-darker);
         ${
           props?.onDark
             ? `
@@ -165,7 +165,7 @@ export default {
           transform: rotate(360deg);
         }
       }
-      display: inline-Box;
+      display: inline-block;
       border: 4px solid rgba(255, 255, 255, 0.1);
       border-left-color: white;
       border-radius: 50%;

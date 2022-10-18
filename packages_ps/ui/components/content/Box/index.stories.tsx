@@ -1,8 +1,6 @@
 import { Component } from '.';
-import _box from './_box';
-// import _centered from "./_centered";
-// import _code from "./_code";
-import description from './_description.md';
+import _box from './_story';
+import description from './_story.md';
 import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
 const variantKeys = Object.keys(variants);
@@ -10,10 +8,8 @@ const variantKeys = Object.keys(variants);
 export const Box = _box.bind({});
 Box.argTypes = argTypes(variantKeys);
 Box.args = {
-  variants: ['textGradient', 'borderBottom'],
-  as: 'span',
-  ss: '.nowrap {color: orange;}',
-  color: 'orange',
+  className: 'textGradient',
+  ss: 'display:inline;',
 };
 
 export default {
@@ -28,7 +24,16 @@ export default {
         component: description,
       },
       source: {
-        code: ``,
+        code: `import Box, { withBox } from '.';
+
+const Heading = withBox({ as: 'h2', ...args });
+const Code = withBox({ as: 'code', ...args });
+        
+<Box {...args}>
+  Box can be used <Heading> as h2</Heading>,{' '}
+  <Code> or as &lt;code&gt;</Code>, or as any other HTML
+  container element. By default, it's a div.
+</Box>`,
       },
     },
   },

@@ -8,8 +8,8 @@ export default {
           background-image: linear-gradient(
             to right,
             var(--color-subtle),
-            var(--color-cta-from),
-            var(--color-cta-to)
+            var(--color-cta-lighter),
+            var(--color-cta-darker)
           );
           color: transparent;
           background-size: 100%;

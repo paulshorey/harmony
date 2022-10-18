@@ -1,37 +1,46 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { Div, Span, Center } from '@ps/ui/components/content/Box';
-import Inline from '@ps/ui/components/content/Box';
+import Box from '@ps/ui/components/content/Box';
 import AppProvider from '@ps/ui/components/utils/AppProvider';
-import { Wrapper } from '../../components/Components';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 
 <Meta title="Why is this useful?" id="about-1" />
 
 <AppProvider>
 
 <Wrapper>
-  <h2 className="text-3xl font-bold underline">This is not a UI Component Library...</h2>
-  <hr />
-  <h3>
-    It's a starter kit for easily making <Span va="text-rainbow"> and branding </Span> your own UI library.
-  </h3>
-  <p><strong>It's a styling-system for enterprise.</strong><br />
-  Scalable, with shortcuts for media queries, devices, variables, and colors schemes.</p>
-  <p>
-    Great for a mono-repo. This library can be imported by multiple apps. Each app can extend the base theme and functionality.
-  </p>
-  <p>
-    This is a work in progress, but already useful. <span className="nowrap">Read more:</span>
-  </p>
-  <ul>
-    <li>
-      <a href="/">media queries</a> - easily style breakpoints (with JSX props, JS variables, or Styled Components HOC)
-    </li>
-    <li>
-      <a href="/">variants and themes</a> - use/extend multiple predefined variants (like classNames but with Typescript)
-    </li>
-  </ul>
 
-  <hr />
+## This is not a UI Component Library...
+
+### It's a starter kit for easily making <span className="colors-accent">your own</span> <span className="colors-rainbow"> custom-branded </span> UI library.
+
+<br />
+
+### It's a styling-system for enterprise.
+
+Scalable, with shortcuts for media queries, devices, variables, and colors schemes.
+
+Great for a mono-repo. This library can be imported by multiple apps. Each app
+can extend the base theme and functionality.
+
+- <a href="/">media queries</a> - easily style breakpoints (with JSX props, JS variables,
+  or Styled Components HOC)
+- <a href="/">variants and themes</a> - use/extend multiple predefined variants (like
+  classNames but with Typescript)
+
+---
+
+### Compatible with most component libraries.
+
+### Peer dependencies:
+
+- React
+- Typescript
+- Next (for components that generate a link or image)
+- @emotion/styled (same as styled-components)
+- @emotion/react (to load global styles and theme)
+
+---
+
   <h3>Funny thing...</h3>
   <p>
     The "C" in "CSS" stands for "Cascading" - each more specific set of rules inherits from / extends the previous. But, so-called CSS-in-JS solutions
@@ -52,9 +61,9 @@ import { Wrapper } from '../../components/Components';
       complex stylesheet of overrides.
     </li>
   </ol>
-  <Div as="h4" ss="margin-top:0;">
+  Box, <Box as="h4" ss="margin-top:0;">
     or
-  </Div>
+  Box, </Box>
   <ol>
     <li>Build your own custom component library from scratch.</li>
     <li>Set up your own styling system, variables, and media queries.</li>

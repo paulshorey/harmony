@@ -1,5 +1,5 @@
 import Card from '.';
-import { CanvasContainer } from '@ps/ui/.storybook/components/Components';
+import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 export default (args: any) => (
   <CanvasContainer>
     <Card {...args}>

@@ -3,7 +3,6 @@ import fonts from './fonts';
 import mq from './mq';
 import variants from './variants';
 import html from './global/html';
-import layout from './global/layout';
 import classes from './global/classes';
 // import fonts from './global/fonts';
 
@@ -21,7 +20,7 @@ const theme: theme = {
     size: '',
     variants: {},
   },
-  globalStyles: { html, layout, classes },
+  globalStyles: { html, classes },
 };
 
 export default theme;

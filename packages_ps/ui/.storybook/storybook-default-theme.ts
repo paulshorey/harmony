@@ -2,8 +2,8 @@ var colors = {
   // primary: '#FF4785',
   // secondary: '#1EA7FD',
   // Official color palette
-  primary: 'hsl(350deg 70% 70%)',
-  secondary: 'hsl(250deg 70% 70%)',
+  primary: '#715fe4',
+  secondary: '#715fe4',
   tertiary: '#FAFBFC',
   ancillary: '#22a699',
   // Complimentary

@@ -4,7 +4,8 @@ export const argTypes = (localVariants: string[] = []) => {
   const allV = [
     ...localVariants,
     ...Object.keys({
-      '-----⌃local⌃----------⌄global⌄-----': true,
+      '----------------------': true,
+      // '-----👆local/global👇-----': true,
       ...globalV,
     }),
   ];

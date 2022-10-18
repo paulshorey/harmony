@@ -3,7 +3,7 @@ import { memo, useEffect, forwardRef, ReactElement } from 'react';
 import ReactModal from 'react-modal';
 import variants from './variants';
 import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
-import useStyleProps from '@ps/ui/styles/useStyleProps';
+import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
 export type Props = BoxProps & {
   contentLabel?: string;
@@ -29,7 +29,12 @@ export const Component: (
   },
   ref
 ) => {
-  const [Styled, otherProps] = useStyleProps(props, 'div', 'Modal', variants);
+  const [Styled, otherProps] = useStyledComponent(
+    props,
+    'div',
+    'Modal',
+    variants
+  );
 
   // I forget what exactly this does and why it was necessary.
   useEffect(() => {
