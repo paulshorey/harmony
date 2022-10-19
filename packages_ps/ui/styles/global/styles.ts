@@ -66,19 +66,6 @@ const styles = (theme: theme) => `
   }
 }
 
-.centerChildren {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  > * {
-    display: inline-block;
-  }
-}
-
 .textColor {
   color: var(--color-text);
 }
@@ -139,19 +126,6 @@ const styles = (theme: theme) => `
     -moz-background-clip: text;
     background-clip: text;
   }
-}
-
-.inlineCode {
-  padding: 0.25rem;
-  white-space: pre;
-  font-family: var(--font-family-code);
-  font-size: 0.9rem;
-  font-style: normal;
-  text-decoration: none;
-  background: var(--color-bg-lighter);
-  border: solid 1px var(--color-bg-darker);
-  color: var(--color-bg-text);
-  border-radius: 4px;
 }
 
 `;

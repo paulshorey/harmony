@@ -1,19 +1,19 @@
 import { Component } from '.';
-import Template from './_story';
+import Template, { code } from './_story';
 import description from './_story.md';
 import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
-  classNames: ['bgSolid', 'centerChildren'],
+  classNames: ['bgSolid'],
   color: '',
   shade: '',
-  ss: '> * { max-width:400px;}',
+  ss: '',
 };
 
-export const Center = Template.bind({});
-Center.argTypes = argTypes(variantKeys);
-Center.args = args;
+export const CenterChildrenH = Template.bind({});
+CenterChildrenH.argTypes = argTypes(variantKeys);
+CenterChildrenH.args = args;
 
 export default {
   component: Component,
@@ -27,7 +27,7 @@ export default {
         component: description,
       },
       source: {
-        code: ``,
+        code,
       },
     },
   },

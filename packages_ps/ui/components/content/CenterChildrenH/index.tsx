@@ -12,31 +12,31 @@ export const Component: (
 ) => ReactElement = ({ as, children, ...props }, ref) => {
   const [Styled, otherProps] = useStyledComponent(
     props,
-    as || 'div',
-    'Center',
+    'div',
+    'CenterChildrenH',
     variants
   );
   return (
     <Styled ref={ref} {...otherProps}>
-      <span>{children}</span>
+      {children}
     </Styled>
   );
 };
 
 /*
  * Like StyledComponents' div`` but with added functionality:
- * import { withCenter } from 'components/content/Center';
- * const Center = withCenter({ ...thesePropsWillApplyToAllInstances });
- * <Center {...optionalUniquePropsForCurrentInstance} />
+ * import { withCenterChildrenH } from 'components/content/CenterChildrenH';
+ * const CenterChildrenH = withCenterChildrenH({ ...thesePropsWillApplyToAllInstances });
+ * <CenterChildrenH {...optionalUniquePropsForCurrentInstance} />
  */
-export const withCenter = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Center, props1, props2);
+export const withCenterChildrenH = (props1: Props) => (props2: Props) => {
+  return withAddPropsToComponent(CenterChildrenH, props1, props2);
 };
 
 /*
  * Default export is a ready-to-use component:
  * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Center" is same as default export. But IDEs like VSCode can read a named import better.
+ * Named "CenterChildrenH" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const Center = memo(forwardRef(Component));
-export default Center;
+export const CenterChildrenH = memo(forwardRef(Component));
+export default CenterChildrenH;

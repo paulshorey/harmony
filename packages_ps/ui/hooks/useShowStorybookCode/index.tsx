@@ -6,7 +6,7 @@ export default () => {
     if (typeof window === 'object') {
       // @ts-ignore
       let el = window.document.querySelector(
-        '.docBox-code-toggle:not(.docBox-code-toggle--expanded)'
+        '.docblock-code-toggle:not(.docblock-code-toggle--expanded)'
       );
       el && el.click && el.click();
     }
