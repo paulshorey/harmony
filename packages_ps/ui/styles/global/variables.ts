@@ -51,7 +51,7 @@ const variables = (theme) => `
 }
 
 [data-color='purple'] {
-  --color-text: #715fe4;
+  --color-text: #fff;
   --color-subtle: #7463f1;
 
   --color-bg: #715fe4;

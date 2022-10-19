@@ -9,10 +9,12 @@ const styles = (theme: theme) => `
 }
 
 .bgSolid {
+  color: var(--color-text);
   background: var(--color-bg);
 }
 
 .bgGradient {
+  color: var(--color-text);
   background: var(--color-bg);
   background-image: linear-gradient(
     333deg,
@@ -22,6 +24,7 @@ const styles = (theme: theme) => `
 }
 
 .bgGradientSubtle {
+  color: var(--color-text);
   background: var(--color-bg);
   background-image: linear-gradient(
     333deg,
@@ -31,6 +34,7 @@ const styles = (theme: theme) => `
 }
 
 .bgGradientIntense {
+  color: var(--color-text);
   background: var(--color-bg);
   background-image: linear-gradient(
     333deg,

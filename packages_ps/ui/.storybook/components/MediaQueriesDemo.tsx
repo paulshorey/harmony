@@ -106,11 +106,11 @@ const MediaQueriesDemo = () => (
         <span>There are many preconfigured breakpoints, explained below. </span>
         <span>Not all get rendered, just the ones you've specified.</span>
         <span>
-          <span className="nowrap">
+          <span className="noWrap">
             Pass a css string (to style something quickly, inline) - or a
             function
           </span>
-          <span className="nowrap">
+          <span className="noWrap">
             that accepts theme as first argument and returns a string.
           </span>{' '}
           Use theme.instance to get color/shade/size of the current component.{' '}

@@ -1,5 +1,4 @@
 import { css, ThemeProvider, Global } from '@emotion/react';
-import style_to_string from '@ps/fn/browser/style/style_to_string';
 
 export default (
   children: any,

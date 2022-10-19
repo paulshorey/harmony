@@ -1,13 +1,13 @@
-import globalV from './variants';
+// import globalV from './variants';
 
 export const argTypes = (localVariants: string[] = []) => {
   const allV = [
     ...localVariants,
-    ...Object.keys({
-      '----------------------': true,
-      // '-----👆local/global👇-----': true,
-      ...globalV,
-    }),
+    // ...Object.keys({
+    //   '----------------------': true,
+    //   // '-----👆local/global👇-----': true,
+    //   ...globalV,
+    // }),
   ];
 
   const argTypes = {

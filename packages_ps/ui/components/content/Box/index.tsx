@@ -2,8 +2,8 @@ import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
 import { styledTags } from '@ps/ui/types/component';
-import useClasses from '@ps/ui/styles/useClasses';
-import classes from './index.module.css';
+import variants from './variants';
+import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
 export type Props = HTMLAttributes<HTMLDivElement> &
   ssComponentPropsType & {
@@ -17,8 +17,12 @@ export const Component: (
   props: Props,
   ref?: ReactForwardedRef
 ) => ReactElement = ({ as, ...props }, ref) => {
-  const [Styled, otherProps] = useClasses(props, as || 'div', 'Box', classes);
-  otherProps.className += ' ' + classes.red;
+  const [Styled, otherProps] = useStyledComponent(
+    props,
+    as || 'div',
+    'Box',
+    variants
+  );
   return <Styled ref={ref} {...otherProps} />;
 };
 

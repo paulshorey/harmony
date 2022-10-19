@@ -1,19 +1,19 @@
 import Component from '.';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import { Code } from '../Box';
 export default (args: any) => (
   <CanvasContainer>
     <Component {...args}>
       <p>
-        More than just <Code>text-align:center</Code>...
+        More than just <code className="inlineCode">text-align:center</code>...
       </p>
       <p>
         If you set the width narrower than the contents, the contents will still
         be centered! Great for titles!
       </p>
-      <h3 className="nowrap" style={{ fontWeight: 'bold' }}>
-        This title tag has global className="nowrap", so it's forced to stay on
-        line.
+      <h3 className="noWrap" style={{ fontWeight: 'bold' }}>
+        This title tag has{' '}
+        <code className="inlineCode">white-space:nowrap</code>, so it's forced
+        to stay on line.
       </h3>
       <p>
         A regular style text-align:center element would break because of that
@@ -25,7 +25,7 @@ export default (args: any) => (
       </p>
       <p>
         If you don't set a width, then it will simply behave like plain old{' '}
-        <span className="nowrap">`text-align:center`</span>
+        <span className="noWrap">`text-align:center`</span>
       </p>
     </Component>
   </CanvasContainer>

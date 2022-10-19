@@ -71,6 +71,12 @@ const Wrapper = ({ children, ...props }) => {
         width:100%;
         padding: 3.5rem 5vw 100px;
 
+        color: var(--color-text);
+
+        a, .organge {
+          color:orange;
+        }
+
         em {
           color: gold;
           font-style: inherit;
