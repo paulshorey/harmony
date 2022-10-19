@@ -1,36 +1,21 @@
-# Nextjs v12 Example
+# COEXIST
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Logo spelled out in big custom icons, each one with a different color glow, making a rainbow.
 
-## Getting Started
+Below this, some text explaining the framework, showcasing some useful inline components.
 
-First, run the development server:
+Below that, some block components like Code, showcasing more of the framework.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Below that, maybe a full-screen video or something, also a component of this framework.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Content
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Maybe I'm a dreamer, but I believe CSS and JS can live in harmony. So can web development and software engineering.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+I notice many software engineers say "no global stylesheets", "no global class names". But lets not be extreme. Why not?
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This library uses a very tiny [5kb] global stylesheet. Only for colors of text, backgrounds, light vs dark schemes.
 
-## Learn More
+The problem is that many "CSS-in-JS" techniques try to suppress and repress CSS, to recreate its functionality in JavaScript. Instead, this framework embraces "CSS-and-JS". CSS can be free to live where it chooses (in a stylesheet) and do what it wants (style children components, or access classNames/attributes of a parent/grandparent). But it knows its boundaries. In this framework, CSS is used to manage colors and styles that are related to colors (like gradients, underlines, hover, dark/light backgrounds). Its much less work. Now the developer doesn't have to specify every little detail in every element. Now you can apply a color or scheme to an element, and all its children will be affected. This sounds scary to programmers, but don't be afraid. It won't mess up any layout or have name conflicts. In this library, CSS and JS work together, not against each other.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The "C" in "CSS" stands for "cascading"

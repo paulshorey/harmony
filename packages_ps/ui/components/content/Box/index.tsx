@@ -1,6 +1,5 @@
 import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
-import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
-// import variants from '@ps/ui/components/content/Box/variants';
+import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
 import { styledTags } from '@ps/ui/types/component';
 import useClasses from '@ps/ui/styles/useClasses';
@@ -23,19 +22,6 @@ export const Component: (
   return <Styled ref={ref} {...otherProps} />;
 };
 
-export const Code = memo(
-  forwardRef(({ as, ...props }: Props, ref) => {
-    props.variant = props.variant ? props.variant + ' code' : 'code';
-    const [Styled, otherProps] = useClasses(
-      props,
-      as || 'code',
-      'BoxCode',
-      classes
-    );
-    return <Styled ref={ref} {...otherProps} />;
-  })
-);
-
 /*
  * Like StyledComponents' div`` but with added functionality:
  * import { withBox } from 'components/content/Box';
@@ -43,7 +29,7 @@ export const Code = memo(
  * <Box {...optionalUniquePropsForCurrentInstance} />
  */
 export const withBox = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Box, props1, props2);
+  return withAddPropsToComponent(Box, props1, props2);
 };
 
 /*

@@ -1,5 +1,5 @@
 import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
-import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
+import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
 import { Props as BoxProps } from '@ps/ui/components/content/Box';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
@@ -36,7 +36,7 @@ export const Component: (
  * <Grid4TitleTextImage {...optionalUniquePropsForCurrentInstance} />
  */
 export const withGrid4TitleTextImage = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Grid4TitleTextImage, props1, props2);
+  return withAddPropsToComponent(Grid4TitleTextImage, props1, props2);
 };
 
 /*

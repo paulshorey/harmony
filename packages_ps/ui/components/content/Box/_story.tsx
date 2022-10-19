@@ -6,16 +6,16 @@ export default function (props: any) {
   useShowStorybookCode();
   const Heading = withBox({
     as: 'h2',
-    variant: 'textNotice',
+    className: 'textNotice',
     ...props,
   });
   const Code = withBox({
     as: 'code',
-    variant: 'textNotice',
+    className: 'textNotice',
     ...props,
   });
   return (
-    <CanvasContainer color="dark">
+    <CanvasContainer color="light">
       <Box>
         Box can be used <Heading> as h2</Heading>,{' '}
         <Code> or as &lt;code&gt;</Code>, or as any other HTML container
@@ -31,7 +31,7 @@ import Box, { withBox } from '.';
 const Heading = withBox({ as: 'h2', ...props });
 const Code = withBox({ as: 'code', ...props });
 
-<CanvasContainer color="dark">
+<CanvasContainer color="light">
   <Box>
     Box can be used <Heading> as h2</Heading>,{' '}
     <Code> or as &lt;code&gt;</Code>, or as any other HTML container

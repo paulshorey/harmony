@@ -1,6 +1,6 @@
 import { Props as BoxProps } from '@ps/ui/components/content/Box';
 import { memo } from 'react';
-import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
+import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 import CodeComponent, { Props as CodeProps } from './Code';
@@ -42,7 +42,7 @@ export const Component = (props: Props) => {
  * <Code {...optionalUniquePropsForCurrentInstance} />
  */
 export const withCode = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Code, props1, props2);
+  return withAddPropsToComponent(Code, props1, props2);
 };
 
 /*

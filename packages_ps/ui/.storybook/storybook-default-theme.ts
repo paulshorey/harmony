@@ -96,7 +96,7 @@ const theme = {
   fontCode: typography.fonts.mono,
 
   base: 'dark',
-  brandTitle: 'S+',
+  brandTitle: 'Coexist',
   brandUrl: '/',
   // brandImage: 'https://place-hold.it/350x150',
   brandTarget: '_top',

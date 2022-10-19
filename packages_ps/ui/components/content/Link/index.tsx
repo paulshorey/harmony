@@ -3,7 +3,7 @@ import withNextLink from './withNextLink';
 // import PageContext from 'src/context/Page';
 // import ABTestContext from 'src/context/ABTest';
 import { analytics_track_link } from '@ps/fn/browser/analytics';
-import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
+import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
 import ssComponentPropsType from '@ps/ui/types/component';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
@@ -94,7 +94,7 @@ export const Component: (
  * <Link {...optionalUniquePropsForCurrentInstance} />
  */
 export const withLink = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Link, props1, props2);
+  return withAddPropsToComponent(Link, props1, props2);
 };
 
 /*

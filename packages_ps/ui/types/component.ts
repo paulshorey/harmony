@@ -156,6 +156,10 @@ export type ssProps = {
    * This component and all elements inside it will use theme.colors[colorGroup].light (if defined), if not will fall back to alternative
    */
   'light'?: boolean;
+  /**
+   * This refers to a color in the global stylesheet which you can import from styles/global/variables.css and modify. If does not exist, will be ignored. This simply adds a data-color attribute to the element, which will be used to style the element.
+   */
+  'color'?: string;
 };
 
 export type ReactForwardedRefType = any; // tsFix - what is the type of "ref" as returned by React.forwardRef()?

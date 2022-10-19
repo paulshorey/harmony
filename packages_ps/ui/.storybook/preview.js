@@ -2,7 +2,6 @@ import AppProvider from '@ps/ui/components/utils/AppProvider';
 import React, { useEffect } from 'react';
 import { themes } from '@storybook/theming';
 import Box from '@ps/ui/components/content/Box';
-import '@ps/ui/styles/global/theme.css';
 
 export const parameters = {
   docs: {
@@ -24,7 +23,7 @@ export const decorators = [
     display:none !important;
   }
   .sidebar-header:before {
-    content: 'S+';
+    content: 'Coexist (CSS-and-JS)';
     color: white;
     font-size: 1.01rem;
     font-weight: bold;

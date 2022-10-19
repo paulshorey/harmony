@@ -1,3 +1,4 @@
+const variables = (theme) => `
 :root {
   --font-family-text: 'Roboto', sans-serif;
   --font-family-title: 'Roboto', sans-serif;
@@ -94,3 +95,6 @@
 
   /* color: var(--color-text); */
 }
+
+`;
+export default variables;

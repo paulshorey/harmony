@@ -1,5 +1,5 @@
 import { forwardRef, memo, ReactElement } from 'react';
-import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
+import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
 import Box, { Props as BoxProps } from '@ps/ui/components/content/Box';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
@@ -30,7 +30,7 @@ export const Component: (
  * <Center {...optionalUniquePropsForCurrentInstance} />
  */
 export const withCenter = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Center, props1, props2);
+  return withAddPropsToComponent(Center, props1, props2);
 };
 
 /*

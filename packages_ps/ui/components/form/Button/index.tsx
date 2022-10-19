@@ -7,7 +7,7 @@ import {
   ReactElement,
 } from 'react';
 import variants from '@ps/ui/components/form/Button/variants';
-import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
+import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
@@ -48,7 +48,7 @@ export const Component: (
  * <Button {...optionalUniquePropsForCurrentInstance} />
  */
 export const withButton = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Button, props1, props2);
+  return withAddPropsToComponent(Button, props1, props2);
 };
 
 /*

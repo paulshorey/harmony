@@ -1,5 +1,5 @@
 import { forwardRef, memo, ReactElement, useEffect, useState } from 'react';
-import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
+import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import React from 'react';
 import Box from '@ps/ui/components/content/Box';
 import { Props as BoxProps } from '@ps/ui/components/content/Box';
@@ -136,7 +136,7 @@ export const Component: (props: Props, ref: any) => ReactElement = (
  * <ScrollSlideIn {...optionalUniquePropsForCurrentInstance} />
  */
 export const withScrollSlideIn = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(ScrollSlideIn, props1, props2);
+  return withAddPropsToComponent(ScrollSlideIn, props1, props2);
 };
 
 /*

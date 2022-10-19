@@ -1,21 +1,19 @@
-import { css, ThemeProvider, Global } from "@emotion/react";
-import React from "react";
-import theme from "../../../styles/theme";
-import useGlobalStyles from "../../../styles/useGlobalStyles";
+import theme from '@ps/ui/styles/theme';
+import withGlobalThemeAndStyles from '@ps/ui/hooks/withGlobalThemeAndStyles';
+import variables from '@ps/ui/styles/global/variables';
+import fonts from '@ps/ui/styles/global/fonts';
+import html from '@ps/ui/styles/global/html';
+import layout from '@ps/ui/styles/global/layout';
+import styles from '@ps/ui/styles/global/styles';
 
 const AppProvider = ({ children }) => {
-  const immutableTheme = { ...theme };
-  const globalCSS = useGlobalStyles(immutableTheme);
-  return (
-    <ThemeProvider theme={immutableTheme}>
-      <Global
-        styles={css`
-          ${globalCSS}
-        `}
-      />
-      {children}
-    </ThemeProvider>
-  );
+  return withGlobalThemeAndStyles(children, theme, [
+    variables,
+    fonts,
+    html,
+    layout,
+    styles,
+  ]);
 };
 
 export default AppProvider;

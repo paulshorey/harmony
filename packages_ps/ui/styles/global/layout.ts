@@ -1,10 +1,10 @@
-const classes = (theme: theme) => ` 
+const layout = (theme: theme) => ` 
 
   /*
    * VERY USEFUL
    */
 
-  .nowrap {
+  .noWrap {
     white-space: nowrap;
   }
 
@@ -75,43 +75,43 @@ const classes = (theme: theme) => `
    * RESPONSIVE MARKUP
    */
 
-  .hide-largeDesktop {
+  .hideLargeDesktop {
     ${theme.mq.largeDesktop} {
       display: none !important;
     }
   }
 
-  .hide-desktop {
+  .hideDesktop {
     ${theme.mq.desktop} {
       display: none !important;
     }
   }
 
-  .hide-mobile {
+  .hideMobile {
     ${theme.mq.mobile} {
       display: none !important;
     }
   }
 
-  .hide-phone {
+  .hidePhone {
     ${theme.mq.phone} {
       display: none !important;
     }
   }
 
-  .hide-gt-phone {
+  .hideGt-phone {
     ${theme.mq.notPhone} {
       display: none !important;
     }
   }
 
-  .hide-sm {
+  .hideSm {
     ${theme.mq.sm} {
       display: none !important;
     }
   }
 
-  .hide-lg {
+  .hideLg {
     ${theme.mq.lg} {
       display: none !important;
     }
@@ -121,7 +121,7 @@ const classes = (theme: theme) => `
    * Scrolling
    */
 
-  .a-target {
+  .aTarget {
     position: absolute;
     top: -133px;
 
@@ -134,30 +134,30 @@ const classes = (theme: theme) => `
     }
   }
 
-  body:not(.scrolled) .show-if-scrolled {
+  body:not(.isScrolled) .showIfScrolled {
     display: none !important;
   }
 
-  body.scrolled .hide-if-scrolled {
+  body.isScrolled .hideIfScrolled {
     display: none !important;
   }
 
-  body:not(.scrolledBelowTheFold) .show-if-scrolledBelowTheFold {
+  body:not(.isScrolledBelowTheFold) .showIfScrolledBelowTheFold {
     display: none !important;
   }
 
-  body.scrolledBelowTheFold .hide-if-scrolledBelowTheFold {
+  body.isScrolledBelowTheFold .hideIfScrolledBelowTheFold {
     display: none !important;
   }
 
-  body:not(.scrolledVH70) .show-if-scrolledVH70 {
+  body:not(.isScrolledVH70) .showIfScrolledVH70 {
     display: none !important;
   }
-  body.scrolledVH70 .hide-if-scrolledVH70 {
+  body.isScrolledVH70 .hideIfScrolledVH70 {
     display: none !important;
   }
 
-  body:not(.scrolledVH70) .show-background-only-when-scrolledVH70 {
+  body:not(.isScrolledVH70) .showBackgroundOnlyWhenScrolledVH70 {
     background: none !important;
     box-shadow: none !important;
   }
@@ -167,7 +167,7 @@ const classes = (theme: theme) => `
    */
   
   /* This is for the Modal component, but this overlay must be outside the component, at the bottom of the page <body> */
-  .ReactModalOverlay {
+  .reactModalOverlay {
     background: rgba(0, 0, 0, 0.4) !important;
     position: fixed;
     inset: 0px;
@@ -180,4 +180,4 @@ const classes = (theme: theme) => `
   }
 `;
 
-export default classes;
+export default layout;

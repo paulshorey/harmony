@@ -2,7 +2,7 @@ import { Props as BoxProps } from '@ps/ui/components/content/Box';
 import { memo, useEffect, forwardRef, ReactElement } from 'react';
 import ReactModal from 'react-modal';
 import variants from './variants';
-import useComponentWithProps12 from '@ps/ui/hooks/useComponentWithProps12';
+import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
 export type Props = BoxProps & {
@@ -83,7 +83,7 @@ export const Component: (
  * <Modal {...optionalUniquePropsForCurrentInstance} />
  */
 export const withModal = (props1: Props) => (props2: Props) => {
-  return useComponentWithProps12(Modal, props1, props2);
+  return withAddPropsToComponent(Modal, props1, props2);
 };
 
 /*

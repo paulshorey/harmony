@@ -1,10 +1,13 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
+
 export default () => {
-  // runs once on dom ready
+  // runs once after element is mounted
   useEffect(() => {
-    if (typeof window === "object") {
+    if (typeof window === 'object') {
       // @ts-ignore
-      let el = window.document.querySelector(".docBox-code-toggle:not(.docBox-code-toggle--expanded)");
+      let el = window.document.querySelector(
+        '.docBox-code-toggle:not(.docBox-code-toggle--expanded)'
+      );
       el && el.click && el.click();
     }
   }, []);
