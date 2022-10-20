@@ -17,9 +17,9 @@ export default function (props: any) {
   return (
     <CanvasContainer color="light">
       <Box>
-        Box can be used <Heading> as h2</Heading>,{' '}
-        <Code> or as &lt;code&gt;</Code>, or as any other HTML container
-        element. By default, it's a div.
+        Box can be used <Heading> as="h2"</Heading>,{' '}
+        <Code> or as="&lt;code&gt;"</Code>, or as almost any other HTML element.
+        By default, it's a div.
       </Box>
     </CanvasContainer>
   );

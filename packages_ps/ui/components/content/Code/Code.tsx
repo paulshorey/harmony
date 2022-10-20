@@ -4,12 +4,12 @@ import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import themeDark from 'prism-react-renderer/themes/nightOwl';
 import themeLight from 'prism-react-renderer/themes/vsLight';
 
-export type CodeThemeType = typeof themeDark;
+export type PrismThemeType = typeof themeDark;
 
 export type Props = {
   'code': string;
   'language'?: Language;
-  'prismTheme'?: CodeThemeType;
+  'prismTheme'?: PrismThemeType;
   'variant'?: string;
   'data-variants'?: string;
   'showNumbers'?: boolean;
@@ -18,7 +18,7 @@ export type Props = {
 const Code = ({
   code = '',
   language = 'jsx',
-  'prismTheme': themeProp,
+  prismTheme,
   'data-variants': dataVariants = '',
   showNumbers = false,
 }: Props) => {
@@ -47,8 +47,8 @@ const Code = ({
     };
   }
   // customize theme from props
-  if (themeProp) {
-    theme = { ...theme, ...themeProp };
+  if (prismTheme) {
+    theme = { ...theme, ...prismTheme };
   }
   // render
   return (

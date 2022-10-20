@@ -1,7 +1,11 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import Box from '@ps/ui/components/content/Box';
+import Code from '@ps/ui/components/content/Code';
+import CodeInline from '@ps/ui/components/content/CodeInline';
 import AppProvider from '@ps/ui/components/utils/AppProvider';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import { SvgSparkle } from '@ps/ui/.storybook/components/Decorations';
+import MediaQueriesInline from '@ps/ui/.storybook/components/MediaQueriesInline';
 
 <Meta title="Why another UI library ?" id="about-1" />
 
@@ -9,15 +13,69 @@ import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 
 <Wrapper>
 
-## This is not a UI Component Library...
+## This is not just another Component Library... <Box as="span" ss="float:right;padding: 0 0.33rem 0 0;">test</Box>
 
-**It's a starter kit for easily maintianing <span className="colors-accent">your own</span> <span className="colors-rainbow"> custom-branded </span> UI library.**
+It's a system for easily <Box as="b" variant="textGradient" data-color="accent">bootstrapping and maintaining</Box> your own <Box as="b" variant="textColorfulUnderline" data-color="rainbow"> custom branded component library</Box> as part of a <Box as="b" variant="textColor" data-color="accent"><SvgSparkle ss="" />multi-repo<SvgSparkle ss="" /><SvgSparkle ss="" /></Box>. <span className="noWrap">This includes an innovative responsive styling system</span> that makes implementing initial designs and redesigns faster and easier.
+
+The styled text above is the most basic example of variants. Variants are like classNames but in Typescript, and without name collisions. Not just for style. Components use variants to add new JS logic without breaking or complicating existing implementations.
+
+<Code
+  variant="transparentDark"
+  code={`import Box from 'harmonyui/components/content/Box';
+...
+<Box as="b" variant="textGradient" data-color="accent"> bootstrapping and maintaining </Box>
+<Box as="b" variant="textColorfulUnderline" data-color="rainbow"> custom branded component library</Box>
+<Box as="b" variant="textColor" data-color="accent"><SvgSparkle ss="top:-1rem;" /> multi-repo <SvgSparkle ss="bottom:-1rem;" /></Box>`}
+/>
+
+StyledComponents combined with a shortcut <CodeInline variant="text" code={`ss`} /> prop (like Emotion's <CodeInline variant="text" code={`css`} /> or Mantine's <CodeInline variant="text" code={`sx`} />) make it easy to add unique styles to markup.
+
+<p>
+  Media query shortcuts make styling for multiple devices much easier! You're
+  not limited to just{' '}
+  <CodeInline variant="text" data-color="dark">
+    xs,sm,md,lg
+  </CodeInline>{' '}
+  or whatever you originally defined. Not limited to just{' '}
+  <CodeInline variant="text" code={`min-width`} />. Use{' '}
+  <CodeInline variant="text" code={`props.ssTablet`} /> (or{' '}
+  <CodeInline variant="text" code={`props.theme.mq.tablet`} /> in your style
+  function) to style only tablets (between 501-1024px). Each media query prop
+  can be a <CodeInline variant="text" code={`string`} />,{' '}
+  <CodeInline variant="text" code={`(props)=>string`} /> function, or JS object.
+  More examples:
+</p>
+
+<Code
+  variant="transparentDark smaller"
+  code={`import { withBox } from 'harmonyui/components/content/Box';
+const Demo = withBox({ ss: 'display:none;' });
+// 
+<Demo ssIframe="display:block"> apply style only if rendered inside an iframe (like Storybook or website widget) </Demo>
+<Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>
+// You can set breakpoint sizes in your theme.
+<Demo ssPhone="display:block"> style only phones (<=500px) </Demo>
+<Demo ssSmallPhone="display:block"> style only small phones like the Mini or X (<=400) </Demo>
+<Demo ssLargeTablet="display:block"> style only larger tablets (768-1024px) </Demo>
+// People's desktop screens are very rarely <=1024px nowadays. Most iPads are 1024px wide. 
+<Demo ssDesktop="display:block"> only Desktop ( >1024px )</Demo>
+<Demo ssMobile="display:block"> only Mobile ( <=1024px )</Demo>
+<Demo ssLg="display:block"> "large" screens includes larger tablets ( >930px )</Demo>
+<Demo ssSm="display:block"> "small" screens includes smaller tablets ( <=930px )</Demo>
+// And many more. Each is only included in the bundle if you use it. `}
+/>
+
+This library does **not** attempt to **replace CSS** functionality in JS like so many CSS-in-JS libraries. Instead it lets JS do what it's good at (define logic and state), while letting CSS do what it's good at (setting the color scheme on a parent that can later be accessed from a child element, without having to prop-drill or style each individual child element separately). This is "CSS-and-JS" living in harmony.
+
+This library is completely written in Typescript. **Except** for CSS styles. That's because Typescript is actually incapable of checking validity of CSS rules. So, there's no reason to use the more verbose JavaScript notation over the quick and easy CSS strings. For example, you can define the type of `padding` as `string | number`. But then you pass `1rem2rem` or `calc(10%+10px)` and it breaks because it's missing a space. Typescript can't catch that. If you know of a way, please reach out! I'd love to learn.
+
+However, I love Typescript. It's great for almost everything else. So even though CSS and color variables are not typed (because it's pointless and **visual regression** testing is much better for visual stuff anyway), everything else is type safe. At least that's the goal. This library is still very experimental, not yet stable. Still adding stricter types and unit tests.
 
 <br />
 
 ## Easier "UI kit" development:
 
-**Maintainable** - Great developer experience. Easily manage media queries, variables, colors, markup, and interactive functionality.  
+**Maintainable** - Great developer experience. Easily manage media queries, variables, colors, markup, and interactive functionality.  
 **Mono-repo** - Maintain just one set of components and styles. Import into multiple apps.  
 **Extensible** - Add functionality and style to the base library as a "variant". Then select that variant in your app. This way if you need to customize a component, you don't have to duplicate code. Extend a component for one app without affecting other apps.
 
@@ -26,33 +84,11 @@ import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 ## CSS-in-JS is no longer tedious:
 
 - <a href="/" data-color="orange">
-    media queries
+    Media queries
   </a> - you can style for multiple devices with JSX props, JS variables, or Styled
   Components
-- <a href="/">variants and variables</a> - choose from any variant, add a new one,
+- <a href="/">Variants and variables</a> - choose from any variant, add a new one,
   use color/scheme/props in your styles
-
-<br />
-
-## Compatible with most component libraries.
-
-**Peer dependencies:**
-
-- React
-- Typescript
-- @emotion/styled (just like styled-components)
-- @emotion/react (load global styles and theme)
-- Next (optional, required for components that use next/link)
-
-<br />
-
-## Putting the "C" back into "CSS"...
-
-The "C" in "CSS" stands for "Cascading" - styles can be applied based on parent/grandparent styles/variables. Unfortunately, this is lost in modern "CSS-in-JS" solutions. They should be called "S-in-JS", but that's not as catchy. 😆
-
-This library attempts to bring back inheritance to style rules, but without the class name conflicts. Components should be able to know if they are inside a dark theme or on top of a color gradient, and adjust the text/button colors automatically. Using CSS variables and HTML data attributes, components are able to adapt to their surroundings, without the developer having to set a specific color shade and subtle style rules for each instance of a component
-
-It's a work in progress. This library is not ready for production use yet, but so far it's looking promising! 🚀 Now testing and optimizing.
 
 </Wrapper>
 

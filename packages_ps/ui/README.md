@@ -1,13 +1,3 @@
-# COEXIST
-
-Logo spelled out in big custom icons, each one with a different color glow, making a rainbow.
-
-Below this, some text explaining the framework, showcasing some useful inline components.
-
-Below that, some block components like Code, showcasing more of the framework.
-
-Below that, maybe a full-screen video or something, also a component of this framework.
-
 # Content
 
 Maybe I'm a dreamer, but I believe CSS and JS can live in harmony. So can web development and software engineering.

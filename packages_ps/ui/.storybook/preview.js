@@ -23,7 +23,7 @@ export const decorators = [
     display:none !important;
   }
   .sidebar-header:before {
-    content: 'Coexist (CSS-and-JS)';
+    content: 'Coexist.js.org';
     color: white;
     font-size: 1.01rem;
     font-weight: bold;

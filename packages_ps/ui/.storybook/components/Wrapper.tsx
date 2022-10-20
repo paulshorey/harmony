@@ -14,7 +14,7 @@ const Wrapper = ({ children, ...props }) => {
   display:none !important;
 }
 .sidebar-header:before {
-  content: 'Coexist (CSS-and-JS)';
+  content: 'Harmony UI';
   color: white;
   font-size: 0.99rem;
   font-weight: bold;
@@ -62,8 +62,8 @@ const Wrapper = ({ children, ...props }) => {
   return (
     <Box
       {...props}
-      className={'bgGradient'}
-      color="purple"
+      variant="bgGradient"
+      data-color="purple"
       ss={(theme) => `
         position:absolute;
         top:0;
@@ -94,32 +94,20 @@ const Wrapper = ({ children, ...props }) => {
             
           }
         }
-        svg {
-          display: inline;
-          color: var(--color-cta-text);
-          padding-left: 0;
-          margin-left: 0;
-          height: 12px;
-          width: auto;
-          position: relative;
-          top: 2px;
-        }
         h6 {
           margin-bottom: 0;
         }
         strong {
           color: white;
-          white-space: nowrap;
           font-weight: 700;
         }
         b {
           color: white;
-          white-space: nowrap;
           font-weight: 600;
         }
         p {
           font-size: 0.9em;
-          margin: 0.25rem 0 1.25rem;
+          margin: 1.25rem 0 1.25rem;
         }
         code {
           margin: 0;
@@ -128,6 +116,9 @@ const Wrapper = ({ children, ...props }) => {
           line-height: 1.2em;
           color: gold;
           font-weight: 700;
+          background:none;
+          border:none;
+          padding:0;
         }
       `}
     >

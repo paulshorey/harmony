@@ -1,4 +1,3 @@
-import CenterH from '.';
 import CodeInline from '@ps/ui/components/content/CodeInline';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';

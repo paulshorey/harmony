@@ -38,6 +38,21 @@ export default {
       display:none;
     }
   `,
+  text: (props: any) => `
+    &::before {
+      display:none;
+    }
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    
+    &:last-of-type {
+      padding: 0;
+      &::after {
+        content: '';
+      }
+    }
+  `,
   redacted: (props: any) => `
     &::before {
       z-index: 10;
