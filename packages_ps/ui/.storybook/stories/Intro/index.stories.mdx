@@ -13,35 +13,72 @@ import MediaQueriesInline from '@ps/ui/.storybook/components/MediaQueriesInline'
 
 <Wrapper>
 
+# HARMONY UI
+
+<p>
+  This library is made for <strong>both</strong> software engineering and web
+  development, for more <strong>intuitive and maintainable</strong> web
+  products.
+  <br />
+  Instead of trying to rewrite CSS in JS, I believe <strong>
+    CSS
+  </strong> and <strong>JS</strong> can coexist in harmony, each doing what they
+  do best.
+  <br />
+  Still needs many more components and unit tests, but if you like this
+  approach, <a>please contribute. Thank you!</a>
+  <br />
+  In the future, would be nice to use{' '}
+  <a href="https://github.com/BuilderIO/mitosis" target="_blank">
+    Mitosis
+  </a>{' '}
+  to transpile these{' '}
+  <a>
+    <Box as="strong" variant="textBrushStroke" ss="display:inline;">
+      React
+    </Box>
+  </a>{' '}
+  components to run in any JS framework.
+</p>
+
+<br />
+
 ## This is not just another Component Library... <Box as="span" ss="float:right;padding: 0 0.33rem 0 0;">test</Box>
 
-It's a system for easily <Box as="b" variant="textGradient" data-color="accent">bootstrapping and maintaining</Box> your own <Box as="b" variant="textColorfulUnderline" data-color="rainbow"> custom branded component library</Box> as part of a <Box as="b" variant="textColor" data-color="accent"><SvgSparkle ss="" />multi-repo<SvgSparkle ss="" /><SvgSparkle ss="" /></Box>. <span className="noWrap">This includes an innovative responsive styling system</span> that makes implementing initial designs and redesigns faster and easier.
+It's a system for easily <Box as="b" variant="textGradient" data-color="accent">bootstrapping and maintaining</Box> your own <Box as="b" variant="textBoldUnderline" data-color="rainbow"> custom branded component library</Box> as part of a <Box as="b" variant="textColor" data-color="accent"><SvgSparkle ss="" />multi-repo<SvgSparkle ss="" /><SvgSparkle ss="" /></Box>. <span className="noWrap">This includes an innovative responsive styling system</span> that makes implementing initial designs and redesigns faster and easier.
 
 The styled text above is the most basic example of variants. Variants are like classNames but in Typescript, without name collisions. <span className="noWrap">Not just for styling. </span> Use variants to **add new JS functionality** without _breaking or complicating_ existing implementations.
 
 <Code
   variant="transparentDark"
   code={`import Box from 'harmonyui/components/content/Box';
-...
+.
 <Box as="b" variant="textGradient" data-color="accent"> bootstrapping and maintaining </Box>
-<Box as="b" variant="textColorfulUnderline" data-color="rainbow"> custom branded component library</Box>
-<Box as="b" variant="textColor" data-color="accent"><SvgSparkle ss="top:-1rem;" /> multi-repo <SvgSparkle ss="bottom:-1rem;" /></Box>`}
+<Box as="b" variant="textBoldUnderline" data-color="rainbow"> custom branded component library</Box>
+`}
 />
 
-StyledComponents combined with a shortcut <CodeInline variant="text" code={`ss`} /> prop (like Emotion's <CodeInline variant="text" code={`css`} /> or Mantine's <CodeInline variant="text" code={`sx`} />) make it easy to add unique styles to markup.
+StyledComponents combined with a shortcut `ss` prop (like Emotion's `css` or Mantine's `sx`) make it easy to add unique styles to markup.
+
+<Code
+  variant="transparentDark"
+  code={`import { SvgSparkle } from 'harmonyui/.storybook/components/Decorations';
+.
+<SvgSparkle ss="top:-1rem;" /> multi-repo <SvgSparkle ss="bottom:-1rem;right:-3rem;" />`}
+/>
 
 <p>
-  Media query shortcuts for styling multiple devices will make your life easier!
-  You're not limited to just{' '}
+  Media query shortcuts let you painlessly style for multiple devices! You're
+  not limited to just{' '}
   <CodeInline variant="text" data-color="dark">
     xs,sm,md,lg
   </CodeInline>{' '}
-  or whatever you originally defined. Not limited to just{' '}
+  or whatever you originally defined. Not limited to{' '}
   <CodeInline variant="text" code={`min-width`} />. Use{' '}
   <CodeInline variant="text" code={`props.ssTablet`} /> (or{' '}
   <CodeInline variant="text" code={`props.theme.mq.tablet`} /> in your style
-  function) to style only tablets (between 501-1024px). Each media query prop
-  can be a <CodeInline variant="text" code={`string`} />,{' '}
+  function) to style tablets (between 501-1024px). Each media query prop can be
+  a <CodeInline variant="text" code={`string`} />,{' '}
   <CodeInline variant="text" code={`(props)=>string`} /> function, or CSS-in-JS
   object.
 </p>
@@ -65,23 +102,23 @@ const Demo = withBox({ ss: 'display:none;' });
 // And many more. Each is only included in the bundle if you use it. `}
 />
 
-This library does **not** attempt to **replace CSS** functionality like so many CSS-in-JS libraries. Instead it lets JS do what it's good at (define logic and state) while letting CSS do what it's good at (setting the color scheme on a parent that can later be accessed from a child element, without having to prop-drill or style each individual element separately). This is "CSS-and-JS" living in harmony.
+<br />
 
-This library is completely written in Typescript. **Except** for CSS styles. That's because Typescript is actually incapable of checking validity of CSS rules. So, there's no reason to use the more verbose JavaScript notation over the quick and easy CSS strings. For example, you can define the type of `padding` as `string | number`. But then you pass `1rem2rem` or `calc(10%+10px)` and it breaks because it's missing a space. Typescript can't catch that. If you know of a way, please reach out! I'd love to learn.
+### Maintainable
 
-However, I love Typescript. It's great for almost everything else. So even though CSS and color variables are not typed (because it's pointless and **visual regression** testing is much better for visual stuff anyway), everything else is type safe. At least that's the goal. This library is still very experimental and in flux. Still adding stricter types and unit tests.
+- Great developer experience. Easily manage media queries, variables, colors, markup, and interactive functionality. Tree shaking by default.
+
+### Mono-repo
+
+- Maintain just one set of components and styles. Import into multiple apps. If one app needs unique style or functionality, it's easy to override both.
+
+### Extensible
+
+- Add functionality and style to the base library as a "variant". Then select that variant in your app. This way if you need to customize a component, you don't have to duplicate code. Extend a component for one app without affecting other apps.
 
 <br />
 
-## Easier "UI kit" development:
-
-**Maintainable** - Great developer experience. Easily manage media queries, variables, colors, markup, and interactive functionality.  
-**Mono-repo** - Maintain just one set of components and styles. Import into multiple apps.  
-**Extensible** - Add functionality and style to the base library as a "variant". Then select that variant in your app. This way if you need to customize a component, you don't have to duplicate code. Extend a component for one app without affecting other apps.
-
-<br />
-
-## CSS-in-JS is no longer tedious:
+## CSS-in-JS is no longer tedious! Read more:
 
 - <a href="/" data-color="orange">
     Media queries
