@@ -8,7 +8,7 @@ const variantKeys = Object.keys(variants);
 export const Box = _box.bind({});
 Box.argTypes = argTypes(variantKeys);
 Box.args = {
-  'variant': 'textNotice',
+  'variant': 'textInfo',
   'data-color': '',
   'ss': 'display:inline;',
 };

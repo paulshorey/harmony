@@ -11,6 +11,10 @@ color: var(--color-text);
 color: var(--color-notice);
 `,
 
+  textInfo: `
+color: var(--color-info);
+`,
+
   textCta: `
 color: var(--color-cta);
 `,

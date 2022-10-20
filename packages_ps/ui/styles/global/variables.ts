@@ -7,12 +7,13 @@ const variables = (theme) => `
   --color-error: #e30000;
   --color-warning: #e38935;
   --color-success: #27b30d;
-  --color-info: #1e90ff;
-  --color-notice: #c336e5;
 }
 
 :root,
 [data-color='light'] {
+  --color-info: #715fe4;
+  --color-notice: #e38935;
+
   --color-text: #666;
   --color-text-lighter: #999;
   --color-text-darker: rgb(153, 153, 153, 0.153);
@@ -36,6 +37,9 @@ const variables = (theme) => `
 }
 
 [data-color='dark'] {
+  --color-info: #1e90ff;
+  --color-notice: #c336e5;
+
   --color-text: #fff;
   --color-subtle: #999;
   --color-shadow: rgb(222, 222, 222, 0.22);
