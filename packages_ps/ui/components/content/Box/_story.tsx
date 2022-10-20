@@ -6,12 +6,10 @@ export default function (props: any) {
   useShowStorybookCode();
   const Heading = withBox({
     as: 'h2',
-    className: 'textNotice',
     ...props,
   });
   const Code = withBox({
     as: 'code',
-    className: 'textNotice',
     ...props,
   });
   return (
@@ -28,8 +26,8 @@ export default function (props: any) {
 export const code = `import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import Box, { withBox } from '.';
 
-const Heading = withBox({ as: 'h2', ...props });
-const Code = withBox({ as: 'code', ...props });
+const Heading = withBox({ as: 'h2', ss:'display:inline;', ...otherProps });
+const Code = withBox({ as: 'code', ss:'display:inline;', ...otherProps });
 
 <CanvasContainer color="light">
   <Box>

@@ -4,11 +4,19 @@ export default {
 `,
 
   textColor: `
-  color: var(--color-text);
+color: var(--color-text);
 `,
 
   textNotice: `
-  color: var(--color-notice);
+color: var(--color-notice);
+`,
+
+  textCta: `
+color: var(--color-cta);
+`,
+
+  textBg: `
+color: var(--color-bg);
 `,
 
   bgSolid: `

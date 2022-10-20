@@ -149,6 +149,10 @@ export type ssProps = {
    */
   'data-variants'?: string;
   /**
+   * Set the color for the current element, and any of its children whose styles use a text/background/button/cta color. It will not indiscriminately color everything inside it. Only the elements whose styles reference the parent color. Use whatever color you set in @ps/ui/styles/global/variables.ts. You can import this default file, or copy and make your own to set your own colors. Then you can refer to your custom colors.
+   */
+  'data-color'?: string;
+  /**
    * This component and all elements inside it will use theme.colors[colorGroup].dark (if defined), if not will fall back to alternative
    */
   'dark'?: boolean;

@@ -69,7 +69,7 @@ This library does **not** attempt to **replace CSS** functionality like so many 
 
 This library is completely written in Typescript. **Except** for CSS styles. That's because Typescript is actually incapable of checking validity of CSS rules. So, there's no reason to use the more verbose JavaScript notation over the quick and easy CSS strings. For example, you can define the type of `padding` as `string | number`. But then you pass `1rem2rem` or `calc(10%+10px)` and it breaks because it's missing a space. Typescript can't catch that. If you know of a way, please reach out! I'd love to learn.
 
-However, I love Typescript. It's great for almost everything else. So even though CSS and color variables are not typed (because it's pointless and **visual regression** testing is much better for visual stuff anyway), everything else is type safe. At least that's the goal. This library is still very experimental, not yet stable. Still adding stricter types and unit tests.
+However, I love Typescript. It's great for almost everything else. So even though CSS and color variables are not typed (because it's pointless and **visual regression** testing is much better for visual stuff anyway), everything else is type safe. At least that's the goal. This library is still very experimental and in flux. Still adding stricter types and unit tests.
 
 <br />
 
