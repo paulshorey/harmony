@@ -17,7 +17,7 @@ import MediaQueriesInline from '@ps/ui/.storybook/components/MediaQueriesInline'
 
 It's a system for easily <Box as="b" variant="textGradient" data-color="accent">bootstrapping and maintaining</Box> your own <Box as="b" variant="textColorfulUnderline" data-color="rainbow"> custom branded component library</Box> as part of a <Box as="b" variant="textColor" data-color="accent"><SvgSparkle ss="" />multi-repo<SvgSparkle ss="" /><SvgSparkle ss="" /></Box>. <span className="noWrap">This includes an innovative responsive styling system</span> that makes implementing initial designs and redesigns faster and easier.
 
-The styled text above is the most basic example of variants. Variants are like classNames but in Typescript, and without name collisions. Not just for style. Components use variants to add new JS logic without breaking or complicating existing implementations.
+The styled text above is the most basic example of variants. Variants are like classNames but in Typescript, without name collisions. <span className="noWrap">Not just for styling. </span> Use variants to **add new JS functionality** without _breaking or complicating_ existing implementations.
 
 <Code
   variant="transparentDark"
@@ -42,8 +42,8 @@ StyledComponents combined with a shortcut <CodeInline variant="text" code={`ss`}
   <CodeInline variant="text" code={`props.theme.mq.tablet`} /> in your style
   function) to style only tablets (between 501-1024px). Each media query prop
   can be a <CodeInline variant="text" code={`string`} />,{' '}
-  <CodeInline variant="text" code={`(props)=>string`} /> function, or JS object.
-  More examples:
+  <CodeInline variant="text" code={`(props)=>string`} /> function, or CSS-in-JS
+  object.
 </p>
 
 <Code
@@ -51,21 +51,21 @@ StyledComponents combined with a shortcut <CodeInline variant="text" code={`ss`}
   code={`import { withBox } from 'harmonyui/components/content/Box';
 const Demo = withBox({ ss: 'display:none;' });
 // 
-<Demo ssIframe="display:block"> apply style only if rendered inside an iframe (like Storybook or website widget) </Demo>
 <Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>
-// You can set breakpoint sizes in your theme.
+<Demo ssIframe="display:block"> apply style only if rendered inside an iframe (like Storybook or website widget) </Demo>
+// You can adjust breakpoint sizes in your theme.
 <Demo ssPhone="display:block"> style only phones (<=500px) </Demo>
 <Demo ssSmallPhone="display:block"> style only small phones like the Mini or X (<=400) </Demo>
 <Demo ssLargeTablet="display:block"> style only larger tablets (768-1024px) </Demo>
 // People's desktop screens are very rarely <=1024px nowadays. Most iPads are 1024px wide. 
 <Demo ssDesktop="display:block"> only Desktop ( >1024px )</Demo>
 <Demo ssMobile="display:block"> only Mobile ( <=1024px )</Demo>
-<Demo ssLg="display:block"> "large" screens includes larger tablets ( >930px )</Demo>
-<Demo ssSm="display:block"> "small" screens includes smaller tablets ( <=930px )</Demo>
+<Demo ssLg="display:block"> "large" screens including larger tablets ( >930px )</Demo>
+<Demo ssSm="display:block"> "small" screens including smaller tablets ( <=930px )</Demo>
 // And many more. Each is only included in the bundle if you use it. `}
 />
 
-This library does **not** attempt to **replace CSS** functionality in JS like so many CSS-in-JS libraries. Instead it lets JS do what it's good at (define logic and state), while letting CSS do what it's good at (setting the color scheme on a parent that can later be accessed from a child element, without having to prop-drill or style each individual child element separately). This is "CSS-and-JS" living in harmony.
+This library does **not** attempt to **replace CSS** functionality like so many CSS-in-JS libraries. Instead it lets JS do what it's good at (define logic and state) while letting CSS do what it's good at (setting the color scheme on a parent that can later be accessed from a child element, without having to prop-drill or style each individual element separately). This is "CSS-and-JS" living in harmony.
 
 This library is completely written in Typescript. **Except** for CSS styles. That's because Typescript is actually incapable of checking validity of CSS rules. So, there's no reason to use the more verbose JavaScript notation over the quick and easy CSS strings. For example, you can define the type of `padding` as `string | number`. But then you pass `1rem2rem` or `calc(10%+10px)` and it breaks because it's missing a space. Typescript can't catch that. If you know of a way, please reach out! I'd love to learn.
 

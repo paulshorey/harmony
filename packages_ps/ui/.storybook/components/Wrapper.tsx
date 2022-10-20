@@ -77,10 +77,11 @@ const Wrapper = ({ children, ...props }) => {
           color:orange;
         }
 
-        em {
-          color: gold;
-          font-style: inherit;
-          font-weight: 700;
+        i, em {
+          font-weight: 600;
+          // color: gold;
+          // font-style: inherit;
+          // font-weight: 700;
         }
 
         h3 {
