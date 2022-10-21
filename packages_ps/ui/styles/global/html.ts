@@ -63,8 +63,7 @@ const html = (theme) => `
   h3,
   h4,
   h5,
-  h6,
-  boxquote {
+  h6 {
     text-decoration:none;
     border:none;
     font-family: "HelveticaNeue", Helvetica, sans-serif;
@@ -81,16 +80,23 @@ const html = (theme) => `
     }
   }
 
+  a {
+    color:var(--color-cta);
+    text-decoration:underline;
+    &:hover {
+      text-decoration:none;
+    }
+  }
+
   b,
   strong {
     font-weight: 500;
   }
 
-  boxquote {
+  blockquote {
     border-left: solid 4px #ccc;
     padding: 8px 0 8px 16px;
     font-size: 22px;
-
     ${theme.mq.phone} {
       font-size: 18px;
     }
@@ -102,16 +108,8 @@ const html = (theme) => `
 
   p {
     font-weight: 400;
-  }
-
-  article {
-    a {
-      text-decoration: underline;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+    line-height: 1.5;
+    margin: 1.25rem;
   }
 `;
 export default html;

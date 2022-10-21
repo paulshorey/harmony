@@ -1,0 +1,134 @@
+:root {
+  --font-family-text: 'Roboto', sans-serif;
+  --font-family-title: 'Roboto', sans-serif;
+  --font-family-code: 'Roboto Mono', monospace;
+
+  --color-error: #e30000;
+  --color-warning: #e38935;
+  --color-success: #27b30d;
+  --color-info: #1e90ff;
+  --color-notice: #c336e5;
+  /* --color-info: #715fe4;
+  --color-notice: #e38935; */
+}
+
+:root,
+[data-color*='light'] {
+  --color-text: #666;
+  --color-text-gradient: linear-gradient(
+    90deg,
+    #999,
+    rgb(153, 153, 153, 0.153)
+  );
+
+  --color-bg: #efefef;
+  --color-bg-gradient: linear-gradient(90deg, #efefef, #ccc);
+
+  --color-notice: orange;
+
+  --color-cta: hsl(171, 56%, 37%);
+  --color-cta-gradient: linear-gradient(
+    90deg,
+    hsl(171, 61%, 43%),
+    hsl(171, 52%, 31%)
+  );
+}
+
+[data-color*='ondark'] {
+  --color-text: #efefef;
+  --color-text-gradient: linear-gradient(90deg, #efefef, #ccc);
+
+  --color-bg: hsl(226 0% 25%);
+  --color-bg-gradient: linear-gradient(90deg, hsl(226 0% 30%), hsl(226 0% 20%));
+
+  --color-notice: gold;
+
+  --color-cta: hsl(39deg 95% 50%);
+  --color-cta-gradient: linear-gradient(
+    90deg,
+    hsl(39, 100%, 50%),
+    hsl(51, 100%, 50%),
+    hsl(51, 100%, 50%),
+    hsl(39, 100%, 50%)
+  );
+}
+
+[data-color*='purple'] {
+  --color-text: #715fe4;
+  --color-text-gradient: linear-gradient(300deg, hsl(272 51% 54%), #7463f1);
+  --color-bg: #715fe4;
+  --color-bg-gradient: linear-gradient(300deg, hsl(272 51% 54%), #7463f1);
+}
+[data-color*='ondark'] [data-color*='purple'],
+[data-color*='ondark'][data-color*='purple'] {
+  --color-text: #c1b8fa;
+  --color-text-gradient: linear-gradient(300deg, #ffb7f1, #b8e1ff);
+}
+
+[data-color*='cta'][data-color*='ondark'],
+[data-color*='ondark'][data-color*='cta'],
+[data-color*='ondark'] [data-color*='cta'] {
+  --color-cta: hsl(171, 56%, 37%);
+  --color-gradient: linear-gradient(
+    90deg,
+    hsl(171, 61%, 43%),
+    hsl(171, 52%, 31%)
+  );
+}
+
+[data-color*='rainbow'] {
+  --color-text-gradient: linear-gradient(
+    160deg,
+    rgb(255, 75, 75),
+    rgb(252, 84, 84),
+    rgba(255, 154, 0, 1),
+    rgb(245, 208, 23),
+    rgba(208, 222, 33, 1),
+    rgb(185, 234, 27),
+    rgba(79, 220, 74, 1),
+    rgba(63, 218, 216, 1),
+    rgba(47, 201, 226, 1),
+    rgb(51, 146, 255),
+    rgb(210, 86, 255),
+    rgb(255, 87, 233)
+  );
+}
+[data-color*='rainbow'] [data-color*='ondark'],
+[data-color*='ondark'] [data-color*='rainbow'],
+[data-color*='ondark'][data-color*='rainbow'] {
+  --color-text-gradient: linear-gradient(
+    55deg,
+    rgb(245, 139, 101) -12%,
+    rgba(255, 154, 0, 1),
+    rgb(245, 208, 23),
+    rgb(255, 236, 95),
+    rgb(205, 235, 55),
+    rgb(121, 210, 191),
+    rgb(146, 147, 255) 106%
+  );
+}
+
+[data-color*='accent'] {
+  --color-text: hsl(39deg 95% 50%);
+  --color-text: hsl(39deg 95% 50%);
+  --color-text-gradient: linear-gradient(
+    90deg,
+    hsl(51, 100%, 50%),
+    hsl(39, 100%, 50%)
+  );
+}
+[data-color*='accent'] [data-color*='ondark'],
+[data-color*='ondark'] [data-color*='accent'],
+[data-color*='ondark'][data-color*='accent'] {
+  --color-text: gold;
+  --color-text-gradient: linear-gradient(
+    190deg,
+    hsl(39, 100%, 50%),
+    hsl(46, 100%, 62%),
+    hsl(46, 100%, 62%),
+    hsl(51, 100%, 61%),
+    hsl(51, 100%, 61%),
+    hsl(46, 100%, 62%),
+    hsl(39, 100%, 50%)
+  );
+}

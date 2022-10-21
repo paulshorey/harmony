@@ -11,60 +11,53 @@ import MediaQueriesInline from '@ps/ui/.storybook/components/MediaQueriesInline'
 
 <AppProvider>
 
-<Wrapper>
+<Wrapper ssAll="a { color: white; }">
 
-# HARMONY UI
+<h1>Harmony UI</h1>
 
 <p>
   This library is made for <strong>both</strong> software engineering and web
   development, for more <strong>intuitive and maintainable</strong> web
   products.
   <br />
-  Instead of trying to rewrite CSS in JS, I believe <strong>
-    CSS
-  </strong> and <strong>JS</strong> can coexist in harmony, each doing what they
-  do best.
+  Instead of trying to rewrite CSS in JS, this allows{' '}
+  <strong>CSS and JS</strong> to coexist in harmony, each doing what it does
+  best.
   <br />
   Still needs many more components and unit tests, but if you like this
-  approach, <a>please contribute. Thank you!</a>
-  <br />
-  In the future, would be nice to use{' '}
-  <a href="https://github.com/BuilderIO/mitosis" target="_blank">
-    Mitosis
-  </a>{' '}
-  to transpile these{' '}
-  <a>
-    <Box as="strong" variant="textBrushStroke" ss="display:inline;">
-      React
-    </Box>
-  </a>{' '}
-  components to run in any JS framework.
+  approach, <a>please contribute or comment!</a>
 </p>
 
 <br />
 
-## This is not just another Component Library... <Box as="span" ss="float:right;padding: 0 0.33rem 0 0;">test</Box>
+<h2>
+  This is not just a Component Library...{' '}
+  <Box as="span" ss="float:right;padding: 0 0.33rem 0 0; display:none">
+    Github link goes here
+  </Box>
+</h2>
 
-It's a system for easily <Box as="b" variant="textGradient" data-color="accent">bootstrapping and maintaining</Box> your own <Box as="b" variant="textBoldUnderline" data-color="rainbow"> custom branded component library</Box> as part of a <Box as="b" variant="textColor" data-color="accent"><SvgSparkle ss="" />multi-repo<SvgSparkle ss="" /><SvgSparkle ss="" /></Box>. <span className="noWrap">This includes an innovative responsive styling system</span> that makes implementing initial designs and redesigns faster and easier.
+It's a system for easily <Box as="b" variant="textGradient" data-color="accent">bootstrapping and maintaining</Box> your own <Box as="b" variant="textGradientUnderlined" data-color="rainbow"> custom branded component library</Box> as part of a <Box as="b" variant="textGradient" data-color="accent"><SvgSparkle ss="" />multi-repo<SvgSparkle ss="" /><SvgSparkle ss="" /></Box>. <span className="noWrap">This includes an innovative responsive styling system</span> that makes implementing initial designs and redesigns faster and easier.
 
-The styled text above is the most basic example of variants. Variants are like classNames but in Typescript, without name collisions. <span className="noWrap">Not just for styling. </span> Use variants to **add new JS functionality** without _breaking or complicating_ existing implementations.
+The styled text above is the most basic example of variants. Variants are like classNames but in Typescript, without name collisions.
+
+But it's not just for styling &ndash; use variants to _add new JS functionality_ without _breaking or complicating_ existing implementations.
 
 <Code
   variant="transparentDark"
   code={`import Box from 'harmonyui/components/content/Box';
-.
+...
 <Box as="b" variant="textGradient" data-color="accent"> bootstrapping and maintaining </Box>
-<Box as="b" variant="textBoldUnderline" data-color="rainbow"> custom branded component library</Box>
-`}
+<Box as="b" variant="textGradientUnderlined" data-color="rainbow"> custom branded component library</Box>`}
 />
 
 StyledComponents combined with a shortcut `ss` prop (like Emotion's `css` or Mantine's `sx`) make it easy to add unique styles to markup.
 
 <Code
   variant="transparentDark"
-  code={`import { SvgSparkle } from 'harmonyui/.storybook/components/Decorations';
-.
-<SvgSparkle ss="top:-1rem;" /> multi-repo <SvgSparkle ss="bottom:-1rem;right:-3rem;" />`}
+  code={`import { SvgSparkle1, SvgSparkle2, SvgSparkle3 } from 'harmonyui/.storybook/components/Decorations';
+...
+<SvgSparkle1 ss="top:-1rem;" /> multi-repo <SvgSparkle2 ss="bottom:-1rem;right:-3rem;" />`}
 />
 
 <p>
@@ -87,7 +80,7 @@ StyledComponents combined with a shortcut `ss` prop (like Emotion's `css` or Man
   variant="transparentDark smaller"
   code={`import { withBox } from 'harmonyui/components/content/Box';
 const Demo = withBox({ ss: 'display:none;' });
-// 
+...
 <Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>
 <Demo ssIframe="display:block"> apply style only if rendered inside an iframe (like Storybook or website widget) </Demo>
 // You can adjust breakpoint sizes in your theme.
@@ -120,7 +113,7 @@ const Demo = withBox({ ss: 'display:none;' });
 
 ## CSS-in-JS is no longer tedious! Read more:
 
-- <a href="/" data-color="orange">
+- <a href="/" data-color="accent">
     Media queries
   </a> - you can style for multiple devices with JSX props, JS variables, or Styled
   Components

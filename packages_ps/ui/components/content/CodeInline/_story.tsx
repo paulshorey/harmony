@@ -5,7 +5,7 @@ export default (props: any) => {
   useShowStorybookCode();
   return (
     <CanvasContainer>
-      <p data-color="orange">
+      <p data-color="accent">
         Use <CodeInline code={`<CodeInline code="!@#$%^&*()" />`} /> to display
         anything without having to escape each special character.
       </p>
@@ -46,7 +46,7 @@ export default (props: any) => {
 
 export const code = `import CodeInline from '@ps/ui/components/content/CodeInline';
 
-<p data-color="orange">
+<p data-color="accent">
   Use <CodeInline code={\`<CodeInline code="!@#$%^&*()" />\`} /> to display
   anything without having to escape each special character.
 </p>

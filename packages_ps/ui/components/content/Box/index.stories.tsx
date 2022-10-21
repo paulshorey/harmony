@@ -8,9 +8,9 @@ const variantKeys = Object.keys(variants);
 export const Box = _box.bind({});
 Box.argTypes = argTypes(variantKeys);
 Box.args = {
-  'variant': 'textInfo',
-  'data-color': '',
-  'ss': 'display:inline;',
+  'variant': 'textGradient',
+  'data-color': 'purple',
+  'ss': 'display:inline-block;',
 };
 
 export default {

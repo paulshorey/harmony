@@ -24,18 +24,6 @@ export const argTypes = (localVariants: string[] = []) => {
       },
       options: allV,
     },
-    // color: {
-    //   control: {
-    //     type: 'select',
-    //   },
-    //   options: ['default', 'purple', 'orange'],
-    // },
-    // size: {
-    //   control: {
-    //     type: 'select',
-    //   },
-    //   options: [''],
-    // },
   };
 
   return argTypes;

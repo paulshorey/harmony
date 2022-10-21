@@ -1,20 +1,19 @@
 import { Component } from '.';
-import Template from './_story';
+import Template, { code } from './_story';
 import description from './_story.md';
 import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
-  className: 'hoverTilt',
+  classNames: ['bgColor'],
   color: '',
-  variant: '',
   shade: '',
-  ss: '',
+  ss: 'min-height: 400px;',
 };
 
-export const Card = Template.bind({});
-Card.argTypes = argTypes(variantKeys);
-Card.args = args;
+export const CenterChildrenV = Template.bind({});
+CenterChildrenV.argTypes = argTypes(variantKeys);
+CenterChildrenV.args = args;
 
 export default {
   component: Component,
@@ -28,7 +27,7 @@ export default {
         component: description,
       },
       source: {
-        code: ``,
+        code,
       },
     },
   },

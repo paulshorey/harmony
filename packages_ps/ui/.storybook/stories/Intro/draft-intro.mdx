@@ -1,3 +1,18 @@
+{' '}
+<br />
+In the future, would be nice to use <a
+  href="https://github.com/BuilderIO/mitosis"
+  target="_blank"
+>
+  Mitosis
+</a> to transpile these <Box
+  as="strong"
+  variant="textColorUnderlined"
+  ss="display:inline;"
+>
+  React
+</Box> components to any other JS framework.
+
 This library does **not** attempt to **replace CSS** functionality like so many CSS-in-JS libraries. Instead it lets JS do what it's good at (define logic and state) while letting CSS do what it's good at (setting the color scheme on a parent that can later be accessed from a child element, without having to prop-drill or style each individual element separately). This is "CSS-and-JS" living in harmony.
 
 This library is completely written in Typescript. **Except** for CSS styles. That's because Typescript is actually incapable of checking validity of CSS rules. So, there's no reason to use the more verbose JavaScript notation over the quick and easy CSS strings. For example, you can define the type of `padding` as `string | number`. But then you pass `1rem2rem` or `calc(10%+10px)` and it breaks because it's missing a space. Typescript can't catch that. If you know of a way, please reach out! I'd love to learn.

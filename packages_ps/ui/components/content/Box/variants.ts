@@ -7,131 +7,82 @@ export default {
 color: var(--color-text);
 `,
 
-  textNotice: `
-color: var(--color-notice);
+  textGradient: `
+background-color: var(--color-text);
+background-image: var(--color-text-gradient);
+background-size: 100%;
+background-clip: text;
+-webkit-text-fill-color: transparent;
 `,
 
-  textInfo: `
-color: var(--color-info);
+  textGradientUnderlined: `
+position:relative;
+color: var(--color-text);
+background-color: var(--color-text);
+background-image: var(--color-text-gradient);
+background-size: 100%;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+&::after {
+content: '';
+position: absolute;
+bottom: -0.125rem;
+left: 0;
+right: 0;
+height: 0.125rem;
+width:100%;
+background-color: var(--color-text);
+background-image: var(--color-text-gradient);
+background-size: 100%;
+}
 `,
 
-  textCta: `
-color: var(--color-cta);
-`,
-
-  textBg: `
-color: var(--color-bg);
-`,
-
-  bgSolid: `
+  bgColor: (props) => {
+    // props['data-color'] = (props['data-color'] || '') + ' ondark';
+    return `
   color: var(--color-text);
   background: var(--color-bg);
-`,
+`;
+  },
 
-  bgGradient: `
+  bgGradient: (props) => {
+    // props['data-color'] = (props['data-color'] || '') + ' ondark';
+    return `
   color: var(--color-text);
   background: var(--color-bg);
-  background-image: linear-gradient(
-    333deg,
-    var(--color-bg-lighter) 0%,
-    var(--color-bg-darker) 75%
-  );
-`,
-
-  bgGradientSubtle: `
-  color: var(--color-text);
-  background: var(--color-bg);
-  background-image: linear-gradient(
-    333deg,
-    var(--color-bg-lighter) -25%,
-    var(--color-bg) 100%
-  );
-`,
-
-  bgGradientIntense: `
-  color: var(--color-text);
-  background: var(--color-bg);
-  background-image: linear-gradient(
-    333deg,
-    var(--color-bg-lighter) 0%,
-    var(--color-bg-darker) 75%
-  );
-`,
+  background-image: var(--color-bg-gradient);
+`;
+  },
 
   hoverTilt: (props) => `
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   &:hover {
     box-shadow: 0 0 50px rgb(17 17 17 / 20%);
-    transform: rotate(-1deg) translateY(-2px) scale(1.015);
-    ${props.theme.mq.sm} {
-      transform: rotate(-1.5deg) translateY(-2px) scale(1.025);
-    }
+    transform: rotate(-2deg) translateY(-2px) scale(1.05);
+    // ${props.theme.mq.sm} {
+    //   transform: rotate(-1.5deg) translateY(-1px) scale(1.025);
+    // }
   }
 `,
 
-  borderBottom: `
-  text-decoration: none;
-  padding: 0;
-  display: inline-block;
-  color: var(--color-cta-darker);
-  border-bottom: solid 2px var(--color-cta-darker);
-  margin: 0 2px 4px;
-  &:hover {
-    border-color: transparent;
-  }
+  card: (props) => `
+    background-color: var(--color-bg);
+    background: white;
+    padding: 3rem 2rem 2.25rem 2.5rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 2px 3px 2px rgba(0,0,0,0.1);
 `,
 
-  textGradient: `
-  box-decoration-break: clone;
-  color: var(--color-cta-text);
-  @supports (--css: variables) {
-    background-image: linear-gradient(
-      -333deg,
-      var(--color-cta-lighter),
-      var(--color-cta-darker)
-    );
-    color: transparent;
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-  }
-`,
+  //   textUnderlineBold: `
+  // text-decoration: underline;
+  // text-underline-offset: 0.25rem;
+  // text-decoration-thickness: 0.1rem;
+  // `,
 
-  textGradientReversed: `
-  box-decoration-break: clone;
-  color: var(--color-cta-text);
-  @supports (--css: variables) {
-    background-image: linear-gradient(
-      333deg,
-      var(--color-cta-lighter),
-      var(--color-cta-darker)
-    );
-    color: transparent;
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-  }
-`,
-
-  textGradientSubtle: `
-  box-decoration-break: clone;
-  color: var(--color-cta-text);
-  @supports (--css: variables) {
-    background-image: linear-gradient(
-      333deg,
-      var(--color-cta-lighter) -50%,
-      var(--color-cta-darker) 150%
-    );
-    color: transparent;
-    background-size: 100%;
-    background-repeat: repeat;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-  }
-`,
+  //   textUnderlineStrong: `
+  // text-decoration: underline;
+  // text-underline-offset: 0.25rem;
+  // text-decoration-thickness: 0.125rem;
+  // `,
 };

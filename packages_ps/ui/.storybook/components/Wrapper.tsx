@@ -15,7 +15,6 @@ const Wrapper = ({ children, ...props }) => {
 }
 .sidebar-header:before {
   content: 'Harmony UI';
-  color: white;
   font-size: 0.99rem;
   font-weight: bold;
   white-space: nowrap !important;
@@ -31,7 +30,88 @@ const Wrapper = ({ children, ...props }) => {
     margin: 0 !important;
     padding: 0 !important;
    }
+`;
 
+  const containerCSS = (props) => `
+
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  padding: 3.1rem 5vw 100px;
+
+  color: var(--color-text);
+
+  h1 {
+    margin-bottom: 0;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    > span {
+      text-shadow: 1px 1px 1px hsl(255deg 38% 20% / 10%);
+    }
+  }
+  h2 {
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border:none;
+    margin-bottom: -0.25rem;
+    text-shadow: 1px 1px 1px hsl(255deg 38% 20% / 10%);
+  }
+  a {
+    color:var(--color-cta);
+    text-decoration:underline;
+    &:hover {
+      text-decoration:none;
+    }
+  }
+
+  p {
+    text-shadow: 1px 1px 1px hsl(255deg 38% 20% / 10%);}
+
+  .Code pre {
+    border-radius: inherit;
+    border-right: 1px solid rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+  }
+
+  i, em {
+    font-weight: 600;
+    // color: gold;
+    // font-style: inherit;
+    // font-weight: 700;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  h6 {
+    margin-bottom: 0;
+  }
+  
+  strong {
+    font-weight: 700;
+  }
+  b {
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  code {
+    color: var(--color-notice);
+    margin: 0;
+    opacity: 1;
+    font-size: 0.9em;
+    line-height: 1.2em;
+    font-weight: 700;
+    background:none;
+    border:none;
+    padding:0;
+  }
 `;
 
   useEffect(() => {
@@ -60,70 +140,9 @@ const Wrapper = ({ children, ...props }) => {
   }, []);
 
   return (
-    <Box
-      {...props}
-      variant="bgGradient"
-      data-color="purple"
-      ss={(theme) => `
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        padding: 3.5rem 5vw 100px;
-
-        color: var(--color-text);
-
-        a, .organge {
-          color:orange;
-        }
-
-        i, em {
-          font-weight: 600;
-          // color: gold;
-          // font-style: inherit;
-          // font-weight: 700;
-        }
-
-        h3 {
-          font-weight: 600;
-          font-size: 1rem;
-        }
-
-        a {
-          text-decoration:underline;
-          &:hover {
-            
-          }
-        }
-        h6 {
-          margin-bottom: 0;
-        }
-        strong {
-          color: white;
-          font-weight: 700;
-        }
-        b {
-          color: white;
-          font-weight: 600;
-        }
-        p {
-          font-size: 0.9em;
-          margin: 1.25rem 0 1.25rem;
-        }
-        code {
-          margin: 0;
-          opacity: 1;
-          font-size: 0.9em;
-          line-height: 1.2em;
-          color: gold;
-          font-weight: 700;
-          background:none;
-          border:none;
-          padding:0;
-        }
-      `}
-    >
+    <Box {...props} variant="bgGradient" data-color="purple" ss={containerCSS}>
       <Box
+        data-color="ondark"
         ss={`
         max-width: 1000px;
         margin: 0 auto;

@@ -5,7 +5,7 @@ import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
-  classNames: ['bgSolid'],
+  classNames: ['bgColor'],
   color: '',
   shade: '',
   ss: '',
