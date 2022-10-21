@@ -11,18 +11,21 @@
   /* --color-info: #715fe4;
   --color-notice: #e38935; */
 }
-
 :root,
 [data-color*='light'] {
   --color-text: #666;
   --color-text-gradient: linear-gradient(
-    90deg,
+    180deg,
     #999,
     rgb(153, 153, 153, 0.153)
   );
 
   --color-bg: #efefef;
-  --color-bg-gradient: linear-gradient(90deg, #efefef, #ccc);
+  --color-bg-gradient: linear-gradient(
+    0deg,
+    rgb(238, 238, 238),
+    rgb(169, 184, 195)
+  );
 
   --color-notice: orange;
 
@@ -39,7 +42,12 @@
   --color-text-gradient: linear-gradient(90deg, #efefef, #ccc);
 
   --color-bg: hsl(226 0% 25%);
-  --color-bg-gradient: linear-gradient(90deg, hsl(226 0% 30%), hsl(226 0% 20%));
+  --color-bg-gradient: radial-gradient(
+      50% 50% at top center,
+      rgba(0, 0, 0, 0.66),
+      #262626
+    ),
+    linear-gradient(180deg, #fff, #262626);
 
   --color-notice: gold;
 

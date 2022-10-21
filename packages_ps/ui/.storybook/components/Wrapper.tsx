@@ -46,16 +46,14 @@ const Wrapper = ({ children, ...props }) => {
     margin-bottom: 0;
     font-weight: 700;
     letter-spacing: 0.6px;
-    > span {
-      text-shadow: 1px 1px 1px hsl(255deg 38% 20% / 10%);
-    }
+      text-shadow: 1px 1px 1px hsl(255deg 38% 20% / 30%);
   }
   h2 {
     font-weight: 700;
     letter-spacing: 0.3px;
     border:none;
     margin-bottom: -0.25rem;
-    text-shadow: 1px 1px 1px hsl(255deg 38% 20% / 10%);
+    text-shadow: 1px 1px 1px hsl(255deg 38% 20% / 20%);
   }
   a {
     color:var(--color-cta);
