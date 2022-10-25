@@ -20,13 +20,13 @@ const html = (theme) => `
       font-size: 15.5px;
     }
     ${theme.mq.phone} {
-      font-size: 14.5px;
+      font-size: 15.5px;
     }
     ${theme.mq.smallPhone} {
       font-size: 14.5px;
     }
     ${theme.mq.tinyPhone} {
-      font-size: 13.5px;
+      font-size: 14.5px;
     }
   }
 
@@ -82,7 +82,6 @@ const html = (theme) => `
 
   a {
     cursor:pointer;
-    color:var(--color-cta);
     text-decoration:underline;
     &:hover {
       text-decoration:none;

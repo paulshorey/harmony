@@ -13,7 +13,7 @@ export default function (props: any) {
     as: 'code',
   });
   return (
-    <CanvasContainer color="light">
+    <CanvasContainer bgColor="light" scheme="light">
       <Block>
         Text can be used <Heading {...props}> as="h2"</Heading>, or{' '}
         <Code {...props}> as="&lt;code&gt;"</Code>, or as almost any other HTML

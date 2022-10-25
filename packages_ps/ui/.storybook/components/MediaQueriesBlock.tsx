@@ -21,8 +21,7 @@ const Mq = withBlock({
 const MediaQueriesDemo = () => (
   <>
     <Block as="h5" ss="margin-top:1rem;">
-      These <span data-color="gold">props </span> apply to your current page
-      size:
+      These <span color="gold">props </span> apply to your current page size:
     </Block>
     <pre>{`<Block `}</pre>
     <div>

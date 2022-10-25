@@ -8,9 +8,8 @@ const variantKeys = Object.keys(variants);
 export const Block = _box.bind({});
 Block.argTypes = argTypes(variantKeys);
 Block.args = {
-  'variants': ['card', 'hoverTilt'],
-  'data-color': 'light',
-  'variant': 'bgColor',
+  variants: ['card', 'hoverTilt'],
+  textColor: 'purple',
 };
 
 export default {

@@ -14,7 +14,7 @@ import { SvgSparkle } from '@ps/ui/.storybook/components/Decorations';
 <Wrapper ssAll="a { color: white; }">
 
 <h1>
-  <Block as="span" variant="gradient" data-color="rainbow" ss="margin-top:0;">
+  <Block as="span" textGradient="rainbow" ss="margin-top:0;">
     Harmony UI
   </Block>
 </h1>
@@ -28,7 +28,7 @@ import { SvgSparkle } from '@ps/ui/.storybook/components/Decorations';
   best.
 </p>
 
-Easily <Text as="b" variant="gradient" data-color="accent">bootstrap and maintain</Text> your own <Text as="b" variant="gradient" data-color="rainbow"> custom branded component library</Text> for all your <Text as="b" variant="gradient" data-color="accent"><SvgSparkle ss="" />multi/mono repo frontends<SvgSparkle ss="" /><SvgSparkle ss="" /></Text>. <span className="noWrap">This includes an innovative responsive styling system</span> to make implementing initial designs and redesigns faster and easier.
+Easily <Text as="b" textGradient="accent">bootstrap and maintain</Text> your own <Text as="b" textGradient="rainbow"> custom branded component library</Text> for all your <Text as="b" textGradient="accent"><SvgSparkle ss="" />multi/mono repo frontends<SvgSparkle ss="" /><SvgSparkle ss="" /></Text>. <span className="noWrap">This includes an innovative responsive styling system</span> to make implementing initial designs and redesigns faster and easier.
 
 The gradient text above is the most basic example of variants. Variants are like classNames but in Typescript, without name collisions.
 
@@ -36,12 +36,12 @@ The gradient text above is the most basic example of variants. Variants are like
   variant="transparentDark"
   code={`import Text from 'harmonyui/components/content/Text';
 ...
-<Text as="b" variant="gradient" data-color="accent"> bootstrap and maintain </Text>
-<Text as="b" variant="gradient" data-color="rainbow"> custom branded component library</Text>`}
+<Text as="b" textGradient="accent"> bootstrap and maintain </Text>
+<Text as="b" textGradient="rainbow"> custom branded component library</Text>`}
 />
 
 <p>
-  <Text as="b" variant="gradient" data-color="accent">
+  <Text as="b" textGradient="accent">
     💡 Not just for styling &ndash;
   </Text>{' '}
   <a>
@@ -67,11 +67,11 @@ The gradient text above is the most basic example of variants. Variants are like
 
 <p>
   <a>Media query shortcuts</a> let you{' '}
-  <Text as="b" variant="gradient" data-color="rainbow">
+  <Text as="b" textGradient="rainbow">
     painlessly style for multiple devices!
   </Text>{' '}
   You're not limited to just{' '}
-  <CodeInline variant="text" data-color="dark">
+  <CodeInline variant="text" color="dark">
     xs,sm,md,lg
   </CodeInline>{' '}
   or whatever you originally defined. Not limited to{' '}
@@ -121,7 +121,7 @@ const Demo = withBlock({ ss: 'display:none;' });
 
 ## CSS-in-JS is no longer tedious!
 
-- <a href="/" data-color="accent">
+- <a href="/" color="accent">
     Media queries
   </a> - you can easily style for multiple devices with JSX props, JS variables,
   or Styled Components

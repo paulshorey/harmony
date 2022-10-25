@@ -3,33 +3,13 @@ export default {
   position:relative;
 `,
 
-  bgColor: `
-    color: var(--color-text);
-  background: var(--color-bg);
-`,
-
-  bgGradient: `
-    color: var(--color-text);
-  background: var(--color-bg);
-  background-image: var(--color-bg-gradient);
-`,
-
   card: `
-    background-color: var(--color-bg);
+    background-color: var(--color-text);
     background: white;
     font-size: 1rem;
     border-radius: 0.5rem;
     box-shadow: 1px 2px 3px 2px rgba(0,0,0,0.1);
     padding: 0.75rem 0.75rem 0.95rem 1rem ;
-`,
-
-  flex: `
-  background-color: var(--color-bg);
-  background: white;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 1px 2px 3px 2px rgba(0,0,0,0.1);
-  padding: 0.75rem 0.75rem 0.95rem 1rem ;
 `,
 
   hoverTilt: (props) => `

@@ -6,9 +6,8 @@ import variants from './variants';
 
 const variantKeys = Object.keys(variants);
 const args = {
-  ss: '',
-  variants: ['bgGradient'],
-  color: 'purple',
+  bgGradient: 'purple',
+  ss: 'margin: 0 0.875rem 1.125rem 0;',
 };
 
 export const Button = Template.bind({});

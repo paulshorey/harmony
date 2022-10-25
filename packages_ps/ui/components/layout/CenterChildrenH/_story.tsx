@@ -15,7 +15,7 @@ export default (props: any) => {
         only to the right. This component makes text overflow to both left and
         right, evenly.
       </p>
-      <CenterH data-color="accent" {...props}>
+      <CenterH color="accent" {...props}>
         <h3 className="noWrap" style={{ fontWeight: 'bold' }}>
           This title tag has <CodeInline>white-space:nowrap</CodeInline>, so
           it's forced to stay on one line.

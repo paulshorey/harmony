@@ -1,12 +1,13 @@
 import React from 'react';
 import Modal from '.';
 import Button from '@ps/ui/components/form/Button';
+import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 
 export default (args: any) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div>
+    <CanvasContainer bgGradient="light" scheme="light">
       {/* <p>Accessible and ADA and WCAG Compliant!</p> */}
       <p>
         <input placeholder="Hit Tab key to focus inside each field on this page." />
@@ -33,6 +34,8 @@ export default (args: any) => {
           onClick={() => {
             setIsOpen(true);
           }}
+          bgGradient="light"
+          scheme="light"
         >
           Open modal
         </Button>
@@ -55,6 +58,6 @@ export default (args: any) => {
         top of the page again to get back to tediously find where you were in
         the form.
       </p> */}
-    </div>
+    </CanvasContainer>
   );
 };

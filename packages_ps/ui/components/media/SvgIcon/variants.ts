@@ -1,5 +1,7 @@
 export default {
   default: `
-  color: var(--color-bg);
+  position:relative;
+  display:inline-block;
+  color: var(--color-text);
 `,
 };

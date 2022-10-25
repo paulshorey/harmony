@@ -7,6 +7,7 @@ import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
 import ssComponentPropsType from '@ps/ui/types/component';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
+import { useTheme } from '@emotion/react';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -23,6 +24,7 @@ export const Component: (
   { href, children, rel, target, onClick, hrefLang = 'en-us', from, ...props },
   ref
 ) => {
+  const theme = useTheme();
   const [Styled, otherProps] = useStyledComponent(props, 'a', 'Link', variants);
 
   // const contextPage = useContext(PageContext) || {};
@@ -64,6 +66,9 @@ export const Component: (
     // track event
     analytics_track_link(options);
   };
+
+  // router
+  // let RouterLink = theme.RouterLink;
 
   // render children
   let A = (

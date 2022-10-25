@@ -40,7 +40,10 @@ const Wrapper = ({ children, ...props }) => {
   width:100%;
   padding: 3.1rem 5vw 100px;
 
-  color: var(--color-text);
+  &,
+  p {
+  font-size: 1rem;
+  }
 
   h1 {
     margin-bottom: 0;
@@ -54,7 +57,6 @@ const Wrapper = ({ children, ...props }) => {
     margin-bottom: -0.25rem;
   }
   a {
-    color:var(--color-cta);
     text-decoration:underline;
     &:hover {
       text-decoration:none;
@@ -88,10 +90,6 @@ const Wrapper = ({ children, ...props }) => {
   }
   b {
     font-weight: 600;
-  }
-
-  p {
-    font-size: 0.9em;
   }
 
   code {
@@ -133,14 +131,9 @@ const Wrapper = ({ children, ...props }) => {
   }, []);
 
   return (
-    <Block
-      {...props}
-      variant="bgGradient"
-      data-color="purple"
-      ss={containerCSS}
-    >
+    <Block {...props} bgColor="purple" scheme="dark" ss={containerCSS}>
       <Block
-        data-color="ondark"
+        color="ondark"
         ss={`
         max-width: 1000px;
         margin: 0 auto;

@@ -18,13 +18,12 @@ export default (
   styles?: Record<string, ssPropType>
 ): [React.ElementType, Record<string, any>] => {
   let {
-    color = '',
-    shade = '',
+    textColor = '',
+    textGradient = '',
+    bgColor = '',
+    bgGradient = '',
+    scheme = '',
     size = '',
-    dark = false,
-    light = false,
-    onDark = false, // old, deprecated, ignored
-    onLight = false, // old, deprecated, ignored
     ss,
     ssAll,
     ssAndroid,
@@ -72,10 +71,6 @@ export default (
     props.theme = theme;
     props.theme.instance = {
       variants: { default: true },
-      // @ts-ignore // checking if value exists for color
-      color,
-      size,
-      shade,
     };
   }
 
@@ -276,20 +271,26 @@ export default (
   props['data-variants'] = theme.instance.variants
     ? Object.keys(theme.instance.variants).join('-')
     : '';
-  if (shade) {
-    props['data-variants'] += '-' + shade;
-  }
-  if (color) {
-    props['data-variants'] += '-' + color;
-  }
   // will use this in CSS to target the component
   // props['data-component'] = componentName;
   props.className = props.className
     ? props.className + ' ' + componentName
     : componentName;
   // color (put on data attribute to not clash with 3rd party classNames)
-  if (color) {
-    props['data-color'] = color;
+  if (scheme) {
+    props['data-scheme'] = scheme;
+  }
+  if (bgColor || bgGradient) {
+    props['data-bgColor'] = bgColor || bgGradient;
+    if (bgGradient) {
+      props['data-bgGradient'] = true;
+    }
+  }
+  if (textColor || textGradient) {
+    props['data-textColor'] = textColor || textGradient;
+    if (textGradient) {
+      props['data-textGradient'] = true;
+    }
   }
   // return styled component
   let styledFunction = styled[tagName];

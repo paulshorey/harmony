@@ -21,7 +21,7 @@ export type ssPropType =
  */
 export type ssProps = {
   /**
-   * Render one or multiple as string[]. Local variants are specific to the component. Higher specificity. There are also global variants, which apply to all components. Part of the theme, in `styles/variants.ts`.
+   * One or multiple variants as a string[].
    */
   'variants'?: Array<string>;
   /**
@@ -151,19 +151,11 @@ export type ssProps = {
   /**
    * Set the color group for the current element and any children elements that choose to use it. Use whatever color group you've set in your global CSS file. You can import the default colors from @ps/ui/styles/global/variables.
    */
-  'data-color'?: string;
-  /**
-   * This component and all elements inside it will use theme.colors[colorGroup].dark (if defined), if not will fall back to alternative
-   */
-  'dark'?: boolean;
-  /**
-   * This component and all elements inside it will use theme.colors[colorGroup].light (if defined), if not will fall back to alternative
-   */
-  'light'?: boolean;
-  /**
-   * This refers to a color in the global stylesheet which you can import from styles/global/variables.css and modify. If does not exist, will be ignored. This simply adds a data-color attribute to the element, which will be used to style the element.
-   */
   'color'?: string;
+  /**
+   * "light" or "dark"
+   */
+  'scheme'?: 'light' | 'dark';
 };
 
 export type ReactForwardedRefType = any; // tsFix - what is the type of "ref" as returned by React.forwardRef()?

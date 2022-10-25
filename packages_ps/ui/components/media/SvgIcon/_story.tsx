@@ -5,12 +5,12 @@ import SvgIcon from '.';
 export default function (props: any) {
   useShowStorybookCode();
   return (
-    <CanvasContainer data-color="light" ss="width:120px;">
-      <SvgIcon {...props} />
+    <CanvasContainer bgColor="light">
+      <SvgIcon {...props} ss="width:120px;" />
     </CanvasContainer>
   );
 }
 
 export const code = `
-  <SvgIcon svg="sparkle1" data-color="purple" />
+  <SvgIcon svg="sparkle1" textColor="purple" />
 `;

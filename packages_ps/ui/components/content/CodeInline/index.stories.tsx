@@ -5,9 +5,9 @@ import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
-  'variant': '',
-  'data-color': '',
-  'ss': '',
+  variant: '',
+  color: '',
+  ss: '',
 };
 
 export const CodeInline = Template.bind({});

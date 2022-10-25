@@ -2,25 +2,26 @@ export default {
   default: (props: any) => `
     position:relative;
     padding: 0.125rem 0.25rem;
-    top: -0.125rem;
+    vertical-align:middle;
     white-space: pre;
     font-family: var(--font-family-code);
     font-size: 0.9rem;
     font-style: normal;
     text-decoration: none;
-    color: var(--color-text);
     border-radius: 4px;
+    display:inline-block;
+    overflow: hidden;
     &::before {
       content: " ";
       position:absolute;  
-      opacity: 0.9;
+      opacity: 0.15;
       top:0;
       left:0;
       width:100%;
       height:100%;
       z-index: 0;
-      background: var(--color-bg);
-      border: solid 1px var(--color-bg);
+      background: var(--color-text);
+      color: var(--color-bg);
     }
     > span {
       position: relative;

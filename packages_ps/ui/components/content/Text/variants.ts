@@ -4,15 +4,7 @@ export default {
 `,
 
   color: `
-color: var(--color-bg);
-`,
-
-  gradient: `
-background-color: var(--color-bg);
-background-image: var(--color-bg-gradient);
-background-size: 100%;
-background-clip: text;
--webkit-text-fill-color: transparent;
+color: var(--color);
 `,
 
   gradientUnderlined: `
@@ -42,9 +34,9 @@ background-size: 100%;
   &:hover {
     box-shadow: 0 0 50px rgb(17 17 17 / 20%);
     transform: rotate(-2deg) translateY(-2px) scale(1.05);
-    // ${props.theme.mq.sm} {
-    //   transform: rotate(-1.5deg) translateY(-1px) scale(1.025);
-    // }
+    ${props.theme.mq.sm} {
+      transform: rotate(-1.5deg) translateY(-1px) scale(1.025);
+    }
   }
 `,
 

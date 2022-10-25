@@ -8,8 +8,8 @@ const variantKeys = Object.keys(variants);
 export const SvgIcon = _box.bind({});
 SvgIcon.argTypes = argTypes(variantKeys);
 SvgIcon.args = {
-  'svg': 'sparkle1',
-  'data-color': 'purple',
+  svg: 'sparkle1',
+  textColor: 'purple',
 };
 
 export default {
