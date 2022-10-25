@@ -7,41 +7,42 @@ export default {
     display: inline-block;
     cursor: pointer;
     border: solid 1px;
-    border-color: var(--color-cta-darker);
+    border-color: var(--color-bg);
     box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
     padding: 12px 24px;
-    color: var(--color-cta-darker);
+    color: var(--color-text);
+    &:hover {
+      > * {
+        position:relative;
+        top: -1px;
+        left: -1px;
+      }
+    }
     &:not(:hover):not(:focus) {
       border-top-color: transparent;
       border-left-color: transparent;
       > * {
-        top: 0;
-        left: 0;
+        position:relative;
+        top: -1px;
+        left: -1px;
       }
     }
     &:focus {
       border-bottom-color: transparent;
       border-right-color: transparent;
-      > * {
-        position:relative;
-        top: 1px;
-        left: 1px;
-      }
       box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, 0.25);
       > * {
-        top: 1px;
-        left: 1px;
+        position:relative;
+        top: 0;
+        left: 0;
       }
     }
-    &:focus:hover,
-    &:focus-visible:hover {
-      outline: none !important;
-    }
+    &:focus,
     &:focus:not(:hover),
     &:focus-visible:not(:hover) {
       outline-style: double !important;
       outline-width: 1px !important;
-      outline-color: var(--color-cta-darker) !important;
+      outline-color: var(--color-info) !important;
     }
   `,
   // onDark: (props: any) => `
@@ -80,22 +81,15 @@ export default {
   // }
   // `,
   bgGradient: (props: any) => `
-    color: var(--color-cta-text);
-    text-shadow: 1px 1px 1px var(--color-cta-darker);
+    color: var(--color-text);
+    text-shadow: 1px 1px 1px var(--color-bg);
     background-size: 200% auto;
-    & {
-      background-image: linear-gradient(
-        150deg,
-        var(--color-cta-darker) -10%,
-        var(--color-cta-fro) 60%,
-        var(--color-cta-darker) 100%
-      ) !important;
-    }
+    background-image: var(--color-bg-gradient);
     &:hover,
     &:focus:not(:hover) {
       transition: background-position 300ms linear 0s;
       background-position: right center;
-      border-color: var(--color-cta-darker);
+      border-color: var(--color-bg);
     }
     &:focus {
     }
@@ -122,7 +116,7 @@ export default {
       background: none !important;
       color: var(--color-cta);
       &:hover:not(:focus) {
-        color: var(--color-cta-darker);
+        color: var(--color-bg);
         ${
           props?.onDark
             ? `

@@ -1,5 +1,5 @@
 export default {
-  default: (theme: any) => `
+  default: (props: any) => `
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -38,12 +38,27 @@ export default {
     min-height: 300px;
     transition: min-height 1s, border-radius 0.4s;
 
-    ${theme.mq.mobile} {
+    ${props.theme.mq.mobile} {
       margin: 0;
       padding: 15px 24px 15px 24px;
       transition: min-height 0.5s, border-radius 0.4s;
       border-radius: 0;
       min-height: 100%;
+    }
+
+    .reactModalCloseX {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1000000000;
+      img {
+        background: white;
+        border-radius: 50%;
+        border: solid 3px white;
+        width: 31px;
+        height: 31px;
+        margin: 8px;
+      }
     }
   `,
   cloudinary: (props: any) => `
@@ -61,20 +76,6 @@ export default {
       padding: 15px 23px 14px 21px;
       border-radius: 18px;
       letter-spacing: 0.5px;
-    }
-    .ModalCloseX {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 1000000000;
-      img {
-        background: white;
-        border-radius: 50%;
-        border: solid 3px white;
-        width: 31px;
-        height: 31px;
-        margin: 8px;
-      }
     }
     > div > div {
       position: absolute;

@@ -1,4 +1,4 @@
-import Box from '@ps/ui/components/content/Box';
+import Block from '@ps/ui/components/content/Block';
 import {
   ButtonHTMLAttributes,
   FC,
@@ -34,9 +34,9 @@ export const Component: (
   );
   return (
     <Styled {...otherProps} ref={ref}>
-      <Box variant="centered">
+      <Block variant="centered">
         <span>{children}</span>
-      </Box>
+      </Block>
     </Styled>
   );
 };

@@ -5,6 +5,7 @@ import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
+  variant: 'transparentDark',
   code: `import React, { useState } from "react";
 
 function Example() {
@@ -21,12 +22,8 @@ function Example() {
 }`,
   showNumbers: true,
   language: 'jsx',
-  variants: ['transparentDark'],
   prismTheme: {},
-  variant: '',
-  color: '',
-  shade: '',
-  ss: '',
+  ss: 'margin:0;',
 };
 
 export const Code = Template.bind({});

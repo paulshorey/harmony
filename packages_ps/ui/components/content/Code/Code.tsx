@@ -43,7 +43,7 @@ const Code = ({
   if (!theme) {
     theme = {
       ...themeDark,
-      ...{ plain: { backgroundColor: 'hsl(255deg 38% 20%)' } },
+      ...{ plain: { backgroundColor: 'hsl(50deg 2% 16%)' } }, // hsl(255deg 38% 20%)
     };
   }
   // customize theme from props
@@ -85,8 +85,8 @@ export const Pre = styled.pre`
   overflow: scroll;
 
   & .token-line {
-    line-height: 1.3em;
-    height: 1.3em;
+    line-height: 1.5em;
+    height: 1.5em;
   }
 `;
 

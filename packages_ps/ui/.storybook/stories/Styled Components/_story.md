@@ -10,7 +10,7 @@
 ### #2 @emotion/styled
 
 1. **Import:** `import { withButton } from ...` named export
-2. **Instantiate:** <code>Button = withButton({ color:'cta1', variant="textGradient" ss:'font-size:1rem;' })</code> with "common" props
+2. **Instantiate:** <code>Button = withButton({ color:'cta1', variant="gradient" ss:'font-size:1rem;' })</code> with "common" props
 3. **Use:** `<Button variant="bgGradient" ss="font-size: 1.5rem;font-weight:bold;" />` with "specific" props for this instance
 
 <br />
@@ -20,7 +20,7 @@ The "common" vs "specific" props will be intelligently combined. Style props `ss
 
 ```
   const DefaultButton = withButton({
-      variant:"textGradient",
+      variant:"gradient",
       ss:`
         font-size: 1rem;
         font-weight: 400;

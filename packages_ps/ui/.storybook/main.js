@@ -28,28 +28,34 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
-  // webpackFinal: async function supportCssModules(config) {
-  //   // console.log('1=================================')
-  //   // console.log('>>>config', config.module.rules)
-  //   // console.log('1=================================')
+  webpackFinal: async function supportCssModules(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ['@svgr/webpack'],
+    });
 
-  //   config.module.rules.find(
-  //     (rule) => rule.test.toString() === '/\\.css$/'
-  //   ).exclude = /\.module\.css$/;
+    //   // console.log('1=================================')
+    //   // console.log('>>>config', config.module.rules)
+    //   // console.log('1=================================')
 
-  //   config.module.rules.push({
-  //     test: /\.module\.css$/,
-  //     use: [
-  //       'style-loader',
-  //       {
-  //         loader: 'css-loader',
-  //         options: {
-  //           modules: true,
-  //         },
-  //       },
-  //     ],
-  //   });
+    //   config.module.rules.find(
+    //     (rule) => rule.test.toString() === '/\\.css$/'
+    //   ).exclude = /\.module\.css$/;
 
-  //   return config;
-  // },
+    //   config.module.rules.push({
+    //     test: /\.module\.css$/,
+    //     use: [
+    //       'style-loader',
+    //       {
+    //         loader: 'css-loader',
+    //         options: {
+    //           modules: true,
+    //         },
+    //       },
+    //     ],
+    //   });
+
+    return config;
+  },
 };

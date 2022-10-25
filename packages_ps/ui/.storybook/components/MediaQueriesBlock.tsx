@@ -1,9 +1,9 @@
 import React from 'react';
-import Box from '@ps/ui/components/content/Box';
+import Block from '@ps/ui/components/content/Block';
 import { IconNewTab } from './Components';
-import { withBox } from '@ps/ui/components/content/Box';
+import { withBlock } from '@ps/ui/components/content/Block';
 
-const Mq = withBox({
+const Mq = withBlock({
   ss: `
     line-height: 2;
     text-indent: 1rem;
@@ -20,11 +20,11 @@ const Mq = withBox({
 
 const MediaQueriesDemo = () => (
   <>
-    <Box as="h5" ss="margin-top:1rem;">
+    <Block as="h5" ss="margin-top:1rem;">
       These <span data-color="gold">props </span> apply to your current page
       size:
-    </Box>
-    <pre>{`<Box `}</pre>
+    </Block>
+    <pre>{`<Block `}</pre>
     <div>
       <Mq as="code" ssAll="display:block;">
         ss
@@ -117,17 +117,17 @@ const MediaQueriesDemo = () => (
         </span>
       </p>
 
-      <Box as="p" ssIframe="display:none;">
+      <Block as="p" ssIframe="display:none;">
         <span className="gold">
           ⚠️ There used to be a paragraph in this spot. But now it's gone!
         </span>{' '}
         That was just an easy media query to check for iframe:{' '}
         <code>
-          {`<`}Box as="p" ssNotIframe="display:none"{`>`}
+          {`<`}Block as="p" ssNotIframe="display:none"{`>`}
         </code>
         . There are similar ones for WebView, Portrait mode, etc.
-      </Box>
-      <Box as="p" ssNotIframe="display:none;">
+      </Block>
+      <Block as="p" ssNotIframe="display:none;">
         <span className="gold">
           😭 The values above may not reflect your true screen size...{' '}
         </span>
@@ -145,7 +145,7 @@ const MediaQueriesDemo = () => (
           </a>{' '}
           👈 Then, look back at this paragraph! 😏
         </span>
-      </Box>
+      </Block>
     </div>
   </>
 );

@@ -19,8 +19,8 @@ export const Component: (
 ) => ReactElement = ({ as, ...props }, ref) => {
   const [Styled, otherProps] = useStyledComponent(
     props,
-    as || 'svg',
-    'Svg',
+    as || 'span',
+    'Text',
     variants
   );
   return <Styled ref={ref} {...otherProps} />;
@@ -28,18 +28,18 @@ export const Component: (
 
 /*
  * Like StyledComponents' div`` but with added functionality:
- * import { withSvg } from 'components/content/Svg';
- * const Svg = withSvg({ ...thesePropsWillApplyToAllInstances });
- * <Svg {...optionalUniquePropsForCurrentInstance} />
+ * import { withText } from 'components/content/Text';
+ * const Text = withText({ ...thesePropsWillApplyToAllInstances });
+ * <Text {...optionalUniquePropsForCurrentInstance} />
  */
-export const withSvg = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Svg, props1, props2);
+export const withText = (props1: Props) => (props2: Props) => {
+  return withAddPropsToComponent(Text, props1, props2);
 };
 
 /*
  * Default export is a ready-to-use component:
  * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Svg" is same as default export. But IDEs like VSCode can read a named import better.
+ * Named "Text" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const Svg = memo(forwardRef(Component));
-export default Svg;
+export const Text = memo(forwardRef(Component));
+export default Text;

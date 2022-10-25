@@ -1,7 +1,7 @@
 export default {
   default: (props: any) => `
     `,
-  textGradient: (props: any) => {
+  gradient: (props: any) => {
     return `
         color: var(--color-cta);
         @supports (--css: variables) {

@@ -1,21 +1,32 @@
-import { withBox } from '@ps/ui/components/content/Box';
+import { withBlock } from '@ps/ui/components/content/Block';
 import Button from '.';
+import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 export default (args: any) => {
-  const Box = withBox({
-    id: 'BUTTON-TEST-PRVEIEW',
+  useShowStorybookCode();
+  const Content = withBlock({
     ss: 'padding:1rem;',
     variant: 'bgWhite',
   });
   return (
     <div>
-      <Box variant="bgWhite">
+      <Content variant="bgWhite" ss="padding-top:2rem;">
         <Button {...args}>Button text</Button>
-      </Box>
-      <Box variant="bgGradient" onDark>
-        <Button onDark {...args}>
-          Button text
-        </Button>
-      </Box>
+        <Button {...args}>With icon</Button>
+        <Button {...args}>Icon</Button>
+        <Button {...args}>With dropdown arrow</Button>
+      </Content>
+      <Content
+        variant="bgGradient"
+        ss="padding-bottom:2rem;"
+        data-color="ondark"
+      >
+        <Button {...args}>Button text</Button>
+        <Button {...args}>With icon</Button>
+        <Button {...args}>Icon</Button>
+        <Button {...args}>With dropdown arrow</Button>
+      </Content>
     </div>
   );
 };
+
+export const code = `import { withBlock } from '@ps/ui/components/content/Block';`;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Box from '@ps/ui/components/content/Box';
+import Block from '@ps/ui/components/content/Block';
 
 const Wrapper = ({ children, ...props }) => {
   /**
@@ -46,14 +46,12 @@ const Wrapper = ({ children, ...props }) => {
     margin-bottom: 0;
     font-weight: 700;
     letter-spacing: 0.6px;
-      text-shadow: 1px 1px 1px hsl(255deg 38% 20% / 30%);
   }
   h2 {
     font-weight: 700;
     letter-spacing: 0.3px;
     border:none;
     margin-bottom: -0.25rem;
-    text-shadow: 1px 1px 1px hsl(255deg 38% 20% / 20%);
   }
   a {
     color:var(--color-cta);
@@ -64,7 +62,7 @@ const Wrapper = ({ children, ...props }) => {
   }
 
   p {
-    text-shadow: 1px 1px 1px hsl(255deg 38% 20% / 10%);}
+  }
 
   .Code pre {
     border-radius: inherit;
@@ -74,9 +72,6 @@ const Wrapper = ({ children, ...props }) => {
 
   i, em {
     font-weight: 600;
-    // color: gold;
-    // font-style: inherit;
-    // font-weight: 700;
   }
 
   h3 {
@@ -138,8 +133,13 @@ const Wrapper = ({ children, ...props }) => {
   }, []);
 
   return (
-    <Box {...props} variant="bgGradient" data-color="purple" ss={containerCSS}>
-      <Box
+    <Block
+      {...props}
+      variant="bgGradient"
+      data-color="purple"
+      ss={containerCSS}
+    >
+      <Block
         data-color="ondark"
         ss={`
         max-width: 1000px;
@@ -147,8 +147,8 @@ const Wrapper = ({ children, ...props }) => {
       `}
       >
         {children}
-      </Box>
-    </Box>
+      </Block>
+    </Block>
   );
 };
 

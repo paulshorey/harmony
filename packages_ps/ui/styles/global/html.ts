@@ -6,27 +6,27 @@ const html = (theme) => `
     /*
      * Using responsive "rem" units to more easily style for all devices.
      */
-    font-size: 18px;
+    font-size: 16.5px;
     ${theme.mq.veryLargeDesktop} {
-      font-size: 20px;
+      font-size: 18.5px;
     }
     ${theme.mq.largeDesktop} {
-      font-size: 19px;
+      font-size: 17.5px;
     }
     ${theme.mq.desktop} {
-      font-size: 18px;
+      font-size: 16.5px;
     }
     ${theme.mq.tablet} {
-      font-size: 17px;
+      font-size: 15.5px;
     }
     ${theme.mq.phone} {
-      font-size: 16px;
+      font-size: 14.5px;
     }
     ${theme.mq.smallPhone} {
-      font-size: 16px;
+      font-size: 14.5px;
     }
     ${theme.mq.tinyPhone} {
-      font-size: 14px;
+      font-size: 13.5px;
     }
   }
 
@@ -67,7 +67,7 @@ const html = (theme) => `
     text-decoration:none;
     border:none;
     font-family: "HelveticaNeue", Helvetica, sans-serif;
-    line-height: 1.33;
+    line-height: 1.5;
     padding: 0;
     ${theme.mq.sm} {
       margin-left: auto;
@@ -81,6 +81,7 @@ const html = (theme) => `
   }
 
   a {
+    cursor:pointer;
     color:var(--color-cta);
     text-decoration:underline;
     &:hover {

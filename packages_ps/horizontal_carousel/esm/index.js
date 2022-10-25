@@ -70,7 +70,7 @@ class HorizontalCarousel {
     let { carousel } = this;
     // fix temporary chromium bug - happens to certain horizontal-scrolled elements - even if this script not included
     // actually looks pretty cool - looks intentional - on page load, it scrolls a little, to bring attention to divs
-    setTimeout(function() {
+    setTimeout(function () {
       if (typeof carousel === "undefined" || !carousel || !carousel.querySelector) return;
       let slides = carousel.querySelector(".slides");
       if (slides) {
@@ -183,9 +183,9 @@ class HorizontalCarousel {
  */
 function debounce(callback, wait) {
   let timeout = null;
-  return function() {
+  return function () {
     const callNow = !timeout;
-    const next = function() {
+    const next = function () {
       return callback(arguments);
     };
     clearTimeout(timeout);
@@ -225,7 +225,7 @@ export default HorizontalCarousel;
  */
 if (typeof window === "object") {
   window.horizontal_carousel = HorizontalCarousel;
-  window.horizontal_carousels = function(elements) {
+  window.horizontal_carousels = function (elements) {
     let refs = [];
     if (elements && elements.length) {
       for (let el of elements) {

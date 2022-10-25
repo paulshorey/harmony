@@ -1,17 +1,18 @@
 {' '}
+
 <br />
 In the future, would be nice to use <a
   href="https://github.com/BuilderIO/mitosis"
   target="_blank"
 >
   Mitosis
-</a> to transpile these <Box
+</a> to transpile these <Block
   as="strong"
   variant="textColorUnderlined"
   ss="display:inline;"
 >
   React
-</Box> components to any other JS framework.
+</Block> components to any other JS framework.
 
 This library does **not** attempt to **replace CSS** functionality like so many CSS-in-JS libraries. Instead it lets JS do what it's good at (define logic and state) while letting CSS do what it's good at (setting the color scheme on a parent that can later be accessed from a child element, without having to prop-drill or style each individual element separately). This is "CSS-and-JS" living in harmony.
 
@@ -21,7 +22,7 @@ However, I love Typescript. It's great for almost everything else. So even thoug
 
 <Code
   variant="transparentDark"
-  code={`const SvgSparkle = withBox({
+  code={`const SvgSparkle = withBlock({
   as: 'svg',
   ss: \`display:inline-block;position:absolute;width:0;height:0;color:var(--colors-accent);\`,
   children: <path d="..." fill="currentColor" />,
@@ -39,7 +40,7 @@ code={`import Span from '@ps/ui/components/content/Span';
 
 {' '}
 
-<Span variant="textGradient" data-color="accent">
+<Span variant="gradient" data-color="accent">
   your own
 </Span> <Span variant="textColorUnderline" data-color="rainbow">
   {' '}
@@ -63,7 +64,7 @@ code={`import Span from '@ps/ui/components/content/Span';
   variant="transparentDark" 
   code={\`import Span from '@ps/ui/components/content/Span';
   ...
-  <Span variant="textGradient" data-color="accent">your own</Span> <Span variant="textColorUnderline" data-color="rainbow"> custom branded </Span>
+  <Span variant="gradient" data-color="accent">your own</Span> <Span variant="textColorUnderline" data-color="rainbow"> custom branded </Span>
   \`}
   caption={<>Easy! And wait till you <a href="/?path=/docs/about-200--page" target="_top">read about the Media Query shortcuts!</a></>}
 />`}

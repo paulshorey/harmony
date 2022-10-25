@@ -1,11 +1,12 @@
-import { Props as BoxProps } from '@ps/ui/components/content/Box';
+import { Props as BlockProps } from '@ps/ui/components/content/Block';
 import { memo, useEffect, forwardRef, ReactElement } from 'react';
 import ReactModal from 'react-modal';
 import variants from './variants';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
+import Button from '@ps/ui/components/form/Button';
 
-export type Props = BoxProps & {
+export type Props = BlockProps & {
   contentLabel?: string;
   isOpen: boolean;
   label?: string;
@@ -24,6 +25,7 @@ export const Component: (
     contentLabel = '',
     children,
     showClose = true,
+    ShowClose,
     type = '',
     ...props
   },
@@ -49,28 +51,31 @@ export const Component: (
     }
   }, [isOpen]);
 
+  const ShowCloseButton = ShowClose || (
+    <Button
+      className="reactModalCloseX"
+      onClick={() => {
+        onClose();
+      }}
+      role="button"
+      tabIndex={0}
+    >
+      X
+    </Button>
+  );
+
   return (
     <ReactModal
       {...otherProps}
+      ariaHideApp={false}
       contentLabel={contentLabel}
       isOpen={isOpen}
       onRequestClose={onClose}
-      overlayClassName="ReactModalOverlay"
+      overlayClassName="reactModalOverlay"
     >
       <Styled ref={ref}>
         {children}
-        {showClose && (
-          <span
-            className="ModalCloseX"
-            onClick={() => {
-              onClose();
-            }}
-            role="button"
-            tabIndex={0}
-          >
-            <img alt="x" src="/icons/x-nocircle.svg" />
-          </span>
-        )}
+        {showClose && ShowCloseButton}
       </Styled>
     </ReactModal>
   );

@@ -1,22 +1,22 @@
-import Box, { withBox } from '@ps/ui/components/content/Box';
+import Block, { withBlock } from '@ps/ui/components/content/Block';
 import { withButton } from '@ps/ui/components/form/Button';
 import CanvasContainerImport from '@ps/ui/.storybook/components/CanvasContainer';
 import WrapperImport from '@ps/ui/.storybook/components/Wrapper';
 
 export const Wrapper = WrapperImport;
 export const CanvasContainer = CanvasContainerImport;
-export const CanvasContent = withBox({
+export const CanvasContent = withBlock({
   ss: ``,
 });
-export const Container = withBox({
+export const Container = withBlock({
   ss: (props) =>
     `padding: 1.2rem 1rem 1.9rem; ${
       props.theme.instance.variants['bgGradient'] && `padding-top: 1.3rem;`
     }`,
 });
-export const Content = withBox({ ss: `padding: 0` });
-export const Title = withBox({
-  // variant: 'textGradient',
+export const Content = withBlock({ ss: `padding: 0` });
+export const Title = withBlock({
+  // variant: 'gradient',
   ss: `padding: 0.125rem 0 0 0.25rem;`,
 });
 export const Button = withButton({

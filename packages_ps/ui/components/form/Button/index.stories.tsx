@@ -1,14 +1,14 @@
-import { Component } from ".";
-import Template from "./_story";
-import description from "./_story.md";
-import { argTypes } from "@ps/ui/styles/storybook";
-import variants from "./variants";
+import { Component } from '.';
+import Template, { code } from './_story';
+import description from './_story.md';
+import { argTypes } from '@ps/ui/styles/storybook';
+import variants from './variants';
 
 const variantKeys = Object.keys(variants);
 const args = {
-  ss: "",
-  variants: ["bgGradient"],
-  color: "cta2",
+  ss: '',
+  variants: ['bgGradient'],
+  color: 'purple',
 };
 
 export const Button = Template.bind({});
@@ -18,7 +18,7 @@ Button.args = args;
 export default {
   component: Component,
   parameters: {
-    viewMode: "docs",
+    viewMode: 'docs',
     previewTabs: {
       canvas: { hidden: true },
     },
@@ -27,7 +27,7 @@ export default {
         component: description,
       },
       source: {
-        code: `<Box ss="padding:2rem;"><Button {...args}>Button text</Button></Box>`,
+        code,
       },
     },
   },

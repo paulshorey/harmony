@@ -1,24 +1,26 @@
 export default {
   default: (props: any) => `
     position:relative;
-    padding: 0.25rem;
+    padding: 0.125rem 0.25rem;
+    top: -0.125rem;
     white-space: pre;
     font-family: var(--font-family-code);
     font-size: 0.9rem;
     font-style: normal;
     text-decoration: none;
-    color: var(--color-bg-text);
+    color: var(--color-text);
     border-radius: 4px;
     &::before {
       content: " ";
-      position:absolute;
+      position:absolute;  
+      opacity: 0.9;
       top:0;
       left:0;
       width:100%;
       height:100%;
       z-index: 0;
-      background: var(--color-bg-lighter);
-      border: solid 1px var(--color-bg-darker);
+      background: var(--color-bg);
+      border: solid 1px var(--color-bg);
     }
     > span {
       position: relative;
@@ -35,7 +37,8 @@ export default {
   `,
   noBg: (props: any) => `
     &::before {
-      display:none;
+      opacity: 0.25;
+      background-color: transparent;
     }
   `,
   text: (props: any) => `
@@ -55,6 +58,7 @@ export default {
   `,
   redacted: (props: any) => `
     &::before {
+      opacity: 1;
       z-index: 10;
     }
   `,

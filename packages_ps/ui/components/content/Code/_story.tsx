@@ -1,8 +1,8 @@
-import Component from '.';
+import Code from '.';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 export default (props: any) => (
   <CanvasContainer>
-    <Component {...props} />
+    <Code {...props} />
   </CanvasContainer>
 );
 

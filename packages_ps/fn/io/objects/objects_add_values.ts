@@ -11,7 +11,7 @@ export default function objects_add_values(
   stringDelimeter: string = "",
   removeKeys?: Array<string>,
   addKeys?: Array<string>,
-  currentKeyNameInParentObject?: string
+  key?: string
 ): any {
   // The order of each if statement is important.
   if (!val1 && !val2) return null; // What is the ideal way to handle this?
@@ -22,9 +22,9 @@ export default function objects_add_values(
     return val2;
   }
   if (typeof val1 === "number" || typeof val1 === "string" || typeof val2 === "string") {
-    if (addKeys && currentKeyNameInParentObject) {
+    if (addKeys && key) {
       for (let addKey of addKeys) {
-        if (currentKeyNameInParentObject.substring(0, addKey.length) === addKey) {
+        if (key.substring(0, addKey.length) === addKey) {
           return val1 + stringDelimeter + val2;
         }
       }
@@ -47,7 +47,7 @@ export default function objects_add_values(
       if (removeKeys && removeKeys.includes(key)) {
         continue;
       }
-      obj[key] = objects_add_values(val1[key], val2[key], stringDelimeter);
+      obj[key] = objects_add_values(val1[key], val2[key], stringDelimeter, removeKeys, addKeys, key);
     }
     return obj;
   }

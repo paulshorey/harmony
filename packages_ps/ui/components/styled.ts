@@ -6,11 +6,11 @@ const Button = styled.button`
 `;
  */
 import { styledTags } from '../types/html';
-import { withBox } from '@ps/ui/components/content/Box';
+import { withBlock } from '@ps/ui/components/content/Block';
 // import { withInput } from "@ps/ui/components/content/form/Button";
 export default {
   get: (tagName: styledTags) =>
-    withBox({
+    withBlock({
       'as': tagName,
       'data-styled-tag': tagName,
     }),

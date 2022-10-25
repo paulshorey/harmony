@@ -1,14 +1,14 @@
 import { Component } from '.';
-import _box, { code } from './_story';
+import _story, { code } from './_story';
 import description from './_story.md';
 import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
 const variantKeys = Object.keys(variants);
 
-export const Box = _box.bind({});
-Box.argTypes = argTypes(variantKeys);
-Box.args = {
-  'variant': 'textGradient',
+export const Text = _story.bind({});
+Text.argTypes = argTypes(variantKeys);
+Text.args = {
+  'variant': 'gradient',
   'data-color': 'purple',
   'ss': 'display:inline-block;',
 };

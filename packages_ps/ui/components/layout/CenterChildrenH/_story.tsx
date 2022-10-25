@@ -12,9 +12,10 @@ export default (props: any) => {
       <p>
         Regular text-align:center can only center what fits inside it. If a line
         exceeds the width of the parent, it stops being centered, and overflows
-        to the right.
+        only to the right. This component makes text overflow to both left and
+        right, evenly.
       </p>
-      <CenterH {...props}>
+      <CenterH data-color="accent" {...props}>
         <h3 className="noWrap" style={{ fontWeight: 'bold' }}>
           This title tag has <CodeInline>white-space:nowrap</CodeInline>, so
           it's forced to stay on one line.

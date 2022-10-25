@@ -1,13 +1,12 @@
-import { withBox } from '@ps/ui/components/content/Box';
+import { withBlock } from '@ps/ui/components/content/Block';
 
-const CanvasContainer = withBox({
+const CanvasContainer = withBlock({
   'variant': 'bgGradient',
   'data-color': 'purple',
   'ss': `
     margin:0;
     padding:1.75rem 1.5rem 2.25rem;
     display:block;
-    overflow:auto;
     `,
   'ssPhone': `padding-left: 0.75rem; padding-right: 0.75rem;`,
 });

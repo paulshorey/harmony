@@ -149,7 +149,7 @@ export type ssProps = {
    */
   'data-variants'?: string;
   /**
-   * (This needs to be a Typescript enum! Then it will show a dropdown selector here in Storybook.) Set the color for the current element and any children elements that choose to use it. Use whatever color you set in your variables.css file. You can import the default file to start: @ps/ui/styles/global/variables.css
+   * Set the color group for the current element and any children elements that choose to use it. Use whatever color group you've set in your global CSS file. You can import the default colors from @ps/ui/styles/global/variables.
    */
   'data-color'?: string;
   /**
