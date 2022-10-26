@@ -5,9 +5,7 @@
   "workspaces": [
     "apps/*",
     "apis/*",
-    "packages_ps/*",
-    "packages_npm/*",
-    "clis/*"
+    "modules/*"
   ],
   "scripts": {
     "build": "turbo run build",

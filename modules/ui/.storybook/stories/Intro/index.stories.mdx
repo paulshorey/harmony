@@ -1,0 +1,102 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Block from '@ps/ui/components/content/Block';
+import Text from '@ps/ui/components/content/Text';
+import Code from '@ps/ui/components/content/Code';
+import CodeInline from '@ps/ui/components/content/CodeInline';
+import AppProvider from '@ps/ui/components/utils/AppProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import { BulletNumber, SvgSparkle } from '@ps/ui/.storybook/components/Decorations';
+
+<Meta title="Why another UI library ?" id="about-1" />
+
+<AppProvider>
+
+<Wrapper ssAll="a { color: white; }">
+
+<h1>
+  <Block as="span" textgradient="rainbow">
+    This is not a component library
+  </Block>
+</h1>
+
+It's a way to easily <Text as="b" textgradient="accent">bootstrap and maintain</Text> your own <Text as="b" textgradient="rainbow"> custom branded component library</Text> for all your <Text as="b" textgradient="accent"><SvgSparkle ss="" />multi/mono repo frontends<SvgSparkle ss="" /><SvgSparkle ss="" /></Text>. <br />
+It's <BulletNumber>1</BulletNumber> a pre-configured mono/multi repo, <BulletNumber>2</BulletNumber> a styling system to make branding easier <BulletNumber>3</BulletNumber> and a few components to get you started.
+
+<Block as="h2" ss="margin-top:2rem;">
+  <Block as="span" textgradient="rainbow">
+    For a better DX and UX
+  </Block>
+</Block>
+
+Instead of trying to rewrite CSS in JS, or giving up and just using classNames for everything, let <a>CSS and JS</a> to work in harmony, each doing what they do best. This library uses a very small global stylesheet only to manage colors and lights/darks. Colors are set by real CSS, not JS, so every element knows if it's on dark or light background, and can choose to use lighter or darker shades:
+
+<Code
+  variant="transparentDark"
+  code={`import Text from 'harmonyui/components/content/Text';
+//
+<Text as="b" textgradient="accent"> bootstrap and maintain </Text>
+<Text as="b" textgradient="rainbow"> custom branded component library</Text>`}
+/>
+
+<p>
+  <a>Media query shortcuts</a> let you{' '}
+  <Text as="b" textgradient="rainbow">
+    painlessly style for multiple devices!
+  </Text>{' '}
+  You're not limited to just{' '}
+  <CodeInline variant="text" color="purple">
+    xs,sm,md,lg
+  </CodeInline>{' '}
+  or whatever you originally defined. Not limited to{' '}
+  <CodeInline variant="text" code={`min-width`} /> either. Instead, use{' '}
+  semantic prop names like <CodeInline variant="text" code={`ssTablet`} /> (or{' '}
+  <CodeInline variant="text" code={`theme.mq.tablet`} />) to style tablets (between 601-1024px). Each media query prop can accept
+  a <CodeInline variant="text" code={`string`} />,{' '}
+  <CodeInline variant="text" code={`(props)=>string`} /> function, or CSS-in-JS
+  object.
+</p>
+
+<Code
+  variant="transparentDark smaller"
+  code={`import { withBlock } from 'harmonyui/components/content/Block';
+const Demo = withBlock({ ss: 'display:none;' });
+//
+<Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>
+<Demo ssIframe="display:block"> apply style only if rendered inside an iframe (like Storybook or website widget) </Demo>
+// You can adjust breakpoint sizes in your theme.
+<Demo ssPhone="display:block"> style only phones (<=600px) </Demo>
+<Demo ssSmallPhone="display:block"> style only small phones like the Mini or X (<=400) </Demo>
+<Demo ssLargeTablet="display:block"> style only larger tablets (768-1024px) </Demo>
+// People's desktop screens are very rarely <=1024px nowadays. Most iPads are 1024px wide. 
+<Demo ssDesktop="display:block"> only Desktop ( >1024px )</Demo>
+<Demo ssMobile="display:block"> only Mobile ( <=1024px )</Demo>
+<Demo ssLg="display:block"> "large" screens including larger tablets ( >930px )</Demo>
+<Demo ssSm="display:block"> "small" screens including smaller tablets ( <=930px )</Demo>
+// And many more. Each is only included in the bundle if you use it. `}
+/>
+
+<br />
+<br />
+
+## CSS-in-JS is no longer tedious!
+
+<p>
+  <Text ssPhone="display:none;">👈 </Text>
+  <Text ssNotPhone="display:none;">👇 </Text>
+  Go ahead and explore the sidebar. Below each component's story is a documentation of props it accepts.
+</p>
+
+<p>
+  <br />
+  This is just an experiment. Not production ready. Not stable yet. Needs
+  more components and much more testing.
+  <br />
+  If you like this approach, please contribute <a>on Github</a> or open an issue
+  to discuss. Thank you! 
+  <br />
+  Please reach out with any questions or ideas. Let's collaborate! ~ <a href="https://paulshorey.com" target="_blank">Paul Shorey</a>
+</p>
+
+</Wrapper>
+
+</AppProvider>

@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    [
+      "babel-plugin-@emotion/styled",
+      {
+        "ssr": true, // https://@emotion/styled.com/docs/tooling#serverside-rendering
+        "displayName": false, // https://@emotion/styled.com/docs/tooling#better-debugging
+        "fileName": false, // https://@emotion/styled.com/docs/tooling#control-the-components-displayname
+        "meaninglessFileNames": ["index", "styles", "variants"],
+        "pure": true // https://@emotion/styled.com/docs/tooling#dead-code-elimination
+        // See also:
+        // Interpolation of styles:
+        // https://@emotion/styled.com/docs/basics#extending-styles
+      }
+    ]
+  ]
+}
