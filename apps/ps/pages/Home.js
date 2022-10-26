@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import styled from '@emotion/styled';
-import Block from '@ps/ui/components/content/Block';
-import Code from '@ps/ui/components/content/Code';
+import CenterChildrenV from '@ps/ui/components/layout/CenterChildrenV';
+import CenterChildrenH from '@ps/ui/components/layout/CenterChildrenH';
 import Button from '@ps/ui/components/form/Button';
 import Modal from '@ps/ui/components/content/Modal';
 
@@ -19,52 +19,46 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <H1>This is styled using a styled component</H1>
-        <h2>This is styled using a global styled component</h2>
-        <Block as="h1">Test box</Block>
-        <Code
-          code={`const fad = 'dasf afdafddfsfds  dsf afds afd fds adfs afd fds';`}
-          language="javascript"
-        />
-
-        <p>
-          <input placeholder="Hit Tab key to focus inside each field on this page." />
-        </p>
-        <p>
-          <textarea>
-            Ideally, the focus should be trapped inside the modal while the
-            modal is opened. Hitting tab should navigate the form fields inside
-            the modal.
-          </textarea>
-        </p>
-        <Modal
-          isOpen={isOpen}
-          onClose={() => {
-            setIsOpen(false);
-          }}
-        >
-          <h2>Hello! This title is inside a modal</h2>
-          <p>This is not finished. Just started. Please check back soon.</p>
-        </Modal>
-        <p>
-          <Button
-            onClick={() => {
-              setIsOpen(true);
+        <CenterChildrenV ss="height:100vh;">
+          <p>
+            <input placeholder="Hit Tab key to focus inside each field on this page." />
+          </p>
+          <p>
+            <textarea>
+              Ideally, the focus should be trapped inside the modal while the
+              modal is opened. Hitting tab should navigate the form fields
+              inside the modal.
+            </textarea>
+          </p>
+          <Modal
+            isOpen={isOpen}
+            onClose={() => {
+              setIsOpen(false);
             }}
-            variant="primary"
           >
-            Open modal
-          </Button>
-        </p>
-        <p>
-          <textarea>
-            Then, after the modal has closed, the focus should be returned to
-            the button that opened the modal.
-          </textarea>
-        </p>
-        <p>
-          <input placeholder="Another input field to test focus with." />
-        </p>
+            <h2>Hello! This title is inside a modal</h2>
+            <p>This is not finished. Just started. Please check back soon.</p>
+          </Modal>
+          <p>
+            <Button
+              onClick={() => {
+                setIsOpen(true);
+              }}
+              variant="primary"
+            >
+              Open modal
+            </Button>
+          </p>
+          <p>
+            <textarea>
+              Then, after the modal has closed, the focus should be returned to
+              the button that opened the modal.
+            </textarea>
+          </p>
+          <p>
+            <input placeholder="Another input field to test focus with." />
+          </p>
+        </CenterChildrenV>
       </main>
     </div>
   );

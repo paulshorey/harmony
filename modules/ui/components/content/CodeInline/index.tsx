@@ -8,10 +8,10 @@ export type Props = {
   code?: string;
 } & BlockProps;
 
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = ({ as, children, ...props }, ref) => {
+export const Component: (props: Props, ref?: any) => ReactElement = (
+  { as, children, ...props },
+  ref
+) => {
   const [Styled, otherProps] = useStyledComponent(
     props,
     'code',

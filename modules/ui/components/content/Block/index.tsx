@@ -13,10 +13,10 @@ export type Props = HTMLAttributes<HTMLDivElement> &
     as?: styledTags;
   } & Record<string, any>;
 
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = ({ as, ...props }, ref) => {
+export const Component: (props: Props, ref?: any) => ReactElement = (
+  { as, ...props },
+  ref
+) => {
   const [Styled, otherProps] = useStyledComponent(
     props,
     as || 'div',

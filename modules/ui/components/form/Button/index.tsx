@@ -44,10 +44,10 @@ export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
 /**
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = ({ onClick, ...props }, ref) => {
+export const Component: (props: Props, ref?: any) => ReactElement = (
+  { onClick, ...props },
+  ref
+) => {
   /*
    * Props logic
    */

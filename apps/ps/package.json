@@ -12,6 +12,7 @@
     "serve-storybook": "serve storybook-static"
   },
   "dependencies": {
+    "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@floating-ui/react-dom": "^1.0.0",

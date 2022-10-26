@@ -6,10 +6,10 @@ import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
 export type Props = BlockProps;
 
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = ({ as, children, ...props }, ref) => {
+export const Component: (props: Props, ref?: any) => ReactElement = (
+  { as, children, ...props },
+  ref
+) => {
   const [Styled, otherProps] = useStyledComponent(
     props,
     'div',

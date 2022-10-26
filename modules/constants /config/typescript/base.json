@@ -20,7 +20,7 @@
     "checkJs": true,
     "allowJs": true,
     "jsx": "preserve",
-    "types": ["@emotion/core", "jest", "node", "@testing-library/jest-dom"]
+    "types": ["node"]
   },
   "exclude": ["node_modules"]
 }

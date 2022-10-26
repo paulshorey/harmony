@@ -15,10 +15,7 @@ export type Props = BlockProps & {
   type?: string;
 };
 
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = (
+export const Component: (props: Props, ref?: any) => ReactElement = (
   {
     isOpen,
     onClose = () => {},

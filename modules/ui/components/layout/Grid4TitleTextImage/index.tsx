@@ -10,10 +10,10 @@ export type Props = BlockProps;
  * IMPORTANT:
  * title, text, and image must each contain exactly one React JSX child. DO NOT USE the React.Fragment <></>
  */
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = ({ image, text, title, as, ...props }: any, ref?: any) => {
+export const Component: (props: Props, ref?: any) => ReactElement = (
+  { image, text, title, as, ...props }: any,
+  ref?: any
+) => {
   const [Styled, otherProps] = useStyledComponent(
     props,
     as || 'div',

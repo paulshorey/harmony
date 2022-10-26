@@ -17,10 +17,7 @@ export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   from?: string;
 } & ssComponentPropsType;
 
-export const Component: (
-  props: Props,
-  ref?: ReactForwardedRef
-) => ReactElement = (
+export const Component: (props: Props, ref?: any) => ReactElement = (
   { href, children, rel, target, onClick, hrefLang = 'en-us', from, ...props },
   ref
 ) => {

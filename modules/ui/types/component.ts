@@ -218,8 +218,6 @@ export type ssProps = {
   'data-variants'?: string;
 };
 
-export type ReactForwardedRefType = any; // tsFix - what is the type of "ref" as returned by React.forwardRef()?
-
 export type ssComponentPropsType = ssProps;
 
 export default ssComponentPropsType;
