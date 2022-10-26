@@ -7,7 +7,7 @@ import CodeComponent, { Props as CodeProps } from './Code';
 
 export type Props = BlockProps & CodeProps;
 
-export const Component = (props: Props) => {
+export const Component = (props) => {
   const [Styled, otherProps]: any = useStyledComponent(
     props,
     'div',

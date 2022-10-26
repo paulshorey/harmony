@@ -1,7 +1,7 @@
 import Block from '@ps/ui/components/content/Block';
 import Component from '.';
 
-export default (props: props) => (
+const Story (props) => (
   <Block variant="centered">
     <Component
       variant={'titleImageTextImage'}
@@ -19,3 +19,5 @@ export default (props: props) => (
     />
   </Block>
 );
+
+export default Story;

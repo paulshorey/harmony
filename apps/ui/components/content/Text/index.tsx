@@ -1,7 +1,6 @@
 import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
-import ssComponentPropsType from '@ps/ui/types/component';
-import { styledTags } from '@ps/ui/types/component';
+import ssComponentPropsType, { styledTags } from '@ps/ui/types/component';
 import variants from './variants';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 

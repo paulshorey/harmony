@@ -2,7 +2,8 @@ import CenterH from '.';
 import CodeInline from '@ps/ui/components/content/CodeInline';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
-export default (props: any) => {
+
+const Story = (props: any) => {
   useShowStorybookCode();
   return (
     <CanvasContainer ss="text-align:center;padding:2rem;max-width:440px;margin:0 auto;">
@@ -36,6 +37,7 @@ export default (props: any) => {
     </CanvasContainer>
   );
 };
+export default Story;
 
 export const code = `import CenterH from '@ps/ui/components/content/CenterH';
 
