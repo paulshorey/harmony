@@ -11,71 +11,84 @@
 }
 
 /*
- * Default. To change default scheme to dark, replace all uses of 'light' and 'dark' only in this file.
- * 1. <Block scheme="light" /> - this will use the "light" color scheme
- * 2. <a href="" data-bgColor="light"> - for any HTML markup that's not a component in this library
+ * Default background color is light. Same as:
+ * <Block bgcolor="light"> or
+ * <div data-bgcolor="light">
  */
 :root,
-[data-bgColor='light'] {
-  color: var(--color-text);
+[data-bgcolor='light'] {
+  --color-bg: #efefef;
+  --color-bg-gradient: radial-gradient(
+    80% 80% at top center,
+    hsl(205, 10%, 83%),
+    hsl(205, 5%, 100%)
+  );
+}
+
+/*
+ * Default text color is dark. Same as:
+ * <Block textcolor="dark"> or
+ * <div data-textcolor="dark">
+ */
+:root,
+[data-textcolor='dark'] {
   --color-text: hsla(0, 0%, 20%, 93%);
   --color-text-gradient: radial-gradient(
     50% 50% at top center,
     hsla(257, 42%, 28%, 75%),
     hsla(257, 42%, 28%, 95%)
   );
-  --color-bg: #efefef;
-  --color-bg-gradient: linear-gradient(
-    175deg,
-    hsl(205, 10%, 83%),
-    hsl(205, 5%, 100%)
-  );
-  --color-notice: hsl(39deg 95% 50%);
+  --color-cta: hsl(175, 75%, 35%);
+  --color-accent: hsl(37deg 100% 42%);
 }
 
 /*
- * Alternative color scheme.
- * 1. <Block scheme="dark" /> - this will use the "dark" color scheme
- * 2. <a href="" data-bgColor="dark"> - for any HTML markup that's not a component in this library
+ * Light text. Use:
+ * <Block textcolor="light"> or
+ * <div data-textcolor="light">
  */
-[data-bgColor='dark'],
-[data-bgColor='purple'] {
-  color: var(--color-text);
+[data-textcolor='light'] {
   --color-text: hsla(0, 0%, 94%, 94%);
-  --color-text-gradient: linear-gradient(
-    175deg,
-    hsl(205, 10%, 85%),
-    hsl(205, 5%, 95%)
+  --color-text-gradient: radial-gradient(
+    80% 80% at top center,
+    hsl(205, 5%, 98%),
+    hsl(205, 10%, 80%)
   );
+  --color-cta: hsl(39deg 95% 50%);
+  --color-accent: hsl(49deg 98% 47%);
+}
+
+/*
+ * Dark background. Use:
+ * <Block bgcolor="dark"> or
+ * <div data-bgcolor="dark">
+ */
+[data-bgcolor='dark'] {
   --color-bg: hsla(256, 29%, 29%, 0.85);
   --color-bg-gradient: radial-gradient(
     50% 50% at top center,
     hsla(257, 42%, 28%, 75%),
     hsla(257, 42%, 28%, 95%)
   );
-  --color-notice: hsl(49deg 98% 47%);
 }
 
 /*
- * 1. <Button color="purple" /> - this will use the "purple" color scheme
- * 2. <a href="" data-color="purple"> - for any HTML markup that's not a component in this library
+ * Purple
  */
-[data-textColor='purple'] {
-  color: var(--color-text);
-  --color-text: #715fe4;
-  --color-text-gradient: linear-gradient(300deg, hsl(272 51% 54%), #7463f1);
-}
-[data-bgColor='purple'] {
+[data-bgcolor='purple'] {
   --color-bg: #715fe4;
   --color-bg-gradient: linear-gradient(300deg, hsl(272 51% 54%), #7463f1);
 }
+[data-textcolor='purple'] {
+  --color-text: #715fe4;
+  --color-text-gradient: linear-gradient(300deg, hsl(272 51% 54%), #7463f1);
+}
 
 /*
- * 1. <Button color="accent" /> - this will use the "accent" color scheme
- * 2. <a href="" data-color="accent"> - for any HTML markup that's not a component in this library
+ * Accent
  */
-[data-textColor='accent'] {
-  --color-text: hsl(38deg 100% 42%);
+[data-textcolor='accent'] {
+  --color-text: var(--color-accent);
   --color-text-gradient: linear-gradient(
     190deg,
     hsl(39, 100%, 50%),
@@ -87,11 +100,7 @@
     hsl(39, 100%, 50%)
   );
 }
-[data-bgColor='dark'] [data-textColor='accent'],
-[data-bgColor='purple'] [data-textColor='accent'] {
-  --color-text: hsl(50deg 100% 45%);
-}
-[data-bgColor='accent'] {
+[data-bgcolor='accent'] {
   --color-bg: hsl(48, 34%, 72%);
   --color-bg-gradient: linear-gradient(
     90deg,
@@ -101,10 +110,10 @@
 }
 
 /*
- * For use with <Text variant="gradient" and similar effects. 
+ * Rainbow
  */
-[data-textColor='rainbow'] {
-  --color-text-gradient: linear-gradient(
+:root {
+  --color-rainbow: linear-gradient(
     160deg,
     rgb(255, 75, 75),
     rgb(252, 84, 84),
@@ -119,13 +128,7 @@
     rgb(210, 86, 255),
     rgb(255, 87, 233)
   );
-}
-[data-bgColor='rainbow'] {
-  --color-bg-gradient: var(--color-text-gradient);
-}
-[data-bgColor='dark'] [data-textColor='rainbow'],
-[data-bgColor='purple'] [data-textColor='rainbow'] {
-  --color-text-gradient: linear-gradient(
+  --color-rainbow-subtle: linear-gradient(
     55deg,
     rgb(245, 139, 101) -12%,
     rgba(255, 154, 0, 1),
@@ -136,41 +139,46 @@
     rgb(146, 147, 255) 106%
   );
 }
-[data-bgColor='dark'] [data-bgColor='rainbow'],
-[data-bgColor='purple'] [data-bgColor='rainbow'] {
-  --color-bg-gradient: var(--color-text-gradient);
+[data-bgcolor='rainbow'] {
+  --color-bg-gradient: var(--color-rainbow);
+}
+[data-textcolor='rainbow'] {
+  --color-text-gradient: var(--color-rainbow);
+}
+[data-textcolor='light'] [data-bgcolor='rainbow'] {
+  --color-bg-gradient: var(--color-rainbow-subtle);
+}
+[data-textcolor='light'] [data-textcolor='rainbow'] {
+  --color-text-gradient: var(--color-rainbow-subtle);
 }
 
 /*
- * Default colors for all <a> (anchor tags) and <Button bgColor="cta"> or <Button bgGradient="cta"> 
- * You can separate these if you like. But for now, both a and everything else use the same colors.
- * 1. <Button textColor="cta" /> - this will use the "cta" color scheme
- * 2. <a href="" data-textColor="cta"> - for any HTML markup that's not a component in this library
+ * CTA. Use:
+ * 1. <Button textcolor="cta" /> or
+ * 2. <a data-textcolor="cta" href="">
+ * NOTICE: This sets the text color for all anchor tags in the site.
  */
 a,
-[data-textColor='cta'] {
-  --color-text: hsl(171, 76%, 39%);
+[data-textcolor='cta'] {
+  --color-text: var(--color-cta);
   --color-text-gradient: linear-gradient(
     90deg,
     hsl(171, 76%, 39%),
     hsl(171, 60%, 34%)
   );
-  color: var(--color-text);
 }
 a,
-[data-bgColor='cta'] {
-  --color-bg: hsl(171, 76%, 39%);
+[data-bgcolor='cta'] {
+  --color-bg: var(--color-cta);
   --color-bg-gradient: linear-gradient(
     90deg,
     hsl(171, 76%, 39%),
     hsl(171, 60%, 34%)
   );
 }
-[data-bgColor='dark'] a,
-[data-bgColor='dark'] [data-textColor='cta'],
-[data-bgColor='purple'] a,
-[data-bgColor='purple'] [data-textColor='cta'] {
-  --color-text: hsl(39deg 95% 50%);
+[data-textcolor='light'] a,
+[data-textcolor='light'] [data-textcolor='cta'] {
+  --color-text: var(--color-cta);
   --color-text-gradient: linear-gradient(
     90deg,
     hsl(39, 100%, 50%),
@@ -179,11 +187,9 @@ a,
     hsl(39, 100%, 50%)
   );
 }
-[data-bgColor='dark'] a,
-[data-bgColor='dark'] [data-bgColor='cta'],
-[data-bgColor='purple'] a,
-[data-bgColor='purple'] [data-bgColor='cta'] {
-  --color-bg: hsl(39deg 95% 50%);
+[data-textcolor='light'] a,
+[data-textcolor='light'] [data-bgcolor='cta'] {
+  --color-bg: var(--color-cta);
   --color-bg-gradient: linear-gradient(
     90deg,
     hsl(39, 100%, 50%),
@@ -193,22 +199,26 @@ a,
   );
 }
 
-[data-bgColor] {
+/*
+ * Use the colors defined in this file.
+ */
+[data-bgcolor] {
   background-color: var(--color-bg);
 }
-[data-textColor] {
+[data-textcolor] {
   color: var(--color-text);
 }
-[data-bgGradient] {
+[data-bggradient] {
   color: var(--color-text);
   background: var(--color-bg);
   background-image: var(--color-bg-gradient);
 }
-[data-textGradient] {
+[data-textgradient] {
   background: initial;
   background-color: var(--color-text);
   background-image: var(--color-text-gradient);
   background-size: 100%;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

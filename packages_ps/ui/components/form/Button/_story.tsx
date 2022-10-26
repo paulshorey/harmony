@@ -1,40 +1,38 @@
 import { withBlock } from '@ps/ui/components/content/Block';
-import SvgIcon from 'components/media/SvgIcon';
+import Svg from 'components/media/Svg';
 import Button from '.';
 import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 export default (args: any) => {
   useShowStorybookCode();
   const Content = withBlock({
-    ss: 'padding:1rem;',
-    bgColor: 'dark',
+    ss: 'padding:1rem; .Button {margin: 0 1rem 1rem 0;}',
+    bgcolor: 'purple',
   });
   return (
     <div>
-      <Content bgColor="light" ss="padding-top:2rem;">
-        <Button {...args}>Primary</Button>
-        <Button variant="outlined" {...args}>
-          Outlined
+      <Content bgcolor="light" ss="padding-top:2rem;">
+        <Button variant="primary" {...args}>
+          Primary
         </Button>
-        <Button variant="icon" {...args}>
-          <SvgIcon
-            svg="sparkle1"
-            data-color="light"
-            ss="width:100px;height:100px;"
-          />
+        <Button {...args}>Outlined</Button>
+        <Button variant="primary icon pulsing" {...args}>
+          <Svg svg="sparkle1" ss="width:2rem;height:2rem;" />
+        </Button>
+        <Button variant="primary icon spinning" {...args}>
+          <Svg svg="sparkle1" ss="width:2rem;height:2rem;" />
         </Button>
         <Button {...args}>With dropdown arrow</Button>
       </Content>
-      <Content bgGradient="dark" ss="padding-bottom:2rem;" color="ondark">
-        <Button {...args}>Primary</Button>
-        <Button variant="outlined" {...args}>
-          Outlined
+      <Content bggradient="purple" ss="padding-bottom:2rem;">
+        <Button variant="primary" {...args}>
+          Primary
         </Button>
-        <Button variant="icon" {...args}>
-          <SvgIcon
-            svg="sparkle1"
-            data-color="light"
-            ss="width:100px;height:100px;"
-          />
+        <Button {...args}>Outlined</Button>
+        <Button variant="primary icon pulsing" {...args}>
+          <Svg svg="sparkle1" ss="width:2rem;height:2rem;" />
+        </Button>
+        <Button variant="primary icon spinning" {...args}>
+          <Svg svg="sparkle1" ss="width:2rem;height:2rem;" />
         </Button>
         <Button {...args}>With dropdown arrow</Button>
       </Content>

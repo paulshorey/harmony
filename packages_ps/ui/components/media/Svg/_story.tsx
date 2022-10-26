@@ -1,16 +1,16 @@
 import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import SvgIcon from '.';
+import Svg from '.';
 
 export default function (props: any) {
   useShowStorybookCode();
   return (
-    <CanvasContainer bgColor="light">
-      <SvgIcon {...props} ss="width:120px;" />
+    <CanvasContainer bgcolor="light">
+      <Svg {...props} ss="width:120px;" />
     </CanvasContainer>
   );
 }
 
 export const code = `
-  <SvgIcon svg="sparkle1" textColor="purple" />
+  <Svg svg="sparkle1" textcolor="purple" />
 `;

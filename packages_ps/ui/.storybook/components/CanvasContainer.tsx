@@ -1,8 +1,8 @@
 import { withBlock } from '@ps/ui/components/content/Block';
 
 const CanvasContainer = withBlock({
-  bgGradient: 'purple',
-  scheme: 'dark',
+  bggradient: 'purple',
+  textcolor: 'light',
   ss: `
     margin:0;
     padding:1.75rem 1.5rem 2.25rem;

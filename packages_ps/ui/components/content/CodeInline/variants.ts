@@ -11,17 +11,18 @@ export default {
     border-radius: 4px;
     display:inline-block;
     overflow: hidden;
+    color: var(--color-text);
+    background:none !important;
     &::before {
       content: " ";
       position:absolute;  
-      opacity: 0.15;
+      opacity: 0.25;
       top:0;
       left:0;
       width:100%;
       height:100%;
       z-index: 0;
-      background: var(--color-text);
-      color: var(--color-bg);
+      background: var(--color-bg);
     }
     > span {
       position: relative;
@@ -33,12 +34,12 @@ export default {
   `,
   transparentBg: (props: any) => `
     &::before {
-      opacity: 0.5;
+      opacity: 0.125;
     }
   `,
   noBg: (props: any) => `
     &::before {
-      opacity: 0.25;
+      opacity: 0;
       background-color: transparent;
     }
   `,

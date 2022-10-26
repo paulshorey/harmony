@@ -11,7 +11,7 @@ export const CanvasContent = withBlock({
 export const Container = withBlock({
   ss: (props) =>
     `padding: 1.2rem 1rem 1.9rem; ${
-      props.theme.instance.variants['bgGradient'] && `padding-top: 1.3rem;`
+      props.theme.instance.variants['bggradient'] && `padding-top: 1.3rem;`
     }`,
 });
 export const Content = withBlock({ ss: `padding: 0` });
@@ -23,7 +23,7 @@ export const Button = withButton({
   ss: `margin: 1rem 1rem 0rem 0.25rem;`,
 });
 export const ButtonCTA = withButton({
-  variant: 'bgGradient',
+  variant: 'bggradient',
   ss: `margin: 1rem 1rem 0rem 0.25rem;`,
 });
 

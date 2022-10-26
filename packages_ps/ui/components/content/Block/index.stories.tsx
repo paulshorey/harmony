@@ -9,7 +9,7 @@ export const Block = _box.bind({});
 Block.argTypes = argTypes(variantKeys);
 Block.args = {
   variants: ['card', 'hoverTilt'],
-  textColor: 'purple',
+  textcolor: 'purple',
 };
 
 export default {

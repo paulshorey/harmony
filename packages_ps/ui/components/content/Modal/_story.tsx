@@ -3,11 +3,20 @@ import Modal from '.';
 import Button from '@ps/ui/components/form/Button';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 
+import {
+  HomeOutlined,
+  LoadingOutlined,
+  SettingFilled,
+  SmileOutlined,
+  SyncOutlined,
+} from '@ant-design/icons';
+import { Space } from 'antd';
+
 export default (args: any) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <CanvasContainer bgGradient="light" scheme="light">
+    <CanvasContainer bggradient="light" textcolor="dark">
       {/* <p>Accessible and ADA and WCAG Compliant!</p> */}
       <p>
         <input placeholder="Hit Tab key to focus inside each field on this page." />
@@ -18,6 +27,16 @@ export default (args: any) => {
           is opened. Hitting tab should navigate the form fields inside the
           modal.
         </textarea>
+      </p>
+      <p>
+        <Space>
+          <HomeOutlined />
+          <SettingFilled />
+          <SmileOutlined />
+          <SyncOutlined spin />
+          <SmileOutlined rotate={180} />
+          <LoadingOutlined />
+        </Space>
       </p>
       <Modal
         isOpen={isOpen}
@@ -34,7 +53,7 @@ export default (args: any) => {
           onClick={() => {
             setIsOpen(true);
           }}
-          bgGradient="light"
+          bggradient="light"
           scheme="light"
         >
           Open modal

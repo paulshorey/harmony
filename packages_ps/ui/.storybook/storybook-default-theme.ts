@@ -108,7 +108,7 @@ const theme = {
   appBorderColor: 'rgba(255,255,255,.1)',
   appBorderRadius: 4,
   // Text colors
-  textColor: colors.lightest,
+  textcolor: colors.lightest,
   textInverseColor: colors.darkest,
   textMutedColor: colors.mediumdark,
   // Toolbar default and active colors

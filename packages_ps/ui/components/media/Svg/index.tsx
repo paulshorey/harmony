@@ -20,11 +20,14 @@ export type Props = HTMLAttributes<HTMLDivElement> &
      */
     as?: styledTags;
     /**
-     * One of the icons available in `@ps/ui/components/media/SvgIcon/files` (no path or extension).
+     * One of the files available in `@ps/ui/components/media/Svg/svg` (no path or extension).
      */
     svg?: string;
   } & Record<string, any>;
 
+/**
+ * Svg graphic will be lazy loaded - after the window has rendered. Then will render a \<span> container with \<svg> child.
+ */
 export const Component: (
   props: Props,
   ref?: ReactForwardedRef
@@ -33,8 +36,8 @@ export const Component: (
 
   useEffect(() => {
     try {
-      const SvgIcon = svgDir(`./files/${svg}.svg`).default;
-      set_SvgFileImport(SvgIcon);
+      const Svg = svgDir(`./files/${svg}.svg`).default;
+      set_SvgFileImport(Svg);
     } catch (error) {
       console.warn(error);
     }
@@ -43,7 +46,7 @@ export const Component: (
   const [Styled, otherProps] = useStyledComponent(
     props,
     as || 'span',
-    'SvgIcon',
+    'Svg',
     variants
   );
   return (
@@ -55,18 +58,18 @@ export const Component: (
 
 /*
  * Like StyledComponents' div`` but with added functionality:
- * import { withSvgIcon } from 'components/content/SvgIcon';
- * const SvgIcon = withSvgIcon({ ...thesePropsWillApplyToAllInstances });
- * <SvgIcon {...optionalUniquePropsForCurrentInstance} />
+ * import { withSvg } from 'components/content/Svg';
+ * const Svg = withSvg({ ...thesePropsWillApplyToAllInstances });
+ * <Svg {...optionalUniquePropsForCurrentInstance} />
  */
-export const withSvgIcon = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(SvgIcon, props1, props2);
+export const withSvg = (props1: Props) => (props2: Props) => {
+  return withAddPropsToComponent(Svg, props1, props2);
 };
 
 /*
  * Default export is a ready-to-use component:
  * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "SvgIcon" is same as default export. But IDEs like VSCode can read a named import better.
+ * Named "Svg" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const SvgIcon = memo(forwardRef(Component));
-export default SvgIcon;
+export const Svg = memo(forwardRef(Component));
+export default Svg;

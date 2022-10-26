@@ -21,10 +21,6 @@ export type ssPropType =
  */
 export type ssProps = {
   /**
-   * One or multiple variants as a string[].
-   */
-  'variants'?: Array<string>;
-  /**
    * Styled string. Or a function that accepts theme and returns a string. Or array of either. Same as other ssXxx props below, but without any media queries or conditional logic.
    */
   'ss'?: ssPropType;
@@ -132,16 +128,12 @@ export type ssProps = {
    * applies to all sizes and devices, like ss, but this is wrapped inside a media query, to force-add specificity. Same as `theme.mq.all`.
    */
   'ssAll'?: ssPropType;
-  // /**
-  //  * Shorthand for props.variants['dark']. It can be undefined. The key will be read and added to props.variants.
-  //  */
-  // dark?: any;
-  // /**
-  //  * Shorthand for props.variants['default']. It can be undefined. The key will be read and added to props.variants.
-  //  */
-  // default?: any;
   /**
-   * One or multiple variants as a string, separated by spaces. Will be used in addition to variants. Sometimes it may be helpful to pass an array of varints (programmatically) and then pass a string (for just one instance). Some components support layering multiple variants. Others may act unpredictably/buggy if you pass too many variants. So use sparingly.
+   * One or multiple variants as a string[].
+   */
+  'variants'?: Array<string>;
+  /**
+   * One or multiple variants as a string, separated by spaces. Will be used in addition to variants. Sometimes it may be helpful to pass an array of varints (programmatically) and then pass a string (for just one instance).
    */
   'variant'?: string;
   /**
@@ -149,13 +141,35 @@ export type ssProps = {
    */
   'data-variants'?: string;
   /**
-   * Set the color group for the current element and any children elements that choose to use it. Use whatever color group you've set in your global CSS file. You can import the default colors from @ps/ui/styles/global/variables.
+   * One of [data-bgcolor] groups defined in your global css file. Import: @ps/ui/styles/global/variables.css
    */
-  'color'?: string;
+  'bgcolor'?: 'light' | 'dark' | 'purple' | 'accent' | 'cta' | string;
   /**
-   * "light" or "dark"
+   * One of [data-textcolor] groups defined in your global css file. Import: @ps/ui/styles/global/variables.css
    */
-  'scheme'?: 'light' | 'dark';
+  'textcolor'?: 'light' | 'dark' | 'purple' | 'accent' | 'cta' | string;
+  /**
+   * One of [data-bggradient] groups defined in your global css file. Import: @ps/ui/styles/global/variables.css
+   */
+  'bggradient'?:
+    | 'light'
+    | 'dark'
+    | 'purple'
+    | 'accent'
+    | 'cta'
+    | 'rainbow'
+    | string;
+  /**
+   * One of [data-textgradient] groups defined in your global css file. Import: @ps/ui/styles/global/variables.css
+   */
+  'textgradient'?:
+    | 'light'
+    | 'dark'
+    | 'purple'
+    | 'accent'
+    | 'cta'
+    | 'rainbow'
+    | string;
 };
 
 export type ReactForwardedRefType = any; // tsFix - what is the type of "ref" as returned by React.forwardRef()?

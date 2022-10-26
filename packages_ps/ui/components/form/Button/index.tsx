@@ -6,10 +6,11 @@ import {
   memo,
   ReactElement,
 } from 'react';
-import variants from '@ps/ui/components/form/Button/variants';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
+// import variants from '@ps/ui/components/form/Button/variants';
+import classes from '@ps/ui/components/form/Button/index.module.css';
 
 export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
   (ssComponentPropsType & {
@@ -30,7 +31,8 @@ export const Component: (
     props,
     'button',
     'Button',
-    variants
+    undefined,
+    classes
   );
   return (
     <Styled {...otherProps} ref={ref}>

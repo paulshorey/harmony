@@ -4,14 +4,14 @@
 
 ### #1 inline styles
 
-`import Button from ... ` default export is ready to use: `<Button variant="bgGradient" color="cta2" ss="padding:1rem" />`  
+`import Button from ... ` default export is ready to use: `<Button variant="bggradient" color="cta2" ss="padding:1rem" />`  
  <br />
 
 ### #2 @emotion/styled
 
 1. **Import:** `import { withButton } from ...` named export
 2. **Instantiate:** <code>Button = withButton({ color:'cta', variant="gradient" ss:'font-size:1rem;' })</code> with "common" props
-3. **Use:** `<Button variant="bgGradient" ss="font-size: 1.5rem;font-weight:bold;" />` with "specific" props for this instance
+3. **Use:** `<Button variant="bggradient" ss="font-size: 1.5rem;font-weight:bold;" />` with "specific" props for this instance
 
 <br />
 ### This is just like StyledComponents <code>styled.button``</code>, but with added functionality...
@@ -31,7 +31,7 @@ The "common" vs "specific" props will be intelligently combined. Style props `ss
 
   const CTAButton = withButton({
       color:'cta2',
-      variant:"bgGradient",
+      variant:"bggradient",
       ss:`
         color: orange;
         border-color: orange;

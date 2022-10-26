@@ -15,13 +15,14 @@ export default (
   inputProps: any,
   tagName: styledTags = 'div',
   componentName: string,
-  styles?: Record<string, ssPropType>
+  variantStyles?: Record<string, ssPropType>,
+  classStyles?: Record<string, string>
 ): [React.ElementType, Record<string, any>] => {
   let {
-    textColor = '',
-    textGradient = '',
-    bgColor = '',
-    bgGradient = '',
+    textcolor = '',
+    textgradient = '',
+    bgcolor = '',
+    bggradient = '',
     scheme = '',
     size = '',
     ss,
@@ -55,6 +56,9 @@ export default (
     ...props
   } = inputProps;
 
+  // className will be modified if using CSS modules
+  if (!props.className) props.className = '';
+
   // theme
   // In @emotion/styled functions, first argument is props, which contains an injected theme property.
   // This library also includes that functionality. This also includes a bit of added functionality...
@@ -69,10 +73,10 @@ export default (
   // This hook is called for each component. Sometimes multiple nested components are combined to make one HTML element.
   if (!props['data-variants'] || !theme.instance) {
     props.theme = theme;
-    props.theme.instance = {
-      variants: { default: true },
-    };
+    props.theme.instance = { variants: {} };
   }
+  // every component gets default variant style
+  props.theme.instance.variants.default = true;
 
   // styled strings
   let ssVariants = '';
@@ -80,41 +84,42 @@ export default (
   let ssGlobal = '';
 
   // variants
-  if (styles) {
-    // props.variants (string[])
-    if (variants?.length) {
-      for (const str of variants) {
-        // @ts-ignore // was undefined, now defining it
-        theme.instance.variants[str] = true;
-      }
+  // props.variants (string[])
+  if (variants?.length) {
+    for (const str of variants) {
+      // @ts-ignore // was undefined, now defining it
+      theme.instance.variants[str] = true;
     }
-    // props.variant (strings separated by spaces or any other illegal characters)
-    const variantStrs = variant?.trim().split(/[^\w\d-_]+/) || [];
-    if (variantStrs.length) {
-      for (const str of variantStrs) {
-        theme.instance.variants[str] = true;
-      }
+  }
+  // props.variant (strings separated by spaces or any other illegal characters)
+  const variantStrs = variant?.trim().split(/[^\w\d-_]+/) || [];
+  if (variantStrs.length) {
+    for (const str of variantStrs) {
+      theme.instance.variants[str] = true;
     }
-    // Apply variants
-    for (const variant in theme.instance.variants) {
-      if (variant) {
-        // Apply component-specific styles
-        if (styles[variant]) {
-          ssVariants += style_to_string(
-            // @ts-ignore // styles[variant] is defined, so use it
-            styles[variant],
-            props
-          );
-        }
-        // // If component-specific style is not defined, apply a global style from theme
-        // if (theme.variants[variant]) {
-        //   ssGlobal += style_to_string(
-        //     // @ts-ignore // theme.variants[variant] is defined, so use it
-        //     theme.variants[variant],
-        //     props
-        //   );
-        // }
+  }
+  // Apply variants
+  for (const variant in theme.instance.variants) {
+    if (variant) {
+      // Apply component-specific styles
+      if (variantStyles?.[variant]) {
+        ssVariants += style_to_string(
+          // @ts-ignore // styles[variant] is defined, so use it
+          variantStyles[variant],
+          props
+        );
       }
+      if (classStyles?.[variant]) {
+        props.className += ' ' + classStyles[variant];
+      }
+      // // If component-specific style is not defined, apply a global style from theme
+      // if (theme.variants[variant]) {
+      //   ssGlobal += style_to_string(
+      //     // @ts-ignore // theme.variants[variant] is defined, so use it
+      //     theme.variants[variant],
+      //     props
+      //   );
+      // }
     }
   }
 
@@ -273,23 +278,21 @@ export default (
     : '';
   // will use this in CSS to target the component
   // props['data-component'] = componentName;
-  props.className = props.className
-    ? props.className + ' ' + componentName
-    : componentName;
+  props.className += ' ' + componentName;
   // color (put on data attribute to not clash with 3rd party classNames)
   if (scheme) {
     props['data-scheme'] = scheme;
   }
-  if (bgColor || bgGradient) {
-    props['data-bgColor'] = bgColor || bgGradient;
-    if (bgGradient) {
-      props['data-bgGradient'] = true;
+  if (bgcolor || bggradient) {
+    props['data-bgcolor'] = bgcolor || bggradient;
+    if (bggradient) {
+      props['data-bggradient'] = true;
     }
   }
-  if (textColor || textGradient) {
-    props['data-textColor'] = textColor || textGradient;
-    if (textGradient) {
-      props['data-textGradient'] = true;
+  if (textcolor || textgradient) {
+    props['data-textcolor'] = textcolor || textgradient;
+    if (textgradient) {
+      props['data-textgradient'] = true;
     }
   }
   // return styled component

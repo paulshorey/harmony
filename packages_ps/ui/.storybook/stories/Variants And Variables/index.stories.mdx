@@ -14,10 +14,10 @@ import {
 <AppProvider>
 <Wrapper>
 
-<Container variant="bgColor">
+<Container variant="bgcolor">
   <Title color="cta">on light:</Title>
   <Content>
-    <Button variant="bgGradient" color="cta">
+    <Button variant="bggradient" color="cta">
       gradient cta
     </Button>
     <Button color="cta">default cta</Button>
@@ -31,10 +31,10 @@ import {
   </Content>
 </Container>
 
-<Container variant="bgGradient" color="cta">
+<Container variant="bggradient" color="cta">
   <Title color="cta2">on gradient:</Title>
   <Content>
-    <Button variant="bgGradient" color="cta2">
+    <Button variant="bggradient" color="cta2">
       gradient cta2
     </Button>
     <Button color="cta2">default cta2</Button>
@@ -48,10 +48,10 @@ import {
   </Content>
 </Container>
 
-<Container variant="bgColor" onDark>
+<Container variant="bgcolor" onDark>
   <Title onDark>on dark:</Title>
   <Content>
-    <Button variant="bgGradient" color="cta">
+    <Button variant="bggradient" color="cta">
       gradient cta
     </Button>
     <Button color="cta">default cta</Button>
@@ -87,7 +87,7 @@ Notice `theme.instance.variants` in the example below. In any component style fu
 
 ```
 ss: (theme) => `padding: 1.2rem 1rem 1.9rem; ${
-  theme.instance.variants['bgGradient'] && `padding-top: 1.4rem;`}
+  theme.instance.variants['bggradient'] && `padding-top: 1.4rem;`}
 }`
 ```
 

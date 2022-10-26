@@ -74,8 +74,7 @@ export const decorators = [
     return (
       <AppProvider>
         <Block
-          onDark
-          variant="bgGradient"
+          variant="bggradient"
           ss="position:relative;overflow:auto;margin: -30px -20px;"
         >
           <Story {...context} />

@@ -7,12 +7,12 @@ export default function (props: any) {
   return (
     <Block
       variant="padding"
-      textColor="dark"
-      bgGradient="light"
+      textcolor="dark"
+      bggradient="light"
       ss="padding:1rem 2rem;margin:0;"
     >
       <p>
-        <Link href="#" target="_blank">
+        <Link href="#" target="_blank" {...props}>
           Link
         </Link>{' '}
         component accepts all the props that an anchor tag would. Plus a few for

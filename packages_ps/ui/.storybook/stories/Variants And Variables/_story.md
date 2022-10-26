@@ -17,6 +17,6 @@ Notice `theme.instance.variants` in the example below. In any component style fu
 
 ```
 ss: (theme) => `padding: 1.2rem 1rem 1.9rem; ${
-  theme.instance.variants['bgGradient'] && `padding-top: 1.4rem;`}
+  theme.instance.variants['bggradient'] && `padding-top: 1.4rem;`}
 }`
 ```

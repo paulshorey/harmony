@@ -2,11 +2,10 @@ import { Component } from '.';
 import Template, { code } from './_story';
 import description from './_story.md';
 import { argTypes } from '@ps/ui/styles/storybook';
-import variants from './variants';
+import variants from './index.module.css';
 
 const variantKeys = Object.keys(variants);
 const args = {
-  bgGradient: 'purple',
   ss: 'margin: 0 0.875rem 1.125rem 0;',
 };
 

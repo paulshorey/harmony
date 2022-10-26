@@ -5,11 +5,11 @@ import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
 const variantKeys = Object.keys(variants);
 
-export const SvgIcon = _box.bind({});
-SvgIcon.argTypes = argTypes(variantKeys);
-SvgIcon.args = {
+export const Svg = _box.bind({});
+Svg.argTypes = argTypes(variantKeys);
+Svg.args = {
   svg: 'sparkle1',
-  textColor: 'purple',
+  textcolor: 'purple',
 };
 
 export default {

@@ -93,7 +93,7 @@ const Wrapper = ({ children, ...props }) => {
   }
 
   code {
-    color: var(--color-notice);
+    color: var(--color-accent);
     margin: 0;
     opacity: 1;
     font-size: 0.9em;
@@ -131,9 +131,8 @@ const Wrapper = ({ children, ...props }) => {
   }, []);
 
   return (
-    <Block {...props} bgColor="purple" scheme="dark" ss={containerCSS}>
+    <Block {...props} bgcolor="purple" textcolor="light" ss={containerCSS}>
       <Block
-        color="ondark"
         ss={`
         max-width: 1000px;
         margin: 0 auto;
