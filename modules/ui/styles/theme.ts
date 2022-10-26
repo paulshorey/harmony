@@ -1,6 +1,6 @@
 import mq from './mq';
 
-const theme = {
+const theme: theme = {
   mq,
   instance: {
     color: '',

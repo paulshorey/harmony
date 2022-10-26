@@ -5,7 +5,7 @@ import Block from '@ps/ui/components/content/Block';
 
 export const parameters = {
   docs: {
-    themes.dark,
+    theme: themes.dark,
   },
 };
 

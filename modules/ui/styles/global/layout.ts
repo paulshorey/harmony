@@ -1,4 +1,4 @@
-const layout = (theme) => ` 
+const layout = (theme: theme) => ` 
 
   /*
    * VERY USEFUL
