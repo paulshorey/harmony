@@ -14,7 +14,7 @@ const Wrapper = ({ children, ...props }) => {
   display:none !important;
 }
 .sidebar-header:before {
-  content: 'Storybook';
+  content: 'Harmony UI';
   font-size: 0.99rem;
   font-weight: bold;
   white-space: nowrap !important;

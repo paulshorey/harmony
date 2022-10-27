@@ -23,7 +23,7 @@ export const decorators = [
     display:none !important;
   }
   .sidebar-header:before {
-    content: 'Storybook';
+    content: 'Harmony UI';
     color: white;
     font-size: 1.01rem;
     font-weight: bold;

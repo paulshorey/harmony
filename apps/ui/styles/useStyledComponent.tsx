@@ -1,7 +1,7 @@
+import React, { useEffect, useState } from 'react';
 import { useTheme } from '@emotion/react';
 import style_to_string from '@ps/fn/browser/style/style_to_string';
 import { returnDeviceInfo, deviceInfoType } from '@ps/ui/hooks/useDeviceInfo';
-import { useEffect, useState } from 'react';
 import { ssPropType, styledTags } from '@ps/ui/types/component';
 import styled from '@emotion/styled';
 // import cconsole from '@ps/cconsole';
@@ -18,13 +18,11 @@ export default (
   variantStyles?: Record<string, ssPropType>,
   classStyles?: Record<string, string>
 ): [React.ElementType, Record<string, any>] => {
-  let {
+  const {
     textcolor = '',
     textgradient = '',
     bgcolor = '',
     bggradient = '',
-    scheme = '',
-    size = '',
     ss,
     ssAll,
     ssAndroid,
@@ -57,7 +55,9 @@ export default (
   } = inputProps;
 
   // className will be modified if using CSS modules
-  if (!props.className) props.className = '';
+  if (!props.className) {
+    props.className = '';
+  }
 
   // theme
   // In @emotion/styled functions, first argument is props, which contains an injected theme property.
@@ -81,7 +81,7 @@ export default (
   // styled strings
   let ssVariants = '';
   let ssImportant = '';
-  let ssGlobal = '';
+  const ssGlobal = '';
 
   // variants
   // props.variants (string[])
@@ -280,9 +280,6 @@ export default (
   // props['data-component'] = componentName;
   props.className += ' ' + componentName;
   // color (put on data attribute to not clash with 3rd party classNames)
-  if (scheme) {
-    props['data-scheme'] = scheme;
-  }
   if (bgcolor || bggradient) {
     props['data-bgcolor'] = bgcolor || bggradient;
     if (bggradient) {
@@ -294,6 +291,16 @@ export default (
     if (textgradient) {
       props['data-textgradient'] = true;
     }
+  }
+  // set colorscheme
+  if (props['data-textcolor'] === 'light') {
+    props['data-colorscheme'] = 'ondark';
+  } else if (props['data-textcolor'] === 'dark') {
+    props['data-colorscheme'] = 'onlight';
+  } else if (props['data-bgcolor'] === 'light') {
+    props['data-colorscheme'] = 'onlight';
+  } else if (props['data-bgcolor'] === 'dark') {
+    props['data-colorscheme'] = 'ondark';
   }
   // return styled component
   let styledFunction = styled[tagName];

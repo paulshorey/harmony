@@ -73,6 +73,7 @@ module.exports = (__dirname) => {
       'import/newline-after-import': 'error',
       'import/no-absolute-path': 'error',
       'import/no-anonymous-default-export': 'off',
+      'import/no-named-as-default-member': 'off',
       'import/no-duplicates': 'error',
       'import/no-extraneous-dependencies': [
         'error',
@@ -93,7 +94,7 @@ module.exports = (__dirname) => {
       'jsx-a11y/click-events-have-key-events': 'off',
       'jsx-a11y/no-autofocus': 'off',
       'keyword-spacing': 'error',
-      'max-depth': ['error', 2],
+      'max-depth': ['warn', 3],
       'no-alert': 'error',
       'no-async-promise-executor': 'error',
       'no-class-assign': 'error',

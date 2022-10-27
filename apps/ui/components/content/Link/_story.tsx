@@ -2,7 +2,7 @@ import Block from '@ps/ui/components/content/Block';
 import Link from '@ps/ui/components/content/Link';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 
-export default function (props: any) {
+export default function (props) {
   useShowStorybookCode();
   return (
     <Block

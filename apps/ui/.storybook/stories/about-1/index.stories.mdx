@@ -10,7 +10,7 @@ import {
   SvgSparkle,
 } from '@ps/ui/.storybook/components/Decorations';
 
-<Meta title="Why another UI library ?" id="about-1" />
+<Meta title="Why another UI library ?" />
 
 <AppProvider>
 
@@ -18,12 +18,14 @@ import {
 
 <h1>
   <Block as="span" textgradient="rainbow">
-    This is not a component library
+    This is a development kit
   </Block>
 </h1>
 
-It's a way to easily <Text as="b" textgradient="accent">bootstrap and maintain</Text> your own <Text as="b" textgradient="rainbow"> custom branded component library</Text> for all your <Text as="b" textgradient="accent"><SvgSparkle ss="" />multi/mono repo frontends<SvgSparkle ss="" /><SvgSparkle ss="" /></Text>. <br />
-It's <BulletNumber>1</BulletNumber> a pre-configured mono/multi repo, <BulletNumber>2</BulletNumber> a styling system to make branding easier <BulletNumber>3</BulletNumber> and a few components to get you started.
+An easy way to <Text as="b" textgradient="accent">bootstrap and maintain</Text> your own <Text as="b" textgradient="rainbow"> custom branded component library</Text> for all your <Text as="b" textgradient="accent"><SvgSparkle ss="" />mono repo frontends<SvgSparkle ss="" /><SvgSparkle ss="" /></Text>. <br />
+A <BulletNumber>1</BulletNumber> pre-configured mono repo, <BulletNumber>2</BulletNumber> a styling system to make branding easier <BulletNumber>3</BulletNumber> and a few components to get you started.
+
+---
 
 <Block as="h2" ss="margin-top:2rem;">
   <Block as="span" textgradient="rainbow">
@@ -31,7 +33,7 @@ It's <BulletNumber>1</BulletNumber> a pre-configured mono/multi repo, <BulletNum
   </Block>
 </Block>
 
-Instead of trying to rewrite CSS in JS, or just using classNames for everything, let <a>CSS and JS</a> to work in harmony, each doing what they do best. This library uses a very small global stylesheet only to manage colors and lights/darks. Because of CSS "**cascading**" feature, each element knows if its on dark or light, and can adjust its colors automatically. No need to manually shade each element.
+Instead of trying to rewrite CSS in JS, or just using classNames for everything, let <a>CSS and JS</a> to work in harmony, each doing what they do best. This library uses a very small global stylesheet to define colors and lights/darks. Because CSS is "**cascading**", every element knows if its on dark or light, and can adjust automatically.
 
 <Code
   variant="transparentDark"
@@ -86,9 +88,8 @@ const Demo = withBlock({ ss: 'display:none;' });
 
 <p>
   <Text ssPhone="display:none;">👈 </Text>
-  <Text ssNotPhone="display:none;">👇 </Text>
-  Go ahead and explore the sidebar. Below each component's story is a
-  documentation of props it accepts.
+  <Text ssNotPhone="display:none;">👇 </Text> Go ahead and explore the sidebar. Below
+  each component's story is a documentation of props it accepts.
 </p>
 
 <p>
@@ -96,8 +97,8 @@ const Demo = withBlock({ ss: 'display:none;' });
   This is just an experiment. Not production ready. Not stable yet. Needs more components
   and much more testing.
   <br />
-  If you like this approach, please contribute <a>on Github</a> or open an issue
-  to discuss. Thank you!
+  If you like this approach then <a>checkout the Github repo</a>. Please contribute
+  or open an issue to discuss. Thank you!
   <br />
   Please reach out with any questions or ideas. Let's collaborate! ~ <a
     href="https://paulshorey.com"

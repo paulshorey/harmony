@@ -11,27 +11,18 @@
 }
 
 /*
- * Default background color is light. Same as:
- * <Block bgcolor="light"> or
- * <div data-bgcolor="light">
+ * (DEFAULT) Dark text on light background:
+ * <Block textcolor="dark"> or <Block bgcolor="light">
  */
 :root,
-[data-bgcolor='light'] {
+[data-colorscheme='onlight'] {
   --color-bg: #efefef;
   --color-bg-gradient: radial-gradient(
     80% 80% at top center,
     hsl(205, 10%, 83%),
     hsl(205, 5%, 100%)
   );
-}
 
-/*
- * Default text color is dark. Same as:
- * <Block textcolor="dark"> or
- * <div data-textcolor="dark">
- */
-:root,
-[data-textcolor='dark'] {
   --color-text: hsla(0, 0%, 20%, 93%);
   --color-text-gradient: radial-gradient(
     50% 50% at top center,
@@ -43,33 +34,26 @@
 }
 
 /*
- * Light text. Use:
- * <Block textcolor="light"> or
- * <div data-textcolor="light">
+ * Light text on dark background:
+ * <Block textcolor="light"> or <Block bgcolor="dark">
  */
-[data-textcolor='light'] {
-  --color-text: hsla(0, 0%, 94%, 94%);
-  --color-text-gradient: radial-gradient(
-    80% 80% at top center,
-    hsl(205, 5%, 98%),
-    hsl(205, 10%, 80%)
-  );
-  --color-cta: hsl(39deg 95% 50%);
-  --color-accent: hsl(49deg 98% 47%);
-}
-
-/*
- * Dark background. Use:
- * <Block bgcolor="dark"> or
- * <div data-bgcolor="dark">
- */
-[data-bgcolor='dark'] {
+[data-colorscheme='ondark'] {
   --color-bg: hsla(256, 29%, 29%, 0.85);
   --color-bg-gradient: radial-gradient(
     50% 50% at top center,
     hsla(257, 42%, 28%, 75%),
     hsla(257, 42%, 28%, 95%)
   );
+
+  --color-text: hsla(0, 0%, 94%, 94%);
+  --color-text-gradient: radial-gradient(
+    80% 80% at top center,
+    hsl(205, 5%, 98%),
+    hsl(205, 10%, 80%)
+  );
+
+  --color-cta: hsl(39deg 95% 50%);
+  --color-accent: hsl(49deg 98% 47%);
 }
 
 /*
@@ -145,10 +129,10 @@
 [data-textcolor='rainbow'] {
   --color-text-gradient: var(--color-rainbow);
 }
-[data-textcolor='light'] [data-bgcolor='rainbow'] {
+[data-colorscheme='ondark'] [data-bgcolor='rainbow'] {
   --color-bg-gradient: var(--color-rainbow-subtle);
 }
-[data-textcolor='light'] [data-textcolor='rainbow'] {
+[data-colorscheme='ondark'] [data-textcolor='rainbow'] {
   --color-text-gradient: var(--color-rainbow-subtle);
 }
 
@@ -176,8 +160,8 @@ a,
     hsl(171, 60%, 34%)
   );
 }
-[data-textcolor='light'] a,
-[data-textcolor='light'] [data-textcolor='cta'] {
+[data-colorscheme='ondark'] a,
+[data-colorscheme='ondark'] [data-textcolor='cta'] {
   --color-text: var(--color-cta);
   --color-text-gradient: linear-gradient(
     90deg,
@@ -187,8 +171,8 @@ a,
     hsl(39, 100%, 50%)
   );
 }
-[data-textcolor='light'] a,
-[data-textcolor='light'] [data-bgcolor='cta'] {
+[data-colorscheme='ondark'] a,
+[data-colorscheme='ondark'] [data-bgcolor='cta'] {
   --color-bg: var(--color-cta);
   --color-bg-gradient: linear-gradient(
     90deg,

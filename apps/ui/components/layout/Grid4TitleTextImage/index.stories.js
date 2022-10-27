@@ -6,11 +6,9 @@ import variants from './variants';
 
 const variantKeys = Object.keys(variants);
 const args = {
-  ss: '',
-  variants: ['titleImageTextImage'],
-  variant: 'textcolor',
-  color: 'cta',
-  shade: '',
+  variant: 'titleImageTextImage',
+  textcolor: 'light',
+  bgcolor: 'purple',
 };
 
 export const Grid4TitleTextImage = Template.bind({});

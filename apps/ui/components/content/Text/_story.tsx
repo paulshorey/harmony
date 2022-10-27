@@ -3,7 +3,7 @@ import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import Block from '@ps/ui/components/content/Block';
 import { withText } from '.';
 
-export default function (props: any) {
+export default function (props) {
   useShowStorybookCode();
   const Heading = withText({
     as: 'h2',

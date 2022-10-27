@@ -1,4 +1,4 @@
 export default {
-  default: (props: any) => `
+  default: (props) => `
     `,
 };

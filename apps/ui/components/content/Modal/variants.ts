@@ -1,5 +1,5 @@
 export default {
-  default: (props: any) => `
+  default: (props) => `
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -61,7 +61,7 @@ export default {
       }
     }
   `,
-  cloudinary: (props: any) => `
+  cloudinary: (props) => `
     height: calc(100vh - 32px);
     padding: 0;
     border-radius: 18px;

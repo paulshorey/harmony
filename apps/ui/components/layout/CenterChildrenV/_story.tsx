@@ -3,7 +3,7 @@ import CodeInline from '@ps/ui/components/content/CodeInline';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 
-const Story = (props: any) => {
+const Story = (props) => {
   useShowStorybookCode();
   return (
     <CanvasContainer>
@@ -21,7 +21,7 @@ const Story = (props: any) => {
     </CanvasContainer>
   );
 };
-export default CCV;
+export default Story;
 
 export const code = `import CenterV from '@ps/ui/components/content/CenterV';
 

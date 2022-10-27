@@ -1,5 +1,5 @@
 export default {
-  default: (props: any) => `
+  default: (props) => `
     overflow: hidden;
     position: relative;
     display: block;

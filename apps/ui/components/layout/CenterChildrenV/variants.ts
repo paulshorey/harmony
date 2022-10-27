@@ -1,5 +1,5 @@
 export default {
-  default: (props: any) => `
+  default: (props) => `
     height:100%;
     text-align: center;
     margin-left: auto;

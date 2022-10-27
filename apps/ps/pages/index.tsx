@@ -1,16 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
-import styled from '@emotion/styled';
-import CenterChildrenV from '@ps/ui/components/layout/CenterChildrenV';
-import CenterChildrenH from '@ps/ui/components/layout/CenterChildrenH';
 import Button from '@ps/ui/components/form/Button';
 import Modal from '@ps/ui/components/content/Modal';
+import FullpageLayout from 'components/layout/Fullpage';
+import uiState, { uiStateType } from 'state/uiState';
 
 export default function Home() {
-  const H1 = styled.h1`
-    color: red;
-  `;
   const [isOpen, setIsOpen] = React.useState(false);
+  const ui = uiState((state) => state as uiStateType);
   return (
     <div>
       <Head>
@@ -19,7 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <CenterChildrenV ss="height:100vh;">
+        <FullpageLayout>
           <p>
             <input placeholder="Hit Tab key to focus inside each field on this page." />
           </p>
@@ -44,7 +41,6 @@ export default function Home() {
               onClick={() => {
                 setIsOpen(true);
               }}
-              variant="primary"
             >
               Open modal
             </Button>
@@ -58,7 +54,7 @@ export default function Home() {
           <p>
             <input placeholder="Another input field to test focus with." />
           </p>
-        </CenterChildrenV>
+        </FullpageLayout>
       </main>
     </div>
   );

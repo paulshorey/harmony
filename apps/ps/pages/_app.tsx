@@ -1,4 +1,4 @@
-import AppProvider from '@ps/ui/components/utils/AppProvider';
+import AppProvider from 'components/utils/AppProvider';
 import { AppProps } from 'next/app';
 import React from 'react';
 
