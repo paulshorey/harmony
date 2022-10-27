@@ -5,7 +5,10 @@ import Code from '@ps/ui/components/content/Code';
 import CodeInline from '@ps/ui/components/content/CodeInline';
 import AppProvider from '@ps/ui/components/utils/AppProvider';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
-import { BulletNumber, SvgSparkle } from '@ps/ui/.storybook/components/Decorations';
+import {
+  BulletNumber,
+  SvgSparkle,
+} from '@ps/ui/.storybook/components/Decorations';
 
 <Meta title="Why another UI library ?" id="about-1" />
 
@@ -24,7 +27,7 @@ It's <BulletNumber>1</BulletNumber> a pre-configured mono/multi repo, <BulletNum
 
 <Block as="h2" ss="margin-top:2rem;">
   <Block as="span" textgradient="rainbow">
-    For a better DX and UX
+    For better DX and UX
   </Block>
 </Block>
 
@@ -48,10 +51,11 @@ Instead of trying to rewrite CSS in JS, or just using classNames for everything,
     xs,sm,md,lg
   </CodeInline>{' '}
   or whatever you originally defined. Not limited to{' '}
-  <CodeInline variant="text" code={`min-width`} /> either. Instead, use{' '}
-  semantic prop names like <CodeInline variant="text" code={`ssTablet`} /> (or{' '}
-  <CodeInline variant="text" code={`theme.mq.tablet`} />) to style tablets (between 601-1024px). Each media query prop can accept
-  a <CodeInline variant="text" code={`string`} />,{' '}
+  <CodeInline variant="text" code={`min-width`} /> either. Instead, use semantic
+  prop names like <CodeInline variant="text" code={`ssTablet`} /> (or{' '}
+  <CodeInline variant="text" code={`theme.mq.tablet`} />) to style tablets
+  (between 601-1024px). Each media query prop can accept a{' '}
+  <CodeInline variant="text" code={`string`} />,{' '}
   <CodeInline variant="text" code={`(props)=>string`} /> function, or CSS-in-JS
   object.
 </p>
@@ -83,18 +87,24 @@ const Demo = withBlock({ ss: 'display:none;' });
 <p>
   <Text ssPhone="display:none;">👈 </Text>
   <Text ssNotPhone="display:none;">👇 </Text>
-  Go ahead and explore the sidebar. Below each component's story is a documentation of props it accepts.
+  Go ahead and explore the sidebar. Below each component's story is a
+  documentation of props it accepts.
 </p>
 
 <p>
   <br />
-  This is just an experiment. Not production ready. Not stable yet. Needs
-  more components and much more testing.
+  This is just an experiment. Not production ready. Not stable yet. Needs more components
+  and much more testing.
   <br />
   If you like this approach, please contribute <a>on Github</a> or open an issue
-  to discuss. Thank you! 
+  to discuss. Thank you!
   <br />
-  Please reach out with any questions or ideas. Let's collaborate! ~ <a href="https://paulshorey.com" target="_blank">Paul Shorey</a>
+  Please reach out with any questions or ideas. Let's collaborate! ~ <a
+    href="https://paulshorey.com"
+    target="_blank"
+  >
+    Paul Shorey
+  </a>
 </p>
 
 </Wrapper>
