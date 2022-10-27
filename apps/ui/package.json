@@ -3,13 +3,13 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "serve-storybook": "serve storybook-static"
+    "xdev": "next dev",
+    "xbuild": "next build",
+    "xstart": "next start",
+    "xlint": "next lint",
+    "dev": "start-storybook -p 6006 -s public",
+    "build": "build-storybook -s public",
+    "start": "serve storybook-static"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",

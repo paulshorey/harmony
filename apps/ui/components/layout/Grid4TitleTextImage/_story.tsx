@@ -1,7 +1,7 @@
 import Block from '@ps/ui/components/content/Block';
 import Component from '.';
 
-const Story (props) => (
+const Story = (props) => (
   <Block variant="centered">
     <Component
       variant={'titleImageTextImage'}
