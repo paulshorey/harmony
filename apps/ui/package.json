@@ -47,6 +47,7 @@
     "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/react": "^6.5.12",
     "babel-loader": "^8.2.3",
+    "eslint-plugin-mdx": "^2.0.5",
     "next-build-id": "^3.0.0",
     "postcss-plugin": "^1.0.0",
     "sass": "^1.55.0",

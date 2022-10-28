@@ -1,12 +1,12 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Block from '@ps/ui/components/content/Block';
-import Text from '@ps/ui/components/content/Block';
-import AppProvider from '@ps/ui/components/utils/AppProvider';
+import Box from '@ps/ui/components/display/Box';
+import Text from '@ps/ui/components/display/Box';
+import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
 import { Wrapper } from '@ps/ui/components/about/components/Components';
 
-<Meta title="Block Examples" id="about-8" />
+<Meta title="Box Examples" id="about-8" />
 
-<AppProvider>
+<ThemeProvider>
 
 <Wrapper>
   <h2 className="text-3xl font-bold underline">
@@ -14,4 +14,4 @@ import { Wrapper } from '@ps/ui/components/about/components/Components';
   </h2>
 </Wrapper>
 
-</AppProvider>
+</ThemeProvider>

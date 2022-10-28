@@ -1,0 +1,68 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Box from '@ps/ui/components/display/Box';
+import Code from '@ps/ui/components/display/Code';
+import Text from '@ps/ui/components/display/Text';
+import Button from '@ps/ui/components/focus/Button';
+import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
+import { Buttons } from './_components';
+
+<Meta title="focus/Button" />
+
+<ThemeProvider>
+
+<Box ss={`
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;`}>
+
+<Box textcolor="light" ss="padding: 1rem;">
+  <Box variant="articleX" ss="padding-top:1.25rem;">
+    <Buttons />
+    <Code
+      code={`// import the ready-to-use default export, or the HOC named export
+import { withButton } from '@ps/ui/components/focus/Button';
+const Button = withButton({
+  size: 'small',
+  ss: 'margin: 0 0.875rem 1.125rem 0;',
+});
+  
+<Button variant="primary">Primary</Button>
+<Button>Outlined</Button>
+<Button variant="primary" icon={<DownloadOutlined />}>
+  Text with icon
+</Button>
+<Button variant="primary circle" icon={<DownloadOutlined />} />
+<Button variant="primary" loading />`}
+    />
+  </Box>
+</Box>
+
+<Box textcolor="purple" bgcolor="light" ss="padding: 1rem;">
+  <Box variant="articleX">
+    <Box as="h3">Purple text on light background:</Box>
+    <Buttons />
+    <Code
+      code={`// Same exact code. Just add wrapper:
+<Box textcolor="purple" bgcolor="light">
+  ...
+</Box>`}
+    />
+  </Box>
+</Box>
+
+<Box textcolor="light" bgcolor="purple" ss="padding: 1rem;">
+  <Box variant="articleX">
+    <Box as="h3">Light text on purple background:</Box>
+    <Buttons />
+    <Code
+      code={`// Same code. Just change the wrapper:
+<Box textcolor="purple" bgcolor="light">
+  ...
+</Box>`}
+    />
+  </Box>
+</Box>
+
+</Box>
+</ThemeProvider>

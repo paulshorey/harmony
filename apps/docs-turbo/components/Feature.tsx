@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Feature } from "../content/features";
+import type { Feature } from "../display/features";
 
 type FeatureProps = {
   feature: Omit<Feature, "page">;

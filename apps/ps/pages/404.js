@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import styled from '@emotion/styled';
-import CenterChildrenV from '@ps/ui/components/layout/CenterChildrenV';
-import CenterChildrenH from '@ps/ui/components/layout/CenterChildrenH';
+import CenterChildrenY from '@ps/ui/components/display/CenterChildrenY';
+import CenterChildrenX from '@ps/ui/components/display/CenterChildrenX';
 
 export default function Home() {
   const H1 = styled.h1`
@@ -16,11 +16,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <CenterChildrenV ss="height:100vh;">
-          <CenterChildrenH>
+        <CenterChildrenY ss="height:100vh;">
+          <CenterChildrenX>
             <H1>Page not found</H1>
-          </CenterChildrenH>
-        </CenterChildrenV>
+          </CenterChildrenX>
+        </CenterChildrenY>
       </main>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TextBlock from 'src/components/notion/TextBlock';
+import TextBox from 'src/components/notion/TextBox';
 import ChildPage from 'src/components/notion/ChildPage';
 import Image from './Image';
 
@@ -30,13 +30,13 @@ function parse(block) {
     case 'bulleted_list_item':
     case 'bulleted_list_item':
     case 'quote':
-      return <TextBlock block={block} />;
+      return <TextBox block={block} />;
     case 'image':
       return <Image image={block} />;
     case 'child_page':
       return <ChildPage page={block.child_page} />;
     case 'unsupported':
-      console.warn('Block: UNSUPPORTED BLOCK TYPE:', block.type, block);
+      console.warn('Box: UNSUPPORTED BLOCK TYPE:', block.type, block);
       return (
         <>
           <pre>
@@ -48,7 +48,7 @@ function parse(block) {
         </>
       );
     default:
-      console.log('Block: UNFINISHED BLOCK:', block.type, block);
+      console.log('Box: UNFINISHED BLOCK:', block.type, block);
       return (
         <>
           <pre>

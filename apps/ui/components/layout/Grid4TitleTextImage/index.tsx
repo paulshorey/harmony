@@ -1,10 +1,10 @@
 import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
-import { Props as BlockProps } from '@ps/ui/components/content/Block';
+import { Props as BoxProps } from '@ps/ui/components/display/Box';
 import useStyledComponent from '@ps/ui/styles/useStyledComponent';
 
-export type Props = BlockProps;
+export type Props = BoxProps;
 
 /**
  * IMPORTANT:
@@ -31,7 +31,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 
 /*
  * Like StyledComponents' div`` but with added functionality.
- * import { withGrid4TitleTextImage } from 'components/content/Grid4TitleTextImage';
+ * import { withGrid4TitleTextImage } from 'components/display/Grid4TitleTextImage';
  * const Grid4TitleTextImage = withGrid4TitleTextImage({ ...thesePropsWillApplyToAllInstances });
  * <Grid4TitleTextImage {...optionalUniquePropsForCurrentInstance} />
  */

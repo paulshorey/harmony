@@ -1,7 +1,7 @@
-import AppProvider from '@ps/ui/components/utils/AppProvider';
+import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
 import React, { useEffect } from 'react';
 import { themes } from '@storybook/theming';
-import Block from '@ps/ui/components/content/Block';
+import Box from '@ps/ui/components/display/Box';
 
 export const parameters = {
   docs: {
@@ -72,14 +72,14 @@ export const decorators = [
 
     // console.log('story preview');
     return (
-      <AppProvider>
-        <Block
+      <ThemeProvider>
+        <Box
           variant="bggradient"
           ss="position:relative;overflow:auto;margin: -30px -20px;"
         >
           <Story {...context} />
-        </Block>
-      </AppProvider>
+        </Box>
+      </ThemeProvider>
     );
   },
 ];

@@ -1,5 +1,5 @@
 import React from 'react';
-import CenterChildrenV from '@ps/ui/components/layout/CenterChildrenV';
+import CenterChildrenY from '@ps/ui/components/display/CenterChildrenY';
 import Header from 'components/layout/Header';
 import uiState, { uiStateType } from 'state/uiState';
 
@@ -8,12 +8,12 @@ const FullpageLayout = ({ children }) => {
   return (
     <>
       <Header absolute />
-      <CenterChildrenV
+      <CenterChildrenY
         ss="height:100vh;"
         {...ui.colorSchemes[ui.colorSchemeIndex]}
       >
         {children}
-      </CenterChildrenV>
+      </CenterChildrenY>
     </>
   );
 };

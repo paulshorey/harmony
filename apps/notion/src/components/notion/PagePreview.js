@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { css, useTheme } from '@emotion/react';
-import Text from 'src/components/notion/TextBlock';
+import Text from 'src/components/notion/TextBox';
 
 const style = (theme, color) => css`
   padding-left: 0.75rem;

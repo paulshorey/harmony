@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Block from '@ps/ui/components/content/Block';
+import Box from '../../components/display/Box';
 
 const Wrapper = ({ children, ...props }) => {
   /**
@@ -132,16 +132,16 @@ const Wrapper = ({ children, ...props }) => {
   }, []);
 
   return (
-    <Block bgcolor="purple" textcolor="light" ss={containerCSS} {...props}>
-      <Block
+    <Box bgcolor="purple" textcolor="light" ss={containerCSS} {...props}>
+      <Box
         ss={`
         max-width: 1000px;
         margin: 0 auto;
       `}
       >
         {children}
-      </Block>
-    </Block>
+      </Box>
+    </Box>
   );
 };
 

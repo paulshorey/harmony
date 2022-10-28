@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import styled from '@emotion/styled';
-import Block from '@ps/ui/components/content/Block';
-import Code from '@ps/ui/components/content/Code';
+import Box from '@ps/ui/components/display/Box';
+import Code from '@ps/ui/components/display/Code';
 
 export default function Home() {
   const H1 = styled.h1`
@@ -17,7 +17,7 @@ export default function Home() {
       <main>
         <H1>This is styled using a styled component</H1>
         <h2>This is styled using a global styled component</h2>
-        <Block as="h1">Test box</Block>
+        <Box as="h1">Test box</Box>
         <Code
           className="bg"
           code={`ad fad dasf afdafddfsfds  dsf afds afd fds adfs afd fds`}

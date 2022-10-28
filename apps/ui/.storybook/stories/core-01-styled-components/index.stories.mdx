@@ -1,0 +1,127 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Box from '@ps/ui/components/display/Box';
+import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import {
+  Container,
+  ButtonCTA,
+  CanvasContainer,
+  CanvasContent,
+  Title,
+  Content,
+  Button,
+} from '@ps/ui/.storybook/components/Components';
+import Code from '@ps/ui/components/display/Code';
+
+<Meta title="core/Styled Components" />
+
+<ThemeProvider>
+<Wrapper>
+
+### <em>Like styled.button``,</em> you can define generic styles for all instances, in one place.
+
+But you can also set any default props. You can override each one later per instance.
+
+<>
+  {/*Just like you would with StyledComponents. But with this library you can pre-define any prop (variants, data, custom), not just styles.*/}
+</>
+
+<Code
+  ss="font-size: 0.85rem;"
+  code={`import { withButton } from "@ps/ui/components/focus/Button";
+\n
+export const Button = withButton({
+  size: 'small',
+  variant: 'gradient',
+  ss: \`margin: 1rem 1rem 0.25rem 0.25rem;\`,
+});
+\n
+export const CTAButton = withButton({
+  variant: 'bggradient',
+  ss: (props) => \`
+    margin: 0.75rem 0.75rem 0rem 0; font-size: 1.25em; 
+    font-family: \${props.theme.fonts.cta};
+  \`,
+});`}
+/>
+
+<br />
+
+### <em>Use your predefined components.</em> They'll accept any prop without clashing
+
+with the defaults. The old/new props will be intelligently merged. <a>Read more...</a>
+
+<>
+  {/*Each instance will inherit your pre-defined styles and props. Now you may also add unique styles and props specific to each instance.*/}
+</>
+
+<Canvas>
+  <CanvasContainer variant="bgSubtleGradient light">
+    <CanvasContent>
+      <Title color="cta2">on light:</Title>
+      <ButtonCTA color="cta2">gradient cta2</ButtonCTA>
+      <Button color="cta2">default cta2</Button>
+      <Button>default</Button>
+      <Button variant="link" color="cta2">
+        link
+      </Button>
+      <Button variant="disabled" color="cta2">
+        disabled
+      </Button>
+    </CanvasContent>
+  </CanvasContainer>
+</Canvas>
+
+<Canvas>
+  <CanvasContainer variant="bgSubtleGradient dark">
+    <CanvasContent>
+      <Title color="cta2">on dark:</Title>
+      <ButtonCTA color="cta2">gradient cta2</ButtonCTA>
+      <Button color="cta2">default cta2</Button>
+      <Button>default</Button>
+      <Button variant="link" color="cta2">
+        link
+      </Button>
+      <Button variant="disabled" color="cta2">
+        disabled
+      </Button>
+    </CanvasContent>
+  </CanvasContainer>
+</Canvas>
+
+<Canvas>
+  <CanvasContainer variant="bggradient" color="cta">
+    <CanvasContent>
+      <Title color="cta2">on hero1:</Title>
+      <ButtonCTA color="cta2">gradient cta2</ButtonCTA>
+      <Button color="cta2">default cta2</Button>
+      <Button>default</Button>
+      <Button variant="link" color="cta2">
+        link
+      </Button>
+      <Button variant="disabled" color="cta2">
+        disabled
+      </Button>
+    </CanvasContent>
+  </CanvasContainer>
+</Canvas>
+
+<Canvas>
+  <CanvasContainer variant="bggradient" color="cta">
+    <CanvasContent>
+      <Title color="cta2">on hero2:</Title>
+      <ButtonCTA color="cta2">gradient cta2</ButtonCTA>
+      <Button color="cta2">default cta2</Button>
+      <Button>default</Button>
+      <Button variant="link" color="cta2">
+        link
+      </Button>
+      <Button variant="disabled" color="cta2">
+        disabled
+      </Button>
+    </CanvasContent>
+  </CanvasContainer>
+</Canvas>
+
+</Wrapper>
+</ThemeProvider>

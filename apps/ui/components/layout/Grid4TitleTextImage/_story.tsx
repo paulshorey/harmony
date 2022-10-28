@@ -1,8 +1,8 @@
-import Block from '@ps/ui/components/content/Block';
+import Box from '@ps/ui/components/display/Box';
 import Component from '.';
 
 const Story = (props) => (
-  <Block variant="centered">
+  <Box variant="centered">
     <Component
       variant={'titleImageTextImage'}
       image={
@@ -17,7 +17,7 @@ const Story = (props) => (
       title={<h1>This is the title</h1>}
       {...props}
     />
-  </Block>
+  </Box>
 );
 
 export default Story;

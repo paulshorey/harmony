@@ -1,7 +1,7 @@
 import React from 'react';
 // import Text from './Text';
 import cconsole from '@ps/cconsole';
-import Block from './Block';
+import Box from './Box';
 
 const usePage = ({ data }) => {
   let parsed = {};
@@ -15,7 +15,7 @@ const usePage = ({ data }) => {
   // blocks
   if (data.blocks) {
     for (let block of data.blocks) {
-      parsed.children.push(() => Block({ block: block }));
+      parsed.children.push(() => Box({ block: block }));
     }
   }
 

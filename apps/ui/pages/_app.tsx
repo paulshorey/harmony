@@ -1,12 +1,12 @@
-import AppProvider from '@ps/ui/components/utils/AppProvider';
+import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
 import { AppProps } from 'next/app';
 import React from 'react';
 
 const MyApp = ({ Component, pageProps }: AppProps): any => {
   return (
-    <AppProvider>
+    <ThemeProvider>
       <Component {...pageProps} />
-    </AppProvider>
+    </ThemeProvider>
   );
 };
 

@@ -1,0 +1,115 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Box from '@ps/ui/components/display/Box';
+import Text from '@ps/ui/components/display/Text';
+import Code from '@ps/ui/components/display/Code';
+import CodeInline from '@ps/ui/components/display/CodeInline';
+import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
+import Wrapper from '@ps/ui/.storybook/components/Wrapper';
+import {
+  BulletNumber,
+  SvgSparkle,
+} from '@ps/ui/.storybook/components/Decorations';
+
+<Meta title="Why another UI library ?" />
+
+<ThemeProvider>
+
+<Wrapper ssAll="a { color: white; }">
+
+<h1>
+  <Box as="span" textgradient="rainbow">
+    This is a development kit
+  </Box>
+</h1>
+
+An easy way to <Text as="b" textgradient="accent">bootstrap and maintain</Text> your own <Text as="b" textgradient="rainbow"> custom branded component library</Text> for all your <Text as="b" textgradient="accent"><SvgSparkle ss="" />mono repo frontends<SvgSparkle ss="" /><SvgSparkle ss="" /></Text>. <br />
+A <BulletNumber>1</BulletNumber> pre-configured mono repo, <BulletNumber>2</BulletNumber> a styling system to make branding easier <BulletNumber>3</BulletNumber> and a few components to get you started.
+
+---
+
+<Box as="h2" ss="margin-top:2rem;">
+  <Box as="span" textgradient="rainbow">
+    For better DX and UX
+  </Box>
+</Box>
+
+Instead of trying to rewrite CSS in JS, or just using classNames for everything, let <a>CSS and JS</a> to work in harmony, each doing what they do best. This library uses a very small global stylesheet to define colors and lights/darks. Because CSS is "**cascading**", every element knows if its on dark or light, and can adjust automatically.
+
+<Code
+  variant="transparentDark"
+  code={`import Text from 'harmonyui/components/display/Text';
+// Define light/dark variants of any color group. Define whatever color groups your brand uses.
+<Text as="b" textgradient="accent"> bootstrap and maintain </Text>
+<Text as="b" textgradient="rainbow"> custom branded component library</Text>`}
+/>
+
+<p>
+  <a>Media query shortcuts</a> let you{' '}
+  <Text as="b" textgradient="rainbow">
+    painlessly style for multiple devices!
+  </Text>{' '}
+  You're not limited to just{' '}
+  <CodeInline variant="text" color="purple">
+    xs,sm,md,lg
+  </CodeInline>{' '}
+  or whatever you originally defined. Not limited to{' '}
+  <CodeInline variant="text" code={`min-width`} /> either. Instead, use semantic
+  prop names like <CodeInline variant="text" code={`ssTablet`} /> (or{' '}
+  <CodeInline variant="text" code={`theme.mq.tablet`} />) to style tablets
+  (between 601-1024px). Each media query prop can accept a{' '}
+  <CodeInline variant="text" code={`string`} />,{' '}
+  <CodeInline variant="text" code={`(props)=>string`} /> function, or any
+  EmotionCSS type.
+</p>
+
+<Code
+  variant="transparentDark smaller"
+  code={`import { withBox } from 'harmonyui/components/display/Box';
+const Demo = withBox({ ss: 'display:none;' });
+// For convenience, ss props accept a simple string in addition to any EmotionCSS type. No configuration is required.
+<Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>
+<Demo ssIframe="display:block"> apply style only if rendered inside an iframe (like Storybook or website widget) </Demo>
+// You can adjust breakpoint sizes in your theme.
+<Demo ssPhone="display:block"> style only phones (<=600px) </Demo>
+<Demo ssSmallPhone="display:block"> style only small phones like the Mini or X (<=400) </Demo>
+<Demo ssLargeTablet="display:block"> style only larger tablets (768-1024px) </Demo>
+// People's desktop screens are very rarely <=1024px nowadays. Most iPads are 1024px wide. 
+<Demo ssDesktop="display:block"> only Desktop ( >1024px )</Demo>
+<Demo ssMobile="display:block"> only Mobile ( <=1024px )</Demo>
+<Demo ssLg="display:block"> "large" screens including larger tablets ( >930px )</Demo>
+<Demo ssSm="display:block"> "small" screens including smaller tablets ( <=930px )</Demo>
+// And many more. Each breakpoint is only included in the bundle if you use it. `}
+/>
+
+**You don't have to use inline-styles or strings.** Use an HOC like with Styled Components (@emotion/styled). As an added feature, this library lets you pre-define any props, not just styles. Then override any prop or style per each instance. <a>Read more.</a>
+
+<br />
+<br />
+
+## CSS-in-JS is no longer tedious!
+
+<p>
+  <Text ssPhone="display:none;">👈 </Text>
+  <Text ssNotPhone="display:none;">👇 </Text> Go ahead and explore the sidebar. Below
+  each component's story is a documentation of props it accepts.
+</p>
+
+<p>
+  <br />
+  This is just an experiment. Not production ready. Not stable yet. Needs more components
+  and much more testing.
+  <br />
+  If you like this approach then <a>checkout the Github repo</a>. Please contribute
+  or open an issue to discuss. Thank you!
+  <br />
+  Please reach out with any questions or ideas. Let's collaborate! ~ <a
+    href="https://paulshorey.com"
+    target="_blank"
+  >
+    Paul Shorey
+  </a>
+</p>
+
+</Wrapper>
+
+</ThemeProvider>

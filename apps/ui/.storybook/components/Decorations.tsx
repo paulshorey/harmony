@@ -1,11 +1,11 @@
-import { withBlock } from '@ps/ui/components/content/Block';
+import { withBox } from '@ps/ui/components/display/Box';
 
-export const SvgSparkle = withBlock({
+export const SvgSparkle = withBox({
   as: 'svg',
   ss: `position:absolute;display:inline-block;width:0;height:0;`,
 });
 
-export const BulletNumber = withBlock({
+export const BulletNumber = withBox({
   as: 'span',
   ss: `
     background: var(--color-text);

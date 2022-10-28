@@ -1,4 +1,4 @@
-import { get_pageBlocks, get_pageMeta } from '@ps/fn/requests/notion/2022-06-28';
+import { get_pageBoxs, get_pageMeta } from '@ps/fn/requests/notion/2022-06-28';
 // import cconsole from '@ps/cconsole';
 
 // does not return anything, only modifies passed in objects
@@ -12,7 +12,7 @@ const pagesTree = async (page, pages) => {
   }
   // blocks
   if (!page.blocks) {
-    page.blocks = await get_pageBlocks(page.id);
+    page.blocks = await get_pageBoxs(page.id);
     for (let block of page.blocks) {
       if (block.child_page) {
         // prefill id,url,title
@@ -20,7 +20,11 @@ const pagesTree = async (page, pages) => {
           id: block.id,
           title: block.child_page.title,
           url:
-            page.url + block.child_page.title.replace(/[^a-z0-9\-_]+/gi, '-').toLowerCase() + '/',
+            page.url +
+            block.child_page.title
+              .replace(/[^a-z0-9\-_]+/gi, '-')
+              .toLowerCase() +
+            '/',
         };
         await pagesTree(block.child_page, pages);
         block.child_page.parent_page_url = page.url;

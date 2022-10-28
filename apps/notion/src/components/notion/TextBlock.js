@@ -12,7 +12,7 @@ export default ({ block }) => {
   let data_mentioned_page = false;
   let data_mentioned_site = false;
   let el_tagName = tag(block);
-  let el_className = 'notionBlockText';
+  let el_className = 'notionBoxText';
   let text = block[block.type].text || block[block.type].rich_text;
   let Texts = [];
 
@@ -30,7 +30,9 @@ export default ({ block }) => {
       block.pageMentions[text.mention.page.id]
     ) {
       data_mentioned_page = 'mentioned-page';
-      Texts.push(<PageMention key={ti} page={block.pageMentions[text.mention.page.id]} />);
+      Texts.push(
+        <PageMention key={ti} page={block.pageMentions[text.mention.page.id]} />
+      );
     }
     if (
       text.text &&
@@ -44,7 +46,9 @@ export default ({ block }) => {
       Texts.push(
         <SitePreview
           key={ti}
-          sitePreview={block.sitePreviews[text.text.link.url + text.text.content]}
+          sitePreview={
+            block.sitePreviews[text.text.link.url + text.text.content]
+          }
         />
       );
     }
@@ -101,10 +105,10 @@ function tag(block) {
     case 'quote':
       return 'blockquote';
     case 'unsupported':
-      console.warn('TextBlock: UNSUPPORTED BLOCK TYPE:', block);
+      console.warn('TextBox: UNSUPPORTED BLOCK TYPE:', block);
       return 'h1';
     default:
-      console.log('TextBlock: UNFINISHED BLOCK (div):', block);
+      console.log('TextBox: UNFINISHED BLOCK (div):', block);
       return 'div';
   }
 }

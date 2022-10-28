@@ -1,7 +1,7 @@
 import { Avatar } from "./Avatar";
 import cn from "classnames";
-import TURBO_TEAM from "../content/team";
-import type { Author } from "../content/team";
+import TURBO_TEAM from "../display/team";
+import type { Author } from "../display/team";
 
 export function Authors({ authors }: { authors: Array<Author> }) {
   return (
