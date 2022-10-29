@@ -8,22 +8,18 @@ export default {
     display: inline-block;
     cursor: pointer;
     vertical-align: middle;
-
-    box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, 0.25);
     text-shadow: 1px 1px 5px var(--color-text);
     color: var(--color-bg);
-
     display: relative;
     box-sizing: content-box;
     border: none;
-    box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
     outline: none;
     background: var(--color-text-gradient);
+    box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
 
     &:focus {
       outline: solid 2px rgb(30 167 253);
     }
-
     &:hover,
     &:focus:not(:hover) {
       background-size: 200% auto;
@@ -89,9 +85,7 @@ export default {
 
     // size, round, & other props
     height: ${props.theme.sizes.buttonsAndInputs.height[props.size]}rem;
-    line-height: calc(
-      ${props.theme.sizes.buttonsAndInputs.height[props.size]}rem - 5px
-    );
+    line-height: ${props.theme.sizes.buttonsAndInputs.height[props.size]}rem;
     padding: 0 ${props.theme.sizes.buttonsAndInputs.paddingX[props.size]}rem;
     font-size: ${props.theme.sizes.buttonsAndInputs.fontSize[props.size]}rem;
     border-radius: 7px;
