@@ -30,7 +30,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 };
 
 /*
- * Like StyledComponents' div`` but with added functionality.
+ * Like StyledComponents' styled.div`` but with added functionality.
  * import { withGrid4TitleTextImage } from 'components/content/Grid4TitleTextImage';
  * const Grid4TitleTextImage = withGrid4TitleTextImage({ ...thesePropsWillApplyToAllInstances });
  * <Grid4TitleTextImage {...optionalUniquePropsForCurrentInstance} />

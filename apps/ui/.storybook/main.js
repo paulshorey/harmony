@@ -1,4 +1,23 @@
+// const fs = require('fs');
 // const path = require('path');
+
+// function getPackageDir(filepath) {
+//   let currDir = path.dirname(require.resolve(filepath));
+//   console.log('\n\n\n\ncurrDir', currDir, '\n\n\n\n\n');
+//   while (true) {
+//     if (fs.existsSync(path.join(currDir, 'package.json'))) {
+//       return currDir;
+//     }
+//     const { dir, root } = path.parse(currDir);
+//     if (dir === root) {
+//       throw new Error(
+//         `Could not find package.json in the parent directories starting from ${filepath}.`
+//       );
+//     }
+//     currDir = dir;
+//   }
+// }
+
 module.exports = {
   stories: [
     '../.storybook/**/*.stories.@(js|jsx|ts|tsx|mdx)',
@@ -22,26 +41,29 @@ module.exports = {
       },
     },
   ],
-  // presets: [path.resolve('./.storybook/addons/scss-preset.js')],
+  presets: [
+    // path.resolve('./.storybook/addons/scss-preset.js')
+  ],
   framework: '@storybook/react',
   staticDir: ['../public'],
   core: {
     builder: 'webpack5',
   },
+  // features: { emotionAlias: false },
   webpackFinal: async function supportCssModules(config) {
     // config.module.rules.push({
     //   test: /\.svg$/i,
     //   issuer: /\.[jt]sx?$/,
     //   use: ['@svgr/webpack'],
     // });
-
-    //   // console.log('1=================================')
-    //   // console.log('>>>config', config.module.rules)
-    //   // console.log('1=================================')
-
     //   config.module.rules.find(
     //     (rule) => rule.test.toString() === '/\\.css$/'
     //   ).exclude = /\.module\.css$/;
+    // config.resolve.alias = {
+    //   ...config.resolve.alias,
+    //   '@emotion/styled': getPackageDir('@emotion/styled'),
+    //   'emotion-theming': getPackageDir('@emotion/react'),
+    // };
 
     return config;
   },

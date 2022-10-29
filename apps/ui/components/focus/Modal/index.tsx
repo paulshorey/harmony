@@ -81,7 +81,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 };
 
 /*
- * Like StyledComponents' div`` but with added functionality:
+ * Like StyledComponents' styled.div`` but with added functionality:
  * import { withModal } from 'components/focus/Modal';
  * const Modal = withModal({ ...thesePropsWillApplyToAllInstances });
  * <Modal {...optionalUniquePropsForCurrentInstance} />

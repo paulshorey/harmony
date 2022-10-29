@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { useTheme } from '@emotion/react';
+import { css, useTheme } from '@emotion/react';
+import { css as emotionCSS } from '@emotion/css';
 import style_to_string from '@ps/fn/browser/style/style_to_string';
 import { returnDeviceInfo, deviceInfoType } from '@ps/ui/hooks/useDeviceInfo';
 import { ssPropType, styledTags } from '@ps/ui/types/component';
-import styled from '@emotion/styled';
+// import styled from '@emotion/styled';
 // import cconsole from '@ps/cconsole';
 // import themeType from '@ps/ui/types/theme';
+type Props = {
+  props: any;
+  componentName: string;
+  component?: any;
+  tagName?: styledTags;
+  variants?: Record<string, ssPropType>;
+  classes?: Record<string, string>;
+};
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
  * It takes all the custom ss props, plus styles, variants, css, and aggregates them into one css prop.
  */
-export default (
-  inputProps: any,
-  tagName: styledTags = 'div',
-  componentName: string,
-  variantStyles?: Record<string, ssPropType>,
-  classStyles?: Record<string, string>
-): [React.ElementType, Record<string, any>] => {
+export default ({
+  props: inputProps,
+  tagName = 'div',
+  componentName,
+  variants: variantStyles,
+  classes: classStyles,
+}: Props): Record<string, any> => {
   const {
     textcolor = '',
     textgradient = '',
@@ -64,11 +73,9 @@ export default (
   // This library also includes that functionality. This also includes a bit of added functionality...
   // Style functions will be able to read not just the props and theme but also "instance" properties.
   const theme: any = useTheme(); // tsFix (causes notices when setting new properties, see @ps/ui/types/theme for types)
-  if (typeof styled === 'undefined' || !styled?.div) {
-    throw new Error(
-      '@emotion/styled is not installed or is not recognized by Storybook.'
-    );
-  }
+  // if (typeof styled === 'undefined' || !styled?.div) {
+  //   throw new Error('!styledWithEmotion ... typeof = ' + typeof styled);
+  // }
   // theme.instance
   // Extend the temporary theme.instance. If property already exists, do not overwrite it.
   // It may exist because some components in this library include a child component also from this library.
@@ -294,6 +301,9 @@ export default (
       props['data-textgradient'] = true;
     }
   }
+  if (props.size) {
+    props['data-size'] = props.size;
+  }
   // set colorscheme
   if (props['data-textcolor'] === 'light') {
     props['data-colorscheme'] = 'ondark';
@@ -304,20 +314,15 @@ export default (
   } else if (props['data-bgcolor'] === 'dark') {
     props['data-colorscheme'] = 'ondark';
   }
-  // return styled component
-  let styledFunction = styled[tagName];
-  if (typeof styledFunction !== 'function') {
-    console.warn(`styled.${tagName} was not found. Using instead styled.div`);
-    styledFunction = styled.div;
-  }
   // apply styles
-  const styledComponent = styledFunction`
+  props.className = emotionCSS(css`
     ${ssGlobal}
     ${ssVariants}
     &.${componentName} {
       ${ssImportant}
     }
-  `;
+  `);
+  console.log('props.className', props.className);
   // return
-  return [styledComponent, props];
+  return props;
 };

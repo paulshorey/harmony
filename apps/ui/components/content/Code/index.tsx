@@ -39,7 +39,7 @@ export const Component = (props) => {
 };
 
 /*
- * Like StyledComponents' div`` but with added functionality:
+ * Like StyledComponents' styled.div`` but with added functionality:
  * import { withCode } from 'components/content/Code';
  * const Code = withCode({ ...thesePropsWillApplyToAllInstances });
  * <Code {...optionalUniquePropsForCurrentInstance} />

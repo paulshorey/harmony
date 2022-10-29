@@ -89,7 +89,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 };
 
 /*
- * Like StyledComponents' div`` but with added functionality:
+ * Like StyledComponents' styled.div`` but with added functionality:
  * import { withLink } from 'components/focus/Link';
  * const Link = withLink({ ...thesePropsWillApplyToAllInstances });
  * <Link {...optionalUniquePropsForCurrentInstance} />

@@ -1,27 +1,31 @@
+import Box from '@ps/ui/components/content/Box';
+import InputButtonGroup from '@ps/ui/components/focus/InputButtonGroup';
 import Input from '@ps/ui/components/focus/Input';
+import Button from '@ps/ui/components/focus/Button';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 
 const InputStory = (props) => {
-  const style = `margin: 0 0.875rem 0.875rem 0;`;
+  const childprops = {
+    round: true,
+  };
+  const style = ``;
   return (
-    <div>
-      <Input {...props} ss={style} placeholder="Enter your username" />
-
-      <Input {...props} ss={style} placeholder="Enter your username" />
-
+    <InputButtonGroup {...props}>
       <Input
-        {...props}
+        {...childprops}
         ss={style}
-        placeholder="Enter your username"
-        prefix={'http://'}
-        suffix={'.com'}
+        prefix="http://"
+        defaultValue="mysite"
       />
-    </div>
+      <Button {...childprops} ss={style}>
+        Go
+      </Button>
+    </InputButtonGroup>
   );
 };
 
-const TestPage = (props) => (
+export default (props) => (
   <CanvasContainer>
     <CanvasStoryPadding>
       <InputStory {...props} />
@@ -32,4 +36,4 @@ const TestPage = (props) => (
   </CanvasContainer>
 );
 
-export default TestPage;
+export const code = ``;

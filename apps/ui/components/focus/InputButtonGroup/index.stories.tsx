@@ -6,16 +6,14 @@ import variants from './variants';
 
 const variantKeys = Object.keys(variants);
 const args = {
-  size: 'lg',
-  variant: 'pulsing',
-  round: true,
-  loading: false,
-  children: 'Button text',
+  textcolor: '',
+  bgcolor: '',
+  size: '',
 };
 
-export const Button = Template.bind({});
-Button.argTypes = argTypes({ localVariants: variantKeys });
-Button.args = args;
+export const InputButtonGroup = Template.bind({});
+InputButtonGroup.argTypes = argTypes({ localVariants: variantKeys });
+InputButtonGroup.args = args;
 
 export default {
   component: Component,

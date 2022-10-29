@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
-import useStyledComponent from '@ps/ui/styles/useStyledComponent';
+import useStyledClassNames from '@ps/ui/styles/useStyledClassNames';
 import variants from '@ps/ui/components/focus/Input/variants';
 import classes from '@ps/ui/components/focus/Input/index.module.css';
 import AntInput from 'antd/lib/input';
@@ -23,14 +23,6 @@ export type Props = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
      * If true, will have very rounded corners like a "pill" or "circle".
      */
     round?: boolean;
-    /**
-     * The label text displayed after (on the right side of) the input field
-     */
-    addonAfter?: ReactNode;
-    /**
-     * The label text displayed before (on the left side of) the input field
-     */
-    addonBefore?: ReactNode;
     /**
      * If allow to remove input content with clear icon
      */
@@ -92,16 +84,32 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   /*
    * Styles
    */
-  const [Styled, otherProps] = useStyledComponent({
-    component: AntInput,
+  const styledProps = useStyledClassNames({
+    // component: AntInput,
     props,
     componentName: 'Input',
     variants,
     classes,
   });
-  return <Styled {...otherProps} />;
+  /*
+   * State
+   */
+  const [value, set_value] = React.useState('');
+  return (
+    <AntInput
+      value={value}
+      onChange={(e) => {
+        console.log('onChange', e);
+        set_value(e.target.value);
+      }}
+      onFocus={(e) => {
+        console.log('onFocus', e);
+      }}
+      {...styledProps}
+    />
+  );
 
-  // const [Styled, otherProps] = useStyledComponent({
+  // const [Styled, otherProps] = useStyledClassNames({
   //   component: Input,
   //   props,
   //   tagName: 'input',
@@ -113,7 +121,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 };
 
 /*
- * Like StyledComponents' div`` but with added functionality:
+ * Like StyledComponents' styled.div`` but with added functionality:
  * import { withInput } from 'components/focus/Input';
  * const Input = withInput({ ...thesePropsWillApplyToAllInstances });
  * <Input {...optionalUniquePropsForCurrentInstance} />

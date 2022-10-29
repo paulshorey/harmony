@@ -8,25 +8,42 @@ export default {
     justify-content: center;
     align-items: center;
     vertical-align: middle;
-
-    text-shadow: 1px 1px 5px var(--color-text);
-    /* color: var(--color-text); */
+    text-shadow: none;
     color: #999;
 
     box-sizing: content-box;
     border: none;
-    outline: none;
     background: white;
 
     border-radius: 7px;
     font-weight: 500;
     letter-spacing: 0.33px;
 
+    &:focus,
+    &:focus-within {
+      box-shadow: 0 0 0 2px var(--color-cta);
+    }
+
+    /*
+     * Just the input by itself, without prefix/suffix before/after
+     */
+    &.ant-input {
+      outline: none;
+      padding: 0
+        ${props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md']}rem;
+    }
+
+    /*
+     * With prefix/suffix before/after, input is rendered as child
+     */
     input {
       outline: none !important;
       border: none;
       background: transparent;
       margin: 1px 0 0;
+      padding: 0
+        ${props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md'] *
+        0.5}rem;
     }
 
     &,
@@ -51,10 +68,6 @@ export default {
 
     .ant-input-prefix,
     .ant-input-suffix {
-      width: calc(
-        ${props.theme.sizes.buttonsAndInputs.height[props.size || 'md']}rem -
-          ${props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md']}rem
-      );
       display: inline-flex;
       text-align: center;
       justify-content: center;
@@ -64,15 +77,11 @@ export default {
         justify-content: center;
         vertical-align: middle;
       }
+      svg {
+        margin: 0 -${props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md'] / 6}rem;
+      }
     }
-    input {
-      padding-left: ${props.theme.sizes.buttonsAndInputs.paddingX[
-        props.size || 'md'
-      ]}rem;
-      padding-right: ${props.theme.sizes.buttonsAndInputs.paddingX[
-        props.size || 'md'
-      ]}rem;
-    }
+
     .ant-input-prefix {
       padding-left: ${props.theme.sizes.buttonsAndInputs.paddingX[
         props.size || 'md'
@@ -88,20 +97,12 @@ export default {
     /*
      * Hover/Focus
      */
-    &:focus {
-      outline: solid 2px rgb(30 167 253);
-    }
-
     &:hover,
     &:focus:not(:hover) {
       background-size: 200% auto;
       transition: background-position 300ms linear 0s,
         background-size 300ms linear 0s;
       background-position: right center;
-    }
-
-    &:focus:hover {
-      outline: none !important;
     }
 
     /*

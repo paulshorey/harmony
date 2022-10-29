@@ -124,7 +124,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 };
 
 /*
- * Like StyledComponents' div`` but with added functionality:
+ * Like StyledComponents' styled.div`` but with added functionality:
  * import { withButton } from 'components/focus/Button';
  * const Button = withButton({ ...thesePropsWillApplyToAllInstances });
  * <Button {...optionalUniquePropsForCurrentInstance} />

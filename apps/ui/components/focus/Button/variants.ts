@@ -28,13 +28,17 @@ export default {
       background-position: right center;
     }
 
-    &:focus:hover {
+    &:hover:not(:focus) {
       outline: none !important;
+    }
+    &:hover {
+      box-shadow: 0 0 0 2px var(--color-cta) !important;
     }
     > * {
       position: relative;
     }
-    /* &:hover {
+    /* 
+    &:hover {
       > * {
         top: -1px;
         left: -1px;
@@ -84,10 +88,15 @@ export default {
     }
 
     // size, round, & other props
-    height: ${props.theme.sizes.buttonsAndInputs.height[props.size]}rem;
-    line-height: ${props.theme.sizes.buttonsAndInputs.height[props.size]}rem;
-    padding: 0 ${props.theme.sizes.buttonsAndInputs.paddingX[props.size]}rem;
-    font-size: ${props.theme.sizes.buttonsAndInputs.fontSize[props.size]}rem;
+    height: ${props.theme.sizes.buttonsAndInputs.height[props.size || 'md']}rem;
+    line-height: ${props.theme.sizes.buttonsAndInputs.height[
+      props.size || 'md'
+    ]}rem;
+    padding: 0
+      ${props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md']}rem;
+    font-size: ${props.theme.sizes.buttonsAndInputs.fontSize[
+      props.size || 'md'
+    ]}rem;
     border-radius: 7px;
     font-weight: 500;
     letter-spacing: 0.33px;
@@ -95,20 +104,23 @@ export default {
     ${props.theme?.instance?.variants?.link &&
     css`
       padding: 0
-        ${props.theme.sizes.buttonsAndInputs.paddingX[props.size] / 2}rem;
+        ${props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md'] /
+        2}rem;
     `}
 
     ${props.icon &&
     !props.children &&
     css`
       padding: 0;
-      width: ${props.theme.sizes.buttonsAndInputs.height[props.size] + 0.1}rem;
+      width: ${props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] +
+      0.1}rem;
     `}
 
     ${props.round &&
     css`
-      border-radius: ${props.theme.sizes.buttonsAndInputs.height[props.size] /
-      2}rem;
+      border-radius: ${props.theme.sizes.buttonsAndInputs.height[
+        props.size || 'md'
+      ] / 2}rem;
     `}
   `,
   outline: (props) => css`
@@ -135,7 +147,8 @@ export default {
     css`
       &::before {
         border-radius: calc(
-          ${props.theme.sizes.buttonsAndInputs.height[props.size] / 2}rem - 2px
+          ${props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] /
+            2}rem - 2px
         );
       }
     `}
@@ -145,6 +158,9 @@ export default {
     text-shadow: none !important;
     box-shadow: none;
     color: var(--color-text);
+    /* text-decoration: underline;
+    text-underline-offset: 2.5px;
+    text-decoration-thickness: 1.25px; */
   `,
   spinning: css`
     svg {

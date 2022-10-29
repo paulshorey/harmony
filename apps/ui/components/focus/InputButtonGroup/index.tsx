@@ -2,18 +2,19 @@ import { forwardRef, memo, ReactElement } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
 import { Props as BoxProps } from '@ps/ui/components/content/Box';
+import { Props as ButtonProps } from '@ps/ui/components/focus/Button';
 import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 
-export type Props = BoxProps;
+export type Props = ButtonProps & BoxProps;
 
 export const Component: (props: Props, ref?: any) => ReactElement = (
-  { as, children, ...props },
+  { as, round, loading, size, children, ...props },
   ref
 ) => {
   const [Styled, otherProps] = useStyledOriginal(
     props,
-    'div',
-    'CenterChildrenX',
+    as || 'div',
+    'InputButtonGroup',
     variants
   );
   return (
@@ -25,18 +26,18 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 
 /*
  * Like StyledComponents' styled.div`` but with added functionality:
- * import { withCenterChildrenX } from 'components/content/CenterChildrenX';
- * const CenterChildrenX = withCenterChildrenX({ ...thesePropsWillApplyToAllInstances });
- * <CenterChildrenX {...optionalUniquePropsForCurrentInstance} />
+ * import { withInputButtonGroup } from 'components/content/InputButtonGroup';
+ * const InputButtonGroup = withInputButtonGroup({ ...thesePropsWillApplyToAllInstances });
+ * <InputButtonGroup {...optionalUniquePropsForCurrentInstance} />
  */
-export const withCenterChildrenX = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(CenterChildrenX, props1, props2);
+export const withInputButtonGroup = (props1: Props) => (props2: Props) => {
+  return withAddPropsToComponent(InputButtonGroup, props1, props2);
 };
 
 /*
  * Default export is a ready-to-use component:
  * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "CenterChildrenX" is same as default export. But IDEs like VSCode can read a named import better.
+ * Named "InputButtonGroup" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const CenterChildrenX = memo(forwardRef(Component));
-export default CenterChildrenX;
+export const InputButtonGroup = memo(forwardRef(Component));
+export default InputButtonGroup;

@@ -26,7 +26,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 };
 
 /*
- * Like StyledComponents' div`` but with added functionality:
+ * Like StyledComponents' styled.div`` but with added functionality:
  * import { withCodeInline } from 'components/content/CodeInline';
  * const CodeInline = withCodeInline({ ...thesePropsWillApplyToAllInstances });
  * <CodeInline {...optionalUniquePropsForCurrentInstance} />

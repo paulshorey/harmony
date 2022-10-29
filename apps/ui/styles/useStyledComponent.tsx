@@ -74,7 +74,9 @@ export default ({
   // Style functions will be able to read not just the props and theme but also "instance" properties.
   const theme: any = useTheme(); // tsFix (causes notices when setting new properties, see @ps/ui/types/theme for types)
   if (typeof styled === 'undefined' || !styled?.div) {
-    throw new Error('!styledWithEmotion ... typeof = ' + typeof styled);
+    throw new Error(
+      '@emotion/styled is not installed or is not recognized by Storybook.'
+    );
   }
   // theme.instance
   // Extend the temporary theme.instance. If property already exists, do not overwrite it.
@@ -334,5 +336,5 @@ export default ({
     }
   `;
   // return
-  return [styledComponent, props];
+  return [({ children }) => <div>{children}</div>, props];
 };

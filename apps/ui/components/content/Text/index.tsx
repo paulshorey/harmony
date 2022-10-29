@@ -26,7 +26,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 };
 
 /*
- * Like StyledComponents' div`` but with added functionality:
+ * Like StyledComponents' styled.div`` but with added functionality:
  * import { withText } from 'components/content/Text';
  * const Text = withText({ ...thesePropsWillApplyToAllInstances });
  * <Text {...optionalUniquePropsForCurrentInstance} />

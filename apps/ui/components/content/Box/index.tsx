@@ -27,7 +27,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 };
 
 /*
- * Like StyledComponents' div`` but with added functionality:
+ * Like StyledComponents' styled.div`` but with added functionality:
  * import { withBox } from 'components/content/Box';
  * const Box = withBox({ ...thesePropsWillApplyToAllInstances });
  * <Box {...optionalUniquePropsForCurrentInstance} />
