@@ -12,7 +12,7 @@ const args = {
 };
 
 export const Grid4TitleTextImage = Template.bind({});
-Grid4TitleTextImage.argTypes = argTypes(variantKeys);
+Grid4TitleTextImage.argTypes = argTypes({ localVariants: variantKeys });
 Grid4TitleTextImage.args = args;
 
 export default {

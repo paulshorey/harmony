@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Box from '../../components/display/Box';
+import Box from '../../components/content/Box';
 
 const Wrapper = ({ children, ...props }) => {
   /**

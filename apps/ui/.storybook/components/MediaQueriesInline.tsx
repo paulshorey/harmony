@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { withCodeInline } from '@ps/ui/components/display/CodeInline';
+import { withCodeInline } from '@ps/ui/components/content/CodeInline';
 
 const Mq = withCodeInline({
   variant: 'text',

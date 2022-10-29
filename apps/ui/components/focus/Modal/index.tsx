@@ -1,9 +1,9 @@
-import { Props as BoxProps } from '@ps/ui/components/display/Box';
+import { Props as BoxProps } from '@ps/ui/components/content/Box';
 import { memo, useEffect, forwardRef, ReactElement } from 'react';
 import ReactModal from 'react-modal';
 import variants from './variants';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
-import useStyledComponent from '@ps/ui/styles/useStyledComponent';
+import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 import Button from '@ps/ui/components/focus/Button';
 
 export type Props = BoxProps & {
@@ -28,7 +28,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   },
   ref
 ) => {
-  const [Styled, otherProps] = useStyledComponent(
+  const [Styled, otherProps] = useStyledOriginal(
     props,
     'div',
     'Modal',

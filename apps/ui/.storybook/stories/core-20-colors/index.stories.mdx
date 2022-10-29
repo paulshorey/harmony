@@ -1,9 +1,9 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
-import Text from '@ps/ui/components/display/Box';
+import Text from '@ps/ui/components/content/Box';
 import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
 import { Wrapper } from '../../components/Components';
-import Box from '@ps/ui/components/display/Box';
-import Code from '@ps/ui/components/display/Code';
+import Box from '@ps/ui/components/content/Box';
+import Code from '@ps/ui/components/content/Code';
 
 export const Template = (args) => (
   <Box as="p" {...args}>
@@ -35,7 +35,7 @@ export const Template = (args) => (
     It's a starter kit for easily making <Box as="span" className="text-rainbow"> and branding </Box> your own UI library.
   </h3>
 
-<Code code={`import { Box } from '@ps/ui/components/display/Box';`} />
+<Code code={`import { Box } from '@ps/ui/components/content/Box';`} />
 
 <p>
   <strong>It's a styling-system for enterprise.</strong>

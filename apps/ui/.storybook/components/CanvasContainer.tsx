@@ -1,4 +1,4 @@
-import { withBox } from '../../components/display/Box';
+import { withBox } from '@ps/ui/components/content/Box';
 
 const CanvasContainer = withBox({
   bggradient: 'purple',

@@ -1,0 +1,124 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Box from '@ps/ui/components/content/Box';
+import Code from '@ps/ui/components/content/Code';
+import Text from '@ps/ui/components/content/Text';
+import Button from '@ps/ui/components/focus/Button';
+import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
+import { Buttons } from './_components';
+
+<Meta title="focus/Forms and Navigation" />
+
+<ThemeProvider>
+
+<Box ss={`
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;`}>
+
+<Box
+  textcolor="light"
+  variant="articleX"
+  ss="padding-top:1.25rem;padding-bottom:0.95rem;"
+>
+  <p>
+    This group is called "focus" because all these components have "onFocus /
+    onBlur" states. They're not just "form" elements, but also interactive
+    navigation components and controls for building a dashboard. Each of these
+    elements are meant to be accessible by using a keyboard, and by people using
+    screen readers. Here are some examples, with code:
+  </p>
+</Box>
+
+<Box textcolor="light" bgcolor="purple" ss="padding: 1rem;">
+  <Box variant="articleX" ss="padding-top:1.25rem;">
+    <Buttons />
+    <Button
+      size="small"
+      textcolor="rainbow"
+      ss="margin: 0 0.875rem 0.875rem 0;"
+    >
+      Rainbow
+    </Button>
+    <Button
+      variant="outline"
+      size="small"
+      textgradient="rainbow"
+      ss="margin: 0 0.875rem 0.875rem 0;"
+    >
+      Rainbow outline
+    </Button>
+    <Code
+      collapsed={true}
+      code={`// import the ready-to-use default export (Button), or the HOC named export (withButton)
+import { withButton } from '@ps/ui/components/focus/Button';
+const Button = withButton({
+  size: 'small',
+  ss: 'margin: 0 0.875rem 0.875rem 0;',
+});
+  
+<Box textcolor="light" bgcolor="purple">
+   
+  <Button loading>Loading</Button>
+  <Button variant="outline">Outlined</Button>
+  <Button variant="link" icon={<FontAwesomeIcon icon={faUser} />}>
+    Link
+  </Button>
+  <Button round icon={<FontAwesomeIcon icon={faUser} />}>
+    Round
+  </Button>
+  <Button
+    round
+    variant="primary"
+    icon={<FontAwesomeIcon icon={faUser} />}
+  />
+  
+  <Button textcolor="rainbow">
+    Rainbow
+  </Button>
+  <Button variant="outline" textgradient="rainbow">
+    Rainbow outline
+  </Button>
+  
+</Box>`}
+    />
+  </Box>
+</Box>
+
+<Box textcolor="purple" bgcolor="light" ss="padding: 1rem;">
+  <Box variant="articleX">
+    <Box as="h3">Light text on purple background:</Box>
+    <Buttons />
+    <Button size="small" textcolor="cta" ss="margin: 0 0.875rem 0.875rem 0;">
+      Different color
+    </Button>
+    <Button
+      variant="outline"
+      size="small"
+      textgradient="cta"
+      ss="margin: 0 0.875rem 0.875rem 0;"
+    >
+      With outline
+    </Button>
+    <Code
+      collapsed={true}
+      code={`// Exactly same code for buttons. Just change the wrapper colors.
+<Box textcolor="purple" bgcolor="light">
+  ...
+  <Button textcolor="cta">Different color</Button>
+  <Button fggradient="cta" variant="outline">With outline</Button>
+</Box>`}
+    />
+  </Box>
+</Box>
+
+<Box
+  textcolor="light"
+  variant="articleX"
+  ss="padding-top:1.25rem;padding-bottom:0.95rem;"
+>
+  <p>More coming soon!</p>
+</Box>
+
+</Box>
+</ThemeProvider>

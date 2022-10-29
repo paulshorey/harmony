@@ -1,4 +1,4 @@
-import { withBox } from '../../components/display/Box';
+import { withBox } from '../../components/content/Box';
 
 const CanvasStoryPadding = withBox({
   ss: `

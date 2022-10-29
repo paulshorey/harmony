@@ -1,4 +1,4 @@
-import { withBox } from '@ps/ui/components/display/Box';
+import { withBox } from '@ps/ui/components/content/Box';
 
 export const SvgSparkle = withBox({
   as: 'svg',

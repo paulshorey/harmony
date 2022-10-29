@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
-import useStyledComponent from '@ps/ui/styles/useStyledComponent';
+import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 import variants from '@ps/ui/components/focus/Button/variants';
 import classes from '@ps/ui/components/focus/Button/index.module.css';
 import Input from 'antd/lib/input';
@@ -92,7 +92,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   /*
    * Styles
    */
-  const [Styled, otherProps] = useStyledComponent(
+  const [Styled, otherProps] = useStyledOriginal(
     props,
     'button',
     'Button',
@@ -100,6 +100,16 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
     classes
   );
   return <Input {...props} />;
+
+  // const [Styled, otherProps] = useStyledOriginal({
+  //   component: Input,
+  //   props,
+  //   tagName: 'button',
+  //   componentName: 'Button',
+  //   variants,
+  //   classes,
+  // });
+  // return <Styled {...otherProps} />;
 };
 
 /*

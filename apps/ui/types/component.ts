@@ -34,7 +34,7 @@ export type styleProps = {
    */
   bggradient?: 'light' | 'dark' | 'purple' | 'accent' | 'cta' | 'rainbow';
   /**
-   * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/global/variables.css
+   * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/global/variables.css - NOT RECOMMENDED for block-level elements or elements with children. Works best on simple inline text.
    */
   textgradient?: 'light' | 'dark' | 'purple' | 'accent' | 'cta' | 'rainbow';
   /**

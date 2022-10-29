@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 import styled from '@emotion/styled';
-import CenterChildrenY from '@ps/ui/components/display/CenterChildrenY';
-import CenterChildrenX from '@ps/ui/components/display/CenterChildrenX';
+import CenterChildrenY from '@ps/ui/components/content/CenterChildrenY';
+import CenterChildrenX from '@ps/ui/components/content/CenterChildrenX';
 
 export default function Home() {
   const H1 = styled.h1`

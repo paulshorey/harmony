@@ -1,4 +1,4 @@
-import Box from '@ps/ui/components/display/Box';
+import Box from '@ps/ui/components/content/Box';
 import Component from '.';
 
 const Story = (props) => (

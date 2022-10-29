@@ -1,7 +1,7 @@
 import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
 import React, { useEffect } from 'react';
 import { themes } from '@storybook/theming';
-import Box from '@ps/ui/components/display/Box';
+import Box from '@ps/ui/components/content/Box';
 
 export const parameters = {
   docs: {
@@ -75,7 +75,7 @@ export const decorators = [
       <ThemeProvider>
         <Box
           variant="bggradient"
-          ss="position:relative;overflow:auto;margin: -30px -20px;"
+          ss="position:relative;overflow:hidden;margin: -30px -20px;"
         >
           <Story {...context} />
         </Box>

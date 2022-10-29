@@ -1,6 +1,8 @@
 // import globalV from './variants';
 
-export const argTypes = (localVariants: string[] = []) => {
+type Props = { localVariants?: string[] };
+
+export const argTypes = ({ localVariants = [] }: Props) => {
   const allV = [
     ...localVariants,
     // ...Object.keys({
@@ -16,6 +18,7 @@ export const argTypes = (localVariants: string[] = []) => {
       control: {
         type: 'select',
       },
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
     },
     textcolor: {
       control: {
@@ -27,12 +30,12 @@ export const argTypes = (localVariants: string[] = []) => {
         type: 'select',
       },
     },
-    textGradient: {
+    textgradient: {
       control: {
         type: 'select',
       },
     },
-    bgGradient: {
+    bggradient: {
       control: {
         type: 'select',
       },

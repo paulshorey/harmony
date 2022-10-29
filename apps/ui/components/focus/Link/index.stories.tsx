@@ -3,6 +3,7 @@ import Template from './_story';
 import description from './_story.md';
 import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
+
 const variantKeys = Object.keys(variants);
 const args = {
   ss: '',
@@ -12,7 +13,7 @@ const args = {
 };
 
 export const Link = Template.bind({});
-Link.argTypes = argTypes(variantKeys);
+Link.argTypes = argTypes({ localVariants: variantKeys });
 Link.args = args;
 
 export default {

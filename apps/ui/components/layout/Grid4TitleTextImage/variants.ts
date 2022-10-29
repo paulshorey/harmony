@@ -1,10 +1,11 @@
+const defaultLayout = `
+grid-template-areas:
+  'title image'
+  'text image';
+grid-template-columns: 1fr 1fr;
+`;
 export default {
-  titleImageTextImage: (props) => `
-    grid-template-areas:
-      'title image'
-      'text image';
-    grid-template-columns: 1fr 1fr;
-  `,
+  titleImageTextImage: (props) => defaultLayout,
   imageTitleImageText: (props) => `
     grid-template-areas:
       'image title'
@@ -29,6 +30,7 @@ export default {
     }
   `,
   default: (props) => `
+    ${defaultLayout}
     position: relative;
     display: grid !important;
     grid-template-columns: 1fr 1fr;

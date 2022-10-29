@@ -1,5 +1,5 @@
-// import CenterChildrenX from '@ps/ui/components/display/CenterChildrenX';
-// import CenterChildrenY from '@ps/ui/components/display/CenterChildrenY';
+// import CenterChildrenX from '@ps/ui/components/content/CenterChildrenX';
+// import CenterChildrenY from '@ps/ui/components/content/CenterChildrenY';
 import {
   ButtonHTMLAttributes,
   createRef,
@@ -10,7 +10,8 @@ import {
 } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
-import useStyledComponent from '@ps/ui/styles/useStyledComponent';
+import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
+import Box from '@ps/ui/components/content/Box';
 import variants from '@ps/ui/components/focus/Button/variants';
 import classes from '@ps/ui/components/focus/Button/index.module.css';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
@@ -34,26 +35,26 @@ export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
      * If button has children, loading animation will play on top of the children.
      * This way, if loading prop is dynamic (after user clicked submit), button size will not change.
      */
-    loading?: boolean | any /**
+    loading?: boolean | ReactElement /**
     /**
      * React component to display as an icon. Ex: import X from '@ant-design/icons/X';
      */;
-    icon?: any;
+    icon?: ReactElement;
   } & ssComponentPropsType);
 
 /**
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
 export const Component: (props: Props, ref?: any) => ReactElement = (
-  { onClick, ...props },
+  { onClick, loading = null, ...props },
   ref
 ) => {
   /*
    * Props logic
    */
-  if (props.loading) {
-    if (props.loading === true) {
-      props.icon = <IconLoading />;
+  if (loading) {
+    if (loading === true) {
+      loading = <IconLoading />;
     }
   }
   const Children: any = [];
@@ -66,13 +67,18 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   if (props.children) {
     Children.push(<span className="Button--text">{props.children}</span>);
   }
+  if (loading) {
+    Children.push(
+      <span className="Button--loading Button--icon">{loading}</span>
+    );
+  }
   if (!ref) {
     ref = createRef();
   }
   /*
    * Variants
    */
-  if (props.loading) {
+  if (loading) {
     props.variant += ' loading';
   }
   if (props.round) {
@@ -87,7 +93,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   /*
    * Styles
    */
-  const [Styled, otherProps] = useStyledComponent(
+  const [Styled, otherProps] = useStyledOriginal(
     props,
     'button',
     'Button',
@@ -106,7 +112,13 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
         ref?.current?.blur();
       }}
     >
-      {Children}
+      {props.textgradient ? (
+        <Box as="span" textgradient={props.textgradient}>
+          {Children}
+        </Box>
+      ) : (
+        Children
+      )}
     </Styled>
   );
 };

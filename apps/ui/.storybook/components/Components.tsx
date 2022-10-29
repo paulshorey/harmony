@@ -1,4 +1,4 @@
-import Box, { withBox } from '../../components/display/Box';
+import Box, { withBox } from '../../components/content/Box';
 import { withButton } from '@ps/ui/components/focus/Button';
 import CanvasContainerImport from '@ps/ui/.storybook/components/CanvasContainer';
 import WrapperImport from '@ps/ui/.storybook/components/Wrapper';

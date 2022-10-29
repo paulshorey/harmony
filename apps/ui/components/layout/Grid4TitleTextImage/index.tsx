@@ -1,8 +1,8 @@
 import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
-import { Props as BoxProps } from '@ps/ui/components/display/Box';
-import useStyledComponent from '@ps/ui/styles/useStyledComponent';
+import { Props as BoxProps } from '@ps/ui/components/content/Box';
+import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 
 export type Props = BoxProps;
 
@@ -14,7 +14,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   { image, text, title, as, ...props }: any,
   ref?: any
 ) => {
-  const [Styled, otherProps] = useStyledComponent(
+  const [Styled, otherProps] = useStyledOriginal(
     props,
     as || 'div',
     'Grid4TitleTextImage',
@@ -31,7 +31,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 
 /*
  * Like StyledComponents' div`` but with added functionality.
- * import { withGrid4TitleTextImage } from 'components/display/Grid4TitleTextImage';
+ * import { withGrid4TitleTextImage } from 'components/content/Grid4TitleTextImage';
  * const Grid4TitleTextImage = withGrid4TitleTextImage({ ...thesePropsWillApplyToAllInstances });
  * <Grid4TitleTextImage {...optionalUniquePropsForCurrentInstance} />
  */

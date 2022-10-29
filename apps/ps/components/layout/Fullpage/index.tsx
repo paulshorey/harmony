@@ -1,5 +1,5 @@
 import React from 'react';
-import CenterChildrenY from '@ps/ui/components/display/CenterChildrenY';
+import CenterChildrenY from '@ps/ui/components/content/CenterChildrenY';
 import Header from 'components/layout/Header';
 import uiState, { uiStateType } from 'state/uiState';
 

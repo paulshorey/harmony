@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from '@ps/ui/components/display/Box';
+import Box from '@ps/ui/components/content/Box';
 import Button from '@ps/ui/components/focus/Button';
 import Modal from '@ps/ui/components/focus/Modal';
 import FullpageLayout from 'components/layout/Fullpage';

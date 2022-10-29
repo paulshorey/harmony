@@ -6,18 +6,27 @@ import { ssPropType, styledTags } from '@ps/ui/types/component';
 import styled from '@emotion/styled';
 // import cconsole from '@ps/cconsole';
 // import themeType from '@ps/ui/types/theme';
+type Props = {
+  component: React.ElementType;
+  props: any;
+  tagName: styledTags;
+  componentName: string;
+  variantStyles?: Record<string, ssPropType>;
+  classStyles?: Record<string, string>;
+};
 
 /**
  * This is a HOC. It wraps any component in this library. Only for use with components in this library.
  * It takes all the custom ss props, plus styles, variants, css, and aggregates them into one css prop.
  */
-export default (
-  inputProps: any,
-  tagName: styledTags = 'div',
-  componentName: string,
-  variantStyles?: Record<string, ssPropType>,
-  classStyles?: Record<string, string>
-): [React.ElementType, Record<string, any>] => {
+export default ({
+  component,
+  props: inputProps,
+  tagName = 'div',
+  componentName,
+  variantStyles,
+  classStyles,
+}: Props): [React.ElementType, Record<string, any>] => {
   const {
     textcolor = '',
     textgradient = '',

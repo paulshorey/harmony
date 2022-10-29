@@ -1,5 +1,5 @@
-import Box from '@ps/ui/components/display/Box';
-import Link from '@ps/ui/components/display/Link';
+import Box from '@ps/ui/components/content/Box';
+import Link from '@ps/ui/components/focus/Link';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 
 export default function (props) {

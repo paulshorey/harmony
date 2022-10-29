@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconNewTab } from './Components';
-import Box, { withBox } from '@ps/ui/components/display/Box';
+import Box, { withBox } from '@ps/ui/components/content/Box';
 
 const Mq = withBox({
   ss: `

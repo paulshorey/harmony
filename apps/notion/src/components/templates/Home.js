@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from '@ps/ui/components/display/atoms/Box';
+import Box from '@ps/ui/components/content/atoms/Box';
 
 const Template = ({}) => {
   return (

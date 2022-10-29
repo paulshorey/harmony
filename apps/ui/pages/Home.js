@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import styled from '@emotion/styled';
-import Box from '@ps/ui/components/display/Box';
-import Code from '@ps/ui/components/display/Code';
+import Box from '@ps/ui/components/content/Box';
+import Code from '@ps/ui/components/content/Code';
 
 export default function Home() {
   const H1 = styled.h1`

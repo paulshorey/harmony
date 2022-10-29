@@ -8,7 +8,7 @@ const variantKeys = Object.keys(variants);
 const args = {};
 
 export const Input = Template.bind({});
-Input.argTypes = argTypes(variantKeys);
+Input.argTypes = argTypes({ localVariants: variantKeys });
 Input.args = args;
 
 export default {

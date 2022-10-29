@@ -6,7 +6,7 @@ import { analytics_track_link } from '@ps/fn/browser/analytics';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
 import ssComponentPropsType from '@ps/ui/types/component';
-import useStyledComponent from '@ps/ui/styles/useStyledComponent';
+import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 import { useTheme } from '@emotion/react';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -22,7 +22,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   ref
 ) => {
   const theme = useTheme();
-  const [Styled, otherProps] = useStyledComponent(props, 'a', 'Link', variants);
+  const [Styled, otherProps] = useStyledOriginal(props, 'a', 'Link', variants);
 
   // const contextPage = useContext(PageContext) || {};
   // const contextABTest = useContext(ABTestContext) || {};
@@ -52,7 +52,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
       onClick(e);
     }
     // track properties
-    let options = {
+    const options = {
       href,
       fromSection: from,
       // fromPageName: contextPage.name,
@@ -68,7 +68,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   // let RouterLink = theme.RouterLink;
 
   // render children
-  let A = (
+  const A = (
     <Styled
       {...otherProps}
       ref={ref}
@@ -84,14 +84,13 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   // render parent
   if (href[0] === '#') {
     return A;
-  } else {
-    return withNextLink(A, href);
   }
+  return withNextLink(A, href);
 };
 
 /*
  * Like StyledComponents' div`` but with added functionality:
- * import { withLink } from 'components/display/Link';
+ * import { withLink } from 'components/focus/Link';
  * const Link = withLink({ ...thesePropsWillApplyToAllInstances });
  * <Link {...optionalUniquePropsForCurrentInstance} />
  */

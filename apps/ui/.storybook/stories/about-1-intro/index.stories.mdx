@@ -1,8 +1,8 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Box from '@ps/ui/components/display/Box';
-import Text from '@ps/ui/components/display/Text';
-import Code from '@ps/ui/components/display/Code';
-import CodeInline from '@ps/ui/components/display/CodeInline';
+import Box from '@ps/ui/components/content/Box';
+import Text from '@ps/ui/components/content/Text';
+import Code from '@ps/ui/components/content/Code';
+import CodeInline from '@ps/ui/components/content/CodeInline';
 import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 import {
@@ -18,12 +18,13 @@ import {
 
 <h1>
   <Box as="span" textgradient="rainbow">
-    This is a development kit
+    A development kit
   </Box>
 </h1>
 
 An easy way to <Text as="b" textgradient="accent">bootstrap and maintain</Text> your own <Text as="b" textgradient="rainbow"> custom branded component library</Text> for all your <Text as="b" textgradient="accent"><SvgSparkle ss="" />mono repo frontends<SvgSparkle ss="" /><SvgSparkle ss="" /></Text>. <br />
-A <BulletNumber>1</BulletNumber> pre-configured mono repo, <BulletNumber>2</BulletNumber> a styling system to make branding easier <BulletNumber>3</BulletNumber> and a few components to get you started.
+A <BulletNumber>1</BulletNumber> pre-configured mono repo, <BulletNumber>2</BulletNumber> a styling system to make branding easier <BulletNumber>3</BulletNumber> and a few components to get you started.  
+This is meant for both software engineering and web development. Works well for interactive components, dashboards, etc.
 
 ---
 
@@ -33,12 +34,12 @@ A <BulletNumber>1</BulletNumber> pre-configured mono repo, <BulletNumber>2</Bull
   </Box>
 </Box>
 
-Instead of trying to rewrite CSS in JS, or just using classNames for everything, let <a>CSS and JS</a> to work in harmony, each doing what they do best. This library uses a very small global stylesheet to define colors and lights/darks. Because CSS is "**cascading**", every element knows if its on dark or light, and can adjust automatically.
+Instead of trying to rewrite CSS in JS, or just use classNames for everything, CSS and JS can work together, helping each to do what each does best. This library uses a very small global stylesheet to define color groups (for branding) and light/dark versions of each. Because CSS is <b>cascading</b>, every element will know if its on dark or light, and will adjust itself automatically.
 
 <Code
   variant="transparentDark"
-  code={`import Text from 'harmonyui/components/display/Text';
-// Define light/dark variants of any color group. Define whatever color groups your brand uses.
+  code={`import Text from 'harmonyui/components/content/Text';
+// These "accent" and "rainbow" will render slightly darker shades on light background.
 <Text as="b" textgradient="accent"> bootstrap and maintain </Text>
 <Text as="b" textgradient="rainbow"> custom branded component library</Text>`}
 />
@@ -64,7 +65,7 @@ Instead of trying to rewrite CSS in JS, or just using classNames for everything,
 
 <Code
   variant="transparentDark smaller"
-  code={`import { withBox } from 'harmonyui/components/display/Box';
+  code={`import { withBox } from 'harmonyui/components/content/Box';
 const Demo = withBox({ ss: 'display:none;' });
 // For convenience, ss props accept a simple string in addition to any EmotionCSS type. No configuration is required.
 <Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>
@@ -81,7 +82,7 @@ const Demo = withBox({ ss: 'display:none;' });
 // And many more. Each breakpoint is only included in the bundle if you use it. `}
 />
 
-**You don't have to use inline-styles or strings.** Use an HOC like with Styled Components (@emotion/styled). As an added feature, this library lets you pre-define any props, not just styles. Then override any prop or style per each instance. <a>Read more.</a>
+**You don't have to use inline-styles or strings.** Use an HOC like with Styled Components (@emotion/styled). As an added feature, this library lets you pre-define any props, not just styles. Then override any prop or style per each instance. <a href="http://localhost:6006/?path=/docs/core-styled-components--page" target="_top">Read more...</a>
 
 <br />
 <br />
