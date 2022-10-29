@@ -68,22 +68,30 @@ const Code = ({
           position: absolute;
           top: 0;
           right: 0;
+          width: 100%;
           z-index: 100;
-          opacity: 0.75;
-          height: 1.95rem;
-          line-height: 1.9rem;
-          padding: 0 0.5rem;
           cursor: pointer;
-          background: ${theme.plain.backgroundColor};
-          color: #efefef;
-          border-radius: 0.5rem;
+          text-align: right;
         `}
         onClick={() => {
           set_collapsedState(!collapsedState);
         }}
       >
-        {collapsedState && 'show '}
-        <FontAwesomeIcon icon={faCode} />
+        <Box
+          as="span"
+          ss={css`
+            opacity: 0.75;
+            height: 1.95rem;
+            line-height: 1.9rem;
+            padding: 0 0.5rem;
+            background: ${theme.plain.backgroundColor};
+            color: #efefef;
+            border-radius: 0.5rem;
+          `}
+        >
+          {collapsedState && 'show '}
+          <FontAwesomeIcon icon={faCode} />
+        </Box>
       </Box>
     );
   }

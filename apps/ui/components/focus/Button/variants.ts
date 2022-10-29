@@ -3,14 +3,10 @@ import { Button } from './index';
 
 export default {
   default: (props) => css`
-    font-size: 1.1rem;
     overflow: hidden;
-    border-radius: 7px;
     position: relative;
     display: inline-block;
     cursor: pointer;
-    font-weight: 500;
-    letter-spacing: 0.33px;
     vertical-align: middle;
 
     box-shadow: inset 1px 2px 3px 0 hsl(0, 0%, 0%, 0.25);
@@ -78,7 +74,7 @@ export default {
       transform: scale(1.25);
       transform-origin: center;
     }
-    .Button--loading {
+    .Button--icon.Button--loading {
       position: absolute !important;
       top: 0;
       left: 0;
@@ -88,28 +84,37 @@ export default {
       display: flex !important;
       align-items: center;
       justify-content: center;
+      transform: scale(1.5);
     }
 
     // size, round, & other props
-    height: 2.8rem;
-    line-height: calc(2.8rem - 5px);
-    padding: 0 1.3rem 0 1.3rem;
+    height: ${props.theme.sizes.buttonsAndInputs.height[props.size]}rem;
+    line-height: calc(
+      ${props.theme.sizes.buttonsAndInputs.height[props.size]}rem - 5px
+    );
+    padding: 0 ${props.theme.sizes.buttonsAndInputs.paddingX[props.size]}rem;
+    font-size: ${props.theme.sizes.buttonsAndInputs.fontSize[props.size]}rem;
+    border-radius: 7px;
+    font-weight: 500;
+    letter-spacing: 0.33px;
 
     ${props.theme?.instance?.variants?.link &&
     css`
-      padding: 0 0.67rem;
+      padding: 0
+        ${props.theme.sizes.buttonsAndInputs.paddingX[props.size] / 2}rem;
     `}
 
     ${props.icon &&
     !props.children &&
     css`
       padding: 0;
-      width: 2.8rem;
+      width: ${props.theme.sizes.buttonsAndInputs.height[props.size] + 0.1}rem;
     `}
 
     ${props.round &&
     css`
-      border-radius: 1.4rem;
+      border-radius: ${props.theme.sizes.buttonsAndInputs.height[props.size] /
+      2}rem;
     `}
   `,
   outline: (props) => css`
@@ -137,52 +142,6 @@ export default {
     text-shadow: none !important;
     box-shadow: none;
     color: var(--color-text);
-  `,
-  size_small: (props) => css`
-    font-size: 1rem;
-    height: 2rem;
-    line-height: calc(2rem - 5px);
-    padding: 0 1.1rem 0 1.1rem;
-
-    ${props.theme?.instance?.variants?.link &&
-    css`
-      padding: 0 0.55rem;
-    `}
-
-    ${props.icon &&
-    !props.children &&
-    css`
-      padding: 0;
-      width: 2rem;
-    `}
-
-    ${props.round &&
-    css`
-      border-radius: 1rem;
-    `}
-  `,
-  size_large: (props) => css`
-    font-size: 1.2rem;
-    height: 3.4rem;
-    line-height: calc(3.4rem - 5px);
-    padding: 0 1.8rem 0 1.8rem;
-
-    ${props.theme?.instance?.variants?.link &&
-    css`
-      padding: 0 0.9rem;
-    `}
-
-    ${props.icon &&
-    !props.children &&
-    css`
-      padding: 0;
-      width: 3.54rem;
-    `}
-
-    ${props.round &&
-    css`
-      border-radius: 1.7rem;
-    `}
   `,
   spinning: `
   > * {

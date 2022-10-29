@@ -6,7 +6,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 export const Buttons = (props) => {
   const Button = withButton({
-    size: 'small',
+    size: 'sm',
     ss: 'margin: 0 0.875rem 0.875rem 0;',
   });
   return (

@@ -1,19 +1,19 @@
 import React, {
   ReactNode,
-  ButtonHTMLAttributes,
+  InputHTMLAttributes,
   forwardRef,
   memo,
   ReactElement,
 } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
-import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
-import variants from '@ps/ui/components/focus/Button/variants';
-import classes from '@ps/ui/components/focus/Button/index.module.css';
-import Input from 'antd/lib/input';
+import useStyledComponent from '@ps/ui/styles/useStyledComponent';
+import variants from '@ps/ui/components/focus/Input/variants';
+import classes from '@ps/ui/components/focus/Input/index.module.css';
+import AntInput from 'antd/lib/input';
 // const { Search } = Input;
 
-export type Props = ButtonHTMLAttributes<HTMLElement & HTMLInputElement> &
+export type Props = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
   ({
     /**
      * Default is regular size. Pass option to render small or large buton instead.
@@ -74,7 +74,7 @@ export type Props = ButtonHTMLAttributes<HTMLElement & HTMLInputElement> &
   } & ssComponentPropsType);
 
 /**
- * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
+ * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
 export const Component: (props: Props, ref?: any) => ReactElement = (
   { onClick, ...props },
@@ -92,20 +92,20 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   /*
    * Styles
    */
-  const [Styled, otherProps] = useStyledOriginal(
+  const [Styled, otherProps] = useStyledComponent({
+    component: AntInput,
     props,
-    'button',
-    'Button',
+    componentName: 'Input',
     variants,
-    classes
-  );
-  return <Input {...props} />;
+    classes,
+  });
+  return <Styled {...otherProps} />;
 
-  // const [Styled, otherProps] = useStyledOriginal({
+  // const [Styled, otherProps] = useStyledComponent({
   //   component: Input,
   //   props,
-  //   tagName: 'button',
-  //   componentName: 'Button',
+  //   tagName: 'input',
+  //   componentName: 'Input',
   //   variants,
   //   classes,
   // });
@@ -114,18 +114,18 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 
 /*
  * Like StyledComponents' div`` but with added functionality:
- * import { withButton } from 'components/focus/Button';
- * const Button = withButton({ ...thesePropsWillApplyToAllInstances });
- * <Button {...optionalUniquePropsForCurrentInstance} />
+ * import { withInput } from 'components/focus/Input';
+ * const Input = withInput({ ...thesePropsWillApplyToAllInstances });
+ * <Input {...optionalUniquePropsForCurrentInstance} />
  */
-export const withButton = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Button, props1, props2);
+export const withInput = (props1: Props) => (props2: Props) => {
+  return withAddPropsToComponent(Input, props1, props2);
 };
 
 /*
  * Default export is a ready-to-use component:
  * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Button" is same as default export. But IDEs like VSCode can read a named import better.
+ * Named "Input" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const Button = memo(forwardRef(Component));
-export default Button;
+export const Input = memo(forwardRef(Component));
+export default Input;

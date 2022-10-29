@@ -33,16 +33,12 @@ import { Buttons } from './_components';
 <Box textcolor="light" bgcolor="purple" ss="padding: 1rem;">
   <Box variant="articleX" ss="padding-top:1.25rem;">
     <Buttons />
-    <Button
-      size="small"
-      textcolor="rainbow"
-      ss="margin: 0 0.875rem 0.875rem 0;"
-    >
+    <Button size="sm" textcolor="rainbow" ss="margin: 0 0.875rem 0.875rem 0;">
       Rainbow
     </Button>
     <Button
       variant="outline"
-      size="small"
+      size="sm"
       textgradient="rainbow"
       ss="margin: 0 0.875rem 0.875rem 0;"
     >
@@ -53,22 +49,22 @@ import { Buttons } from './_components';
       code={`// import the ready-to-use default export (Button), or the HOC named export (withButton)
 import { withButton } from '@ps/ui/components/focus/Button';
 const Button = withButton({
-  size: 'small',
+  size: 'sm',
   ss: 'margin: 0 0.875rem 0.875rem 0;',
 });
   
 <Box textcolor="light" bgcolor="purple">
    
-  <Button loading>Loading</Button>
+  <Button loading={true}>Loading</Button>
   <Button variant="outline">Outlined</Button>
   <Button variant="link" icon={<FontAwesomeIcon icon={faUser} />}>
     Link
   </Button>
-  <Button round icon={<FontAwesomeIcon icon={faUser} />}>
+  <Button round={true} icon={<FontAwesomeIcon icon={faUser} />}>
     Round
   </Button>
   <Button
-    round
+    round={true}
     variant="primary"
     icon={<FontAwesomeIcon icon={faUser} />}
   />
@@ -87,14 +83,14 @@ const Button = withButton({
 
 <Box textcolor="purple" bgcolor="light" ss="padding: 1rem;">
   <Box variant="articleX">
-    <Box as="h3">Light text on purple background:</Box>
+    <Box as="h3">Different color scheme:</Box>
     <Buttons />
-    <Button size="small" textcolor="cta" ss="margin: 0 0.875rem 0.875rem 0;">
+    <Button size="sm" textcolor="cta" ss="margin: 0 0.875rem 0.875rem 0;">
       Different color
     </Button>
     <Button
       variant="outline"
-      size="small"
+      size="sm"
       textgradient="cta"
       ss="margin: 0 0.875rem 0.875rem 0;"
     >

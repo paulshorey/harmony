@@ -7,12 +7,12 @@ import styled from '@emotion/styled';
 // import cconsole from '@ps/cconsole';
 // import themeType from '@ps/ui/types/theme';
 type Props = {
-  component: React.ElementType;
   props: any;
-  tagName: styledTags;
   componentName: string;
-  variantStyles?: Record<string, ssPropType>;
-  classStyles?: Record<string, string>;
+  component?: any;
+  tagName?: styledTags;
+  variants?: Record<string, ssPropType>;
+  classes?: Record<string, string>;
 };
 
 /**
@@ -24,8 +24,8 @@ export default ({
   props: inputProps,
   tagName = 'div',
   componentName,
-  variantStyles,
-  classStyles,
+  variants: variantStyles,
+  classes: classStyles,
 }: Props): [React.ElementType, Record<string, any>] => {
   const {
     textcolor = '',
@@ -312,7 +312,12 @@ export default ({
     props['data-colorscheme'] = 'ondark';
   }
   // return styled component
-  let styledFunction = styled[tagName];
+  let styledFunction;
+  if (component) {
+    styledFunction = styled(component);
+  } else if (tagName) {
+    styledFunction = styled[tagName];
+  }
   if (typeof styledFunction !== 'function') {
     console.warn(`styled.${tagName} was not found. Using instead styled.div`);
     styledFunction = styled.div;
