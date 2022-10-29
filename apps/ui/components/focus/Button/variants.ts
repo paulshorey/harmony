@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 import { Button } from './index';
 
 export default {
@@ -10,15 +10,15 @@ export default {
     vertical-align: middle;
     text-shadow: 1px 1px 5px var(--color-text);
     color: var(--color-bg);
-    display: relative;
     box-sizing: content-box;
     border: none;
     outline: none;
     background: var(--color-text-gradient);
     box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
 
+    &:hover,
     &:focus {
-      outline: solid 2px rgb(30 167 253);
+      outline: solid 2px var(--color-cta);
     }
     &:hover,
     &:focus:not(:hover) {
@@ -34,7 +34,7 @@ export default {
     > * {
       position: relative;
     }
-    &:hover {
+    /* &:hover {
       > * {
         top: -1px;
         left: -1px;
@@ -57,7 +57,7 @@ export default {
         top: 0px;
         left: 0px;
       }
-    }
+    } */
 
     .Button--spacer {
       display: inline-block;
@@ -130,6 +130,15 @@ export default {
       transition: background-position 300ms linear 0s;
       background-position: center;
     }
+
+    ${props.round &&
+    css`
+      &::before {
+        border-radius: calc(
+          ${props.theme.sizes.buttonsAndInputs.height[props.size] / 2}rem - 2px
+        );
+      }
+    `}
   `,
   link: (props) => css`
     background: none;
@@ -137,27 +146,28 @@ export default {
     box-shadow: none;
     color: var(--color-text);
   `,
-  spinning: `
-  > * {
-    @keyframes basic-spin {
-      0% {
-        }
+  spinning: css`
+    svg {
+      animation: spin-linear 2s infinite linear;
+      transform-origin: center;
+    }
+    @keyframes spin-linear {
+      from {
         transform: rotate(0deg);
       }
-      100% {
+      to {
         transform: rotate(360deg);
       }
     }
-    animation: basic-spin 1.2s linear infinite;
-  }
   `,
-  pulsing: `
-    padding: 12px 24px;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  pulsing: css`
     animation: pulse 4s infinite cubic-bezier(0.66, 0, 0, 1);
     @keyframes pulse {
+      from {
+        box-shadow: 0 0 0 0 var(--color-glow);
+      }
       to {
-        box-shadow: 0 0 0 30px rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 30px transparent;
       }
     }
   `,

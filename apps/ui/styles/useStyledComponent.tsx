@@ -301,6 +301,9 @@ export default ({
       props['data-textgradient'] = true;
     }
   }
+  if (props.size) {
+    props['data-size'] = props.size;
+  }
   // set colorscheme
   if (props['data-textcolor'] === 'light') {
     props['data-colorscheme'] = 'ondark';

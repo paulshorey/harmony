@@ -11,8 +11,12 @@ export const Buttons = (props) => {
   });
   return (
     <>
-      <Button loading>Loading</Button>
-      <Button variant="outline">Outlined</Button>
+      <Button loading icon={<FontAwesomeIcon icon={faUser} />}>
+        Loading
+      </Button>
+      <Button variant="outline" icon={<FontAwesomeIcon icon={faUser} />}>
+        Outlined
+      </Button>
       <Button variant="link" icon={<FontAwesomeIcon icon={faUser} />}>
         Link
       </Button>

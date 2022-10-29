@@ -1,14 +1,15 @@
 import Button from '.';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
+import { UserOutlined } from '@ant-design/icons';
 
 export default (props) => (
-  <CanvasContainer ss="overflow:hidden;">
-    <CanvasStoryPadding>
-      <Button {...props} />
-    </CanvasStoryPadding>
+  <CanvasContainer flex>
     <CanvasStoryPadding bgcolor="light" textcolor="purple">
-      <Button {...props} />
+      <Button icon={<UserOutlined />} {...props} />
+    </CanvasStoryPadding>
+    <CanvasStoryPadding>
+      <Button icon={<UserOutlined />} {...props} />
     </CanvasStoryPadding>
   </CanvasContainer>
 );

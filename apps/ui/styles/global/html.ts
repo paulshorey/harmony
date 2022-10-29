@@ -1,5 +1,17 @@
+import { keyframes } from '@emotion/react';
+
 const html = (theme) => `
   html {
+    @keyframes basic-spin {
+      0% {
+        }
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;
 

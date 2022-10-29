@@ -29,7 +29,8 @@
     hsla(257, 42%, 28%, 75%),
     hsla(257, 42%, 28%, 95%)
   );
-  --color-cta: hsl(175, 75%, 35%);
+  --color-glow: hsla(272, 51%, 54%, 0.25);
+  --color-cta: hsl(203, 97%, 55%);
   --color-accent: hsl(37deg 100% 42%);
 }
 
@@ -52,8 +53,9 @@
     hsl(205, 10%, 80%)
   );
 
-  --color-cta: hsl(39deg 95% 50%);
-  --color-accent: hsl(49deg 98% 47%);
+  --color-glow: hsla(0deg, 0%, 100%, 0.125);
+  --color-cta: hsl(39deg, 95%, 50%);
+  --color-accent: hsl(49deg, 98%, 47%);
 }
 
 /*

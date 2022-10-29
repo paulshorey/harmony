@@ -6,11 +6,11 @@ import variants from './variants';
 
 const variantKeys = Object.keys(variants);
 const args = {
-  variant: '',
-  children: 'Button text',
-  round: false,
+  size: 'xl',
+  variant: 'pulsing',
+  round: true,
   loading: false,
-  size: 'md',
+  children: 'Button text',
 };
 
 export const Button = Template.bind({});
