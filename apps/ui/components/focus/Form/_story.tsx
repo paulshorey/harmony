@@ -48,9 +48,9 @@ const App: React.FC = () => {
         'rate': 3.5,
       }}
     >
-      <Form.Item label="Plain Text">
+      {/* <Form.Item label="Plain Text">
         <span className="ant-form-text">China</span>
-      </Form.Item>
+      </Form.Item> */}
       <Form.Item
         name="select"
         label="Select"
@@ -63,7 +63,7 @@ const App: React.FC = () => {
         </Select>
       </Form.Item>
 
-      <Form.Item
+      {/* <Form.Item
         name="select-multiple"
         label="Select[multiple]"
         rules={[
@@ -197,7 +197,11 @@ const App: React.FC = () => {
             </p>
           </Upload.Dragger>
         </Form.Item>
-      </Form.Item>
+      </Form.Item> */}
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
 
       <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
         <Button type="primary" htmlType="submit">

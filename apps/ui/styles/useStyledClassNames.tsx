@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { css, useTheme } from '@emotion/react';
-import { css as emotionCSS } from '@emotion/css';
+import { cx, css as emotionClassName } from '@emotion/css';
 import style_to_string from '@ps/fn/browser/style/style_to_string';
 import { returnDeviceInfo, deviceInfoType } from '@ps/ui/hooks/useDeviceInfo';
 import { ssPropType, styledTags } from '@ps/ui/types/component';
@@ -314,14 +314,17 @@ export default ({
   } else if (props['data-bgcolor'] === 'dark') {
     props['data-colorscheme'] = 'ondark';
   }
-  // apply styles
-  props.className = emotionCSS(css`
-    ${ssGlobal}
-    ${ssVariants}
+  // apply newly-generated className
+  props.className = cx(
+    props.className,
+    emotionClassName(css`
+      ${ssGlobal}
+      ${ssVariants}
     &.${componentName} {
-      ${ssImportant}
-    }
-  `);
+        ${ssImportant}
+      }
+    `)
+  );
   console.log('props.className', props.className);
   // return
   return props;

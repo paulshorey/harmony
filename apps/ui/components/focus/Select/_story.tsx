@@ -29,15 +29,7 @@ const InputStory = (props) => {
         placeholder="your-website"
         prefix={'http://'}
         suffix={'.com'}
-        onPressEnter={(e) => console.log('pressed enter', e)}
-      />
-
-      <Input
-        {...props}
-        ssAll={style}
-        placeholder="your-website"
-        addonBefore={'http://'}
-        addonAfter={'.com'}
+        status="warning"
         onPressEnter={(e) => console.log('pressed enter', e)}
       />
     </>

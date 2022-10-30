@@ -31,7 +31,7 @@
   );
   --color-glow: hsla(272, 51%, 54%, 0.25);
   --color-cta: hsl(203, 97%, 55%);
-  --color-accent: hsl(37deg 100% 42%);
+  --color-accent: #ffac33;
 }
 
 /*
@@ -55,7 +55,7 @@
 
   --color-glow: hsla(0deg, 0%, 100%, 0.125);
   --color-cta: hsl(39deg, 95%, 50%);
-  --color-accent: hsl(49deg, 98%, 47%);
+  --color-accent: #fecc4c;
 }
 
 /*
@@ -75,24 +75,7 @@
  */
 [data-textcolor='accent'] {
   --color-text: var(--color-accent);
-  --color-text-gradient: linear-gradient(
-    190deg,
-    hsl(39, 100%, 50%),
-    hsl(46, 100%, 62%),
-    hsl(46, 100%, 62%),
-    hsl(51, 100%, 61%),
-    hsl(51, 100%, 61%),
-    hsl(46, 100%, 62%),
-    hsl(39, 100%, 50%)
-  );
-}
-[data-bgcolor='accent'] {
-  --color-bg: hsl(48, 34%, 72%);
-  --color-bg-gradient: linear-gradient(
-    90deg,
-    hsl(48, 34%, 72%),
-    hsl(40, 32%, 71%)
-  );
+  --color-text-gradient: linear-gradient(#fecc4c, #ffac33);
 }
 
 /*

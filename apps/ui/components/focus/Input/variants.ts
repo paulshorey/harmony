@@ -1,8 +1,53 @@
 import { css } from '@emotion/react';
 
+const paddingX = (props, multiplier = 1) =>
+  props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md'] * multiplier;
+
+const height = (props, multiplier = 1) =>
+  props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] * multiplier;
+
+const fontSize = (props, multiplier = 1) =>
+  props.theme.sizes.buttonsAndInputs.fontSize[props.size || 'md'] * multiplier;
+
+const borderRadius = (props) => css`
+  border-radius: 7px;
+  ${props.round && `border-radius: ${height(props, 0.5)}rem;`}
+`;
+
 export default {
   default: (props) => css`
-    overflow: hidden;
+    /*
+    * with props.addonBefore or props.addonAfter
+    */
+    &.ant-input-group-wrapper {
+      ${borderRadius(props)};
+      input {
+        ${borderRadius(props)};
+        &:focus {
+          box-shadow: 0 0 0 2px var(--color-cta);
+        }
+      }
+      .ant-input-group-addon:first-child {
+        padding-left: ${paddingX(props, 1)}rem;
+      }
+      .ant-input-group-addon:last-child {
+        padding-right: ${paddingX(props, 1)}rem;
+      }
+    }
+    /*
+     * border-radius, border-radius
+     */
+    &:not(.ant-input-group-wrapper) {
+      ${borderRadius(props)};
+      &:focus,
+      &:focus-within {
+        box-shadow: 0 0 0 2px var(--color-cta);
+      }
+    }
+    /*
+     * etc
+     */
+    overflow: visible;
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -15,22 +60,15 @@ export default {
     border: none;
     background: white;
 
-    border-radius: 7px;
     font-weight: 500;
     letter-spacing: 0.33px;
-
-    &:focus,
-    &:focus-within {
-      box-shadow: 0 0 0 2px var(--color-cta);
-    }
 
     /*
      * Just the input by itself, without prefix/suffix before/after
      */
     &.ant-input {
       outline: none;
-      padding: 0
-        ${props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md']}rem;
+      padding: 0 ${paddingX(props, 1)}rem;
     }
 
     /*
@@ -41,29 +79,22 @@ export default {
       border: none;
       background: transparent;
       margin: 1px 0 0;
-      padding: 0
-        ${props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md'] *
-        0.5}rem;
+      padding: 0 ${paddingX(props, 1)}rem;
     }
 
     &,
     input {
-      font-size: ${props.theme.sizes.buttonsAndInputs.fontSize[
-        props.size || 'md'
-      ]}rem;
+      font-size: ${fontSize(props, 1)}rem;
     }
 
     &,
     input,
     .ant-input-prefix,
-    .ant-input-suffix {
+    .ant-input-suffix,
+    .ant-input-group-addon {
       vertical-align: middle;
-      height: ${props.theme.sizes.buttonsAndInputs.height[
-        props.size || 'md'
-      ]}rem;
-      line-height: ${props.theme.sizes.buttonsAndInputs.height[
-        props.size || 'md'
-      ]}rem;
+      height: ${height(props, 1)}rem;
+      line-height: ${height(props, 1)}rem;
     }
 
     .ant-input-prefix,
@@ -77,21 +108,22 @@ export default {
         justify-content: center;
         vertical-align: middle;
       }
-      svg {
-        margin: 0 -${props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md'] / 6}rem;
-      }
     }
 
     .ant-input-prefix {
-      padding-left: ${props.theme.sizes.buttonsAndInputs.paddingX[
-        props.size || 'md'
-      ]}rem;
+      padding-left: ${paddingX(props, 1)}rem;
+      margin-right: -${paddingX(props, 0.5)}rem;
     }
     .ant-input-suffix {
       right: 0;
-      padding-right: ${props.theme.sizes.buttonsAndInputs.paddingX[
-        props.size || 'md'
-      ]}rem;
+      padding-right: ${paddingX(props, 1)}rem;
+      .ant-input-clear-icon {
+        cursor: pointer;
+        visibility: hidden;
+      }
+    }
+    input[data-hasvalue='true'] + .ant-input-suffix .ant-input-clear-icon {
+      visibility: visible;
     }
 
     /*
@@ -104,15 +136,5 @@ export default {
         background-size 300ms linear 0s;
       background-position: right center;
     }
-
-    /*
-     * Props
-     */
-    ${props.round &&
-    css`
-      border-radius: ${props.theme.sizes.buttonsAndInputs.height[
-        props.size || 'md'
-      ] / 2}rem;
-    `}
   `,
 };

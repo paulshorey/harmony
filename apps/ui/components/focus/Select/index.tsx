@@ -1,6 +1,6 @@
 import React, {
   ReactNode,
-  InputHTMLAttributes,
+  SelectHTMLAttributes,
   forwardRef,
   memo,
   ReactElement,
@@ -8,12 +8,12 @@ import React, {
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
 import useStyledClassNames from '@ps/ui/styles/useStyledClassNames';
-import variants from '@ps/ui/components/focus/Input/variants';
-import classes from '@ps/ui/components/focus/Input/index.module.css';
-import AntInput from 'antd/lib/input';
-// const { Search } = Input;
+import variants from '@ps/ui/components/focus/Select/variants';
+import classes from '@ps/ui/components/focus/Select/index.module.css';
+import AntSelect from 'antd/lib/select';
+// const { Search } = Select;
 
-export type Props = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
+export type Props = SelectHTMLAttributes<HTMLElement & HTMLSelectElement> &
   ({
     /**
      * Default is regular size. Pass option to render small or large buton instead.
@@ -24,11 +24,11 @@ export type Props = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
      */
     round?: boolean;
     /**
-     * The prefix icon for the Input
+     * The prefix icon for the Select
      */
     prefix?: ReactNode;
     /**
-     * The suffix icon for the Input
+     * The suffix icon for the Select
      */
     suffix?: ReactNode;
     /**
@@ -50,7 +50,7 @@ export type Props = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
   } & ssComponentPropsType);
 
 /**
- * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"
+ * Select. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
 export const Component: (props: Props, ref?: any) => ReactElement = (
   { status, ...props },
@@ -59,17 +59,18 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   /*
    * Variants
    */
-  if (props.addonBefore || props.addonAfter) {
-    props['data-withAddons'] = 'true';
-  } else {
-    props['data-withAddons'] = 'false';
+  if (props.round) {
+    props.variant += ' round';
+  }
+  if (props.size) {
+    props.variant += ' size_' + props.size;
   }
   /*
    * Styles
    */
   const styledProps = useStyledClassNames({
     props,
-    componentName: 'Input',
+    componentName: 'Select',
     variants,
     classes,
   });
@@ -78,7 +79,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
    */
   const [value, set_value] = React.useState('');
   return (
-    <AntInput
+    <AntSelect
       value={value}
       onChange={(e) => {
         console.log('onChange', e);
@@ -96,18 +97,18 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 
 /*
  * Like StyledComponents' styled.div`` but with added functionality:
- * import { withInput } from 'components/focus/Input';
- * const Input = withInput({ ...thesePropsWillApplyToAllInstances });
- * <Input {...optionalUniquePropsForCurrentInstance} />
+ * import { withSelect } from 'components/focus/Select';
+ * const Select = withSelect({ ...thesePropsWillApplyToAllInstances });
+ * <Select {...optionalUniquePropsForCurrentInstance} />
  */
-export const withInput = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Input, props1, props2);
+export const withSelect = (props1: Props) => (props2: Props) => {
+  return withAddPropsToComponent(Select, props1, props2);
 };
 
 /*
  * Default export is a ready-to-use component:
  * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Input" is same as default export. But IDEs like VSCode can read a named import better.
+ * Named "Select" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const Input = memo(forwardRef(Component));
-export default Input;
+export const Select = memo(forwardRef(Component));
+export default Select;

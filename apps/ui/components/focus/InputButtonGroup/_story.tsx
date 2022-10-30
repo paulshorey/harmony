@@ -18,7 +18,7 @@ const InputStory = (props) => {
         prefix="http://"
         defaultValue="mysite"
       />
-      <Button {...childprops} ss={style}>
+      <Button {...childprops} ss={style} type="submit">
         Go
       </Button>
     </InputButtonGroup>
