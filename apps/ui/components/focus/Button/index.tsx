@@ -3,18 +3,18 @@
 import {
   ButtonHTMLAttributes,
   createRef,
-  FC,
   forwardRef,
   memo,
   ReactElement,
 } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
-import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 import Box from '@ps/ui/components/content/Box';
 import variants from '@ps/ui/components/focus/Button/variants';
 import classes from '@ps/ui/components/focus/Button/index.module.css';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
+import useStyledProps from '@ps/ui/styles/useStyledProps';
+import MuiButton from '@mui/material/Button';
 
 export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
   ({
@@ -35,11 +35,19 @@ export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
      * If button has children, loading animation will play on top of the children.
      * This way, if loading prop is dynamic (after user clicked submit), button size will not change.
      */
-    loading?: boolean | ReactElement /**
+    loading?: boolean | ReactElement;
     /**
-     * React component to display as an icon. Ex: import X from '@ant-design/icons/X';
-     */;
+     * React component to displayed to the left of the text.
+     */
     icon?: ReactElement;
+    /**
+     * React component to displayed to the right of the text.
+     */
+    suffix?: ReactElement;
+    /**
+     * Alternative to `props.children`, will overwrite `props.children`.
+     */
+    value?: string;
   } & ssComponentPropsType);
 
 /**
@@ -58,19 +66,30 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
     }
   }
   const Children: any = [];
+  // icon on the left
   if (props.icon) {
     Children.push(<span className="Button--icon">{props.icon}</span>);
   }
   if (props.icon && props.children) {
     Children.push(<span className="Button--spacer"> </span>);
   }
-  if (props.children) {
-    Children.push(<span className="Button--text">{props.children}</span>);
+  // content
+  if (props.children || props.value) {
+    Children.push(
+      <span className="Button--text">{props.value || props.children}</span>
+    );
   }
   if (loading) {
     Children.push(
       <span className="Button--loading Button--icon">{loading}</span>
     );
+  }
+  // icon on the right
+  if (props.suffix && props.children) {
+    Children.push(<span className="Button--spacer"> </span>);
+  }
+  if (props.suffix) {
+    Children.push(<span className="Button--icon">{props.suffix}</span>);
   }
   if (!ref) {
     ref = createRef();
@@ -93,16 +112,15 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   /*
    * Styles
    */
-  const [Styled, otherProps] = useStyledOriginal(
+  const styledProps = useStyledProps({
     props,
-    'button',
-    'Button',
+    componentName: 'Button',
     variants,
-    classes
-  );
+    classes,
+  });
   return (
-    <Styled
-      {...otherProps}
+    <MuiButton
+      {...styledProps}
       ref={ref}
       onClick={(e) => {
         if (onClick) {
@@ -119,7 +137,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
       ) : (
         Children
       )}
-    </Styled>
+    </MuiButton>
   );
 };
 

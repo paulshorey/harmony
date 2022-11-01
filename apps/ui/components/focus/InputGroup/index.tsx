@@ -14,7 +14,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   const [Styled, otherProps] = useStyledOriginal(
     props,
     as || 'div',
-    'InputButtonGroup',
+    'InputGroup',
     variants
   );
   return (
@@ -26,18 +26,18 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 
 /*
  * Like StyledComponents' styled.div`` but with added functionality:
- * import { withInputButtonGroup } from 'components/content/InputButtonGroup';
- * const InputButtonGroup = withInputButtonGroup({ ...thesePropsWillApplyToAllInstances });
- * <InputButtonGroup {...optionalUniquePropsForCurrentInstance} />
+ * import { withInputGroup } from 'components/content/InputGroup';
+ * const InputGroup = withInputGroup({ ...thesePropsWillApplyToAllInstances });
+ * <InputGroup {...optionalUniquePropsForCurrentInstance} />
  */
-export const withInputButtonGroup = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(InputButtonGroup, props1, props2);
+export const withInputGroup = (props1: Props) => (props2: Props) => {
+  return withAddPropsToComponent(InputGroup, props1, props2);
 };
 
 /*
  * Default export is a ready-to-use component:
  * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "InputButtonGroup" is same as default export. But IDEs like VSCode can read a named import better.
+ * Named "InputGroup" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const InputButtonGroup = memo(forwardRef(Component));
-export default InputButtonGroup;
+export const InputGroup = memo(forwardRef(Component));
+export default InputGroup;

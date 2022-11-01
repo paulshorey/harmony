@@ -16,6 +16,7 @@
  */
 :root,
 [data-colorscheme='onlight'] {
+  color-scheme: light;
   --color-bg: #efefef;
   --color-bg-gradient: radial-gradient(
     80% 80% at top center,
@@ -39,6 +40,7 @@
  * <Box textcolor="light"> or <Box bgcolor="dark">
  */
 [data-colorscheme='ondark'] {
+  color-scheme: dark;
   --color-bg: hsla(256, 29%, 29%, 0.85);
   --color-bg-gradient: radial-gradient(
     50% 50% at top center,

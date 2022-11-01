@@ -1,82 +1,47 @@
 import { Props as BoxProps } from '@ps/ui/components/content/Box';
 import { memo, useEffect, forwardRef, ReactElement } from 'react';
-import ReactModal from 'react-modal';
-import variants from './variants';
+import ReactModal from '@mui/material/Modal';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
-import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
-import Button from '@ps/ui/components/focus/Button';
+// import variants from './variants';
+// import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
+// import Button from '@ps/ui/components/focus/Button';
 
-export type Props = BoxProps & {
-  contentLabel?: string;
-  isOpen: boolean;
-  label?: string;
-  onClose?: any;
-  showClose?: boolean;
-  type?: string;
-};
+export type Props = any;
 
 export const Component: (props: Props, ref?: any) => ReactElement = (
-  {
-    isOpen,
-    onClose = () => {},
-    contentLabel = '',
-    children,
-    showClose = true,
-    ShowClose,
-    type = '',
-    ...props
-  },
+  { open, onClose, ...props },
   ref
 ) => {
-  const [Styled, otherProps] = useStyledOriginal(
-    props,
-    'div',
-    'Modal',
-    variants
-  );
+  // const [Styled, otherProps] = useStyledOriginal(
+  //   props,
+  //   'div',
+  //   'Modal',
+  //   variants
+  // );
 
-  // I forget what exactly this does and why it was necessary.
-  useEffect(() => {
-    if (typeof window === 'object') {
-      if (isOpen) {
-        setTimeout(function () {
-          document.body.style.overflow = 'hidden';
-        }, 100);
-      } else {
-        document.body.style.overflow = 'auto';
-      }
-    }
-  }, [isOpen]);
-
-  const ShowCloseButton = ShowClose || (
-    <Button
-      className="reactModalCloseX"
-      onClick={() => {
-        onClose();
-      }}
-      role="button"
-      tabIndex={0}
-    >
-      X
-    </Button>
-  );
+  // const ShowCloseButton = ShowClose || (
+  //   <Button
+  //     className="reactModalCloseX"
+  //     onClick={() => {
+  //       onClose();
+  //     }}
+  //     role="button"
+  //     tabIndex={0}
+  //   >
+  //     X
+  //   </Button>
+  // );
 
   return (
     <ReactModal
-      {...otherProps}
-      ariaHideApp={false}
-      contentLabel={contentLabel}
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      overlayClassName="reactModalOverlay"
-      shouldFocusAfterRender={true}
-      shouldReturnFocusAfterClose={true}
-    >
-      <Styled ref={ref}>
-        {children}
-        {showClose && ShowCloseButton}
-      </Styled>
-    </ReactModal>
+      disablePortal={true}
+      // keepMounted={true}
+      open={open}
+      onClose={onClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      {...props}
+    />
   );
 };
 

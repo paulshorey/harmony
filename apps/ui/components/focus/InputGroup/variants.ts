@@ -2,6 +2,13 @@ import { css } from '@emotion/react';
 
 export default {
   default: css`
+    display: flex;
+    width: 100%;
+    * {
+      min-width: 0;
+    }
+    > * {
+    }
     > *:not(:first-child) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;

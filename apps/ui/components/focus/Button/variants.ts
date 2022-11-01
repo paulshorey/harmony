@@ -1,11 +1,11 @@
-import { css, keyframes } from '@emotion/react';
-import { Button } from './index';
+import { css } from '@emotion/react';
 
 export default {
   default: (props) => css`
     overflow: hidden;
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    justify-content: space-between;
     cursor: pointer;
     vertical-align: middle;
     text-shadow: 1px 1px 5px var(--color-text);
@@ -15,6 +15,10 @@ export default {
     outline: none;
     background: var(--color-text-gradient);
     box-shadow: 1px 2px 3px 0 hsl(0, 0%, 0%, 0.15);
+    letter-spacing: 0;
+    text-transform: unset;
+    white-space: nowrap;
+    min-width: 0;
 
     &:hover,
     &:focus {
@@ -34,7 +38,7 @@ export default {
     &:hover {
       box-shadow: 0 0 0 2px var(--color-cta) !important;
     }
-    > * {
+    > *:not(.MuiTouchRipple-root) {
       position: relative;
     }
     /* 
@@ -67,7 +71,7 @@ export default {
       display: inline-block;
       width: 0.5rem;
     }
-    .Button--icon:last-child {
+    .Button--icon:first-child:last-child {
       margin-right: 0;
       display: inline-block;
       position: relative;
@@ -111,6 +115,7 @@ export default {
     ${props.icon &&
     !props.children &&
     css`
+      justify-content: center;
       padding: 0;
       width: ${props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] +
       0.1}rem;
@@ -130,11 +135,11 @@ export default {
       content: '';
       position: absolute;
       padding: 0;
-      border-radius: 5px;
-      top: 2px;
-      left: 2px;
-      width: calc(100% - 4px);
-      height: calc(100% - 4px);
+      border-radius: 6px;
+      top: 1px;
+      left: 1px;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
       background: var(--color-bg);
     }
     &:hover::before,
@@ -148,7 +153,7 @@ export default {
       &::before {
         border-radius: calc(
           ${props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] /
-            2}rem - 2px
+            2}rem - 1px
         );
       }
     `}

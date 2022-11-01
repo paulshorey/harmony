@@ -1,8 +1,7 @@
 import React from 'react';
-import Modal from '.';
+import Component from '.';
 import Button from '@ps/ui/components/focus/Button';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-
 import {
   HomeOutlined,
   LoadingOutlined,
@@ -11,10 +10,12 @@ import {
   SyncOutlined,
 } from '@ant-design/icons';
 import { Space } from 'antd';
+// import Component from '@mui/material/Dialog';
 
 export default (args: any) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-
+  const [isOpen, set_isOpen] = React.useState(false);
+  const handleOpen = () => set_isOpen(true);
+  const handleClose = () => set_isOpen(false);
   return (
     <CanvasContainer data-bggradient="light" data-textcolor="dark">
       {/* <p>Accessible and ADA and WCAG Compliant!</p> */}
@@ -38,23 +39,19 @@ export default (args: any) => {
           <LoadingOutlined />
         </Space>
       </p>
-      <Modal
-        isOpen={isOpen}
-        onClose={() => {
-          setIsOpen(false);
-        }}
-        {...args}
+      <Component
+        open={isOpen}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
-        <h2>Hello! This title is inside a modal</h2>
-        <p>This is not finished. Just started. Please check back soon.</p>
-      </Modal>
+        <div>
+          <h2>Hello! This title is inside a modal</h2>
+          <p>This is not finished. Just started. Please check back soon.</p>
+        </div>
+      </Component>
       <p>
-        <Button
-          onClick={() => {
-            setIsOpen(true);
-          }}
-          variant="primary"
-        >
+        <Button onClick={handleOpen} variant="primary">
           Open modal
         </Button>
       </p>

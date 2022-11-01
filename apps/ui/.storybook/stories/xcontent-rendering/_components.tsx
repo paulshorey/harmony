@@ -1,8 +1,6 @@
-import React from 'react';
-import Button, { withButton } from '.';
-import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
-import { UserOutlined } from '@ant-design/icons';
+// import Box from '@ps/ui/components/content/Box';
+import { withButton } from '@ps/ui/components/focus/Button';
+// import GithubFilled from '@ant-design/icons/GithubFilled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,7 +8,6 @@ export const Buttons = (props) => {
   const Button = withButton({
     size: 'sm',
     ss: 'margin: 0 0.875rem 0.875rem 0;',
-    ...props,
   });
   return (
     <>
@@ -34,19 +31,3 @@ export const Buttons = (props) => {
     </>
   );
 };
-export default (props) => (
-  <>
-    <CanvasContainer>
-      <CanvasStoryPadding bgcolor="light" textcolor="purple">
-        <Buttons {...props} />
-      </CanvasStoryPadding>
-    </CanvasContainer>
-    <CanvasContainer>
-      <CanvasStoryPadding>
-        <Button icon={<UserOutlined />} {...props} />
-      </CanvasStoryPadding>
-    </CanvasContainer>
-  </>
-);
-
-export const code = ``;

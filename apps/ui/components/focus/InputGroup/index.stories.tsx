@@ -11,9 +11,9 @@ const args = {
   size: '',
 };
 
-export const InputButtonGroup = Template.bind({});
-InputButtonGroup.argTypes = argTypes({ localVariants: variantKeys });
-InputButtonGroup.args = args;
+export const InputGroup = Template.bind({});
+InputGroup.argTypes = argTypes({ localVariants: variantKeys });
+InputGroup.args = args;
 
 export default {
   component: Component,

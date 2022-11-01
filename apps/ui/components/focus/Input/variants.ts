@@ -10,43 +10,19 @@ const fontSize = (props, multiplier = 1) =>
   props.theme.sizes.buttonsAndInputs.fontSize[props.size || 'md'] * multiplier;
 
 const borderRadius = (props) => css`
-  border-radius: 7px;
+  border-radius: ${props.theme.sizes.buttonsAndInputs.borderRadius}rem;
   ${props.round && `border-radius: ${height(props, 0.5)}rem;`}
 `;
 
 export default {
   default: (props) => css`
-    /*
-    * with props.addonBefore or props.addonAfter
-    */
-    &.ant-input-group-wrapper {
-      ${borderRadius(props)};
-      input {
-        ${borderRadius(props)};
-        &:focus {
-          box-shadow: 0 0 0 2px var(--color-cta);
-        }
-      }
-      .ant-input-group-addon:first-child {
-        padding-left: ${paddingX(props, 1)}rem;
-      }
-      .ant-input-group-addon:last-child {
-        padding-right: ${paddingX(props, 1)}rem;
-      }
+    background: white;
+    ${borderRadius(props)};
+    &:focus,
+    &:focus-within,
+    &:focus-visible {
+      box-shadow: 0 0 0 2px var(--color-cta);
     }
-    /*
-     * border-radius, border-radius
-     */
-    &:not(.ant-input-group-wrapper) {
-      ${borderRadius(props)};
-      &:focus,
-      &:focus-within {
-        box-shadow: 0 0 0 2px var(--color-cta);
-      }
-    }
-    /*
-     * etc
-     */
     overflow: visible;
     position: relative;
     display: inline-flex;
@@ -54,11 +30,16 @@ export default {
     align-items: center;
     vertical-align: middle;
     text-shadow: none;
-    color: #999;
+    &,
+    input {
+      color: #333 !important;
+      &::placeholder {
+        color: #999 !important;
+      }
+    }
 
     box-sizing: content-box;
     border: none;
-    background: white;
 
     font-weight: 500;
     letter-spacing: 0.33px;
@@ -75,6 +56,7 @@ export default {
      * With prefix/suffix before/after, input is rendered as child
      */
     input {
+      flex-grow: 1;
       outline: none !important;
       border: none;
       background: transparent;

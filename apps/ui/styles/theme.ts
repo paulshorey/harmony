@@ -7,7 +7,11 @@ const theme = {
     variants: {},
   },
   sizes: {
+    card: {
+      borderRadius: 0.4,
+    },
     buttonsAndInputs: {
+      borderRadius: 0.4,
       height: {
         xs: 1.5,
         sm: 1.95,

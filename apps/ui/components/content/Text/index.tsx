@@ -2,7 +2,7 @@ import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType, { styledTags } from '@ps/ui/types/component';
 import variants from './variants';
-import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
+import useStyledProps from '@ps/ui/styles/useStyledProps';
 
 export type Props = HTMLAttributes<HTMLDivElement> &
   ssComponentPropsType & {
@@ -16,13 +16,17 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   { as, ...props },
   ref
 ) => {
-  const [Styled, otherProps] = useStyledOriginal(
+  /*
+   * Styles
+   */
+  const styledProps = useStyledProps({
     props,
-    as || 'span',
-    'Text',
-    variants
-  );
-  return <Styled ref={ref} {...otherProps} />;
+    componentName: 'Text',
+    variants,
+  });
+  const Tag = `${as || 'span'}`;
+  // @ts-ignore // Tag is the name of an HTML element, but TS thinks it's a component
+  return <Tag {...styledProps} ref={ref} />;
 };
 
 /*

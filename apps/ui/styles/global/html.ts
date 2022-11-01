@@ -1,6 +1,6 @@
-import { keyframes } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 
-const html = (theme) => `
+const html = (theme) => css`
   html {
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;
@@ -34,7 +34,7 @@ const html = (theme) => `
 
   body {
     overflow-x: hidden;
-    font-family: "HelveticaNeue", Helvetica, sans-serif;
+    font-family: 'HelveticaNeue', Helvetica, sans-serif;
     padding: 0;
     margin: 0;
     color: #000;
@@ -57,7 +57,8 @@ const html = (theme) => `
   }
 
   button {
-    font-family: "HelveticaNeue", Helvetica, sans-serif;
+    font-family: 'HelveticaNeue', Helvetica, sans-serif;
+    cursor: pointer;
   }
 
   h1,
@@ -66,9 +67,9 @@ const html = (theme) => `
   h4,
   h5,
   h6 {
-    text-decoration:none;
-    border:none;
-    font-family: "HelveticaNeue", Helvetica, sans-serif;
+    text-decoration: none;
+    border: none;
+    font-family: 'HelveticaNeue', Helvetica, sans-serif;
     line-height: 1.5;
     font-weight: 600;
     padding: 0;
@@ -84,10 +85,10 @@ const html = (theme) => `
   }
 
   a {
-    cursor:pointer;
-    text-decoration:underline;
+    cursor: pointer;
+    text-decoration: underline;
     &:hover {
-      text-decoration:none;
+      text-decoration: none;
     }
   }
 

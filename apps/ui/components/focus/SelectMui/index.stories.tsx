@@ -5,11 +5,11 @@ import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
 
 const variantKeys = Object.keys(variants);
-const args = { size: 'sm' };
+const args = {};
 
-export const Input = Template.bind({});
-Input.argTypes = argTypes({ localVariants: variantKeys });
-Input.args = args;
+export const SelectMui = Template.bind({});
+SelectMui.argTypes = argTypes({ localVariants: variantKeys });
+SelectMui.args = args;
 
 export default {
   component: Component,

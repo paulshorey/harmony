@@ -7,11 +7,10 @@ import React, {
 } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import ssComponentPropsType from '@ps/ui/types/component';
-import useStyledClassNames from '@ps/ui/styles/useStyledClassNames';
+import useStyledProps from '@ps/ui/styles/useStyledProps';
 import variants from '@ps/ui/components/focus/Input/variants';
 import classes from '@ps/ui/components/focus/Input/index.module.css';
 import AntInput from 'antd/lib/input';
-// const { Search } = Input;
 
 export type Props = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
   ({
@@ -53,21 +52,13 @@ export type Props = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
  * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
 export const Component: (props: Props, ref?: any) => ReactElement = (
-  { status, ...props },
+  props,
   ref
 ) => {
   /*
-   * Variants
-   */
-  if (props.addonBefore || props.addonAfter) {
-    props['data-withAddons'] = 'true';
-  } else {
-    props['data-withAddons'] = 'false';
-  }
-  /*
    * Styles
    */
-  const styledProps = useStyledClassNames({
+  const styledProps = useStyledProps({
     props,
     componentName: 'Input',
     variants,
@@ -76,9 +67,10 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   /*
    * State
    */
-  const [value, set_value] = React.useState('');
+  const [value, set_value] = React.useState(props.value || '');
   return (
     <AntInput
+      {...styledProps}
       value={value}
       onChange={(e) => {
         console.log('onChange', e);
@@ -88,7 +80,6 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
         console.log('onFocus', e);
       }}
       data-hasvalue={!!value}
-      {...styledProps}
       ref={ref}
     />
   );

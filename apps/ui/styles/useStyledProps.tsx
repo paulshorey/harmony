@@ -22,7 +22,6 @@ type Props = {
  */
 export default ({
   props: inputProps,
-  tagName = 'div',
   componentName,
   variants: variantStyles,
   classes: classStyles,
@@ -319,13 +318,12 @@ export default ({
     props.className,
     emotionClassName(css`
       ${ssGlobal}
-      ${ssVariants}
-    &.${componentName} {
+      &.${componentName} {
+        ${ssVariants};
         ${ssImportant}
       }
     `)
   );
-  console.log('props.className', props.className);
   // return
   return props;
 };

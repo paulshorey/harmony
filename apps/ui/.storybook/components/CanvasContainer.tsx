@@ -27,7 +27,6 @@ const CanvasContainer = (props) => {
       display: block;
       ${flexStyle};
     `,
-    ssPhone: `padding-left: 0.75rem; padding-right: 0.75rem;`,
   })(props);
 };
 

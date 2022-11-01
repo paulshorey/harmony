@@ -1,9 +1,11 @@
 import Box from '@ps/ui/components/content/Box';
-import InputButtonGroup from '@ps/ui/components/focus/InputButtonGroup';
+import InputGroup from '@ps/ui/components/focus/InputGroup';
 import Input from '@ps/ui/components/focus/Input';
 import Button from '@ps/ui/components/focus/Button';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
+import { CopyOutlined } from '@ant-design/icons';
+import { Tooltip } from 'antd';
 
 const InputStory = (props) => {
   const childprops = {
@@ -11,17 +13,27 @@ const InputStory = (props) => {
   };
   const style = ``;
   return (
-    <InputButtonGroup {...props}>
+    <InputGroup {...props}>
       <Input
         {...childprops}
-        ss={style}
+        ss={style + 'flex-grow:1;'}
         prefix="http://"
-        defaultValue="mysite"
+        placeholder="mysite"
+        suffix={
+          <Tooltip title="copy full url">
+            <CopyOutlined onClick={console.log} />
+          </Tooltip>
+        }
+      />
+      <Input
+        {...childprops}
+        ss={style + 'width: 20%;max-width:100px;'}
+        placeholder=".com"
       />
       <Button {...childprops} ss={style} type="submit">
         Go
       </Button>
-    </InputButtonGroup>
+    </InputGroup>
   );
 };
 

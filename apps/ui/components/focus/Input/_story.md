@@ -1,3 +1,3 @@
-Right now, this component uses Ant Design's Input component. Please ignore the classNames prefixed with "ant-".
+Right now, this component uses Ant Design's Input component. See: <a href="https://ant.design/components/input/" target="_blank">https://ant.design/components/input</a>. Please note: this library does NOT include any Ant design CSS. It's a large stylesheet. Instead, this library includes just one individual tree-shaken React component as needed, then adds a few custom styles. This results in a bundle size as small as if this component was built completely in house.
 
-In the future, this component could use a different library or just plain HTML elements. Any apps that use this component will not need to change their implementations. That is the beauty of abstracting away management of components to a library.
+In the future, this component could use a different library or just plain HTML elements. Any apps that use this component will not need to change their implementations.
