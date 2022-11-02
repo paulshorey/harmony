@@ -118,8 +118,14 @@ const DemoMultiple = (props) => (
 );
 
 export default (props) => (
-  <CanvasContainer bgcolor="beige" textcolor="dark">
+  <CanvasContainer>
     <CanvasStoryPadding>
+      <DemoNav {...props} />
+      <DemoOne {...props} />
+      <DemoMultiple {...props} />
+      <DemoTags {...props} />
+    </CanvasStoryPadding>
+    <CanvasStoryPadding bgcolor="light" textcolor="dark">
       <DemoNav {...props} />
       <DemoOne {...props} />
       <DemoMultiple {...props} />
