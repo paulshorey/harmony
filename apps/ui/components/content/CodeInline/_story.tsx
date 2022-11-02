@@ -22,26 +22,26 @@ export default (props) => {
       <p>
         You could also add variants to this component, to give it more
         functionality. For example,{' '}
-        <CodeInline {...props} variant="transparentBg">
+        <CodeInline variant="transparentBg" {...props}>
           props.variant="transparentBg"
         </CodeInline>
         , or{' '}
-        <CodeInline {...props} variant="noBg">
+        <CodeInline variant="noBg" {...props}>
           props.variant="noBg"
         </CodeInline>
         , or{' '}
-        <CodeInline {...props} variant="redacted">
+        <CodeInline variant="redacted" {...props}>
           props.variant="redacted"
         </CodeInline>
       </p>
       <p>
         If your{' '}
-        <CodeInline {...props} variant="noBg">
+        <CodeInline variant="noBg" {...props}>
           props.children
         </CodeInline>{' '}
         contain un-escaped HTML elements, by default they will be styled
         semi-transparent{' '}
-        <CodeInline {...props} variant="noBg">
+        <CodeInline variant="noBg" {...props}>
           opacity:0.5;
         </CodeInline>
         . So, you can do cool tricks like display types or annotaions next to

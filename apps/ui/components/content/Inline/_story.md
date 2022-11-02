@@ -1,5 +1,7 @@
-`import Inline from 'components/content/Text';` Use:
-`<Inline as="h2" ssTablet="padding:1rem;" ssPhone="font-size:1.25rem;" variant="highlighted" />`
+This applies `display:inline-block;margin:0;padding:0;` by default. To override, pass your own styles. For example: `<Inline ss="display:inline-flex;">`. Or specify a variant.
 
-Accepts all props for `HTMLAttributes<HTMLSpanElement>` plus custom props. Scroll down to live-edit props...  
-This applies `display:inline-block` by default. To override, pass your own style. For example: `<Inline ss="display:inline-flex;">`
+Add styles for multiple devices:
+`<Inline as="h2" ssTablet="padding:1rem;" ssPhone="font-size:1.25rem;" />`
+
+Accepts all props for `HTMLAttributes<HTMLSpanElement>` plus custom props. Scroll down to live-edit props.
+

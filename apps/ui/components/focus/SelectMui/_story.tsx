@@ -4,6 +4,7 @@ import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 import { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 
 function SelectStory() {
   const [age, setAge] = React.useState('');
@@ -21,15 +22,18 @@ function SelectStory() {
   );
 }
 
-export default (props) => (
-  <CanvasContainer>
-    <CanvasStoryPadding>
-      <SelectStory {...props} />
-    </CanvasStoryPadding>
-    <CanvasStoryPadding bgcolor="light" textcolor="purple">
-      <SelectStory {...props} />
-    </CanvasStoryPadding>
-  </CanvasContainer>
-);
+export default (props) => {
+  useShowStorybookCode();
+  return (
+    <CanvasContainer>
+      <CanvasStoryPadding>
+        <SelectStory {...props} />
+      </CanvasStoryPadding>
+      <CanvasStoryPadding bgcolor="light" textcolor="purple">
+        <SelectStory {...props} />
+      </CanvasStoryPadding>
+    </CanvasContainer>
+  );
+};
 
 export const code = ``;

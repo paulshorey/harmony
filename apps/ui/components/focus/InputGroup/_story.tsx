@@ -7,8 +7,10 @@ import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding'
 import { CopyOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 import Select, { Option } from '../Select';
+import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 
 const InputStory = (props) => {
+  useShowStorybookCode();
   const childprops = {
     round: true,
     ...props,

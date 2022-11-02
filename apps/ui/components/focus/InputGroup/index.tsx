@@ -1,11 +1,16 @@
-import { forwardRef, memo, ReactElement } from 'react';
+import { forwardRef, memo, ReactElement, HTMLAttributes } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
-import { Props as BlockProps } from '@ps/ui/components/content/Block';
-import { Props as ButtonProps } from '@ps/ui/components/focus/Button';
+// import { Props as ButtonProps } from '@ps/ui/components/focus/Button';
+// import { Props as InputProps } from '@ps/ui/components/focus/Input';
 import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
+import styleProps from '@ps/ui/types/styles';
 
-export type Props = ButtonProps & BlockProps;
+export type Props =
+  // TODO: would be nice to figure out how to forward props to children elements!
+  // InputProps &
+  // ButtonProps &
+  styleProps & HTMLAttributes<HTMLDivElement>;
 
 export const Component: (props: Props, ref?: any) => ReactElement = (
   { as, round, loading, size, children, ...props },

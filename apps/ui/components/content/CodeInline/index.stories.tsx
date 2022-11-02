@@ -3,8 +3,10 @@ import Template, { code } from './_story';
 import description from './_story.md';
 import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './variants';
+
 const variantKeys = Object.keys(variants);
 const args = {
+  code: '',
   textcolor: 'purple',
   bgcolor: 'purple',
 };

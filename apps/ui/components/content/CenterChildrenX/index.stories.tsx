@@ -6,10 +6,7 @@ import variants from './variants';
 
 const variantKeys = Object.keys(variants);
 const args = {
-  classNames: ['bgcolor'],
-  color: '',
-  shade: '',
-  ss: '',
+  textcolor: 'accent',
 };
 
 export const CenterChildrenX = Template.bind({});

@@ -1,11 +1,11 @@
-import React, { useState, memo } from 'react';
-import Block, { Props as BlockProps } from '@ps/ui/components/content/Block';
+import { memo, HTMLAttributes } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
 import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 import CodeComponent, { Props as CodeProps } from './Code';
+import styleProps from '@ps/ui/types/styles';
 
-export type Props = BlockProps & CodeProps;
+export type Props = CodeProps & styleProps & HTMLAttributes<HTMLDivElement>;
 
 export const Component = (props) => {
   const [Styled, otherProps]: any = useStyledOriginal(
@@ -20,18 +20,17 @@ export const Component = (props) => {
     showNumbers,
     language,
     prismTheme,
-    'data-variants': dataVariants,
     ...containerProps
   } = otherProps;
 
   return (
-    <Styled data-variants={dataVariants} {...containerProps}>
+    <Styled {...containerProps}>
       <CodeComponent
         code={code}
+        variant={props.variant}
         language={language}
         prismTheme={prismTheme}
         showNumbers={showNumbers}
-        data-variants={dataVariants}
         collapsed={collapsed}
       />
     </Styled>

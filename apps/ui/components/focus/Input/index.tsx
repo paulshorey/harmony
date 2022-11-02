@@ -12,41 +12,41 @@ import variants from '@ps/ui/components/focus/Input/variants';
 import classes from '@ps/ui/components/focus/Input/index.module.css';
 import AntInput from 'antd/lib/input';
 
-export type Props = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
-  ({
-    /**
-     * Default is regular size. Pass option to render small or large buton instead.
-     */
-    size?: 'small' | 'large' | string;
-    /**
-     * If true, will have very rounded corners like a "pill" or "circle".
-     */
-    round?: boolean;
-    /**
-     * The prefix icon for the Input
-     */
-    prefix?: ReactNode;
-    /**
-     * The suffix icon for the Input
-     */
-    suffix?: ReactNode;
-    /**
-     * The max length
-     */
-    maxLength?: number;
-    /**
-     * Array of validations to run on the input value. Example: ['required', 'email']. You can also pass RegExp as a string. For example: ['required', '/^\\d+$/']
-     */
-    validations?: string[];
-    /**
-     * The callback function that is triggered when Enter key is pressed
-     */
-    onPressEnter?: (e) => void;
-    /**
-     * If allow to remove input content with clear icon
-     */
-    allowClear?: boolean | { clearIcon: ReactNode };
-  } & styleProps);
+export type Props = {
+  /**
+   * Default is regular size. Pass option to render small or large buton instead.
+   */
+  size?: 'small' | 'large' | string;
+  /**
+   * If true, will have very rounded corners like a "pill" or "circle".
+   */
+  round?: boolean;
+  /**
+   * The prefix icon for the Input
+   */
+  prefix?: ReactNode;
+  /**
+   * The suffix icon for the Input
+   */
+  suffix?: ReactNode;
+  /**
+   * The max length
+   */
+  maxLength?: number;
+  /**
+   * Array of validations to run on the input value. Example: ['required', 'email']. You can also pass RegExp as a string. For example: ['required', '/^\\d+$/']
+   */
+  validations?: string[];
+  /**
+   * The callback function that is triggered when Enter key is pressed
+   */
+  onPressEnter?: (e) => void;
+  /**
+   * If allow to remove input content with clear icon
+   */
+  allowClear?: boolean | { clearIcon: ReactNode };
+} & styleProps &
+  InputHTMLAttributes<HTMLElement & HTMLInputElement>;
 
 /**
  * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"

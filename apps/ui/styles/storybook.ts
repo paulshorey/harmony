@@ -18,7 +18,6 @@ export const argTypes = ({ localVariants = [] }: Props) => {
       control: {
         type: 'select',
       },
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
     },
     textcolor: {
       control: {

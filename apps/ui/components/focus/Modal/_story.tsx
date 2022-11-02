@@ -2,8 +2,10 @@ import React from 'react';
 import Component from '.';
 import Button from '@ps/ui/components/focus/Button';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
+import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 
 export default (args: any) => {
+  useShowStorybookCode();
   const [isOpen, set_isOpen] = React.useState(false);
   const handleOpen = () => set_isOpen(true);
   const handleClose = () => set_isOpen(false);

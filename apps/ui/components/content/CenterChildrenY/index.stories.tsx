@@ -6,9 +6,6 @@ import variants from './variants';
 
 const variantKeys = Object.keys(variants);
 const args = {
-  classNames: ['bgcolor'],
-  color: '',
-  shade: '',
   ss: 'min-height: 400px;',
 };
 

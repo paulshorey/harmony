@@ -5,6 +5,7 @@ import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding'
 import type { SelectProps } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 
 const DemoNav = (props) => (
   <Select
@@ -117,21 +118,24 @@ const DemoMultiple = (props) => (
   </Select>
 );
 
-export default (props) => (
-  <CanvasContainer>
-    <CanvasStoryPadding>
-      <DemoNav {...props} />
-      <DemoOne {...props} />
-      <DemoMultiple {...props} />
-      <DemoTags {...props} />
-    </CanvasStoryPadding>
-    <CanvasStoryPadding bgcolor="light" textcolor="dark">
-      <DemoNav {...props} />
-      <DemoOne {...props} />
-      <DemoMultiple {...props} />
-      <DemoTags {...props} />
-    </CanvasStoryPadding>
-  </CanvasContainer>
-);
+export default (props) => {
+  useShowStorybookCode();
+  return (
+    <CanvasContainer>
+      <CanvasStoryPadding>
+        <DemoNav {...props} />
+        <DemoOne {...props} />
+        <DemoMultiple {...props} />
+        <DemoTags {...props} />
+      </CanvasStoryPadding>
+      <CanvasStoryPadding bgcolor="light" textcolor="dark">
+        <DemoNav {...props} />
+        <DemoOne {...props} />
+        <DemoMultiple {...props} />
+        <DemoTags {...props} />
+      </CanvasStoryPadding>
+    </CanvasContainer>
+  );
+};
 
 export const code = ``;

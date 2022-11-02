@@ -1,22 +1,27 @@
 import { ThemeProvider as EmotionThemeProvider, Global } from '@emotion/react';
+import Link from 'next/link';
 // Ant design
 import 'antd/dist/antd.variable.css';
 // import 'antd/dist/antd.css';
 // import { ConfigProvider } from 'antd';
 // Global CSS properties - used extensively by components in this library.
 // Compose them from your Tailwind, Antd, or MaterialUI themes.
-import '@ps/ui/styles/global/variables.css';
+import '@ps/ui/styles/theme.css';
 // Optional stylesheets:
 import theme from '@ps/ui/styles/theme';
 import fonts from '@ps/ui/styles/global/fonts';
 import html from '@ps/ui/styles/global/html';
 import layout from '@ps/ui/styles/global/layout';
 
+// MaterialUI Theme
 import {
   // CssBaseline,
   ThemeProvider as MuiThemeProvider,
   createTheme,
 } from '@mui/material';
+
+// Customize Emotion Theme
+theme.LinkComponent = Link; // tsFix - the entire theme object needs Typescript
 
 /*
  * Customize Ant Design theme

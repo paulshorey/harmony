@@ -12,21 +12,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export type PrismThemeType = typeof themeDark;
 
 export type Props = {
-  'code': string;
-  'language'?: Language;
-  'prismTheme'?: PrismThemeType;
-  'variant'?: string;
-  'data-variants'?: string;
-  'showNumbers'?: boolean;
-  'collapsed'?: boolean;
-  'copyable'?: boolean;
+  code: string;
+  language?: Language;
+  prismTheme?: PrismThemeType;
+  variant?: string;
+  showNumbers?: boolean;
+  collapsed?: boolean;
+  copyable?: boolean;
 };
 
 const Code = ({
   code = '',
   language = 'jsx',
   prismTheme,
-  'data-variants': dataVariants = '',
+  variant = '',
   showNumbers = false,
   collapsed = false,
   copyable = false,
@@ -34,20 +33,17 @@ const Code = ({
   // default = dark
   let theme;
   // pass variant="light" or variant="transparentLight" to use light theme
-  if (
-    dataVariants?.includes('light') ||
-    dataVariants?.includes('transparentLight')
-  ) {
+  if (variant === 'light' || variant === 'transparentLight') {
     theme = { ...themeLight, ...{ plain: { ...themeLight.plain } } };
   } else {
     theme = { ...themeDark, ...{ plain: { ...themeDark.plain } } };
   }
   // default theme
-  if (dataVariants.includes('light')) {
+  if (variant === 'light') {
     theme.plain.backgroundColor = 'hsla(22deg 8% 88% / 0.99)';
-  } else if (dataVariants.includes('transparentLight')) {
+  } else if (variant === 'transparentLight') {
     theme.plain.backgroundColor = 'hsla(33deg 8% 88% / 0.88)';
-  } else if (dataVariants.includes('transparentDark')) {
+  } else if (variant === 'transparentDark') {
     theme.plain.backgroundColor = 'hsla(22deg 3% 9% / 0.67)';
   } else {
     theme.plain.backgroundColor = 'hsla(22deg 5% 15% / 0.95)';

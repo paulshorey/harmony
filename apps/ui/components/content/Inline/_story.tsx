@@ -1,16 +1,17 @@
 import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import Block from '@ps/ui/components/content/Block';
-import { withInline } from '.';
+import Inline from '@ps/ui/components/content/Inline';
+import withProps from '@ps/ui/styles/withProps';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 
 export default function (props) {
   useShowStorybookCode();
-  const Heading = withInline({
+  const Heading = withProps(Inline, {
     as: 'h2',
     ss: 'margin:0;',
   });
-  const Code = withInline({
+  const Code = withProps(Inline, {
     as: 'code',
   });
   return (
@@ -26,10 +27,7 @@ export default function (props) {
   );
 }
 
-export const code = `import { withInline } from '.';
-const Heading = withInline({ as: 'h2', ss: 'margin:0;', ...props });
-const Code = withInline({ as: 'code', ...props });
+export const code = `import Inline from '@ps/ui/components/content/Inline';
 
-Text can be used <Heading> as h2</Heading>, or <Code> as &lt;code&gt;</Code>, 
-or as any other HTML container element. By default, it's a span.
+Text can be used <Inline as="h2" {...props}> as h2</Inline>, or <Inline as="code" {...props}> as &lt;code&gt;</Inline>, or as any other HTML container element. By default, it's a span.
 `;

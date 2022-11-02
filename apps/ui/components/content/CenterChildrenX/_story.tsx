@@ -17,7 +17,7 @@ const Story = (props) => {
         only to the right. This component makes text overflow to both left and
         right, evenly.
       </p>
-      <CenterH color="accent" {...props}>
+      <CenterH {...props}>
         <h3 className="noWrap" style={{ fontWeight: 'bold' }}>
           This title tag has <CodeInline>white-space:nowrap</CodeInline>, so it
           does not fit inside the column.

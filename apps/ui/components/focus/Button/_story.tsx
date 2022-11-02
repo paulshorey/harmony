@@ -5,8 +5,10 @@ import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding'
 import { UserOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 
 export const Buttons = (props) => {
+  useShowStorybookCode();
   const Button = withButton({
     size: 'sm',
     ss: 'margin: 0 0.875rem 0.875rem 0;',

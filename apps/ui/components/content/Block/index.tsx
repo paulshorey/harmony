@@ -4,13 +4,13 @@ import styleProps, { styledTags } from '@ps/ui/types/styles';
 import variants from './variants';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
 
-export type Props = HTMLAttributes<HTMLDivElement> &
-  styleProps & {
-    /**
-     * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged.
-     */
-    as?: styledTags;
-  } & Record<string, any>;
+export type Props = {
+  /**
+   * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged.
+   */
+  as?: styledTags;
+} & styleProps &
+  HTMLAttributes<HTMLDivElement>;
 
 export const Component: (props: Props, ref?: any) => ReactElement = (
   { as, ...props },

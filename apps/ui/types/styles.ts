@@ -17,25 +17,29 @@ export type ssProp =
  */
 export type styleProps = {
   /**
-   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @ps/ui/styles/global/variables.css
+   * Each component has a `variants.ts` file in its folder - it sets the styles for the component. Variant is also used by the JS code to set logic/layout/markup of the component.
+   */
+  variant?: string;
+  /**
+   * Used by some elements (inputs, buttons) to set padding/fontSize/height/line-height.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  /**
+   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css
    */
   bgcolor?: 'light' | 'dark' | 'purple' | 'accent' | 'cta';
   /**
-   * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/global/variables.css
+   * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css
    */
   textcolor?: 'light' | 'dark' | 'purple' | 'accent' | 'cta';
   /**
-   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @ps/ui/styles/global/variables.css
+   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css
    */
   bggradient?: 'light' | 'dark' | 'purple' | 'accent' | 'cta' | 'rainbow';
   /**
-   * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/global/variables.css - NOT RECOMMENDED for block-level elements or elements with children. Works best on simple inline text.
+   * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css - NOT RECOMMENDED for block-level elements or elements with children. Works best on simple inline text.
    */
   textgradient?: 'light' | 'dark' | 'purple' | 'accent' | 'cta' | 'rainbow';
-  /**
-   * One or multiple variants as a string, separated by spaces. Will be used in addition to variants. Sometimes it may be helpful to pass an array of varints (programmatically) and then pass a string (for just one instance).
-   */
-  variant?: string;
   /**
    * One or multiple variants as a string[].
    */

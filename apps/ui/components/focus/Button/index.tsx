@@ -1,10 +1,10 @@
 // import CenterChildrenX from '@ps/ui/components/content/CenterChildrenX';
 // import CenterChildrenY from '@ps/ui/components/content/CenterChildrenY';
 import {
-  ButtonHTMLAttributes,
   createRef,
   forwardRef,
   memo,
+  ButtonHTMLAttributes,
   ReactElement,
 } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
@@ -16,39 +16,39 @@ import IconLoading from '@ant-design/icons/LoadingOutlined';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
 import MuiButton from '@mui/material/Button';
 
-export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
-  ({
-    /**
-     * Disable the functionality and style of the button as disabled?
-     */
-    disabled?: boolean;
-    /**
-     * Default is regular size. Pass option to render small or large buton instead.
-     */
-    size?: 'small' | 'large' | string;
-    /**
-     * If true, will have very rounded corners like a "pill" or "circle".
-     */
-    round?: boolean;
-    /**
-     * Pass true to use default loading animation. Or pass a custom loading animation component.
-     * If button has children, loading animation will play on top of the children.
-     * This way, if loading prop is dynamic (after user clicked submit), button size will not change.
-     */
-    loading?: boolean | ReactElement;
-    /**
-     * React component to displayed to the left of the text.
-     */
-    icon?: ReactElement;
-    /**
-     * React component to displayed to the right of the text.
-     */
-    suffix?: ReactElement;
-    /**
-     * Alternative to `props.children`, will overwrite `props.children`.
-     */
-    value?: string;
-  } & styleProps);
+export type Props = {
+  /**
+   * Disable the functionality and style of the button as disabled?
+   */
+  disabled?: boolean;
+  /**
+   * Default is regular size. Pass option to render small or large buton instead.
+   */
+  size?: 'small' | 'large' | string;
+  /**
+   * If true, will have very rounded corners like a "pill" or "circle".
+   */
+  round?: boolean;
+  /**
+   * Pass true to use default loading animation. Or pass a custom loading animation component.
+   * If button has children, loading animation will play on top of the children.
+   * This way, if loading prop is dynamic (after user clicked submit), button size will not change.
+   */
+  loading?: boolean | ReactElement;
+  /**
+   * React component to displayed to the left of the text.
+   */
+  icon?: ReactElement;
+  /**
+   * React component to displayed to the right of the text.
+   */
+  suffix?: ReactElement;
+  /**
+   * Alternative to `props.children`, will overwrite `props.children`.
+   */
+  value?: string;
+} & styleProps &
+  ButtonHTMLAttributes<HTMLElement & HTMLButtonElement>;
 
 /**
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"

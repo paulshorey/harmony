@@ -2,7 +2,7 @@ import { Component } from '.';
 import _story, { code } from './_story';
 import description from './_story.md';
 import { argTypes } from '@ps/ui/styles/storybook';
-import variants from './variants';
+import variants from './styles';
 
 const variantKeys = Object.keys(variants);
 

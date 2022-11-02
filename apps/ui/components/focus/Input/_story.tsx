@@ -4,8 +4,10 @@ import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import { Popover } from 'antd';
+import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 
 const InputStory = (props) => {
+  useShowStorybookCode();
   const style = `margin: 0 0.875rem 0.875rem 0;width:90%;`;
   return (
     <>
@@ -52,4 +54,12 @@ export default (props) => (
   </CanvasContainer>
 );
 
-export const code = ``;
+export const code = `import Input from '@ps/ui/components/focus/Input';
+
+<Input
+  {...props}
+  ssAll={style}
+  placeholder="Full name"
+  allowClear={true}
+  value="Click x to clear"
+/>`;

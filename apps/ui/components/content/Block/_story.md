@@ -1,5 +1,5 @@
-`import Block from 'components/content/Block';` Use:
-`<Block as="h2" ssTablet="padding:1rem;" ssPhone="font-size:1.25rem;">Hello</Block>`
+Use for any type of content: `<Block as="h2" ssTablet="padding:2rem;" ssPhone="font-size:1.5rem;">Hello</Block>`
 
-Accepts all props for `HTMLAttributes<HTMLDivElement>` plus custom props. Scroll down to live-edit props...  
-By default, this renders a `div`, but you can change the element type with the `as` prop.
+Accepts all props for `HTMLAttributes<HTMLDivElement>` plus custom props. Scroll down to live-edit props.  
+
+Pass `variant="articleX"` or `variant="pageX"` to set a max-width and padding left/right to make a column of text such as a blog article.

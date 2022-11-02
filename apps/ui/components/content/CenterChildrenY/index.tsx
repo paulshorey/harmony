@@ -1,10 +1,11 @@
-import { forwardRef, memo, ReactElement } from 'react';
+import { forwardRef, memo, ReactElement, HTMLAttributes } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
 import Block, { Props as BlockProps } from '@ps/ui/components/content/Block';
 import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
+import styleProps from '@ps/ui/types/styles';
 
-export type Props = BlockProps;
+export type Props = styleProps & HTMLAttributes<HTMLDivElement>;
 
 export const Component: (props: Props, ref?: any) => ReactElement = (
   { as, children, ...props },
