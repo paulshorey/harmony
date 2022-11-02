@@ -128,7 +128,7 @@ export default {
       ] / 2}rem;
     `}
   `,
-  outline: (props) => css`
+  outlined: (props) => css`
     color: var(--color-text);
     text-shadow: none !important;
     &::before {

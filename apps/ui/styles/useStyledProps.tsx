@@ -120,14 +120,6 @@ export default ({
       if (classStyles?.[variant]) {
         props.className += ' ' + classStyles[variant];
       }
-      // // If component-specific style is not defined, apply a global style from theme
-      // if (theme.variants[variant]) {
-      //   ssGlobal += style_to_string(
-      //     // @ts-ignore // theme.variants[variant] is defined, so use it
-      //     theme.variants[variant],
-      //     props
-      //   );
-      // }
     }
   }
 

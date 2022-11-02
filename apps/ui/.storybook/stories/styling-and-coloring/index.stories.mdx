@@ -6,7 +6,7 @@ import Button from '@ps/ui/components/focus/Button';
 import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
 import { Buttons } from './_components';
 
-<Meta title="focus/for forms and navigation" />
+<Meta title="core/Styling and coloring" />
 
 <ThemeProvider>
 
@@ -38,7 +38,7 @@ import { Buttons } from './_components';
       Rainbow
     </Button>
     <Button
-      variant="outline"
+      variant="outlined"
       size="sm"
       textgradient="rainbow"
       ss="margin: 0 0.875rem 0.875rem 0;"
@@ -57,7 +57,7 @@ const Button = withButton({
 <Box textcolor="light" bgcolor="purple">
    
   <Button loading={true}>Loading</Button>
-  <Button variant="outline">Outlined</Button>
+  <Button variant="outlined">Outlined</Button>
   <Button variant="text" icon={<FontAwesomeIcon icon={faUser} />}>
     Text
   </Button>
@@ -73,7 +73,7 @@ const Button = withButton({
   <Button textcolor="rainbow">
     Rainbow
   </Button>
-  <Button variant="outline" textgradient="rainbow">
+  <Button variant="outlined" textgradient="rainbow">
     Rainbow outline
   </Button>
   
@@ -90,7 +90,7 @@ const Button = withButton({
       Different color
     </Button>
     <Button
-      variant="outline"
+      variant="outlined"
       size="sm"
       textgradient="cta"
       ss="margin: 0 0.875rem 0.875rem 0;"
@@ -103,7 +103,7 @@ const Button = withButton({
 <Box textcolor="purple" bgcolor="light">
   ...
   <Button textcolor="cta">Different color</Button>
-  <Button fggradient="cta" variant="outline">With outline</Button>
+  <Button fggradient="cta" variant="outlined">With outline</Button>
 </Box>`}
     />
   </Box>

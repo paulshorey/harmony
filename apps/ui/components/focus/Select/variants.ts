@@ -92,6 +92,11 @@ export default {
       width: 100%;
     }
 
+    .ant-select-selection-placeholder,
+    [role='img'] {
+      color: #999 !important;
+    }
+
     .ant-select-selection-placeholder {
       margin-right: ${paddingX(props, 1)}rem;
     }

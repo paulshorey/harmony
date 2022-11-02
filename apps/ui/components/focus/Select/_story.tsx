@@ -6,24 +6,28 @@ import type { SelectProps } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
-const tags: SelectProps['options'] = [];
-for (let i = 10; i < 36; i++) {
-  tags.push({
-    value: i.toString(36) + i,
-    label: i.toString(36) + i,
-  });
-}
-
-const DemoTags = (props) => (
+const DemoNav = (props) => (
   <Select
     {...props}
-    mode="tags"
-    style={{ width: '100%' }}
-    tokenSeparators={[',']}
-    options={tags}
-    placeholder="Comma separated tags"
-  />
+    style={{ margin: '0 0.875rem 0.875rem 0', width: '10rem' }}
+    placeholder="select countries"
+    optionLabelProp="label"
+  >
+    <Option value="usa" label="USA">
+      <h3>🇺🇸 USA (美国)</h3>
+    </Option>
+    <Option value="china" label="China">
+      <h3> 🇨🇳 China (中国)</h3>
+    </Option>
+    <Option value="japan" label="Japan">
+      <h3>🇯🇵 Japan (日本)</h3>
+    </Option>
+    <Option value="korea" label="Korea">
+      <h3>🇰🇷 Korea (韩国)</h3>
+    </Option>
+  </Select>
 );
+
 const DemoOne = (props) => (
   <Select
     {...props}
@@ -51,6 +55,24 @@ const DemoOne = (props) => (
     ]}
   />
 );
+
+const tags: SelectProps['options'] = [];
+for (let i = 10; i < 36; i++) {
+  tags.push({
+    value: i.toString(36) + i,
+    label: i.toString(36) + i,
+  });
+}
+const DemoTags = (props) => (
+  <Select
+    {...props}
+    mode="tags"
+    style={{ width: '100%' }}
+    tokenSeparators={[',']}
+    options={tags}
+    placeholder="Comma separated tags"
+  />
+);
 const DemoMultiple = (props) => (
   <Select
     {...props}
@@ -61,7 +83,7 @@ const DemoMultiple = (props) => (
     optionLabelProp="label"
   >
     <Option value="usa" label="USA">
-      <div className="demo-option-label-item">
+      <div>
         <span role="img" aria-label="USA">
           🇺🇸
         </span>
@@ -69,7 +91,7 @@ const DemoMultiple = (props) => (
       </div>
     </Option>
     <Option value="china" label="China">
-      <div className="demo-option-label-item">
+      <div>
         <span role="img" aria-label="China">
           🇨🇳
         </span>
@@ -77,7 +99,7 @@ const DemoMultiple = (props) => (
       </div>
     </Option>
     <Option value="japan" label="Japan">
-      <div className="demo-option-label-item">
+      <div>
         <span role="img" aria-label="Japan">
           🇯🇵
         </span>
@@ -85,7 +107,7 @@ const DemoMultiple = (props) => (
       </div>
     </Option>
     <Option value="korea" label="Korea">
-      <div className="demo-option-label-item">
+      <div>
         <span role="img" aria-label="Korea">
           🇰🇷
         </span>
@@ -96,8 +118,9 @@ const DemoMultiple = (props) => (
 );
 
 export default (props) => (
-  <CanvasContainer bgcolor="light" textcolor="dark">
+  <CanvasContainer bgcolor="beige" textcolor="dark">
     <CanvasStoryPadding>
+      <DemoNav {...props} />
       <DemoOne {...props} />
       <DemoMultiple {...props} />
       <DemoTags {...props} />

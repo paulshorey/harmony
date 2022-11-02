@@ -1,15 +1,16 @@
 import { Component } from '.';
 import Template, { code } from './_story';
 import description from './_story.md';
-import { argTypes } from '@ps/ui/styles/storybook';
-import variants from './variants';
-
-const variantKeys = Object.keys(variants);
-// const args = {};
 
 export const Select = Template.bind({});
-Select.argTypes = argTypes({ localVariants: variantKeys });
-// Select.args = args;
+Select.argTypes = {
+  size: {
+    control: {
+      type: 'select',
+    },
+    options: ['xs', 'sm', 'md', 'lg', 'xl'],
+  },
+};
 
 export default {
   component: Component,

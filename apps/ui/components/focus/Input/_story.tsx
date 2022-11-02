@@ -3,7 +3,7 @@ import Input from '@ps/ui/components/focus/Input';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
-import Dropdown from '../Dropdown';
+import { Popover } from 'antd';
 
 const InputStory = (props) => {
   const style = `margin: 0 0.875rem 0.875rem 0;width:90%;`;
@@ -23,12 +23,9 @@ const InputStory = (props) => {
         placeholder="Username"
         prefix={<UserOutlined />}
         suffix={
-          <Dropdown
-            variant="tooltip"
-            render={<div className="noWrap">Hello tooltip!</div>}
-          >
+          <Popover content={<div className="noWrap">Hello tooltip!</div>}>
             <InfoCircleOutlined />
-          </Dropdown>
+          </Popover>
         }
       />
 

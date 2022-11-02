@@ -1,1 +1,0 @@
-Open on Click/Tap or Enter keypress. Then hit "Tab" to cycle through the buttons/inputs/links inside it. When closed, it returns Focus to the previously focused element. Make a custom "Select" dropdown of options, a dropdown with links for navigation, or anything.

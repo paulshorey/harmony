@@ -6,8 +6,26 @@ import variants from '@ps/ui/components/focus/Select/variants';
 import classes from '@ps/ui/components/focus/Select/index.module.css';
 
 const { Option: OptionAnt } = SelectAnt;
+export type OptionProps = {
+  value: string;
+  /**
+   * What to show in the select box instead of the real value. Useful if capitalization is different.
+   */
+  label?: string;
+  /**
+   * What to show for each dropdown result item.
+   */
+  children?: React.ReactNode;
+};
 
-export const Option = OptionAnt;
+export const Option = (props: OptionProps) => {
+  const styledProps = useStyledProps({
+    props,
+    componentName: 'SelectOption',
+  });
+  // @ts-ignore
+  return <OptionAnt {...styledProps} />;
+};
 
 export type Props = styleProps & SelectProps;
 

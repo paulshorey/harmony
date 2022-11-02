@@ -27,8 +27,11 @@ export default (args: any) => {
         aria-describedby="modal-modal-description"
       >
         <div>
-          <h2>Hello! This title is inside a modal</h2>
-          <p>This is not finished. Just started. Please check back soon.</p>
+          <h2>This is a title inside the modal</h2>
+          <p>
+            This could be a bit of text for a quick dialog, or a whole article
+            for the user to read and sign.
+          </p>
         </div>
       </Component>
       <p>

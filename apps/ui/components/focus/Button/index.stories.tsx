@@ -7,7 +7,7 @@ import variants from './variants';
 const variantKeys = Object.keys(variants);
 const args = {
   size: 'lg',
-  variant: 'pulsing',
+  variant: '',
   round: true,
   loading: false,
   children: 'Button text',

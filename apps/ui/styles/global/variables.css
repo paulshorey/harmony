@@ -60,6 +60,15 @@
   --color-accent: #fecc4c;
 }
 
+[data-bgcolor='beige'] {
+  --color-bg: #b1a184;
+  --color-bg-gradient: radial-gradient(
+    80% 80% at top center,
+    hsl(47, 29%, 91%),
+    hsl(39, 19%, 81%)
+  );
+}
+
 /*
  * Purple
  */

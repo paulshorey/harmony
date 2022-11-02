@@ -31,8 +31,10 @@ export default {
     vertical-align: middle;
     text-shadow: none;
     padding: 0;
-    &,
+
+    color: #333;
     &::placeholder,
+    input::placeholder,
     [role='img'] {
       color: #999 !important;
     }
