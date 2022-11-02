@@ -1,12 +1,12 @@
 import { forwardRef, memo, ReactElement } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
-import Box, { Props as BoxProps } from '@ps/ui/components/content/Box';
+import Block, { Props as BlockProps } from '@ps/ui/components/content/Block';
 import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 
 export type Props = {
   code?: string;
-} & BoxProps;
+} & BlockProps;
 
 export const Component: (props: Props, ref?: any) => ReactElement = (
   { as, children, ...props },

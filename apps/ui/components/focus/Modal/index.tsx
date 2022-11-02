@@ -1,4 +1,4 @@
-import { Props as BoxProps } from '@ps/ui/components/content/Box';
+import { Props as BlockProps } from '@ps/ui/components/content/Block';
 import { memo, useEffect, forwardRef, ReactElement } from 'react';
 import ReactModal from '@mui/material/Modal';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';

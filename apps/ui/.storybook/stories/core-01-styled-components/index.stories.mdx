@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Box from '@ps/ui/components/content/Box';
-import Text from '@ps/ui/components/content/Text';
+import Block from '@ps/ui/components/content/Block';
+import Inline from '@ps/ui/components/content/Inline';
 import CodeInline from '@ps/ui/components/content/CodeInline';
 import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
@@ -37,9 +37,9 @@ import Code from '@ps/ui/components/content/Code';
 
 Just like StyledComponents <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.div\`\``}/>, you can use <CodeInline code={`withButton()`}/> or <CodeInline code={`withDiv()`}/> etc. to pre-define styles in one place, then use them for multiple instances. This is a great way to keep your code clean, separate markup from style.
 
-<Text as="b" textcolor="accent">
+<Inline as="b" textcolor="accent">
   💡 But with this library you can also set props, not just styles!
-</Text> Any props - not just ones related to style. It's very convenient!
+</Inline> Any props - not just ones related to style. It's very convenient!
 
 <Code
   ss="font-size: 0.85rem;"
@@ -78,9 +78,9 @@ When using these predefined components, you can pass new styles and props to ove
 `}
 />
 
-<Text as="b" textcolor="accent">
+<Inline as="b" textcolor="accent">
   🤓 The old and new props will be intelligently merged.
-</Text> Style strings and classNames will be added. Other props will be replaced.{' '}
+</Inline> Style strings and classNames will be added. Other props will be replaced.{' '}
 
 If you're setting many props for several components, it's nice to predefine all the common props, then have the option to override one style rule or one prop.
 

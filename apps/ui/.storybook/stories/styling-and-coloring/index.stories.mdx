@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Box from '@ps/ui/components/content/Box';
+import Block from '@ps/ui/components/content/Block';
 import Code from '@ps/ui/components/content/Code';
-import Text from '@ps/ui/components/content/Text';
+import Inline from '@ps/ui/components/content/Inline';
 import Button from '@ps/ui/components/focus/Button';
 import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
 import { Buttons } from './_components';
@@ -10,13 +10,13 @@ import { Buttons } from './_components';
 
 <ThemeProvider>
 
-<Box ss={`
+<Block ss={`
   position:absolute;
   top:0;
   left:0;
   width:100%;`}>
 
-<Box
+<Block
   textcolor="light"
   variant="articleX"
   ss="padding-top:1.25rem;padding-bottom:0.95rem;"
@@ -29,10 +29,10 @@ import { Buttons } from './_components';
     Forms, dashboard elements, links, disclosures, modals, and any kind of
     editable content that can be interacted with using a keyboard.
   </p>
-</Box>
+</Block>
 
-<Box textcolor="light" bgcolor="purple" ss="padding: 1rem;">
-  <Box variant="articleX" ss="padding-top:1.25rem;">
+<Block textcolor="light" bgcolor="purple" ss="padding: 1rem;">
+  <Block variant="articleX" ss="padding-top:1.25rem;">
     <Buttons />
     <Button size="sm" textcolor="rainbow" ss="margin: 0 0.875rem 0.875rem 0;">
       Rainbow
@@ -54,7 +54,7 @@ const Button = withButton({
   ss: 'margin: 0 0.875rem 0.875rem 0;',
 });
   
-<Box textcolor="light" bgcolor="purple">
+<Block textcolor="light" bgcolor="purple">
    
   <Button loading={true}>Loading</Button>
   <Button variant="outlined">Outlined</Button>
@@ -77,14 +77,14 @@ const Button = withButton({
     Rainbow outline
   </Button>
   
-</Box>`}
+</Block>`}
     />
-  </Box>
-</Box>
+  </Block>
+</Block>
 
-<Box textcolor="purple" bgcolor="light" ss="padding: 1rem;">
-  <Box variant="articleX">
-    <Box as="h3">Different color scheme:</Box>
+<Block textcolor="purple" bgcolor="light" ss="padding: 1rem;">
+  <Block variant="articleX">
+    <Block as="h3">Different color scheme:</Block>
     <Buttons />
     <Button size="sm" textcolor="cta" ss="margin: 0 0.875rem 0.875rem 0;">
       Different color
@@ -100,22 +100,22 @@ const Button = withButton({
     <Code
       collapsed={true}
       code={`// Exactly same code for buttons. Just change the wrapper colors.
-<Box textcolor="purple" bgcolor="light">
+<Block textcolor="purple" bgcolor="light">
   ...
   <Button textcolor="cta">Different color</Button>
   <Button fggradient="cta" variant="outlined">With outline</Button>
-</Box>`}
+</Block>`}
     />
-  </Box>
-</Box>
+  </Block>
+</Block>
 
-<Box
+<Block
   textcolor="light"
   variant="articleX"
   ss="padding-top:1.25rem;padding-bottom:0.95rem;"
 >
   <p>More coming soon!</p>
-</Box>
+</Block>
 
-</Box>
+</Block>
 </ThemeProvider>

@@ -1,6 +1,6 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Box from '@ps/ui/components/content/Box';
-import Text from '@ps/ui/components/content/Text';
+import Block from '@ps/ui/components/content/Block';
+import Inline from '@ps/ui/components/content/Inline';
 import Code from '@ps/ui/components/content/Code';
 import CodeInline from '@ps/ui/components/content/CodeInline';
 import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
@@ -17,38 +17,38 @@ import {
 <Wrapper ssAll="a { color: white; }">
 
 <h1>
-  <Box as="span" textgradient="rainbow">
+  <Block as="span" textgradient="rainbow">
     This is a development kit
-  </Box>
+  </Block>
 </h1>
 
-An easier way to <Text as="b" textgradient="accent">bootstrap and maintain</Text> your own <Text as="b" textgradient="rainbow"> custom branded component library</Text> for all your <Text as="b" textgradient="accent"><SvgSparkle ss="" />mono repo frontends<SvgSparkle ss="" /><SvgSparkle ss="" /></Text>. <br />
+An easier way to <Inline as="b" textgradient="accent">bootstrap and maintain</Inline> your own <Inline as="b" textgradient="rainbow"> custom branded component library</Inline> for all your <Inline as="b" textgradient="accent"><SvgSparkle ss="" />mono repo frontends<SvgSparkle ss="" /><SvgSparkle ss="" /></Inline>. <br />
 It's <BulletNumber>1</BulletNumber> a pre-configured mono repo, <BulletNumber>2</BulletNumber> a styling system to make branding easier <BulletNumber>3</BulletNumber> and a few components to get you started.  
 This is meant for both software engineering and web development. Works well for interactive components, dashboards, etc.
 
 ---
 
-<Box as="h2" ss="margin-top:2rem;">
-  <Box as="span" textgradient="rainbow">
+<Block as="h2" ss="margin-top:2rem;">
+  <Block as="span" textgradient="rainbow">
     For better DX and UX
-  </Box>
-</Box>
+  </Block>
+</Block>
 
 Instead of trying to rewrite CSS in JS, or just use classNames for everything, CSS and JS can work together, helping each to do what each does best. This library uses a very small global stylesheet to define color groups (for branding) and light/dark versions of each. Because CSS is <b>cascading</b>, every element will know if its on dark or light, and will adjust itself automatically.
 
 <Code
   variant="transparentDark"
-  code={`import Text from 'harmonyui/components/content/Text';
+  code={`import Inline from 'harmonyui/components/content/Text';
 // These "accent" and "rainbow" will render slightly darker shades on light background.
-<Text as="b" textgradient="accent"> bootstrap and maintain </Text>
-<Text as="b" textgradient="rainbow"> custom branded component library</Text>`}
+<Inline as="b" textgradient="accent"> bootstrap and maintain </Inline>
+<Inline as="b" textgradient="rainbow"> custom branded component library</Inline>`}
 />
 
 <p>
   <a>Media query shortcuts</a> let you{' '}
-  <Text as="b" textgradient="rainbow">
+  <Inline as="b" textgradient="rainbow">
     painlessly style for multiple devices!
-  </Text>{' '}
+  </Inline>{' '}
   You're not limited to just{' '}
   <CodeInline variant="text" color="purple">
     xs,sm,md,lg
@@ -65,8 +65,8 @@ Instead of trying to rewrite CSS in JS, or just use classNames for everything, C
 
 <Code
   variant="transparentDark"
-  code={`import { withBox } from 'harmonyui/components/content/Box';
-const Demo = withBox({ ss: 'display:none;' });
+  code={`import { withBlock } from 'harmonyui/components/content/Block';
+const Demo = withBlock({ ss: 'display:none;' });
 // For convenience, ss props accept a simple string in addition to any EmotionCSS type. No configuration is required.
 <Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>
 <Demo ssIframe="display:block"> apply style only if rendered inside an iframe (like Storybook or website widget) </Demo>
@@ -87,16 +87,16 @@ const Demo = withBox({ ss: 'display:none;' });
 <br />
 <br />
 
-<Box as="h2" ss="margin-top:2rem;">
-  <Box as="span" textgradient="rainbow">
+<Block as="h2" ss="margin-top:2rem;">
+  <Block as="span" textgradient="rainbow">
     CSS-in-JS is no longer tedious!
-  </Box>
-</Box>
+  </Block>
+</Block>
 
 <p>
-  <Text ssPhone="display:none;">👈 </Text>
-  <Text ssNotPhone="display:none;">👇 </Text>
-  <Text textcolor="accent">&nbsp;Go ahead and explore the sidebar.&nbsp;</Text>
+  <Inline ssPhone="display:none;">👈 </Inline>
+  <Inline ssNotPhone="display:none;">👇 </Inline>
+  <Inline textcolor="accent">&nbsp;Go ahead and explore the sidebar.&nbsp;</Inline>
   Below each component's story is a documentation of all props it accepts.
 </p>
 

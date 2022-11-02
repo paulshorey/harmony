@@ -1,11 +1,11 @@
 import React, { useState, memo } from 'react';
-import Box, { Props as BoxProps } from '@ps/ui/components/content/Box';
+import Block, { Props as BlockProps } from '@ps/ui/components/content/Block';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
 import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 import CodeComponent, { Props as CodeProps } from './Code';
 
-export type Props = BoxProps & CodeProps;
+export type Props = BlockProps & CodeProps;
 
 export const Component = (props) => {
   const [Styled, otherProps]: any = useStyledOriginal(

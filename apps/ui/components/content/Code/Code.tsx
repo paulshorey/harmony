@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import themeDark from 'prism-react-renderer/themes/nightOwl';
 import themeLight from 'prism-react-renderer/themes/nightOwlLight';
-import Box from '@ps/ui/components/content/Box';
+import Block from '@ps/ui/components/content/Block';
 import { faCode } from '@fortawesome/free-solid-svg-icons/faCode';
 import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -62,7 +62,7 @@ const Code = ({
   let ControlsTop;
   if (collapsed) {
     ControlsTop = (
-      <Box
+      <Block
         as="span"
         ss={css`
           position: absolute;
@@ -77,7 +77,7 @@ const Code = ({
           set_collapsedState(!collapsedState);
         }}
       >
-        <Box
+        <Block
           as="span"
           ss={css`
             opacity: 0.75;
@@ -91,14 +91,14 @@ const Code = ({
         >
           {collapsedState && 'show '}
           <FontAwesomeIcon icon={faCode} />
-        </Box>
-      </Box>
+        </Block>
+      </Block>
     );
   }
   let ControlsBottom;
   if (copyable) {
     ControlsBottom = (
-      <Box
+      <Block
         as="span"
         ss={css`
           position: absolute;
@@ -118,7 +118,7 @@ const Code = ({
       >
         {collapsedState && 'copy '}
         <FontAwesomeIcon icon={faCopy} />
-      </Box>
+      </Block>
     );
   }
   // render

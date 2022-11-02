@@ -12,7 +12,7 @@
 
 /*
  * (DEFAULT) Dark text on light background:
- * <Box textcolor="dark"> or <Box bgcolor="light">
+ * <Block textcolor="dark"> or <Block bgcolor="light">
  */
 :root,
 [data-colorscheme='onlight'] {
@@ -37,7 +37,7 @@
 
 /*
  * Light text on dark background:
- * <Box textcolor="light"> or <Box bgcolor="dark">
+ * <Block textcolor="light"> or <Block bgcolor="dark">
  */
 [data-colorscheme='ondark'] {
   color-scheme: dark;

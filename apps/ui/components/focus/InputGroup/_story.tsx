@@ -1,4 +1,4 @@
-import Box from '@ps/ui/components/content/Box';
+import Block from '@ps/ui/components/content/Block';
 import InputGroup from '@ps/ui/components/focus/InputGroup';
 import Input from '@ps/ui/components/focus/Input';
 import Button from '@ps/ui/components/focus/Button';

@@ -21,7 +21,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
    */
   const styledProps = useStyledProps({
     props,
-    componentName: 'Box',
+    componentName: 'Block',
     variants,
   });
   const Tag = `${as || 'div'}`;
@@ -31,18 +31,18 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 
 /*
  * Like StyledComponents' styled.div`` but with added functionality:
- * import { withBox } from 'components/content/Box';
- * const Box = withBox({ ...thesePropsWillApplyToAllInstances });
- * <Box {...optionalUniquePropsForCurrentInstance} />
+ * import { withBlock } from 'components/content/Block';
+ * const Block = withBlock({ ...thesePropsWillApplyToAllInstances });
+ * <Block {...optionalUniquePropsForCurrentInstance} />
  */
-export const withBox = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Box, props1, props2);
+export const withBlock = (props1: Props) => (props2: Props) => {
+  return withAddPropsToComponent(Block, props1, props2);
 };
 
 /*
  * Default export is a ready-to-use component:
  * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Box" is same as default export. But IDEs like VSCode can read a named import better.
+ * Named "Block" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const Box = memo(forwardRef(Component));
-export default Box;
+export const Block = memo(forwardRef(Component));
+export default Block;

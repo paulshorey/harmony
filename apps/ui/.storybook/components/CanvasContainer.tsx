@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { withBox } from '@ps/ui/components/content/Box';
+import { withBlock } from '@ps/ui/components/content/Block';
 
 const CanvasContainer = (props) => {
   let flexStyle = '';
@@ -18,7 +18,7 @@ const CanvasContainer = (props) => {
     `;
   }
 
-  return withBox({
+  return withBlock({
     bggradient: 'purple',
     textcolor: 'light',
     ss: css`

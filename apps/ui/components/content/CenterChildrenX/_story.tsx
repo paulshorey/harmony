@@ -1,5 +1,5 @@
 import CenterH from '.';
-import Box from '@ps/ui/components/content/Box';
+import Block from '@ps/ui/components/content/Block';
 import CodeInline from '@ps/ui/components/content/CodeInline';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
@@ -23,10 +23,10 @@ const Story = (props) => {
           does not fit inside the column.
         </h3>
       </CenterH>
-      <Box as="p" textcolor="accent">
+      <Block as="p" textcolor="accent">
         This can be used in a blog article, to render an extra-large image that
         sticks out evenly to left and right.
-      </Box>
+      </Block>
       <p>
         This could be useful if a button (or any element) has a max-width but
         the text is slightly too wide.

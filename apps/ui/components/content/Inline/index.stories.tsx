@@ -6,9 +6,9 @@ import variants from './variants';
 
 const variantKeys = Object.keys(variants);
 
-export const Text = _story.bind({});
-Text.argTypes = argTypes({ localVariants: variantKeys });
-Text.args = {
+export const Inline = _story.bind({});
+Inline.argTypes = argTypes({ localVariants: variantKeys });
+Inline.args = {
   textgradient: 'purple',
 };
 

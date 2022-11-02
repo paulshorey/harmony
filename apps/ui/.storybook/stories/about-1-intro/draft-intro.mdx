@@ -20,9 +20,9 @@
   use color/scheme/props in your styles
 
 <p>
-  <Text as="b" textgradient="accent">
+  <Inline as="b" textgradient="accent">
     💡 Not just for styling &ndash;
-  </Text>{' '}
+  </Inline>{' '}
   <a>
     use variants to <b>add new JS functionality</b>
   </a>{' '}
@@ -39,13 +39,13 @@ In the future, would be nice to use <a
   target="_blank"
 >
   Mitosis
-</a> to transpile these <Box
+</a> to transpile these <Block
   as="strong"
   variant="textcolorUnderlined"
   ss="display:inline;"
 >
   React
-</Box> components to any other JS framework.
+</Block> components to any other JS framework.
 
 This library does **not** attempt to **replace CSS** functionality like so many CSS-in-JS libraries. Instead it lets JS do what it's good at (define logic and state) while letting CSS do what it's good at (setting the color scheme on a parent that can later be accessed from a child element, without having to prop-drill or style each individual element separately). This is "CSS-and-JS" living in harmony.
 
@@ -55,7 +55,7 @@ However, I love Typescript. It's great for almost everything else. So even thoug
 
 <Code
   variant="transparentDark"
-  code={`const SvgSparkle = withBox({
+  code={`const SvgSparkle = withBlock({
   as: 'svg',
   ss: \`display:inline-block;position:absolute;width:0;height:0;color:var(--colors-accent);\`,
   children: <path d="..." fill="currentColor" />,

@@ -21,7 +21,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
    */
   const styledProps = useStyledProps({
     props,
-    componentName: 'Text',
+    componentName: 'Inline',
     variants,
   });
   const Tag = `${as || 'span'}`;
@@ -31,18 +31,18 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 
 /*
  * Like StyledComponents' styled.div`` but with added functionality:
- * import { withText } from 'components/content/Text';
- * const Text = withText({ ...thesePropsWillApplyToAllInstances });
- * <Text {...optionalUniquePropsForCurrentInstance} />
+ * import { withInline } from 'components/content/Inline';
+ * const Inline = withInline({ ...thesePropsWillApplyToAllInstances });
+ * <Inline {...optionalUniquePropsForCurrentInstance} />
  */
-export const withText = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Text, props1, props2);
+export const withInline = (props1: Props) => (props2: Props) => {
+  return withAddPropsToComponent(Inline, props1, props2);
 };
 
 /*
  * Default export is a ready-to-use component:
  * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Text" is same as default export. But IDEs like VSCode can read a named import better.
+ * Named "Inline" is same as default export. But IDEs like VSCode can read a named import better.
  */
-export const Text = memo(forwardRef(Component));
-export default Text;
+export const Inline = memo(forwardRef(Component));
+export default Inline;

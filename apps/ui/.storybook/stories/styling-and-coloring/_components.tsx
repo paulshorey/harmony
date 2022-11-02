@@ -1,4 +1,4 @@
-// import Box from '@ps/ui/components/content/Box';
+// import Block from '@ps/ui/components/content/Block';
 import { withButton } from '@ps/ui/components/focus/Button';
 // import GithubFilled from '@ant-design/icons/GithubFilled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

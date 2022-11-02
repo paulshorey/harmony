@@ -6,9 +6,9 @@ import variants from './variants';
 
 const variantKeys = Object.keys(variants);
 
-export const Box = _box.bind({});
-Box.argTypes = argTypes({ localVariants: variantKeys });
-Box.args = {
+export const Block = _box.bind({});
+Block.argTypes = argTypes({ localVariants: variantKeys });
+Block.args = {
   variants: ['card', 'hoverTilt'],
   textcolor: 'purple',
   bgcolor: 'light',

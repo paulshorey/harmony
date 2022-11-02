@@ -9,7 +9,7 @@ import {
 } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import styleProps from '@ps/ui/types/styles';
-import Box from '@ps/ui/components/content/Box';
+import Block from '@ps/ui/components/content/Block';
 import variants from '@ps/ui/components/focus/Button/variants';
 import classes from '@ps/ui/components/focus/Button/index.module.css';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
@@ -131,9 +131,9 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
       }}
     >
       {props.textgradient ? (
-        <Box as="span" textgradient={props.textgradient}>
+        <Block as="span" textgradient={props.textgradient}>
           {Children}
-        </Box>
+        </Block>
       ) : (
         Children
       )}

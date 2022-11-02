@@ -1,11 +1,11 @@
-import Box from '@ps/ui/components/content/Box';
+import Block from '@ps/ui/components/content/Block';
 import Link from '@ps/ui/components/focus/Link';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 
 export default function (props) {
   useShowStorybookCode();
   return (
-    <Box
+    <Block
       variant="padding"
       textcolor="dark"
       bggradient="light"
@@ -31,6 +31,6 @@ export default function (props) {
         It adds/edits props so that the rendered anchor tag is valid and
         accessible.
       </p>
-    </Box>
+    </Block>
   );
 }
