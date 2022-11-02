@@ -2,7 +2,6 @@ import React from 'react';
 import Popover from '.';
 import Box from '@ps/ui/components/content/Box';
 import Text from '@ps/ui/components/content/Text';
-import Option from '@ps/ui/components/focus/Option';
 import Button from '@ps/ui/components/focus/Button';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
@@ -10,12 +9,10 @@ import { InfoCircleFilled } from '@ant-design/icons';
 import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import Paper from '@mui/material/Paper';
-import Divider from '@mui/material/Divider';
-import MenuList from '@mui/material/MenuList';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Check from '@mui/icons-material/Check';
+import { MenuList } from '@mui/material';
 
 const TooltipChildren = (
   <Box ss="max-width: 10rem;">
@@ -24,51 +21,36 @@ const TooltipChildren = (
   </Box>
 );
 
-const DropdownChildren = ({ close, ...props }) => {
-  const optionProps = {
-    onClick: close,
-    ss: 'width:100%;',
-  };
-  return (
-    <div {...props}>
-      <Option {...optionProps}>one</Option>
-      <Option {...optionProps}>two</Option>
-      <Option {...optionProps}>three</Option>
-    </div>
-  );
-};
+// const DropdownChildren = ({ close, ...props }) => {
+//   const optionProps = {
+//     onClick: close,
+//     ss: 'width:100%;',
+//   };
+//   return (
+//     <div {...props}>
+//       <Option {...optionProps}>one</Option>
+//       <Option {...optionProps}>two</Option>
+//       <Option {...optionProps}>three</Option>
+//     </div>
+//   );
+// };
 
 const MuiMenu = ({ close, ...props }) => {
   return (
-    <Box textcolor="light" bgcolor="dark">
-      <MenuList dense>
-        <MenuItem onClick={close}>
-          <ListItemText inset>Single</ListItemText>
-        </MenuItem>
-        <MenuItem onClick={close}>
-          <ListItemText inset>1.15</ListItemText>
-        </MenuItem>
-        <MenuItem onClick={close}>
-          <ListItemText inset>Double</ListItemText>
-        </MenuItem>
-        <MenuItem onClick={close}>
-          <ListItemIcon>
-            <Check />
-          </ListItemIcon>
-          Custom: 1.2
-        </MenuItem>
-        <Divider />
-        <MenuItem onClick={close}>
-          <ListItemText>Add space before paragraph</ListItemText>
-        </MenuItem>
-        <MenuItem onClick={close}>
-          <ListItemText>Add space after paragraph</ListItemText>
-        </MenuItem>
-        <Divider />
-        <MenuItem onClick={close}>
-          <ListItemText>Custom spacing...</ListItemText>
-        </MenuItem>
-      </MenuList>
+    <Box bgcolor="purple" textcolor="light">
+      <Button role="menuitem" tabIndex={-1} onClick={close}>
+        Single
+      </Button>
+      <Button role="menuitem" tabIndex={-1} onClick={close}>
+        1.15
+      </Button>
+      <Button role="menuitem" tabIndex={-1} onClick={close}>
+        Double
+      </Button>
+      <Button role="menuitem" tabIndex={-1} onClick={close}>
+        <Check />
+        Custom: 1.2
+      </Button>
     </Box>
   );
 };

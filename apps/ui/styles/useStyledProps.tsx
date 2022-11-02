@@ -3,7 +3,7 @@ import { css, useTheme } from '@emotion/react';
 import { cx, css as emotionClassName } from '@emotion/css';
 import style_to_string from '@ps/fn/browser/style/style_to_string';
 import { returnDeviceInfo, deviceInfoType } from '@ps/ui/hooks/useDeviceInfo';
-import { ssPropType, styledTags } from '@ps/ui/types/component';
+import { ssPropType, styledTags } from '@ps/ui/types/styles';
 // import styled from '@emotion/styled';
 // import cconsole from '@ps/cconsole';
 // import themeType from '@ps/ui/types/theme';

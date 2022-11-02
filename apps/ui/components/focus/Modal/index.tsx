@@ -2,9 +2,8 @@ import { Props as BoxProps } from '@ps/ui/components/content/Box';
 import { memo, useEffect, forwardRef, ReactElement } from 'react';
 import ReactModal from '@mui/material/Modal';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
-// import variants from './variants';
-// import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
-// import Button from '@ps/ui/components/focus/Button';
+import useStyledProps from '@ps/ui/styles/useStyledProps';
+import variants from '@ps/ui/components/focus/Modal/variants';
 
 export type Props = any;
 
@@ -12,26 +11,11 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   { open, onClose, ...props },
   ref
 ) => {
-  // const [Styled, otherProps] = useStyledOriginal(
-  //   props,
-  //   'div',
-  //   'Modal',
-  //   variants
-  // );
-
-  // const ShowCloseButton = ShowClose || (
-  //   <Button
-  //     className="reactModalCloseX"
-  //     onClick={() => {
-  //       onClose();
-  //     }}
-  //     role="button"
-  //     tabIndex={0}
-  //   >
-  //     X
-  //   </Button>
-  // );
-
+  const styledProps = useStyledProps({
+    props,
+    componentName: 'Modal',
+    variants,
+  });
   return (
     <ReactModal
       disablePortal={true}
@@ -40,7 +24,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
       onClose={onClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
-      {...props}
+      {...styledProps}
     />
   );
 };

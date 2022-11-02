@@ -158,7 +158,7 @@ export default {
       }
     `}
   `,
-  link: (props) => css`
+  text: (props) => css`
     background: none;
     text-shadow: none !important;
     box-shadow: none;

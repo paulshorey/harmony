@@ -8,7 +8,7 @@ import {
   ReactElement,
 } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
-import ssComponentPropsType from '@ps/ui/types/component';
+import styleProps from '@ps/ui/types/styles';
 import Box from '@ps/ui/components/content/Box';
 import variants from '@ps/ui/components/focus/Button/variants';
 import classes from '@ps/ui/components/focus/Button/index.module.css';
@@ -48,7 +48,7 @@ export type Props = ButtonHTMLAttributes<HTMLElement & HTMLButtonElement> &
      * Alternative to `props.children`, will overwrite `props.children`.
      */
     value?: string;
-  } & ssComponentPropsType);
+  } & styleProps);
 
 /**
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"

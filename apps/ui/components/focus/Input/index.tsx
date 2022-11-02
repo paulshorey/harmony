@@ -6,7 +6,7 @@ import React, {
   ReactElement,
 } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
-import ssComponentPropsType from '@ps/ui/types/component';
+import styleProps from '@ps/ui/types/styles';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
 import variants from '@ps/ui/components/focus/Input/variants';
 import classes from '@ps/ui/components/focus/Input/index.module.css';
@@ -46,7 +46,7 @@ export type Props = InputHTMLAttributes<HTMLElement & HTMLInputElement> &
      * If allow to remove input content with clear icon
      */
     allowClear?: boolean | { clearIcon: ReactNode };
-  } & ssComponentPropsType);
+  } & styleProps);
 
 /**
  * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"

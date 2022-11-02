@@ -1,4 +1,8 @@
 import { ThemeProvider as EmotionThemeProvider, Global } from '@emotion/react';
+// Ant design
+import 'antd/dist/antd.variable.css';
+// import 'antd/dist/antd.css';
+// import { ConfigProvider } from 'antd';
 // Global CSS properties - used extensively by components in this library.
 // Compose them from your Tailwind, Antd, or MaterialUI themes.
 import '@ps/ui/styles/global/variables.css';
@@ -6,7 +10,6 @@ import '@ps/ui/styles/global/variables.css';
 import theme from '@ps/ui/styles/theme';
 import fonts from '@ps/ui/styles/global/fonts';
 import html from '@ps/ui/styles/global/html';
-import antd from '@ps/ui/styles/global/antd'; // used by the SelectTags component
 import layout from '@ps/ui/styles/global/layout';
 
 import {
@@ -15,6 +18,18 @@ import {
   createTheme,
 } from '@mui/material';
 
+/*
+ * Customize Ant Design theme
+ */
+// ConfigProvider.config({
+//   theme: {
+//     primaryColor: '#25b864',
+//   },
+// });
+
+/*
+ * Customize Material UI theme
+ */
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -33,12 +48,14 @@ const darkTheme = createTheme({
 
 const ThemeProvider = ({ children }) => {
   return (
+    // <ConfigProvider>
     <MuiThemeProvider theme={darkTheme}>
       <EmotionThemeProvider theme={theme}>
-        <Global styles={[fonts, html, antd, layout]} />
+        <Global styles={[fonts, html, layout]} />
         {children}
       </EmotionThemeProvider>
     </MuiThemeProvider>
+    // </ConfigProvider>
   );
 };
 

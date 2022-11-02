@@ -5,7 +5,7 @@ import withNextLink from './withNextLink';
 import { analytics_track_link } from '@ps/fn/browser/analytics';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import variants from './variants';
-import ssComponentPropsType from '@ps/ui/types/component';
+import styleProps from '@ps/ui/types/styles';
 import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 import { useTheme } from '@emotion/react';
 
@@ -15,7 +15,7 @@ export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
    * For analytics record - where in the site/page the click happened.
    */
   from?: string;
-} & ssComponentPropsType;
+} & styleProps;
 
 export const Component: (props: Props, ref?: any) => ReactElement = (
   { href, children, rel, target, onClick, hrefLang = 'en-us', from, ...props },

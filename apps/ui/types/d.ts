@@ -1,9 +1,10 @@
-import { ssComponentPropsType, anyType, ssPropType } from './component';
+import { styleProps, anyType, ssPropType } from './styles';
 import themeType from './theme';
+
 export {};
 
 declare global {
-  type props = ssComponentPropsType;
+  type props = styleProps;
   type theme = themeType;
 
   type ssProp = ssPropType;

@@ -83,8 +83,9 @@
 /*
  * Rainbow
  */
-:root {
-  --color-rainbow: linear-gradient(
+[data-bgcolor='rainbow'],
+[data-textcolor='rainbow'] {
+  --color-text-gradient: linear-gradient(
     160deg,
     rgb(255, 75, 75),
     rgb(252, 84, 84),
@@ -99,7 +100,10 @@
     rgb(210, 86, 255),
     rgb(255, 87, 233)
   );
-  --color-rainbow-subtle: linear-gradient(
+}
+[data-colorscheme='ondark'] [data-bgcolor='rainbow'],
+[data-colorscheme='ondark'] [data-textcolor='rainbow'] {
+  --color-text-gradient: linear-gradient(
     55deg,
     rgb(245, 139, 101) -12%,
     rgba(255, 154, 0, 1),
@@ -109,18 +113,6 @@
     rgb(121, 210, 191),
     rgb(146, 147, 255) 106%
   );
-}
-[data-bgcolor='rainbow'] {
-  --color-bg-gradient: var(--color-rainbow);
-}
-[data-textcolor='rainbow'] {
-  --color-text-gradient: var(--color-rainbow);
-}
-[data-colorscheme='ondark'] [data-bgcolor='rainbow'] {
-  --color-bg-gradient: var(--color-rainbow-subtle);
-}
-[data-colorscheme='ondark'] [data-textcolor='rainbow'] {
-  --color-text-gradient: var(--color-rainbow-subtle);
 }
 
 /*

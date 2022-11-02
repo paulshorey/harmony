@@ -2,15 +2,6 @@ import React from 'react';
 import Component from '.';
 import Button from '@ps/ui/components/focus/Button';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
-import {
-  HomeOutlined,
-  LoadingOutlined,
-  SettingFilled,
-  SmileOutlined,
-  SyncOutlined,
-} from '@ant-design/icons';
-import { Space } from 'antd';
-// import Component from '@mui/material/Dialog';
 
 export default (args: any) => {
   const [isOpen, set_isOpen] = React.useState(false);
@@ -28,16 +19,6 @@ export default (args: any) => {
           is opened. Hitting tab should navigate the form fields inside the
           modal.
         </textarea>
-      </p>
-      <p>
-        <Space>
-          <HomeOutlined />
-          <SettingFilled />
-          <SmileOutlined />
-          <SyncOutlined spin />
-          <SmileOutlined rotate={180} />
-          <LoadingOutlined />
-        </Space>
       </p>
       <Component
         open={isOpen}

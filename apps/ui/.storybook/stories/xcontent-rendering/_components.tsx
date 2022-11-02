@@ -17,8 +17,8 @@ export const Buttons = (props) => {
       <Button variant="outline" icon={<FontAwesomeIcon icon={faUser} />}>
         Outlined
       </Button>
-      <Button variant="link" icon={<FontAwesomeIcon icon={faUser} />}>
-        Link
+      <Button variant="text" icon={<FontAwesomeIcon icon={faUser} />}>
+        Text
       </Button>
       <Button round icon={<FontAwesomeIcon icon={faUser} />}>
         Round

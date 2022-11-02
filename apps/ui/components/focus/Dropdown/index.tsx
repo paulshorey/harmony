@@ -83,7 +83,7 @@ export const Component = ({ children, render, placement, ...props }: Props) => {
     useHover(context, {
       enabled: props.variant === 'tooltip' && !DEBUG_FORCE_OPEN,
     }),
-    useRole(context),
+    // useRole(context),
   ]);
 
   // Preserve the consumer's ref
@@ -100,23 +100,23 @@ export const Component = ({ children, render, placement, ...props }: Props) => {
   });
 
   // Arrow
-  const arrowEl = React.createRef();
-  computePosition(ref, floating, {
-    middleware: [
-      arrow({
-        element: arrowEl.current,
-      }),
-    ],
-  }).then(({ middlewareData }) => {
-    if (middlewareData.arrow) {
-      const { x, y } = middlewareData.arrow;
+  // const arrowEl = React.createRef();
+  // computePosition(ref, floating, {
+  //   middleware: [
+  //     arrow({
+  //       element: arrowEl.current,
+  //     }),
+  //   ],
+  // }).then(({ middlewareData }) => {
+  //   if (middlewareData.arrow) {
+  //     const { x, y } = middlewareData.arrow;
 
-      // Object.assign(arrowEl?.current?.style, {
-      //   left: x != null ? `${x}px` : '',
-      //   top: y != null ? `${y}px` : '',
-      // });
-    }
-  });
+  //     // Object.assign(arrowEl?.current?.style, {
+  //     //   left: x != null ? `${x}px` : '',
+  //     //   top: y != null ? `${y}px` : '',
+  //     // });
+  //   }
+  // });
   return (
     <>
       {cloneElement(children, getReferenceProps({ ref, ...children.props }))}

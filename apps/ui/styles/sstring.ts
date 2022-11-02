@@ -1,6 +1,6 @@
 // import obj_has_key from "@ps/fn/io/obj/obj_has_key";
 // import { SerializedStyles } from "@emotion/react";
-import { ssPropType } from "@ps/ui/types/component";
+import { ssPropType } from '@ps/ui/types/styles';
 
 /**
  * Accepts any EmotionCssProp format, string, or array of strings. Always returns SCSS string.
@@ -20,16 +20,16 @@ export default function style_to_string(
    */
   options?: Record<string, boolean>
 ): string {
-  let output = "";
+  let output = '';
   if (!style) {
     return output;
   }
   // if simple string
-  if (typeof style === "string") {
+  if (typeof style === 'string') {
     output += style;
   }
   // if function
-  else if (typeof style === "function") {
+  else if (typeof style === 'function') {
     output += style_to_string(style(theme, options));
   }
   // if array
@@ -39,7 +39,7 @@ export default function style_to_string(
     });
   }
 
-  return ";" + output + ";";
+  return ';' + output + ';';
   // Maybe remove labels included by EmotionJS so when converting to EmotionJS it will not make a long combined className
   // Nah. Move it out to the end when all instances of this function are finished, just do it once.
   // return (output ? output.replace(/\n/g, ";").replace(/label:(.*?);/g, "") || "" : "") + ";"; // extra trailing semicolon, just in case string was missing it

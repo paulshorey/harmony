@@ -30,12 +30,11 @@ export default {
     align-items: center;
     vertical-align: middle;
     text-shadow: none;
+    padding: 0;
     &,
-    input {
-      color: #333 !important;
-      &::placeholder {
-        color: #999 !important;
-      }
+    &::placeholder,
+    [role='img'] {
+      color: #999 !important;
     }
 
     box-sizing: content-box;

@@ -1,7 +1,7 @@
 import React, { forwardRef, memo, ReactElement, useState } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import SelectMuiImport from '@mui/material/Select';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
@@ -13,9 +13,11 @@ export type Props = any;
  * Select
  */
 export const Component: (props: Props, ref?: any) => ReactElement = ({
-  label,
+  label = undefined,
   value,
   onChange,
+  children,
+  helperText,
   ...props
 }) => {
   /*
@@ -30,19 +32,23 @@ export const Component: (props: Props, ref?: any) => ReactElement = ({
    * State
    */
   return (
-    <FormControl fullWidth {...styledProps}>
-      <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+    <FormControl fullWidth {...styledProps} size="small">
+      {label && (
+        <InputLabel
+        // id="demo-simple-select-label"
+        >
+          {label}
+        </InputLabel>
+      )}
       <SelectMuiImport
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
+        // labelId="demo-simple-select-label"
         label={label}
         value={value}
         onChange={onChange}
       >
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
+        {children}
       </SelectMuiImport>
+      {helperText && <FormHelperText>{helperText}</FormHelperText>}
     </FormControl>
   );
 };

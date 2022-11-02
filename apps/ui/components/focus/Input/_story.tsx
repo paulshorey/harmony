@@ -6,7 +6,7 @@ import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import Dropdown from '../Dropdown';
 
 const InputStory = (props) => {
-  const style = `margin: 0 0.875rem 0.875rem 0;`;
+  const style = `margin: 0 0.875rem 0.875rem 0;width:90%;`;
   return (
     <>
       <Input

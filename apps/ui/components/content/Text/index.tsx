@@ -1,11 +1,11 @@
 import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
-import ssComponentPropsType, { styledTags } from '@ps/ui/types/component';
+import styleProps, { styledTags } from '@ps/ui/types/styles';
 import variants from './variants';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
 
 export type Props = HTMLAttributes<HTMLDivElement> &
-  ssComponentPropsType & {
+  styleProps & {
     /**
      * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged.
      */

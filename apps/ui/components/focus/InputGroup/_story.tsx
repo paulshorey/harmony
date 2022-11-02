@@ -10,6 +10,7 @@ import { Tooltip } from 'antd';
 const InputStory = (props) => {
   const childprops = {
     round: true,
+    ...props,
   };
   const style = ``;
   return (

@@ -1,9 +1,9 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import SelectMui from '.';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
-import { useState } from 'react';
 import { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 
 function SelectStory() {
   const [age, setAge] = React.useState('');
@@ -12,7 +12,13 @@ function SelectStory() {
     setAge(event.target.value as string);
   };
 
-  return <SelectMui value={age} label="Age" onChange={handleChange} />;
+  return (
+    <SelectMui value={age} label="Age" onChange={handleChange}>
+      <MenuItem value={10}>Ten</MenuItem>
+      <MenuItem value={20}>Twenty</MenuItem>
+      <MenuItem value={30}>Thirty</MenuItem>
+    </SelectMui>
+  );
 }
 
 export default (props) => (
