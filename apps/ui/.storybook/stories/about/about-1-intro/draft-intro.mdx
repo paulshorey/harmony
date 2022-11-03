@@ -1,3 +1,16 @@
+<Code
+  variant="transparentDark"
+  code={`{/* JSS */}
+<Block ss={ {color:'red'} }>  
+<Block ss={ (props) => ({color: props.theme.colors.error }) }>
+{/* Emotion */}
+<Block ss={ css\` color:red; \` }>
+<Block ss={(props) => css\` color: \${props.theme.colors.error}; \`}>
+{/* string */}
+<Block ss="color:red">
+<Block ss={ (props) => \` color: \${props.theme.colors.error}; \` }>`} />
+
+
 ### Maintainable
 
 - Great developer experience. Easily manage media queries, variables, colors, markup, and interactive functionality. Tree shaking by default.

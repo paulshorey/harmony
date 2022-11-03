@@ -80,10 +80,7 @@ const Demo = withBlock({ ss: 'display:none;' });
 // And many more. Each breakpoint is only included in the bundle if you use it. `}
 />
 
-**You don't have to use inline-styles or strings.** Use an HOC like with Styled Components (@emotion/styled).  
-
 **Pre-define any props, not only styles.** Then add more specific props or styles per instance:  
-
 
 <Code
   variant="transparentDark"
@@ -107,6 +104,17 @@ const Button = withButton({
   Text
 </Button>
 <Button round />`} />
+
+
+**You don't have to use style strings.** That's just for convenience. Use any type supported by <CodeInline variant="text" code={`@emotion/styled`} />.
+
+<Code
+  variant="transparentDark"
+  code={`<Block ss={(props) => css\` padding: 1rem \${props.theme.sizes.card.paddingX}; \`}>`} />
+
+<!--Or use your own preferred solution such as <CodeInline variant="text" code={`props.style`} />, <CodeInline variant="text" code={`props.className`} />, <CodeInline variant="text" code={`props.css`} /> or <CodeInline variant="text" code={`props.sx`} />. -->
+  
+This library does not use Emotion's preferred <CodeInline variant="text" code={`props.css`} /> because it's not portable, it needs to be set up by every app. But since the css prop actually gets compiled to a standard className, you can use it in any app. Instead, this library adopted the syntax <CodeInline variant="text" code={`props.ss`} />.
 
 <a href="http://localhost:6006/?path=/docs/core-styled-components--page" target="_top">Read more</a> about those <CodeInline variant="text" code={`ss`} /> props, the way styled-components are implemented in this library, and more advanced tricks for coloring elements' text and background.
 
