@@ -16,33 +16,31 @@ import {
 
 <Wrapper ssAll="a { color: white; }">
 
-<h1>
-  <Block as="span" textgradient="rainbow">
-    This is a development kit
-  </Block>
-</h1>
+<Block as="h1" textgradient="rainbow">
+This is a development kit
+</Block>
 
-An easier way to <Inline as="b" textgradient="accent">bootstrap and maintain</Inline> your own <Inline as="b" textgradient="rainbow"> custom branded component library</Inline> for all your <Inline as="b" textgradient="accent"><SvgSparkle ss="" />mono repo frontends<SvgSparkle ss="" /><SvgSparkle ss="" /></Inline>. <br />
-It's <BulletNumber>1</BulletNumber> a pre-configured mono repo, <BulletNumber>2</BulletNumber> a styling system to make branding easier <BulletNumber>3</BulletNumber> and a few components to get you started.  
-This is meant for both software engineering and web development. Works well for interactive components, dashboards, etc.
+for bootstrapping and maintaining a <Inline as="b" textgradient="rainbow"> custom branded component library</Inline>. 
+
+<Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
+<Inline as="h2" textgradient="accent">1.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">pre-configured mono repo apps and modules</Inline> <Inline ss="font-size:1rem;font-weight:200;"> - even with TurboRepo, getting everything to work together is hard!</Inline>
+</Block>
+
+<Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
+<Inline as="h2" textgradient="accent">2.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">a styling system to make branding easier</Inline> - especially for different screen sizes! Both prototyping and maintenance.
+</Block>
+
+<Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
+<Inline as="h2" textgradient="accent">3.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">and a few components to get started</Inline> - this isn't a finished library but a system for maintaining custom components.
+</Block>
+
+<br />
 
 ---
 
-<Block as="h2" ss="margin-top:2rem;">
-  <Block as="span" textgradient="rainbow">
-    For better DX and UX
-  </Block>
+<Block as="h2" ss="margin-top:2rem;" textgradient="rainbow">
+For better DX and UX
 </Block>
-
-Instead of trying to rewrite CSS in JS, or just use classNames for everything, CSS and JS can work together, helping each to do what each does best. This library uses a very small global stylesheet to define color groups (for branding) and light/dark versions of each. Because CSS is <b>cascading</b>, every element will know if its on dark or light, and will adjust itself automatically.
-
-<Code
-  variant="transparentDark"
-  code={`import Inline from 'harmonyui/components/content/Text';
-// These "accent" and "rainbow" will render slightly darker shades on light background.
-<Inline as="b" textgradient="accent"> bootstrap and maintain </Inline>
-<Inline as="b" textgradient="rainbow"> custom branded component library</Inline>`}
-/>
 
 <p>
   <a>Media query shortcuts</a> let you{' '}
@@ -65,7 +63,7 @@ Instead of trying to rewrite CSS in JS, or just use classNames for everything, C
 
 <Code
   variant="transparentDark"
-  code={`import { withBlock } from 'harmonyui/components/content/Block';
+  code={`import { withBlock } from '@ps/ui/components/content/Block';
 const Demo = withBlock({ ss: 'display:none;' });
 // For convenience, ss props accept a simple string in addition to any EmotionCSS type. No configuration is required.
 <Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>
@@ -82,7 +80,35 @@ const Demo = withBlock({ ss: 'display:none;' });
 // And many more. Each breakpoint is only included in the bundle if you use it. `}
 />
 
-**You don't have to use inline-styles or strings.** Use an HOC like with Styled Components (@emotion/styled). As an added feature, this library lets you pre-define any props, not just styles. Then override any prop or style per each instance. <a href="http://localhost:6006/?path=/docs/core-styled-components--page" target="_top">Read more...</a>
+**You don't have to use inline-styles or strings.** Use an HOC like with Styled Components (@emotion/styled).  
+
+**Pre-define any props, not only styles.** Then add more specific props or styles per instance:  
+
+
+<Code
+  variant="transparentDark"
+  code={`// 1. Use the provided named export to pre-define props:
+import { withButton } from '@ps/ui/components/focus/Button';
+const Button = withButton({
+  ...props,
+  size: 'sm',
+  icon: <FontAwesomeIcon icon={faUser} />,
+  ss: 'margin: 0 0.875rem 0.875rem 0;',
+  onClick: () => alert('clicked!'),
+});
+// 2. Use your component. Pass unique props per instance:
+<Button loading>
+  Loading
+</Button>
+<Button variant="outlined">
+  Outlined
+</Button>
+<Button variant="text">
+  Text
+</Button>
+<Button round />`} />
+
+<a href="http://localhost:6006/?path=/docs/core-styled-components--page" target="_top">Read more</a> about those <CodeInline variant="text" code={`ss`} /> props, the way styled-components are implemented in this library, and more advanced tricks for coloring elements' text and background.
 
 <br />
 <br />
@@ -97,13 +123,12 @@ const Demo = withBlock({ ss: 'display:none;' });
   <Inline ssPhone="display:none;">👈 </Inline>
   <Inline ssNotPhone="display:none;">👇 </Inline>
   <Inline textcolor="accent">&nbsp;Go ahead and explore the sidebar.&nbsp;</Inline>
-  Below each component's story is a documentation of all props it accepts.
+  Below each component's story is a documentation of all the props it accepts.
 </p>
 
 <p>
   <br />
-  This is just an experiment. Not production ready. Not stable yet. Needs more components
-  and much more testing.
+  This is my latest experiment. Not production ready yet. Needs much more testing. But it's already useful.
   <br />
   If you like this approach then <a>checkout the Github repo</a>. Please contribute
   or open an issue to discuss. Thank you!

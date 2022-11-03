@@ -57,16 +57,7 @@
 
   --color-glow: hsla(0deg, 0%, 100%, 0.125);
   --color-cta: hsl(176deg 54% 50%);
-  --color-accent: hsl(39deg 96% 60%);
-}
-
-[data-bgcolor='beige'] {
-  --color-bg: #b1a184;
-  --color-bg-gradient: linear-gradient(
-    120deg,
-    hsl(47, 29%, 91%),
-    hsl(39, 19%, 81%)
-  );
+  --color-accent: hsl(41deg 95% 65%);
 }
 
 /*

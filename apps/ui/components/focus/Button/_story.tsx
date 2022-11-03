@@ -1,5 +1,5 @@
 import React from 'react';
-import Button, { withButton } from '.';
+import { withButton } from '.';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 import { UserOutlined } from '@ant-design/icons';
