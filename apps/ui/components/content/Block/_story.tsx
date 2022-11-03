@@ -35,10 +35,6 @@ export default function (props) {
             />{' '}
             to render an inline element.
           </p>
-          <p>
-            Use <code>ss</code> props (see below) to style this element and its
-            children.
-          </p>
         </Block>
       </CanvasStoryPadding>
     </CanvasContainer>

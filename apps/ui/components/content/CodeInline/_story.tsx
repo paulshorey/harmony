@@ -10,8 +10,8 @@ export default (props) => {
       <p data-textcolor="accent">
         Use{' '}
         <CodeInline
-          code={`<CodeInline code="!@#$%^&*()" {...props} />`}
           {...props}
+          code={`<CodeInline code="!@#$%^&*()" {...props} />`}
         />{' '}
         to display anything without having to escape each special character.
       </p>
@@ -64,7 +64,7 @@ export default (props) => {
 export const code = `import CodeInline from '@ps/ui/components/content/CodeInline';
 
 <p color="accent">
-  Use <CodeInline {...props} code={\`<CodeInline {...props} code="!@#$%^&*()" />\`} /> to display
+  Use <CodeInline code={\`<CodeInline {...props} code="!@#$%^&*()" />\`} {...props} /> to display
   anything without having to escape each special character.
 </p>
 <p>

@@ -7,14 +7,14 @@ import {
   ButtonHTMLAttributes,
   ReactElement,
 } from 'react';
-import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import styleProps from '@ps/ui/types/styles';
 import Block from '@ps/ui/components/content/Block';
-import variants from '@ps/ui/components/focus/Button/variants';
+import variants from '@ps/ui/components/focus/Button/styles';
 import classes from '@ps/ui/components/focus/Button/index.module.css';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
 import MuiButton from '@mui/material/Button';
+import withProps from '@ps/ui/hooks/withProps';
 
 export type Props = {
   /**
@@ -141,20 +141,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   );
 };
 
-/*
- * Like StyledComponents' styled.div`` but with added functionality:
- * import { withButton } from 'components/focus/Button';
- * const Button = withButton({ ...thesePropsWillApplyToAllInstances });
- * <Button {...optionalUniquePropsForCurrentInstance} />
- */
-export const withButton = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Button, props1, props2);
-};
+export default memo(forwardRef(Component));
 
-/*
- * Default export is a ready-to-use component:
- * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Button" is same as default export. But IDEs like VSCode can read a named import better.
- */
-export const Button = memo(forwardRef(Component));
-export default Button;
+export const withButton = (props: Props) =>
+  memo(withProps(forwardRef(Component), props));

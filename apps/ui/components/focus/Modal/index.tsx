@@ -1,9 +1,8 @@
-import { Props as BlockProps } from '@ps/ui/components/content/Block';
-import { memo, useEffect, forwardRef, ReactElement } from 'react';
+import { memo, forwardRef, ReactElement } from 'react';
 import ReactModal from '@mui/material/Modal';
-import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
-import variants from '@ps/ui/components/focus/Modal/variants';
+import variants from '@ps/ui/components/focus/Modal/styles';
+import withProps from '@ps/ui/hooks/withProps';
 
 export type Props = any;
 
@@ -18,6 +17,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   });
   return (
     <ReactModal
+      ref={ref}
       disablePortal={true}
       // keepMounted={true}
       open={open}
@@ -29,20 +29,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   );
 };
 
-/*
- * Like StyledComponents' styled.div`` but with added functionality:
- * import { withModal } from 'components/focus/Modal';
- * const Modal = withModal({ ...thesePropsWillApplyToAllInstances });
- * <Modal {...optionalUniquePropsForCurrentInstance} />
- */
-export const withModal = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Modal, props1, props2);
-};
+export default memo(forwardRef(Component));
 
-/*
- * Default export is a ready-to-use component:
- * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Modal" is same as default export. But IDEs like VSCode can read a named import better.
- */
-export const Modal = memo(forwardRef(Component));
-export default Modal;
+export const withModal = (props: Props) =>
+  memo(withProps(forwardRef(Component), props));

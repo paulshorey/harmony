@@ -2,6 +2,7 @@ import { forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import styleProps, { styledTags } from '@ps/ui/types/styles';
 import variants from './styles';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
+import withProps from '@ps/ui/hooks/withProps';
 
 export type Props = {
   /**
@@ -11,7 +12,7 @@ export type Props = {
 } & styleProps &
   HTMLAttributes<HTMLSpanElement>;
 
-export const Inline: (props: Props, ref?: any) => ReactElement = (
+export const Component: (props: Props, ref?: any) => ReactElement = (
   { as, ...props },
   ref
 ) => {
@@ -26,4 +27,7 @@ export const Inline: (props: Props, ref?: any) => ReactElement = (
   return <Tag {...styledProps} ref={ref} />;
 };
 
-export default memo(forwardRef(Inline));
+export default memo(forwardRef(Component));
+
+export const withInline = (props: Props) =>
+  memo(withProps(forwardRef(Component), props));

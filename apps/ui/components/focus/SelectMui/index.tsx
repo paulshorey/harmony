@@ -1,25 +1,21 @@
-import React, { forwardRef, memo, ReactElement, useState } from 'react';
-import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
+import React, { forwardRef, memo, ReactElement } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import SelectMuiImport from '@mui/material/Select';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
-import variants from '@ps/ui/components/focus/SelectMui/variants';
+import variants from '@ps/ui/components/focus/SelectMui/styles';
+import withProps from '@ps/ui/hooks/withProps';
 
 export type Props = any;
 
 /**
  * Select
  */
-export const Component: (props: Props, ref?: any) => ReactElement = ({
-  label = undefined,
-  value,
-  onChange,
-  children,
-  helperText,
-  ...props
-}) => {
+export const Component: (props: Props, ref?: any) => ReactElement = (
+  { label = undefined, value, onChange, children, helperText, ...props },
+  ref
+) => {
   /*
    * Styles
    */
@@ -32,7 +28,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = ({
    * State
    */
   return (
-    <FormControl fullWidth {...styledProps} size="small">
+    <FormControl fullWidth {...styledProps} size="small" ref={ref}>
       {label && (
         <InputLabel
         // id="demo-simple-select-label"
@@ -53,20 +49,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = ({
   );
 };
 
-/*
- * Like StyledComponents' styled.div`` but with added functionality:
- * import { withSelect } from 'components/focus/Select';
- * const Select = withSelect({ ...thesePropsWillApplyToAllInstances });
- * <Select {...optionalUniquePropsForCurrentInstance} />
- */
-export const withSelect = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Select, props1, props2);
-};
+export default memo(forwardRef(Component));
 
-/*
- * Default export is a ready-to-use component:
- * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Select" is same as default export. But IDEs like VSCode can read a named import better.
- */
-export const Select = memo(forwardRef(Component));
-export default Select;
+export const withSelectMui = (props: Props) =>
+  memo(withProps(forwardRef(Component), props));

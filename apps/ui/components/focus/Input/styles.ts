@@ -16,6 +16,10 @@ const borderRadius = (props) => css`
 
 export default {
   default: (props) => css`
+    box-sizing: border-box;
+    border: none;
+    font-weight: 500;
+    letter-spacing: 0.33px;
     background: white;
     ${borderRadius(props)};
     &:focus,
@@ -38,12 +42,6 @@ export default {
     [role='img'] {
       color: #999 !important;
     }
-
-    box-sizing: content-box;
-    border: none;
-
-    font-weight: 500;
-    letter-spacing: 0.33px;
 
     /*
      * Just the input by itself, without prefix/suffix before/after

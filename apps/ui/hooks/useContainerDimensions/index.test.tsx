@@ -7,7 +7,7 @@ afterEach(() => jest.clearAllMocks());
 
 const renderComponent = () => {
   const Wrapper = () => {
-    const ref = React.useRef<HTMLBlockElement>(null);
+    const ref = React.useRef<HTMLDivElement>(null);
 
     const { height, width } = useContainerDimensions(ref);
 

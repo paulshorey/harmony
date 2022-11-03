@@ -5,12 +5,12 @@ import React, {
   memo,
   ReactElement,
 } from 'react';
-import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
 import styleProps from '@ps/ui/types/styles';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
-import variants from '@ps/ui/components/focus/Input/variants';
+import variants from '@ps/ui/components/focus/Input/styles';
 import classes from '@ps/ui/components/focus/Input/index.module.css';
 import AntInput from 'antd/lib/input';
+import withProps from '@ps/ui/hooks/withProps';
 
 export type Props = {
   /**
@@ -85,20 +85,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   );
 };
 
-/*
- * Like StyledComponents' styled.div`` but with added functionality:
- * import { withInput } from 'components/focus/Input';
- * const Input = withInput({ ...thesePropsWillApplyToAllInstances });
- * <Input {...optionalUniquePropsForCurrentInstance} />
- */
-export const withInput = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Input, props1, props2);
-};
+export default memo(forwardRef(Component));
 
-/*
- * Default export is a ready-to-use component:
- * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Input" is same as default export. But IDEs like VSCode can read a named import better.
- */
-export const Input = memo(forwardRef(Component));
-export default Input;
+export const withInput = (props: Props) =>
+  memo(withProps(forwardRef(Component), props));

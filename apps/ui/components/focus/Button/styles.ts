@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 
 export default {
   default: (props) => css`
+    box-sizing: border-box;
     overflow: hidden;
     position: relative;
     display: inline-flex;

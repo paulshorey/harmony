@@ -15,13 +15,13 @@
  * <Block textcolor="dark"> or <Block bgcolor="light">
  */
 :root,
-[data-colorscheme='onlight'] {
+[data-colorscheme='light'] {
   color-scheme: light;
   --color-bg: #efefef;
-  --color-bg-gradient: radial-gradient(
-    80% 80% at top center,
-    hsl(205, 10%, 83%),
-    hsl(205, 5%, 100%)
+  --color-bg-gradient: linear-gradient(
+    120deg,
+    hsl(205, 10%, 90%),
+    hsl(205, 5%, 99%)
   );
 
   --color-text: hsla(0, 0%, 20%, 93%);
@@ -31,15 +31,15 @@
     hsla(257, 42%, 28%, 95%)
   );
   --color-glow: hsla(272, 51%, 54%, 0.25);
-  --color-cta: hsl(203, 97%, 55%);
-  --color-accent: #ffac33;
+  --color-cta: hsl(194deg 94% 46%);
+  --color-accent: hsl(30deg 84% 53%);
 }
 
 /*
  * Light text on dark background:
  * <Block textcolor="light"> or <Block bgcolor="dark">
  */
-[data-colorscheme='ondark'] {
+[data-colorscheme='dark'] {
   color-scheme: dark;
   --color-bg: hsla(256, 29%, 29%, 0.85);
   --color-bg-gradient: radial-gradient(
@@ -49,21 +49,21 @@
   );
 
   --color-text: hsla(0, 0%, 94%, 94%);
-  --color-text-gradient: radial-gradient(
-    80% 80% at top center,
+  --color-text-gradient: linear-gradient(
+    120deg,
     hsl(205, 5%, 98%),
     hsl(205, 10%, 80%)
   );
 
   --color-glow: hsla(0deg, 0%, 100%, 0.125);
-  --color-cta: hsl(39deg, 95%, 50%);
-  --color-accent: #fecc4c;
+  --color-cta: hsl(176deg 54% 50%);
+  --color-accent: hsl(39deg 96% 60%);
 }
 
 [data-bgcolor='beige'] {
   --color-bg: #b1a184;
-  --color-bg-gradient: radial-gradient(
-    80% 80% at top center,
+  --color-bg-gradient: linear-gradient(
+    120deg,
     hsl(47, 29%, 91%),
     hsl(39, 19%, 81%)
   );
@@ -110,8 +110,8 @@
     rgb(255, 87, 233)
   );
 }
-[data-colorscheme='ondark'] [data-bgcolor='rainbow'],
-[data-colorscheme='ondark'] [data-textcolor='rainbow'] {
+[data-colorscheme='dark'] [data-bgcolor='rainbow'],
+[data-colorscheme='dark'] [data-textcolor='rainbow'] {
   --color-text-gradient: linear-gradient(
     55deg,
     rgb(245, 139, 101) -12%,
@@ -131,6 +131,8 @@
  * NOTICE: This sets the text color for all anchor tags in the site.
  */
 a,
+a:hover,
+a:visited,
 [data-textcolor='cta'] {
   --color-text: var(--color-cta);
   --color-text-gradient: linear-gradient(
@@ -140,6 +142,8 @@ a,
   );
 }
 a,
+a:hover,
+a:visited,
 [data-bgcolor='cta'] {
   --color-bg: var(--color-cta);
   --color-bg-gradient: linear-gradient(
@@ -148,8 +152,8 @@ a,
     hsl(171, 60%, 34%)
   );
 }
-[data-colorscheme='ondark'] a,
-[data-colorscheme='ondark'] [data-textcolor='cta'] {
+[data-colorscheme='dark'] a,
+[data-colorscheme='dark'] [data-textcolor='cta'] {
   --color-text: var(--color-cta);
   --color-text-gradient: linear-gradient(
     90deg,
@@ -159,8 +163,8 @@ a,
     hsl(39, 100%, 50%)
   );
 }
-[data-colorscheme='ondark'] a,
-[data-colorscheme='ondark'] [data-bgcolor='cta'] {
+[data-colorscheme='dark'] a,
+[data-colorscheme='dark'] [data-bgcolor='cta'] {
   --color-bg: var(--color-cta);
   --color-bg-gradient: linear-gradient(
     90deg,

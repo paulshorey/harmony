@@ -2,18 +2,18 @@ import { Component } from '.';
 import _box, { code } from './_story';
 import description from './_story.md';
 import { argTypes } from '@ps/ui/styles/storybook';
-import variants from './variants';
+import variants from './styles';
 
 const variantKeys = Object.keys(variants);
 
 export const Block = _box.bind({});
 Block.argTypes = argTypes({ localVariants: variantKeys });
 Block.args = {
-  variants: ['card', 'hoverTilt'],
+  variant: 'card',
   textcolor: 'purple',
-  bgcolor: 'light',
   textgradient: '',
-  bggradient: '',
+  bgcolor: '',
+  bggradient: 'light',
 };
 
 export default {

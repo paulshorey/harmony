@@ -1,4 +1,4 @@
-// import globalV from './variants';
+// import globalV from './styles';
 
 type Props = { localVariants?: string[] };
 

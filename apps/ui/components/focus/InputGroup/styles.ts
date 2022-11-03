@@ -4,6 +4,7 @@ export default {
   default: css`
     display: flex;
     width: 100%;
+    box-sizing: border-box;
     * {
       min-width: 0;
     }

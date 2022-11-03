@@ -296,13 +296,13 @@ export default (
   }
   // set colorscheme
   if (props['data-textcolor'] === 'light') {
-    props['data-colorscheme'] = 'ondark';
+    props['data-colorscheme'] = 'dark';
   } else if (props['data-textcolor'] === 'dark') {
-    props['data-colorscheme'] = 'onlight';
+    props['data-colorscheme'] = 'light';
   } else if (props['data-bgcolor'] === 'light') {
-    props['data-colorscheme'] = 'onlight';
+    props['data-colorscheme'] = 'light';
   } else if (props['data-bgcolor'] === 'dark') {
-    props['data-colorscheme'] = 'ondark';
+    props['data-colorscheme'] = 'dark';
   }
   // return styled component
   let styledFunction = styled[tagName];

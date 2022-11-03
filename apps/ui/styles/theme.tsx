@@ -1,7 +1,13 @@
+import React from 'react';
 import mq from './mq';
 
+export type Theme = {
+  RouterLink?: React.ReactElement | null;
+} & Record<string, any>;
+
 // install extension vscode-color-picker to see previews of colors in all files
-const theme = {
+const theme: Theme = {
+  RouterLink: null,
   colors: {
     primary: '#000',
   },

@@ -1,17 +1,16 @@
 import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import Block from '@ps/ui/components/content/Block';
-import Inline from '@ps/ui/components/content/Inline';
-import withProps from '@ps/ui/styles/withProps';
+import { withInline } from '@ps/ui/components/content/Inline';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 
 export default function (props) {
   useShowStorybookCode();
-  const Heading = withProps(Inline, {
+  const Heading = withInline({
     as: 'h2',
     ss: 'margin:0;',
   });
-  const Code = withProps(Inline, {
+  const Code = withInline({
     as: 'code',
   });
   return (

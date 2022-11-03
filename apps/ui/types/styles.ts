@@ -25,25 +25,21 @@ export type styleProps = {
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
-   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css
-   */
-  bgcolor?: 'light' | 'dark' | 'purple' | 'accent' | 'cta';
-  /**
    * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css
    */
   textcolor?: 'light' | 'dark' | 'purple' | 'accent' | 'cta';
-  /**
-   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css
-   */
-  bggradient?: 'light' | 'dark' | 'purple' | 'accent' | 'cta' | 'rainbow';
   /**
    * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css - NOT RECOMMENDED for block-level elements or elements with children. Works best on simple inline text.
    */
   textgradient?: 'light' | 'dark' | 'purple' | 'accent' | 'cta' | 'rainbow';
   /**
-   * One or multiple variants as a string[].
+   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css
    */
-  variants?: Array<string>;
+  bgcolor?: 'light' | 'dark' | 'purple' | 'accent' | 'cta';
+  /**
+   * Refers to [data-bgcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css
+   */
+  bggradient?: 'light' | 'dark' | 'purple' | 'accent' | 'cta' | 'rainbow';
   /**
    * Styled string. Or a function that accepts theme and returns a string. Or array of either. Same as other ssXxx props below, but without any media queries or conditional logic.
    */

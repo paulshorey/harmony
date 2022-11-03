@@ -1,6 +1,8 @@
 import React from 'react';
 import Component from '.';
+import Block from '@ps/ui/components/content/Block';
 import Button from '@ps/ui/components/focus/Button';
+import Input from '@ps/ui/components/focus/Input';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 
@@ -10,17 +12,13 @@ export default (args: any) => {
   const handleOpen = () => set_isOpen(true);
   const handleClose = () => set_isOpen(false);
   return (
-    <CanvasContainer data-bggradient="light" data-textcolor="dark">
+    <CanvasContainer bggradient="light" textcolor="dark">
       {/* <p>Accessible and ADA and WCAG Compliant!</p> */}
       <p>
-        <input placeholder="Hit Tab key to focus inside each field on this page." />
+        <Input placeholder="Hit Tab key to focus inside each field on this page." />
       </p>
       <p>
-        <textarea>
-          Ideally, the focus should be trapped inside the modal while the modal
-          is opened. Hitting tab should navigate the form fields inside the
-          modal.
-        </textarea>
+        <Input placeholder="Focus moves to the modal when opened." />
       </p>
       <Component
         open={isOpen}
@@ -28,27 +26,30 @@ export default (args: any) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <div>
+        <Block bgcolor="purple" textcolor="light">
           <h2>This is a title inside the modal</h2>
           <p>
             This could be a bit of text for a quick dialog, or a whole article
             for the user to read and sign.
           </p>
-        </div>
+        </Block>
       </Component>
       <p>
-        <Button onClick={handleOpen} variant="primary">
+        <Button
+          bgcolor="purple"
+          bggradient="rainbow"
+          textgradient="rainbow"
+          onClick={handleOpen}
+          variant="outlined"
+        >
           Open modal
         </Button>
       </p>
       <p>
-        <textarea>
-          Then, after the modal has closed, the focus should be returned to the
-          button that opened the modal.
-        </textarea>
+        <Input placeholder="On close, focus returns to the previously focused element." />
       </p>
       <p>
-        <input placeholder="Another input field to test focus with." />
+        <Input placeholder="This way, everything is accessible." />
       </p>
       {/* <p>
         At least that's the goal. When you navigate a form on a webpage by

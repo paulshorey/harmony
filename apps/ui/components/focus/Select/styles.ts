@@ -16,6 +16,7 @@ const borderRadius = (props) => css`
 
 export default {
   default: (props) => css`
+    box-sizing: border-box;
     background: white;
     ${borderRadius(props)};
     &:focus,
@@ -36,6 +37,7 @@ export default {
     letter-spacing: 0.33px;
     min-width: 100px;
 
+    // placeholder color
     &,
     input {
       color: #333 !important;
@@ -43,12 +45,16 @@ export default {
         color: #999 !important;
       }
     }
+    .ant-select-selection-placeholder {
+      color: #999 !important;
+    }
+
+    // input field
     input {
       position: relative;
       top: -2px;
       padding-left: 0;
     }
-
     input,
     input::placeholder,
     .ant-select-selector,
@@ -92,7 +98,6 @@ export default {
       width: 100%;
     }
 
-    .ant-select-selection-placeholder,
     [role='img'] {
       color: #999 !important;
     }

@@ -1,8 +1,8 @@
-import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
-import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
+import { forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
 import styleProps, { styledTags } from '@ps/ui/types/styles';
-import variants from './variants';
+import variants from './styles';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
+import withProps from '@ps/ui/hooks/withProps';
 
 export type Props = {
   /**
@@ -29,20 +29,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   return <Tag ref={ref} {...styledProps} />;
 };
 
-/*
- * Like StyledComponents' styled.div`` but with added functionality:
- * import { withBlock } from 'components/content/Block';
- * const Block = withBlock({ ...thesePropsWillApplyToAllInstances });
- * <Block {...optionalUniquePropsForCurrentInstance} />
- */
-export const withBlock = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Block, props1, props2);
-};
+export default memo(forwardRef(Component));
 
-/*
- * Default export is a ready-to-use component:
- * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Block" is same as default export. But IDEs like VSCode can read a named import better.
- */
-export const Block = memo(forwardRef(Component));
-export default Block;
+export const withBlock = (props: Props) =>
+  memo(withProps(forwardRef(Component), props));

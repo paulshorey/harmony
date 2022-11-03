@@ -54,7 +54,7 @@ const InputStory = (props) => {
         </Option>
       </Select>
       <Button {...childprops} ss={style} type="submit">
-        Go &nbsp;&nbsp;
+        Go &nbsp;&nbsp;&nbsp;
       </Button>
     </InputGroup>
   );

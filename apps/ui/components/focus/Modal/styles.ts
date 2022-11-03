@@ -13,6 +13,9 @@ export default {
       margin-left: initial;
       margin-right: initial;
     }
+    > .MuiBackdrop-root {
+      background: rgba(25,25,25,0.67);
+    }
     > div[tabindex="-1"] {
       background: var(--color-bg);
       color: var(--color-text);

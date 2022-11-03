@@ -1,13 +1,13 @@
-import { memo, HTMLAttributes } from 'react';
-import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
-import variants from './variants';
+import { memo, HTMLAttributes, forwardRef } from 'react';
+import variants from './styles';
 import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 import CodeComponent, { Props as CodeProps } from './Code';
 import styleProps from '@ps/ui/types/styles';
+import withProps from '@ps/ui/hooks/withProps';
 
 export type Props = CodeProps & styleProps & HTMLAttributes<HTMLDivElement>;
 
-export const Component = (props) => {
+export const Component = (props: Props, ref?: any) => {
   const [Styled, otherProps]: any = useStyledOriginal(
     props,
     'div',
@@ -24,7 +24,7 @@ export const Component = (props) => {
   } = otherProps;
 
   return (
-    <Styled {...containerProps}>
+    <Styled {...containerProps} ref={ref}>
       <CodeComponent
         code={code}
         variant={props.variant}
@@ -37,20 +37,7 @@ export const Component = (props) => {
   );
 };
 
-/*
- * Like StyledComponents' styled.div`` but with added functionality:
- * import { withCode } from 'components/content/Code';
- * const Code = withCode({ ...thesePropsWillApplyToAllInstances });
- * <Code {...optionalUniquePropsForCurrentInstance} />
- */
-export const withCode = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Code, props1, props2);
-};
+export default memo(forwardRef(Component));
 
-/*
- * Default export is a ready-to-use component:
- * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Code" is same as default export. But IDEs like VSCode can read a named import better.
- */
-export const Code = memo(Component);
-export default Code;
+export const withCode = (props: Props) =>
+  memo(withProps(forwardRef(Component), props));

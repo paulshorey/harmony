@@ -1,18 +1,25 @@
-import { FC, forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
-import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
-import variants from './variants';
+import { forwardRef, memo, ReactElement, HTMLAttributes } from 'react';
+import variants from './styles';
 import { Props as BlockProps } from '@ps/ui/components/content/Block';
 import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
+import withProps from '@ps/ui/hooks/withProps';
+import styleProps from '@ps/ui/types/styles';
 
-export type Props = BlockProps;
+export type Props = {
+  image: ReactElement;
+  title: ReactElement;
+  text: ReactElement;
+  as?: BlockProps['as'];
+} & styleProps &
+  HTMLAttributes<HTMLDivElement>;
 
 /**
  * IMPORTANT:
  * title, text, and image must each contain exactly one React JSX child. DO NOT USE the React.Fragment <></>
  */
 export const Component: (props: Props, ref?: any) => ReactElement = (
-  { image, text, title, as, ...props }: any,
-  ref?: any
+  { image, text, title, as, ...props },
+  ref
 ) => {
   const [Styled, otherProps] = useStyledOriginal(
     props,
@@ -29,20 +36,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   );
 };
 
-/*
- * Like StyledComponents' styled.div`` but with added functionality.
- * import { withGrid4TitleTextImage } from 'components/content/Grid4TitleTextImage';
- * const Grid4TitleTextImage = withGrid4TitleTextImage({ ...thesePropsWillApplyToAllInstances });
- * <Grid4TitleTextImage {...optionalUniquePropsForCurrentInstance} />
- */
-export const withGrid4TitleTextImage = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Grid4TitleTextImage, props1, props2);
-};
+export default memo(forwardRef(Component));
 
-/*
- * Default export is a ready-to-use component:
- * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Grid4TitleTextImage" is same ad default export. But IDEs like VSCode can read a named import better.
- */
-export const Grid4TitleTextImage = memo(forwardRef(Component));
-export default Grid4TitleTextImage;
+export const withGrid4TitleTextImage = (props: Props) =>
+  memo(withProps(forwardRef(Component), props));

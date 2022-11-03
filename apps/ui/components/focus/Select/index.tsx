@@ -2,8 +2,9 @@ import React, { forwardRef, memo } from 'react';
 import { Select as SelectAnt, SelectProps } from 'antd';
 import styleProps from '@ps/ui/types/styles';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
-import variants from '@ps/ui/components/focus/Select/variants';
+import variants from '@ps/ui/components/focus/Select/styles';
 import classes from '@ps/ui/components/focus/Select/index.module.css';
+import withProps from '@ps/ui/hooks/withProps';
 
 const { Option: OptionAnt } = SelectAnt;
 export type OptionProps = {
@@ -40,3 +41,6 @@ export const Component = ({ ...props }: Props, ref?: any) => {
 };
 
 export default memo(forwardRef(Component));
+
+export const withSelect = (props: Props) =>
+  memo(withProps(forwardRef(Component), props));

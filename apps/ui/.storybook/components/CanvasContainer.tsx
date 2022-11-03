@@ -18,7 +18,7 @@ const CanvasContainer = (props) => {
     `;
   }
 
-  return withBlock({
+  const Block = withBlock({
     bggradient: 'purple',
     textcolor: 'light',
     ss: css`
@@ -27,7 +27,9 @@ const CanvasContainer = (props) => {
       display: block;
       ${flexStyle};
     `,
-  })(props);
+  });
+  
+  return <Block {...props} />
 };
 
 export default CanvasContainer;

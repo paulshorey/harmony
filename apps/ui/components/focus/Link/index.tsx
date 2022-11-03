@@ -1,13 +1,13 @@
 import { memo, AnchorHTMLAttributes, forwardRef, ReactElement } from 'react';
-import withNextLink from './withNextLink';
 // import PageContext from 'src/context/Page';
 // import ABTestContext from 'src/context/ABTest';
 import { analytics_track_link } from '@ps/fn/browser/analytics';
-import withAddPropsToComponent from '@ps/ui/hooks/withAddPropsToComponent';
-import variants from './variants';
+import variants from './styles';
 import styleProps from '@ps/ui/types/styles';
 import useStyledOriginal from '@ps/ui/styles/useStyledOriginal';
 import { useTheme } from '@emotion/react';
+import withProps from '@ps/ui/hooks/withProps';
+import { Theme } from '@ps/ui/styles/theme';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -21,7 +21,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   { href, children, rel, target, onClick, hrefLang = 'en-us', from, ...props },
   ref
 ) => {
-  const theme = useTheme();
+  const theme: Theme = useTheme();
   const [Styled, otherProps] = useStyledOriginal(props, 'a', 'Link', variants);
 
   // const contextPage = useContext(PageContext) || {};
@@ -64,10 +64,9 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
     analytics_track_link(options);
   };
 
-  // router
-  // let RouterLink = theme.RouterLink;
-
-  // render children
+  // use router component?
+  const RouterLink = theme.RouterLink;
+  // base HTML element
   const A = (
     <Styled
       {...otherProps}
@@ -82,26 +81,18 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
     </Styled>
   );
   // render parent
-  if (href[0] === '#') {
+  if (href[0] === '#' || !RouterLink) {
     return A;
   }
-  return withNextLink(A, href);
+  // wrapper component
+  return (
+    <RouterLink href={href} passhref={true}>
+      {A}
+    </RouterLink>
+  );
 };
 
-/*
- * Like StyledComponents' styled.div`` but with added functionality:
- * import { withLink } from 'components/focus/Link';
- * const Link = withLink({ ...thesePropsWillApplyToAllInstances });
- * <Link {...optionalUniquePropsForCurrentInstance} />
- */
-export const withLink = (props1: Props) => (props2: Props) => {
-  return withAddPropsToComponent(Link, props1, props2);
-};
+export default memo(forwardRef(Component));
 
-/*
- * Default export is a ready-to-use component:
- * Named "Component" export is for Storybook only because Storybook can not read props/docs if wrapped in HOC.
- * Named "Link" is same as default export. But IDEs like VSCode can read a named import better.
- */
-export const Link = memo(forwardRef(Component));
-export default Link;
+export const withLink = (props: Props) =>
+  memo(withProps(forwardRef(Component), props));
