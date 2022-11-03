@@ -17,6 +17,10 @@ export type OptionProps = {
    * What to show for each dropdown result item.
    */
   children?: React.ReactNode;
+  /**
+   * Used to set padding/fontSize/height/line-height.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 };
 
 export const Option = (props: OptionProps) => {

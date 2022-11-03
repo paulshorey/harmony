@@ -18,13 +18,9 @@ import withProps from '@ps/ui/hooks/withProps';
 
 export type Props = {
   /**
-   * Disable the functionality and style of the button as disabled?
+   * Used to set padding/fontSize/height/line-height.
    */
-  disabled?: boolean;
-  /**
-   * Default is regular size. Pass option to render small or large buton instead.
-   */
-  size?: 'small' | 'large' | string;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
    * If true, will have very rounded corners like a "pill" or "circle".
    */
@@ -94,24 +90,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   if (!ref) {
     ref = createRef();
   }
-  /*
-   * Variants
-   */
-  if (loading) {
-    props.variant += ' loading';
-  }
-  if (props.round) {
-    props.variant += ' round';
-  }
-  if (props.size) {
-    props.variant += ' size_' + props.size;
-  }
-  if (props.icon && !props.children) {
-    props.variant += ' icon';
-  }
-  /*
-   * Styles
-   */
+  // Styles
   const styledProps = useStyledProps({
     props,
     componentName: 'Button',

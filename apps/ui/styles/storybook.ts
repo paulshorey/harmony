@@ -14,11 +14,6 @@ export const argTypes = ({ localVariants = [] }: Props) => {
 
   const argTypes = {
     // ref: { table: { disable: true } },
-    size: {
-      control: {
-        type: 'select',
-      },
-    },
     textcolor: {
       control: {
         type: 'select',

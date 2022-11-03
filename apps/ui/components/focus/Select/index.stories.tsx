@@ -1,6 +1,10 @@
 import { Component } from '.';
 import Template, { code } from './_story';
 import description from './_story.md';
+import { argTypes } from '@ps/ui/styles/storybook';
+import variants from './styles';
+
+const variantKeys = Object.keys(variants);
 
 export const Select = Template.bind({});
 Select.argTypes = {
@@ -10,6 +14,7 @@ Select.argTypes = {
     },
     options: ['xs', 'sm', 'md', 'lg', 'xl'],
   },
+  ...argTypes({ localVariants: variantKeys }),
 };
 
 export default {

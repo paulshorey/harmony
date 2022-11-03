@@ -14,6 +14,7 @@ Block.args = {
   textgradient: '',
   bgcolor: '',
   bggradient: 'light',
+  as: 'article',
 };
 
 export default {

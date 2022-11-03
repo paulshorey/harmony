@@ -14,7 +14,15 @@ const args = {
 };
 
 export const Button = Template.bind({});
-Button.argTypes = argTypes({ localVariants: variantKeys });
+Button.argTypes = {
+  size: {
+    control: {
+      type: 'select',
+    },
+    options: ['xs', 'sm', 'md', 'lg', 'xl'],
+  },
+  ...argTypes({ localVariants: variantKeys }),
+};
 Button.args = args;
 
 export default {

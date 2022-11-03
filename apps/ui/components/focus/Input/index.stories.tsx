@@ -8,7 +8,15 @@ const variantKeys = Object.keys(variants);
 const args = { size: 'sm' };
 
 export const Input = Template.bind({});
-Input.argTypes = argTypes({ localVariants: variantKeys });
+Input.argTypes = {
+  size: {
+    control: {
+      type: 'select',
+    },
+    options: ['xs', 'sm', 'md', 'lg', 'xl'],
+  },
+  ...argTypes({ localVariants: variantKeys }),
+};
 Input.args = args;
 
 export default {

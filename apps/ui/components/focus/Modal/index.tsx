@@ -1,10 +1,15 @@
 import { memo, forwardRef, ReactElement } from 'react';
-import ReactModal from '@mui/material/Modal';
+import ReactModal, { ModalProps } from '@mui/material/Modal';
 import useStyledProps from '@ps/ui/styles/useStyledProps';
 import variants from '@ps/ui/components/focus/Modal/styles';
 import withProps from '@ps/ui/hooks/withProps';
+import styleProps from '@ps/ui/types/styles';
 
-export type Props = any;
+export type Props = {
+  open: boolean;
+  onClose?: () => void;
+} & ModalProps &
+  styleProps;
 
 export const Component: (props: Props, ref?: any) => ReactElement = (
   { open, onClose, ...props },

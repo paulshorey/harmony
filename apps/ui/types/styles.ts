@@ -21,10 +21,6 @@ export type styleProps = {
    */
   variant?: string;
   /**
-   * Used by some elements (inputs, buttons) to set padding/fontSize/height/line-height.
-   */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  /**
    * Refers to [data-textcolor] groups you defined in your global css file. Import: @ps/ui/styles/theme.css
    */
   textcolor?: 'light' | 'dark' | 'purple' | 'accent' | 'cta';

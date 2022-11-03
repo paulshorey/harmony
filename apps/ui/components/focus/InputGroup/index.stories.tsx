@@ -5,11 +5,7 @@ import { argTypes } from '@ps/ui/styles/storybook';
 import variants from './styles';
 
 const variantKeys = Object.keys(variants);
-const args = {
-  textcolor: '',
-  bgcolor: '',
-  size: '',
-};
+const args = {};
 
 export const InputGroup = Template.bind({});
 InputGroup.argTypes = argTypes({ localVariants: variantKeys });

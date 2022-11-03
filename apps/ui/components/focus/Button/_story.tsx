@@ -10,9 +10,9 @@ import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 export const Buttons = (props) => {
   useShowStorybookCode();
   const Button = withButton({
+    ...props,
     size: 'sm',
     ss: 'margin: 0 0.875rem 0.875rem 0;',
-    ...props,
   });
   return (
     <>
@@ -25,11 +25,7 @@ export const Buttons = (props) => {
       <Button variant="text" icon={<FontAwesomeIcon icon={faUser} />}>
         Text
       </Button>
-      <Button
-        round
-        variant="primary"
-        icon={<FontAwesomeIcon icon={faUser} />}
-      />
+      <Button round icon={<FontAwesomeIcon icon={faUser} />} />
     </>
   );
 };

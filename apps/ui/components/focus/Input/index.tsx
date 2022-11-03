@@ -14,9 +14,9 @@ import withProps from '@ps/ui/hooks/withProps';
 
 export type Props = {
   /**
-   * Default is regular size. Pass option to render small or large buton instead.
+   * Used to set padding/fontSize/height/line-height.
    */
-  size?: 'small' | 'large' | string;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
    * If true, will have very rounded corners like a "pill" or "circle".
    */

@@ -1,14 +1,14 @@
 import { Component } from '.';
-import Template from './_story';
+import Template, { code } from './_story';
 import description from './_story.md';
-import { argTypes } from '@ps/ui/styles/storybook';
-import variants from './styles';
+// import { argTypes } from '@ps/ui/styles/storybook';
+// import variants from './styles';
 
-const variantKeys = Object.keys(variants);
+// const variantKeys = Object.keys(variants);
 const args = {};
 
 export const Modal = Template.bind({});
-Modal.argTypes = argTypes({ localVariants: variantKeys });
+// Modal.argTypes = argTypes({ localVariants: variantKeys });
 Modal.args = args;
 
 export default {
@@ -23,7 +23,7 @@ export default {
         component: description,
       },
       source: {
-        code: ``,
+        code,
       },
     },
   },
