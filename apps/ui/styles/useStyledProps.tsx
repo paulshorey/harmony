@@ -272,6 +272,10 @@ export default ({
     props['data-colorscheme'] = 'light';
   } else if (props['data-bgcolor'] === 'dark') {
     props['data-colorscheme'] = 'dark';
+  } else if (props['data-bggradient'] === 'light') {
+    props['data-colorscheme'] = 'light';
+  } else if (props['data-bggradient'] === 'dark') {
+    props['data-colorscheme'] = 'dark';
   }
 
   /*

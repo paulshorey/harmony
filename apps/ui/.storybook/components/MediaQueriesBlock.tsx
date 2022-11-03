@@ -1,111 +1,116 @@
 import React from 'react';
-import { IconNewTab } from './Components';
 import Block, { withBlock } from '@ps/ui/components/content/Block';
+import Inline from '@ps/ui/components/content/Inline';
 
-const Mq = withBlock({
-  ss: `
+const styles = {
+  container: `
+    border: solid 1px var(--color-accent);
+    margin: 1.5rem 0;
+  `,
+  mq: `
     line-height: 2;
     text-indent: 1rem;
     display: none;
-    &:after {
-      content: "='display:block'";
+    b {
       padding-left: 1rem;
       color: white;
       opacity: 0.75;
       font-weight: 400;
     }
-  `,
+  `
+}
+const Mq = withBlock({
+  as: 'code',
+  ss: styles.mq,
 });
-
 const MediaQueriesDemo = () => (
-  <>
-    <Block as="h5" ss="margin-top:1rem;">
-      These <span color="gold">props </span> apply to your current page size:
+  <Block ss={styles.container}>
+    <Block as="p" >
+      These <span color="gold">props </span> apply to your current screen size (minus the Storybook sidebar):
     </Block>
-    <pre>{`<Block `}</pre>
-    <div>
-      <Mq as="code" ssAll="display:block;">
-        ss
+    <p>
+      <code>{`<Block `}</code>
+      <Mq ss="display:block;">
+        ss <b>all sizes</b>
       </Mq>
-      <Mq as="code" ssLg="display:block;">
-        ssLg
+      <Mq ssLg="display:block;">
+        ssLg <b>min-width 931px </b>
       </Mq>
-      <Mq as="code" ssSm="display:block;">
-        ssSm
+      <Mq ssSm="display:block;">
+        ssSm <b>max-width 930px</b>
       </Mq>
-      <Mq as="code" ssDesktop="display:block;">
-        ssDesktop
+      <Mq ssDesktop="display:block;">
+        ssDesktop <b>min-width 1025px</b>
       </Mq>
-      <Mq as="code" ssMobile="display:block;">
-        ssMobile
+      <Mq ssMobile="display:block;">
+        ssMobile <b>max-width 1024px</b>
       </Mq>
-      <Mq as="code" ssLargeTablet="display:block;">
-        ssLargeTablet
+      <Mq ssLargeTablet="display:block;">
+        ssLargeTablet <b>min-width 768px and max-width 1024px</b>
       </Mq>
-      <Mq as="code" ssTablet="display:block;">
-        ssTablet
+      <Mq ssTablet="display:block;">
+        ssTablet <b>min-width 768px</b>
       </Mq>
-      <Mq as="code" ssPhone="display:block;">
-        ssPhone
+      <Mq ssPhone="display:block;">
+        ssPhone <b>max-width 600px</b>
       </Mq>
-      <Mq as="code" ssSmallPhone="display:block;">
-        ssSmallPhone
+      <Mq ssSmallPhone="display:block;">
+        ssSmallPhone <b>max-width 400px</b>
       </Mq>
-      <Mq as="code" ssLargeDesktop="display:block;">
-        ssLargeDesktop
+      <Mq ssLargeDesktop="display:block;">
+        ssLargeDesktop <b>min-width 1440px</b>
       </Mq>
-      <Mq as="code" ssVeryLargeDesktop="display:block;">
-        ssVeryLargeDesktop
+      <Mq ssVeryLargeDesktop="display:block;">
+        ssVeryLargeDesktop <b>min-width 1920px</b>
       </Mq>
-      <Mq as="code" ssIPhone="display:block;">
-        ssIPhone
+      <Mq ssIPhone="display:block;">
+        ssIPhone <b>userAgent</b>
       </Mq>
-      <Mq as="code" ssIPad="display:block;">
-        ssIPad
+      <Mq ssIPad="display:block;">
+        ssIPad <b>userAgent</b>
       </Mq>
-      <Mq as="code" ssNotPhone="display:block;">
-        ssNotPhone
+      <Mq ssNotPhone="display:block;">
+        ssNotPhone <b>userAgent</b>
       </Mq>
-      <Mq as="code" ssPortrait="display:block;">
-        ssPortrait
+      <Mq ssPortrait="display:block;">
+        ssPortrait <b>height &gt; width</b>
       </Mq>
-      <Mq as="code" ssLandscape="display:block;">
-        ssLandscape
+      <Mq ssLandscape="display:block;">
+        ssLandscape <b>width &gt; height</b>
       </Mq>
-      <Mq as="code" ssAndroid="display:block;">
-        ssAndroid
+      <Mq ssAndroid="display:block;">
+        ssAndroid <b>OS</b>
       </Mq>
-      <Mq as="code" ssWindows="display:block;">
-        ssWindows
+      <Mq ssWindows="display:block;">
+        ssWindows <b>OS</b>
       </Mq>
-      <Mq as="code" ssMac="display:block;">
-        ssMac
+      <Mq ssMac="display:block;">
+        ssMac <b>OS</b>
       </Mq>
-      <Mq as="code" ssLinux="display:block;">
-        ssLinux
+      <Mq ssLinux="display:block;">
+        ssLinux <b>OS</b>
       </Mq>
-      <Mq as="code" ssIframe="display:block;">
-        ssIframe
+      <Mq ssIframe="display:block;">
+        ssIframe <b>rendered inside iframe</b>
       </Mq>
-      <Mq as="code" ssNotIframe="display:block;">
-        ssNotIframe
+      <Mq ssNotIframe="display:block;">
+        ssNotIframe <b>rendered in its own window, not iframe</b>
       </Mq>
-      <Mq as="code" ssWebview="display:block;">
-        ssWebview
+      <Mq ssWebview="display:block;">
+        ssWebview <b>rendered in a WebView browser like in Facebook, Gmail, Instagram apps</b>
       </Mq>
-      <Mq as="code" ssNotWebview="display:block;">
-        ssNotWebview
+      <Mq ssNotWebview="display:block;">
+        ssNotWebview <b>rendered in a normal browser</b>
       </Mq>
-      <pre>&gt;</pre>
+      <code>&gt;</code>
+      </p>
       <p>
-        <span className="gold">
-          ☝️ Try to resize. It's responsive. Styles use plain CSS, not JS.{' '}
-        </span>
-        <span>There are many preconfigured breakpoints, explained below. </span>
-        <span>Not all get rendered, just the ones you've specified.</span>
+          ☝️ Resize your screen. It's responsive. There are many preconfigured breakpoints. Not all get rendered, only the ones you specify. 
+</p>
+        <p>
         <span>
           <span className="noWrap">
-            Pass a css string (to style something quickly, inline) - or a
+            💅 Pass a css string (to style something quickly, inline) - or a
             function
           </span>
           <span className="noWrap">
@@ -113,9 +118,11 @@ const MediaQueriesDemo = () => (
           </span>{' '}
           Use theme.instance to get color/shade/size of the current component.{' '}
         </span>
-      </p>
-
-      <Block as="p" ssIframe="display:none;">
+      </p><p>
+  <Inline textgradient="rainbow">
+    You don't have to use props or strings. Use EmotionJS Styled Components and functions. Each one can read the component's props and the app's theme. </Inline><a href="" target="_blank" style={{color:'white',opacity: '0.75'}} >Read more about styled components, functions, and variables.</a>
+    </p>
+      {/* <Block as="p" ssIframe="display:none;">
         <span className="gold">
           ⚠️ There used to be a paragraph in this spot. But now it's gone!
         </span>{' '}
@@ -124,8 +131,8 @@ const MediaQueriesDemo = () => (
           {`<`}Block as="p" ssNotIframe="display:none"{`>`}
         </code>
         . There are similar ones for WebView, Portrait mode, etc.
-      </Block>
-      <Block as="p" ssNotIframe="display:none;">
+      </Block> */}
+      {/* <Block as="p" ssNotIframe="display:none;">
         <span className="gold">
           😭 The values above may not reflect your true screen size...{' '}
         </span>
@@ -139,13 +146,12 @@ const MediaQueriesDemo = () => (
             target="_blank"
             className="orange"
           >
-            Open this component in its own tab <IconNewTab />
-          </a>{' '}
-          👈 Then, look back at this paragraph! 😏
+            Open this component in its own tab
+          </a>.{' '}
+          Then, look back at this paragraph! 😏
         </span>
-      </Block>
-    </div>
-  </>
+      </Block> */}
+  </Block>
 );
 
 export default MediaQueriesDemo;

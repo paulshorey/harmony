@@ -11,8 +11,6 @@ Block.argTypes = argTypes({ localVariants: variantKeys });
 Block.args = {
   variant: 'card',
   textcolor: 'purple',
-  textgradient: '',
-  bgcolor: '',
   bggradient: 'light',
   as: 'article',
 };

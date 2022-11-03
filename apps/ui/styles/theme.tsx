@@ -8,13 +8,7 @@ export type Theme = {
 // install extension vscode-color-picker to see previews of colors in all files
 const theme: Theme = {
   RouterLink: null,
-  colors: {
-    primary: '#000',
-  },
   mq,
-  instance: {
-    variants: {},
-  },
   sizes: {
     card: {
       borderRadius: 0.4,

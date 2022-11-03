@@ -76,11 +76,14 @@ const Code = ({
         <Block
           as="span"
           ss={css`
-            opacity: 0.75;
             height: 1.95rem;
             line-height: 1.9rem;
             padding: 0 0.5rem;
-            background: ${theme.plain.backgroundColor};
+            background: linear-gradient(
+              to right,
+              transparent 75%,
+              ${theme.plain.backgroundColor} 90%
+            );
             color: #efefef;
             border-radius: 0.5rem;
           `}

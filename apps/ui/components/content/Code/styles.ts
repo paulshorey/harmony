@@ -21,3 +21,4 @@ export default {
   transparentLight: ``,
   light: ``,
 };
+// linear-gradient(to right, transparent 70%, hsla(22deg 5% 16% / 0.9) 90%)

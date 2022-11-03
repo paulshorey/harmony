@@ -7,3 +7,10 @@ const CanvasStoryPadding = withBlock({
 });
 
 export default CanvasStoryPadding;
+
+// &:first-child {
+//   padding-top: 30px;
+// }
+// &:last-child {
+//   padding-bottom: 30px;
+// }

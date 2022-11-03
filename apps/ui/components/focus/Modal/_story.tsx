@@ -40,7 +40,7 @@ export default (props: any) => {
           bggradient="rainbow"
           textgradient="rainbow"
           onClick={handleOpen}
-          variant="outlined"
+          variant="outlinedGradient"
         >
           Open modal
         </Button>

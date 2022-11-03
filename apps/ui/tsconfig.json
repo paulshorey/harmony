@@ -1,15 +1,10 @@
 {
+  // base config - common to all apps and modules in the repository:
   "extends": "@ps/constants/config/typescript/react-library.json",
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx",
-    "**/*.mdx",
-    ".storybook/stories/focus-10-form-elements/_components.tsx"
-  ],
+  // specific overrides - for this project only:
   "exclude": ["node_modules", "dist", "out", ".next", ".backup", "public"],
   "compilerOptions": {
+    "strict": false,
     "baseUrl": ".",
     "paths": {},
     "noEmit": true,

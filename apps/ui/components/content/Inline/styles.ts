@@ -1,7 +1,7 @@
 export default {
   default: `
   position:relative;
-  display:inline-block;
+  display:inline;
   margin:0;
   padding:0;
 `,

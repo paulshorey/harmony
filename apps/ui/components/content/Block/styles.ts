@@ -12,6 +12,24 @@ export default {
     padding: 0.75rem 0.75rem 0.95rem 1rem;
   `,
 
+  gradientOutline: css`
+    background: var(--color-bg-gradient);
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 0;
+      background: #333;
+      top: 1px;
+      left: 1px;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+    }
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+  `,
+
   hoverTilt: (props) => css`
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     &:hover {

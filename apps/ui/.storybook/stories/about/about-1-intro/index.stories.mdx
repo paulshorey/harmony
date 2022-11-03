@@ -5,10 +5,6 @@ import Code from '@ps/ui/components/content/Code';
 import CodeInline from '@ps/ui/components/content/CodeInline';
 import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
-import {
-  BulletNumber,
-  SvgSparkle,
-} from '@ps/ui/.storybook/components/Decorations';
 
 <Meta title="Why another UI library ?" />
 
@@ -43,7 +39,7 @@ For better DX and UX
 </Block>
 
 <p>
-  <a>Media query shortcuts</a> let you{' '}
+  <a href="/docs/get-started-media-queries--page">Media query shortcuts</a> let you{' '}
   <Inline as="b" textgradient="rainbow">
     painlessly style for multiple devices!
   </Inline>{' '}
@@ -80,7 +76,7 @@ const Demo = withBlock({ ss: 'display:none;' });
 // And many more. Each breakpoint is only included in the bundle if you use it. `}
 />
 
-**Pre-define any props, not only styles.** Then add more specific props or styles per instance:  
+**Pre-define any props, not only styles.** Then pass unique props and styles to each instance:  
 
 <Code
   variant="transparentDark"
@@ -106,7 +102,7 @@ const Button = withButton({
 <Button round />`} />
 
 
-**You don't have to use style strings.** That's just for convenience. Use any type supported by <CodeInline variant="text" code={`@emotion/styled`} />.
+**You don't have to use style strings.** That's just for convenience. Also for convenience...
 
 <Code
   variant="transparentDark"
@@ -114,9 +110,9 @@ const Button = withButton({
 
 <!--Or use your own preferred solution such as <CodeInline variant="text" code={`props.style`} />, <CodeInline variant="text" code={`props.className`} />, <CodeInline variant="text" code={`props.css`} /> or <CodeInline variant="text" code={`props.sx`} />. -->
   
-This library does not use Emotion's preferred <CodeInline variant="text" code={`props.css`} /> because it's not portable, it needs to be set up by every app. But since the css prop actually gets compiled to a standard className, you can use it in any app. Instead, this library adopted the syntax <CodeInline variant="text" code={`props.ss`} />.
+This library does not use Emotion's preferred <CodeInline variant="text" code={`props.css`} /> because it's not portable. It would have to be set up by every app. But since the css prop actually gets compiled to a standard className, you can always choose use it in your app.
 
-<a href="http://localhost:6006/?path=/docs/core-styled-components--page" target="_top">Read more</a> about those <CodeInline variant="text" code={`ss`} /> props, the way styled-components are implemented in this library, and more advanced tricks for coloring elements' text and background.
+<a href="http://localhost:6006/?path=/docs/core-styled-components--page" target="_top">Read more</a> about styled components, <CodeInline variant="text" code={`props.ss`} /> shortcuts, and using <CodeInline variant="text" code={`cascading styles`} /> to color elements' text and background.
 
 <br />
 <br />
@@ -135,9 +131,10 @@ This library does not use Emotion's preferred <CodeInline variant="text" code={`
 </p>
 
 <p>
-  <br />
-  This is my latest experiment. Not production ready yet. Needs much more testing. But it's already useful.
-  <br />
+  This is my latest experiment. Needs much more testing, unit tests, and visual regression tests. 
+  But it's already useful. This page and everything in this Storybook was built with this library. Currently building my new website with this library.
+</p>
+<p>
   If you like this approach then <a>checkout the Github repo</a>. Please contribute
   or open an issue to discuss. Thank you!
   <br />

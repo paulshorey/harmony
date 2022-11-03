@@ -130,6 +130,21 @@ export default {
     `}
   `,
   outlined: (props) => css`
+    background: transparent;
+    color: var(--color-text);
+    border: solid 1px var(--color-text);
+    text-shadow: none !important;
+    ${props.round &&
+    css`
+      &::before {
+        border-radius: calc(
+          ${props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] /
+            2}rem - 1px
+        );
+      }
+    `}
+  `,
+  outlinedGradient: (props) => css`
     color: var(--color-text);
     text-shadow: none !important;
     &::before {
@@ -148,7 +163,6 @@ export default {
       transition: background-position 300ms linear 0s;
       background-position: center;
     }
-
     ${props.round &&
     css`
       &::before {

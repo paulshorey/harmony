@@ -94,10 +94,11 @@ const Wrapper = ({ children, ...props }) => {
   }
 
   code {
+    font-family: var(--font-family-code);
     color: var(--color-accent);
     margin: 0;
     opacity: 1;
-    font-size: 0.9em;
+    font-size: 1em;
     line-height: 1.2em;
     font-weight: 700;
     background:none;

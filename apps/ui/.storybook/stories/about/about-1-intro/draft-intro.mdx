@@ -1,3 +1,12 @@
+# A confusing trend in web development
+
+I notice software engineers like to write CSS rules in JavaScript format even though it's more tedious and less useful. Somebody please give me a valid supporting argument. I've always tried to understand the opposing argument, but am yet to hear any rational argument in favor of JSS.
+
+This codebase uses Typescript for everything - except for css properties. Typescript is actually not able to verify the validity of css values and is not a good tool for validating colors and appearance. It's better to use visual regression or snapshot tests to verify how components look. For example, `{ padding: 'calc(100%-20px)' }` is a valid type, but not valid CSS. Same with `{ color: 'hsl(200, 75%, 75%)' }`.  
+
+So if Typescript can't validate CSS properties, there's no point changing the format of the standard CSS. Sure, converting to camelCase from dashed-case is not a problem. But pseudo-selectors, children, media queries are more difficult - sometimes impossible, so sometimes you still have to use real CSS, leading to an inconsistent codebase. More annoyingly, JSS needs everything to be wrapped in quotes. That's many more characters to type. And, you can't just copy/paste from Dev Tools and online sorouces.
+
+
 <Code
   variant="transparentDark"
   code={`{/* JSS */}
@@ -52,13 +61,12 @@ In the future, would be nice to use <a
   target="_blank"
 >
   Mitosis
-</a> to transpile these <Block
+</a> to transpile these <Inline
   as="strong"
   variant="textcolorUnderlined"
-  ss="display:inline;"
 >
   React
-</Block> components to any other JS framework.
+</Inline> components to any other JS framework.
 
 This library does **not** attempt to **replace CSS** functionality like so many CSS-in-JS libraries. Instead it lets JS do what it's good at (define logic and state) while letting CSS do what it's good at (setting the color scheme on a parent that can later be accessed from a child element, without having to prop-drill or style each individual element separately). This is "CSS-and-JS" living in harmony.
 

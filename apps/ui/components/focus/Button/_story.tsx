@@ -10,8 +10,8 @@ import useShowStorybookCode from '../../../hooks/useShowStorybookCode';
 export const Buttons = (props) => {
   useShowStorybookCode();
   const Button = withButton({
-    ...props,
     size: 'sm',
+    ...props,
     ss: 'margin: 0 0.875rem 0.875rem 0;',
   });
   return (
@@ -35,8 +35,6 @@ export default (props) => (
       <CanvasStoryPadding bgcolor="light" textcolor="purple">
         <Buttons {...props} />
       </CanvasStoryPadding>
-    </CanvasContainer>
-    <CanvasContainer>
       <CanvasStoryPadding>
         <Buttons {...props} />
       </CanvasStoryPadding>
