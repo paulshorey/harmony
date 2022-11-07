@@ -1,6 +1,77 @@
-import { css, keyframes } from '@emotion/react';
+const html = (theme) => `
+/*
+ * 
+ * SELECT
+ * 
+ */
+.ant-select:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+  height: 30px;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector input {
+  cursor: pointer;
+}
+.ant-select-single .ant-select-selector .ant-select-selection-search-input {
+  width: 100%;
+}
+.ant-select-show-search.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  cursor: text;
+}
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  width: 100%;
+  height: 32px;
+  padding: 0 11px;
+}
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item, .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+  padding-right: 18px;
+}
+.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+  transition: none;
+  pointer-events: none;
+}
+.ant-select-single .ant-select-selector .ant-select-selection-item, .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+  padding: 0;
+  line-height: 30px;
+  transition: all 0.3s;
+}
+.ant-select {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
 
-const html = (theme) => css`
+
+/*
+ * 
+ * DROPDOWN
+ *  
+ */
   .ant-slide-up {
     transition: transform 1s !important;
     overflow: hidden;
@@ -70,6 +141,12 @@ const html = (theme) => css`
     flex: none;
   }
 
+  /*
+   * 
+   * ICON
+   * 
+   */
+
   .anticon {
     display: inline-block;
     color: inherit;
@@ -92,12 +169,18 @@ const html = (theme) => css`
     }
   }
 
+  /*
+   * 
+   * VARIABLES
+   *
+   */
+
   @media (max-width: 768px) :root {
     --docsearch-spacing: 10px;
     --docsearch-footer-height: 40px;
   }
 
-  :roo {
+  :root {
     --docsearch-primary-color: #5468ff;
     --docsearch-text-color: #1c1e21;
     --docsearch-spacing: 12px;
@@ -176,9 +259,9 @@ const html = (theme) => css`
     -webkit-tap-highlight-color: transparent;
   }
 
-  *::selection {
+  /* *::selection {
     color: #fff;
     background: var(--ant-primary-color);
-  }
+  } */
 `;
 export default html;

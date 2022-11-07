@@ -1,8 +1,8 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Block from '@ps/ui/components/content/Block';
-import Inline from '@ps/ui/components/content/Inline';
-import CodeInline from '@ps/ui/components/content/CodeInline';
-import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 import {
   Container,
@@ -13,7 +13,7 @@ import {
   Content,
   Button,
 } from '@ps/ui/.storybook/components/Components';
-import Code from '@ps/ui/components/content/Code';
+import Code from '@ps/ui/components/Code';
 
 <Meta title="Get started/Styles and props" />
 
@@ -35,13 +35,13 @@ import Code from '@ps/ui/components/content/Code';
 
 ## 2. Styled Components
 
-Just like StyledComponents <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.div\`\``}/>, you can use <CodeInline code={`withButton()`}/> or <CodeInline code={`withDiv()`}/>  
+This uses `styled-components`. Just like <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.div\`\``}/>, you can use <CodeInline code={`withButton()`}/> or <CodeInline code={`withDiv()`}/>  
 
-Pre-define styles <Inline as="b" textcolor="accent">and props</Inline> in one place. This is a great way to keep your code clean, separate markup from style, data-generated props from unique manually added props.  
+**Plus an added feature:** pre-define <Inline as="b" textcolor="accent"> props</Inline> as well as styles. This is a great way to keep your code clean, separate markup from style, data-generated props from unique manually added props.  
 
 <Code
   ss="font-size: 0.85rem;"
-  code={`import { withButton } from "@ps/ui/components/focus/Button";
+  code={`import { withButton } from "@ps/ui/components/Button";
   
 export const MyButton = withButton({
   size: 'small',

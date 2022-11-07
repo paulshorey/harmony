@@ -1,6 +1,4 @@
-import { css, keyframes } from '@emotion/react';
-
-const html = (theme) => css`
+const html = (theme) => `
   html {
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;

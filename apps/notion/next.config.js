@@ -12,6 +12,17 @@ const ContentSecurityPolicy = require('@ps/constants/config/auth/contentSecurity
 dotenvLoad();
 
 module.exports = withTM({
+  images: {
+    domains: ['s3.us-west-2.amazonaws.com'],
+    // remotePatterns: [
+    //   {
+    //     protocol: 'https',
+    //     hostname: 'example.com',
+    //     port: '',
+    //     pathname: '/account123/**',
+    //   },
+    // ],
+  },
   env: {
     MIXPANEL_TOKEN: process.env.MIXPANEL_TOKEN,
     NONPROFIT_API_BASE: process.env.NONPROFIT_API_BASE,

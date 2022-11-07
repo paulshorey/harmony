@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { css, useTheme } from '@emotion/react';
-import Text from 'src/components/notion/TextBox';
+import Text from 'src/components/notion/TextBlock';
 
 const style = (theme, color) => css`
   padding-left: 0.75rem;
@@ -25,15 +25,17 @@ const style = (theme, color) => css`
  * Always show "read more" link at the bottom, to encourage clicking to open and read more.
  */
 
-export default ({ page }) => {
-  if (!page) return null;
+const PagePreview = ({ page }) => {
+  if (!page) {
+    return null;
+  }
   const theme = useTheme();
   // console.log('ChildPage', page);
-  let pages2 = [];
+  const pages2 = [];
   if (page.blocks) {
-    for (let block2 of page.blocks) {
+    for (const block2 of page.blocks) {
       if (block2.child_page) {
-        let page2 = block2.child_page;
+        const page2 = block2.child_page;
         pages2.push({
           id: page2.id,
           url: page2.url,
@@ -61,3 +63,5 @@ export default ({ page }) => {
     </div>
   );
 };
+
+export default PagePreview;

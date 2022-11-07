@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { withBlock } from '@ps/ui/components/content/Block';
+import { withBlock } from '../../components/Block';
 
 const CanvasContainer = (props) => {
   let flexStyle = '';

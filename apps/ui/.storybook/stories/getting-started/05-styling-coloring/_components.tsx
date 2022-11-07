@@ -1,5 +1,5 @@
-// import Block from '@ps/ui/components/content/Block';
-import { withButton } from '@ps/ui/components/focus/Button';
+// import Block from '@ps/ui/components/Block';
+import { withButton } from '@ps/ui/components/Button';
 // import GithubFilled from '@ant-design/icons/GithubFilled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';

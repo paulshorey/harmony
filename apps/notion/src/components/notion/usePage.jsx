@@ -1,10 +1,10 @@
-import React from 'react';
+// import React from 'react';
 // import Text from './Text';
-import cconsole from '@ps/cconsole';
-import Box from './Box';
+// import cconsole from '@ps/cconsole';
+import Block from './Block';
 
 const usePage = ({ data }) => {
-  let parsed = {};
+  const parsed = {};
   if (!data) {
     return parsed;
   }
@@ -14,8 +14,8 @@ const usePage = ({ data }) => {
 
   // blocks
   if (data.blocks) {
-    for (let block of data.blocks) {
-      parsed.children.push(() => Box({ block: block }));
+    for (const block of data.blocks) {
+      parsed.children.push(() => Block({ block }));
     }
   }
 

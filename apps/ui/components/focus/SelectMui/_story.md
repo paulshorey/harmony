@@ -1,1 +1,0 @@
-This component uses the Material UI Select component. It's then re-styled to match the parent element color scheme. 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Block, { withBlock } from '@ps/ui/components/content/Block';
-import Inline from '@ps/ui/components/content/Inline';
+import Block, { withBlock } from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
 
 const styles = {
   container: `

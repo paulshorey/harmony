@@ -1,0 +1,56 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/backstop_default_Production_0_document_0_iPhoneX.png",
+        "test": "../bitmaps_test/20211115-201429/backstop_default_Production_0_document_0_iPhoneX.png",
+        "selector": "document",
+        "fileName": "backstop_default_Production_0_document_0_iPhoneX.png",
+        "label": "Production",
+        "misMatchThreshold": 0.1,
+        "url": "https://www.spiral.us",
+        "expect": 0,
+        "viewportLabel": "iPhoneX",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 1.427258320126783,
+          "misMatchPercentage": "1.43",
+          "analysisTime": 87
+        },
+        "diffImage": "../bitmaps_test/20211115-201429/failed_diff_backstop_default_Production_0_document_0_iPhoneX.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "../bitmaps_reference/backstop_default_Production_0_document_1_laptop.png",
+        "test": "../bitmaps_test/20211115-201429/backstop_default_Production_0_document_1_laptop.png",
+        "selector": "document",
+        "fileName": "backstop_default_Production_0_document_1_laptop.png",
+        "label": "Production",
+        "misMatchThreshold": 0.1,
+        "url": "https://www.spiral.us",
+        "expect": 0,
+        "viewportLabel": "laptop",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 6.753678309910402,
+          "misMatchPercentage": "6.75",
+          "analysisTime": 279
+        },
+        "diffImage": "../bitmaps_test/20211115-201429/failed_diff_backstop_default_Production_0_document_1_laptop.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "backstop_default"
+}

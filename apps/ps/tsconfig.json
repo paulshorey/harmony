@@ -1,13 +1,33 @@
 {
   "extends": "@ps/constants/config/typescript/react-library.json",
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.mdx"],
-  "exclude": ["node_modules", "dist", "out", ".next", ".backup", "public"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.mdx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "out",
+    ".next",
+    ".backup",
+    "public"
+  ],
   "compilerOptions": {
+    "jsxImportSource": "@emotion/react",
     "baseUrl": ".",
     "paths": {},
     "noEmit": true,
     "incremental": true,
     "noImplicitAny": false,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   }
 }

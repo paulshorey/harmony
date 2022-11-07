@@ -12,6 +12,7 @@
     "serve-storybook": "serve storybook-static"
   },
   "dependencies": {
+    "styled-components": "6.0.0-beta.2",
     "@ant-design/icons": "^4.7.0",
     "@emotion/css": "^11.10.5",
     "@emotion/react": "^11.10.4",

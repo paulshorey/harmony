@@ -12,7 +12,7 @@ export default ({ block }) => {
   let data_mentioned_page = false;
   let data_mentioned_site = false;
   let el_tagName = tag(block);
-  let el_className = 'notionBoxText';
+  let el_className = 'notionBlockText';
   let text = block[block.type].text || block[block.type].rich_text;
   let Texts = [];
 
@@ -105,10 +105,10 @@ function tag(block) {
     case 'quote':
       return 'blockquote';
     case 'unsupported':
-      console.warn('TextBox: UNSUPPORTED BLOCK TYPE:', block);
+      console.warn('TextBlock: UNSUPPORTED BLOCK TYPE:', block);
       return 'h1';
     default:
-      console.log('TextBox: UNFINISHED BLOCK (div):', block);
+      console.log('TextBlock: UNFINISHED BLOCK (div):', block);
       return 'div';
   }
 }

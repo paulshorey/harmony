@@ -1,4 +1,4 @@
-import { withBlock } from '../../components/content/Block';
+import { withBlock } from '../../components/Block';
 
 const CanvasStoryPadding = withBlock({
   ss: `

@@ -1,5 +1,4 @@
-import '@ps/ui/styles/global/variables.css';
-import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
 
 const AppProvider = ({ children }) => {
   return <ThemeProvider>{children}</ThemeProvider>;

@@ -1,4 +1,4 @@
-import Input from '@ps/ui/components/focus/Input';
+import Input from '@ps/ui/components/Input';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 

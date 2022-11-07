@@ -1,7 +1,7 @@
-import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
 import React, { useEffect } from 'react';
 import { themes } from '@storybook/theming';
-import Block from '@ps/ui/components/content/Block';
+import Block from '@ps/ui/components/Block';
 
 export const parameters = {
   docs: {

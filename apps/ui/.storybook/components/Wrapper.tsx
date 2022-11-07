@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Block from '../../components/content/Block';
+import Block from '../../components/Block';
 
 const Wrapper = ({ children, ...props }) => {
   /**
@@ -98,7 +98,7 @@ const Wrapper = ({ children, ...props }) => {
     color: var(--color-accent);
     margin: 0;
     opacity: 1;
-    font-size: 1em;
+    font-size: 0.9em;
     line-height: 1.2em;
     font-weight: 700;
     background:none;

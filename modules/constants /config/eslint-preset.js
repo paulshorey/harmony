@@ -94,7 +94,7 @@ module.exports = (__dirname) => {
       'jsx-a11y/click-events-have-key-events': 'off',
       'jsx-a11y/no-autofocus': 'off',
       'keyword-spacing': 'error',
-      'max-depth': ['warn', 3],
+      'max-depth': 'off',
       'no-alert': 'error',
       'no-async-promise-executor': 'error',
       'no-class-assign': 'error',

@@ -4,9 +4,9 @@ import cconsole from '@ps/cconsole';
 
 export default function (page) {
   // flatten page, cut off children of its children
-  let page_flat = { ...page, blocks: [] };
+  const page_flat = { ...page, blocks: [] };
   if (page.blocks) {
-    for (let block of page.blocks) {
+    for (const block of page.blocks) {
       /*
        * for only the first paragraph block, record it in the page as a "summary"
        */
@@ -15,7 +15,7 @@ export default function (page) {
         let is_only_text_p = true;
 
         if (block.paragraph.text) {
-          for (let text of block.paragraph.text) {
+          for (const text of block.paragraph.text) {
             if (text.href) {
               is_only_text_p = false;
               break;
@@ -33,9 +33,9 @@ export default function (page) {
        * if block is a child_page, then remove circular references
        */
       if (block.child_page) {
-        let page2 = block.child_page;
+        const page2 = block.child_page;
         if (page2.blocks) {
-          for (let block2 of page2.blocks) {
+          for (const block2 of page2.blocks) {
             if (block2.child_page) {
               // replace recursive child_page object with simplified object
               block2.child_page = {

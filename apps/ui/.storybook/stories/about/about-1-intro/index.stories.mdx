@@ -1,9 +1,9 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Block from '@ps/ui/components/content/Block';
-import Inline from '@ps/ui/components/content/Inline';
-import Code from '@ps/ui/components/content/Code';
-import CodeInline from '@ps/ui/components/content/CodeInline';
-import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
+import Block from '@ps/ui/components/Block';
+import Inline from '@ps/ui/components/Inline';
+import Code from '@ps/ui/components/Code';
+import CodeInline from '@ps/ui/components/CodeInline';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 
 <Meta title="Why another UI library ?" />
@@ -59,7 +59,7 @@ For better DX and UX
 
 <Code
   variant="transparentDark"
-  code={`import { withBlock } from '@ps/ui/components/content/Block';
+  code={`import { withBlock } from '@ps/ui/components/Block';
 const Demo = withBlock({ ss: 'display:none;' });
 // For convenience, ss props accept a simple string in addition to any EmotionCSS type. No configuration is required.
 <Demo ssWebview="display:block"> apply style only if rendered inside an in-app browser (like Gmail or Facebook) </Demo>
@@ -81,7 +81,7 @@ const Demo = withBlock({ ss: 'display:none;' });
 <Code
   variant="transparentDark"
   code={`// 1. Use the provided named export to pre-define props:
-import { withButton } from '@ps/ui/components/focus/Button';
+import { withButton } from '@ps/ui/components/Button';
 const Button = withButton({
   ...props,
   size: 'sm',

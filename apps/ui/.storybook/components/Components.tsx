@@ -1,5 +1,5 @@
-import Block, { withBlock } from '@ps/ui/components/content/Block';
-import { withButton } from '@ps/ui/components/focus/Button';
+import Block, { withBlock } from '@ps/ui/components/Block';
+import { withButton } from '@ps/ui/components/Button';
 import CanvasContainerImport from '@ps/ui/.storybook/components/CanvasContainer';
 import WrapperImport from '@ps/ui/.storybook/components/Wrapper';
 

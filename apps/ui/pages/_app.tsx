@@ -1,4 +1,4 @@
-import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
 import { AppProps } from 'next/app';
 import React from 'react';
 

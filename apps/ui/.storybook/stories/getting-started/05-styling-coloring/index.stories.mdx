@@ -1,9 +1,9 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Block from '@ps/ui/components/content/Block';
-import Code from '@ps/ui/components/content/Code';
-import Inline from '@ps/ui/components/content/Inline';
-import Button from '@ps/ui/components/focus/Button';
-import ThemeProvider from '@ps/ui/components/utils/ThemeProvider';
+import Block from '@ps/ui/components/Block';
+import Code from '@ps/ui/components/Code';
+import Inline from '@ps/ui/components/Inline';
+import Button from '@ps/ui/components/Button';
+import ThemeProvider from '@ps/ui/components/ThemeProvider';
 import { Buttons } from './_components';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 
@@ -16,7 +16,7 @@ import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 
 **Components in this library can read the color scheme of their ancestors** and use appropriate colors that match their surroundings without the developer having to manually set each element. Override the colors for a child component and it applies to all its children too! Also there are several levels of styling with varying specificity: default variant, custom variant, add style rules according to props, ss, media queries, and inline styles. All this is the "cascading" feature of CSS. This library attempts to bring real CSS to JS applications.
 
-Other JavaScript web frameworks only support setting a light/dark color scheme once on the entire web page. But what if your app has a dark sidebar with light text while the main content is light background with dark text? What if you have several different sections like this? You'd have to style each individual element. This library allows styling sections with different color schemes more easily. Not just light/dark, but any background/text color combinations.  
+Other JavaScript web frameworks only support setting a light/dark scheme once on the entire web page. But what if your app has a dark sidebar with light text while the main content is light background with dark text? What if you have several different sections like this? You'd have to style each individual element. This library allows styling sections with different color schemes more easily. Not just light/dark, but any background/text color combinations.  
 
 <Block ss="margin-top: 1.5rem; padding: 1rem; * {font-size: 1rem;line-height:1.5rem;}" variant="gradientOutline" bggradient="rainbow">
   <Block textgradient="rainbow">
@@ -43,7 +43,7 @@ One is `<Block textcolor="light" bgcolor="purple">`, the other is `<Block textco
     <Code
       collapsed={true}
       code={`// import the ready-to-use default export (Button), or the HOC named export (withButton)
-import { withButton } from '@ps/ui/components/focus/Button';
+import { withButton } from '@ps/ui/components/Button';
 const Button = withButton({
   size: 'sm',
   ss: 'margin: 0 0.875rem 0.875rem 0;',
