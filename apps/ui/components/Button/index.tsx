@@ -63,28 +63,48 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   const Children: any = [];
   // icon on the left
   if (props.icon) {
-    Children.push(<span className="Button--icon">{props.icon}</span>);
+    Children.push(
+      <span key="iconLeft" className="Button--icon">
+        {props.icon}
+      </span>
+    );
   }
   if (props.icon && props.children) {
-    Children.push(<span className="Button--spacer"> </span>);
+    Children.push(
+      <span key="iconLeftSpacer" className="Button--spacer">
+        {' '}
+      </span>
+    );
   }
   // content
   if (props.children || props.value) {
     Children.push(
-      <span className="Button--text">{props.value || props.children}</span>
+      <span key="children" className="Button--text">
+        {props.value || props.children}
+      </span>
     );
   }
   if (loading) {
     Children.push(
-      <span className="Button--loading Button--icon">{loading}</span>
+      <span key="loading" className="Button--loading Button--icon">
+        {loading}
+      </span>
     );
   }
   // icon on the right
   if (props.suffix && props.children) {
-    Children.push(<span className="Button--spacer"> </span>);
+    Children.push(
+      <span key="iconRightSpacer" className="Button--spacer">
+        {' '}
+      </span>
+    );
   }
   if (props.suffix) {
-    Children.push(<span className="Button--icon">{props.suffix}</span>);
+    Children.push(
+      <span key="iconRight" className="Button--icon">
+        {props.suffix}
+      </span>
+    );
   }
   if (!ref) {
     ref = createRef();

@@ -7,7 +7,7 @@ const FullpageLayout = ({ children }) => {
   const ui = uiState((state) => state as uiStateType);
   return (
     <>
-      <HeaderLayout absolute />
+      <HeaderLayout />
       <CenterChildrenY
         ss="height:100vh;"
         {...ui.colorSchemes[ui.colorSchemeIndex]}
