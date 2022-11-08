@@ -39,16 +39,12 @@ const Wrapper = ({ children, ...props }) => {
   left:0;
   width:100%;
   padding: 3.1rem 5vw 100px;
+  font-size: 1rem;
 
   /* So custom components will match styles applied by Storybook to markdown elements */
   * {
   font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
   -webkit-font-smoothing: antialiased;
-  }
-
-  &,
-  p {
-  font-size: 1rem;
   }
 
   h1 {
@@ -68,9 +64,6 @@ const Wrapper = ({ children, ...props }) => {
     &:hover {
       text-decoration:none;
     }
-  }
-
-  p {
   }
 
   .Code pre {
@@ -105,11 +98,15 @@ const Wrapper = ({ children, ...props }) => {
     margin: 0;
     opacity: 1;
     font-size: 0.9em;
-    line-height: 1.2em;
+    line-height: 125%;
     font-weight: 700;
     background:none;
     border:none;
     padding:0;
+  }
+
+  li {
+    font-size: inherit;
   }
 `;
 

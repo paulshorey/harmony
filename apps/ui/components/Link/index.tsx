@@ -9,11 +9,10 @@ import React, {
 import { analytics_track_link } from '@ps/fn/browser/analytics';
 import variants from './styles';
 import styleProps from '@ps/ui/types/styles';
-import { useTheme } from '@emotion/react';
-import withProps from '@ps/ui/hooks/withProps';
+import styled, { useTheme } from 'styled-components';
+import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import { Theme } from '@ps/ui/styles/theme';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
-import styled from 'styled-components';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -112,7 +111,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 export default memo(forwardRef(Component));
 
 export const withLink = (props: Props) =>
-  memo(withProps(forwardRef(Component), props));
+  memo(withCombinedProps(forwardRef(Component), props));
 
 // styled "a" can be overriden by passing props.as="article" or any HTML tag
 const StyledComponent = styled.a`

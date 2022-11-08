@@ -5,13 +5,13 @@ import objects_add_values from '@ps/fn/io/objects/objects_add_values';
  * Predefine default props for a component. Then, use the modified component normally, pass more unique props to the instanace. The predefined and instnace props will be combined. Use for any component from anywhere, even 3rd party libraries.
  * Usage:
  * import Inline from '@ps/ui/components/Inline';
- * const Heading = withProps(Inline, {
+ * const Heading = withCombinedProps(Inline, {
     as: 'h2',
     ss: 'margin:0;',
   });
  * <Heading ss="unique styles here do not override the default ss prop, but add to it">👋</Heading>
  */
-const withProps = (
+const withCombinedProps = (
   /**
    * The React component to wrap in HOC default props. Can be any component, including a styled component, even 3rd party library widgets. If you want to pass ref to it, then it must be a forwardRef component. This HOC does not add forwardRef or memo or anything like that. It just adds default props, then adds more props later.
    */
@@ -39,4 +39,4 @@ const withProps = (
   };
 };
 
-export default withProps;
+export default withCombinedProps;

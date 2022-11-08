@@ -1,15 +1,16 @@
 import React, { forwardRef, memo } from 'react';
-import { Select as SelectAnt, SelectProps } from 'antd';
 import styleProps from '@ps/ui/types/styles';
-import useStyledProps from '@ps/ui/hooks/useStyledProps';
 import variants from '@ps/ui/components/Select/styles';
 import cssModule from './index.module.css';
-import withProps from '@ps/ui/hooks/withProps';
+import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
+import SelectAnt, {
+  SelectProps as AntSelectProps,
+  OptionProps as AntOptionProps,
+} from 'antd/es/select';
 
-const { Option: OptionAnt } = SelectAnt;
-export type OptionProps = {
+type OptionProps = {
   value: string;
   /**
    * What to show in the select box instead of the real value. Useful if capitalization is different.
@@ -23,22 +24,18 @@ export type OptionProps = {
    * Used to set padding/fontSize/height/line-height.
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-};
+} & AntOptionProps;
 
-export const Option = (props: OptionProps) => {
-  const styledProps = useStyledProps({
-    props,
-    componentName: 'SelectOption',
-  });
-  // @ts-ignore
-  return <OptionAnt {...styledProps} />;
-};
-
-export type Props = styleProps & SelectProps;
+export type Props = styleProps & AntSelectProps;
 
 export const Component = ({ ...props }: Props, ref?: any) => {
   return <StyledComponent {...props} ref={ref} />;
 };
+
+// for convenience, export antd option and props, so user does not have to import from antd
+const { Option: OptionAnt } = SelectAnt;
+export const Option = OptionAnt;
+export { OptionProps, AntSelectProps as SelectProps };
 
 /*
  * Under the hood: (1) default export ready to use (2) named export HOC (3) styled component
@@ -46,7 +43,7 @@ export const Component = ({ ...props }: Props, ref?: any) => {
 export default memo(forwardRef(Component));
 
 export const withSelect = (props: Props) =>
-  memo(withProps(forwardRef(Component), props));
+  memo(withCombinedProps(forwardRef(Component), props));
 
 // styled "SelectAnt" can be overriden by passing props.as="article" or any HTML tag
 const StyledComponent = styled(SelectAnt)`

@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import { withBlock } from '../../components/Block';
 
 const CanvasContainer = (props) => {
@@ -21,7 +20,7 @@ const CanvasContainer = (props) => {
   const Block = withBlock({
     bggradient: 'purple',
     textcolor: 'light',
-    ss: css`
+    ss: `
       margin: -30px -20px;
       padding: 30px 20px;
       display: block;

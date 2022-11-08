@@ -1,11 +1,11 @@
-import Block from '@ps/ui/components/Block';
+import React from 'react';
 import InputGroup from '@ps/ui/components/InputGroup';
 import Input from '@ps/ui/components/Input';
 import Button from '@ps/ui/components/Button';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 import { CopyOutlined } from '@ant-design/icons';
-import { Tooltip } from 'antd';
+import Tooltip from 'antd/es/tooltip';
 import Select, { Option } from '../Select';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 

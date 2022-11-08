@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import themeDark from 'prism-react-renderer/themes/nightOwl';
 import themeLight from 'prism-react-renderer/themes/nightOwlLight';
@@ -60,7 +59,7 @@ const Code = ({
     ControlsTop = (
       <Block
         as="span"
-        ss={css`
+        ss={`
           position: absolute;
           top: 0;
           right: 0;
@@ -75,7 +74,7 @@ const Code = ({
       >
         <Block
           as="span"
-          ss={css`
+          ss={`
             height: 1.95rem;
             line-height: 1.9rem;
             padding: 0 0.5rem;
@@ -99,7 +98,7 @@ const Code = ({
     ControlsBottom = (
       <Block
         as="span"
-        ss={css`
+        ss={`
           position: absolute;
           bottom: 0.05rem;
           right: 0;

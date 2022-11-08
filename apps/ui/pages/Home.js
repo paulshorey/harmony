@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import Block from '@ps/ui/components/Block';
 import Code from '@ps/ui/components/Code';
 

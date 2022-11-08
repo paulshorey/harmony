@@ -8,8 +8,8 @@ import React, {
 import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Input/styles';
 import cssModule from '@ps/ui/components/Input/index.module.css';
-import AntInput from 'antd/lib/input';
-import withProps from '@ps/ui/hooks/withProps';
+import AntInput from 'antd/es/input';
+import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
 
@@ -80,7 +80,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 export default memo(forwardRef(Component));
 
 export const withInput = (props: Props) =>
-  memo(withProps(forwardRef(Component), props));
+  memo(withCombinedProps(forwardRef(Component), props));
 
 // styled "AntInput" can be overriden by passing props.as="article" or any HTML tag
 const StyledComponent = styled(AntInput)`

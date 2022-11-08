@@ -1,26 +1,23 @@
 import { withBlock } from '@ps/ui/components/Block';
 import uiState, { uiStateType } from 'state/uiState';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Toggle = styled(withBlock({ as: 'span' }))``;
 
-const Header = styled(
-  withBlock({
-    as: 'header',
-    ssLg: 'background:orange;',
-    ssSm: 'background:blue;',
-  })
-)`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 45px; /* same as height of header in notion.so published pages (https://techytools.notion.site/techytools/Docs-sites-2c377bf61ba6454fb607e52b07171015) */
-  /* position: absolute; */
-  /* width: 100%; */
-  display: flex;
-  justify-content: space-between;
-`;
+const Header = withBlock({
+  as: 'header',
+  ss: css`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 45px; /* same as height of header in notion.so published pages (https://techytools.notion.site/techytools/Docs-sites-2c377bf61ba6454fb607e52b07171015) */
+    /* position: absolute; */
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+  `,
+});
 
 const Nav = styled(withBlock({ as: 'nav' }))`
   display: flex;

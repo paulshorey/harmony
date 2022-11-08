@@ -30,12 +30,23 @@ import Code from '@ps/ui/components/Code';
   ss="font-size: 0.85rem;"
   code={`import Button from "@ps/ui/components/content/Button";
   
-<Button variant="outlined" onClick={console.log} ss={\`/* like @emotion/react inline css prop but with zero configuration */\`}>
+<Button 
+  variant="outlined" 
+  onClick={console.log} 
+  ss={(props) => \`
+    padding: 1rem \${props.theme.sizes.card.paddingX};
+    \${props.theme.mq.desktopLarge} {
+      padding: 1rem \${props.theme.sizes.card.paddingX * 2};
+    }
+  \`}
+  ssLg="/* All ss props accept a SCSS string or a function that returns a string. */"
+  ssSm="/* Scroll down for more about variables, css\`\` syntax, and limitations. */"
+>
   Click me
 </Button>`}
 />
 
-## 2. HOC just like Styled Components
+<Block as="h2" ss="margin-top: 3rem;">2. HOC like Styled Components</Block>
 
 This library is powered by `styled-components`. Just like <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.div\`\``}/>, you can use <CodeInline code={`withButton()`}/> or <CodeInline code={`withDiv()`}/>  
 
@@ -54,13 +65,13 @@ export const MyButton = withButton({
     margin: 0 0.875rem 0.875rem 0; /* and other styles */
   \`,
   ssDesktop: \`
-    &:hover { box-shadow: 1px 2px 1px var(--color-cta); } /* styles in addition to props.ss */
+    &:hover { box-shadow: 1px 2px 1px var(--color-cta); } /* add styles in addition to props.ss */
   \`,
   trackPath: router.pathname,
   trackFeature: form.title,
 });
   
-// The markup remains legible, even though there are a many props on each element:
+// The markup remains legible, even though there are a many props and styles on each element:
   
 <MyButton icon={<Icon name="arrow-left" />} href="/" variant="text"> back</MyButton>
   
@@ -82,16 +93,12 @@ export const MyButton = withButton({
 />
 
 <Inline as="b" textcolor="accent">
-  🤓 The old and new props will be intelligently merged.
-</Inline> Style strings and classNames will be added. Other props will be replaced.{' '}
+  🤓 The old and new props will be combined.
+</Inline> Style strings and classNames will be added. Other props will be replaced.   
   
 If you're setting many props for several components, predefine all the common props, then override unique props per each intance. It's not just convenient, but makes for more readable and maintainable code.
-  
-There is simply no way to do this sort of thing with regular React and Styled Components. It makes more sense as you add more complexity. 
 
-<Block as="h2" ss="margin-top: 2rem;">3. Normal Styled Components or whatever you use</Block>
-
-The downside is that there is currently no IDE plugin that will add color syntax highlighting to those custom ss/ssLg/ssSm/etc "style strings" props. So that is your choice. As an alternative, you can always use the standard syntax. Or JSS, whatever system you use.
+<Block as="h2" ss="margin-top: 4rem;">3. Normal Styled Components</Block>
 
 <Code
   ss="font-size: 0.85rem;"
@@ -104,10 +111,6 @@ const StyledButton = styled(Button)\`
   \${props => props.theme.mq.desktopLarge} {
     /* use any props or theme variables inside your styled component template literal */
   }
-  
-  \${props => props.theme.mq.phoneSmall} {
-    /* use any props or theme variables inside your styled component template literal */
-  }
 \`;`} />
 
 **And even predefine props using the provided HOC:**
@@ -118,10 +121,7 @@ const StyledButton = styled(Button)\`
 import { withButton } from '@ps/ui/components/Button';
   
 const MyButton = withButton({
-  size: 'small',
-  round: true,
-  trackPath: router.pathname,
-  trackFeature: form.title,
+  ...myProps
 });
   
 const StyledButton = styled(MyButton)\`
@@ -130,58 +130,90 @@ const StyledButton = styled(MyButton)\`
   \${props => props.theme.mq.desktopLarge} {
     /* use any props or theme variables inside your styled component template literal */
   }
-  
-  \${props => props.theme.mq.phoneSmall} {
-    /* use any props or theme variables inside your styled component template literal */
-  }
 \`;`} />
 
-Using props inside styled-components template literals is super powerful!  
 
-<Block as="h2" ss="margin-top: 2rem;">You can also use props with those `ss`, `ssSm`, `ssPhoneSmall` props too!</Block>  
 
-They don't just accept strings, but functions too:
+<Block as="h4" ss="font-size: 2rem; font-weight: 600; margin: 4rem 0 0 0;">Use props and theme:</Block>  
+
+SS props don't just accept strings, but also:  
 
 - `string`
 - `Array<string>`
 - `(props:Props) => string`
 - `Array<((props:Props) => string)>`
+- the output of `css` template literal function from `styled-components`
 
-The custom `ss` props have the same magic functionality of styled-components template literals, but in a slightly different format... 
-
-Inside the `ss` prop template literals you can **NOT** do this:
-
-<Code
-  ss="font-size: 0.85rem;"
-  code={`\`
-  /* your styles here */
-  
-  \${props => props.theme.mq.desktopLarge} {
-    /* use any props or theme variables inside your styled component template literal */
-  }
-  
-  \${props => props.theme.mq.phoneSmall} {
-    /* use any props or theme variables inside your styled component template literal */
-  }
-\`;`} />
-
-But you **CAN** do this:
+To use props or theme variables inside your styled strings, pass a function that returns a string. The first argument to your function will be `props` from the component. It will contain the `theme` of your site.
 
 <Code
-  ss="font-size: 0.85rem;"
-  code={`ss: (props) => \`
+  ss="font-size: 0.85rem; pre > * { line-height: 2.5em; }"
+  code={`<Button ss={(props) => \`
   /* your styles here */
   
   \${props.theme.mq.desktopLarge} {
     /* use any props or theme variables inside your template literal */
   }
-  
-  \${props.theme.mq.phoneSmall} {
-    /* use any props or theme variables inside your template literal */
+\`} />`} />
+
+
+
+<Block as="h4" ss="font-size: 2rem; font-weight: 600; margin: 4rem 0 0 0;">Syntax highlighting:</Block>  
+
+SS props are NOT the same as styled-components template literal functions. So, your IDE will not color these like CSS. UNLESS...
+
+<Code 
+  ss="font-size: 0.85rem;"
+  code={`import styled, { css } from 'styled-components';
+
+<Block as="p" ss={css\`
+  /* THIS WILL BE syntax-HIGHLIGHTED by vscode-styled-components plugin (and others)! */
+\`}>
+  Wrap the string in a css\`...\` template literal to get syntax-highlighting to work.
+</Block>`} />
+
+
+
+<Block as="h4" ss="font-size: 2rem; font-weight: 600; margin: 4rem 0 0 0;">Limitations:</Block>
+
+Inside the `ss` prop template literals you can **NOT** do this:
+
+<Code
+  ss="font-size: 0.85rem;margin-bottom:0;"
+  code={`ss: \`
+  padding: 1rem \${(props) => props.theme.sizes.card.paddingX};
+  \${(props) => props.theme.mq.desktopLarge} {
+    padding: 1rem \${(props) => props.theme.sizes.card.paddingX * 2};
   }
 \`;`} />
 
-Slightly different format than the true `styled-components`, but gets the job done just as well.
+Not even when wrapping it in `css` from `styled-components`...
+  
+<br />
+  
+But you <strong>CAN</strong> do this:
+
+<Code
+  ss="font-size: 0.85rem;margin-bottom:1.5rem;"
+  code={`ss: (props) => \`
+  padding: 1rem \${props.theme.sizes.card.paddingX};
+  \${props.theme.mq.desktopLarge} {
+    padding: 1rem \${props.theme.sizes.card.paddingX * 2};
+  }
+\`;`} />
+
+Different format than the regular `styled-components`, but gets the job done.  
+
+<br />
+
+**It's actually even better, because **
+
+1. `theme` prop is added by default, 
+2. and you just add `(props) => ` once at the top instead of for every time you use any variable.
+
+<br />
+
+But if anyone knows how to (or wants to give it a shot), please please please reach out or contribute!
 
 </Wrapper>
 </ThemeProvider>

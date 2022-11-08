@@ -1,7 +1,7 @@
 import { memo, forwardRef, ReactElement } from 'react';
 import ReactModal, { ModalProps } from '@mui/material/Modal';
 import variants from '@ps/ui/components/Modal/styles';
-import withProps from '@ps/ui/hooks/withProps';
+import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import styleProps from '@ps/ui/types/styles';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
@@ -36,7 +36,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 export default memo(forwardRef(Component));
 
 export const withLink = (props: Props) =>
-  memo(withProps(forwardRef(Component), props));
+  memo(withCombinedProps(forwardRef(Component), props));
 
 // styled "ReactModal" can be overriden by passing props.as="article" or any HTML tag
 const StyledComponent = styled(ReactModal)`

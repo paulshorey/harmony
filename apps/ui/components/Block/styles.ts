@@ -12,6 +12,7 @@ export default {
 
   gradientOutline: `
     background: var(--color-bg-gradient);
+    padding: 1px;
     &::before {
       content: '';
       position: absolute;

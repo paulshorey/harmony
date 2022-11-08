@@ -1,8 +1,7 @@
-import Select, { Option } from '.';
+import Select, { Option, OptionProps } from '.';
 import React from 'react';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
-import type { SelectProps } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
@@ -57,11 +56,12 @@ const DemoOne = (props) => (
   />
 );
 
-const tags: SelectProps['options'] = [];
+const tags: OptionProps[] = [];
 for (let i = 10; i < 36; i++) {
   tags.push({
     value: i.toString(36) + i,
     label: i.toString(36) + i,
+    children: i.toString(36) + i,
   });
 }
 const DemoTags = (props) => (

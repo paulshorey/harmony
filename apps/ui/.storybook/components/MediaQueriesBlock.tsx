@@ -1,157 +1,211 @@
 import React from 'react';
 import Block, { withBlock } from '@ps/ui/components/Block';
-import Inline from '@ps/ui/components/Inline';
 
-const styles = {
-  container: `
-    border: solid 1px var(--color-accent);
-    margin: 1.5rem 0;
-  `,
-  mq: `
-    line-height: 2;
-    text-indent: 1rem;
-    display: none;
-    b {
-      padding-left: 1rem;
-      color: white;
-      opacity: 0.75;
-      font-weight: 400;
-    }
-  `
-}
+const Container = withBlock({
+  ss: `
+  margin: 1.5rem 0;
+  margin-top: 1.5rem; 
+`
+});
+const Border = withBlock({
+  variant:"gradientOutline",
+  bggradient:"rainbow",
+  ss: `
+  > * {
+    padding: 1rem; 
+    * {font-size: 1rem;line-height:1.5rem;}
+  }
+`
+});
 const Mq = withBlock({
   as: 'code',
-  ss: styles.mq,
+  ss: `
+  line-height: 2;
+  text-indent: 1rem;
+  display: none;
+  b {
+    padding-left: 1rem;
+    color: white;
+    opacity: 0.75;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+`,
 });
 const MediaQueriesDemo = () => (
-  <Block ss={styles.container}>
-    <Block as="p" >
-      These <span color="gold">props </span> apply to your current screen size (minus the Storybook sidebar):
-    </Block>
-    <p>
-      <code>{`<Block `}</code>
-      <Mq ss="display:block;">
-        ss <b>all sizes</b>
-      </Mq>
-      <Mq ssLg="display:block;">
-        ssLg <b>min-width 931px </b>
-      </Mq>
-      <Mq ssSm="display:block;">
-        ssSm <b>max-width 930px</b>
-      </Mq>
-      <Mq ssDesktop="display:block;">
-        ssDesktop <b>min-width 1025px</b>
-      </Mq>
-      <Mq ssMobile="display:block;">
-        ssMobile <b>max-width 1024px</b>
-      </Mq>
-      <Mq ssLargeTablet="display:block;">
-        ssLargeTablet <b>min-width 768px and max-width 1024px</b>
-      </Mq>
-      <Mq ssTablet="display:block;">
-        ssTablet <b>min-width 768px</b>
-      </Mq>
-      <Mq ssPhone="display:block;">
-        ssPhone <b>max-width 600px</b>
-      </Mq>
-      <Mq ssSmallPhone="display:block;">
-        ssSmallPhone <b>max-width 400px</b>
-      </Mq>
-      <Mq ssLargeDesktop="display:block;">
-        ssLargeDesktop <b>min-width 1440px</b>
-      </Mq>
-      <Mq ssVeryLargeDesktop="display:block;">
-        ssVeryLargeDesktop <b>min-width 1920px</b>
-      </Mq>
-      <Mq ssIPhone="display:block;">
-        ssIPhone <b>userAgent</b>
-      </Mq>
-      <Mq ssIPad="display:block;">
-        ssIPad <b>userAgent</b>
-      </Mq>
-      <Mq ssNotPhone="display:block;">
-        ssNotPhone <b>userAgent</b>
-      </Mq>
-      <Mq ssPortrait="display:block;">
-        ssPortrait <b>height &gt; width</b>
-      </Mq>
-      <Mq ssLandscape="display:block;">
-        ssLandscape <b>width &gt; height</b>
-      </Mq>
-      <Mq ssAndroid="display:block;">
-        ssAndroid <b>OS</b>
-      </Mq>
-      <Mq ssWindows="display:block;">
-        ssWindows <b>OS</b>
-      </Mq>
-      <Mq ssMac="display:block;">
-        ssMac <b>OS</b>
-      </Mq>
-      <Mq ssLinux="display:block;">
-        ssLinux <b>OS</b>
-      </Mq>
-      <Mq ssIframe="display:block;">
-        ssIframe <b>rendered inside iframe</b>
-      </Mq>
-      <Mq ssNotIframe="display:block;">
-        ssNotIframe <b>rendered in its own window, not iframe</b>
-      </Mq>
-      <Mq ssWebview="display:block;">
-        ssWebview <b>rendered in a WebView browser like in Facebook, Gmail, Instagram apps</b>
-      </Mq>
-      <Mq ssNotWebview="display:block;">
-        ssNotWebview <b>rendered in a normal browser</b>
-      </Mq>
-      <code>&gt;</code>
-      </p>
+<Container>
+  <Border>
+    <Block bgcolor="purple">
+
+      <Block as="p" >
+        <strong>These <code>props</code> would apply to your current screen size</strong> (minus the Storybook sidebar):
+      </Block>
+      <Block as="p" ss="font-size: 1.125rem;">
+        <code>{`<Block `}</code>
+        <Mq ss="display:block;">
+          ss <b>all sizes</b>
+        </Mq>
+        <Mq ssLg="display:block;">
+          ssLg <b>min-width 931px </b>
+        </Mq>
+        <Mq ssSm="display:block;">
+          ssSm <b>max-width 930px</b>
+        </Mq>
+        <Mq ssDesktop="display:block;">
+          ssDesktop <b>min-width 1025px</b>
+        </Mq>
+        <Mq ssMobile="display:block;">
+          ssMobile <b>max-width 1024px</b>
+        </Mq>
+        <Mq ssLargeTablet="display:block;">
+          ssLargeTablet <b>min-width 768px and max-width 1024px</b>
+        </Mq>
+        <Mq ssTablet="display:block;">
+          ssTablet <b>min-width 768px</b>
+        </Mq>
+        <Mq ssNotPhone="display:block;">
+          ssNotPhone <b>min-width 601px</b>
+        </Mq>
+        <Mq ssPhone="display:block;">
+          ssPhone <b>max-width 600px</b>
+        </Mq>
+        <Mq ssSmallPhone="display:block;">
+          ssSmallPhone <b>max-width 400px</b>
+        </Mq>
+        <Mq ssLargeDesktop="display:block;">
+          ssLargeDesktop <b>min-width 1440px</b>
+        </Mq>
+        <Mq ssVeryLargeDesktop="display:block;">
+          ssVeryLargeDesktop <b>min-width 1920px</b>
+        </Mq>
+        <Mq ssPortrait="display:block;">
+          ssPortrait <b>height &gt; width</b>
+        </Mq>
+        <Mq ssLandscape="display:block;">
+          ssLandscape <b>width &gt; height</b>
+        </Mq>
+        {/* 
+        <Mq ssIPhone="display:block;">
+          ssIPhone <b>userAgent</b>
+        </Mq>
+        <Mq ssIPad="display:block;">
+          ssIPad <b>userAgent</b>
+        </Mq>
+        <Mq ssAndroid="display:block;">
+          ssAndroid <b>OS</b>
+        </Mq>
+        <Mq ssWindows="display:block;">
+          ssWindows <b>OS</b>
+        </Mq>
+        <Mq ssMac="display:block;">
+          ssMac <b>OS</b>
+        </Mq>
+        <Mq ssLinux="display:block;">
+          ssLinux <b>OS</b>
+        </Mq>
+        <Mq ssIframe="display:block;">
+          ssIframe <b>rendered inside iframe</b>
+        </Mq>
+        <Mq ssNotIframe="display:block;">
+          ssNotIframe <b>rendered in its own window, not iframe</b>
+        </Mq>
+        <Mq ssWebview="display:block;">
+          ssWebview <b>rendered in a WebView browser like in Facebook, Gmail, Instagram apps</b>
+        </Mq>
+        <Mq ssNotWebview="display:block;">
+          ssNotWebview <b>rendered in a normal browser</b>
+        </Mq> */}
+        <code>&gt;</code>
+      </Block>
       <p>
-          ☝️ Resize your screen. It's responsive. There are many preconfigured breakpoints. Not all get rendered, only the ones you specify. 
-</p>
-        <p>
-        <span>
-          <span className="noWrap">
-            💅 Pass a css string (to style something quickly, inline) - or a
-            function
-          </span>
-          <span className="noWrap">
-            that accepts theme as first argument and returns a string.
-          </span>{' '}
-          Use theme.instance to get color/shade/size of the current component.{' '}
-        </span>
-      </p><p>
-  <Inline textgradient="rainbow">
-    You don't have to use props or strings. Use EmotionJS Styled Components and functions. Each one can read the component's props and the app's theme. </Inline><a href="" target="_blank" style={{color:'white',opacity: '0.75'}} >Read more about styled components, functions, and variables.</a>
-    </p>
-      {/* <Block as="p" ssIframe="display:none;">
-        <span className="gold">
-          ⚠️ There used to be a paragraph in this spot. But now it's gone!
-        </span>{' '}
-        That was just an easy media query to check for iframe:{' '}
-        <code>
-          {`<`}Block as="p" ssNotIframe="display:none"{`>`}
-        </code>
-        . There are similar ones for WebView, Portrait mode, etc.
-      </Block> */}
-      {/* <Block as="p" ssNotIframe="display:none;">
-        <span className="gold">
-          😭 The values above may not reflect your true screen size...{' '}
-        </span>
-        <span>
-          Because this content is inside an iframe. Width of the sidebar is
-          subtracted.{' '}
-        </span>
-        <span>
-          <a
-            href="iframe.html?id=5--better-media-queries&viewMode=story"
-            target="_blank"
-            className="orange"
-          >
-            Open this component in its own tab
-          </a>.{' '}
-          Then, look back at this paragraph! 😏
-        </span>
-      </Block> */}
+        ☝️ Resize your screen. It's responsive.
+      </p>
+    </Block>
+  </Border>
+  
+  <Block as="p" ss="font-size: 1.125rem;">
+    <br />
+    Here are all of them:
+    <br />
+    <code>{`<Block `}</code>
+    <Mq ss="display:block;">
+      ss <b>all sizes</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssLg <b>min-width 931px </b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssSm <b>max-width 930px</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssDesktop <b>min-width 1025px</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssMobile <b>max-width 1024px</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssLargeTablet <b>min-width 768px and max-width 1024px</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssTablet <b>min-width 768px</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssNotPhone <b>min-width 601px</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssPhone <b>max-width 600px</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssSmallPhone <b>max-width 400px</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssLargeDesktop <b>min-width 1440px</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssVeryLargeDesktop <b>min-width 1920px</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssPortrait <b>height &gt; width</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssLandscape <b>width &gt; height</b>
+    </Mq>
+    {/* 
+    <Mq ss="display:block;">
+      ssIPhone <b>userAgent</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssIPad <b>userAgent</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssAndroid <b>OS</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssWindows <b>OS</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssMac <b>OS</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssLinux <b>OS</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssIframe <b>rendered inside iframe</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssNotIframe <b>rendered in its own window, not iframe</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssWebview <b>rendered in a WebView browser like in Facebook, Gmail, Instagram apps</b>
+    </Mq>
+    <Mq ss="display:block;">
+      ssNotWebview <b>rendered in a normal browser</b>
+    </Mq> */}
+    <code>&gt;</code>
+    <br />
+    More coming soon. Currently testing and optimizing ones for OS, userAgent, iFrame, and WebView.
   </Block>
+</Container>
 );
 
 export default MediaQueriesDemo;

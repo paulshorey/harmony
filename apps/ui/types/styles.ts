@@ -1,6 +1,7 @@
 import { styledTags as styledTagsImport } from './html';
+import { Interpolation } from 'styled-components/dist/types';
 
-import { SerializedStyles } from '@emotion/serialize';
+type cssReturnType = Interpolation<any> | null | undefined;
 
 export type styledTags = styledTagsImport;
 
@@ -8,9 +9,7 @@ export type ssProp =
   | string
   | ((props) => string)
   | Array<string | ((props) => string)>
-  | SerializedStyles
-  | Array<SerializedStyles>
-  | ((props) => SerializedStyles);
+  | cssReturnType;
 
 /**
  * Props used by this UI library

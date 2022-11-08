@@ -15,16 +15,6 @@ export default function Home() {
           fallbackSrc="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-city-paul.jpg"
           alt="test"
         />
-        <p>
-          <input placeholder="Hit Tab key to focus inside each field on this page." />
-        </p>
-        <p>
-          <textarea>
-            Ideally, the focus should be trapped inside the modal while the
-            modal is opened. Hitting tab should navigate the form fields inside
-            the modal.
-          </textarea>
-        </p>
         <Modal
           open={isOpen}
           onClose={() => {
@@ -54,15 +44,6 @@ export default function Home() {
             Open modal
           </Button>
         </Box>
-        <p>
-          <textarea>
-            Then, after the modal has closed, the focus should be returned to
-            the button that opened the modal.
-          </textarea>
-        </p>
-        <p>
-          <input placeholder="Another input field to test focus with." />
-        </p>
       </FullpageLayout>
     </main>
   );

@@ -11,7 +11,7 @@ import variants from '@ps/ui/components/Button/styles';
 import cssModule from '@ps/ui/components/Button/index.module.css';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
 import MuiButton from '@mui/material/Button';
-import withProps from '@ps/ui/hooks/withProps';
+import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
 
@@ -118,7 +118,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
 export default memo(forwardRef(Component));
 
 export const withButton = (props: Props) =>
-  memo(withProps(forwardRef(Component), props));
+  memo(withCombinedProps(forwardRef(Component), props));
 
 // styled "MuiButton" can be overriden by passing props.as="article" or any HTML tag
 const StyledComponent = styled(MuiButton)`

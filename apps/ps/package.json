@@ -12,7 +12,6 @@
     "serve-storybook": "serve storybook-static"
   },
   "dependencies": {
-    "styled-components": "6.0.0-beta.2",
     "@floating-ui/react-dom": "^1.0.0",
     "@fortawesome/fontawesome-pro": "^6.2.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
@@ -40,6 +39,7 @@
     "react-prism-editor": "^1.1.2",
     "react-redux": "^8.0.4",
     "sass": "^1.55.0",
+    "styled-components": "6.0.0-beta.2",
     "zustand": "^4.1.3"
   },
   "devDependencies": {
@@ -51,6 +51,7 @@
     "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/react": "^6.5.12",
     "babel-loader": "^8.2.3",
+    "babel-plugin-styled-components": "^2.0.7",
     "next-build-id": "^3.0.0",
     "sass": "^1.55.0",
     "serve": "^13.0.2",

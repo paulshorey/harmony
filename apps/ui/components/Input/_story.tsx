@@ -3,7 +3,7 @@ import Input from '@ps/ui/components/Input';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
-import { Popover } from 'antd';
+import Popover from 'antd/es/popover';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 
 const InputStory = (props) => {

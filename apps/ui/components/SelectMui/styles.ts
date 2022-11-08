@@ -1,7 +1,5 @@
-import { css } from '@emotion/react';
-
 export default {
-  default: (props) => css`
+  default: (props) => `
     // Normal colors
     color: var(--color-text) !important;
     * {
