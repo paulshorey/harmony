@@ -40,6 +40,12 @@ const Wrapper = ({ children, ...props }) => {
   width:100%;
   padding: 3.1rem 5vw 100px;
 
+  /* So custom components will match styles applied by Storybook to markdown elements */
+  * {
+  font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  }
+
   &,
   p {
   font-size: 1rem;

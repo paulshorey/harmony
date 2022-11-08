@@ -19,7 +19,7 @@ This is a development kit
 for bootstrapping and maintaining a <Inline as="b" textgradient="rainbow"> custom branded component library</Inline>. 
 
 <Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
-<Inline as="h2" textgradient="accent">1.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">pre-configured mono repo apps and modules</Inline> <Inline ss="font-size:1rem;font-weight:200;"> - even with TurboRepo, getting everything to work together is hard!</Inline>
+<Inline as="h2" textgradient="accent">1.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">pre-configured mono-repo apps and modules</Inline> <Inline ss="font-size:1rem;"> - even with TurboRepo, getting everything to work together is hard!</Inline>
 </Block>
 
 <Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
@@ -83,12 +83,12 @@ const Demo = withBlock({ ss: 'display:none;' });
   code={`// 1. Use the provided named export to pre-define props:
 import { withButton } from '@ps/ui/components/Button';
 const Button = withButton({
-  ...props,
   size: 'sm',
   icon: <FontAwesomeIcon icon={faUser} />,
-  ss: 'margin: 0 0.875rem 0.875rem 0;',
+  ss: 'margin: 0 0.875rem 0.875rem 0; /* The ss props also accept function or array types */',
   onClick: () => alert('clicked!'),
 });
+  
 // 2. Use your component. Pass unique props per instance:
 <Button loading>
   Loading
@@ -99,10 +99,10 @@ const Button = withButton({
 <Button variant="text">
   Text
 </Button>
-<Button round />`} />
+<Button round ss="&::before { content: 'These unique styles will be added to the predefined style strings'; }" />`} />
 
 
-**You don't have to use style strings.** That's just for convenience. Also for convenience...
+**You don't have to use style strings.** That's just for convenience. Also for convenience, if you pass a function instead of string, then your site theme will be automatically available as a prop!
 
 <Code
   variant="transparentDark"
@@ -110,9 +110,7 @@ const Button = withButton({
 
 <!--Or use your own preferred solution such as <CodeInline variant="text" code={`props.style`} />, <CodeInline variant="text" code={`props.className`} />, <CodeInline variant="text" code={`props.css`} /> or <CodeInline variant="text" code={`props.sx`} />. -->
   
-This library does not use Emotion's preferred <CodeInline variant="text" code={`props.css`} /> because it's not portable. It would have to be set up by every app. But since the css prop actually gets compiled to a standard className, you can always choose use it in your app.
-
-<a href="http://localhost:6006/?path=/docs/core-styled-components--page" target="_top">Read more</a> about styled components, <CodeInline variant="text" code={`props.ss`} /> shortcuts, and using <CodeInline variant="text" code={`cascading styles`} /> to color elements' text and background.
+[Read more about styles and props](/docs/get-started-styles-and-props--page), styled components, <CodeInline variant="text" code={`props.ss`} /> shortcuts, and [cascading styles and colors](/docs/core-styled-components--page).
 
 <br />
 <br />
