@@ -18,9 +18,9 @@
   color-scheme: dark;
   --color-bg: #333;
   --color-bg-gradient: radial-gradient(
-    50% 50% at top center,
+    75% 75% at top center,
     hsla(257, 42%, 28%, 75%),
-    hsla(257, 42%, 28%, 95%)
+    hsla(257, 42%, 28%, 85%)
   );
 
   --color-text: hsla(0, 0%, 94%, 94%);
@@ -50,9 +50,9 @@
 
   --color-text: hsla(0, 0%, 20%, 93%);
   --color-text-gradient: radial-gradient(
-    50% 50% at top center,
+    75% 75% at top center,
     hsla(257, 42%, 28%, 75%),
-    hsla(257, 42%, 28%, 95%)
+    hsla(257, 42%, 28%, 85%)
   );
   --color-glow: hsla(272, 51%, 54%, 0.25);
   --color-cta: hsl(194deg 94% 46%);
@@ -60,16 +60,8 @@
 }
 
 /*
- * Medium
+ * Dark
  */
-/* [data-textcolor='grey'] {
-  --color-text: #565656;
-  --color-text-gradient: linear-gradient(333deg, #555, #666);
-}
-[data-bgcolor='grey'] {
-  --color-bg: #565656;
-  --color-bg-gradient: linear-gradient(333deg, #555, #666);
-} */
 
 /*
  * Purple

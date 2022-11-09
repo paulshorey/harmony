@@ -35,20 +35,19 @@ export default {
         line-height: calc(${props.theme.header.height} - 2rem);
         display: inline-flex;
         margin-right: 1rem;
-        &:nth-child(3) {
-          margin-right: 0;
-        }
       }
     `,
   },
   ToggleMenu: {
     componentName: 'ToggleMenu',
-    textcolor: 'light',
     bggradient: 'purple',
+    textcolor: 'light',
     ss: (props) => css`
       border-radius: 0.5rem;
       padding: 1rem;
-      margin: 0;
+      /* margin: 0.25rem 0 0 0; */
+      background-color: transparent;
+      backdrop-filter: blur(10px);
       a {
         display: block;
         padding: 0.25rem 0.5rem;

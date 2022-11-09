@@ -34,7 +34,7 @@ export default {
     letter-spacing: 0.33px;
     min-width: 100px;
 
-    box-shadow: inset 1px 1px 0 0 hsl(0, 0%, 0%, 0.25); 
+    box-shadow: inset 1px 1px 0 0 hsl(0, 0%, 0%, 0.3);
     &:focus,
     &:focus-within,
     &:focus-visible {

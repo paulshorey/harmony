@@ -23,9 +23,6 @@ const Wrapper = ({ children, ...props }) => {
 `;
 
   const selfCSS = `
-  * {
-    border: solid 5px orange !important;
-  }
   .docs-story > * { 
     margin: 0 !important;
     padding: 0 !important;

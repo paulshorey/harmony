@@ -24,7 +24,7 @@ const ui = create(
           colorscheme: 'light',
           bggradient: 'light',
           bgcolor: 'light',
-          textcolor: 'dark',
+          textcolor: 'purple',
         },
         {
           colorscheme: 'dark',
@@ -50,7 +50,7 @@ const ui = create(
       },
     }),
     {
-      name: 'ui-cache2',
+      name: 'ui-cache3',
     }
   )
 );

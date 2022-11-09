@@ -15,7 +15,7 @@ import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_fr
 import style_data_set from '@ps/ui/helpers/style_data_set';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
-  href: string;
+  href?: string;
   /**
    * For analytics record - where in the site/page the click happened.
    */

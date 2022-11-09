@@ -1,3 +1,4 @@
+import React from 'react';
 import { styledTags as styledTagsImport } from './html';
 import { Interpolation } from 'styled-components/dist/types';
 
@@ -19,7 +20,7 @@ export type styleProps = {
   /**
    * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged.
    */
-  as?: string;
+  as?: string | React.ComponentType<any>;
   /**
    * Each component has a `variants.ts` file in its folder - it sets the styles for the component. Variant is also used by the JS code to set logic/layout/markup of the component.
    */

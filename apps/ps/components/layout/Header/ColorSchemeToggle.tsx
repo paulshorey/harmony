@@ -4,7 +4,7 @@ import Inline from '@ps/ui/components/Inline';
 
 const style = {
   tabIndex: 0,
-  ss: `margin-left: 0.875rem; cursor:pointer;`,
+  ss: `margin-left: 0.875rem; cursor:pointer; user-select: none;`,
   ssSmallPhone: `display:none;`,
 };
 

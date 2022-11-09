@@ -49,7 +49,7 @@ export default {
      */
     &.ant-input {
       outline: none;
-      padding: 0 ${paddingX(props, 1)}rem;
+      padding: 0 ${paddingX(props, 1)}rem !important;
     }
 
     /*
@@ -61,7 +61,7 @@ export default {
       border: none;
       background: transparent;
       margin: 1px 0 0;
-      padding: 0 ${paddingX(props, 1)}rem;
+      padding: 0 ${paddingX(props, 1)}rem !important;
     }
 
     &,

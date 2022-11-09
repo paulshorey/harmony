@@ -11,7 +11,9 @@ export default (...args) => {
   let output = '';
   // prepend the next literal to each next template string
   for (let i = 0; i < template.length; i++) {
-    output += template[i] + (literals[i] || '');
+    output +=
+      template[i] +
+      (['string', 'number'].includes(typeof literals[i]) ? literals[i] : '');
   }
   return output;
 };

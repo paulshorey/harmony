@@ -20,7 +20,8 @@ const HeaderLayout = () => {
       </Logo>
       <Nav>
         <Dropdown
-          right
+          ss="margin-right:1.33rem;"
+          left
           menu={
             <ToggleMenu>
               <div>
@@ -41,7 +42,7 @@ const HeaderLayout = () => {
           </Link>
         </Dropdown>
         <Dropdown
-          right
+          ss="margin-right:1.25rem;"
           menu={
             <ToggleMenu>
               <div>
@@ -55,9 +56,9 @@ const HeaderLayout = () => {
           }
         >
           <Link href="#">
-            <span className="noWrap">guides&thinsp;&amp;</span>&thinsp;
+            <span className="noWrap">docs&thinsp;&amp;</span>&thinsp;
             <span className="noWrap">
-              docs <FA icon={regular('angle-down')} />
+              notes <FA icon={regular('angle-down')} />
             </span>
           </Link>
         </Dropdown>

@@ -114,6 +114,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   const ChildrenWithRipple = withRipple({ children: Children });
   return (
     <StyledComponent
+      tabIndex={0}
       {...props}
       {...styleDataSet}
       ref={ref}
@@ -144,8 +145,8 @@ export default memo(forwardRef(Component));
 export const withButton = (props: Props) =>
   memo(withCombinedProps(forwardRef(Component), props));
 
-// styled "div" can be overriden by passing props.as="article" or any HTML tag
-const StyledComponent = styled.div`
+// styled "button" can be overriden by passing props.as="article" or any HTML tag
+const StyledComponent = styled.button`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
