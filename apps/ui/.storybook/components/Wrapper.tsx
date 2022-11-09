@@ -39,7 +39,11 @@ const Wrapper = ({ children, ...props }) => {
   left:0;
   width:100%;
   padding: 3.1rem 5vw 100px;
-  font-size: 1rem;
+
+  &,
+  p {
+    font-size: 1rem;
+  }
 
   /* So custom components will match styles applied by Storybook to markdown elements */
   * {
@@ -123,14 +127,14 @@ const Wrapper = ({ children, ...props }) => {
     }
     // STORY FRAME
     {
-      let el = window.selfCSS?.document.getElementById(
+      let el = window.self?.document.getElementById(
         'storybook-customized-css'
       );
       if (!el) {
         const style = document.createElement('style');
         style.id = 'storybook-selfCSS-change-css';
         style.innerHTML = selfCSS;
-        window.selfCSS?.document.body.appendChild(style);
+        window.self?.document.body.appendChild(style);
       }
     }
   }, []);

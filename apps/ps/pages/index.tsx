@@ -1,4 +1,4 @@
-import HomeTemplate from 'components/pages/Home';
+import HomeTemplate from 'components/templates/Home';
 import Head from 'next/head';
 
 export default function HomePage() {

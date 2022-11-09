@@ -8,7 +8,7 @@ import theme from '@ps/ui/styles/theme';
 // Optional - global styles:
 import fonts from '@ps/ui/styles/global/fonts';
 import html from '@ps/ui/styles/global/html';
-import layout from '@ps/ui/styles/global/layout';
+import classes from '../../styles/global/classes';
 // Optional - MaterialUI Theme
 import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material';
 // Optional - Customize Material UI theme
@@ -31,7 +31,7 @@ const darkTheme = createTheme({
 const GlobalCSS = createGlobalStyle`
   ${fonts(theme)};
   ${html(theme)};
-  ${layout(theme)};
+  ${classes(theme)};
 `;
 
 const ThemeProvider = ({ children }) => {

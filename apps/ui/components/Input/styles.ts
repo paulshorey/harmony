@@ -20,11 +20,7 @@ export default {
     letter-spacing: 0.33px;
     background: white;
     ${borderRadius(props)};
-    &:focus,
-    &:focus-within,
-    &:focus-visible {
-      box-shadow: 0 0 0 2px var(--color-cta);
-    }
+
     overflow: visible;
     position: relative;
     display: inline-flex;
@@ -39,6 +35,13 @@ export default {
     input::placeholder,
     [role='img'] {
       color: #999 !important;
+    }
+
+    box-shadow: inset 1px 1px 0 0 hsl(0, 0%, 0%, 0.25);
+    &:focus,
+    &:focus-within,
+    &:focus-visible {
+      box-shadow: 0 0 0 2px var(--color-cta);
     }
 
     /*

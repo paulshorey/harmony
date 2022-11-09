@@ -8,12 +8,13 @@ import React, {
 import styleProps from '@ps/ui/types/styles';
 import Block from '@ps/ui/components/Block';
 import variants from '@ps/ui/components/Button/styles';
-import cssModule from '@ps/ui/components/Button/index.module.css';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
-import MuiButton from '@mui/material/Button';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
+import style_data_set from '@ps/ui/helpers/style_data_set';
+// import MuiButton from '@mui/material/Button';
+import withRipple from './withRipple';
 
 export type Props = {
   /**
@@ -109,9 +110,12 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   if (!ref) {
     ref = createRef();
   }
+  const styleDataSet = style_data_set('Button', props);
+  const ChildrenWithRipple = withRipple({ children: Children });
   return (
     <StyledComponent
       {...props}
+      {...styleDataSet}
       ref={ref}
       onClick={(e) => {
         if (onClick) {
@@ -123,10 +127,10 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
     >
       {props.textgradient ? (
         <Block as="span" textgradient={props.textgradient}>
-          {Children}
+          {ChildrenWithRipple}
         </Block>
       ) : (
-        Children
+        ChildrenWithRipple
       )}
     </StyledComponent>
   );
@@ -140,13 +144,11 @@ export default memo(forwardRef(Component));
 export const withButton = (props: Props) =>
   memo(withCombinedProps(forwardRef(Component), props));
 
-// styled "MuiButton" can be overriden by passing props.as="article" or any HTML tag
-const StyledComponent = styled(MuiButton)`
+// styled "div" can be overriden by passing props.as="article" or any HTML tag
+const StyledComponent = styled.div`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
-      componentName: 'Button',
       variants,
-      cssModule,
     })}
 `;

@@ -5,16 +5,19 @@ import styleProps from '@ps/ui/types/styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
+import style_data_set from '@ps/ui/helpers/style_data_set';
 
 export type Props = CodeProps & styleProps & HTMLAttributes<HTMLDivElement>;
 
 export const Component: (props: Props, ref?: any) => ReactElement = (
-  { code, collapsed, showNumbers, language, prismTheme, ...props },
+  { title, code, collapsed, showNumbers, language, prismTheme, ...props },
   ref
 ) => {
+  const styleDataSet = style_data_set('Code', props);
   return (
-    <StyledComponent ref={ref} {...props}>
+    <StyledComponent ref={ref} {...props} {...styleDataSet}>
       <CodeComponent
+        title={title}
         code={code}
         variant={props.variant}
         language={language}
@@ -39,7 +42,6 @@ const StyledComponent = styled.div`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
-      componentName: 'Code',
       variants,
     })}
 `;

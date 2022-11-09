@@ -6,6 +6,7 @@ import styleProps from '@ps/ui/types/styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
+import style_data_set from '@ps/ui/helpers/style_data_set';
 
 export type Props = styleProps & // ButtonProps & // InputProps & // TODO: would be nice to figure out how to forward props to children elements!
   HTMLAttributes<HTMLDivElement>;
@@ -14,8 +15,9 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   { children, ...props },
   ref
 ) => {
+  const styleDataSet = style_data_set('InputGroup', props);
   return (
-    <StyledComponent ref={ref} {...props}>
+    <StyledComponent ref={ref} {...props} {...styleDataSet}>
       {children}
     </StyledComponent>
   );
@@ -34,7 +36,6 @@ const StyledComponent = styled.div`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
-      componentName: 'InputGroup',
       variants,
     })}
 `;

@@ -1,10 +1,11 @@
-import { memo, forwardRef, ReactElement } from 'react';
+import React, { memo, forwardRef, ReactElement } from 'react';
 import ReactModal, { ModalProps } from '@mui/material/Modal';
 import variants from '@ps/ui/components/Modal/styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import styleProps from '@ps/ui/types/styles';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
+import style_data_set from '@ps/ui/helpers/style_data_set';
 
 export type Props = {
   open: boolean;
@@ -16,6 +17,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   { open, onClose, ...props },
   ref
 ) => {
+  const styleDataSet = style_data_set('Modal', props);
   return (
     <StyledComponent
       ref={ref}
@@ -26,6 +28,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
       {...props}
+      {...styleDataSet}
     />
   );
 };
@@ -43,7 +46,6 @@ const StyledComponent = styled(ReactModal)`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
-      componentName: 'Modal',
       variants,
     })}
 `;

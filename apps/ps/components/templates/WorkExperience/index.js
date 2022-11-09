@@ -4,23 +4,23 @@ import styled from 'styled-components';
 import { LuminousGallery } from 'luminous-lightbox';
 import 'luminous-lightbox/dist/luminous-basic.css';
 import HorizontalCarousel from 'horizontal_carousel/src';
-import Wordio from 'components/pages/WorkExperience/Wordio';
+import Wordio from 'components/templates/WorkExperience/Wordio';
 import dynamic from 'next/dynamic';
 
 const OpenSource = dynamic(
-  () => import('components/pages/WorkExperience/OpenSource'),
+  () => import('components/templates/WorkExperience/OpenSource'),
   {
     ssr: false,
   }
 );
 const BL = dynamic(
-  () => import('components/pages/WorkExperience/BeyondLimits'),
+  () => import('components/templates/WorkExperience/BeyondLimits'),
   {
     ssr: false,
   }
 );
 const PP = dynamic(
-  () => import('components/pages/WorkExperience/PastProjects'),
+  () => import('components/templates/WorkExperience/PastProjects'),
   {
     ssr: false,
   }

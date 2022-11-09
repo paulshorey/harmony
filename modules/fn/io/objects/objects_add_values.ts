@@ -14,7 +14,6 @@ export default function objects_add_values(
   key?: string
 ): any {
   // The order of each if statement is important.
-  if (!val1 && !val2) return null; // What is the ideal way to handle this?
   if (!val1 && val2) return val2;
   if (val1 && !val2) return val1;
   if (val1 === val2) return val1;

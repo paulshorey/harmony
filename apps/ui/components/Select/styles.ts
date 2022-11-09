@@ -20,11 +20,7 @@ export default {
     .ant-select-selector {
       ${borderRadius(props)};
     }
-    &:focus,
-    &:focus-within,
-    &:focus-visible {
-      box-shadow: 0 0 0 2px var(--color-cta);
-    }
+
     overflow: visible;
     position: relative;
     display: inline-flex;
@@ -38,6 +34,13 @@ export default {
     letter-spacing: 0.33px;
     min-width: 100px;
 
+    box-shadow: inset 1px 1px 0 0 hsl(0, 0%, 0%, 0.25); 
+    &:focus,
+    &:focus-within,
+    &:focus-visible {
+      box-shadow: 0 0 0 2px var(--color-cta);
+    }
+    
     // placeholder color
     &,
     input {

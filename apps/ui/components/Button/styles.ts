@@ -134,6 +134,29 @@ export default {
       }rem;
     `
     }
+
+    .withRipple_container {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .withRipple {
+      position: relative;
+      display: inline-block;
+      background-color: var(--color-text);
+      border-radius: 50%;
+      pointer-events: none;
+      position: absolute;
+      transform: scale(0);
+    }
+    .withRipple_start {
+      transform: scale(0.2);
+    }
+    .withRipple_active {
+      transform: scale(2);
+      transition: transform 700ms, opacity 700ms;
+      opacity: 0.2;
+    }
   `,
   outlined: (props) => `
     background: transparent;

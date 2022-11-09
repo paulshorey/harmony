@@ -11,8 +11,8 @@ import variants from './styles';
 import styleProps from '@ps/ui/types/styles';
 import styled, { useTheme } from 'styled-components';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import { Theme } from '@ps/ui/styles/theme';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
+import style_data_set from '@ps/ui/helpers/style_data_set';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -35,7 +35,7 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   },
   ref
 ) => {
-  const theme: Theme = useTheme();
+  const theme = useTheme();
   // const contextPage = useContext(PageContext) || {};
   // const contextABTest = useContext(ABTestContext) || {};
   // fix attributes
@@ -77,11 +77,13 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   };
 
   // use router component?
-  const RouterLink = theme.RouterLink;
+  const RouterLink = theme?.RouterLink;
   // base HTML element
+  const styleDataSet = style_data_set('Link', props);
   const A = (
     <StyledComponent
       {...props}
+      {...styleDataSet}
       ref={ref}
       rel={rel}
       target={target}
@@ -118,7 +120,6 @@ const StyledComponent = styled.a`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
-      componentName: 'Link',
       variants,
     })}
 `;

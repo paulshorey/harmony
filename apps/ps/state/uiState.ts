@@ -1,9 +1,19 @@
 import { persist } from 'zustand/middleware';
 import create from 'zustand';
 
-export type uiStateType = any;
+export type uiStateType = {
+  colorSchemes: Array<{
+    bggradient: string;
+    textcolor: string;
+    colorscheme: string;
+  }>;
+  colorSchemeIndex: number;
+  colorSchemeIndexToggle: () => void;
+  clicks: number;
+  clicksIncrement: () => void;
+};
 
-export default create(
+const ui = create(
   persist(
     (set, get) => ({
       /*
@@ -11,11 +21,15 @@ export default create(
        */
       colorSchemes: [
         {
+          colorscheme: 'light',
           bggradient: 'light',
+          bgcolor: 'light',
           textcolor: 'dark',
         },
         {
+          colorscheme: 'dark',
           bggradient: 'purple',
+          bgcolor: 'purple',
           textcolor: 'light',
         },
       ],
@@ -36,7 +50,9 @@ export default create(
       },
     }),
     {
-      name: 'ui-cache',
+      name: 'ui-cache2',
     }
   )
 );
+
+export default ui;

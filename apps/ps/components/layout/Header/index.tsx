@@ -1,47 +1,68 @@
 import { withBlock } from '@ps/ui/components/Block';
-import uiState, { uiStateType } from 'state/uiState';
-import styled, { css } from 'styled-components';
+import Dropdown from '@ps/ui/components/Dropdown';
+import Link from '@ps/ui/components/Link';
+import ColorSchemeToggle from './ColorSchemeToggle';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import { regular } from '@fortawesome/fontawesome-svg-core/import.macro';
+import styles from './styles';
 
-const Toggle = styled(withBlock({ as: 'span' }))``;
-
-const Header = withBlock({
-  as: 'header',
-  ss: css`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 45px; /* same as height of header in notion.so published pages (https://techytools.notion.site/techytools/Docs-sites-2c377bf61ba6454fb607e52b07171015) */
-    /* position: absolute; */
-    /* width: 100%; */
-    display: flex;
-    justify-content: space-between;
-  `,
-});
-
-const Nav = styled(withBlock({ as: 'nav' }))`
-  display: flex;
-  > * {
-    display: inline-flex;
-    margin-right: 1rem;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-`;
+const Header = withBlock(styles.Header);
+const Nav = withBlock(styles.Nav);
+const ToggleMenu = withBlock(styles.ToggleMenu);
+const Logo = withBlock(styles.Logo);
 
 const HeaderLayout = () => {
-  const ui = uiState((state) => state as uiStateType);
   return (
     <Header>
-      <span>logo</span>
-
+      <Logo>
+        <span>👋 </span>
+        {/* <span>Hi</span> */}
+      </Logo>
       <Nav>
-        <a>experience &amp; experiements</a>
-        <a>guides &amp; docs</a>
-        <a>about me</a>
-
-        <Toggle onClick={ui.colorSchemeIndexToggle}>Toggle</Toggle>
+        <Dropdown
+          right
+          menu={
+            <ToggleMenu>
+              <div>
+                <Link href="#">oneasdfsdfdfdfdfddfadsfdfdfsd</Link>
+                <Link href="#">two</Link>
+                <Link href="#">three</Link>
+                <Link href="#">four</Link>
+                <Link href="#">five</Link>
+              </div>
+            </ToggleMenu>
+          }
+        >
+          <Link href="#">
+            <span className="noWrap">experience&thinsp;&amp;</span>&thinsp;
+            <span className="noWrap">
+              experiments <FA icon={regular('angle-down')} />
+            </span>
+          </Link>
+        </Dropdown>
+        <Dropdown
+          right
+          menu={
+            <ToggleMenu>
+              <div>
+                <Link href="#">oneasdfsdfdfdfdfddfadsfdfdfsd</Link>
+                <Link href="#">two</Link>
+                <Link href="#">three</Link>
+                <Link href="#">four</Link>
+                <Link href="#">five</Link>
+              </div>
+            </ToggleMenu>
+          }
+        >
+          <Link href="#">
+            <span className="noWrap">guides&thinsp;&amp;</span>&thinsp;
+            <span className="noWrap">
+              docs <FA icon={regular('angle-down')} />
+            </span>
+          </Link>
+        </Dropdown>
+        <Link href="#">about me</Link>
+        <ColorSchemeToggle />
       </Nav>
     </Header>
   );

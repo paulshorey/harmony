@@ -159,9 +159,6 @@
  * 2. <a data-textcolor="cta" href="">
  * NOTICE: This sets the text color for all anchor tags in the site.
  */
-[data-colorscheme='dark'] a,
-[data-colorscheme='dark'] a:hover,
-[data-colorscheme='dark'] a:focus,
 [data-colorscheme='dark'] [data-textcolor='cta'] {
   --color-text: var(--color-cta);
   --color-text-gradient: linear-gradient(
@@ -182,9 +179,6 @@
     hsl(39, 100%, 50%)
   );
 }
-[data-colorscheme='light'] a,
-[data-colorscheme='light'] a:hover,
-[data-colorscheme='light'] a:visited,
 [data-colorscheme='light'] [data-textcolor='cta'] {
   --color-text: var(--color-cta);
   --color-text-gradient: linear-gradient(
@@ -193,9 +187,6 @@
     hsl(171, 60%, 34%)
   );
 }
-[data-colorscheme='light'] a,
-[data-colorscheme='light'] a:hover,
-[data-colorscheme='light'] a:visited,
 [data-colorscheme='light'] [data-bgcolor='cta'] {
   --color-bg: var(--color-cta);
   --color-bg-gradient: linear-gradient(

@@ -1,7 +1,6 @@
 import React, { forwardRef, memo } from 'react';
 import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Select/styles';
-import cssModule from './index.module.css';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
@@ -9,6 +8,7 @@ import SelectAnt, {
   SelectProps as AntSelectProps,
   OptionProps as AntOptionProps,
 } from 'antd/es/select';
+import style_data_set from '@ps/ui/helpers/style_data_set';
 
 type OptionProps = {
   value: string;
@@ -29,7 +29,8 @@ type OptionProps = {
 export type Props = styleProps & AntSelectProps;
 
 export const Component = ({ ...props }: Props, ref?: any) => {
-  return <StyledComponent {...props} ref={ref} />;
+  const styleDataSet = style_data_set('Select', props);
+  return <StyledComponent {...props} {...styleDataSet} ref={ref} />;
 };
 
 // for convenience, export antd option and props, so user does not have to import from antd
@@ -50,8 +51,6 @@ const StyledComponent = styled(SelectAnt)`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
-      componentName: 'Select',
       variants,
-      cssModule,
     })}
 `;

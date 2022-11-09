@@ -7,11 +7,11 @@ import React, {
 } from 'react';
 import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Input/styles';
-import cssModule from '@ps/ui/components/Input/index.module.css';
-import AntInput from 'antd/es/input';
+import AntInput from 'antd/es/input/Input';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
+import style_data_set from '@ps/ui/helpers/style_data_set';
 
 export type Props = {
   /**
@@ -57,9 +57,11 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   ref
 ) => {
   const [value, set_value] = React.useState(props.value || '');
+  const styleDataSet = style_data_set('Input', props);
   return (
     <StyledComponent
       {...props}
+      {...styleDataSet}
       value={value}
       onChange={(e) => {
         console.log('onChange', e);
@@ -87,8 +89,6 @@ const StyledComponent = styled(AntInput)`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
-      componentName: 'Input',
       variants,
-      cssModule,
     })}
 `;

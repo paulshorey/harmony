@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export type PrismThemeType = typeof themeDark;
 
 export type Props = {
+  title: string;
   code: string;
   language?: Language;
   prismTheme?: PrismThemeType;
@@ -21,6 +22,7 @@ export type Props = {
 };
 
 const Code = ({
+  title = '',
   code = '',
   language = 'jsx',
   prismTheme,
@@ -54,10 +56,11 @@ const Code = ({
 
   const [collapsedState, set_collapsedState] = useState(collapsed || false);
 
-  let ControlsTop;
+  const ControlsTop: any = [];
   if (collapsed) {
-    ControlsTop = (
+    ControlsTop.push(
       <Block
+        key="showhide"
         as="span"
         ss={`
           position: absolute;
@@ -79,9 +82,9 @@ const Code = ({
             line-height: 1.9rem;
             padding: 0 0.5rem;
             background: linear-gradient(
-              to right,
-              transparent 75%,
-              ${theme.plain.backgroundColor} 90%
+              to left,
+              ${theme.plain.backgroundColor}
+              transparent,
             );
             color: #efefef;
             border-radius: 0.5rem;
@@ -93,10 +96,11 @@ const Code = ({
       </Block>
     );
   }
-  let ControlsBottom;
+  let ControlsBottom: any = [];
   if (copyable) {
     ControlsBottom = (
       <Block
+        key="copy"
         as="span"
         ss={`
           position: absolute;
@@ -122,8 +126,8 @@ const Code = ({
   // render
   return (
     <>
-      {ControlsTop && ControlsTop}
-      {!collapsedState && ControlsBottom && ControlsBottom}
+      {ControlsTop.length > 0 && ControlsTop}
+      {!collapsedState && ControlsBottom.length > 0 && ControlsBottom}
       <Highlight
         {...defaultProps}
         theme={theme}
@@ -139,6 +143,29 @@ const Code = ({
           style.transition = 'height: 1s, padding: 1s';
           return (
             <Pre className={className} style={style}>
+              {title && (
+                <Block
+                  as="div"
+                  ss={`
+                  position:relative;
+                  top: ${collapsedState ? '-0.3rem' : '-0.8rem'};
+                  left: ${collapsedState ? '0.25rem' : '0'};
+                  height: 1.95rem;
+                  line-height: 1.9rem;
+                  padding: 0 0.5rem;
+                  background: linear-gradient(
+                    to right,
+                    transparent,
+                    ${theme.plain.backgroundColor} 75%
+                  );
+                  color: rgb(99, 119, 119);
+                  font-weight: 500;
+                  border-radius: 0.5rem;
+                `}
+                >
+                  {title}
+                </Block>
+              )}
               {tokens.map((line, i) => (
                 <Line key={i} {...getLineProps({ line, key: i })}>
                   {showNumbers ? <LineNo>{i + 1}</LineNo> : <>&nbsp;</>}&nbsp;

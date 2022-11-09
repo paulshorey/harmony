@@ -4,6 +4,7 @@ import styleProps, { styledTags } from '@ps/ui/types/styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
+import style_data_set from '@ps/ui/helpers/style_data_set';
 
 export type Props = {
   /**
@@ -21,8 +22,9 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   { code, children, ...props },
   ref
 ) => {
+  const styleDataSet = style_data_set('CodeInline', props);
   return (
-    <StyledComponent ref={ref} {...props}>
+    <StyledComponent ref={ref} {...props} {...styleDataSet}>
       <span>{code || children}</span>
     </StyledComponent>
   );
@@ -41,7 +43,6 @@ const StyledComponent = styled.code`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
-      componentName: 'CodeInline',
       variants,
     })}
 `;

@@ -5,6 +5,7 @@ import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import styleProps from '@ps/ui/types/styles';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
+import style_data_set from '@ps/ui/helpers/style_data_set';
 
 export type Props = {
   image: ReactElement;
@@ -22,9 +23,10 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   { image, text, title, ...props },
   ref
 ) => {
+  const styleDataSet = style_data_set('Grid4TitleTextImage', props);
   return (
     // @ts-ignore - see typeof props.as for allowable HTML tags
-    <StyledComponent ref={ref} {...props}>
+    <StyledComponent ref={ref} {...props} {...styleDataSet}>
       <div className="Grid4TitleTextImage-title">{title}</div>
       <div className="Grid4TitleTextImage-text">{text}</div>
       <div className="Grid4TitleTextImage-image">{image}</div>
@@ -45,7 +47,6 @@ const StyledComponent = styled.div`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
-      componentName: 'Grid4TitleTextImage',
       variants,
     })}
 `;

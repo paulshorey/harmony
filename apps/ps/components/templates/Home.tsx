@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from '@ps/ui/components/Block';
+import Block from '@ps/ui/components/Block';
 import Button from '@ps/ui/components/Button';
 import Modal from '@ps/ui/components/Modal';
 import ImageWithFallback from '@ps/ui/components/ImageWithFallback';
@@ -26,24 +26,24 @@ export default function Home() {
             <p>This is not finished. Just started. Please check back soon.</p>
           </div>
         </Modal>
-        <Box as="p" ss="display:flex;">
+        <Block as="p" ss="display:flex;">
           <Button
             onClick={() => {
-              setIsOpen(true);
+              // setIsOpen(true);
             }}
           >
             Open modal
           </Button>
-          <Box as="span" ss="width:1rem;" />
+          <Block as="span" ss="width:1rem;" />
           <Button
             onClick={() => {
-              setIsOpen(true);
+              // setIsOpen(true);
             }}
             variant="outlined"
           >
             Open modal
           </Button>
-        </Box>
+        </Block>
       </FullpageLayout>
     </main>
   );

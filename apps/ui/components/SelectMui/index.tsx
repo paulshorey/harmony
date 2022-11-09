@@ -7,6 +7,7 @@ import variants from '@ps/ui/components/SelectMui/styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
 import styled from 'styled-components';
+import style_data_set from '@ps/ui/helpers/style_data_set';
 
 export type Props = any;
 
@@ -17,8 +18,15 @@ export const Component: (props: Props, ref?: any) => ReactElement = (
   { label = undefined, value, onChange, children, helperText, ...props },
   ref
 ) => {
+  const styleDataSet = style_data_set('SelectMui', props);
   return (
-    <StyledComponent fullWidth {...props} size="small" ref={ref}>
+    <StyledComponent
+      fullWidth
+      {...props}
+      {...styleDataSet}
+      size="small"
+      ref={ref}
+    >
       {label && (
         <InputLabel
         // id="demo-simple-select-label"
@@ -52,7 +60,6 @@ const StyledComponent = styled(FormControl)`
   ${(props) =>
     style_string_from_props_and_variants({
       props,
-      componentName: 'SelectMui',
       variants,
     })}
 `;

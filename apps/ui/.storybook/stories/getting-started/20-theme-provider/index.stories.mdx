@@ -38,9 +38,7 @@ Or to customize theme and settings, make a copy of `@ps/ui/components/ThemeProvi
 
 Here are the files you need to copy and edit to customize your colors, sizes, and variables:
 
-<Code code={`// ThemeProvider.tsx
-  
-import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+<Code title="components/ThemeProvider.tsx" code={`import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
   
 import theme from 'styles/theme'; // your custom JS variables
   
@@ -56,9 +54,7 @@ const ThemeProvider = ({ children }) => {
   
 export default ThemeProvider;`} collapsed={true} ss="margin-bottom:0;" />
 
-<Code code={`// theme.ts
-  
-import mq from './mq';  // copy and customize these too if you want
+<Code title="styles/theme.ts" code={`import mq from './mq';  // copy and customize these too if you want
   
 const theme = {
   RouterLink: null, // pass your choice router component, like from 'next/link'
@@ -83,8 +79,7 @@ const theme = {
   
 export default theme;`} collapsed={true} ss="margin-bottom:0;" />
 
-<Code code={`// theme.css
-:root {
+<Code title="styles/theme.css" code={`:root {
   --font-family: 'Roboto', sans-serif;
   --font-family-title: 'Roboto', sans-serif;
   --font-family-code: 'Roboto Mono', monospace;
@@ -230,9 +225,7 @@ a:visited,
   -webkit-text-fill-color: transparent;
 }`} collapsed={true} ss="margin-bottom:0;" />
 
-<Code code={`// mq.ts
-  
-export default {
+<Code title="styles/mq.ts" code={`export default {
   // by device type:
   tinyPhone: \`@media (max-width: 360px)\`, // Too small for almost all phones. HOWEVER, Samsung foldable phones front display is 320px wide. Also smart watches, and very old iPhone 4/5.
   smallPhone: \`@media (max-width: 400px)\`, // iPhone 8,X,SE,Mini = 375px, 11,12,13 Pro = 390px

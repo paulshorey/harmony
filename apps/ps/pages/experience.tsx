@@ -1,4 +1,4 @@
-import WorkExperience from 'components/pages/WorkExperience';
+import WorkExperience from 'components/templates/WorkExperience';
 
 const Page = (props) => {
   return (
