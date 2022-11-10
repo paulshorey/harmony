@@ -1,11 +1,9 @@
 import React from 'react';
-import { styledTags as styledTagsImport } from './html';
-import { Interpolation } from 'styled-components/dist/types';
 
-// tsFix: what type is returned by 'styled-components' css`` template literal function?
-type cssReturnType = Interpolation<any> | null | undefined;
+// tsFix: what types are returned by emotion' css`` template literal function? Interpolation | SerializedStyles
+type cssReturnType = any | null | undefined;
 
-export type styledTags = styledTagsImport;
+export type styledTags = React.ElementType<any>;
 
 export type ssProp =
   | string
@@ -18,9 +16,9 @@ export type ssProp =
  */
 export type styleProps = {
   /**
-   * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged.
+   * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged. Or pass a React element to use.
    */
-  as?: string | React.ComponentType<any>;
+  as?: styledTags | undefined;
   /**
    * Each component has a `variants.ts` file in its folder - it sets the styles for the component. Variant is also used by the JS code to set logic/layout/markup of the component.
    */
@@ -113,5 +111,9 @@ export type styleProps = {
    * These components will add the name of the component (Capitalized) to the className, for specificity, and so you can see which component generated which div in the browser Dev Tools.
    */
   className?: string;
+  /*
+   * Your site theme is injected into props by hooks/withStyles.tsx so you can use it in any EmotionJS/StyledComponents css`` template literal.
+   */
+  theme?: any;
 };
 export default styleProps;

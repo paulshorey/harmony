@@ -12,6 +12,8 @@
     "serve-storybook": "serve storybook-static"
   },
   "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.10.5",
     "@floating-ui/react-dom": "^1.0.0",
     "@fortawesome/fontawesome-pro": "^6.2.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",

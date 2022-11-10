@@ -32,8 +32,7 @@ The UI library (`@ps/ui`) only requires these peer dependencies: `@emotion/core`
 
 It makes everything much easier. [Read documentation](https://turbo.build/repo/docs/getting-started/add-to-project)    
 
-<Code code={`// package.json 
-...
+<Code title="package.json" code={`...
 "private": true,
 "workspaces": [
   "apps/*",
@@ -58,7 +57,7 @@ such as the 50 states with abbreviations, supported locales/languages, etc.
 `@ps/ui` - React components and styles  
 `@ps/cconsole` - alternative to console.log with <Inline as="b" textgradient="rainbow">colors</Inline> and ability to broadcast to a cloud provider  
 
-<Code code={`// package.json 
+<Code title="package.json" code={`
 // If you include a module that's not published to NPM, but is part of this mono-repo,
 // then instead of specifying a version number, specify "*". 
 // TurboRepo will find the correct directory and alias to it instead of installing from the internet.
@@ -78,7 +77,7 @@ such as the 50 states with abbreviations, supported locales/languages, etc.
 "devDependencies": {...},
 ...`} collapsed={true} ss="margin-bottom:0;" />
 
-<Code code={`// next.config.js
+<Code title="next.config.js" code={`
 // Requires next-transpile-modules to import files from outside its own directory
 const withTM = require('next-transpile-modules')([
   '@ps/ui',
@@ -87,7 +86,7 @@ const withTM = require('next-transpile-modules')([
   '@ps/constants',
 ]);`} collapsed={true} ss="margin-bottom:0;" />
 
-<Code code={`// tsconfig.json 
+<Code title="tsconfig.json" code={`
 {
   // base configs - common to all apps and modules (react-library inherits from base):
   "extends": "@ps/constants/config/typescript/react-library.json",
@@ -104,11 +103,11 @@ const withTM = require('next-transpile-modules')([
   }
 }`} collapsed={true} ss="margin-bottom:0;" />
 
-<Code code={`// babel.config.js 
+<Code title="babel.config.js" code={`
 // Use base config from @ps/constants, then override as needed
 module.exports = require('@ps/constants/config/babel-preset.json');`} collapsed={true} ss="margin-bottom:0;" />
 
-<Code code={`// .prettierrc.js 
+<Code title=".prettierrc.js" code={`
 // Use base config from @ps/constants, then override as needed
 module.exports = require('@ps/constants/config/prettier-preset');`} collapsed={true} />
 
@@ -145,10 +144,10 @@ Unit tests, typescript, and linting will have to run for each package in the mon
 Committing changes to Github will also require stricter conventions. [Commit Lint](https://commitlint.js.org/#/) and [Comittizen](http://commitizen.github.io/cz-cli/) can help. Basically, every commit message will have to specify the package name, type of change, and the scope of the change - and it has to be readable by machine as well as by humans.
   
 ### You can use Commit Lint to generate a commit message in a standard format:
-<Code language="bash" code={`type(scope): message (SW2-1234)`} collapsed={true} ss="margin:0;" />  
+<CodeInline language="bash" code={`type(scope): message (SW2-1234)`} collapsed={true} ss="margin:0;" />  
 
 Included yarn script will ask you to define type/scope/message/issue, then generate a commit message. Just run:
-<Code language="bash" code={`yarn commit`} collapsed={true} ss="margin:0;" />
+<CodeInline language="bash" code={`yarn commit`} collapsed={true} ss="margin:0;" />
 
 More documentation coming soon...
 

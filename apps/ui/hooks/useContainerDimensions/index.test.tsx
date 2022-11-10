@@ -1,6 +1,5 @@
 import { act, render, waitFor } from 'test-utils/index';
 import React from 'react';
-
 import { useContainerDimensions } from '.';
 
 afterEach(() => jest.clearAllMocks());

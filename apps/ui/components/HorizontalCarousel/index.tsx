@@ -1,11 +1,12 @@
 // @ts-nocheck
-import styled from 'styled-components';
 import React, { useEffect, forwardRef, memo } from 'react';
 import HorizontalCarousel from './script';
 import { Props as BlockProps } from '@ps/ui/components/Block';
 import variants from './styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
+import withStyles from '@ps/ui/hooks/withStyles';
+import { Props } from '../Inline/index';
+import styled from '@emotion/styled';
 
 type Props = {
   /**
@@ -18,37 +19,33 @@ type Props = {
   arrows?: React.ReactNode;
 } & BlockProps;
 
-export const Component = ({ arrows, children }: Props, ref: any) => {
-  const carouselRef = React.useRef(ref);
-  useEffect(() => {
-    console.log('STARTING hcarousel');
-    const carousel = new HorizontalCarousel(carouselRef.current);
-    return () => {
-      console.log('STOPPING hcarousel');
-      carousel.end();
-    };
-  }, []);
-  return (
-    <StyledComponent ref={carouselRef}>
-      <div className="__slides">{children}</div>
-      {!!arrows && <div className="__arrows">{arrows}</div>}
-    </StyledComponent>
-  );
-};
+export const Component: React.FC<Props> = withStyles(
+  forwardRef(({ arrows, children, ...props }: Props, ref: any) => {
+    const carouselRef = React.useRef(ref);
+    useEffect(() => {
+      const carousel = new HorizontalCarousel(carouselRef.current);
+      return () => {
+        carousel.end();
+      };
+    }, []);
+    return (
+      <Styled ref={carouselRef} {...props}>
+        <div className="__slides">{children}</div>
+        {!!arrows && <div className="__arrows">{arrows}</div>}
+      </Styled>
+    );
+  }),
+  'HorizontalCarousel',
+  variants
+);
 
 /*
- * Under the hood: (1) default export ready to use (2) named export HOC (3) styled component
+ * (1) default export is normal component ready to use (2) withHorizontalCarousel is HOC used to predefine common props
  */
-export default memo(forwardRef(Component));
+
+export default memo(Component);
 
 export const withHorizontalCarousel = (props: Props) =>
-  memo(withCombinedProps(forwardRef(Component), props));
+  memo(withCombinedProps(Component, props));
 
-// styled "div" can be overriden by passing props.as="article" or any HTML tag
-const StyledComponent = styled.div`
-  ${(props) =>
-    style_string_from_props_and_variants({
-      props,
-      variants,
-    })}
-`;
+const Styled = styled('div')``;

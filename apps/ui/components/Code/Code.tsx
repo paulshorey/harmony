@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import themeDark from 'prism-react-renderer/themes/nightOwl';
 import themeLight from 'prism-react-renderer/themes/nightOwlLight';
@@ -7,6 +6,7 @@ import Block from '@ps/ui/components/Block';
 import { faCode } from '@fortawesome/free-solid-svg-icons/faCode';
 import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled from '@emotion/styled';
 
 export type PrismThemeType = typeof themeDark;
 

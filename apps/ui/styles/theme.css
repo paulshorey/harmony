@@ -32,7 +32,7 @@
 
   --color-glow: hsla(0deg, 0%, 100%, 0.125);
   --color-cta: hsl(176deg 54% 50%);
-  --color-accent: hsl(41deg 95% 65%);
+  --color-accent: #fece5c;
 }
 
 /*
@@ -56,7 +56,7 @@
   );
   --color-glow: hsla(272, 51%, 54%, 0.25);
   --color-cta: hsl(194deg 94% 46%);
-  --color-accent: hsl(30deg 84% 53%);
+  --color-accent: #ffa500;
 }
 
 /*
@@ -80,7 +80,7 @@
  */
 [data-textcolor='accent'] {
   --color-text: var(--color-accent);
-  --color-text-gradient: linear-gradient(#fecc4c, #ffac33);
+  --color-text-gradient: linear-gradient(#fece5c, #ffa500);
 }
 
 /*

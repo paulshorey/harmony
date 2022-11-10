@@ -1,11 +1,9 @@
-import React, { memo, forwardRef, ReactElement } from 'react';
+import React, { memo, forwardRef } from 'react';
 import ReactModal, { ModalProps } from '@mui/material/Modal';
 import variants from '@ps/ui/components/Modal/styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import styleProps from '@ps/ui/types/styles';
-import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
-import styled from 'styled-components';
-import style_data_set from '@ps/ui/helpers/style_data_set';
+import withStyles from '@ps/ui/hooks/withStyles';
 
 export type Props = {
   open: boolean;
@@ -13,39 +11,34 @@ export type Props = {
 } & ModalProps &
   styleProps;
 
-export const Component: (props: Props, ref?: any) => ReactElement = (
-  { open, onClose, ...props },
-  ref
-) => {
-  const styleDataSet = style_data_set('Modal', props);
-  return (
-    <StyledComponent
-      ref={ref}
-      disablePortal={true}
-      // keepMounted={true}
-      open={open}
-      onClose={onClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-      {...props}
-      {...styleDataSet}
-    />
-  );
-};
+// @ts-ignore tsFix: Forwarding ref probably wont work: Type 'Ref<unknown> | undefined' is not assignable to type '((instance: HTMLDivElement | null) => void) | RefObject<HTMLDivElement> | null | undefined'.
+export const Component: React.FC<Props> = withStyles(
+  forwardRef(({ open, onClose, children, ...props }: Props, ref?: any) => {
+    const reff = React.useRef(ref);
+    return (
+      <ReactModal
+        ref={reff}
+        disablePortal={true}
+        // keepMounted={true}
+        open={open}
+        onClose={onClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        {...props}
+      >
+        {children}
+      </ReactModal>
+    );
+  }),
+  'Modal',
+  variants
+);
 
 /*
- * Under the hood: (1) default export ready to use (2) named export HOC (3) styled component
+ * (1) default export is normal component ready to use (2) withModal is HOC used to predefine common props
  */
-export default memo(forwardRef(Component));
 
-export const withLink = (props: Props) =>
-  memo(withCombinedProps(forwardRef(Component), props));
+export default memo(Component);
 
-// styled "ReactModal" can be overriden by passing props.as="article" or any HTML tag
-const StyledComponent = styled(ReactModal)`
-  ${(props) =>
-    style_string_from_props_and_variants({
-      props,
-      variants,
-    })}
-`;
+export const withModal = (props: Props) =>
+  memo(withCombinedProps(Component, props));

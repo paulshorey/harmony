@@ -105,17 +105,7 @@ export default {
     letter-spacing: 0.33px;
 
     ${
-      props.theme?.instance?.variants?.link &&
-      `
-      padding: 0
-        ${
-          props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md'] / 2
-        }rem;
-    `
-    }
-
-    ${
-      props.icon &&
+      !!props.icon &&
       !props.children &&
       `
       justify-content: center;
@@ -156,6 +146,27 @@ export default {
       transform: scale(2);
       transition: transform 700ms, opacity 700ms;
       opacity: 0.2;
+    }
+  `,
+  /**
+   * Like "outlined", but without the border
+   */
+  transparent: (props) => `
+    background: transparent;
+    color: var(--color-text);
+    border: solid 1px transparent;
+    text-shadow: none !important;
+    ${
+      props.round &&
+      `
+      &::before {
+        border-radius: calc(
+          ${
+            props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] / 2
+          }rem - 1px
+        );
+      }
+    `
     }
   `,
   outlined: (props) => `

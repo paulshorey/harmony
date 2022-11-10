@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { LuminousGallery } from 'luminous-lightbox';
 import 'luminous-lightbox/dist/luminous-basic.css';
 import Wordio from 'components/templates/WorkExperience/Wordio';

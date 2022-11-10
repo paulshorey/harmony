@@ -4,6 +4,8 @@ import Button from '@ps/ui/components/Button';
 import Modal from '@ps/ui/components/Modal';
 import HCarousel from '@ps/ui/components/HorizontalCarousel';
 import FullpageLayout from 'components/layout/Fullpage';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 export default function Home() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -53,24 +55,6 @@ export default function Home() {
             <p>This is not finished. Just started. Please check back soon.</p>
           </div>
         </Modal>
-        <Block as="p" ss="display:inline-flex;">
-          <Button
-            onClick={() => {
-              // setIsOpen(true);
-            }}
-          >
-            Open modal
-          </Button>
-          <Block as="span" ss="width:1rem;" />
-          <Button
-            onClick={() => {
-              // setIsOpen(true);
-            }}
-            variant="outlined"
-          >
-            Open modal
-          </Button>
-        </Block>
       </FullpageLayout>
     </main>
   );

@@ -48,7 +48,7 @@ import Code from '@ps/ui/components/Code';
 
 <Block as="h2" ss="margin-top: 3rem;">2. HOC like Styled Components</Block>
 
-This library is powered by `styled-components`. Just like <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.div\`\``}/>, you can use <CodeInline code={`withButton()`}/> or <CodeInline code={`withDiv()`}/>  
+This library is powered by `@emotion/styled`. Just like <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.div\`\``}/>, you can use <CodeInline code={`withButton()`}/> or <CodeInline code={`withDiv()`}/>  
 
 **An added feature:** pre-define <Inline as="b" textcolor="accent"> props</Inline> as well as styles. This is a great way to keep your code clean, separate markup from style, data-generated props from unique manually added props. Separate concerns: common pre-defined props vs unique per-instance props.
 
@@ -102,11 +102,11 @@ If you're setting many props for several components, predefine all the common pr
 
 <Code
   ss="font-size: 0.85rem;"
-  code={`import styled from 'styled-components';
+  code={`
 import Button from '@ps/ui/components/Button';
   
 const StyledButton = styled(Button)\`
-  /* your styles here - will have syntax highlighting thanks to the vscode-styled-components plugin */
+  /* your styles here - will have syntax highlighting thanks to the vscode-@emotion/styled plugin */
   
   \${props => props.theme.mq.desktopLarge} {
     /* use any props or theme variables inside your styled component template literal */
@@ -117,7 +117,7 @@ const StyledButton = styled(Button)\`
 
 <Code
   ss="font-size: 0.85rem;"
-  code={`import styled from 'styled-components';
+  code={`
 import { withButton } from '@ps/ui/components/Button';
   
 const MyButton = withButton({
@@ -125,15 +125,12 @@ const MyButton = withButton({
 });
   
 const StyledButton = styled(MyButton)\`
-  /* your styles here - will have syntax highlighting thanks to the vscode-styled-components plugin */
+  /* your styles here - will have syntax highlighting thanks to the vscode-@emotion/styled plugin */
   
   \${props => props.theme.mq.desktopLarge} {
     /* use any props or theme variables inside your styled component template literal */
   }
 \`;`} />
-
-
-
 <Block as="h4" ss="font-size: 2rem; font-weight: 600; margin: 4rem 0 0 0;">Use props and theme:</Block>  
 
 SS props don't just accept strings, but also:  
@@ -142,7 +139,7 @@ SS props don't just accept strings, but also:
 - `Array<string>`
 - `(props:Props) => string`
 - `Array<((props:Props) => string)>`
-- the output of `css` template literal function from `styled-components`
+- the output of `css` template literal function from `@emotion/styled`
 
 To use props or theme variables inside your styled strings, pass a function that returns a string. The first argument to your function will be `props` from the component. It will contain the `theme` of your site.
 
@@ -155,25 +152,19 @@ To use props or theme variables inside your styled strings, pass a function that
     /* use any props or theme variables inside your template literal */
   }
 \`} />`} />
-
-
-
 <Block as="h4" ss="font-size: 2rem; font-weight: 600; margin: 4rem 0 0 0;">Syntax highlighting:</Block>  
 
-SS props are NOT the same as styled-components template literal functions. So, your IDE will not color these like CSS. UNLESS...
+SS props are NOT the same as @emotion/styled template literal functions. So, your IDE will not color these like CSS. UNLESS...
 
 <Code 
   ss="font-size: 0.85rem;"
-  code={`import styled, { css } from 'styled-components';
+  code={`import styled, { css } from '@emotion/styled';
 
 <Block as="p" ss={css\`
-  /* THIS WILL BE syntax-HIGHLIGHTED by vscode-styled-components plugin (and others)! */
+  /* THIS WILL BE syntax-HIGHLIGHTED by vscode-@emotion/styled plugin (and others)! */
 \`}>
   Wrap the string in a css\`...\` template literal to get syntax-highlighting to work.
 </Block>`} />
-
-
-
 <Block as="h4" ss="font-size: 2rem; font-weight: 600; margin: 4rem 0 0 0;">Limitations:</Block>
 
 Inside the `ss` prop template literals you can **NOT** do this:
@@ -187,7 +178,7 @@ Inside the `ss` prop template literals you can **NOT** do this:
   }
 \`;`} />
 
-Not even when wrapping it in `css` from `styled-components`...
+Not even when wrapping it in `css` from `@emotion/styled`...
   
 <br />
   
@@ -202,7 +193,7 @@ But you <strong>CAN</strong> do this:
   }
 \`;`} />
 
-Different format than the regular `styled-components`, but gets the job done.  
+Different format than the regular `@emotion/styled`, but gets the job done.  
 
 <br />
 

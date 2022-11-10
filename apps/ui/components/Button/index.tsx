@@ -10,11 +10,9 @@ import Block from '@ps/ui/components/Block';
 import variants from '@ps/ui/components/Button/styles';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
-import styled from 'styled-components';
-import style_data_set from '@ps/ui/helpers/style_data_set';
-// import MuiButton from '@mui/material/Button';
 import withRipple from './withRipple';
+import withStyles from '@ps/ui/hooks/withStyles';
+import styled from '@emotion/styled';
 
 export type Props = {
   /**
@@ -42,114 +40,105 @@ export type Props = {
   /**
    * Alternative to `props.children`, will overwrite `props.children`.
    */
-  value?: string;
+  value?: ReactElement | string | number;
 } & styleProps &
   ButtonHTMLAttributes<HTMLElement & HTMLButtonElement>;
 
 /**
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
-export const Component: (props: Props, ref?: any) => ReactElement = (
-  { onClick, loading = null, ...props },
-  ref
-) => {
-  /*
-   * Props logic
-   */
-  if (loading) {
-    if (loading === true) {
-      loading = <IconLoading />;
+export const Component: React.FC<Props> = withStyles(
+  forwardRef(({ onClick, loading, ...props }: Props, ref: any) => {
+    /*
+     * Props logic
+     */
+    if (loading) {
+      if (loading === true) {
+        loading = <IconLoading />;
+      }
     }
-  }
-  const Children: any = [];
-  // icon on the left
-  if (props.icon) {
-    Children.push(
-      <span key="iconLeft" className="Button--icon">
-        {props.icon}
-      </span>
+    const Children: any = [];
+    // icon on the left
+    if (props.icon) {
+      Children.push(
+        <span key="iconLeft" className="Button--icon">
+          {props.icon}
+        </span>
+      );
+    }
+    if (props.icon && props.children) {
+      Children.push(
+        <span key="iconLeftSpacer" className="Button--spacer">
+          {' '}
+        </span>
+      );
+    }
+    // content
+    if (props.value || props.children) {
+      Children.push(
+        <span key="children" className="Button--text">
+          {props.value || props.children}
+        </span>
+      );
+    }
+    if (loading) {
+      Children.push(
+        <span key="loading" className="Button--loading Button--icon">
+          {loading}
+        </span>
+      );
+    }
+    // icon on the right
+    if (props.suffix && props.children) {
+      Children.push(
+        <span key="iconRightSpacer" className="Button--spacer">
+          {' '}
+        </span>
+      );
+    }
+    if (props.suffix) {
+      Children.push(
+        <span key="iconRight" className="Button--icon">
+          {props.suffix}
+        </span>
+      );
+    }
+    if (!ref) {
+      ref = createRef();
+    }
+    const ChildrenWithRipple = withRipple({ children: Children });
+    return (
+      <Styled
+        tabIndex={0}
+        {...props}
+        ref={ref}
+        onClick={(e) => {
+          if (onClick) {
+            onClick(e);
+          }
+          // remove the blue outline
+          ref?.current?.blur();
+        }}
+      >
+        {props.textgradient ? (
+          <Block textgradient={props.textgradient}>{ChildrenWithRipple}</Block>
+        ) : (
+          ChildrenWithRipple
+        )}
+      </Styled>
     );
-  }
-  if (props.icon && props.children) {
-    Children.push(
-      <span key="iconLeftSpacer" className="Button--spacer">
-        {' '}
-      </span>
-    );
-  }
-  // content
-  if (props.children || props.value) {
-    Children.push(
-      <span key="children" className="Button--text">
-        {props.value || props.children}
-      </span>
-    );
-  }
-  if (loading) {
-    Children.push(
-      <span key="loading" className="Button--loading Button--icon">
-        {loading}
-      </span>
-    );
-  }
-  // icon on the right
-  if (props.suffix && props.children) {
-    Children.push(
-      <span key="iconRightSpacer" className="Button--spacer">
-        {' '}
-      </span>
-    );
-  }
-  if (props.suffix) {
-    Children.push(
-      <span key="iconRight" className="Button--icon">
-        {props.suffix}
-      </span>
-    );
-  }
-  if (!ref) {
-    ref = createRef();
-  }
-  const styleDataSet = style_data_set('Button', props);
-  const ChildrenWithRipple = withRipple({ children: Children });
-  return (
-    <StyledComponent
-      tabIndex={0}
-      {...props}
-      {...styleDataSet}
-      ref={ref}
-      onClick={(e) => {
-        if (onClick) {
-          onClick(e);
-        }
-        // remove the blue outline
-        ref?.current?.blur();
-      }}
-    >
-      {props.textgradient ? (
-        <Block as="span" textgradient={props.textgradient}>
-          {ChildrenWithRipple}
-        </Block>
-      ) : (
-        ChildrenWithRipple
-      )}
-    </StyledComponent>
-  );
-};
+  }),
+  'Button',
+  variants
+);
 
 /*
- * Under the hood: (1) default export ready to use (2) named export HOC (3) styled component
+ * (1) default export is normal component ready to use (2) withButton is HOC used to predefine common props
  */
-export default memo(forwardRef(Component));
+
+export default memo(Component);
 
 export const withButton = (props: Props) =>
-  memo(withCombinedProps(forwardRef(Component), props));
+  memo(withCombinedProps(Component, props));
 
-// styled "button" can be overriden by passing props.as="article" or any HTML tag
-const StyledComponent = styled.button`
-  ${(props) =>
-    style_string_from_props_and_variants({
-      props,
-      variants,
-    })}
-`;
+const Styled = styled('button')``;

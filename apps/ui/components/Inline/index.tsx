@@ -1,40 +1,30 @@
-import React, { forwardRef, memo, HTMLAttributes, ReactElement } from 'react';
-import styleProps, { styledTags } from '@ps/ui/types/styles';
+import React, { memo, HTMLAttributes, forwardRef } from 'react';
+import { styleProps } from '@ps/ui/types/styles';
 import variants from './styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
-import styled from 'styled-components';
-import style_data_set from '@ps/ui/helpers/style_data_set';
+import withStyles from '@ps/ui/hooks/withStyles';
+import styled from '@emotion/styled';
 
-export type Props = {
-  /**
-   * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged. Default: 'span'
-   */
-  as?: styledTags;
-} & styleProps &
-  HTMLAttributes<HTMLSpanElement>;
-
-export const Component: (props: Props, ref?: any) => ReactElement = (
-  props,
-  ref
-) => {
-  const styleDataSet = style_data_set('Inline', props);
-  return <StyledComponent ref={ref} {...props} {...styleDataSet} />;
-};
+export type Props = styleProps & HTMLAttributes<HTMLDivElement>;
 
 /*
- * Under the hood: (1) default export ready to use (2) named export HOC (3) styled component
+ * Base element (like a div) for rendering a block of content
  */
-export default memo(forwardRef(Component));
+export const Component: React.FC<Props> = withStyles(
+  forwardRef((props: Props, ref: any) => {
+    return <Styled ref={ref} {...props} />;
+  }),
+  'Inline',
+  variants
+);
+
+/*
+ * (1) default export is normal component ready to use (2) withInline is HOC used to predefine common props
+ */
+
+export default memo(Component);
 
 export const withInline = (props: Props) =>
-  memo(withCombinedProps(forwardRef(Component), props));
+  memo(withCombinedProps(Component, props));
 
-// styled "span" can be overriden by passing props.as="article" or any HTML tag
-const StyledComponent = styled.span`
-  ${(props) =>
-    style_string_from_props_and_variants({
-      props,
-      variants,
-    })}
-`;
+const Styled = styled('div')``;

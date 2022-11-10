@@ -1,3 +1,4 @@
+import React from 'react';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';

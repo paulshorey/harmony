@@ -5,68 +5,53 @@ import { styleProps } from '@ps/ui/types/styles';
  */
 type ComponentName = styleProps['componentName'];
 type Props = styleProps;
-type Output = {
-  'className'?: string;
-  'componentName'?: string;
-  'data-bgcolor'?: string;
-  'data-bggradient'?: string;
-  'data-textcolor'?: string;
-  'data-textgradient'?: string;
-  'data-colorscheme'?: string;
-};
 
 /**
  * Modify data- attributes so CSS can "Cascade" (add light/dark colors based on parents and grandparents)
  */
-export default (componentName: ComponentName, props: Props): Output => {
-  const {
-    componentName: componentNameProp,
-    bgcolor,
-    bggradient,
-    textcolor,
-    textgradient,
-  } = props;
-  const dataProps = {} as Output;
+export default (
+  componentName: ComponentName,
+  { bgcolor, bggradient, textcolor, textgradient, ...props }: Props
+): any => {
   /*
    * Add className specificity
    */
-  if (!dataProps.componentName) {
-    dataProps.componentName = componentName;
+  if (!props.componentName) {
+    props.componentName = componentName;
   }
-  dataProps.className =
-    (props.className || '') + ' ' + (componentNameProp || componentName);
+  props.className = (props.className || '') + ' ' + props.componentName;
   /*
    * Color Scheme
    */
   if (bgcolor || bggradient) {
-    dataProps['data-bgcolor'] = bgcolor || bggradient;
+    props['data-bgcolor'] = bgcolor || bggradient;
     if (bggradient) {
-      dataProps['data-bggradient'] = bggradient;
+      props['data-bggradient'] = bggradient;
     }
   }
   if (textcolor || textgradient) {
-    dataProps['data-textcolor'] = textcolor || textgradient;
+    props['data-textcolor'] = textcolor || textgradient;
     if (textgradient) {
-      dataProps['data-textgradient'] = textgradient;
+      props['data-textgradient'] = textgradient;
     }
   }
-  if (dataProps['data-textcolor'] === 'light') {
-    dataProps['data-colorscheme'] = 'dark';
-  } else if (dataProps['data-textcolor'] === 'dark') {
-    dataProps['data-colorscheme'] = 'light';
-  } else if (dataProps['data-bgcolor'] === 'light') {
-    dataProps['data-colorscheme'] = 'light';
-  } else if (dataProps['data-bgcolor'] === 'dark') {
-    dataProps['data-colorscheme'] = 'dark';
-  } else if (dataProps['data-bggradient'] === 'light') {
-    dataProps['data-colorscheme'] = 'light';
-  } else if (dataProps['data-bggradient'] === 'dark') {
-    dataProps['data-colorscheme'] = 'dark';
+  if (props['data-textcolor'] === 'light') {
+    props['data-colorscheme'] = 'dark';
+  } else if (props['data-textcolor'] === 'dark') {
+    props['data-colorscheme'] = 'light';
+  } else if (props['data-bgcolor'] === 'light') {
+    props['data-colorscheme'] = 'light';
+  } else if (props['data-bgcolor'] === 'dark') {
+    props['data-colorscheme'] = 'dark';
+  } else if (props['data-bggradient'] === 'light') {
+    props['data-colorscheme'] = 'light';
+  } else if (props['data-bggradient'] === 'dark') {
+    props['data-colorscheme'] = 'dark';
   }
   /*
    * Component name to recognize DOM HTML in browser Dev Tools
    */
-  // dataProps['data-component'] = componentNameProp || componentName;
+  // props['data-component'] = componentNameProp || componentName;
   /*
    * Clean up no longer needed props
    */
@@ -75,8 +60,6 @@ export default (componentName: ComponentName, props: Props): Output => {
   // delete props.textgradient;
   // delete props.bgcolor;
   // delete props.bggradient;
-
-  return dataProps;
 };
 
 // /*

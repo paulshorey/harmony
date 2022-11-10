@@ -2,13 +2,10 @@ import React, { forwardRef, memo } from 'react';
 import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Select/styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
-import styled from 'styled-components';
-import SelectAnt, {
-  SelectProps as AntSelectProps,
-  OptionProps as AntOptionProps,
-} from 'antd/es/select';
-import style_data_set from '@ps/ui/helpers/style_data_set';
+import SelectAnt, { OptionProps as AntOptionProps } from 'antd/es/select';
+import type { SelectProps as AntSelectProps } from 'antd/es/select';
+import withStyles from '@ps/ui/hooks/withStyles';
+import styled from '@emotion/styled';
 
 type OptionProps = {
   value: string;
@@ -26,31 +23,32 @@ type OptionProps = {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 } & AntOptionProps;
 
-export type Props = styleProps & AntSelectProps;
-
-export const Component = ({ ...props }: Props, ref?: any) => {
-  const styleDataSet = style_data_set('Select', props);
-  return <StyledComponent {...props} {...styleDataSet} ref={ref} />;
-};
-
 // for convenience, export antd option and props, so user does not have to import from antd
 const { Option: OptionAnt } = SelectAnt;
 export const Option = OptionAnt;
 export { OptionProps, AntSelectProps as SelectProps };
 
-/*
- * Under the hood: (1) default export ready to use (2) named export HOC (3) styled component
+export type Props = styleProps & AntSelectProps;
+
+/**
+ * Select component (includes multi-select and type tags functionality) powered by Ant Design component.
  */
-export default memo(forwardRef(Component));
+export const Component: React.FC<Props> = withStyles(
+  forwardRef((props: Props, ref: any) => {
+    // @ts-ignore // tsFix make sure this is sending correct props and options to Antd select
+    return <Styled {...props} ref={ref} />;
+  }),
+  'Select',
+  variants
+);
+
+/*
+ * (1) default export is normal component ready to use (2) withSelect is HOC used to predefine common props
+ */
+
+export default memo(Component);
 
 export const withSelect = (props: Props) =>
-  memo(withCombinedProps(forwardRef(Component), props));
+  memo(withCombinedProps(Component, props));
 
-// styled "SelectAnt" can be overriden by passing props.as="article" or any HTML tag
-const StyledComponent = styled(SelectAnt)`
-  ${(props) =>
-    style_string_from_props_and_variants({
-      props,
-      variants,
-    })}
-`;
+const Styled = styled(SelectAnt)``;

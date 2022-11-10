@@ -1,5 +1,5 @@
 // @ts-nocheck
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import React, { useEffect } from 'react';
 import HorizontalCarousel from 'horizontal_carousel';
 

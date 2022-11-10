@@ -142,24 +142,23 @@ export default ({ props, variants }: Props): string => {
   `;
 
   // Cleanup used props that should not go on the DOM element
-  // delete props.theme;
-  // delete props.variant;
-  // delete props.ss;
-  // delete props.ssAll;
-  // delete props.ssDesktop;
-  // delete props.ssLandscape;
-  // delete props.ssLargeDesktop;
-  // delete props.ssLargeTablet;
-  // delete props.ssLg;
-  // delete props.ssMobile;
-  // delete props.ssNotPhone;
-  // delete props.ssPhone;
-  // delete props.ssPortrait;
-  // delete props.ssSm;
-  // delete props.ssSmallPhone;
-  // delete props.ssTablet;
-  // delete props.ssTinyPhone;
-  // delete props.ssVeryLargeDesktop;
+  delete props.variant;
+  delete props.ss;
+  delete props.ssAll;
+  delete props.ssDesktop;
+  delete props.ssLandscape;
+  delete props.ssLargeDesktop;
+  delete props.ssLargeTablet;
+  delete props.ssLg;
+  delete props.ssMobile;
+  delete props.ssNotPhone;
+  delete props.ssPhone;
+  delete props.ssPortrait;
+  delete props.ssSm;
+  delete props.ssSmallPhone;
+  delete props.ssTablet;
+  delete props.ssTinyPhone;
+  delete props.ssVeryLargeDesktop;
 
   /*
    * return

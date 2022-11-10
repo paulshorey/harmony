@@ -1,5 +1,5 @@
 import React from 'react';
-import Component from '.';
+import Modal from '.';
 import Block from '@ps/ui/components/Block';
 import Button from '@ps/ui/components/Button';
 import Input from '@ps/ui/components/Input';
@@ -20,7 +20,7 @@ export default (props: any) => {
       <p>
         <Input placeholder="Focus moves to the modal when opened." />
       </p>
-      <Component
+      <Modal
         open={isOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -33,7 +33,7 @@ export default (props: any) => {
             for the user to read and sign.
           </p>
         </Block>
-      </Component>
+      </Modal>
       <p>
         <Button
           bgcolor="purple"

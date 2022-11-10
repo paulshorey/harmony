@@ -1,9 +1,10 @@
+import React from 'react';
 import Block from '@ps/ui/components/Block';
-import Component from '.';
+import Grid from '.';
 
 const Story = (props) => (
   <Block variant="centered">
-    <Component
+    <Grid
       variant={'titleImageTextImage'}
       image={
         <img src="https://cdn.mqtatic.net/Img/teams/teams-illo-free-sidebar-promo.svg?v=47faa659a05e" />
@@ -21,3 +22,4 @@ const Story = (props) => (
 );
 
 export default Story;
+export const code = '';

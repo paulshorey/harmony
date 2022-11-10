@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import CenterChildrenY from '@ps/ui/components/CenterChildrenY';
 import CenterChildrenX from '@ps/ui/components/CenterChildrenX';
 

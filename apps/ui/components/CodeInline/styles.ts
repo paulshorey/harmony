@@ -5,7 +5,6 @@ export default {
     padding: 0 0.5rem 0.1rem;
     vertical-align: middle;
     white-space: pre;
-    font-family: var(--font-family-code);
     font-size: 0.95rem;
     font-style: normal;
     text-decoration: none;
@@ -24,6 +23,10 @@ export default {
       height: 100%;
       z-index: 0;
       background: var(--color-bg);
+    }
+    &,
+    > span {
+      font-family: var(--font-family-code);
     }
     > span {
       position: relative;

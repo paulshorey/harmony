@@ -147,7 +147,7 @@ const MediaQueriesDemo = () => (
 
     <br /> <br />
     
-    Besides using them as inline props, you can also use them inside styled-components template literals by referring to <code>props.theme.mq</code>. So, instead of <CodeInline code={`<Block ssSm="">`} />, you can do this:
+    Besides using them as inline props, you can also use them inside @emotion/styled template literals by referring to <code>props.theme.mq</code>. So, instead of <CodeInline code={`<Block ssSm="">`} />, you can do this:
 
     <Code
       ss="font-size: 0.85rem;margin-bottom:1.5rem;"
@@ -158,7 +158,7 @@ ss: (props) => \`
     }
 \`;
 
-// Or in a styled-components template literal:
+// Or in a @emotion/styled template literal:
 styled(Button)\`
     \${(props) => props.theme.mq.sm} {
         padding: 1rem \${(props) => props.theme.sizes.card.paddingX * 2};

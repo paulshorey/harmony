@@ -11,7 +11,7 @@ export default function style_to_string(
    */
   style: ssProp,
   /**
-   * props, just like in a styled-components function
+   * props, just like in a @emotion/styled function
    */
   props?: Record<string, any>,
   /**

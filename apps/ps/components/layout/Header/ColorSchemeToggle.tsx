@@ -16,7 +16,7 @@ const parse_colorSchemeLabel = (ui: uiStateType) => {
   return `🌙`;
 };
 
-const HeaderLayout = () => {
+const ColorSchemeToggle = (props) => {
   const ui = uiState((state) => state as uiStateType);
   const [colorSchemeLabel, set_colorSchemeLabel] = useState(
     parse_colorSchemeLabel(ui)
@@ -26,9 +26,9 @@ const HeaderLayout = () => {
     set_colorSchemeLabel(parse_colorSchemeLabel(ui));
   };
   return (
-    <Inline {...style} onClick={toggle_colorScheme}>
+    <Inline {...props} {...style} onClick={toggle_colorScheme}>
       {colorSchemeLabel}
     </Inline>
   );
 };
-export default HeaderLayout;
+export default ColorSchemeToggle;

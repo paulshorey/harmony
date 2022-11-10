@@ -1,17 +1,10 @@
-import React, {
-  ReactNode,
-  InputHTMLAttributes,
-  forwardRef,
-  memo,
-  ReactElement,
-} from 'react';
+import React, { ReactNode, InputHTMLAttributes, forwardRef, memo } from 'react';
 import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Input/styles';
 import AntInput from 'antd/es/input/Input';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import style_string_from_props_and_variants from '@ps/ui/helpers/style_string_from_props_and_variants';
-import styled from 'styled-components';
-import style_data_set from '@ps/ui/helpers/style_data_set';
+import withStyles from '@ps/ui/hooks/withStyles';
+import styled from '@emotion/styled';
 
 export type Props = {
   /**
@@ -52,43 +45,36 @@ export type Props = {
 /**
  * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
-export const Component: (props: Props, ref?: any) => ReactElement = (
-  props,
-  ref
-) => {
-  const [value, set_value] = React.useState(props.value || '');
-  const styleDataSet = style_data_set('Input', props);
-  return (
-    <StyledComponent
-      {...props}
-      {...styleDataSet}
-      value={value}
-      onChange={(e) => {
-        console.log('onChange', e);
-        set_value(e.target.value);
-      }}
-      onFocus={(e) => {
-        console.log('onFocus', e);
-      }}
-      data-hasvalue={!!value}
-      ref={ref}
-    />
-  );
-};
+export const Component: React.FC<Props> = withStyles(
+  forwardRef((props: Props, ref: any) => {
+    const [value, set_value] = React.useState(props.value || '');
+    return (
+      <Styled
+        {...props}
+        value={value}
+        onChange={(e) => {
+          console.log('onChange', e);
+          set_value(e.target.value);
+        }}
+        onFocus={(e) => {
+          console.log('onFocus', e);
+        }}
+        data-hasvalue={!!value}
+        ref={ref}
+      />
+    );
+  }),
+  'Input',
+  variants
+);
 
 /*
- * Under the hood: (1) default export ready to use (2) named export HOC (3) styled component
+ * (1) default export is normal component ready to use (2) withInput is HOC used to predefine common props
  */
-export default memo(forwardRef(Component));
+
+export default memo(Component);
 
 export const withInput = (props: Props) =>
-  memo(withCombinedProps(forwardRef(Component), props));
+  memo(withCombinedProps(Component, props));
 
-// styled "AntInput" can be overriden by passing props.as="article" or any HTML tag
-const StyledComponent = styled(AntInput)`
-  ${(props) =>
-    style_string_from_props_and_variants({
-      props,
-      variants,
-    })}
-`;
+const Styled = styled(AntInput)``;

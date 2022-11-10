@@ -1,7 +1,7 @@
 import React from 'react';
 // import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 // import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 // import { useInView } from 'react-cool-inview';
 
 const OpenSource = function () {
