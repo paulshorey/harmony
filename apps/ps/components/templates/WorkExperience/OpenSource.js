@@ -39,7 +39,7 @@ const OpenSource = function () {
             For NodeJS terminal. No dependencies. No setup required. Easily
             integrate with Cloud logging (LogDNA, etc). Visually group similar
             types of logs in the terminal. Show a concise file/line trace for
-            each message - so you can actually find where it's originating
+            each message - so you can actually find where it&apos;s originating
             without looking through the entire codebase.
           </p>
         </div>
@@ -129,9 +129,9 @@ const OpenSource = function () {
               to close annoying popups, cookie/terms consent banners, floating
               advertisements, newsletter promotions,&nbsp;
             </b>
-            etc. Works reliably without breaking the page, unlike others I've
-            tried. Does not trigger news sites' ad-blocker blocker. Finally,
-            browse in peace. Try it.
+            etc. Works reliably without breaking the page, unlike others
+            I&apos;ve tried. Does not trigger news sites&apos; ad-blocker
+            blocker. Finally, browse in peace. Try it.
           </p>
         </div>
       </article>

@@ -5,11 +5,19 @@ import { styleProps } from '@ps/ui/types/styles';
  */
 type ComponentName = styleProps['componentName'];
 type Props = styleProps;
+type Output = {
+  'className'?: string;
+  'data-bgcolor'?: string;
+  'data-bggradient'?: string;
+  'data-textcolor'?: string;
+  'data-textgradient'?: string;
+  'data-colorscheme'?: string;
+};
 
 /**
  * Modify data- attributes so CSS can "Cascade" (add light/dark colors based on parents and grandparents)
  */
-export default (componentName: ComponentName, props: Props) => {
+export default (componentName: ComponentName, props: Props): Output => {
   const {
     componentName: componentNameProp,
     bgcolor,
@@ -17,20 +25,25 @@ export default (componentName: ComponentName, props: Props) => {
     textcolor,
     textgradient,
   } = props;
-  const dataProps = {};
+  const dataProps = {} as Output;
+  /*
+   * Add className specificity
+   */
+  dataProps.className =
+    (props.className || '') + ' ' + (componentNameProp || componentName || '');
   /*
    * Color Scheme
    */
   if (bgcolor || bggradient) {
     dataProps['data-bgcolor'] = bgcolor || bggradient;
     if (bggradient) {
-      dataProps['data-bggradient'] = true;
+      dataProps['data-bggradient'] = bggradient;
     }
   }
   if (textcolor || textgradient) {
     dataProps['data-textcolor'] = textcolor || textgradient;
     if (textgradient) {
-      dataProps['data-textgradient'] = true;
+      dataProps['data-textgradient'] = textgradient;
     }
   }
   if (dataProps['data-textcolor'] === 'light') {
@@ -49,7 +62,7 @@ export default (componentName: ComponentName, props: Props) => {
   /*
    * Component name to recognize DOM HTML in browser Dev Tools
    */
-  dataProps['data-component'] = componentNameProp || componentName;
+  // dataProps['data-component'] = componentNameProp || componentName;
   /*
    * Clean up no longer needed props
    */

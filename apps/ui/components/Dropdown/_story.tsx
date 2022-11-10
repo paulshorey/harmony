@@ -59,10 +59,9 @@ export default function () {
               </ToggleMenu>
             }
           >
-            hover me
+            align left
           </Dropdown>
           <Dropdown
-            click
             menu={
               <ToggleMenu>
                 <div>
@@ -75,7 +74,7 @@ export default function () {
               </ToggleMenu>
             }
           >
-            click me
+            align center
           </Dropdown>
           <Dropdown
             textcolor="accent"
@@ -92,7 +91,7 @@ export default function () {
               </ToggleMenu>
             }
           >
-            hover me
+            align right
           </Dropdown>
         </Nav>
         <p>&nbsp;</p>

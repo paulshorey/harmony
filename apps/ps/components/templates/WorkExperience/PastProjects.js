@@ -18,7 +18,6 @@ const PastProjects = function () {
             loading="lazy"
             src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,w_1056/v1627867206/ps/screenshots/luxul/collage.webp"
           />
-          <Link name="scrollToTopCode"></Link>
         </Div>
         <Div className="description">
           <p>
@@ -34,17 +33,21 @@ const PastProjects = function () {
         <h3>2016 - All Events .NYC</h3>
         <Div
           className="image"
-          onClick="$(this).hide();$(this).next().show();$(this).next().find('video')[0].play();"
+          onClick={() => {
+            // $(this).hide();
+            // $(this).next().show();
+            // $(this).next().find('video')[0].play();
+          }}
         >
           <img
             loading="lazy"
             src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,w_1056/v1627867206/ps/screenshots/alleventsnyc/collage.webp"
           />
           <Div className="playbutton"></Div>
-          <Link className="playlink">
+          <a className="playlink">
             <span>play screencapture </span>
             <FA icon={faPlay} />
-          </Link>
+          </a>
         </Div>
         <Div className="video" ss="display: none;">
           <video
@@ -60,8 +63,9 @@ const PastProjects = function () {
             standalone iPhone and Android app too. An experiment in content
             curation and aggregation. NodeJS / PhantomJS bot constantly crawls
             the web, updating events in the database. After a busy workday, see
-            what's going on in town. This crawling system and user interface can
-            very quickly be adapted to any type of content or niche.
+            what&apos;s going on in town. This crawling system and user
+            interface can very quickly be adapted to any type of content or
+            niche.
           </p>
         </Div>
       </article>

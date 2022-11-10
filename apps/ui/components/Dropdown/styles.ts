@@ -4,32 +4,51 @@ export default {
   position: relative;
   display:inline-block;
 
+  &:focus-within,
+  &:focus {
+    pointer-events: none;
+    .Dropdown__menuContainer {
+      pointer-events: all;
+    }
+  }
+
   /*
    * Open menu
    */
   &:focus-within,
-  &:focus
-  ${!props.click ? ', &:hover' : ''} {
-    [data-component="Dropdown__menu"] {
+  &:focus {
+    .Dropdown__menu {
       max-height: 50vh;
     }
+  }
+  &:hover {
+  ${
+    props.click !== true &&
+    `
+    .Dropdown__menu {
+      max-height: 50vh;
+    }
+    `
+  }
   }
 
   /*
    * Dropdown
    */ 
-  [data-component="CenterChildrenX"] {
+  .CenterChildrenX {
     position: absolute;
     right:0;
     max-width:100%;
   }
-  [data-component="Dropdown__menu"] {
+  .Dropdown__menuContainer {
+    margin-top: 0.33rem;
+  }
+  .Dropdown__menu {
     max-height: 0;
     overflow: visible;
     overflow-y: hidden;
     transition: max-height 0.5s ease-in-out;
     min-width: 100%;
-    margin-top: 0.33rem;
     ${styleMenuPosition(props)}
   }
   `,

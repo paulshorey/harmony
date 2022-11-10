@@ -9,7 +9,9 @@ export default (...args) => {
   const template = args.shift();
   const literals = args;
   let output = '';
-  // prepend the next literal to each next template string
+  // append each next literal to each next template string
+  // but only if it's a string or number, else just append empty string
+  // TODO: support functions inside template literals (e.g. ${props => props.theme.color})
   for (let i = 0; i < template.length; i++) {
     output +=
       template[i] +

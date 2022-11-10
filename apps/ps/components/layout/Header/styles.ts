@@ -36,6 +36,22 @@ export default {
         display: inline-flex;
         margin-right: 1rem;
       }
+      .Dropdown {
+        .Dropdown__menuContainer {
+          margin-top: 0.5rem;
+          margin-left: -1.5rem;
+        }
+        ${props.theme.mq.phone} {
+          .Dropdown__menuContainer {
+            position: fixed !important;
+            right: 0 !important;
+            width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            text-align: center;
+          }
+        }
+      }
     `,
   },
   ToggleMenu: {

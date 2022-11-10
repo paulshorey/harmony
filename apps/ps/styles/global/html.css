@@ -6,6 +6,10 @@
   user-select: none;
 }
 
+svg {
+  height: 1em;
+}
+
 h1,
 h2,
 h3 {

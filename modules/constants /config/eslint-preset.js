@@ -42,6 +42,7 @@ module.exports = (__dirname) => {
       'prettier',
     ],
     rules: {
+      'jsx-a11y/media-has-caption': 'off',
       '@next/next/no-css-tags': 'off',
       '@next/next/no-html-link-for-pages': 'off',
       '@next/next/no-img-element': 'off',

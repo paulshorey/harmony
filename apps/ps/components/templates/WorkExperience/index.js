@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { LuminousGallery } from 'luminous-lightbox';
 import 'luminous-lightbox/dist/luminous-basic.css';
-import HorizontalCarousel from 'horizontal_carousel/src';
 import Wordio from 'components/templates/WorkExperience/Wordio';
 import dynamic from 'next/dynamic';
+import Block from '@ps/ui/components/Block';
+import HCarousel from '@ps/ui/components/HorizontalCarousel';
 
 const OpenSource = dynamic(
   () => import('components/templates/WorkExperience/OpenSource'),
@@ -26,120 +27,112 @@ const PP = dynamic(
   }
 );
 
-class PageTemplate extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    /*
-     * Popup lightbox
-     */
-    const options = {
-      caption(el) {
-        if (el && el.dataset && el.dataset.title) {
-          return el.dataset.title;
-        }
-        return '';
-      },
-    };
-    /*
-     * Mount carousels
-     */
+const PageTemplate = () => {
+  const carousels = [];
+  useEffect(() => {
     setTimeout(() => {
+      /*
+       * Popup lightbox
+       */
+      const options = {
+        caption(el) {
+          if (el && el.dataset && el.dataset.title) {
+            return el.dataset.title;
+          }
+          return '';
+        },
+      };
       new LuminousGallery(
         document.querySelectorAll('.lightbox a'),
         {},
         options
       );
-      // if (typeof this === 'undefined' || !this) return;
-      this.carousels = [];
-      const els = document.querySelectorAll('.horizontal_carousel'); // <-- lazy method! Can also use array of React refs
-      if (els) {
-        for (const el of els) {
-          this.carousels.push(new HorizontalCarousel(el));
-        }
-      }
+      // /*
+      //  * Mount carousels
+      //  */
+      // // if (typeof this === 'undefined' || !this) return;
+      // const els = Array.from(document.querySelectorAll('.horizontal_carousel')); // <-- lazy method! Can also use array of React refs
+      // if (els) {
+      //   for (const el of els) {
+      //     carousels.push(new HorizontalCarousel(el));
+      //   }
+      // }
     }, 1000);
-  }
-
-  componentWillUnmount() {
-    /*
-     * Unmount carousels
-     */
-    if (this.carousels) {
-      for (const ref of this.carousels) {
-        if (!ref || !ref.end) {
-          continue;
+    return () => {
+      /*
+       * Unmount carousels
+       */
+      if (carousels) {
+        for (const ref of carousels) {
+          if (!ref || !ref.end) {
+            continue;
+          }
+          ref.end();
         }
-        ref.end();
       }
-    }
-  }
+    };
+  }, []);
 
-  render() {
-    return (
-      <ProjectsStyled>
-        <Head>
-          <title>Paul Shorey ~ Web Software Engineer and Designer</title>
-        </Head>
-        <div className="featuredCard">
-          <div className="content full">
-            <p className="top_text">
-              Hi!&nbsp; 👋 I've been coding since 2008. Enjoy creating something
-              from nothing, collaborating with people, designing and developing
-              software. Let's build something together!
-            </p>
-          </div>
-          <div className="content full flex" style={{ overflow: 'auto' }}>
-            <div className="horizontal_carousel lightbox">
-              <div className="slides">
-                <a href="/photos/me/city-paul.jpg">
-                  <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-city-paul.webp" />
-                </a>
-                <a href="/photos/aboutus/desk-paul.jpg">
-                  <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/aboutus/_thumb-desk-paul.webp" />
-                </a>
-                <a href="/photos/aboutus/aboutus.jpg">
-                  <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/aboutus/_thumb-aboutus.webp" />
-                </a>
-                <a href="/photos/me/via-ferrata.jpg">
-                  <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-via-ferrata.webp" />
-                </a>
-                <a href="/photos/aboutus/aboutus-utah-road.jpg">
-                  <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/aboutus/_thumb-aboutus-utah-road.webp" />
-                </a>
-                <a href="/photos/me/hg-crestline.jpg">
-                  <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-hg-crestline.webp" />
-                </a>
-                <a href="/photos/me/ycheck.jpg">
-                  <img
-                    loading="lazy"
-                    src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-ycheck.webp"
-                  />
-                </a>
-                <a href="/photos/me/dog-colorado.jpg">
-                  <img
-                    loading="lazy"
-                    src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-dog-colorado.webp"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
+  return (
+    <ProjectsStyled>
+      <Head>
+        <title>Paul Shorey ~ Web Software Engineer and Designer</title>
+      </Head>
+      <div className="featuredCard">
+        <div className="content full">
+          <p className="top_text">
+            Hi!&nbsp; 👋 I&apos;ve been coding since 2008. Enjoy creating
+            something from nothing, collaborating with people, designing and
+            developing software. Let&apos;s build something together!
+          </p>
         </div>
+        <Block variant="centered">
+          <HCarousel>
+            <>
+              <a href="/photos/me/city-paul.jpg">
+                <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-city-paul.webp" />
+              </a>
+              <a href="/photos/aboutus/desk-paul.jpg">
+                <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/aboutus/_thumb-desk-paul.webp" />
+              </a>
+              <a href="/photos/aboutus/aboutus.jpg">
+                <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/aboutus/_thumb-aboutus.webp" />
+              </a>
+              <a href="/photos/me/via-ferrata.jpg">
+                <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-via-ferrata.webp" />
+              </a>
+              <a href="/photos/aboutus/aboutus-utah-road.jpg">
+                <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/aboutus/_thumb-aboutus-utah-road.webp" />
+              </a>
+              <a href="/photos/me/hg-crestline.jpg">
+                <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-hg-crestline.webp" />
+              </a>
+              <a href="/photos/me/ycheck.jpg">
+                <img
+                  loading="lazy"
+                  src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-ycheck.webp"
+                />
+              </a>
+              <a href="/photos/me/dog-colorado.jpg">
+                <img
+                  loading="lazy"
+                  src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/me/_thumb-dog-colorado.webp"
+                />
+              </a>
+            </>
+          </HCarousel>
+        </Block>
+      </div>
 
-        <section className="content full">
-          <Wordio />
-          <OpenSource />
-          <a name="work-experience" />
-          <BL />
-          <PP />
-        </section>
-      </ProjectsStyled>
-    );
-  }
-}
+      <section className="content full">
+        <Wordio />
+        <OpenSource />
+        <BL />
+        <PP />
+      </section>
+    </ProjectsStyled>
+  );
+};
 export default PageTemplate;
 
 const ProjectsStyled = styled.div`

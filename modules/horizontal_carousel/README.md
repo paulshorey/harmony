@@ -5,19 +5,20 @@
 
 [![npm package](https://img.shields.io/npm/v/horizontal_carousel.svg)](https://www.npmjs.com/package/horizontal_carousel)
 
-Very customizable. Only one requirement: the carousel element must contain a child "`.slides`". Children of `.slides` are the contents to be scrolled, they can be anything.
+Very customizable. Only one requirement: the carousel element must contain a child "`.horizontal_carousel_slides`". Children of `.slides` are the contents to be scrolled, they can be anything.
 
 For the default CSS, the parent element must use `.horizontal_carousel` class name. Sorry about the underscore for people who don't like that. I like to use underscores in personal projects.
 
 Scroll down for advanced usage.
 
 # NOTE:
-I can't get package.json main and module keys to work properly, and import from ./dist/index.js. Instead it imports from ./src/index.js. So, I put the "src" files into "esm", and the transpiled "dist" output code now goes into "src".
 
+I can't get package.json main and module keys to work properly, and import from ./dist/index.js. Instead it imports from ./src/index.js. So, I put the "src" files into "esm", and the transpiled "dist" output code now goes into "src".
 
 # 1. Use in browser
 
 Include the JS and CSS files into your HTML, any way you want to. Copy/paste the CSS or as `<script` and `<link` tags. Change @latest to @x.x.x npm version. Better yet, download files, and serve locally.
+
 ```
   <head>
     <script src="https://cdn.jsdelivr.net/npm/horizontal_carousel@latest"></script>
@@ -50,13 +51,15 @@ Include the JS and CSS files into your HTML, any way you want to. Copy/paste the
   </body>
 ```
 
-
 # 2. Use in React or similar framework
+
 Scroll down for advanced usage, and code screenshots.
+
 ```
   import "horizontal_carousel/css/default.css"
   import horizontal_carousel from "horizontal_carousel"
 ```
+
 ```
   constructor(){
     this.carouselRef = React.createRef()
@@ -83,7 +86,6 @@ Scroll down for advanced usage, and code screenshots.
     )
    }
 ```
-
 
 # 3. Fail-safe
 

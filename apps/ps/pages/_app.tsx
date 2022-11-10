@@ -4,6 +4,7 @@ import 'typeface-quicksand';
 import 'styles/global/html.css';
 import 'styles/global/fontAwesomeMinimal.css';
 // import '@fortawesome/fontawesome-svg-core/styles.css'; // too many styles, using custom
+import 'horizontal_carousel/css/default.css';
 
 const MyApp = ({ Component, pageProps }: AppProps): any => {
   const pageContext = {

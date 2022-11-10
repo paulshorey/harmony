@@ -1,13 +1,19 @@
 import React from 'react';
 import CenterChildrenY from '@ps/ui/components/CenterChildrenY';
+import Block from '@ps/ui/components/Block';
 import HeaderLayout from 'components/layout/Header';
 
 const FullpageLayout = ({ children }) => {
-  const style = { ss: `height:100vh;` };
+  const styles = {
+    y: { ss: `height:100vh;` },
+    x: { ss: `width:100vw; text-align:center;` },
+  };
   return (
     <>
       <HeaderLayout />
-      <CenterChildrenY {...style}>{children}</CenterChildrenY>
+      <CenterChildrenY {...styles.y}>
+        <Block {...styles.x}>{children}</Block>
+      </CenterChildrenY>
     </>
   );
 };
