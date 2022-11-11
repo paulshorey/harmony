@@ -42,6 +42,7 @@ export default {
   }
   .Dropdown__menuContainer {
     margin-top: 0.33rem;
+    z-index: 1000;
   }
   .Dropdown__menu {
     max-height: 0;

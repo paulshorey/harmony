@@ -224,9 +224,12 @@ export default {
     text-shadow: none !important;
     box-shadow: none;
     color: var(--color-text);
-    /* text-decoration: underline;
-    text-underline-offset: 2.5px;
-    text-decoration-thickness: 1.25px; */
+    &:not(:focus):not(:focus-within) {
+      box-shadow: none !important;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   `,
   spinning: `
     svg {

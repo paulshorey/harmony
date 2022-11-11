@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import uiState, { uiStateType } from 'state/uiState';
-import Inline from '@ps/ui/components/Inline';
+import Button from '@ps/ui/components/Button';
 
 const style = {
   tabIndex: 0,
@@ -11,9 +11,9 @@ const style = {
 const parse_colorSchemeLabel = (ui: uiStateType) => {
   const scheme = ui.colorSchemes[ui.colorSchemeIndex];
   if (scheme?.bggradient === 'light') {
-    return `☀️`;
+    return `🌙`;
   }
-  return `🌙`;
+  return `☀️`;
 };
 
 const ColorSchemeToggle = (props) => {
@@ -26,9 +26,9 @@ const ColorSchemeToggle = (props) => {
     set_colorSchemeLabel(parse_colorSchemeLabel(ui));
   };
   return (
-    <Inline {...props} {...style} onClick={toggle_colorScheme}>
+    <Button variant="text" {...props} {...style} onClick={toggle_colorScheme}>
       {colorSchemeLabel}
-    </Inline>
+    </Button>
   );
 };
 export default ColorSchemeToggle;

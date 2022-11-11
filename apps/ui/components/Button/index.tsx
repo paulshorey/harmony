@@ -117,7 +117,7 @@ export const Component: React.FC<Props> = withStyles(
             onClick(e);
           }
           // remove the blue outline
-          ref?.current?.blur();
+          // ref?.current?.blur();
         }}
       >
         {props.textgradient ? (

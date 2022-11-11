@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import uiState, { uiStateType } from 'state/uiState';
-import PageContext from 'context/Page';
 import ThemeProvider from './ThemeProvider';
 
-const AppProvider = ({ children, pageContext }) => {
+const AppProvider = ({ children }) => {
   const ui = uiState((state) => state as uiStateType);
   useEffect(() => {
     /*
@@ -25,11 +24,7 @@ const AppProvider = ({ children, pageContext }) => {
    * The pageContext will be available globally, set by each page.
    * It holds meta data for branding, page titles/subtitles, A/B variants, etc.
    */
-  return (
-    <PageContext.Provider value={pageContext}>
-      <ThemeProvider>{children}</ThemeProvider>
-    </PageContext.Provider>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 };
 
 export default AppProvider;

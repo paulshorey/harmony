@@ -3,6 +3,8 @@ import css from '@ps/ui/helpers/css';
 export default {
   default: css`
     position: relative;
+    max-width: 100vw;
+    text-align: center;
 
     .__slides {
       position: relative;
