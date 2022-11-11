@@ -1,4 +1,14 @@
 const html = (theme) => `
+
+  .svg-inline--fa {
+    display: var(--fa-display, inline-block);
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+    cursor:pointer;
+  }
+
+
   html {
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;

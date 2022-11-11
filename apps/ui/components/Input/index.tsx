@@ -1,7 +1,8 @@
 import React, { ReactNode, InputHTMLAttributes, forwardRef, memo } from 'react';
 import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Input/styles';
-import AntInput from 'antd/es/input/Input';
+import { Input as AntInput } from 'antd';
+import type { InputProps as AntInputProps } from 'antd';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import withStyles from '@ps/ui/hooks/withStyles';
 import styled from '@emotion/styled';
@@ -39,7 +40,8 @@ export type Props = {
    * If allow to remove input content with clear icon
    */
   allowClear?: boolean | { clearIcon: ReactNode };
-} & styleProps &
+} & AntInputProps &
+  styleProps &
   InputHTMLAttributes<HTMLElement & HTMLInputElement>;
 
 /**

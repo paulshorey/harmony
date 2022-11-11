@@ -7,8 +7,8 @@ import { withBlock } from '@ps/ui/components/Block';
 import styles from './styles';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 
-const Nav = withBlock(styles.Nav);
-const ToggleMenu = withBlock(styles.ToggleMenu);
+const Nav = withBlock({ as: 'nav', ...styles.Nav });
+const ToggleMenu = withBlock({ ...styles.ToggleMenu });
 
 const LayoutNav = () => {
   return (

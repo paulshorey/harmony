@@ -1,25 +1,20 @@
-import Block from '@ps/ui/components/Block';
+// import Block from '@ps/ui/components/Block';
+// import { css } from '@emotion/react';
 
-const styles = {
+const styleProps = {
   iframe: {
-    ss: (props) => `
-      iframe {
-        height: 100vh;
-        width:100vw;
-        border:none;
-        padding:0;
-        margin:0;
-        outline:none;
-      }
-  `,
+    style: {
+      height: '100vh',
+      width: '100vw',
+      border: 'none',
+      padding: 0,
+      margin: 0,
+      outline: 'none',
+    },
   },
 };
 
-function Iframe({ url, ...props }) {
-  return (
-    <Block {...props} {...styles.iframe}>
-      <iframe src={url} />
-    </Block>
-  );
+function Iframe({ url, title = '', ...props }) {
+  return <iframe title={title} {...props} {...styleProps.iframe} src={url} />;
 }
 export default Iframe;

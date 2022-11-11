@@ -8,7 +8,7 @@ import CenterChildrenY from '@ps/ui/components/CenterChildrenY';
 import Block from '@ps/ui/components/Block';
 import HeaderLayout from 'components/layout/Header';
 import { useContext } from 'react';
-import PageContext from 'context/Page';
+import PageContext, { pageContextType } from 'context/Page';
 
 const styles = {
   main: {
@@ -23,6 +23,7 @@ const styles = {
   y: { ss: `height:80vh;` },
   carousel: {
     ss: `
+    margin: 2rem 0 3rem;
     img {
       height: 15rem;
     }
@@ -31,7 +32,7 @@ const styles = {
 };
 
 function Home() {
-  const pageContext = useContext(PageContext);
+  const pageContext: pageContextType = useContext(PageContext);
   // const [isOpen, setIsOpen] = React.useState(false);
   return (
     <Block {...styles.main}>
@@ -45,7 +46,7 @@ function Home() {
       >
         <p>{pageContext.topText}</p>
       </Block>
-      <HCarousel ss="margin: 2rem 0 3rem;" {...styles.carousel} />
+      <HCarousel {...styles.carousel} />
       <Block
         ss={(props) => `
         margin: 3rem 1.25rem 3rem;`}
@@ -65,7 +66,7 @@ function Home() {
           </div>
         </Modal> */}
       {/* </CenterChildrenY> */}
-      <Iframe url="https://example.com" />
+      <Iframe url="https://example.com" title="example" />
     </Block>
   );
 }

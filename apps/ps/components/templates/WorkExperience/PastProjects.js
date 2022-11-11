@@ -76,7 +76,6 @@ const PastProjects = function () {
           <video
             src="https://res.cloudinary.com/paulshorey/video/upload/v1627867214/ps/screencasts/younow/video.webm"
             controls
-            scrollplay
             preload="none"
             poster="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,w_1056/v1627867206/ps/screencasts/younow/first.webp"
           ></video>
@@ -106,7 +105,6 @@ const PastProjects = function () {
           <video
             src="https://res.cloudinary.com/paulshorey/video/upload/v1627867214/ps/screencasts/angularcms/video.webm"
             controls
-            scrollplay
             preload="none"
             poster="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,w_1056/v1627867206/ps/screencasts/angularcms/first.webp"
           ></video>
@@ -128,7 +126,6 @@ const PastProjects = function () {
           <video
             src="https://res.cloudinary.com/paulshorey/video/upload/v1627867214/ps/screencasts/carteblanchejazzband/video.webm"
             controls
-            scrollplay
             preload="none"
             poster="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,w_1056/v1627867206/ps/screencasts/carteblanchejazzband/middle.webp"
           ></video>
@@ -166,7 +163,6 @@ const PastProjects = function () {
           <video
             src="https://res.cloudinary.com/paulshorey/video/upload/v1627867214/ps/screencasts/photo/video.webm"
             controls
-            scrollplay
             preload="none"
             poster="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,w_1056/v1627867206/ps/screencasts/photo/first.webp"
           ></video>
@@ -191,7 +187,6 @@ const PastProjects = function () {
             data-cycle-next="#focus-next"
             data-cycle-pause-on-hover="true"
             data-cycle-log="false"
-            scrollplay
           >
             <img
               loading="lazy"
@@ -275,7 +270,6 @@ const PastProjects = function () {
           <video
             src="https://res.cloudinary.com/paulshorey/video/upload/v1627867214/ps/screencasts/focusfeaturestv/video.webm"
             controls
-            scrollplay
             preload="none"
             poster="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,w_1056/v1627867206/ps/screencasts/focusfeaturestv/first.webp"
           ></video>
@@ -294,7 +288,7 @@ const PastProjects = function () {
           </p>
         </Div>
       </article>
-      <Link name="early_works"></Link>
+      {/* <Link name="early_works"></Link> */}
 
       <article className="content">
         <h3>2008 - User Friendly CMS</h3>
@@ -302,7 +296,6 @@ const PastProjects = function () {
           <video
             src="https://res.cloudinary.com/paulshorey/video/upload/v1627867214/ps/screencasts/userfriendlycms/video.webm"
             controls
-            scrollplay
             muted
             preload="none"
             poster="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,w_1056/v1627867206/ps/screencasts/userfriendlycms/first.webp"
@@ -334,7 +327,6 @@ const PastProjects = function () {
             data-cycle-next="#early-next"
             data-cycle-pause-on-hover="true"
             data-cycle-log="false"
-            scrollplay
           >
             <img
               loading="lazy"

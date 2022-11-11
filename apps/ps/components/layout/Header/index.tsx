@@ -3,8 +3,8 @@ import Block, { withBlock } from '@ps/ui/components/Block';
 import styles from './styles';
 import PageContext from 'context/Page';
 
-const Header = withBlock(styles.Header);
-const Logo = withBlock(styles.Logo);
+const Header = withBlock({ as: 'header', ...styles.Header });
+const Logo = withBlock({ componentName: 'Logo', ...styles.Logo });
 
 const HeaderLayout = () => {
   const pageContext = useContext(PageContext);

@@ -2,7 +2,6 @@ import css from '@ps/ui/helpers/css';
 
 export default {
   Nav: {
-    as: 'nav',
     ss: (props) => css`
       position: fixed;
       top: 0;

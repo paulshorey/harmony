@@ -2,8 +2,9 @@ import React, { forwardRef, memo } from 'react';
 import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Select/styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import SelectAnt, { OptionProps as AntOptionProps } from 'antd/es/select';
-import type { SelectProps as AntSelectProps } from 'antd/es/select';
+import { OptionProps as AntOptionProps } from 'antd/es/select';
+import { Select as SelectAnt } from 'antd';
+import type { SelectProps as AntSelectProps } from 'antd';
 import withStyles from '@ps/ui/hooks/withStyles';
 import styled from '@emotion/styled';
 

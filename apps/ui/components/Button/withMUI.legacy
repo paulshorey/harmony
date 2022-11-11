@@ -10,9 +10,9 @@ import Block from '@ps/ui/components/Block';
 import variants from '@ps/ui/components/Button/styles';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-// import withRipple from './withRipple';
 import withStyles from '@ps/ui/hooks/withStyles';
 import styled from '@emotion/styled';
+import MuiButton, { ButtonProps as MuiButtonProps } from '@mui/material/Button';
 
 export type Props = {
   /**
@@ -42,13 +42,16 @@ export type Props = {
    */
   value?: ReactElement | string | number;
 } & styleProps &
+  MuiButtonProps &
   ButtonHTMLAttributes<HTMLElement & HTMLButtonElement>;
 
 /**
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
+// @ts-ignore tsFix: currntly just shoving the props in, but need to reconcile this abstration component with what MUI.com button expects, to make sure it's ok. Right now, the obvious mismatch is props.variant, which is ok. This library takes care of variants. So MUI may get a variant that it does not recognize, but that's ok.
 export const Component: React.FC<Props> = withStyles(
-  forwardRef(({ onClick, loading, ...props }: Props, ref: any) => {
+  // @ts-ignore tsFix props.variant is ignored. This library takes care of variants and how each variant should look
+  forwardRef(({ onClick, loading, variant, ...props }: Props, ref: any) => {
     /*
      * Props logic
      */
@@ -141,4 +144,4 @@ export default memo(Component);
 export const withButton = (props: Props) =>
   memo(withCombinedProps(Component, props));
 
-const Styled = styled('button')``;
+const Styled = styled(MuiButton)``;

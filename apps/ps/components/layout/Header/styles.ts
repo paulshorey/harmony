@@ -2,7 +2,6 @@ import css from '@ps/ui/helpers/css';
 
 export default {
   Header: {
-    as: 'header',
     ss: (props) => css`
       position: fixed;
       z-index: 100;
@@ -29,7 +28,6 @@ export default {
     `,
   },
   Logo: {
-    componentName: 'Logo',
     ss: (props) => css`
       position: relative;
       padding: 0.125rem 1rem 0;

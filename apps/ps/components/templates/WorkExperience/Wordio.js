@@ -7,7 +7,7 @@ class Wordio extends React.Component {
     return (
       <WordioStyled className="content">
         <article>
-          <a name="besta" id="besta" className="a_target" />
+          {/* <a name="besta" id="besta" className="a_target" /> */}
 
           <h3>
             2021 - Making sites and apps to make the world a better place, at:{' '}
@@ -19,7 +19,7 @@ class Wordio extends React.Component {
         </article>
 
         <article>
-          <a name="besta" id="besta" className="a_target" />
+          {/* <a name="besta" id="besta" className="a_target" /> */}
 
           <h3>2020 - Built text-analysis apps and APIs:</h3>
           <div className="description">
