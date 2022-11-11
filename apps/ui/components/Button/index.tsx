@@ -10,7 +10,7 @@ import Block from '@ps/ui/components/Block';
 import variants from '@ps/ui/components/Button/styles';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-// import withRipple from './withRipple';
+import withRipple from './withRipple';
 import withStyles from '@ps/ui/hooks/withStyles';
 import styled from '@emotion/styled';
 
@@ -106,7 +106,7 @@ export const Component: React.FC<Props> = withStyles(
     if (!ref) {
       ref = createRef();
     }
-    // const ChildrenWithRipple = withRipple({ children: Children });
+    const ChildrenWithRipple = withRipple({ children: Children });
     return (
       <Styled
         tabIndex={0}
@@ -121,9 +121,9 @@ export const Component: React.FC<Props> = withStyles(
         }}
       >
         {props.textgradient ? (
-          <Block textgradient={props.textgradient}>{Children}</Block>
+          <Block textgradient={props.textgradient}>{ChildrenWithRipple}</Block>
         ) : (
-          Children
+          ChildrenWithRipple
         )}
       </Styled>
     );
