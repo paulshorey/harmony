@@ -19,6 +19,9 @@ type Props = {
   arrows?: React.ReactNode;
 } & BlockProps;
 
+/**
+ * Two good things about this carousel: (1) It works for any children elements (divs, images, paragraphs, etc), and they don't have to be all the same width! Other carousels usually require all children to be the same width. (2) Prev/Next arrows are built in, for zero configuration setup. But, you can pass custom props.arrows
+ */
 export const Component: React.FC<Props> = withStyles(
   forwardRef(({ arrows, children, ...props }: Props, ref: any) => {
     const carouselRef = React.useRef(ref);

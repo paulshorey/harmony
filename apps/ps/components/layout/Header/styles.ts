@@ -29,18 +29,16 @@ export default {
   },
   Logo: {
     ss: (props) => css`
+      display: inline-block;
       position: relative;
-      padding: 0.125rem 1rem 0;
+      padding: 0 1rem;
       margin: 0;
       line-height: ${props.theme.header.height};
       height: ${props.theme.header.height};
-      span:nth-child(1) {
-        font-size: 1.875rem;
-      }
-      span:nth-child(2) {
-        font-size: 1.5rem;
-        font-weight: 700;
-      }
+      position: absolute;
+      left: 0.25rem;
+      transform: scale(0.67);
+      transform-origin: left;
     `,
   },
 };

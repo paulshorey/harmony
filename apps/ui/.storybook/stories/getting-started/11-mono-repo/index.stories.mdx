@@ -20,11 +20,25 @@ import Code from '@ps/ui/components/Code';
 <ThemeProvider>
 <Wrapper>
 
-# Quick setup
+<Block as="h1" ss="padding-bottom:1rem;margin-top:0;">The goals of this project</Block>   
+    
+  
 
-This is **not meant to be used as a standalone library**, but as part of a **mono-repo**. So, here's an overview of the whole project.  
+### 1. Portability  
+Just import some components into any React project like a Chrome extension or anything (and in the future maybe even any library). This library avoids using any Babel/Webpack configuration (such as the Emotion "css prop").  There may be a couple references to NextJS or something but it's currently being cleaned up.  
+  
+### 2. Tree shaking
+This is meant to be used with a compiler/bundler like Webpack or NextJS's new Rust based compiler. This library (like all modern React/JavaScript projects) depends on many more NPM packages than are used by every component. So, it's important that your app is able to tree shake unused code. To make it more reliable, all components are written to be tree shakable. Import just one component at a time, not an index of multiple components. These components do the same thing - when importing anythign from another package, they import just the one individual variable, not an index of multiple variables. There may be a couple files that import a collection of variables, but that is currently being refactored.   
 
-The UI library (`@ps/ui`) only requires these peer dependencies: `@emotion/core` and `@emotion/react`. 
+### 3. Mono repo  
+This is not meant to be a complete collection like Mui.com or Ant.design. Instead this is meant as an ever-growing collection that you maintain alongside your apps. Add or edit a component whenever you need to make a new feature. If you need to add a unique feature just for the one app, keep it in your app. But if you're making a new feature or adjustment that could be used by other apps in the future, add it to this library.
+
+
+<Block as="h1" ss="padding-top:1rem;">Quick setup</Block>
+
+This is not meant to be used as a standalone library, but as part of a mono-repo. Here's how to set everything up.  
+
+The UI library (`@ps/ui`) requires these peer dependencies: `@emotion/core` and `@emotion/react`. 
 
 --- 
 

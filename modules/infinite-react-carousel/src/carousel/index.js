@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Slider from './slider';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Slider from "./slider";
 
 class Carousel extends Component {
   slickNext = () => this.innerSlider.slickNext();
@@ -31,7 +31,7 @@ class Carousel extends Component {
 Carousel.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
-    PropTypes.arrayOf(PropTypes.instanceOf(typeof Element !== 'undefined' && Element)),
+    PropTypes.arrayOf(PropTypes.instanceOf(typeof Element !== "undefined" && Element)),
     PropTypes.func,
     PropTypes.oneOf([null]),
   ]).isRequired,

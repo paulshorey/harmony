@@ -27,19 +27,19 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     'storybook-addon-next',
-    'storybook-css-modules',
-    {
-      name: 'storybook-addon-sass-postcss',
-      options: {
-        loadSassAfterPostCSS: true,
-        sassLoaderOptions: {
-          implementation: require('sass'),
-        },
-        rule: {
-          test: /\.(scss|sass)$/i,
-        },
-      },
-    },
+    // 'storybook-css-modules',
+    // {
+    //   name: 'storybook-addon-sass-postcss',
+    //   options: {
+    //     loadSassAfterPostCSS: true,
+    //     sassLoaderOptions: {
+    //       implementation: require('sass'),
+    //     },
+    //     rule: {
+    //       test: /\.(scss|sass)$/i,
+    //     },
+    //   },
+    // },
   ],
   presets: [
     // path.resolve('./.storybook/addons/scss-preset.js')

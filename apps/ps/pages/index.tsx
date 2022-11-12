@@ -4,14 +4,7 @@ import Head from 'next/head';
 import PageContext from 'context/Page';
 
 export default function HomePage() {
-  const pageContext = {
-    topText: (
-      <>
-        Hi. Thanks for visiting! This site is my sandbox to try new ideas. I'd
-        love to show you my latest projects. Really appreciate your feedback.
-      </>
-    ),
-  };
+  const pageContext = {};
   return (
     <PageContext.Provider value={pageContext}>
       <Head>

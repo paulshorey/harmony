@@ -2,7 +2,7 @@
  * Returns true if page loaded on iPhone or iPod or iPad, including Xcode simulation
  * @returns boolean
  */
-export const is_ios = function (): boolean {
+const is_ios = function (): boolean {
   if (typeof window !== "object") {
     throw new Error("This can only be called in the browser!");
   }
@@ -14,3 +14,4 @@ export const is_ios = function (): boolean {
     (window.navigator.userAgent.includes("Mac") && "ontouchend" in window.document)
   );
 };
+export default is_ios;

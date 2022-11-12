@@ -14,7 +14,6 @@ const LayoutNav = () => {
   return (
     <Nav>
       <Dropdown
-        top
         right
         menu={
           <ToggleMenu>
@@ -43,7 +42,7 @@ const LayoutNav = () => {
               }}
               className="noWrap"
             >
-              Repo <FA icon={faGithub} />
+              repo <FA icon={faGithub} />
             </Button>
             <Button
               variant="text"
@@ -52,7 +51,7 @@ const LayoutNav = () => {
                 // setIsOpen(true);
               }}
             >
-              <span>Resume </span>
+              <span>resume </span>
               <FA icon={regular('file-arrow-down')} />
             </Button>
             <Button
@@ -64,7 +63,7 @@ const LayoutNav = () => {
               ss="svg { transform: scale(1.15) translate(0.075rem, 0.05rem); }"
               // ss="svg { transform: rotate(-24deg) translate(0.09rem,-0.09rem) scale(0.9); }"
             >
-              <span>Say hello </span>
+              <span>say hello </span>
               <FA icon={regular('envelope')} />
             </Button>
             <ColorSchemeToggle />

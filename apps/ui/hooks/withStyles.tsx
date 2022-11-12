@@ -20,7 +20,12 @@ export default (Component: any, componentName: string, variants: any) =>
           <Component
             ref={ref}
             {...colorScheme}
-            className={cx(componentName, className, css(styleString))}
+            className={cx(
+              props.componentName || '',
+              componentName || '',
+              className,
+              css(styleString)
+            )}
             {...props}
           />
         )}

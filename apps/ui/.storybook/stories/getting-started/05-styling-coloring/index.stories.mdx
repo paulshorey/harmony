@@ -12,23 +12,7 @@ import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 <ThemeProvider>
   <Wrapper bgcolor="dark">
 
-<Block as="h2" textgradient="rainbow">Putting the "C" back into "CSS-in-JS"...</Block>
-
-**Components in this library can read the color scheme of their ancestors** and use appropriate colors that match their surroundings without the developer having to manually set each element. Override the colors for a child component and it applies to all its children too! Also there are several levels of styling with varying specificity: default variant, custom variant, add style rules according to props, ss, media queries, and inline styles. All this is the "cascading" feature of CSS. This library attempts to bring real CSS to JS applications.
-
-Other JavaScript web frameworks only support setting a light/dark scheme once on the entire web page. But what if your app has a dark sidebar with light text while the main content is light background with dark text? What if you have several different sections like this? You'd have to style each individual element. This library allows styling sections with different color schemes more easily. Not just light/dark, but any background/text color combinations.  
-
-<Block ss="margin-top: 1.5rem; padding: 1rem; * {font-size: 1rem;line-height:1.5rem;}" variant="gradientOutline" bggradient="rainbow">
-  <Block textgradient="rainbow">
-  <p>
-Colors and schemes are defined in `theme.css`. They are not indiscriminately applied to all children. Each component is in control. Each component can choose to use the ancestral color variables or define a new color for itself and its children. 
-</p><p>
-Same for padding/fontSize/etc. Define them in the `theme.ts` (everything other than colors are managed in TypeScript). Then, use theme variables in any styled component.
-</p></Block></Block>
-<br />
-
-
-<Block as="h2" textgradient="rainbow" ss="margin-top:2.25rem;">Here are 2 blocks with different color schemes:</Block>
+<Block as="h2" textgradient="rainbow" ss="margin-top:0;">Here are 2 blocks with different color schemes:</Block>
 
 One is `<Block textcolor="light" bgcolor="purple">`, the other is `<Block textcolor="purple" bgcolor="light">`. All children components inside can choose to use the ancestral text and background color. It is not indiscriminately forced upon all children. It's easy to override.
 
@@ -97,6 +81,23 @@ This is possible because of a very small CSS stylesheet that does not set any pa
 This library does not attempt to rewrite all of CSS in JS. Instead, it lets CSS AND JS work together, each doing what it's best at.   
 
 See the [Theme Provider article](/docs/get-started-theme-provider--page) to learn about `theme.css` vs `theme.ts`.  
+<br />
+
+
+<Block as="h2" textgradient="rainbow">Putting the "C" back into "CSS-in-JS"...</Block>
+
+**Components in this library can read the color scheme of their ancestors** and use appropriate colors that match their surroundings without the developer having to manually set each element. Override the colors for a child component and it applies to all its children too! Also there are several levels of styling with varying specificity: default variant, custom variant, add style rules according to props, ss, media queries, and inline styles. All this is the "cascading" feature of CSS. This library attempts to bring real CSS to JS applications.
+
+Other JavaScript web frameworks only support setting a light/dark scheme once on the entire web page. But what if your app has a dark sidebar with light text while the main content is light background with dark text? What if you have several different sections like this? You'd have to style each individual element. This library allows styling sections with different color schemes more easily. Not just light/dark, but any background/text color combinations.  
+
+<Block ss="margin-top: 1.5rem; padding: 1rem; * {font-size: 1rem;line-height:1.5rem;}" variant="gradientOutline" bggradient="rainbow">
+  <Block textgradient="rainbow">
+  <p>
+Colors and schemes are defined in `theme.css`. They are not indiscriminately applied to all children. Each component is in control. Each component can choose to use the ancestral color variables or define a new color for itself and its children. 
+</p><p>
+Same for padding/fontSize/etc. Define them in the `theme.ts` (everything other than colors are managed in TypeScript). Then, use theme variables in any styled component.
+</p></Block></Block>
+
 
 More documentation coming soon...
 </Wrapper>

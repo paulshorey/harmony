@@ -16,7 +16,7 @@ export default {
       }
       .Dropdown {
         .Dropdown__menuContainer {
-          top: -1.25rem;
+          margin-top: 1rem;
           margin-left: -1.25rem;
           margin-right: -1.25rem;
         }
@@ -41,7 +41,7 @@ export default {
       display: flex;
       flex-direction: column;
       border-radius: 0.5rem;
-      padding: 1rem;
+      padding: 0.5rem 1rem;
       background-color: transparent;
       backdrop-filter: blur(10px);
       a {

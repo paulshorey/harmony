@@ -22,9 +22,7 @@ import Code from '@ps/ui/components/Code';
 
 <Block as="h2" textgradient="accent">1. Install</Block>
 
-This is **not currently published as a standalone library**, but as part of a **mono-repo**.  
-
-See 👈 ["Mono repo" in the stories panel](/docs/get-started-mono-repo--page).   
+This is **not currently published as a standalone library**, but as part of a **mono-repo**. See 👈 ["Mono repo" in the stories panel](/docs/get-started-mono-repo--page).   
 
 This UI library `@ps/ui` by design only requires `@emotion/styled` as a peer dependency. NextJS is optional.  
 It also uses a couple modules `@ps/fn` and `@ps/contants` from the local mono-repo, but these be removed in a quick refactor.
@@ -34,9 +32,7 @@ It also uses a couple modules `@ps/fn` and `@ps/contants` from the local mono-re
 
 To get started instantly, with no configuration, import `@ps/ui/components/ThemeProvider` and wrap your app with it.
 
-Or to customize theme and settings, make a copy of `@ps/ui/components/ThemeProvider` in your app directory. Import that and wrap your app in that. Same with JS and CSS files it imports. Customize anything.  
-
-Here are the files you need to copy and edit to customize your colors, sizes, and variables:
+Or to customize theme and settings, make a copy of `ThemeProvider.tsx`, `theme.ts` and `theme.css` files in your app directory and use that. Here are the files used to customize your colors, sizes, and variables:  
 
 <Code title="components/ThemeProvider.tsx" code={`import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
   
