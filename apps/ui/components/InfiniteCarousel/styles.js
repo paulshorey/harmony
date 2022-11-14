@@ -1,20 +1,17 @@
 import { css } from '@emotion/react';
 
 export default {
-  white: (props) =>
+  default: (props) =>
     css`
-      .carousel-dots > .carousel-dot button::before {
-        color: white !important;
+      .carousel-dot button::before {
+        color: var(--color-text);
+        opacity: 0.25;
       }
 
       .carousel-dots-active button::before {
-        color: white !important;
         opacity: 1 !important;
       }
-    `,
 
-  default: (props) =>
-    css`
       .InfiniteCarousel__Slider {
         position: relative;
       }
@@ -180,16 +177,8 @@ export default {
         content: '•';
         text-align: center;
 
-        opacity: 0.25;
-        color: black;
-
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-      }
-
-      .carousel-dots li.carousel-dots-active button:before {
-        opacity: 0.75;
-        color: orange;
       }
 
       .InfiniteCarousel__Slider .carousel-initialized.scrolling .CustomArrow {
@@ -211,7 +200,7 @@ export default {
       }
 
       > * {
-        max-width: 400px;
+        max-width: 500px;
         margin: 0 auto;
         overflow: visible;
 
@@ -240,7 +229,7 @@ export default {
         text-align: center;
 
         > * {
-          padding: 0 30px;
+          padding: 0.33rem;
           text-align: center;
 
           ${props.theme.mq.smallPhone} {

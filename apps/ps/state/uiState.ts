@@ -28,8 +28,8 @@ const ui = create(
         },
         {
           colorscheme: 'dark',
-          bggradient: 'purple',
-          bgcolor: 'purple',
+          bggradient: 'dark',
+          bgcolor: 'dark',
           textcolor: 'light',
         },
       ],
@@ -50,7 +50,7 @@ const ui = create(
       },
     }),
     {
-      name: 'ui-cache3',
+      name: 'ui-cache4',
     }
   )
 );

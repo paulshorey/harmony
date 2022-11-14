@@ -1,16 +1,10 @@
 import React from 'react';
 import Block from '@ps/ui/components/Block';
 import Component from '.';
-import styles from './styles';
 
 const Story = (props) => (
-  <Block variant="centered">
-    <Component
-      variant="white"
-      css={styles.reviews}
-      smallerDots={true}
-      options={{ autoplaySpeed: 5400, overScan: true }}
-    >
+  <Block variant="centered" textcolor="light">
+    <Component smallerDots={true}>
       <span data-zoom="/photos/aboutus.jpg">
         <img
           height={280}
