@@ -21,8 +21,8 @@ const CanvasContainer = (props) => {
     bggradient: 'purple',
     textcolor: 'light',
     ss: `
-      margin: -30px -10px;
-      padding: 30px 20px;
+      margin: -30px 0;
+      padding: 30px 0;
       display: block;
       ${flexStyle};
     `,

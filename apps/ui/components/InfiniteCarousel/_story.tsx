@@ -9,7 +9,7 @@ const Story = (props) => (
       variant="white"
       css={styles.reviews}
       smallerDots={true}
-      options={{ autoplaySpeed: 5400 }}
+      options={{ autoplaySpeed: 5400, overScan: true }}
     >
       <span data-zoom="/photos/aboutus.jpg">
         <img

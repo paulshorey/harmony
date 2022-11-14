@@ -2,31 +2,12 @@ import React, { createRef, useEffect, useState } from 'react';
 import Slider from '@ps/infinite-react-carousel';
 import { useSwipeable } from 'react-swipeable';
 import { useInView } from 'react-cool-inview';
-import styles from './styles';
 import getQueryParam from '@ps/fn/browser/url/get_query_param';
 import is_ios from '@ps/fn/browser/device/is_ios';
-import s2c from '@ps/ui/helpers/style_to_class';
-
-// const s2c = (style) => '';
-
-type InViewProps = any; // TODO: import
-export type Props = {
-  options?: {
-    autoplay?: boolean;
-    msResumeAfterHover?: number;
-  };
-} & InViewProps;
+import { Props } from './index';
 
 /**
  * Infinite Carousel slider (click previous/next to advance left/right, click the dots for a specific slide)
- * @param children {array} - pass only an ARRAY of JSX elements, NOT one wrapper element with its own children
- * @param variant {string} - empty by default. Pass "default" or "" to make it normal. Pass "white" to make the dots white.
- * @param options {object} - see documentation for NPM package infinite-react-carousel. Pass whatever it accepts.
- * @param controls {object} - pass an empty but named object. It will get populated with functions obj.back and obj.next
- *    Call these functions from the parent component, to control the slideshow.
- * @param smallerDots {boolean} - false by default - make the dots a bit smaller
- * @param useSwipeOverlay {boolean} - true by default - renders a div with className="useSwipeOverlay" over the slideshow
- *    IMPORTANT: useSwipeOverlay blocks all user interaction! So, you may want to style it in CSS by using its className. Or disable.
  */
 // DEBUG mobile Safari scroll interaction when InfiniteCarousel swiped:
 // function throttle(callback, limit) {
@@ -74,37 +55,30 @@ function windowScrollDisable(disable) {
 
 const InfiniteCarousel: React.FC<Props> = ({
   children,
-  options = {},
   className,
   controls,
-  smallerDots = false,
   useSwipeOverlay = true,
+  // used in styles to set width/height of dots and arrows:
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  smallerDots = false,
+  autoplay = true,
+  autoplaySpeed = 4800,
+  dots = true,
+  overScan = 1,
+  slowerOnDesktop = 0,
+  msResumeWhileHover = 0,
+  msResumeAfterHover = 1000,
   ...props
 }) => {
-  if (options.autoplay === undefined) {
-    options.autoplay = false;
-  }
-  if (!options.autoplaySpeed) {
-    options.autoplaySpeed = 4800;
-  }
-  if (options.overScan === undefined) {
-    options.overScan = 1;
-  }
-  if (options.dots === undefined) {
-    options.dots = true;
-  }
-  if (!options.msResumeAfterHover) {
-    options.msResumeAfterHover = 1000;
-  }
-  if (options.slowerOnDesktop && typeof window === 'object') {
+  if (slowerOnDesktop && typeof window === 'object') {
     const width =
       window?.document?.documentElement?.clientWidth || window?.innerWidth;
     if (width > 800) {
-      options.autoplaySpeed = options.autoplaySpeed * options.slowerOnDesktop;
+      autoplaySpeed = autoplaySpeed * slowerOnDesktop;
     }
   }
-  if (!options.msResumeWhileHover) {
-    options.msResumeWhileHover = options.autoplaySpeed * 2.5;
+  if (!msResumeWhileHover) {
+    msResumeWhileHover = autoplaySpeed * 2.5;
   }
   let slideshowPauseTimeout;
   const slideshowRef: any = createRef();
@@ -156,7 +130,7 @@ const InfiniteCarousel: React.FC<Props> = ({
           slideshowRef?.current?.slickPlay();
         }
       }
-    }, options.msResumeAfterHover);
+    }, msResumeAfterHover);
   };
   const onHover = () => {
     // pause slideshow on hover - built-in functionality ignores .carousel-dots
@@ -171,7 +145,7 @@ const InfiniteCarousel: React.FC<Props> = ({
             slideshowRef?.current?.slickPlay();
           }
         }
-      }, options.msResumeWhileHover);
+      }, msResumeWhileHover);
     }
   };
   useEffect(() => {
@@ -262,10 +236,10 @@ const InfiniteCarousel: React.FC<Props> = ({
       )}
       <Slider
         ref={slideshowRef}
-        autoplay={options.autoplay}
-        autoplaySpeed={options.autoplaySpeed}
-        overScan={options.overScan}
-        dots={options.dots}
+        autoplay={autoplay}
+        autoplaySpeed={autoplaySpeed}
+        overScan={overScan}
+        dots={dots}
         className={'InfiniteCarousel__Slider'}
       >
         {children}

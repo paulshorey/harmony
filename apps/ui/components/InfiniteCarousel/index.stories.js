@@ -5,11 +5,11 @@ import Template from './_story';
 // import variants from './styles';
 
 // const variantKeys = Object.keys(variants);
-const args = {};
+// const args = {};
 
 export const InfiniteCarousel = Template.bind({});
 // InfiniteCarousel.argTypes = argTypes({ localVariants: variantKeys });
-InfiniteCarousel.args = args;
+// InfiniteCarousel.args = args;
 
 export default {
   title: 'Layout/InfiniteCarousel',

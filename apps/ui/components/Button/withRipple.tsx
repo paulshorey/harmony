@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { createRef } from 'react';
 
 const withRipple = ({ children }) => {
@@ -54,7 +55,7 @@ const withRipple = ({ children }) => {
         timerId = setTimeout(() => {
           ripple.classList.remove('withRipple_active');
           ripple.classList.remove('withRipple_start');
-        }, 500);
+        }, 700);
       }}
     >
       <span className="withRipple" />

@@ -86,7 +86,7 @@ export default {
         display: ${props?.options?.showArrows ? 'inline-block' : 'none'};
         position: relative;
         vertical-align: middle;
-        width: 0;
+        width: ${props?.options?.smallerDots ? '13' : '20'}px;
         height: ${props?.options?.smallerDots ? '13' : '20'}px;
         line-height: ${props?.options?.smallerDots ? '13' : '20'}px;
         overflow: visible;
@@ -194,6 +194,75 @@ export default {
 
       .InfiniteCarousel__Slider .carousel-initialized.scrolling .CustomArrow {
         display: none;
+      }
+
+      /*
+      *  Homepag3
+       */
+
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      scroll-snap-align: center;
+
+      ${props.theme.mq.lg} {
+        width: 100%;
+        overflow: visible;
+      }
+
+      > * {
+        max-width: 400px;
+        margin: 0 auto;
+        overflow: visible;
+
+        @media (max-width: 768px) {
+          max-width: ${768 + 20}px;
+          margin: 0 -10px;
+        }
+
+        @media (max-width: 600px) {
+          max-width: ${600 + 30}px;
+          margin: 0 -15px;
+        }
+      }
+
+      .carousel-dots {
+        position: relative !important;
+      }
+
+      .carousel-initialized {
+        overflow: visible !important;
+        padding: 0 !important;
+      }
+
+      .carousel-track {
+        overflow: visible;
+        text-align: center;
+
+        > * {
+          padding: 0 30px;
+          text-align: center;
+
+          ${props.theme.mq.smallPhone} {
+            padding: 0;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      svg {
+        width: ${props?.options?.smallerDots ? '13' : '20'}px;
+        height: ${props?.options?.smallerDots ? '13' : '20'}px;
+        display: inline-block;
+        color: white;
+      }
+      span.carousel-arrow {
+        color: white;
+        display: inline-block;
       }
     `,
 };
