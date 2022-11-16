@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@ps/fn</title><meta name="description" content="Documentation for @ps/fn"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script><style>
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@harmony/fn</title><meta name="description" content="Documentation for @harmony/fn"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script><style>
         body {
           font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
         }
@@ -252,24 +252,24 @@
 <div id="tsd-toolbar-links"></div></div>
 <ul class="results">
 <li class="state loading">Preparing search index...</li>
-<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@ps/fn</a></div>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@harmony/fn</a></div>
 <div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
 <div class="container container-main">
 <div class="col-8 col-content">
 <div class="tsd-page-title">
-<h2>@ps/fn</h2></div>
-<div class="tsd-panel tsd-typography">
-<a href="#a-system-for-organizing-utility-functions" id="a-system-for-organizing-utility-functions" style="color: inherit; text-decoration: none;">
-  <h2>A system for organizing utility functions</h2>
+<h2>@harmony/fn</h2></div>
+<div class="tsd-panel tsd-typography"><p>See the code: <a href="https://github.com/paulshorey/harmony/modules/fn">https://github.com/paulshorey/harmony/modules/fn</a>. Clone the whole monorepo.</p>
+
+<a href="#a-system-for-organizing-utility-functions---for-use-by-multiple-apps" id="a-system-for-organizing-utility-functions---for-use-by-multiple-apps" style="color: inherit; text-decoration: none;">
+  <h2>A system for organizing utility functions - for use by multiple apps</h2>
 </a>
 <blockquote>
-<p>If something is missing, just add it here instead of to your app. Then, you&#39;ll be able to use it in your app and any future apps that might later need it.</p>
+<p>If something is missing, just add it to your mono-repo. Then use it in any app in the future.</p>
 </blockquote>
 
-<a href="#folder-structure" id="folder-structure" style="color: inherit; text-decoration: none;">
-  <h2>Folder structure</h2>
+<a href="#categories" id="categories" style="color: inherit; text-decoration: none;">
+  <h2>Categories</h2>
 </a>
-<p><strong>Categories:</strong></p>
 <ul>
 <li><code>/io</code> - <strong>universal</strong> pure functions, no side effects, no dependencies, immutable</li>
 <li><code>/browser</code> - relies on the window, location, user agent, OS, screen size, etc.</li>
@@ -277,22 +277,24 @@
 <li><code>/server</code> - relies on server-side dependencies and variables like <code>process</code>, <code>env</code>, <code>fs</code></li>
 </ul>
 <blockquote>
-<p>This is currently a work in progress. May have bugs and edge cases.<br>Only <code>/io</code> is universal and has tests. Others rely on the platform or have side effects.</p>
+<p>This is currently a work in progress. May have bugs and edge cases.<br><code>/io</code> is universal, most mature, has unit tests. <code>/browser</code> is stable, but not finished. <code>/requests</code> is experimental. <code>/server</code> only has one function, but more bash/shell utilities will be added soon.</p>
 </blockquote>
 
 <a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
   <h2>How to use</h2>
 </a>
 <p>Everything is tree-shakeable. Import only the function you need, not the entire collection.</p>
-<pre><code class="language-js"><span class="hl-0">import</span><span class="hl-1"> </span><span class="hl-2">is_ios</span><span class="hl-1"> </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;@ps/fn/browser/device/is_ios&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">is_ios</span><span class="hl-1">(); </span><span class="hl-5">// true if you&#39;re using iPhone, iPod, iPad, or emulator</span>
+<pre><code class="language-js"><span class="hl-0">import</span><span class="hl-1"> </span><span class="hl-2">is_ios</span><span class="hl-1"> </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;@ps/fn/browser/device/is_ios&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">is_ios</span><span class="hl-1">(); </span><span class="hl-5">// true if client is iPhone, iPod, iPad, or emulator</span>
 </code></pre>
 
 <a href="#notes" id="notes" style="color: inherit; text-decoration: none;">
   <h2>Notes</h2>
 </a>
-<p>This is meant to be used in a monorepo by any JavaScript framework that supports ES Modules and ES2015+ (NodeJS on the server or Webpack/Babel/NextJS compiler on the client). Although, it&#39;s easy enough to publish to NPM as a standalone package. However, the goal of this project is not to make a finished product, but to create a system to manage utility functions for multiple apps.</p>
-<p>The goal of this is to keep a central repository of all the functions any website or application could ever need, but to import only piece by piece, to keep the bundle size small.</p>
-<p>This could be useful to publish to NPM for anyone anywhere to import to their own app. However, everyone&#39;s codebase has different needs and preferences. It&#39;s easy enough to find a good algorithm or script online. This is meant to be a system of organizing and testing code snippets copied from the internet, extracted from popular libraries like Underscore, or developed in house.</p>
+<p>This is meant to be used in a monorepo by any JavaScript framework that supports ES Modules and ES2015+ (NodeJS on the server or Webpack/Babel/NextJS compiler on the client).</p>
+<p>The goal of this is to keep a central repository of all the functions any website or application could ever need. Then each app can import only each little code snippet as needed - to keep the bundle size small.</p>
+<p>In the future, when this is more mature, this module could be published as a standalone open-source NPM package for anyone anywhere to import to their own app. For now, just clone the entire mono-repo.</p>
+<p>However, everyone&#39;s codebase has different needs and preferences. The challenge is to create a system that can be used by anyone, but also be customized to fit any project. So for now, I&#39;m practicing organizing the code in my own repository, setting up standards and processes that in the future might meet the needs of a community of developers.</p>
+<p>This has no affiliation with the <a href="https://harmonyjs.io/" target="_blank">HarmonyJS</a> framework. This will be called &quot;Harmony UX&quot;, because it focuses on user experience and developer experience, rather than a specific programming technology.</p>
 </div></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <nav class="tsd-navigation primary">
