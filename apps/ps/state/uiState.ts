@@ -2,11 +2,7 @@ import { persist } from 'zustand/middleware';
 import create from 'zustand';
 
 export type uiStateType = {
-  colorSchemes: Array<{
-    bggradient: string;
-    textcolor: string;
-    colorscheme: string;
-  }>;
+  colorsSchemes: string[];
   colorSchemeIndex: number;
   colorSchemeIndexToggle: () => void;
   clicks: number;
@@ -19,20 +15,7 @@ const ui = create(
       /*
        * Color schemes
        */
-      colorSchemes: [
-        {
-          colorscheme: 'light',
-          bggradient: 'light',
-          bgcolor: 'light',
-          textcolor: 'purple',
-        },
-        {
-          colorscheme: 'dark',
-          bggradient: 'dark',
-          bgcolor: 'dark',
-          textcolor: 'light',
-        },
-      ],
+      colorSchemes: ['light', 'coolrainbow', 'dark'],
       colorSchemeIndex: 1,
       colorSchemeIndexToggle: () => {
         const state = get() as uiStateType;
@@ -50,7 +33,7 @@ const ui = create(
       },
     }),
     {
-      name: 'ui-cache4',
+      name: 'ui-cache',
     }
   )
 );

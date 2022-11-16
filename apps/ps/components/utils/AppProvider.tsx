@@ -8,10 +8,9 @@ const AppProvider = ({ children }) => {
     /*
      * Color scheme (global UI state is remembered in localStorage)
      */
-    const colorScheme = ui.colorSchemes[ui.colorSchemeIndex];
-    for (const key in colorScheme) {
-      window.document.body.dataset[key] = colorScheme[key];
-    }
+    window.document.body.dataset.color = ui.colorSchemes[ui.colorSchemeIndex];
+    window.document.body.dataset.bggradient = true;
+    window.document.body.dataset.fgcolor = true;
     /*
      * Track user interactions with the page (for analytics)
      */

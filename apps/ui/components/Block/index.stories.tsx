@@ -1,19 +1,19 @@
 import { Component } from '.';
 import _box, { code } from './_story';
 import description from './_story.md';
-import { argTypes } from '@ps/ui/helpers/storybook_args';
-import variants from './styles';
+// import { argTypes } from '@ps/ui/helpers/storybook_args';
+// import variants from './styles';
 
-const variantKeys = Object.keys(variants);
+// const variantKeys = Object.keys(variants);
 
 export const Block = _box.bind({});
-Block.argTypes = argTypes({ localVariants: variantKeys });
-Block.args = {
-  variant: 'card',
-  textcolor: 'purple',
-  bggradient: 'light',
-  as: 'article',
-};
+// Block.argTypes = argTypes({ localVariants: variantKeys });
+// Block.args = {
+//   variant: 'card',
+//   textcolor: 'purple',
+//   bggradient: 'light',
+//   as: 'article',
+// };
 
 export default {
   title: 'Base/Block',

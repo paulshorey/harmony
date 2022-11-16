@@ -17,11 +17,7 @@
 [data-colorscheme='dark'] {
   color-scheme: dark;
   --color-bg: #333;
-  --color-bg-gradient: radial-gradient(
-    75% 75% at top center,
-    hsla(257, 42%, 28%, 75%),
-    hsla(257, 42%, 28%, 85%)
-  );
+  --color-bg-gradient: radial-gradient(75% 75% at top center, #222, #333, #222);
 
   --color-text: hsla(0, 0%, 94%, 94%);
   --color-text-gradient: linear-gradient(

@@ -1,3 +1,1 @@
-Only groups the children next to each other visually with no border-radius. 
-
-In the future, more functionality will be added.
+Groups children visually in a row with no border-radius and no margin. Does not add functionality. Each field is still controlled independently.

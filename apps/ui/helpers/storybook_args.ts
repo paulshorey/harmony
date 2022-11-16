@@ -14,32 +14,32 @@ export const argTypes = ({ localVariants = [] }: Props) => {
 
   const argTypes = {
     // ref: { table: { disable: true } },
-    textcolor: {
-      control: {
-        type: 'select',
-      },
-    },
-    bgcolor: {
-      control: {
-        type: 'select',
-      },
-    },
-    textgradient: {
-      control: {
-        type: 'select',
-      },
-    },
-    bggradient: {
-      control: {
-        type: 'select',
-      },
-    },
-    variants: {
-      control: {
-        type: 'multi-select',
-      },
-      options: allV,
-    },
+    // textcolor: {
+    //   control: {
+    //     type: 'select',
+    //   },
+    // },
+    // bgcolor: {
+    //   control: {
+    //     type: 'select',
+    //   },
+    // },
+    // textgradient: {
+    //   control: {
+    //     type: 'select',
+    //   },
+    // },
+    // bggradient: {
+    //   control: {
+    //     type: 'select',
+    //   },
+    // },
+    // variants: {
+    //   control: {
+    //     type: 'multi-select',
+    //   },
+    //   options: allV,
+    // },
     variant: {
       control: {
         type: 'select',

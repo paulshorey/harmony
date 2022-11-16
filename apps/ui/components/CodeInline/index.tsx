@@ -3,7 +3,6 @@ import variants from './styles';
 import styleProps from '@ps/ui/types/styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import withStyles from '@ps/ui/hooks/withStyles';
-import styled from '@emotion/styled';
 
 export type Props = {
   /**
@@ -13,25 +12,24 @@ export type Props = {
 } & styleProps &
   HTMLAttributes<HTMLDivElement>;
 
-export const Component: React.FC<Props> = withStyles(
-  forwardRef(({ code, children, ...props }: Props, ref: any) => {
-    return (
-      <Styled ref={ref} {...props}>
-        <span>{code || children}</span>
-      </Styled>
-    );
-  }),
-  'CodeInline',
-  variants
-);
+export const Component = ({ code, children, ...props }: Props, ref: any) => {
+  return (
+    <code ref={ref} {...props}>
+      <span>{code || children}</span>
+    </code>
+  );
+};
 
 /*
  * (1) default export is normal component ready to use (2) CodeInline is HOC used to predefine common props
  */
+const Styled: React.FC<Props> = withStyles(
+  forwardRef(Component),
+  'Code',
+  variants
+);
 
-export default memo(Component);
+export default memo(Styled);
 
 export const withCodeInline = (props: Props) =>
-  memo(withCombinedProps(Component, props));
-
-const Styled = styled('code')``;
+  memo(withCombinedProps(Styled, props));

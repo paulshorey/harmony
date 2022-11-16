@@ -21,7 +21,5 @@
     "allowJs": true,
     "jsx": "preserve",
     "types": ["node"]
-  },
-  "include": ["**/*.(ts|tsx|js|jsx|json|mdx)"],
-  "exclude": ["node_modules"]
+  }
 }

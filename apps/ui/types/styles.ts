@@ -110,8 +110,8 @@ export type styleProps = {
    */
   componentName?: string;
   className?: string;
-  /*
-   * Your site theme is injected into props by hooks/withStyles.tsx so you can use it in any EmotionJS/StyledComponents css`` template literal.
+  /**
+   * Your site theme is injected into props by hooks/withStyles.tsx so you can use it in your EmotionJS/StyledComponents css\`\` template literal: (1 - any component in this library) `<Block ss={(props) => \`padding:${props.theme.card.paddingX}\`} />` (2 - use styled components) `styled(Block)\`padding:${props => props.theme.card.paddingX}\`` (3 - emotion css prop) `<div css={css\`padding:${props => props.theme.card.paddingX}\`} />`.
    */
   theme?: any;
 };

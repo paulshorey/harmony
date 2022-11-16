@@ -1,13 +1,13 @@
 import { Component } from '.';
 import _story, { code } from './_story';
 // import description from './_story.md';
-// import { argTypes } from '@ps/ui/helpers/storybook_args';
-// import variants from './styles';
+import { argTypes } from '@ps/ui/helpers/storybook_args';
+import variants from './styles';
 
-// const variantKeys = Object.keys(variants);
+const variantKeys = Object.keys(variants);
 
 export const Dropdown = _story.bind({});
-// Dropdown.argTypes = argTypes({ localVariants: variantKeys });
+Dropdown.argTypes = argTypes({ localVariants: variantKeys });
 Dropdown.args = {};
 
 export default {

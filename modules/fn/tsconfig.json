@@ -1,6 +1,8 @@
 {
-  "include": ["**/*.@(ts,tsx,js,jsx)"],
-  "extends": "@ps/constants/config/typescript/library.json",
+  "extends": "@ps/constants/config/typescript/base.json",
+  "include": ["**/*.(ts|tsx|js|jsx|json|mdx)"],
+  "exclude": ["**/node_modules"],
+  "files": ["./io/arr/index.ts"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {}

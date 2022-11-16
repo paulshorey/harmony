@@ -66,7 +66,7 @@ const LayoutNav = () => {
               <span>say hello </span>
               <FA icon={regular('envelope')} />
             </Button>
-            <ColorSchemeToggle />
+            {/* <ColorSchemeToggle /> */}
           </ToggleMenu>
         }
       >

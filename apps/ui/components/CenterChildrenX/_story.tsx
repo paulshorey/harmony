@@ -1,3 +1,4 @@
+import React from 'react';
 import CenterH from '.';
 import Block from '@ps/ui/components/Block';
 import CodeInline from '@ps/ui/components/CodeInline';

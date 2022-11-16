@@ -13,10 +13,6 @@ type Props = {
   variants?: Record<string, ssProp>;
 };
 
-/**
- * This is a helper function that returns a modified props object. It does not change the original props object.
- * This removes all the props unique to this library styling-system like `ss`, `ssLg`, `ssDesktop`, `ssMobile`.
- */
 export default ({ props, variants }: Props): string => {
   const {
     theme,

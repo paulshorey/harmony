@@ -12,6 +12,13 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
     "test:dev": "NODE_OPTIONS=--experimental-vm-modules npx jest --watch"
   },
+  "main": "./io/arr/index.ts",
+  "typedoc": {
+    "entryPoint": "./io/arr/index.ts",
+    "readmeFile": "./README.md",
+    "displayName": "Hope this works",
+    "tsconfig": "./tsconfig.json"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm version patch --no-git-tag-version && npm run test && git add ."
@@ -35,10 +42,10 @@
   },
   "homepage": "https://github.com/twodashes/node#readme",
   "dependencies": {
-    "axios": "^0.27.2",
-    "cachios": "^4.0.0",
+    "@ps/cconsole": "*",
     "@ps/constants": "*",
-    "@ps/cconsole": "*"
+    "axios": "^0.27.2",
+    "cachios": "^4.0.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.18.6",

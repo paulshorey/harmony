@@ -1,9 +1,22 @@
 import React from 'react';
 import HCarousel from '@ps/ui/components/HorizontalCarousel';
 
+const style = `
+margin: 2rem 0 3rem;
+img {
+  height: 15rem;
+}
+.__prev,
+.__next {
+  transform: scale(0.5, 0.67) !important;
+  color: white !important;
+  opacity: 0.5 !important;
+}
+`;
+
 function Home(props) {
   return (
-    <HCarousel {...props}>
+    <HCarousel ss={style} {...props}>
       <span data-href="/photos/aboutus/aboutus.jpg">
         <img src="https://res.cloudinary.com/paulshorey/image/upload/g_auto,c_fill,h_272/v1627867206/ps/photos/aboutus/_thumb-aboutus.webp" />
       </span>

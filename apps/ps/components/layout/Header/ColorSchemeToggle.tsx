@@ -2,11 +2,12 @@ import { useState } from 'react';
 import uiState, { uiStateType } from 'state/uiState';
 import Button from '@ps/ui/components/Button';
 
-const style = {
-  tabIndex: 0,
-  ss: `margin-left: 0.875rem; cursor:pointer; user-select: none;`,
-  ssSmallPhone: `display:none;`,
-};
+const style = ({ theme }) => `
+  margin-left: 0.875rem; cursor:pointer; user-select: none;
+  ${theme.mq.smallPhone} {
+    display:none;
+  }
+  `;
 
 const parse_colorSchemeLabel = (ui: uiStateType) => {
   const scheme = ui.colorSchemes[ui.colorSchemeIndex];
@@ -26,7 +27,13 @@ const ColorSchemeToggle = (props) => {
     set_colorSchemeLabel(parse_colorSchemeLabel(ui));
   };
   return (
-    <Button variant="text" {...props} {...style} onClick={toggle_colorScheme}>
+    <Button
+      ss={style}
+      tabIndex={0}
+      variant="text"
+      {...props}
+      onClick={toggle_colorScheme}
+    >
       {colorSchemeLabel}
     </Button>
   );

@@ -4,60 +4,47 @@ import HCarousel from './AboutMeCarousel';
 import LayoutNav from 'components/layout/Nav';
 import CenterChildrenY from '@ps/ui/components/CenterChildrenY';
 import Block from '@ps/ui/components/Block';
-import Link from '@ps/ui/components/Link';
+// import Link from '@ps/ui/components/Link';
 import HeaderLayout from 'components/layout/Header';
-import { useContext } from 'react';
-import PageContext, { pageContextType } from 'context/Page';
-import css from '@ps/ui/helpers/css';
+// import { useContext } from 'react';
+// import PageContext, { pageContextType } from 'context/Page';
+// import css from '@ps/ui/helpers/css';
 import LatestProjectsCarousel from './LatestProjectsCarousel';
 
-const styles = {
-  main: {
-    ss: (props) => `
-      p {
-        font-size: 1rem;
-        letter-spacing: 0.1px;
-        text-align: center;
-      }
-  `,
-  },
-  y: { ss: `height:80vh;` },
-  carousel: {
-    ss: `
-    margin: 2rem 0 3rem;
-    img {
-      height: 15rem;
+const style = (props) => `
+    height:calc(100vh - 5rem);
+    p {
+      font-size: 1rem;
+      letter-spacing: 0.1px;
+      text-align: center;
     }
-    .__prev,
-    .__next {
-      transform: scale(0.5, 0.67) !important;
-      color: white !important;
-      opacity: 0.5 !important;
-    }
-  `,
-  },
-};
+`;
 
 function Home() {
-  const pageContext: pageContextType = useContext(PageContext);
+  // const pageContext: pageContextType = useContext(PageContext);
   // const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <Block {...styles.main}>
+    <Block {...style}>
       <HeaderLayout />
-      <CenterChildrenY {...styles.y}>
+      <CenterChildrenY ss="height:calc(100vh - 5rem);">
         <LayoutNav />
         <Block
           as="p"
           ss={(props) =>
-            `margin: calc(${props.theme.header.height} + 6.5rem) 1.25rem 1.25rem;`
+            `margin: calc(${props.theme.header.height} + 2.5rem) 1.25rem 1.25rem;`
           }
         >
           Hi. Thanks for visiting! This site is my sandbox to try new ideas.
           Really appreciate your <a>feedback</a>.
         </Block>
-        <HCarousel {...styles.carousel} />
+        <HCarousel />
         <Block>
-          <Block as="p" ss={(props) => `margin: 5rem 1.25rem 1.5rem;`}>
+          <Block
+            as="p"
+            ss={(props) =>
+              `margin: calc(${props.theme.header.height} + 2.5rem) 1.25rem 1.5rem;`
+            }
+          >
             Check out my latest experiment:
           </Block>
           <LatestProjectsCarousel />
