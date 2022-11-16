@@ -6,12 +6,12 @@ function str_trim_char(s, c) {
 
 /**
  * Change a url (GET) parameter in queryString string
- * @param queryString {string} - ex: "?start=10&fruit=apple"
- * @param key {string} - ex: "fruit"
- * @param value {string} - ex: "species"
- * @return {string} - ex: "?start=10&species=apple"
+ * @param queryString - ex: `?start=10&fruit=apple`
+ * @param key - ex: `fruit`
+ * @param value - ex: `species`
+ * @return - ex: `?start=10&species=apple`
  */
-export default function (queryString, key, value) {
+export default function (queryString: string, key: string, value: string): string {
   // clean input
   queryString = str_trim_char(queryString, "&");
   queryString = str_trim_char(queryString, "?");

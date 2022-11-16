@@ -1,15 +1,7 @@
-import sort_domains_by_extension_imported from "./sort_domains_by_extension";
-import sort_strings_by_length_and_position_imported from "./sort_strings_by_length_and_position";
-import sort_strings_by_length_imported from "./sort_strings_by_length";
-import sort_strings_by_matches_in_list_imported from "./sort_strings_by_matches_in_list";
-import sort_strings_by_rating_and_position_imported from "./sort_strings_by_rating_and_position";
-import sort_strings_by_rating_imported from "./sort_strings_by_rating";
-import sort_strings_by_width_imported from "./sort_strings_by_width";
-
-export const sort_domains_by_extension = sort_domains_by_extension_imported;
-export const sort_strings_by_length_and_position = sort_strings_by_length_and_position_imported;
-export const sort_strings_by_length = sort_strings_by_length_imported;
-export const sort_strings_by_matches_in_list = sort_strings_by_matches_in_list_imported;
-export const sort_strings_by_rating_and_position = sort_strings_by_rating_and_position_imported;
-export const sort_strings_by_rating = sort_strings_by_rating_imported;
-export const sort_strings_by_width = sort_strings_by_width_imported;
+export { default as sort_domains_by_extension } from "./sort_domains_by_extension";
+export { default as sort_strings_by_length_and_position } from "./sort_strings_by_length_and_position";
+export { default as sort_strings_by_length } from "./sort_strings_by_length";
+export { default as sort_strings_by_matches_in_list } from "./sort_strings_by_matches_in_list";
+export { default as sort_strings_by_rating_and_position } from "./sort_strings_by_rating_and_position";
+export { default as sort_strings_by_rating } from "./sort_strings_by_rating";
+export { default as sort_strings_by_width } from "./sort_strings_by_width";

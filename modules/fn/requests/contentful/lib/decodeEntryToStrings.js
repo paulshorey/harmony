@@ -1,17 +1,21 @@
-import decodeEntriesToStrings from './decodeEntriesToStrings';
-import partnerFields from './partnerFields';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import decodeEntriesToStrings from "./decodeEntriesToStrings";
+import partnerFields from "./partnerFields";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 
 /**
  * Needs documentation
  */
-export default function decodeEntryToStrings(int) {
+export default function decodeEntryToStrings(int: {
+  sys: { id: string };
+  contentType?: { id: string };
+  fields: { [key: string]: any };
+}) {
   let out = {
-    id: int.id || int.sys?.id,
+    id: int.sys?.id
   };
   for (let fieldKey in int.fields) {
     let fieldValue = int.fields[fieldKey];
-    if (typeof fieldValue !== 'object') {
+    if (typeof fieldValue !== "object") {
       // simple string/number/boolean, no problem!
       out[fieldKey] = fieldValue;
     } else {
@@ -30,9 +34,9 @@ export default function decodeEntryToStrings(int) {
         continue;
       }
       // default, so React JSX wont have to worry about undefined/null cases
-      out[fieldKey] = '';
+      out[fieldKey] = "";
       // complex object, either image or rich text or maybe something else?
-      if (typeof fieldValue[0] === 'object' && fieldValue[0].original_url) {
+      if (typeof fieldValue[0] === "object" && fieldValue[0].original_url) {
         // image
         out[fieldKey] = fieldValue[0].original_url;
       } else if (fieldValue?.content && fieldValue.content[0]) {
@@ -41,7 +45,7 @@ export default function decodeEntryToStrings(int) {
       }
     }
   }
-  if (int?.sys?.contentType?.sys?.id === 'partner') {
+  if (int?.sys?.contentType?.sys?.id === "partner") {
     out = partnerFields(out);
   }
   // console.log(int?.sys?.contentType, out);

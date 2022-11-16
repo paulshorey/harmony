@@ -1,19 +1,56 @@
 import get_os from "../device/get_os";
 import get_utm_source from "./get_utm_source";
 
+type InputParams = {
+  referralCode?: string;
+  pid?: string;
+  c?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
+  utm_os?: string;
+  utm_device?: string;
+  utm_browser?: string;
+  utm_referrer?: string;
+  utm_url?: string;
+  utm_path?: string;
+  utm_query?: string;
+  utm_hash?: string;
+  utm_host?: string;
+  utm_hostname?: string;
+  utm_port?: string;
+  utm_protocol?: string;
+  utm_search?: string;
+  utm_origin?: string;
+  utm_href?: string;
+  [key: string]: string | number | undefined;
+};
+type OutputParams = {
+  referralCode?: string;
+  source?: string;
+  ein?: string;
+  pid?: string;
+  c?: string;
+};
+
 /**
  * Get the current marketing attribution variables like pid, c, referralCode, etc.
- * @param {object} queryParamsFromCode - set URL/localStorage query params to these keys/values
+ * Remember the previous variables in localStorage, refer to them next time this is called.
+ * Read about utm attribution parameters: https://www.searchenginejournal.com/utm-codes/370088/
+ *
+ * @param queryParamsFromCode - set URL/localStorage query params to these keys/values
  *    instead of using new ones from URL/localStorage, use these params from NextJS /page data
- * @returns {object} - { pid, c, referralCode, ein, source } - marketing attribution variables
+ * @returns - { pid, c, referralCode, ein, source } - marketing attribution variables
  */
-export default function (queryParamsFromCode = {}) {
+export default function (queryParamsFromCode: InputParams = {}): OutputParams {
   if (typeof window === "undefined") return {};
   let out = {};
 
   // INPUT
   // from page
-  let qs = { ...queryParamsFromCode } as any; // tsFixMe
+  let qs: InputParams = { ...queryParamsFromCode };
   // from url
   if (typeof URLSearchParams !== "undefined") {
     const urlParams = new URLSearchParams(window.location.search);
@@ -63,7 +100,7 @@ export default function (queryParamsFromCode = {}) {
     };
   }
   // remember previous attribution params in localStorage
-  let cache = { ...out };
+  let cache: any = { ...out }; // tsFix
   cache.expires = new Date().getTime() + 1000 * 60 * 60 * 24; // 24 hours
   window.localStorage.setItem("attributionParams", JSON.stringify(cache));
   // return

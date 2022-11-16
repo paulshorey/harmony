@@ -1,7 +1,4 @@
-import objects_are_equal_imported from "./objects_are_equal";
-import objects_add_values_imported from "./objects_add_values";
-import objects_merge_keys_imported from "./objects_merge_keys";
-
-export const objects_are_equal = objects_are_equal_imported;
-export const objects_add_values = objects_add_values_imported;
-export const objects_merge_keys = objects_merge_keys_imported;
+export { default as objects_add_values_deep } from "./objects_add_values_deep";
+export { default as objects_add_values } from "./objects_add_values";
+export { default as objects_are_equal } from "./objects_are_equal";
+export { default as objects_merge_keys } from "./objects_merge_keys";

@@ -14,7 +14,7 @@ export default function matrix_horizontal_string_combinations(
   } else if (matrix.length === 1) {
     return matrix[0];
   } else {
-    let result = [];
+    let result: Array<string> = [];
     let allCasesOfRest = matrix_horizontal_string_combinations(matrix.slice(1), delimeter); // recursively push values
     for (let i = 0; i < allCasesOfRest.length; i++) {
       for (let j = 0; j < matrix[0].length; j++) {

@@ -2,7 +2,7 @@
  * Mixes multiple lists into one list, by taking one item at a time from each and pushing it to new array.
  */
 export default function arrays_mix(arrays: Array<Array<any>>): Array<any> {
-  let master_list = [];
+  let master_list: Array<Array<any>> = [];
   // find length of longest array
   let max_length = 0;
   for (let arr of arrays) {

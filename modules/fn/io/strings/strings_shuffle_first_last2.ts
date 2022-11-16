@@ -1,3 +1,4 @@
+// @ts-nocheck // tsFix - this whole file is experimental, needs refactor!
 /**
  * Shuffle list of strings
  *    do not allow two strings to repeat which have the same first letter or same last letter

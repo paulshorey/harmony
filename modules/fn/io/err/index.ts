@@ -1,5 +1,2 @@
-import try_catch_imported from "./try_catch";
-import parse_error_message_imported from "./parse_error_message";
-
-export const try_catch = try_catch_imported;
-export const parse_error_message = parse_error_message_imported;
+export { default as parse_error_message } from "./parse_error_message";
+export { default as try_catch } from "./try_catch";

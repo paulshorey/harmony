@@ -48,7 +48,7 @@ export default function sort_strings_by_rating_and_position(
 
   // ratings
   for (let str in ratings) {
-    let rate: number = ratings[str];
+    let rate: number = ratings[str] || 0;
     // compare ratings to each other
     if (that.min_rating === undefined || rate < that.min_rating) {
       that.min_rating = rate;
@@ -57,7 +57,9 @@ export default function sort_strings_by_rating_and_position(
       that.max_rating = rate;
     }
   }
+  // @ts-ignore - min_rating and max_rating are set above // tsFix - check for edge cases when set to 0
   that.delta_rating = that.max_rating - that.min_rating;
+  // @ts-ignore - min_rating and max_rating are set above // tsFix - check for edge cases when set to 0
   that.median_rating = that.min_rating + that.delta_rating / 2;
 
   // prepare position indexes

@@ -4,7 +4,7 @@
  * so we instead inject a link, click it, and remove the link
  * https://stackoverflow.com/questions/20696041/window-openurl-blank-not-working-on-imac-safari
  */
-export const open_in_new_tab = ({ url }: { url: string }) => {
+export default ({ url }: { url: string }) => {
   const a = document.createElement("a");
   a.setAttribute("style", "display: none");
   a.setAttribute("href", url);

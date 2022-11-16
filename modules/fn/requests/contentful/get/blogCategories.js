@@ -1,12 +1,19 @@
-import getEntries from 'src/fetch/contentful/api/getEntries';
-import decodeEntriesToStrings from 'src/fetch/contentful/lib/decodeEntriesToStrings';
+import getEntries from "./api/getEntries";
+import decodeEntriesToStrings from "./lib/decodeEntriesToStrings";
 
-export default async ({ categorySlug } = {}) => {
+// type Props = {
+//   /**
+//    * slug property of the blog category
+//    */
+//   slug?: string;
+// };
+
+export default async ({ slug } = {}) => {
   let categories =
     (await getEntries({
-      'content_type': 'blogCategory',
-      'fields.slug': categorySlug,
-      'include': 10,
+      "content_type": "blogCategory",
+      "fields.slug": slug,
+      "include": 10
     })) || [];
   categories = decodeEntriesToStrings(categories);
   return categories;
