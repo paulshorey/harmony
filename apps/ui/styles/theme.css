@@ -83,6 +83,7 @@
  * Rainbow
  */
 [data-colorscheme='dark'] [data-textcolor='rainbow'] {
+  --color-text: orange;
   --color-text-gradient: linear-gradient(
     55deg,
     rgb(245, 139, 101) -12%,
@@ -95,6 +96,7 @@
   );
 }
 [data-colorscheme='dark'] [data-bgcolor='rainbow'] {
+  --color-bg: orange;
   --color-bg-gradient: linear-gradient(
     55deg,
     rgb(245, 139, 101) -12%,
@@ -107,6 +109,7 @@
   );
 }
 [data-colorscheme='light'] [data-textcolor='rainbow'] {
+  --color-text: orange;
   --color-text-gradient: linear-gradient(
     160deg,
     rgb(255, 75, 75),
@@ -124,6 +127,7 @@
   );
 }
 [data-colorscheme='light'] [data-bgcolor='rainbow'] {
+  --color-bg: orange;
   --color-bg-gradient: linear-gradient(
     160deg,
     rgb(255, 75, 75),

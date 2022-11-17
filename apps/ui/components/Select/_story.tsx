@@ -6,10 +6,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 
+const style = {
+  margin: '0 0.875rem 0.875rem 0',
+  minWidth: '10rem',
+  width: '45%',
+};
+
 const DemoNav = (props) => (
   <Select
     {...props}
-    style={{ margin: '0 0.875rem 0.875rem 0', width: '10rem' }}
+    style={style}
     placeholder="select countries"
     optionLabelProp="label"
   >
@@ -31,7 +37,7 @@ const DemoNav = (props) => (
 const DemoOne = (props) => (
   <Select
     {...props}
-    style={{ margin: '0 0.875rem 0.875rem 0', width: '10rem' }}
+    style={style}
     showSearch
     placeholder="Select a person"
     optionFilterProp="children"
@@ -68,7 +74,7 @@ const DemoTags = (props) => (
   <Select
     {...props}
     mode="tags"
-    style={{ width: '100%' }}
+    style={{ ...style, width: '100%' }}
     tokenSeparators={[',']}
     options={tags}
     placeholder="Comma separated tags"
@@ -77,7 +83,7 @@ const DemoTags = (props) => (
 const DemoMultiple = (props) => (
   <Select
     {...props}
-    style={{ margin: '0 0.875rem 0.875rem 0', width: '100%' }}
+    style={{ ...style, width: '100%' }}
     mode="multiple"
     placeholder="select countries"
     defaultValue={['usa', 'china']}

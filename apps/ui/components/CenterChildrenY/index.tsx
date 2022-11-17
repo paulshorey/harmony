@@ -6,9 +6,10 @@ import withStyles from '@ps/ui/hooks/withStyles';
 
 export type Props = styleProps & HTMLAttributes<HTMLDivElement>;
 
-export const Component = ({ children, ...props }: Props, ref: any) => {
+export const Component = (props: Props, ref: any) => {
+  const { children, ...rest } = props;
   return (
-    <div ref={ref} {...props}>
+    <div ref={ref} {...rest}>
       <div>{children}</div>
     </div>
   );

@@ -1,15 +1,9 @@
-import React, {
-  forwardRef,
-  memo,
-  InputHTMLAttributes,
-  ReactElement,
-} from 'react';
-import styleProps from '@ps/ui/types/styles';
+import React, { forwardRef, memo, ReactElement } from 'react';
+import { styleProps } from 'types/styles';
 import variants from './styles';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import withStyles from '@ps/ui/hooks/withStyles';
-import styled from '@emotion/styled';
 import InputAdornment from '@mui/material/InputAdornment';
 import MuiInput, { InputProps as MuiInputProps } from '@mui/material/Input';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
@@ -51,98 +45,92 @@ export type Props = {
    */
   allowClear?: boolean;
 } & styleProps &
-  InputHTMLAttributes<HTMLElement & HTMLInputElement> &
   MuiInputProps;
 
 /**
  * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
-export const Component = withStyles(
-  forwardRef(
-    (
-      {
-        onChange,
-        loading,
-        allowClear,
-        defaultValue: defaultValueProp,
-        value: valueProp,
-        inputProps = {},
-        ...props
-      }: Props,
-      ref: any
-    ) => {
-      const defaultValue = valueProp || defaultValueProp;
-      const noValue = typeof defaultValue === 'number' ? 0 : '';
-      const [value, set_value] = React.useState(defaultValue);
+export const Component = (props: Props, ref: any) => {
+  const {
+    onChange,
+    loading,
+    allowClear,
+    defaultValue: defaultValueProp,
+    value: valueProp,
+    inputProps = {},
+    ...rest
+  } = props;
+  const defaultValue = valueProp || defaultValueProp;
+  const noValue = typeof defaultValue === 'number' ? 0 : '';
+  const [value, set_value] = React.useState(defaultValue);
 
-      const InputProps: any = {};
-      // icon on the left
-      if (props.icon) {
-        InputProps.startAdornment = (
-          <InputAdornment position="start">{props.icon}</InputAdornment>
-        );
-      }
-      // icon on the right
-      if (loading) {
-        InputProps.startAdornment = (
-          <InputAdornment position="end">
-            {loading === true ? <IconLoading /> : loading}
-          </InputAdornment>
-        );
-      }
-      if (props.prefix) {
-        InputProps.startAdornment = (
-          <InputAdornment position="start">{props.prefix}</InputAdornment>
-        );
-      }
-      if (value && allowClear) {
-        InputProps.endAdornment = (
-          <InputAdornment position="end">
-            <FA
-              icon={faCircleXmark}
-              onClick={() => {
-                set_value(noValue);
-                ref.current.focus();
-              }}
-            />
-          </InputAdornment>
-        );
-      }
-      if (props.suffix) {
-        InputProps.endAdornment = (
-          <InputAdornment position="end">{props.suffix}</InputAdornment>
-        );
-      }
-      ref = React.useRef(ref || null);
-      return (
-        <Styled
-          inputRef={ref}
-          onChange={(e) => {
-            set_value(e.target.value);
-            if (onChange) {
-              onChange(e);
-            }
+  const InputProps: any = {};
+  // icon on the left
+  if (props.icon) {
+    InputProps.startAdornment = (
+      <InputAdornment position="start">{props.icon}</InputAdornment>
+    );
+  }
+  // icon on the right
+  if (loading) {
+    InputProps.startAdornment = (
+      <InputAdornment position="end">
+        {loading === true ? <IconLoading /> : loading}
+      </InputAdornment>
+    );
+  }
+  if (props.prefix) {
+    InputProps.startAdornment = (
+      <InputAdornment position="start">{props.prefix}</InputAdornment>
+    );
+  }
+  if (value && allowClear) {
+    InputProps.endAdornment = (
+      <InputAdornment position="end">
+        <FA
+          icon={faCircleXmark}
+          onClick={() => {
+            set_value(noValue);
+            ref.current.focus();
           }}
-          value={value}
-          helperText="Incorrect entry."
-          inputProps={inputProps}
-          {...props}
-          {...InputProps}
         />
-      );
-    }
-  ),
-  'Input',
-  variants
-);
+      </InputAdornment>
+    );
+  }
+  if (props.suffix) {
+    InputProps.endAdornment = (
+      <InputAdornment position="end">{props.suffix}</InputAdornment>
+    );
+  }
+  ref = React.useRef(ref || null);
+  return (
+    <MuiInput
+      inputRef={ref}
+      onChange={(e) => {
+        set_value(e.target.value);
+        if (onChange) {
+          onChange(e);
+        }
+      }}
+      value={value}
+      helperText="Incorrect entry."
+      inputProps={inputProps}
+      {...rest}
+      {...InputProps}
+    />
+  );
+};
 
 /*
  * (1) default export is normal component ready to use (2) withInput is HOC used to predefine common props
  */
+const Styled: React.FC<Props> = withStyles(
+  forwardRef(Component),
+  'InputMui',
+  variants
+);
 
-export default memo(Component);
+export default memo(Styled);
 
 export const withInput = (props: Props) =>
-  memo(withCombinedProps(Component, props));
-
-const Styled = styled(MuiInput)``;
+  memo(withCombinedProps(Styled, props));

@@ -5,7 +5,6 @@ import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import variants from './styles';
 import blur from '@ps/ui/helpers/blur';
 import withStyles from '@ps/ui/hooks/withStyles';
-import styleProps from '@ps/ui/types/styles';
 
 export type Props = {
   /**

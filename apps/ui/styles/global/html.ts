@@ -30,13 +30,13 @@ const html = (theme) => `
       font-size: 15.5px;
     }
     ${theme.mq.phone} {
-      font-size: 15.5px;
+      font-size: 16.5px;
     }
     ${theme.mq.smallPhone} {
-      font-size: 14.5px;
+      font-size: 15px;
     }
     ${theme.mq.tinyPhone} {
-      font-size: 14.5px;
+      font-size: 14px;
     }
   }
 

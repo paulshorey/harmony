@@ -12,33 +12,35 @@ export type Props = {
   styleProps;
 
 // @ts-ignore tsFix: Forwarding ref probably wont work: Type 'Ref<unknown> | undefined' is not assignable to type '((instance: HTMLDivElement | null) => void) | RefObject<HTMLDivElement> | null | undefined'.
-export const Component: React.FC<Props> = withStyles(
-  forwardRef(({ open, onClose, children, ...props }: Props, ref?: any) => {
-    const reff = React.useRef(ref);
-    return (
-      <ReactModal
-        ref={reff}
-        disablePortal={true}
-        // keepMounted={true}
-        open={open}
-        onClose={onClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        {...props}
-      >
-        {children}
-      </ReactModal>
-    );
-  }),
-  'Modal',
-  variants
-);
+export const Component = (props: Props, ref?: any) => {
+  const { open, onClose, children, ...rest } = props;
+  const reff = React.useRef(ref);
+  return (
+    <ReactModal
+      ref={reff}
+      disablePortal={true}
+      // keepMounted={true}
+      open={open}
+      onClose={onClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      {...rest}
+    >
+      {children}
+    </ReactModal>
+  );
+};
 
 /*
  * (1) default export is normal component ready to use (2) withModal is HOC used to predefine common props
  */
+const Styled: React.FC<Props> = withStyles(
+  forwardRef(Component),
+  'Modal',
+  variants
+);
 
-export default memo(Component);
+export default memo(Styled);
 
 export const withModal = (props: Props) =>
-  memo(withCombinedProps(Component, props));
+  memo(withCombinedProps(Styled, props));

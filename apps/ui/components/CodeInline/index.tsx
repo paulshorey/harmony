@@ -12,9 +12,10 @@ export type Props = {
 } & styleProps &
   HTMLAttributes<HTMLDivElement>;
 
-export const Component = ({ code, children, ...props }: Props, ref: any) => {
+export const Component = (props: Props, ref: any) => {
+  const { code, children, ...rest } = props;
   return (
-    <code ref={ref} {...props}>
+    <code ref={ref} {...rest}>
       <span>{code || children}</span>
     </code>
   );

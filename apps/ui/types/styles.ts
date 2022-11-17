@@ -1,10 +1,9 @@
 import React from 'react';
+// import { styledTags } from './html'; // plain list for Storybook controls dropdown (really it's type React.ElementType<any>)
+export type styledTags = React.ElementType<any>;
 
 // tsFix: what types are returned by emotion' css`` template literal function? Interpolation | SerializedStyles
 type cssReturnType = any | null | undefined;
-
-export type styledTags = React.ElementType<any>;
-
 export type ssProp =
   | string
   | ((props) => string)
@@ -18,7 +17,7 @@ export type uniqueStyleProps = {};
  */
 export type styleProps = {
   /**
-   * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged. Or pass a React element to use.
+   * HTML element tag name to render. Styles and functionality will not be changed, but the HTML tag will affect the default styles.
    */
   as?: styledTags;
   /**

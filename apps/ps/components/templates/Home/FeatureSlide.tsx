@@ -4,9 +4,7 @@ import { css } from '@emotion/react';
 
 const style = ({ theme }) => css`
   width: 620px;
-  @media (max-width: 620px) {
-    width: 100vw;
-  }
+  max-width: 100vw;
   background: linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.1),
@@ -41,13 +39,13 @@ const style = ({ theme }) => css`
   }
 `;
 
-const LatestProjectsCarousel = () => {
+const LatestProjectsCarousel = ({ title, subtitle }) => {
   return (
     <Link href="/" target="_blank" ss="display:inline-block;">
-      <Block width="cardX" data-color="transparentCard" ss={style}>
+      <Block data-color="transparentCard" ss={style}>
         <Block ss="padding: 0 2rem;" data-fggradient data-color="rainbow">
-          <h2>Harmony UI</h2>
-          <p>Styling system / Component library / Monorepo setup</p>
+          <h2>{title}</h2>
+          <p>{subtitle}</p>
         </Block>
       </Block>
     </Link>

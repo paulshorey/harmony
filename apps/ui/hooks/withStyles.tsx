@@ -26,11 +26,17 @@ export default (Component: any, componentName: string, variants: any) =>
             {...colorScheme}
             ref={ref}
             className={cx(
-              css(variantStyles), // first - less specific
+              css(`&.${componentName} {
+  ${variantStyles};
+}
+`), // first - less specific
               props.componentName || '', // custom className label passed to component instance from app
               componentName || '', // default className label from component constructor (in this library)
               props.className, // custom classNames passed to the component
-              css(inlineStyles) // last - more specific
+              css(`&.${componentName} {
+  ${inlineStyles};
+}
+`) // last - more specific
             )}
           />
         )}

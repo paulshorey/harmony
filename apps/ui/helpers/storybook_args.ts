@@ -1,4 +1,5 @@
 // import globalV from './styles';
+// import { styledTags } from '../types/html';
 
 type Props = { localVariants?: string[] };
 
@@ -14,6 +15,12 @@ export const argTypes = ({ localVariants = [] }: Props) => {
 
   const argTypes = {
     // ref: { table: { disable: true } },
+    // as: {
+    //   control: {
+    //     type: 'select',
+    //   },
+    //   // options: styledTags,
+    // },
     // textcolor: {
     //   control: {
     //     type: 'select',

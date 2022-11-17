@@ -9,17 +9,14 @@ const withRipple = ({ children }) => {
       ref={ref}
       role="none"
       onMouseDown={(e) => {
-        console.log('mouse down e', e);
         if (!ref || !ref.current) {
           return;
         }
-        console.log('mouse down ref.current', ref.current);
         clearTimeout(timerId);
         const ripple = ref.current.querySelector('.withRipple');
         if (!ripple) {
           return;
         }
-        console.log('mouse down ripple', ripple);
         const size = ref.current.offsetWidth;
         const pos = ref.current.getBoundingClientRect();
         const x = e.pageX - pos.left - size;
@@ -36,7 +33,7 @@ const withRipple = ({ children }) => {
           'px;';
         ripple.classList.remove('withRipple_active');
         ripple.classList.remove('withRipple_start');
-        setTimeout(() => {
+        timerId = setTimeout(() => {
           ripple.classList.add('withRipple_start');
           setTimeout(() => {
             ripple.classList.add('withRipple_active');
@@ -44,13 +41,10 @@ const withRipple = ({ children }) => {
         });
       }}
       onMouseUp={(e) => {
-        console.log('mouse up e', e);
-        console.log('mouse up ref.current', ref.current);
-        const ripple = e.target.querySelector('.withRipple');
+        const ripple = ref.current.querySelector('.withRipple');
         if (!ripple) {
           return;
         }
-        console.log('mouse up ripple', ripple);
         clearTimeout(timerId);
         timerId = setTimeout(() => {
           ripple.classList.remove('withRipple_active');

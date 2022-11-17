@@ -36,7 +36,6 @@ export default (props: any) => {
       </Modal>
       <p>
         <Button
-          bgcolor="purple"
           bggradient="rainbow"
           textgradient="rainbow"
           onClick={handleOpen}

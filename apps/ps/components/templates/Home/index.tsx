@@ -10,47 +10,45 @@ import HeaderLayout from 'components/layout/Header';
 // import PageContext, { pageContextType } from 'context/Page';
 // import css from '@ps/ui/helpers/css';
 import LatestProjectsCarousel from './LatestProjectsCarousel';
+import { css } from '@emotion/react';
 
-const style = (props) => `
-    height:calc(100vh - 5rem);
-    p {
-      font-size: 1rem;
-      letter-spacing: 0.1px;
-      text-align: center;
-    }
+const style = (props) => css`
+  height: 100vh;
+  p {
+    font-size: 1rem;
+    letter-spacing: 0.1px;
+    text-align: center;
+  }
 `;
 
 function Home() {
   // const pageContext: pageContextType = useContext(PageContext);
   // const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <Block {...style}>
+    <CenterChildrenY ss={style}>
       <HeaderLayout />
-      <CenterChildrenY ss="height:calc(100vh - 5rem);">
-        <LayoutNav />
+      <LayoutNav />
+      <Block
+        as="p"
+        ss={(props) => `margin: ${props.theme.header.height} 1.25rem 1.25rem;`}
+        ssPhone="margin-top: 7rem;"
+      >
+        Hi. Thanks for visiting! This site is my sandbox to try new ideas.
+        Really appreciate your <a>feedback</a>.
+      </Block>
+      <HCarousel />
+      <Block>
         <Block
           as="p"
-          ss={(props) =>
-            `margin: calc(${props.theme.header.height} + 2.5rem) 1.25rem 1.25rem;`
-          }
+          ss={(props) => `margin: 5rem 1.25rem 1.5rem;`}
+          ssPhone="margin-top: 3.5rem;"
         >
-          Hi. Thanks for visiting! This site is my sandbox to try new ideas.
-          Really appreciate your <a>feedback</a>.
+          Check out my latest experiments:
+          {/* Most recently I've been working on tooling for software developers: */}
         </Block>
-        <HCarousel />
-        <Block>
-          <Block
-            as="p"
-            ss={(props) =>
-              `margin: calc(${props.theme.header.height} + 2.5rem) 1.25rem 1.5rem;`
-            }
-          >
-            Check out my latest experiment:
-          </Block>
-          <LatestProjectsCarousel />
-        </Block>
-      </CenterChildrenY>
-    </Block>
+        <LatestProjectsCarousel />
+      </Block>
+    </CenterChildrenY>
   );
 }
 export default Home;

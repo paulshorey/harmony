@@ -7,24 +7,23 @@ import withStyles from '@ps/ui/hooks/withStyles';
 
 export type Props = CodeProps & styleProps & HTMLAttributes<HTMLDivElement>;
 
-export const Component = (
-  {
+export const Component = (props: Props, ref: any) => {
+  const {
+    variant,
     title,
     code,
     collapsed,
     showNumbers,
     language,
     prismTheme,
-    ...props
-  }: Props,
-  ref: any
-) => {
+    ...rest
+  } = props;
   return (
-    <div ref={ref} {...props}>
+    <div ref={ref} {...rest}>
       <CodeComponent
         title={title}
         code={code}
-        variant={props.variant}
+        variant={variant}
         language={language}
         prismTheme={prismTheme}
         showNumbers={showNumbers}

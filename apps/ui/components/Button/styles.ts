@@ -18,6 +18,7 @@ export default {
     text-transform: unset;
     white-space: nowrap;
     min-width: 0;
+    padding:0;
 
     &:hover,
     &:focus {
@@ -39,6 +40,7 @@ export default {
     }
     > *:not(.MuiTouchRipple-root) {
       position: relative;
+      width: 100%;
     }
     /* 
     &:hover {
@@ -95,8 +97,10 @@ export default {
     line-height: ${
       props.theme.sizes.buttonsAndInputs.height[props.size || 'md']
     }rem;
-    padding: 0
+    > span {
+      padding: 0
       ${props.theme.sizes.buttonsAndInputs.paddingX[props.size || 'md']}rem;
+    }
     font-size: ${
       props.theme.sizes.buttonsAndInputs.fontSize[props.size || 'md']
     }rem;
@@ -105,24 +109,27 @@ export default {
     letter-spacing: 0.33px;
 
     ${
-      !!props.icon &&
-      !props.children &&
-      `
+      props.icon && !props.children
+        ? `
       justify-content: center;
-      padding: 0;
+      > span {
+        padding: 0;
+      }
       width: ${
         props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] + 0.1
       }rem;
     `
+        : ''
     }
 
     ${
-      props.round &&
-      `
+      props.round
+        ? `
       border-radius: ${
         props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] / 2
       }rem;
     `
+        : ''
     }
 
     .withRipple_container {
@@ -133,7 +140,7 @@ export default {
     .withRipple {
       position: relative;
       display: inline-block;
-      background-color: var(--color-text);
+      background-color: var(--color-bg);
       border-radius: 50%;
       pointer-events: none;
       position: absolute;
@@ -145,7 +152,7 @@ export default {
     .withRipple_active {
       transform: scale(2);
       transition: transform 700ms, opacity 700ms;
-      opacity: 0.2;
+      opacity: 0;
     }
   `,
   /**
@@ -156,17 +163,8 @@ export default {
     color: var(--color-text);
     border: solid 1px transparent;
     text-shadow: none !important;
-    ${
-      props.round &&
-      `
-      &::before {
-        border-radius: calc(
-          ${
-            props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] / 2
-          }rem - 1px
-        );
-      }
-    `
+    .withRipple {
+      background-color: var(--color-text);
     }
   `,
   outlined: (props) => `
@@ -174,17 +172,8 @@ export default {
     color: var(--color-text);
     border: solid 1px var(--color-text);
     text-shadow: none !important;
-    ${
-      props.round &&
-      `
-      &::before {
-        border-radius: calc(
-          ${
-            props.theme.sizes.buttonsAndInputs.height[props.size || 'md'] / 2
-          }rem - 1px
-        );
-      }
-    `
+    .withRipple {
+      background-color: var(--color-text);
     }
   `,
   outlinedGradient: (props) => `
@@ -206,9 +195,12 @@ export default {
       transition: background-position 300ms linear 0s;
       background-position: center;
     }
+    .withRipple {
+      background-color: var(--color-text);
+    }
     ${
-      props.round &&
-      `
+      props.round
+        ? `
       &::before {
         border-radius: calc(
           ${
@@ -217,6 +209,7 @@ export default {
         );
       }
     `
+        : ''
     }
   `,
   text: (props) => `
@@ -229,6 +222,9 @@ export default {
       &:hover {
         text-decoration: underline;
       }
+    }
+    .withRipple {
+      background-color: var(--color-text);
     }
   `,
   spinning: `

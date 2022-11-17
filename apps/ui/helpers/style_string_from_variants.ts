@@ -1,4 +1,4 @@
-import style_to_string from '@ps/fn/browser/style/style_to_string';
+import style_to_string from '@ps/ui/helpers/style_to_string';
 import { styleProps, ssProp } from '@ps/ui/types/styles';
 
 type Props = {

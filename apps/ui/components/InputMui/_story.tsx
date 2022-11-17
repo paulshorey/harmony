@@ -23,6 +23,7 @@ const InputStory = (props) => {
       <Input
         {...props}
         ssAll={style}
+        label="Username with label"
         placeholder="Username"
         prefix={<UserOutlined />}
         suffix={
