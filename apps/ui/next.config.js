@@ -1,5 +1,4 @@
 const withTM = require('next-transpile-modules')([
-  '@ps/ui',
   '@ps/fn',
   '@ps/cconsole',
   '@ps/constants',
