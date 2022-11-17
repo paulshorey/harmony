@@ -20,7 +20,7 @@ export default function Home() {
         <Block as="h1">Test box</Block>
         <Code
           className="bg"
-          code={`ad fad dasf afdafddfsfds  dsf afds afd fds adfs afd fds`}
+          code={`test code block ad fad dasf afda fddfsfds dsf afds afd fds adfs afd fds`}
           language="markdown"
         />
       </main>
