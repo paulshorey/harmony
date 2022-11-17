@@ -1,9 +1,8 @@
 import React, { memo, HTMLAttributes, forwardRef } from 'react';
-import { styleProps } from '@ps/ui/types/styles';
+import { styledTags, styleProps } from '@ps/ui/types/styles';
 import variants from './styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import withStyles from '@ps/ui/hooks/withStyles';
-import { styledTags } from '../../types/styles';
 
 export type Props = {
   /**

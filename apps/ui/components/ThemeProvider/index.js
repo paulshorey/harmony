@@ -3,7 +3,6 @@ import {
   Global,
   css,
 } from '@emotion/react';
-import '@ps/ui/styles/theme.css';
 import theme from '@ps/ui/styles/theme';
 
 // Optional - global styles:

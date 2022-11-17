@@ -37,14 +37,7 @@
     "react-merge-refs": "^2.0.1",
     "react-prism-editor": "^1.1.2",
     "react-swipeable": "^7.0.0",
-<<<<<<< HEAD
-    "sass": "^1.55.0"
-  },
-  "devDependencies": {
-    "@ps/ui": "*",
-=======
     "sass": "^1.55.0",
->>>>>>> staging
     "@babel/core": "^7.16.7",
     "@emotion/serialize": "^1.1.1",
     "@mdx-js/react": "1.6.22",

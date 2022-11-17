@@ -6,7 +6,9 @@
   "compilerOptions": {
     "strict": false,
     "baseUrl": ".",
-    "paths": {},
+    "paths": {
+      "@ps/ui/*": ["./*"]
+    },
     "noEmit": true,
     "incremental": true,
     "noImplicitAny": false,
