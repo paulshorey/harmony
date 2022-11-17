@@ -27,7 +27,7 @@ const InputStory = (props) => {
             placeholder="mysite"
             suffix={
               <Tooltip title="copy full url">
-                <CopyOutlined onClick={console.log} />
+                <CopyOutlined />
               </Tooltip>
             }
           />
@@ -78,7 +78,7 @@ const InputStory = (props) => {
             placeholder="mysite"
             suffix={
               <Tooltip title="copy full url">
-                <CopyOutlined onClick={console.log} />
+                <CopyOutlined />
               </Tooltip>
             }
             style={{

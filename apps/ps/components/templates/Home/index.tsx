@@ -15,7 +15,6 @@ import { css } from '@emotion/react';
 const style = (props) => css`
   height: 100vh;
   p {
-    font-size: 1rem;
     letter-spacing: 0.1px;
     text-align: center;
   }
@@ -33,14 +32,14 @@ function Home() {
         ss={(props) => `margin: ${props.theme.header.height} 1.25rem 1.25rem;`}
         ssPhone="margin-top: 7rem;"
       >
-        Hi. Thanks for visiting! This site is my sandbox to try new ideas.
-        Really appreciate your <a>feedback</a>.
+        Hi. Thanks for visiting! This is my sandbox to try new ideas. Really
+        appreciate your <a>feedback</a>.
       </Block>
       <HCarousel />
       <Block>
         <Block
           as="p"
-          ss={(props) => `margin: 5rem 1.25rem 1.5rem;`}
+          ss="margin: 5rem 1.25rem 1.5rem;"
           ssPhone="margin-top: 3.5rem;"
         >
           Check out my latest experiments:

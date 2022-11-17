@@ -11,7 +11,7 @@ const style = ({ theme }) => css`
     transparent,
     rgba(255, 255, 255, 0.1)
   );
-  padding: 1px 1px 1rem;
+  padding: 0.5rem 0;
   display: inline-block;
   border-radius: 1rem;
   border: solid 1px rgba(255, 255, 255, 0.33);
@@ -30,20 +30,20 @@ const style = ({ theme }) => css`
       transparent,
       rgba(255, 255, 255, 0.1)
     );
-    padding: 1px 1px 1rem;
     border: solid 1px rgba(255, 255, 255, 0.67);
     background-size: 300% auto;
     transition: background-position 500ms linear 0s,
       background-size 500ms linear 0s;
     background-position: right center;
   }
+  label: ssLatestProjectsCarousel;
 `;
 
 const LatestProjectsCarousel = ({ title, subtitle }) => {
   return (
     <Link href="/" target="_blank" ss="display:inline-block;">
-      <Block data-color="transparentCard" ss={style}>
-        <Block ss="padding: 0 2rem;" data-fggradient data-color="rainbow">
+      <Block data-bgcolor="transparentCard" ss={style}>
+        <Block data-textcolor="rainbow" data-textgradient>
           <h2>{title}</h2>
           <p>{subtitle}</p>
         </Block>

@@ -2,7 +2,7 @@ import { persist } from 'zustand/middleware';
 import create from 'zustand';
 
 export type uiStateType = {
-  colorsSchemes: string[];
+  colorSchemes: string[];
   colorSchemeIndex: number;
   colorSchemeIndexToggle: () => void;
   clicks: number;
@@ -15,11 +15,12 @@ const ui = create(
       /*
        * Color schemes
        */
-      colorSchemes: ['light', 'coolrainbow', 'dark'],
+      colorSchemes: ['coolrainbow', 'light', 'dark'],
       colorSchemeIndex: 1,
       colorSchemeIndexToggle: () => {
         const state = get() as uiStateType;
-        state.colorSchemeIndex = state.colorSchemeIndex === 0 ? 1 : 0;
+        // convert to 1-based index, math remainder, then back to 0-based index
+        state.colorSchemeIndex = ((state.colorSchemeIndex + 1) % 3) - 1;
         return set({ ...state });
       },
       /*

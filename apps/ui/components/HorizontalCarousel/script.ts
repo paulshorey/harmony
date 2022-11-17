@@ -14,6 +14,7 @@ export default class HorizontalCarousel {
    */
   constructor(carousel) {
     if (!carousel || !carousel.querySelectorAll) {
+      // eslint-disable-next-line no-console
       console.warn('HorizontalCarousel: carousel element not found');
       return;
     }
@@ -127,7 +128,6 @@ export default class HorizontalCarousel {
   };
   private_handle_click_next = () => {
     const { el_images } = this;
-    console.log('el_images', el_images);
     // smooth scroll to next frame
     el_images.scrollBy({
       left: el_images.clientWidth,
@@ -220,6 +220,7 @@ function debounce(callback, wait) {
   return function () {
     const callNow = !timeout;
     const next = function () {
+      // eslint-disable-next-line prefer-rest-params
       return callback(arguments);
     };
     clearTimeout(timeout);

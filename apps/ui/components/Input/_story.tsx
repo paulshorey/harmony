@@ -37,7 +37,9 @@ const InputStory = (props) => {
         placeholder="your-website"
         prefix={'http://'}
         suffix={'.com'}
-        onPressEnter={(e) => console.log('pressed enter', e)}
+        onPressEnter={(e) => {
+          /* console.log('pressed enter', e)*/
+        }}
       />
     </>
   );

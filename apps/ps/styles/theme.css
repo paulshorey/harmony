@@ -3,7 +3,7 @@
  * To set a different default, move `:root,` to another block. But then write alternatives for light mode instead of for dark mode as it is done now.
  */
 :root,
-[data-color='coolrainbow'] {
+[data-bgcolor='coolrainbow'] {
   --color-fg: #f5f5f5;
   --color-fg-gradient: linear-gradient(
     111deg,
@@ -20,26 +20,12 @@
   );
 }
 
-[data-color='dark'] {
-  --color-fg: #f5f5f5;
-  --color-bg: #333;
-}
-
-[data-color='light'] {
-  --color-fg: #333;
-  --color-bg: #f5f5f5;
-}
-
-[data-color='transparentCard'] {
-  --color-fg: #333;
-  --color-bg: hsla(0, 0%, 100%, 0.5);
-}
-[data-color]:not([data-color='light']) [data-color='transparentCard'] {
+[data-bgcolor='transparentCard'] {
   --color-fg: #fff;
   --color-bg: hsla(0, 0%, 100%, 0.5);
 }
 
-[data-color='rainbow'] {
+[data-textcolor='rainbow'] {
   --color-fg: #fff;
   --color-fg-gradient: linear-gradient(
     145deg,
@@ -60,7 +46,7 @@
 [data-bgcolor] {
   background-color: var(--color-bg);
 }
-[data-fgcolor] {
+[data-textcolor] {
   color: var(--color-fg);
 }
 [data-bggradient] {
@@ -68,7 +54,7 @@
   background: var(--color-bg);
   background-image: var(--color-bg-gradient);
 }
-[data-fggradient] {
+[data-textgradient] {
   background: initial;
   background-color: var(--color-fg);
   background-image: var(--color-fg-gradient);

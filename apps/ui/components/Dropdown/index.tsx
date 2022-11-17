@@ -1,10 +1,10 @@
 import React, { forwardRef, memo } from 'react';
-import { Props as BlockProps } from '@ps/ui/components/Block';
 import CenterChildrenX from '../CenterChildrenX';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import variants from './styles';
 import blur from '@ps/ui/helpers/blur';
 import withStyles from '@ps/ui/hooks/withStyles';
+import styleProps from '@ps/ui/types/styles';
 
 export type Props = {
   /**
@@ -31,18 +31,20 @@ export type Props = {
    * Align the dropdown to the bottom edge of the children
    */
   bottom?: boolean;
-} & BlockProps;
+
+  children?: any;
+} & styleProps;
 
 /**
  * IMPORTANT: This component does NOT add tabIndex to any elements. You can add `tabIndex: 0` yourself to the target and/or to menu items to make them keyboard accessible.
  */
 export const Component = (props: Props, ref: any) => {
-  const { menu, children } = props;
+  const { menu, children, ...rest } = props;
   const handleClick = () => {
     setTimeout(blur, 300);
   };
   return (
-    <div {...props} ref={ref}>
+    <div {...rest} ref={ref}>
       {children}
       {!props.left && !props.right ? (
         <CenterChildrenX
@@ -70,7 +72,11 @@ export const Component = (props: Props, ref: any) => {
 /*
  * (1) default export is normal component ready to use (2) withDropdown is HOC used to predefine common props
  */
-const Styled = withStyles(forwardRef(Component), 'Dropdown', variants);
+const Styled: React.FC<Props> = withStyles(
+  forwardRef(Component),
+  'Dropdown',
+  variants
+);
 
 export default memo(Styled);
 

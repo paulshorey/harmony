@@ -2,7 +2,14 @@
   // base config - common to all apps and modules in the repository:
   "extends": "@ps/constants/config/typescript/react-library.json",
   // specific overrides - for this project only:
-  "exclude": ["node_modules", "dist", "out", ".next", ".backup", "public"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "out",
+    ".next",
+    ".backup",
+    "public"
+  ],
   "compilerOptions": {
     "strict": false,
     "baseUrl": ".",
@@ -11,5 +18,10 @@
     "incremental": true,
     "noImplicitAny": false,
     "jsx": "preserve"
-  }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

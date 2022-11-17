@@ -9,6 +9,7 @@ const HeaderLayout = () => {
   // const pageContext = useContext(PageContext);
   return (
     <Block as="header" ss={style}>
+      {/* Logo */}
       <svg
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"

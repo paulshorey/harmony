@@ -8,6 +8,7 @@ import theme from 'styles/theme';
 import fonts from '@ps/ui/styles/global/fonts';
 import html from '@ps/ui/styles/global/html';
 import classes from '@ps/ui/styles/global/classes';
+import global from 'styles/global';
 
 const ThemeProvider = ({ children }) => {
   return (
@@ -17,6 +18,7 @@ const ThemeProvider = ({ children }) => {
           ${fonts(theme)};
           ${html(theme)};
           ${classes(theme)};
+          ${global(theme)};
         `}
       />
       {children}

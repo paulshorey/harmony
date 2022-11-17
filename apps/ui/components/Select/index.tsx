@@ -7,7 +7,7 @@ import { Select as SelectAnt } from 'antd';
 import type { SelectProps as AntSelectProps } from 'antd';
 import withStyles from '@ps/ui/hooks/withStyles';
 
-type OptionProps = {
+export type OptionProps = {
   value: string;
   /**
    * What to show in the select box instead of the real value. Useful if capitalization is different.
@@ -26,8 +26,7 @@ type OptionProps = {
 // for convenience, export antd option and props, so user does not have to import from antd
 const { Option: OptionAnt } = SelectAnt;
 export const Option = OptionAnt;
-export { OptionProps, AntSelectProps as SelectProps };
-
+export { AntSelectProps as SelectProps };
 export type Props = styleProps & AntSelectProps;
 
 /**

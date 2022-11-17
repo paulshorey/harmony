@@ -26,6 +26,7 @@ const ImageWithFallback: React.FC<Props> = ({
   const [imgSrcOrig, set_imgSrcOrig] = React.useState<string>('');
 
   const onError = (err) => {
+    // eslint-disable-next-line no-console
     console.warn('onError', { imgSrcOrig, src, fallbackSrc, err });
     if (imgSrcOrig !== fallbackSrc) {
       process_img(fallbackSrc);

@@ -11,7 +11,7 @@ const style = ({ theme }) => `
 
 const parse_colorSchemeLabel = (ui: uiStateType) => {
   const scheme = ui.colorSchemes[ui.colorSchemeIndex];
-  if (scheme?.bggradient === 'light') {
+  if (scheme === 'light') {
     return `🌙`;
   }
   return `☀️`;

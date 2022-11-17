@@ -15,7 +15,7 @@ export default ({ theme }) => css`
     display: inline-block;
     position: relative;
     padding: 0 1rem;
-    margin: 0.25rem 0;
+    margin: 0.5rem 0;
     line-height: ${theme.header.height};
     height: ${theme.header.height};
     position: absolute;

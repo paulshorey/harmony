@@ -1,5 +1,5 @@
 import React, { forwardRef, memo, ReactElement } from 'react';
-import { styleProps } from 'types/styles';
+import { styleProps } from '@ps/ui/types/styles';
 import variants from './styles';
 import IconLoading from '@ant-design/icons/LoadingOutlined';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
