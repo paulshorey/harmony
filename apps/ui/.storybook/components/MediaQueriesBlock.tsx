@@ -2,6 +2,7 @@ import React from 'react';
 import Block, { withBlock } from '@ps/ui/components/Block';
 import CodeInline from '@ps/ui/components/CodeInline';
 import Code from '@ps/ui/components/Code';
+import Inline from '@ps/ui/components/Inline';
 import {useEffect, useState} from 'react';
 import {returnDeviceInfo, deviceInfoType} from '@ps/ui/hooks/useDeviceInfo';
 
@@ -46,7 +47,7 @@ const MediaQueriesDemo = () => (
     <Block bgcolor="purple">
 
       <Block as="p" >
-    Every component in this library accepts ss props. No configuration is needed. These props accept a string of SCSS, or a function that returns a string. <a href="/?path=/docs/get-started-use-ss-props-or-styled-components-how-to-use--page">Read more.</a>
+    Every component in this library accepts ss props. These props accept a string of SCSS, or a function that returns a string.
       </Block>
       <Block as="p" ss="font-size: 1.125rem;">
     <code>{`<Block `}</code>
@@ -95,21 +96,18 @@ const MediaQueriesDemo = () => (
     <code>&gt;</code>
       </Block>
       <p>
-        There are also hooks to detect OS, browser, and other device types like iframe and webview.
+        These are easy to adjust in <code>theme.ts</code>. This is more robust than the typical sm/md/lg/xl breakpoints.
       </p>
       <p>
-        These are easy to adjust in <code>theme.ts</code>. This is much easier to remember and use than the basic sm/md/lg/xl breakpoints.
-      </p>
-      <p>
-      A good strategy to start out is to use pairs. 
+      <Inline as="b" textgradient="rainbow">The best way to keep code simple and maintainable is to use pairs... &nbsp;&nbsp;&nbsp;</Inline>  
       <ul>
-        <li><strong><b>sm</b> / <b>lg</b> styles for min/max <b>930px</b></strong> is the best for most. Only smaller tablets get the mobile design.</li>
+        <li><strong><b>sm</b> / <b>lg</b> styles for min/max <b>930px</b></strong> is the best for most apps. Only smaller tablets get the mobile design.</li>
         <li><strong><b>phone</b> / <b>tablet</b> / <b>desktop</b></strong> is perfect if you have separate designs for all 3 environments.</li>
-        <li><strong><b>mobile</b> vs <b>desktop</b> for min/max <b>1024px</b></strong> is also simple, but then anyone using a tablet will get the mobile design</li>
+        <li><strong><b>mobile</b> vs <b>desktop</b> for min/max <b>1024px</b></strong> could work, but anyone using a tablet will get the mobile design.</li>
         </ul>
       </p>
       <p>
-        You can always add <b>largeDesktop</b> or <b>tinyPhone</b> or <b>largeTablet</b> to adjust for edge cases. But you don't have to remember these for each style, and don't have to write media queries manually.
+        You can occasionally add <b>largeDesktop</b> or <b>tinyPhone</b> or <b>largeTablet</b> to adjust for edge cases. But you don't have to remember all the available breakpoints for every style. Each is available only if you need it.
         </p>
     </Block>
   </Border>
@@ -120,7 +118,7 @@ const MediaQueriesDemo = () => (
     <h2>Separation of markup and styles</h2>
     <br />
     
-    Besides using them as inline props, you can also use them inside @emotion/styled template literals by referring to <code>props.theme.mq</code>. So, instead of <CodeInline code={`<Block ssSm="">`} />, you can do this:
+    Access media query mixins from any style, by referencing <CodeInline code={`theme.mq.phone`} /> or <CodeInline code={`theme.mq.tablet`} />. When using ss prop, css prop, or styled function, the theme is accessible as a prop.
 
     <Code
       ss="font-size: 0.85rem;margin-bottom:1.5rem;"
@@ -137,13 +135,22 @@ styled(Button)\`
         padding: 1rem \${(props) => props.theme.sizes.card.paddingX * 2};
     }`} />
 
-    <a href="/?path=/docs/get-started-use-ss-props-or-styled-components-how-to-use--page">↖ Read more in styles and props</a>
-
     <br /> <br />
 
-    There is also a hook and HOC component available for device-specific conditions. These use JavaScript instead of CSS media queries. Wrap your component in <code>@ps/ui/hooks/withDevice.tsx</code> to show/hide the content depending on OS, userAgent, iframe, or Webview. See the code for documentation and types.
+    <h2>Target a specific device or platform</h2>
+    <br />
 
-    <Code title="hooks/withDevice.tsx" ss="font-size:0.85em;" collapsed={true} code={`import React, { useEffect, useState } from 'react';
+    Use a hook <CodeInline code={`useDeviceInfo()`} /> or HOC. These use JavaScript instead of CSS. Wrap your component in <CodeInline code={`<WithDevice ... />`} /> to show/hide the content depending on OS, userAgent, iframe, or Webview. See the code for documentation and types.
+
+    <Code ss="font-size:0.85em;" code={`import WithDevice from '@ps/ui/hooks/WithDevice';  
+<p> 
+    Use this component as any other, in your JSX. 
+    <WithDevice webview>
+      This part will render only in a WebView.
+    </WithDevice>
+</p>`} />
+
+    <Code title="hooks/WithDevice.tsx" ss="font-size:0.85em;" collapsed={true} code={`import React, { useEffect, useState } from 'react';
 import { returnDeviceInfo, deviceInfoType } from '@ps/ui/hooks/useDeviceInfo';
 
 type Props = {
@@ -204,7 +211,7 @@ type Props = {
  *
  * This will always return null on ServerSide. On client, when window/document is available, this will check for device and return children if conditions are met.
  */
-export default (props: Props) => {
+const WithDevice = (props: Props) => {
   const [show, set_show] = useState(false);
   useEffect(() => {
     const deviceInfo: deviceInfoType = returnDeviceInfo();
@@ -237,6 +244,7 @@ export default (props: Props) => {
   }
   return null;
 };
+export default WithDevice;
 
 // Helper:
 function checkDevice(

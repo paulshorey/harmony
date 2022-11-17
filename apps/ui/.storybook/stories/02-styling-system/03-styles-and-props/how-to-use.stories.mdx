@@ -26,7 +26,7 @@ import Code from '@ps/ui/components/Code';
 
 ## 1. The default export is ready to use
 
-All components in this library accept `ss` props, which accept a string of SCSS or function that returns a string.
+All components in this library accept `ss` props, which accept a string of SCSS or a function that returns a string.
 <Code
   ss="font-size: 0.85rem;"
   code={`import Button from "@ps/ui/components/content/Button";
@@ -47,7 +47,7 @@ All components in this library accept `ss` props, which accept a string of SCSS 
 </Button>`}
 />
 
-<Block as="h2" ss="margin-top: 3.5rem;">2. Provided HOC is like Styled Components</Block>
+<Block as="h2" ss="margin-top: 3.5rem;">2. Optionally use the provided HOC like Styled Components</Block>
 
 Just like <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.div\`\``}/>, you can use <CodeInline code={`withButton()`}/> or <CodeInline code={`withDiv()`}/>  
 
@@ -57,7 +57,7 @@ Just like <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.
   ss="font-size: 0.85rem;"
   code={`import { withButton } from "@ps/ui/components/Button";
   
-// Pre-define any props you may need. These will apply to all instance:
+// Pre-define default props all instances will inherit. This way you don't have to copy/paste props to each instance.
   
 export const MyButton = withButton({
   size: 'small',
@@ -68,7 +68,7 @@ export const MyButton = withButton({
   trackFeature: form.title,
 });
   
-// The markup remains legible, even though there are a many props and styles on each element:
+// The markup remains legible, even though there are a many props and styles applied to each element:
   
 <MyButton icon={<Icon name="arrow-left" />} href="/" variant="text"> back</MyButton>
   
@@ -91,7 +91,7 @@ export const MyButton = withButton({
 
 <Block as="h2" ss="margin-top: 4rem;">3. Normal Styled Components</Block>
 
-This library uses `@emotion/styled` instead of `styled-components`. It's the same thing, but with extra features. 
+This library uses `@emotion/styled` instead of `styled-components`. It's the same thing, but with extra features. Both are great libraries. You can literally pass anything to styled! Behind the scenes it simply adds a className to the component, then writes the CSS to a global stylesheet. That's also how this library's `ss` prop works.
 
 <Code
   ss="font-size: 0.85rem;"
@@ -106,7 +106,7 @@ const StyledButton = styled(Button)\`
   }
 \`;`} />
 
-**If you like method #2 above**, it works with styled components too. Styled is a great library. You can literally pass anything to it! Behind the scenes, it just adds a className to whatever component you pass to it.
+**If you like method #2 above**, it works with styled components too: 
 
 <Code
   ss="font-size: 0.85rem;"

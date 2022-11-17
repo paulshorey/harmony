@@ -10,6 +10,11 @@ import MediaQueriesBlock from '@ps/ui/.storybook/components/MediaQueriesBlock';
 <ThemeProvider>
   <Wrapper>
 
+<MediaQueriesBlock />
+
+<br />
+
+
 <Block as="h2" textgradient="rainbow" ss="margin-top: 0;">Every app needs to style for different screen sizes.</Block>
 
 Material UI gives us `sm`,`md`,`lg`,`xl` breakpoints which use `min-width` media queries to target increasingly larger screen sizes. 👍 But what if I need to style only `(min-width: 768px) and (max-width:1024px)` or another specific device that's not preconfigured? Sometimes I need to add fixes for extra-narrow phones. 🤔 Mobile-first is a great guideline, but is very limiting when enforced as a rule.
@@ -19,10 +24,6 @@ Chakra UI's styled-system adds a shortcut to that approach - pass an array of cs
 <Block as="h2" textgradient="rainbow" ss="margin-top: 2.75rem;">But such attempts at simplicity can make maintenance more difficult.</Block>
 
 This library takes a slightly different approach. Semantic prop names. Instead of "xs, sm, md, lg" this offers "smallPhone, phone, tablet, largeTablet, desktop, largeDesktop, extraLargeDesktop". 
-
-<br />
-
-<MediaQueriesBlock />
 
 <br />
 
