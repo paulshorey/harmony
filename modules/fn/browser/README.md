@@ -1,6 +1,6 @@
-# For use in the web browser (client)
+# Web browser JavaScript utilities
 
-> No network requests, but may have side-effects, and may use some other external state.
-> May use window, cookies, URL query string, host name, history, referrer, location, etc.
-
-## Dependencies
+- Reads window, cookies, URL query string, host name, history, referrer, location, etc.
+- On server-side (if window is not defined), each function returns undefined
+- No network requests
+- No dependencies

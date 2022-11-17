@@ -1,9 +1,9 @@
-import decodeEntryToStrings from './decodeEntryToStrings';
+import decodeEntryToStrings from "./decodeEntryToStrings";
 /**
  * Needs documentation
  */
-export default function (entries) {
-  let items = [];
+export default function (entries: Array<string>) {
+  let items: Array<string> = [];
   if (!entries || !entries.length) {
     return items;
   }

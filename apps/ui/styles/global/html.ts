@@ -16,37 +16,36 @@ const html = (theme) => `
     /*
      * Using responsive "rem" units to more easily style for all devices.
      */
-    font-size: 16.5px;
+    font-size: 17px;
     ${theme.mq.veryLargeDesktop} {
-      font-size: 18.5px;
+      font-size: 19px;
     }
     ${theme.mq.largeDesktop} {
-      font-size: 17.5px;
+      font-size: 18px;
     }
     ${theme.mq.desktop} {
-      font-size: 16.5px;
+      font-size: 17px;
     }
     ${theme.mq.tablet} {
       font-size: 15.5px;
     }
     ${theme.mq.phone} {
-      font-size: 15.5px;
+      font-size: 16.5px;
     }
     ${theme.mq.smallPhone} {
-      font-size: 14.5px;
+      font-size: 15px;
     }
     ${theme.mq.tinyPhone} {
-      font-size: 14.5px;
+      font-size: 14px;
     }
   }
 
   body {
     overflow-x: hidden;
-    font-family: 'HelveticaNeue', Helvetica, sans-serif;
+    font-family:  var(--font-family), 'HelveticaNeue', Helvetica, sans-serif;
     padding: 0;
     margin: 0;
     color: #000;
-    font-size: 18px;
     line-height: 1.33rem;
     min-height: 100vh;
     font-weight: 400;
@@ -65,7 +64,7 @@ const html = (theme) => `
   }
 
   button {
-    font-family: 'HelveticaNeue', Helvetica, sans-serif;
+    font-family: var(--font-family-title), 'HelveticaNeue', Helvetica, sans-serif;
     cursor: pointer;
   }
 
@@ -77,7 +76,7 @@ const html = (theme) => `
   h6 {
     text-decoration: none;
     border: none;
-    font-family: 'HelveticaNeue', Helvetica, sans-serif;
+    font-family: var(--font-family-title), 'HelveticaNeue', Helvetica, sans-serif;
     line-height: 1.5;
     font-weight: 600;
     padding: 0;

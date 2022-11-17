@@ -1,5 +1,2 @@
-import sort_objects_by_property_and_position_imported from "./sort_objects_by_property_and_position";
-import sort_objects_by_property_imported from "./sort_objects_by_property";
-
-export const sort_objects_by_property_and_position = sort_objects_by_property_and_position_imported;
-export const sort_objects_by_property = sort_objects_by_property_imported;
+export { default as sort_objects_by_property_and_position } from "./sort_objects_by_property_and_position";
+export { default as sort_objects_by_property } from "./sort_objects_by_property";

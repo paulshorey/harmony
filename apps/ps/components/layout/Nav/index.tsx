@@ -1,5 +1,5 @@
 import Dropdown from '@ps/ui/components/Dropdown';
-import ColorSchemeToggle from '../Header/ColorSchemeToggle';
+import ColorSchemeToggle from './ColorSchemeToggle';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Button from '@ps/ui/components/Button';
@@ -71,11 +71,11 @@ const LayoutNav = () => {
         }
       >
         <span>
-          <FA icon={solid('bars')} style={{ fontSize: '1.25em' }} />
-          <FA
+          <FA icon={solid('bars')} style={{ fontSize: '1.6rem' }} />
+          {/* <FA
             icon={regular('angle-down')}
             style={{ verticalAlign: '0.025rem', marginLeft: '0.33rem' }}
-          />
+          /> */}
         </span>
       </Dropdown>
 

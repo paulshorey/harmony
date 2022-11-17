@@ -1,3 +1,4 @@
+// tsFix - need to test edge cases if 2 out of 3 (width/height/heightWidthRatio) are not defined - requires 2 out of 3 to calculate aspect ratio - how to express this in Typescript?
 type InputType = {
   src: string;
   width?: number;
@@ -20,11 +21,11 @@ type OutputType = {
   src_webp_sm: string;
   type: string;
   type_sm: string;
-  width: number;
-  height: number;
-  width_sm: number;
-  height_sm: number;
-};
+  width?: number;
+  height?: number;
+  width_sm?: number;
+  height_sm?: number;
+} | null;
 
 /**
  * Generate <picture> html tag string from src url. Fix crop/fill dimensions for Cloudinary.com resizer.
@@ -116,7 +117,7 @@ export default function picture_from_src({
    * This is the tiny blurry image that may load initially while waiting for full size image to download
    */
   let widthPreview = 19;
-  let heightPreview = Math.round(widthPreview * heightWidthRatio);
+  let heightPreview = Math.round(widthPreview * (heightWidthRatio || 1));
 
   /*
    * OUTPUT format
@@ -159,30 +160,38 @@ export default function picture_from_src({
     // resize to specified size
     // multiplying height and width * 2x pixel density, to account for retina displays
     // multiplying heightSm and widthSm * 3x, because new iPhones have 3x pixel density
-    if (!height) {
-      let widthSmX = widthSm < 500 ? Math.floor(widthSm * 3) : Math.floor(widthSm * 2);
+    if (width && !height) {
       picture.src = src.replace(srcRe, `${srcReplace}w_${Math.floor(width * 2)}/`);
-      picture.src_sm = (srcSm || src).replace(srcRe, `${srcReplace}w_${widthSmX}/`);
       picture.src_preview = src.replace(srcRe, `${srcReplace}w_${widthPreview},${c_mode}/`);
-    } else if (!width) {
-      let heightSmX = widthSm < 500 ? Math.floor(heightSm * 3) : Math.floor(heightSm * 2);
+      // for mobile
+      if (widthSm) {
+        let widthSmX = widthSm < 500 ? Math.floor(widthSm * 3) : Math.floor(widthSm * 2);
+        picture.src_sm = (srcSm || src).replace(srcRe, `${srcReplace}w_${widthSmX}/`);
+      }
+    } else if (height && !width) {
       picture.src = src.replace(srcRe, `${srcReplace}${"h_" + Math.floor(height * 2)}/`);
-      picture.src_sm = (srcSm || src).replace(srcRe, `${srcReplace}h_${heightSmX}/`);
       picture.src_preview = src.replace(srcRe, `${srcReplace}h_${heightPreview}/`);
-    } else {
-      let widthSmX = widthSm < 500 ? Math.floor(widthSm * 3) : Math.floor(widthSm * 2);
-      let heightSmX = widthSm < 500 ? Math.floor(heightSm * 3) : Math.floor(heightSm * 2);
-      // if both width and height props available, combine
+      // for mobile
+      if (heightSm) {
+        let heightSmX = heightSm < 500 ? Math.floor(heightSm * 3) : Math.floor(heightSm * 2);
+        picture.src_sm = (srcSm || src).replace(srcRe, `${srcReplace}h_${heightSmX}/`);
+      }
+    } else if (width && height) {
       picture.src = src.replace(
         srcRe,
-        `${srcReplace}w_${Math.floor(width * 2)},h_${Math.floor(height * 2)},${c_mode}/` // comment to keep in separate line
+        `${srcReplace}w_${Math.floor(width * 2)},h_${Math.floor(height * 2)},${c_mode}/`
       );
-      picture.src_sm = (srcSm || src).replace(srcRe, `${srcReplace}w_${widthSmX},h_${heightSmX},${c_mode}/`);
       picture.src_preview = src.replace(srcRe, `${srcReplace}w_${widthPreview},h_${heightPreview},${c_mode}/`);
       picture.src_preview_sm = (srcSm || src).replace(
         srcRe,
         `${srcReplace}w_${widthPreview},h_${heightPreview},${c_mode}/`
       );
+      // for mobile
+      if (widthSm && heightSm) {
+        let widthSmX = widthSm < 500 ? Math.floor(widthSm * 3) : Math.floor(widthSm * 2);
+        let heightSmX = widthSm < 500 ? Math.floor(heightSm * 3) : Math.floor(heightSm * 2);
+        picture.src_sm = (srcSm || src).replace(srcRe, `${srcReplace}w_${widthSmX},h_${heightSmX},${c_mode}/`);
+      }
     }
     // webp
     {

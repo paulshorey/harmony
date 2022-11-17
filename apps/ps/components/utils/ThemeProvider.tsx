@@ -3,13 +3,12 @@ import {
   Global,
   css,
 } from '@emotion/react';
-// Required global styles:
-import '@ps/ui/styles/theme.css';
 import theme from 'styles/theme';
 // Optional - global styles:
 import fonts from '@ps/ui/styles/global/fonts';
 import html from '@ps/ui/styles/global/html';
 import classes from '@ps/ui/styles/global/classes';
+import global from 'styles/global';
 
 const ThemeProvider = ({ children }) => {
   return (
@@ -19,6 +18,7 @@ const ThemeProvider = ({ children }) => {
           ${fonts(theme)};
           ${html(theme)};
           ${classes(theme)};
+          ${global(theme)};
         `}
       />
       {children}

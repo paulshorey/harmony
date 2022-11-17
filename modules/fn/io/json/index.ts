@@ -1,7 +1,2 @@
-import jss_imported from "./jss";
-import jsp_imported from "./jsp";
-import json_parse_imported from "./json_parse";
-
-export const jss = jss_imported;
-export const jsp = jsp_imported;
-export const json_parse = json_parse_imported;
+export { default as json_parse } from "./json_parse";
+export { default as json_stringify } from "./json_stringify";

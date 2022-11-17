@@ -47,8 +47,7 @@ export type Props = {
 /**
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
-export const Component: React.FC<Props> = withStyles(
-  forwardRef(({ onClick, loading, ...props }: Props, ref: any) => {
+export const Component = ({ onClick, loading, ...props }: Props, ref: any) => {
     /*
      * Props logic
      */

@@ -5,8 +5,6 @@ import { Props as BlockProps } from '@ps/ui/components/Block';
 import variants from './styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import withStyles from '@ps/ui/hooks/withStyles';
-import { Props } from '../Inline/index';
-import styled from '@emotion/styled';
 
 type Props = {
   /**
@@ -22,33 +20,33 @@ type Props = {
 /**
  * Two good things about this carousel: (1) It works for any children elements (divs, images, paragraphs, etc), and they don't have to be all the same width! Other carousels usually require all children to be the same width. (2) Prev/Next arrows are built in, for zero configuration setup. But, you can pass custom props.arrows
  */
-export const Component: React.FC<Props> = withStyles(
-  forwardRef(({ arrows, children, ...props }: Props, ref: any) => {
-    const carouselRef = React.useRef(ref);
-    useEffect(() => {
-      const carousel = new HorizontalCarousel(carouselRef.current);
-      return () => {
-        carousel.end();
-      };
-    }, []);
-    return (
-      <Styled ref={carouselRef} {...props}>
-        <div className="__slides">{children}</div>
-        {!!arrows && <div className="__arrows">{arrows}</div>}
-      </Styled>
-    );
-  }),
-  'HorizontalCarousel',
-  variants
-);
+export const Component = (props: Props, ref: any) => {
+  const { arrows, children, ...rest } = props;
+  const carouselRef = React.useRef(ref);
+  useEffect(() => {
+    const carousel = new HorizontalCarousel(carouselRef.current);
+    return () => {
+      carousel.end();
+    };
+  }, []);
+  return (
+    <div ref={carouselRef} {...rest}>
+      <div className="__slides">{children}</div>
+      {!!arrows && <div className="__arrows">{arrows}</div>}
+    </div>
+  );
+};
 
 /*
  * (1) default export is normal component ready to use (2) withHorizontalCarousel is HOC used to predefine common props
  */
+const Styled: React.FC<Props> = withStyles(
+  forwardRef(Component),
+  'HorizontalCarousel',
+  variants
+);
 
-export default memo(Component);
+export default memo(Styled);
 
 export const withHorizontalCarousel = (props: Props) =>
-  memo(withCombinedProps(Component, props));
-
-const Styled = styled('div')``;
+  memo(withCombinedProps(Styled, props));

@@ -5,7 +5,7 @@ import { argTypes } from '@ps/ui/helpers/storybook_args';
 import variants from './styles';
 
 const variantKeys = Object.keys(variants);
-const args = { size: 'sm' };
+const args = { size: 'sm', round: true };
 
 export const Input = Template.bind({});
 Input.argTypes = {

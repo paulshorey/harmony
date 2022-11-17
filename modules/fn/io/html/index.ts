@@ -1,3 +1,1 @@
-import picture_from_src_imported from "./picture_from_src";
-
-export const picture_from_src = picture_from_src_imported;
+export { default as picture_from_src } from "./picture_from_src";

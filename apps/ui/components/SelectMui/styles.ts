@@ -18,5 +18,12 @@ export default {
         border-color: var(--color-error) !important;
       }
     }
+
+    fieldset {
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+    }
   `,
 };

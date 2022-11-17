@@ -11,5 +11,6 @@
     "incremental": true,
     "noImplicitAny": false,
     "jsx": "preserve"
-  }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_document.js"]
 }

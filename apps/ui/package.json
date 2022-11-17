@@ -11,10 +11,11 @@
     "build-storybook": "build-storybook -s public",
     "serve-storybook": "serve storybook-static"
   },
+  "--- PLEASE NOTE ---": "--- This project is experimental and unfinished. Still needs to be cleaned up and optimized. Many of these need to be deleted ---",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@emotion/core": "^11.0.0",
     "@emotion/css": "^11.10.5",
+    "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.4",
     "@floating-ui/react-dom": "^1.0.0",
@@ -30,20 +31,20 @@
     "@radix-ui/react-popover": "^1.0.2",
     "antd": "^5.0.0-alpha.34",
     "@ps/infinite-react-carousel": "*",
-    "next": "^12.0.4",
-    "next-transpile-modules": "^9.1.0",
     "prism-react-renderer": "^1.3.5",
     "prismjs": "^1.29.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "react-cool-inview": "^3.0.1",
     "react-merge-refs": "^2.0.1",
     "react-prism-editor": "^1.1.2",
     "react-swipeable": "^7.0.0",
+<<<<<<< HEAD
     "sass": "^1.55.0"
   },
   "devDependencies": {
     "@ps/ui": "*",
+=======
+    "sass": "^1.55.0",
+>>>>>>> staging
     "@babel/core": "^7.16.7",
     "@emotion/serialize": "^1.1.1",
     "@mdx-js/react": "1.6.22",
@@ -57,15 +58,13 @@
     "eslint-plugin-mdx": "^2.0.5",
     "next-build-id": "^3.0.0",
     "postcss-plugin": "^1.0.0",
-    "sass": "^1.55.0",
     "serve": "^13.0.2",
     "storybook-addon-next": "*",
     "storybook-addon-sass-postcss": "^0.1.3",
     "storybook-css-modules": "^1.0.8"
   },
-  "peerDependencies": {
-    "@emotion/styled": "^5.3.6"
-  },
+  "devDependencies": {},
+  "peerDependencies": {},
   "maybeDependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0"
   }

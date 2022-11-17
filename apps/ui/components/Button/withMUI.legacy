@@ -49,7 +49,7 @@ export type Props = {
  * Button. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
 // @ts-ignore tsFix: currntly just shoving the props in, but need to reconcile this abstration component with what MUI.com button expects, to make sure it's ok. Right now, the obvious mismatch is props.variant, which is ok. This library takes care of variants. So MUI may get a variant that it does not recognize, but that's ok.
-export const Component: React.FC<Props> = withStyles(
+export const Component = withStyles(
   // @ts-ignore tsFix props.variant is ignored. This library takes care of variants and how each variant should look
   forwardRef(({ onClick, loading, variant, ...props }: Props, ref: any) => {
     /*

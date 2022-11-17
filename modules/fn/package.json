@@ -10,7 +10,15 @@
     "build": "tsc",
     "dev": "yarn run test:dev",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
-    "test:dev": "NODE_OPTIONS=--experimental-vm-modules npx jest --watch"
+    "test:dev": "NODE_OPTIONS=--experimental-vm-modules npx jest --watch",
+    "docs": "typedoc --out _docs ./io ./browser --theme stacks && http-server _docs"
+  },
+  "main": "./index.ts",
+  "typedoc": {
+    "entryPoint": "./index.ts",
+    "readmeFile": "./README.md",
+    "displayName": "Hope this works",
+    "tsconfig": "./tsconfig.json"
   },
   "husky": {
     "hooks": {
@@ -35,14 +43,16 @@
   },
   "homepage": "https://github.com/twodashes/node#readme",
   "dependencies": {
-    "axios": "^0.27.2",
-    "cachios": "^4.0.0",
     "@ps/constants": "*",
-    "@ps/cconsole": "*"
+    "axios": "^0.27.2",
+    "cachios": "^4.0.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.18.6",
+    "@janniks/typedoc-theme-stacks": "^1.2.3",
+    "@ps/cconsole": "*",
     "@types/jest": "^29.0.3",
+    "airtable": "^0.11.5",
     "ava": "^4.3.3",
     "eslint": "^8.23.1",
     "husky": "^8.0.1",
@@ -50,6 +60,7 @@
     "parcel": "^2.7.0",
     "snowpack": "^3.8.8",
     "ts-jest": "^29.0.1",
+    "typedoc": "^0.23.21",
     "typescript": "^4.8.3"
   }
 }

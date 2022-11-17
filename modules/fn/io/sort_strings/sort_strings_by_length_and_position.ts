@@ -42,8 +42,8 @@ export default function sort_strings_by_length_and_position(
     // compile ratings
     // ${this} in [].sort()
     let that: SortThat = {
-      min_length: ascending[0].length,
-      max_length: ascending[ascending.length - 1].length,
+      min_length: ascending[0].length || 0,
+      max_length: ascending[ascending.length - 1].length || 0,
       min_position: 0,
       max_position: arr.length,
       delta_position: arr.length,
@@ -55,6 +55,7 @@ export default function sort_strings_by_length_and_position(
       that.fix_min_length = fix_min_length;
       that.min_length = fix_min_length;
     }
+    // @ts-ignore - min_rating and max_rating are set above // tsFix - check for edge cases when set to 0
     that.delta_length = that.max_length - that.min_length;
     // done
     return arr.sort(sort_strings_by_length_and_position_asc__helper.bind(that));

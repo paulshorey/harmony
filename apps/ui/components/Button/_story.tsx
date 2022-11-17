@@ -15,7 +15,11 @@ export const Buttons = (props) => {
   });
   return (
     <>
-      <Button loading icon={<FontAwesomeIcon icon={faUser} />}>
+      <Button
+        className="noWrap"
+        loading
+        icon={<FontAwesomeIcon icon={faUser} />}
+      >
         Loading
       </Button>
       <Button variant="outlined" icon={<FontAwesomeIcon icon={faUser} />}>
@@ -31,10 +35,18 @@ export const Buttons = (props) => {
 export default (props) => (
   <>
     <CanvasContainer>
-      <CanvasStoryPadding bgcolor="light" textcolor="purple">
+      <CanvasStoryPadding
+        data-bgcolor="light"
+        data-textcolor="purple"
+        data-bggradient
+      >
         <Buttons {...props} />
       </CanvasStoryPadding>
-      <CanvasStoryPadding>
+      <CanvasStoryPadding
+        data-bgcolor="purple"
+        data-textcolor="light"
+        data-bggradient
+      >
         <Buttons {...props} />
       </CanvasStoryPadding>
     </CanvasContainer>

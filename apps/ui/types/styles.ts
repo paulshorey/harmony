@@ -1,10 +1,9 @@
 import React from 'react';
+// import { styledTags } from './html'; // plain list for Storybook controls dropdown (really it's type React.ElementType<any>)
+export type styledTags = React.ElementType<any>;
 
 // tsFix: what types are returned by emotion' css`` template literal function? Interpolation | SerializedStyles
 type cssReturnType = any | null | undefined;
-
-export type styledTags = React.ElementType<any>;
-
 export type ssProp =
   | string
   | ((props) => string)
@@ -17,10 +16,6 @@ export type uniqueStyleProps = {};
  * Props used by this UI library
  */
 export type styleProps = {
-  /**
-   * HTML element tag name to render. All other aspects of the component (all CSS) will be unchanged. Or pass a React element to use.
-   */
-  as?: styledTags;
   /**
    * Each component has a `variants.ts` file in its folder - it sets the styles for the component. Variant is also used by the JS code to set logic/layout/markup of the component.
    */
@@ -110,8 +105,8 @@ export type styleProps = {
    */
   componentName?: string;
   className?: string;
-  /*
-   * Your site theme is injected into props by hooks/withStyles.tsx so you can use it in any EmotionJS/StyledComponents css`` template literal.
+  /**
+   * Your site theme is injected into props by hooks/withStyles.tsx so you can use it in your EmotionJS/StyledComponents css\`\` template literal: (1 - any component in this library) `<Block ss={(props) => \`padding:${props.theme.card.paddingX}\`} />` (2 - use styled components) `styled(Block)\`padding:${props => props.theme.card.paddingX}\`` (3 - emotion css prop) `<div css={css\`padding:${props => props.theme.card.paddingX}\`} />`.
    */
   theme?: any;
 };

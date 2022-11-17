@@ -28,40 +28,40 @@ export type Props = {
 /**
  * All children must be the same aspect ratio. If you need to render a carousel with different aspect ratios, use HorizontalCarousel component.
  */
-export const Component: React.FC<Props> = withStyles(
-  ({ ...props }: Props) => {
-    const [showCarousel, set_showCarousel] = React.useState(false);
-    React.useEffect(() => {
-      // disable for Search Engines, QA, LightHouse test, and other bots
-      const disableForBots =
-        /bot|googlebot|crawler|spider|robot|crawling|lighthouse/i.test(
-          window.navigator.userAgent
-        );
-      if (disableForBots && disableForBots !== null) {
-        // disable
-      } else {
-        // enable
-        set_showCarousel(true);
-      }
-      // pause for QA
-      const qaStatic = getQueryParam('qaStatic');
-      if (qaStatic && qaStatic !== null) {
-        // pause
-        props.autoplay = false;
-      }
-    }, []);
-    return showCarousel ? <Styled {...props} /> : null;
-  },
-  'InfiniteCarousel',
-  variants
-);
+export const Component = (props: Props) => {
+  const [showCarousel, set_showCarousel] = React.useState(false);
+  React.useEffect(() => {
+    // disable for Search Engines, QA, LightHouse test, and other bots
+    const disableForBots =
+      /bot|googlebot|crawler|spider|robot|crawling|lighthouse/i.test(
+        window.navigator.userAgent
+      );
+    if (disableForBots && disableForBots !== null) {
+      // disable
+    } else {
+      // enable
+      set_showCarousel(true);
+    }
+    // pause for QA
+    const qaStatic = getQueryParam('qaStatic');
+    if (qaStatic && qaStatic !== null) {
+      // pause
+      props.autoplay = false;
+    }
+  }, []);
+  return showCarousel ? <TheCarousel {...props} /> : null;
+};
 
 /*
  * (1) default export is normal component ready to use (2) withInfiniteCarousel is HOC used to predefine common props
  */
-export default memo(Component);
+const Styled: React.FC<Props> = withStyles(
+  Component,
+  'InfiniteCarousel',
+  variants
+);
+
+export default memo(Styled);
 
 export const withInfiniteCarousel = (props: Props) =>
-  memo(withCombinedProps(Component, props));
-
-const Styled = styled(TheCarousel)``;
+  memo(withCombinedProps(Styled, props));

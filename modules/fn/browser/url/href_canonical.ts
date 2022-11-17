@@ -1,9 +1,10 @@
 /**
  * Fix for anchor tag href attribute, if it comes from Wordpress or some other content editor
- * @param {string} href
- * @returns {string} - modified href
+ * @param href - link url
+ * @param host - canonical host - if not provided, will use window.location.host
+ * @returns - modified href
  */
-export default function (href, host) {
+export default function (href: string, host: string): string {
   if (typeof window === "undefined") return href;
   return href
     .replace("www." + host, "" + host) // ensure consistency, strip then add back in

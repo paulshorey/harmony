@@ -6,9 +6,8 @@ import { OptionProps as AntOptionProps } from 'antd/es/select';
 import { Select as SelectAnt } from 'antd';
 import type { SelectProps as AntSelectProps } from 'antd';
 import withStyles from '@ps/ui/hooks/withStyles';
-import styled from '@emotion/styled';
 
-type OptionProps = {
+export type OptionProps = {
   value: string;
   /**
    * What to show in the select box instead of the real value. Useful if capitalization is different.
@@ -27,29 +26,26 @@ type OptionProps = {
 // for convenience, export antd option and props, so user does not have to import from antd
 const { Option: OptionAnt } = SelectAnt;
 export const Option = OptionAnt;
-export { OptionProps, AntSelectProps as SelectProps };
-
+export { AntSelectProps as SelectProps };
 export type Props = styleProps & AntSelectProps;
 
 /**
  * Select component (includes multi-select and type tags functionality) powered by Ant Design component.
  */
-export const Component: React.FC<Props> = withStyles(
-  forwardRef((props: Props, ref: any) => {
-    // @ts-ignore // tsFix make sure this is sending correct props and options to Antd select
-    return <Styled {...props} ref={ref} />;
-  }),
-  'Select',
-  variants
-);
+export const Component = (props: Props, ref: any) => {
+  return <SelectAnt {...props} ref={ref} />;
+};
 
 /*
  * (1) default export is normal component ready to use (2) withSelect is HOC used to predefine common props
  */
+const Styled: React.FC<Props> = withStyles(
+  forwardRef(Component),
+  'Select',
+  variants
+);
 
-export default memo(Component);
+export default memo(Styled);
 
 export const withSelect = (props: Props) =>
-  memo(withCombinedProps(Component, props));
-
-const Styled = styled(SelectAnt)``;
+  memo(withCombinedProps(Styled, props));

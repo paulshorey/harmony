@@ -1,5 +1,4 @@
 import { get as fetcher_get } from "../fetcher";
-import cconsole from "@ps/cconsole";
 
 const CACHE_SECONDS = 360000;
 
@@ -10,7 +9,7 @@ export default async (site) => {
       ttl: CACHE_SECONDS
     });
   } catch (e) {
-    cconsole.error("Error getSitePreview()", e);
+    console.error("Error getSitePreview()", e);
   }
   // siteName = siteName.replace('https://', '');
   // siteName = siteName.replace('http://', '');

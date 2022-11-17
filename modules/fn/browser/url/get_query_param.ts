@@ -1,7 +1,7 @@
 /**
  * Parse window.location URL parameter
- * @param {string} key - key to get value of
- * @returns {string} value of the key
+ * @param key - key to get value of
+ * @returns value of the key
  */
 export default function (key: string): string {
   if (typeof window === "undefined") return "";

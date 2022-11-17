@@ -6,12 +6,9 @@ const AppProvider = ({ children }) => {
   const ui = uiState((state) => state as uiStateType);
   useEffect(() => {
     /*
-     * Color scheme (global UI state is remembered in localStorage)
+     * Toggle color scheme (global UI state is remembered in localStorage)
      */
-    const colorScheme = ui.colorSchemes[ui.colorSchemeIndex];
-    for (const key in colorScheme) {
-      window.document.body.dataset[key] = colorScheme[key];
-    }
+    window.document.body.dataset.bgcolor = ui.colorSchemes[ui.colorSchemeIndex];
     /*
      * Track user interactions with the page (for analytics)
      */
@@ -24,7 +21,11 @@ const AppProvider = ({ children }) => {
    * The pageContext will be available globally, set by each page.
    * It holds meta data for branding, page titles/subtitles, A/B variants, etc.
    */
-  return <ThemeProvider>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider>
+      <div data-bggradient>{children}</div>
+    </ThemeProvider>
+  );
 };
 
 export default AppProvider;

@@ -11,8 +11,8 @@ import styled from '@emotion/styled';
 export type PrismThemeType = typeof themeDark;
 
 export type Props = {
-  title: string;
   code: string;
+  title?: string;
   language?: Language;
   prismTheme?: PrismThemeType;
   variant?: string;

@@ -2,7 +2,7 @@ import css from '@ps/ui/helpers/css';
 
 export default {
   Nav: {
-    ss: (props) => css`
+    ss: ({ theme }) => css`
       position: fixed;
       top: 0;
       right: 0;
@@ -10,7 +10,7 @@ export default {
       display: flex;
       margin: 1rem 0.1rem 0.9rem 1rem;
       > * {
-        line-height: calc(${props.theme.header.height} - 2rem);
+        line-height: calc(${theme.header.height} - 2rem);
         display: inline-flex;
         margin-right: 1rem;
       }
@@ -20,7 +20,7 @@ export default {
           margin-left: -1.25rem;
           margin-right: -1.25rem;
         }
-        ${props.theme.mq.phone} {
+        ${theme.mq.phone} {
           .Dropdown__menuContainer {
             position: fixed !important;
             right: 0 !important;
@@ -37,11 +37,11 @@ export default {
     componentName: 'ToggleMenu',
     bggradient: 'purple',
     textcolor: 'light',
-    ss: (props) => css`
+    ss: ({ theme }) => css`
       display: flex;
       flex-direction: column;
       border-radius: 0.5rem;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem 1rem;
       background-color: transparent;
       backdrop-filter: blur(10px);
       a {

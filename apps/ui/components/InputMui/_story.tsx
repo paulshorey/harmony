@@ -23,6 +23,7 @@ const InputStory = (props) => {
       <Input
         {...props}
         ssAll={style}
+        label="Username with label"
         placeholder="Username"
         prefix={<UserOutlined />}
         suffix={
@@ -38,7 +39,9 @@ const InputStory = (props) => {
         placeholder="your-website"
         prefix={'http://'}
         suffix={'.com'}
-        onPressEnter={(e) => console.log('pressed enter', e)}
+        onPressEnter={() => {
+          /* console.log('pressed enter', e)*/
+        }}
       />
     </>
   );

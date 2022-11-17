@@ -1,10 +1,10 @@
 /**
  * Convert JavaScript Object to URL querystring
  * ex: "?one=1&two=something"
- * @param {object} params - JS Object of key-value query params
- * @return {string} - starting with "?". Just that if empty object
+ * @param params - JS Object of key-value query params
+ * @return - starting with "?". Just that if empty object
  */
-export default function (params = {}) {
+export default function (params: Record<string, string> = {}): string {
   let qs = Object.keys(params)
     .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(params[k]))
     .join("&");

@@ -4,66 +4,50 @@ import HCarousel from './AboutMeCarousel';
 import LayoutNav from 'components/layout/Nav';
 import CenterChildrenY from '@ps/ui/components/CenterChildrenY';
 import Block from '@ps/ui/components/Block';
-import Link from '@ps/ui/components/Link';
+// import Link from '@ps/ui/components/Link';
 import HeaderLayout from 'components/layout/Header';
-import { useContext } from 'react';
-import PageContext, { pageContextType } from 'context/Page';
-import css from '@ps/ui/helpers/css';
+// import { useContext } from 'react';
+// import PageContext, { pageContextType } from 'context/Page';
+// import css from '@ps/ui/helpers/css';
 import LatestProjectsCarousel from './LatestProjectsCarousel';
+import { css } from '@emotion/react';
 
-const styles = {
-  main: {
-    ss: (props) => `
-      p {
-        font-size: 1rem;
-        letter-spacing: 0.1px;
-        text-align: center;
-      }
-  `,
-  },
-  y: { ss: `height:80vh;` },
-  carousel: {
-    ss: `
-    margin: 2rem 0 3rem;
-    img {
-      height: 15rem;
-    }
-    .__prev,
-    .__next {
-      transform: scale(0.5, 0.67) !important;
-      color: white !important;
-      opacity: 0.5 !important;
-    }
-  `,
-  },
-};
+const style = (props) => css`
+  height: 100vh;
+  p {
+    letter-spacing: 0.1px;
+    text-align: center;
+  }
+`;
 
 function Home() {
-  const pageContext: pageContextType = useContext(PageContext);
+  // const pageContext: pageContextType = useContext(PageContext);
   // const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <Block {...styles.main}>
+    <CenterChildrenY ss={style}>
       <HeaderLayout />
-      <CenterChildrenY {...styles.y}>
-        <LayoutNav />
+      <LayoutNav />
+      <Block
+        as="p"
+        ss={(props) => `margin: ${props.theme.header.height} 1.25rem 1.25rem;`}
+        ssPhone="margin-top: 7rem;"
+      >
+        Hi. Thanks for visiting! This is my sandbox to try new ideas. Really
+        appreciate your <a>feedback</a>.
+      </Block>
+      <HCarousel />
+      <Block>
         <Block
           as="p"
-          ss={(props) =>
-            `margin: calc(${props.theme.header.height} + 6.5rem) 1.25rem 1.25rem;`
-          }
+          ss="margin: 5rem 1.25rem 1.5rem;"
+          ssPhone="margin-top: 3.5rem;"
         >
-          Hi. Thanks for visiting! This site is my sandbox to try new ideas.
-          Really appreciate your <a>feedback</a>.
+          Check out my latest experiments:
+          {/* Most recently I've been working on tooling for software developers: */}
         </Block>
-        <HCarousel {...styles.carousel} />
-        <Block>
-          <Block as="p" ss={(props) => `margin: 5rem 1.25rem 1.5rem;`}>
-            Check out my latest experiment:
-          </Block>
-          <LatestProjectsCarousel />
-        </Block>
-      </CenterChildrenY>
-    </Block>
+        <LatestProjectsCarousel />
+      </Block>
+    </CenterChildrenY>
   );
 }
 export default Home;

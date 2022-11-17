@@ -5,7 +5,6 @@ import { Input as AntInput } from 'antd';
 import type { InputProps as AntInputProps } from 'antd';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import withStyles from '@ps/ui/hooks/withStyles';
-import styled from '@emotion/styled';
 
 export type Props = {
   /**
@@ -47,36 +46,41 @@ export type Props = {
 /**
  * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
-export const Component: React.FC<Props> = withStyles(
-  forwardRef((props: Props, ref: any) => {
-    const [value, set_value] = React.useState(props.value || '');
-    return (
-      <Styled
-        {...props}
-        value={value}
-        onChange={(e) => {
-          console.log('onChange', e);
-          set_value(e.target.value);
-        }}
-        onFocus={(e) => {
-          console.log('onFocus', e);
-        }}
-        data-hasvalue={!!value}
-        ref={ref}
-      />
-    );
-  }),
-  'Input',
-  variants
-);
+export const Component = (props: Props, ref: any) => {
+  const [value, set_value] = React.useState(props.value || '');
+  return (
+    <AntInput
+      {...props}
+      value={value}
+      onChange={(e) => {
+        // console.log('onChange', e);
+        set_value(e.target.value);
+        if (props.onChange) {
+          props.onChange(e);
+        }
+      }}
+      onFocus={(e) => {
+        // console.log('onFocus', e);
+        if (props.onFocus) {
+          props.onFocus(e);
+        }
+      }}
+      data-hasvalue={!!value}
+      ref={ref}
+    />
+  );
+};
 
 /*
  * (1) default export is normal component ready to use (2) withInput is HOC used to predefine common props
  */
+const Styled: React.FC<Props> = withStyles(
+  forwardRef(Component),
+  'Input',
+  variants
+);
 
-export default memo(Component);
+export default memo(Styled);
 
 export const withInput = (props: Props) =>
-  memo(withCombinedProps(Component, props));
-
-const Styled = styled(AntInput)``;
+  memo(withCombinedProps(Styled, props));
