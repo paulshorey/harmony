@@ -26,10 +26,10 @@ One is `<Block textcolor="light" bgcolor="purple">`, the other is `<Block textco
     </Button>
     <Code
       collapsed={true}
-      code={`import Button from '@ps/ui/components/Button';
+      code={`// Setting the color scheme is easy...
+import Button from '@ps/ui/components/Button';
   
-// Specifying colors is simple:
-// It also works for any HTML element by prepending "data-" to the attribute name.
+// Specifying textcolor and bgcolor separately allows for more combinations than just light/dark
 <Block textcolor="light" bgcolor="purple">
    
   <Button loading={true}>Loading</Button>
@@ -46,7 +46,7 @@ One is `<Block textcolor="light" bgcolor="purple">`, the other is `<Block textco
     icon={<FontAwesomeIcon icon={faUser} />}
   />
   
-  {/* Specify a different textcolor. It still remembers the bgcolor from its parents. */}
+  {/* Specify a different textcolor. It will remember the bgcolor from its parents. */}
   <Button textcolor="rainbow">
     Different color
   </Button>
@@ -76,7 +76,7 @@ One is `<Block textcolor="light" bgcolor="purple">`, the other is `<Block textco
 
 <br />
 <br />
-This is possible because of a very small CSS stylesheet that does not set any padding/font-size/etc, but only manages colors schemes (light/dark/colors).  
+This is possible because of a very small CSS stylesheet that does not set any padding/font-size/etc. but only manages colors schemes (light/dark/colors). Colors are set using real CSS, not JS. So, they can cascade.  
 
 Read about the [theme provider](/docs/get-started-theme-provider--page) to learn about <b>theme.css</b> vs <b>theme.ts</b>.  
 <br />

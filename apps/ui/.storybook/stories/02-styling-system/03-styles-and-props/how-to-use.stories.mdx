@@ -24,30 +24,32 @@ import Code from '@ps/ui/components/Code';
 
 <br />
 
-## 1. The default export is ready to use
+<Block as="h2" ss="margin-top: 1rem;">1. The default export is ready to use</Block>
 
 All components in this library accept `ss` props, which accept a string of SCSS or a function that returns a string.
 <Code
   ss="font-size: 0.85rem;"
-  code={`import Button from "@ps/ui/components/content/Button";
+  code={`import { css } from '@emotion/react'; // optional
+import Button from "@ps/ui/components/content/Button";
   
 <Button 
   variant="outlined" 
   onClick={console.log} 
-  ss={(props) => \`
+  ss={(props) => css\`
       /* pass a function to any ss prop to access props and variables */
       \${props.theme.mq.desktopLarge} {
           /* use props and theme variables, even inside media queries */
           padding: 1rem \${props.theme.sizes.card.paddingX * 2};
       }
+      /* Optionally: wrap it a css function to add syntax highlighting */
   \`}
-  ssDesktopLarge="/* Or use the same media queries as a shortcut prop. */"
+  ssDesktopLarge="/* See Media queries to learn about all ss props. */"
 >
   Click me
 </Button>`}
 />
 
-<Block as="h2" ss="margin-top: 3.5rem;">2. Optionally use the provided HOC like Styled Components</Block>
+<Block as="h2" ss="margin-top: 5rem;">2. Optionally use the provided HOC like Styled Components</Block>
 
 Just like <CodeInline code={`styled.button\`\``}/> or <CodeInline code={`styled.div\`\``}/>, you can use <CodeInline code={`withButton()`}/> or <CodeInline code={`withDiv()`}/>  
 
@@ -89,7 +91,7 @@ export const MyButton = withButton({
 
 🤓 The old and new props will be combined. Style strings and classNames will be added. Other props will be replaced.   
 
-<Block as="h2" ss="margin-top: 4rem;">3. Normal Styled Components</Block>
+<Block as="h2" ss="margin-top: 5rem;">3. Normal Styled Components</Block>
 
 This library uses `@emotion/styled` instead of `styled-components`. It's the same thing, but with extra features. Both are great libraries. You can literally pass anything to styled! Behind the scenes it simply adds a className to the component, then writes the CSS to a global stylesheet. That's also how this library's `ss` prop works.
 

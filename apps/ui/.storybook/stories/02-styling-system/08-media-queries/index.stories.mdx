@@ -13,11 +13,11 @@ import MediaQueriesBlock from '@ps/ui/.storybook/components/MediaQueriesBlock';
 <MediaQueriesBlock />
 
 <br />
-
+<br />
 
 <Block as="h2" textgradient="rainbow" ss="margin-top: 0;">Every app needs to style for different screen sizes.</Block>
 
-Material UI gives us `sm`,`md`,`lg`,`xl` breakpoints which use `min-width` media queries to target increasingly larger screen sizes. 👍 But what if I need to style only `(min-width: 768px) and (max-width:1024px)` or another specific device that's not preconfigured? Sometimes I need to add fixes for extra-narrow phones. 🤔 Mobile-first is a great guideline, but is very limiting when enforced as a rule.
+Material UI gives us `sm`,`md`,`lg`,`xl` breakpoints which use `min-width` media queries to target increasingly larger screen sizes. 👍 But what if I need to style only `(min-width: 768px) and (max-width:1024px)` or another specific device that's not preconfigured? Sometimes I need to add fixes for extra-narrow phones. 🤔 Mobile-first is a great guideline, but edge cases will lead to messy code.
 
 Chakra UI's styled-system adds a shortcut to that approach - pass an array of css props to style all 4 breakpoints in one command. Like: `<Box p={['10px','12px','15px','30px']]}>`. 😎 Cool, but inconsistent because you'll very rarely actually style all breakpoints at the same time. And now I have to remember sizes by a few predefined index numbers. Plus all those clever style props pollute the namespace with all other React props that pass data/logic. <!--Developers have been working for decades to solve namespace pollution. Seems like a step backwards. 🤮-->
 

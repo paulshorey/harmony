@@ -123,13 +123,13 @@ Dark text on light background:
   --color-text: orange;
   --color-text-gradient: linear-gradient(
     55deg,
-    rgb(245, 139, 101) -12%,
-    rgba(255, 154, 0, 1),
-    rgb(245, 208, 23),
-    rgb(255, 236, 95),
-    rgb(205, 235, 55),
-    rgb(121, 210, 191),
-    rgb(146, 147, 255) 106%
+    hsl(16, 90%, 68%) -20%,
+    hsl(36, 90%, 50%),
+    hsl(50, 88%, 53%),
+    hsl(50, 90%, 70%),
+    hsl(70, 85%, 57%),
+    hsl(167, 50%, 65%),
+    hsl(239, 100%, 79%) 106%
   );
 }
 [data-bgcolor='rainbow'] {

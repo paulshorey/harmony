@@ -142,6 +142,10 @@ const Wrapper = ({ children, ...props }) => {
         ss={`
         max-width: 1000px;
         margin: 0 auto;
+        > * { 
+          /* Override Storybook style applied to auto-generated elements from markdown */
+          color: var(--color-text);
+        }
       `}
       >
         {children}
