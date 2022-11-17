@@ -7,14 +7,14 @@ import ThemeProvider from '@ps/ui/components/ThemeProvider';
 import { Buttons } from './_components';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 
-<Meta title="Get started/Cascading and coloring" />
+<Meta title="Get started/Styling system/Cascading colors" />
 
 <ThemeProvider>
   <Wrapper bgcolor="dark">
 
-<Block as="h2" textgradient="rainbow" ss="margin-top:0;">Here are 2 blocks with different color schemes:</Block>
+## Here are 2 blocks with different color schemes:
 
-One is `<Block textcolor="light" bgcolor="purple">`, the other is `<Block textcolor="purple" bgcolor="light">`. All children components inside can choose to use the ancestral text and background color. It is not indiscriminately forced upon all children. It's easy to override.
+One is `<Block textcolor="light" bgcolor="purple">`, the other is `<Block textcolor="purple" bgcolor="light">`. Child components can utilize the ancestral text and background color. You don't have to specify the color of each element. The element's css-in-js stylesheet chooses to apply or ignore the parent color.
 
 <br />
 
@@ -26,13 +26,10 @@ One is `<Block textcolor="light" bgcolor="purple">`, the other is `<Block textco
     </Button>
     <Code
       collapsed={true}
-      code={`// import the ready-to-use default export (Button), or the HOC named export (withButton)
-import { withButton } from '@ps/ui/components/Button';
-const Button = withButton({
-  size: 'sm',
-  ss: 'margin: 0 0.875rem 0.875rem 0;',
-});
+      code={`import Button from '@ps/ui/components/Button';
   
+// Specifying colors is simple:
+// It also works for any HTML element by prepending "data-" to the attribute name.
 <Block textcolor="light" bgcolor="purple">
    
   <Button loading={true}>Loading</Button>
@@ -49,6 +46,7 @@ const Button = withButton({
     icon={<FontAwesomeIcon icon={faUser} />}
   />
   
+  {/* Specify a different textcolor. It still remembers the bgcolor from its parents. */}
   <Button textcolor="rainbow">
     Different color
   </Button>
@@ -67,7 +65,7 @@ const Button = withButton({
     </Button>
     <Code
       collapsed={true}
-      code={`// Exactly same code for buttons. Just change the wrapper colors.
+      code={`// Exactly same code for buttons. Just change the wrapper colors:
 <Block textcolor="purple" bgcolor="light">
   ...
   <Button textcolor="cta">Different color</Button>
@@ -76,11 +74,11 @@ const Button = withButton({
   </Block>
 </Block>
 
-This is possible because of a very small CSS stylesheet that does not set any padding/font-size/etc, but only manages colors schemes (light/dark/colors). 
+<br />
+<br />
+This is possible because of a very small CSS stylesheet that does not set any padding/font-size/etc, but only manages colors schemes (light/dark/colors).  
 
-This library does not attempt to rewrite all of CSS in JS. Instead, it lets CSS AND JS work together, each doing what it's best at.   
-
-See the [Theme Provider article](/docs/get-started-theme-provider--page) to learn about `theme.css` vs `theme.ts`.  
+Read about the [theme provider](/docs/get-started-theme-provider--page) to learn about <b>theme.css</b> vs <b>theme.ts</b>.  
 <br />
 
 
@@ -98,6 +96,8 @@ Colors and schemes are defined in `theme.css`. They are not indiscriminately app
 Same for padding/fontSize/etc. Define them in the `theme.ts` (everything other than colors are managed in TypeScript). Then, use theme variables in any styled component.
 </p></Block></Block>
 
+<br />
+<br />
 
 More documentation coming soon...
 </Wrapper>

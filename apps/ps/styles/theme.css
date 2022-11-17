@@ -21,6 +21,7 @@
 }
 
 [data-color='dark'] {
+  --color-fg: #f5f5f5;
   --color-bg: #333;
 }
 
@@ -33,7 +34,7 @@
   --color-fg: #333;
   --color-bg: hsla(0, 0%, 100%, 0.5);
 }
-[data-color='dark'] [data-color='transparentCard'] {
+[data-color]:not([data-color='light']) [data-color='transparentCard'] {
   --color-fg: #fff;
   --color-bg: hsla(0, 0%, 100%, 0.5);
 }

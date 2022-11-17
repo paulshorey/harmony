@@ -17,10 +17,6 @@ export type uniqueStyleProps = {};
  */
 export type styleProps = {
   /**
-   * HTML element tag name to render. Styles and functionality will not be changed, but the HTML tag will affect the default styles.
-   */
-  as?: styledTags;
-  /**
    * Each component has a `variants.ts` file in its folder - it sets the styles for the component. Variant is also used by the JS code to set logic/layout/markup of the component.
    */
   variant?: string;

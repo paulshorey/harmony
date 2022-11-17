@@ -9,6 +9,8 @@ const Container = withBlock({
   ss: `
   margin: 1.5rem 0;
   margin-top: 1.5rem; 
+
+
 `
 });
 const Border = withBlock({
@@ -19,14 +21,16 @@ const Border = withBlock({
     padding: 1rem; 
     * {font-size: 1rem;line-height:1.5rem;}
   }
+
+  b {
+    color: var(--color-accent);
+  }
 `
 });
 const Mq = withBlock({
   as: 'code',
   ss: `
-  line-height: 2;
   text-indent: 1rem;
-  display: none;
   b {
     padding-left: 1rem;
     color: white;
@@ -42,110 +46,79 @@ const MediaQueriesDemo = () => (
     <Block bgcolor="purple">
 
       <Block as="p" >
-        <strong>These <code>props</code> would apply to your current screen size</strong> (minus the Storybook sidebar):
+    Every component in this library accepts ss props. No configuration is needed. These props accept a string of SCSS, or a function that returns a string. <a href="/?path=/docs/get-started-use-ss-props-or-styled-components-how-to-use--page">Read more.</a>
       </Block>
       <Block as="p" ss="font-size: 1.125rem;">
-        <code>{`<Block `}</code>
-        <Mq ss="display:block;">
-          ss <b>all sizes</b>
-        </Mq>
-        <Mq ssLg="display:block;">
-          ssLg <b>min-width 931px </b>
-        </Mq>
-        <Mq ssSm="display:block;">
-          ssSm <b>max-width 930px</b>
-        </Mq>
-        <Mq ssDesktop="display:block;">
-          ssDesktop <b>min-width 1025px</b>
-        </Mq>
-        <Mq ssMobile="display:block;">
-          ssMobile <b>max-width 1024px</b>
-        </Mq>
-        <Mq ssLargeTablet="display:block;">
-          ssLargeTablet <b>min-width 768px and max-width 1024px</b>
-        </Mq>
-        <Mq ssTablet="display:block;">
-          ssTablet <b>min-width 768px</b>
-        </Mq>
-        <Mq ssNotPhone="display:block;">
-          ssNotPhone <b>min-width 601px</b>
-        </Mq>
-        <Mq ssPhone="display:block;">
-          ssPhone <b>max-width 600px</b>
-        </Mq>
-        <Mq ssSmallPhone="display:block;">
-          ssSmallPhone <b>max-width 400px</b>
-        </Mq>
-        <Mq ssLargeDesktop="display:block;">
-          ssLargeDesktop <b>min-width 1440px</b>
-        </Mq>
-        <Mq ssVeryLargeDesktop="display:block;">
-          ssVeryLargeDesktop <b>min-width 1920px</b>
-        </Mq>
-        <Mq ssPortrait="display:block;">
-          ssPortrait <b>height &gt; width</b>
-        </Mq>
-        <Mq ssLandscape="display:block;">
-          ssLandscape <b>width &gt; height</b>
-        </Mq>
-        <code>&gt;</code>
+    <code>{`<Block `}</code>
+    <Mq>
+      ss <b>all sizes</b>
+    </Mq>
+    <Mq>
+      ssLg <b>min-width 931px </b>
+    </Mq>
+    <Mq>
+      ssSm <b>max-width 930px</b>
+    </Mq>
+    <Mq>
+      ssDesktop <b>min-width 1025px</b>
+    </Mq>
+    <Mq>
+      ssMobile <b>max-width 1024px</b>
+    </Mq>
+    <Mq>
+      ssLargeTablet <b>min-width 768px and max-width 1024px</b>
+    </Mq>
+    <Mq>
+      ssTablet <b>min-width 601px and max-width 1024px</b>
+    </Mq>
+    <Mq>
+      ssNotPhone <b>min-width 601px</b>
+    </Mq>
+    <Mq>
+      ssPhone <b>max-width 600px</b>
+    </Mq>
+    <Mq>
+      ssSmallPhone <b>max-width 400px</b>
+    </Mq>
+    <Mq>
+      ssLargeDesktop <b>min-width 1440px</b>
+    </Mq>
+    <Mq>
+      ssVeryLargeDesktop <b>min-width 1920px</b>
+    </Mq>
+    <Mq>
+      ssPortrait <b>height &gt; width</b>
+    </Mq>
+    <Mq>
+      ssLandscape <b>width &gt; height</b>
+    </Mq>
+    <code>&gt;</code>
       </Block>
       <p>
-        ☝️ Resize your screen. It's responsive.
+        There are also hooks to detect OS, browser, and other device types like iframe and webview.
       </p>
+      <p>
+        These are easy to adjust in <code>theme.ts</code>. This is much easier to remember and use than the basic sm/md/lg/xl breakpoints.
+      </p>
+      <p>
+      A good strategy to start out is to use pairs. 
+      <ul>
+        <li><strong><b>sm</b> / <b>lg</b> styles for min/max <b>930px</b></strong> is the best for most. Only smaller tablets get the mobile design.</li>
+        <li><strong><b>phone</b> / <b>tablet</b> / <b>desktop</b></strong> is perfect if you have separate designs for all 3 environments.</li>
+        <li><strong><b>mobile</b> vs <b>desktop</b> for min/max <b>1024px</b></strong> is also simple, but then anyone using a tablet will get the mobile design</li>
+        </ul>
+      </p>
+      <p>
+        You can always add <b>largeDesktop</b> or <b>tinyPhone</b> or <b>largeTablet</b> to adjust for edge cases. But you don't have to remember these for each style, and don't have to write media queries manually.
+        </p>
     </Block>
   </Border>
   
   <Block as="p" ss="font-size: 1.125rem;">
-    <br />
-    Here are the currently available media queries.
-    <br />
-    <code>{`<Block `}</code>
-    <Mq ss="display:block;">
-      ss <b>all sizes</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssLg <b>min-width 931px </b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssSm <b>max-width 930px</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssDesktop <b>min-width 1025px</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssMobile <b>max-width 1024px</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssLargeTablet <b>min-width 768px and max-width 1024px</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssTablet <b>min-width 768px</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssNotPhone <b>min-width 601px</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssPhone <b>max-width 600px</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssSmallPhone <b>max-width 400px</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssLargeDesktop <b>min-width 1440px</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssVeryLargeDesktop <b>min-width 1920px</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssPortrait <b>height &gt; width</b>
-    </Mq>
-    <Mq ss="display:block;">
-      ssLandscape <b>width &gt; height</b>
-    </Mq>
-    <code>&gt;</code>
 
-    <br /> <br />
+    <br />
+    <h2>Separation of markup and styles</h2>
+    <br />
     
     Besides using them as inline props, you can also use them inside @emotion/styled template literals by referring to <code>props.theme.mq</code>. So, instead of <CodeInline code={`<Block ssSm="">`} />, you can do this:
 
@@ -164,7 +137,7 @@ styled(Button)\`
         padding: 1rem \${(props) => props.theme.sizes.card.paddingX * 2};
     }`} />
 
-    <a href="/docs/get-started-styles-and-props--page">↖ Read more in styles and props</a>
+    <a href="/?path=/docs/get-started-use-ss-props-or-styled-components-how-to-use--page">↖ Read more in styles and props</a>
 
     <br /> <br />
 

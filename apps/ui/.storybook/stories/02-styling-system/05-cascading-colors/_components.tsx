@@ -1,3 +1,4 @@
+import React, { Fragment } from 'react';
 // import Block from '@ps/ui/components/Block';
 import { withButton } from '@ps/ui/components/Button';
 // import GithubFilled from '@ant-design/icons/GithubFilled';
@@ -10,7 +11,7 @@ export const Buttons = (props) => {
     ss: 'margin: 0 0.875rem 0.875rem 0;',
   });
   return (
-    <>
+    <Fragment>
       <Button loading icon={<FontAwesomeIcon icon={faUser} />}>
         Loading
       </Button>
@@ -28,6 +29,6 @@ export const Buttons = (props) => {
         variant="primary"
         icon={<FontAwesomeIcon icon={faUser} />}
       />
-    </>
+    </Fragment>
   );
 };

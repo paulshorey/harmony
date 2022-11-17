@@ -35,10 +35,18 @@ export const Buttons = (props) => {
 export default (props) => (
   <>
     <CanvasContainer>
-      <CanvasStoryPadding bgcolor="light" textcolor="purple">
+      <CanvasStoryPadding
+        data-bgcolor="light"
+        data-textcolor="purple"
+        data-bggradient
+      >
         <Buttons {...props} />
       </CanvasStoryPadding>
-      <CanvasStoryPadding>
+      <CanvasStoryPadding
+        data-bgcolor="purple"
+        data-textcolor="light"
+        data-bggradient
+      >
         <Buttons {...props} />
       </CanvasStoryPadding>
     </CanvasContainer>

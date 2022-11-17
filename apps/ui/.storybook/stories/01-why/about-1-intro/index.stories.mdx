@@ -38,6 +38,36 @@ for bootstrapping and maintaining a <Inline as="b" textgradient="rainbow"> custo
 For better DX and UX
 </Block>
 
+Each component includes several useful features.
+
+<Code
+  variant="transparentDark"
+  code={`// Import the default component and use immediately. Optionally use a constructor:
+import { withButton } from '@ps/ui/components/Button';
+  
+// Predefine some props that will be used by all instances
+const Button = withButton({
+  size: 'sm',
+  icon: <FA icon={faUser} />,
+  style: {
+    margin: '0 0.875rem 0.875rem 0;'
+  }
+  onClick: () => alert('clicked!'),
+});
+  
+// Then pass unique props per instance
+<Button loading>
+  Loading
+</Button>
+<Button variant="outlined">
+  Outlined
+</Button>
+<Button variant="text">
+  Text
+</Button>
+<Button round style={{ marginRight: '0' }} />`} />
+
+
 <p>
   <a href="/docs/get-started-media-queries--page">Media query shortcuts</a> let you{' '}
   <Inline as="b" textgradient="rainbow">
@@ -78,31 +108,7 @@ const Demo = withBlock({ ss: 'display:none;' });
 
 ☝️ You don't have to use strings. All ss props also accept a function or (coming soon) JSS object.
 
-**Pre-define any props, not only styles.** Then pass unique props and styles to each instance:  
-
-<Code
-  variant="transparentDark"
-  code={`// 1. Use the provided named export to pre-define props:
-import { withButton } from '@ps/ui/components/Button';
-const Button = withButton({
-  size: 'sm',
-  icon: <FontAwesomeIcon icon={faUser} />,
-  ss: 'margin: 0 0.875rem 0.875rem 0; /* The ss props also accept function or array types */',
-  onClick: () => alert('clicked!'),
-});
-  
-// 2. Use your component. Pass unique props per instance:
-<Button loading>
-  Loading
-</Button>
-<Button variant="outlined">
-  Outlined
-</Button>
-<Button variant="text">
-  Text
-</Button>
-<Button round ss="&::before { content: 'These unique styles will be added to the predefined style strings'; }" />`} />
-
+😱 The above ss props are just for convenience. Best practice is of course to separate styles from markup. Use media queries as `props.theme.mq...` anywhere you define the styles. <a href="/docs/get-started-media-queries--page">Read more</a>
 
 Pass a function that accepts the component props and returns a string of SCSS. Your site theme will be available as a prop.
 
@@ -110,9 +116,11 @@ Pass a function that accepts the component props and returns a string of SCSS. Y
   variant="transparentDark"
   code={`<Block ss={(props) => css\` padding: 1rem \${props.theme.sizes.card.paddingX}; \`}>`} />
 
-<!--Or use your own preferred solution such as <CodeInline variant="text" code={`props.style`} />, <CodeInline variant="text" code={`props.className`} />, <CodeInline variant="text" code={`props.css`} /> or <CodeInline variant="text" code={`props.sx`} />. -->
-  
-[Read more about styles and props](/docs/get-started-styles-and-props--page), styled components, <CodeInline variant="text" code={`props.ss`} /> shortcuts, and [cascading styles and colors](/docs/core-@emotion/styled--page).
+This compact format is available for all ss props. Call the function only once, then reference in multiple template literals. Alternatively, use the standard `@emotion/styled` or `@emotion/react` `css`&grave;&grave; and pass a function to any template literal to access props, theme variables, or media queries.  
+
+[Read more about theme and props](/docs/get-started-use-ss-props-or-styled-components-how-to-use--page) (styled components vs <CodeInline variant="text" code={`props.ss`} /> shortcuts). Also read about [cascading color schemes](/docs/core-@emotion/styled--page).  
+
+There are also hooks to help target specific devices and browsers and other utilites.
 
 <br />
 <br />
