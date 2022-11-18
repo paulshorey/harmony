@@ -1,10 +1,9 @@
-import { withBlock } from '../../components/Block';
+import React from 'react';
+import Block from '../../components/Block';
 
-const CanvasStoryPadding = withBlock({
-  ss: `
-    padding: 30px 20px;
-    `,
-});
+const CanvasStoryPadding = (props)=>(
+  <Block style={{padding: '30px 20px'}} id="CanvasStoryPadding" {...props} />
+)
 
 export default CanvasStoryPadding;
 
