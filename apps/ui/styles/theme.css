@@ -85,20 +85,8 @@ Dark text on light background:
 [data-textcolor='purple'] {
   --color-text: hsl(250, 60%, 60%);
   --color-text-gradient: linear-gradient(333deg, hsl(272 51% 54%), #7463f1);
-  --color-bg: #f4f7f7;
-  --color-bg-gradient: linear-gradient(
-    120deg,
-    hsl(205, 10%, 90%),
-    hsl(205, 5%, 99%)
-  );
 }
 [data-bgcolor='purple'] {
-  --color-text: #f4f7f7;
-  --color-text-gradient: linear-gradient(
-    120deg,
-    hsl(205, 10%, 90%),
-    hsl(205, 5%, 99%)
-  );
   --color-bg: hsl(250, 60%, 60%);
   --color-bg-gradient: linear-gradient(333deg, hsl(272 51% 54%), #7463f1);
 }
