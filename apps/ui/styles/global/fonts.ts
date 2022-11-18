@@ -1,4 +1,6 @@
-const fonts = (theme) => `
+import { css } from '@emotion/react';
+
+const fonts = (theme) => css`
   @font-face {
     font-family: 'HelveticaNeue';
     src: url('/fonts/HelveticaNeue300.ttf') format('truetype');
@@ -23,7 +25,7 @@ const fonts = (theme) => `
     font-display: swap;
     font-weight: 700;
   }
-  
+
   @font-face {
     font-family: 'greycliff';
     src: url('/fonts/greycliff/GreycliffCF-Light.woff2') format('woff2');

@@ -3,6 +3,10 @@ import {
   Global,
   css,
 } from '@emotion/react';
+
+// JavaScript theme variables (like padding, height, font-size):
+// Set colors in colors.css so they can support "cascading" (inherit from parent)
+// Alternatively, it's possible to set colors in JavaScript, then generate CSS and pass to <Global/>
 import theme from '@ps/ui/styles/theme';
 
 // Optional - global styles:
@@ -10,7 +14,7 @@ import fonts from '@ps/ui/styles/global/fonts';
 import html from '@ps/ui/styles/global/html';
 import classes from '../../styles/global/classes';
 
-// Optional - MaterialUI Theme
+// Optional - MaterialUI Theme (required if using MUI components)
 import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material';
 // Optional - Customize Material UI theme
 const darkTheme = createTheme({

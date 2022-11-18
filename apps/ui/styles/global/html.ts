@@ -1,13 +1,9 @@
-const html = (theme) => `
+import { css } from '@emotion/react';
 
-  .svg-inline--fa {
-    display: var(--fa-display, inline-block);
-    height: 1em;
-    overflow: visible;
-    vertical-align: -0.125em;
-    cursor:pointer;
-  }
-
+const html = (theme) => css`
+  --font-family: 'Roboto', sans-serif;
+  --font-family-title: 'Roboto', sans-serif;
+  --font-family-code: 'Roboto Mono', monospace;
 
   html {
     -webkit-overflow-scrolling: none;
@@ -42,7 +38,7 @@ const html = (theme) => `
 
   body {
     overflow-x: hidden;
-    font-family:  var(--font-family), 'HelveticaNeue', Helvetica, sans-serif;
+    font-family: var(--font-family), 'HelveticaNeue', Helvetica, sans-serif;
     padding: 0;
     margin: 0;
     color: #000;
@@ -63,8 +59,13 @@ const html = (theme) => `
     display: none !important;
   }
 
+  svg {
+    height: 1em;
+  }
+
   button {
-    font-family: var(--font-family-title), 'HelveticaNeue', Helvetica, sans-serif;
+    font-family: var(--font-family-title), 'HelveticaNeue', Helvetica,
+      sans-serif;
     cursor: pointer;
   }
 
@@ -76,7 +77,8 @@ const html = (theme) => `
   h6 {
     text-decoration: none;
     border: none;
-    font-family: var(--font-family-title), 'HelveticaNeue', Helvetica, sans-serif;
+    font-family: var(--font-family-title), 'HelveticaNeue', Helvetica,
+      sans-serif;
     line-height: 1.5;
     font-weight: 600;
     padding: 0;

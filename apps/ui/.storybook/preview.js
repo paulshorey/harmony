@@ -2,7 +2,7 @@ import ThemeProvider from '@ps/ui/components/ThemeProvider';
 import React, { useEffect } from 'react';
 import { themes } from '@storybook/theming';
 import Block from '@ps/ui/components/Block';
-import '@ps/ui/styles/theme.css';
+import '@ps/ui/styles/colors.css';
 
 export const parameters = {
   docs: {

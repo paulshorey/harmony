@@ -78,7 +78,7 @@ import Button from '@ps/ui/components/Button';
 <br />
 This is possible because of a very small CSS stylesheet that does not set any padding/font-size/etc. but only manages colors schemes (light/dark/colors). Colors are set using real CSS, not JS. So, they can cascade.  
 
-Read about the [theme provider](/docs/get-started-theme-provider--page) to learn about <b>theme.css</b> vs <b>theme.ts</b>.  
+Read about the [theme provider](/docs/get-started-theme-provider--page) to learn about <b>colors.css</b> vs <b>theme.ts</b>.  
 <br />
 
 
@@ -91,7 +91,7 @@ Other JavaScript web frameworks only support setting a light/dark scheme once on
 <Block ss="margin-top: 1.5rem; padding: 1rem; * {font-size: 1rem;line-height:1.5rem;}" variant="gradientOutline" bggradient="rainbow">
   <Block textgradient="rainbow">
   <p>
-Colors and schemes are defined in `theme.css`. They are not indiscriminately applied to all children. Each component is in control. Each component can choose to use the ancestral color variables or define a new color for itself and its children. 
+Colors and schemes are defined in `colors.css`. They are not indiscriminately applied to all children. Each component is in control. Each component can choose to use the ancestral color variables or define a new color for itself and its children. 
 </p><p>
 Same for padding/fontSize/etc. Define them in the `theme.ts` (everything other than colors are managed in TypeScript). Then, use theme variables in any styled component.
 </p></Block></Block>

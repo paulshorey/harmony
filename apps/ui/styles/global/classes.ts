@@ -1,5 +1,6 @@
-const classes = (theme) => ` 
+import { css } from '@emotion/react';
 
+const classes = (theme) => css`
   .noWrap {
     white-space: nowrap;
   }
@@ -93,6 +94,22 @@ const classes = (theme) => `
   body:not(.isScrolledVH70) .showBackgroundOnlyWhenScrolledVH70 {
     background: none !important;
     box-shadow: none !important;
+  }
+
+  /*
+   * Font Awesome
+   */
+  svg:not(:root).svg-inline--fa,
+  svg:not(:host).svg-inline--fa {
+    overflow: visible;
+    box-sizing: content-box;
+  }
+  .svg-inline--fa {
+    display: var(--fa-display, inline-block);
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+    cursor: pointer;
   }
 `;
 

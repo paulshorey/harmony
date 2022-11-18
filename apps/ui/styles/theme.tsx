@@ -5,8 +5,8 @@ export type Theme = {
   RouterLink?: React.ReactElement | null;
 } & Record<string, any>;
 
-// install extension vscode-color-picker to see previews of colors in all files
 const theme: Theme = {
+  // colors: {}, // use "css properties" in colors.css instead
   RouterLink: null,
   mq,
   sizes: {

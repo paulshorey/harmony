@@ -4,7 +4,7 @@ import 'styles/html.css';
 import 'typeface-quicksand';
 import 'styles/fontAwesomeMinimal.css';
 import 'horizontal_carousel/css/default.css';
-import 'styles/theme.css'; // colors and fonts -- all other variables in theme.ts
+import 'styles/colors.css'; // colors and fonts -- all other variables in theme.ts
 import { config } from '@fortawesome/fontawesome-svg-core';
 
 config.autoAddCss = false;

@@ -21,11 +21,7 @@ const AppProvider = ({ children }) => {
    * The pageContext will be available globally, set by each page.
    * It holds meta data for branding, page titles/subtitles, A/B variants, etc.
    */
-  return (
-    <ThemeProvider>
-      <div data-bggradient>{children}</div>
-    </ThemeProvider>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 };
 
 export default AppProvider;

@@ -32,13 +32,13 @@ It also uses a couple modules `@ps/fn` and `@ps/contants` from the local mono-re
 
 To get started instantly, with no configuration, import `@ps/ui/components/ThemeProvider` and wrap your app with it.
 
-Or to customize theme and settings, make a copy of `ThemeProvider.tsx`, `theme.ts` and `theme.css` files in your app directory and use that. Here are the files used to customize your colors, sizes, and variables:  
+Or to customize theme and settings, make a copy of `ThemeProvider.tsx`, `theme.ts` and `colors.css` files in your app directory and use that. Here are the files used to customize your colors, sizes, and variables:  
 
 <Code title="components/ThemeProvider.tsx" code={`import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
   
 import theme from '@ps/ui/styles/theme'; // your custom JS variables
   
-import 'styles/theme.css'; // your custom CSS variables
+import 'styles/colors.css'; // your custom CSS variables
   
 const ThemeProvider = ({ children }) => {
   return (
@@ -75,7 +75,7 @@ const theme = {
   
 export default theme;`} collapsed={true} ss="margin-bottom:0;" />
 
-<Code title="styles/theme.css" code={`:root {
+<Code title="styles/colors.css" code={`:root {
   --font-family: 'Roboto', sans-serif;
   --font-family-title: 'Roboto', sans-serif;
   --font-family-code: 'Roboto Mono', monospace;
