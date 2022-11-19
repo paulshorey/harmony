@@ -1,10 +1,34 @@
 import React from 'react';
-import Block from '@ps/ui/components/Block';
-import Component from '.';
+import Block from '@ps/ui/HorizontalCarousels/Block';
+import HorizontalCarousel from '.';
+import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
+import CenterChildrenY from '../CenterChildrenY';
 
-const Story = (props) => (
-  <Block variant="centered">
-    <Component>
+const Story = (props) => {
+  useShowStorybookCode();
+  return (
+    <HorizontalCarousel>
+      <CenterChildrenY
+        as="span"
+        ss="padding:2rem;height:280px;"
+        textcolor="accent"
+      >
+        Any type of content can be used as a slide.
+      </CenterChildrenY>
+      <CenterChildrenY
+        as="code"
+        ss="padding:2rem;height:280px;"
+        textcolor="cta"
+      >
+        Slides don't even have to be the same type of HTML element.
+      </CenterChildrenY>
+      <CenterChildrenY
+        as="h1"
+        ss="padding:2rem;height:280px;"
+        textcolor="light"
+      >
+        Elements can be different width!
+      </CenterChildrenY>
       <span data-zoom="/photos/aboutus.jpg">
         <img
           height={280}
@@ -47,8 +71,52 @@ const Story = (props) => (
           src="https://besta.domains/photos/about-paul-rocks.jpg"
         />
       </span>
-    </Component>
-  </Block>
-);
+    </HorizontalCarousel>
+  );
+};
 
 export default Story;
+
+export const code = `// No configuration needed. By default it will render at 100% width, with arrows.
+<HorizontalCarousel>
+
+  <CenterChildrenY
+    as="span"
+    ss="padding:2rem;height:280px;"
+    textcolor="accent"
+  >
+    Any type of content can be used as a slide.
+  </CenterChildrenY>
+  <CenterChildrenY
+    as="code"
+    ss="padding:2rem;height:280px;"
+    textcolor="cta"
+  >
+    Slides don't even have to be the same type of HTML element.
+  </CenterChildrenY>
+  <CenterChildrenY
+    as="h1"
+    ss="padding:2rem;height:280px;"
+    textcolor="light"
+  >
+    Elements can be different width!
+  </CenterChildrenY>
+
+  <span data-zoom="/photos/aboutus.jpg">
+    <img
+      height={280}
+      width={280}
+      src="https://besta.domains/photos/aboutus.jpg"
+    />
+  </span>
+  <span data-zoom="/photos/desk-paul.jpg">
+    <img
+      height={280}
+      width={280}
+      src="https://besta.domains/photos/desk-paul.jpg"
+    />
+  </span>
+
+  ...
+
+</HorizontalCarousel>`;

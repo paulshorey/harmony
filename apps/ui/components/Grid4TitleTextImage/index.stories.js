@@ -1,5 +1,5 @@
 import { Component } from '.';
-import Template from './_story';
+import Template, { code } from './_story';
 import description from './_story.md';
 import { argTypes } from '@ps/ui/helpers/storybook_args';
 import variants from './styles';
@@ -7,8 +7,6 @@ import variants from './styles';
 const variantKeys = Object.keys(variants);
 const args = {
   variant: 'titleImageTextImage',
-  textcolor: 'light',
-  bgcolor: 'purple',
 };
 
 export const Grid4TitleTextImage = Template.bind({});
@@ -28,7 +26,7 @@ export default {
         component: description,
       },
       source: {
-        code: ``,
+        code,
       },
     },
   },

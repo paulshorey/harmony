@@ -52,7 +52,7 @@ export default function (props) {
 
 export const code = `import Block from '@ps/ui/components/Block';
 
-<Block variant="card" textcolor="purple" bggradient="light" as="article"> 
+<Block variant="card" textcolor="purple" bggradient="light" as="section"> 
   <p>
     The most basic building block. Used as a "container" for styling
     content. Use any <code>ss</code> props (see below).

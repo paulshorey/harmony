@@ -79,12 +79,20 @@ Dark text on light background:
  * Purple
  */
 [data-textcolor='purple'] {
-  --color-text: hsl(250, 60%, 60%);
-  --color-text-gradient: linear-gradient(333deg, hsl(272 51% 54%), #7463f1);
+  --color-text: hsl(250, 40%, 45%); /* hsl(250, 60%, 60%);*/
+  --color-text-gradient: linear-gradient(
+    333deg,
+    hsl(270 50% 50%),
+    hsl(245, 75%, 67%)
+  );
 }
 [data-bgcolor='purple'] {
-  --color-bg: hsl(250, 60%, 60%);
-  --color-bg-gradient: linear-gradient(333deg, hsl(272 51% 54%), #7463f1);
+  --color-bg: hsl(250, 40%, 45%); /* hsl(250, 60%, 60%);*/
+  --color-bg-gradient: linear-gradient(
+    333deg,
+    hsl(270 50% 50%),
+    hsl(245, 75%, 67%)
+  );
 }
 
 /*

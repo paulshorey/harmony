@@ -27,7 +27,7 @@ export default (props: any) => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Block bgcolor="purple" textcolor="light">
+          <Block bggradient="purple" textcolor="light" ss="padding: 1.5rem;">
             <h2>This is a title inside the modal</h2>
             <p>
               This could be a bit of text for a quick dialog, or a whole article

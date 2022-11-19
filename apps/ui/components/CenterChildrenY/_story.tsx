@@ -32,7 +32,7 @@ export const code = `import CenterV from '@ps/ui/components/CenterV';
     They can contain other components and even complex layouts.
   </p>
   <p>
-    One requirement: you must set a minimum height on this{' '}
+    One requirement: you must set a minimum height on this 
     <CodeInline textcolor="accent">&lt;CenterChildrenY&gt;</CodeInline> component
     that's greater than the children's height. Otherwise it won't do
     anything.

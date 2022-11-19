@@ -1,10 +1,11 @@
 import { css } from '@emotion/react';
 
 const html = (theme) => css`
-  --font-family: 'Roboto', sans-serif;
-  --font-family-title: 'Roboto', sans-serif;
-  --font-family-code: 'Roboto Mono', monospace;
-
+  :root {
+    --font-family: 'Roboto', sans-serif;
+    --font-family-title: 'Roboto', sans-serif;
+    --font-family-code: 'Roboto Mono', monospace;
+  }
   html {
     -webkit-overflow-scrolling: none;
     overscroll-behavior: none;
@@ -122,7 +123,7 @@ const html = (theme) => css`
   p {
     font-weight: 400;
     line-height: 1.5;
-    margin: 1.25rem;
+    margin: 1.25rem 0;
   }
 `;
 export default html;

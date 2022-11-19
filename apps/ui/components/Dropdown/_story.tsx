@@ -103,7 +103,30 @@ export default function () {
   );
 }
 
-export const code = `import Inline from '@ps/ui/components/Inline';
+export const code = `import Dropdown from '@ps/ui/components/Dropdown';
+  
+const ToggleMenu = withBlock({
+  componentName: 'ToggleMenu', // for debugging in browser dev tools (otherwise it will be called "Block")
+  textcolor: 'light',
+  bggradient: 'purple',
+  style: {}
+});
 
-Text can be used <Inline as="h2" {...props}> as h2</Inline>, or <Inline as="code" {...props}> as &lt;code&gt;</Inline>, or as any other HTML container element. By default, it's a span.
+<Dropdown
+  textcolor="accent"
+  right // shortcut: React will automatically pass {true}
+  menu={
+    <ToggleMenu>
+      <div>
+        <Link>align_right</Link>
+        <Link>two</Link>
+        <Link>three</Link>
+        <Link>four</Link>
+        <Link>five</Link>
+      </div>
+    </ToggleMenu>
+  }
+>
+  align right
+</Dropdown>
 `;

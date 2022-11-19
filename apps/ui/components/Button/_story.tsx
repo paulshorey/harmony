@@ -53,4 +53,25 @@ export default (props) => (
   </>
 );
 
-export const code = ``;
+export const code = `import { withButton } from '@ps/ui/components/Button';
+  
+const Button = withButton({
+  size: 'lg',
+  round: true,
+  ss: 'margin: 0 0.875rem 0.875rem 0;',
+});
+
+<Button
+  className="noWrap"
+  loading
+  icon={<FontAwesomeIcon icon={faUser} />}
+>
+  Loading
+</Button>
+<Button variant="outlined" icon={<FontAwesomeIcon icon={faUser} />}>
+  Outlined
+</Button>
+<Button variant="text" icon={<FontAwesomeIcon icon={faUser} />}>
+  Text
+</Button>
+<Button round icon={<FontAwesomeIcon icon={faUser} />} />`;

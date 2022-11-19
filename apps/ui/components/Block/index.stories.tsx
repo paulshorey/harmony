@@ -12,7 +12,7 @@ Block.args = {
   variant: 'card',
   textcolor: 'purple',
   bggradient: 'light',
-  as: 'article',
+  as: 'section',
 };
 
 export default {

@@ -49,11 +49,21 @@ export default Story;
 
 export const code = `import CenterH from '@ps/ui/components/CenterChildrenX';
 
-<CenterH ss="min-height:440px;">
-  <h3 className="noWrap" style={{ fontWeight: 'bold' }}>
-    This title tag has{' '}
-    <CodeInline>white-space:nowrap</CodeInline>, so it's forced
-    to stay on one line.
-  </h3>
-</CenterH>
+<CanvasContainer ss="max-width:440px;">
+  <p>
+    Normal text
+  </p>
+
+  <CenterH textcolor="accent">
+    <h3 className="noWrap">
+      This title tag has 
+      <code>white-space:nowrap</code>, so it's forced
+      to stay on one line.
+    </h3>
+  </CenterH>
+  
+  <p>
+    More normal text
+  </p>
+</CanvasContainer>
 `;

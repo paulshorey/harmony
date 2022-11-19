@@ -1,5 +1,5 @@
 import { Component } from '.';
-import Template from './_story';
+import Template, { code } from './_story';
 // import description from './_story.md';
 // import { argTypes } from '@ps/ui/helpers/storybook_args';
 // import variants from './styles';
@@ -24,7 +24,7 @@ export default {
         component: undefined,
       },
       source: {
-        code: ``,
+        code,
       },
     },
   },
