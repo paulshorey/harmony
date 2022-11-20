@@ -2,15 +2,12 @@ import { Component } from '.';
 import Template, { code } from './_story';
 import description from './_story.md';
 import { argTypes } from '@ps/ui/helpers/storybook_args';
-import variants from './styles';
+import variants from '../Select/styles';
 
 const variantKeys = Object.keys(variants);
 
-export const Select = Template.bind({});
-Select.args = {
-  size: 'md',
-};
-Select.argTypes = {
+export const SelectAdd = Template.bind({});
+SelectAdd.argTypes = {
   size: {
     control: {
       type: 'select',
@@ -21,7 +18,7 @@ Select.argTypes = {
 };
 
 export default {
-  title: 'Form/Select',
+  title: 'Form/SelectAdd',
   component: Component,
   parameters: {
     viewMode: 'docs',

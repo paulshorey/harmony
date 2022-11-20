@@ -7,6 +7,7 @@ import { Select as SelectAnt } from 'antd';
 import type { SelectProps as AntSelectProps } from 'antd';
 import withStyles from '@ps/ui/hooks/withStyles';
 
+// for convenience, export Option, so user doesn't have to import from antd
 export type OptionProps = {
   value: string;
   /**
@@ -17,23 +18,26 @@ export type OptionProps = {
    * What to show for each dropdown result item.
    */
   children?: React.ReactNode;
-  /**
-   * Used to set padding/fontSize/height/line-height.
-   */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 } & AntOptionProps;
-
-// for convenience, export antd option and props, so user does not have to import from antd
 const { Option: OptionAnt } = SelectAnt;
 export const Option = OptionAnt;
-export { AntSelectProps as SelectProps };
-export type Props = styleProps & AntSelectProps;
+
+// Select props
+export type Props = styleProps & {
+  /**
+   * Used to set padding/fontSize/height/line-height.
+   * Used only in styles. Not passed to Ant component.
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+} & Omit<AntSelectProps, 'size'>;
 
 /**
  * Select component (includes multi-select and type tags functionality) powered by Ant Design component.
  */
 export const Component = (props: Props, ref: any) => {
-  return <SelectAnt {...props} ref={ref} />;
+  // eslint-disable-next-line
+  const { size, ...rest } = props;
+  return <SelectAnt {...rest} ref={ref} />;
 };
 
 /*

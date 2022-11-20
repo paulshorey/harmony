@@ -7,7 +7,7 @@ const DevPage = ({ pagePath }) => {
     [1440, 600, '1440 x 600 (very short Windows laptop)'],
     [1520, 944, '1520 x 944 (larger laptop)'],
   ];
-  return <DevTemplate sizes={sizes} pagePath={pagePath} controlsRight={true} />;
+  return <DevTemplate sizes={sizes} pagePath={pagePath} />;
 };
 
 export default DevPage;

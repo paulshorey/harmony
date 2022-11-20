@@ -1,11 +1,11 @@
 import React, { ReactNode, InputHTMLAttributes, forwardRef, memo } from 'react';
 import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Input/styles';
-import { Input as AntInput } from 'antd';
-import type { InputProps as AntInputProps } from 'antd';
+import { Input as AntInput, InputProps as AntInputProps } from 'antd';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import withStyles from '@ps/ui/hooks/withStyles';
 
+type AntProps = Omit<AntInputProps, 'size'>;
 export type Props = {
   /**
    * Used to set padding/fontSize/height/line-height.
@@ -39,7 +39,7 @@ export type Props = {
    * If allow to remove input content with clear icon
    */
   allowClear?: boolean | { clearIcon: ReactNode };
-} & AntInputProps &
+} & AntProps &
   styleProps &
   InputHTMLAttributes<HTMLElement & HTMLInputElement>;
 

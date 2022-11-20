@@ -3,6 +3,12 @@ import { css } from '@emotion/react';
 import debounce from '@ps/fn/io/curry/debounce';
 import styles from './styles';
 import Frame from './Frame';
+import Select, { Option } from '@ps/ui/components/Select';
+import Input from '@ps/ui/components/Input';
+import InputGroup from '@ps/ui/components/InputGroup';
+import Button from '@ps/ui/components/Button';
+import Dropdown from '@ps/ui/components/Dropdown';
+import Block from '@ps/ui/components/Block';
 
 type Props = {
   sizes: [number, number, string][];
@@ -78,6 +84,48 @@ const DevTemplate = ({ sizes, pagePath }: Props) => {
     <div css={styles.wrapper}>
       <div css={styles.view}>
         <div css={styles.controls}>
+          <Dropdown
+            left
+            menu={
+              <Block bgcolor="dark" textcolor="light">
+                <p
+                  role="none"
+                  onClick={() => {
+                    set_hostIndexIndex(0);
+                  }}
+                >
+                  https://example.com
+                </p>
+                <p
+                  role="none"
+                  onClick={() => {
+                    set_hostIndexIndex(1);
+                  }}
+                >
+                  https://besta.domains
+                </p>
+                <p
+                  role="none"
+                  onClick={() => {
+                    set_hostIndexIndex(2);
+                  }}
+                >
+                  https://wordio.co
+                </p>
+              </Block>
+            }
+          >
+            <InputGroup>
+              <Button size="sm">+</Button>
+              <Input
+                size="xs"
+                value="asdfss"
+                placeholder="adsfsdd"
+                allowClear={true}
+              />
+            </InputGroup>
+          </Dropdown>
+
           <div>
             <select
               value={hostIndex}

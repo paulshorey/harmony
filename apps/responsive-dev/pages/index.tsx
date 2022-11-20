@@ -6,7 +6,7 @@ const DevPage = ({ pagePath }) => {
     [1280, 944, '1280 x 944'],
     [768, 1024, '768 x 1024 (iPad)'],
   ];
-  return <DevTemplate sizes={sizes} pagePath={pagePath} controlsRight={true} />;
+  return <DevTemplate sizes={sizes} pagePath={pagePath} />;
 };
 
 export default DevPage;

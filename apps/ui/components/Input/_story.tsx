@@ -1,12 +1,12 @@
 import React from 'react';
-import Input from '@ps/ui/components/Input';
+import Input, { Props as InputProps } from '@ps/ui/components/Input';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
 import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 import Popover from 'antd/es/popover';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 
-const InputStory = (props) => {
+const InputStory = (props: InputProps) => {
   useShowStorybookCode();
   const style = `margin: 0 0.875rem 0.875rem 0;width:90%;`;
   return (

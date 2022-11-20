@@ -30,11 +30,11 @@ To set a different default, move `:root,` to the top of the [data-bgcolor="light
 [data-bgcolor='dark'],
 [data-textcolor='light'] {
   /* This sets text color (not background color) */
-  --color-text: hsla(0, 0%, 94%, 94%);
+  --color-text: hsl(95deg 9% 95%);
   --color-text-gradient: linear-gradient(
     120deg,
-    hsl(205, 5%, 98%),
-    hsl(205, 10%, 80%)
+    hsl(95deg 9% 90%),
+    hsl(95deg 9% 97%)
   );
   /* Extra colors, not part of core functionality, but also have dark/light/color variants: */
   --color-glow: hsla(0deg, 0%, 100%, 0.125);
@@ -53,11 +53,11 @@ Dark text on light background:
  */
 [data-bgcolor='light'] {
   color-scheme: light;
-  --color-bg: #f4f7f7;
+  --color-bg: hsl(95deg 9% 95%);
   --color-bg-gradient: linear-gradient(
     120deg,
-    hsl(205, 10%, 90%),
-    hsl(205, 5%, 99%)
+    hsl(95deg 9% 90%),
+    hsl(95deg 9% 97%)
   );
 }
 [data-bgcolor='light'],

@@ -1,4 +1,4 @@
-import Select, { Option, OptionProps } from '.';
+import Select, { Props as SelectProps, Option, OptionProps } from '.';
 import React from 'react';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
@@ -16,8 +16,9 @@ const DemoNav = (props) => (
   <Select
     {...props}
     style={style}
-    placeholder="select countries"
+    placeholder="Custom option children"
     optionLabelProp="label"
+    defaultValue={['usa']}
   >
     <Option value="usa" label="USA">
       <h3>🇺🇸 USA (美国)</h3>
@@ -39,11 +40,8 @@ const DemoOne = (props) => (
     {...props}
     style={style}
     showSearch
-    placeholder="Select a person"
-    optionFilterProp="children"
-    filterOption={(input, option) =>
-      (option?.label + '').toLowerCase().includes(input.toLowerCase())
-    }
+    defaultValue={['jack']}
+    placeholder="With suffix icon"
     suffixIcon={<FontAwesomeIcon icon={faUser} />}
     options={[
       {
@@ -77,6 +75,7 @@ const DemoTags = (props) => (
     style={{ ...style, width: '100%' }}
     tokenSeparators={[',']}
     options={tags}
+    defaultValue={['a10']}
     placeholder="Comma separated tags"
   />
 );
@@ -85,7 +84,7 @@ const DemoMultiple = (props) => (
     {...props}
     style={{ ...style, width: '100%' }}
     mode="multiple"
-    placeholder="select countries"
+    placeholder="Select multiple"
     defaultValue={['usa', 'china']}
     optionLabelProp="label"
   >
