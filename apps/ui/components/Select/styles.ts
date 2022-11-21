@@ -14,7 +14,6 @@ const borderRadius = (props) => `
 
 export default {
   default: (props) => {
-    console.log('styled Select props', props);
     return `
     box-sizing: border-box;
     background: white;

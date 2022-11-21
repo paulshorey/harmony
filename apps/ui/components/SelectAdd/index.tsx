@@ -1,15 +1,14 @@
-import React, { memo, useState } from 'react';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
-import { PlusOutlined } from '@ant-design/icons';
-import { Input } from 'antd';
-import Select, {
-  withSelect,
-  Props as SelectProps,
-  Option,
-} from '@ps/ui/components/Select';
+import React, { memo, useState, forwardRef } from 'react';
+import Select, { Props as SelectProps, Option } from '@ps/ui/components/Select';
 import styles from './styles';
 import Button from '@ps/ui/components/Button';
+import Input from '@ps/ui/components/Input';
 import InputGroup from '@ps/ui/components/InputGroup';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose, faAdd } from '@fortawesome/free-solid-svg-icons';
+import variants from '@ps/ui/components/InputGroup/styles';
+import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
+import withStyles from '@ps/ui/hooks/withStyles';
 
 export type Props = {
   /**
@@ -25,15 +24,17 @@ export type Props = {
    */
   values: string[];
   /**
-   * If provided, this function will be called when user clicks on the option "X" button to delete one of the options.
+   * If provided, this function will be called when user clicks on the option "X" button to delete one of the options. Then, a "X" button will be shown to the right of each option.
    */
-  onValuesRemove?: (value: string) => void;
+  onRemove?: (value: string) => void;
   /**
-   * NOT SUPPORTED YET. Will be added soon.
+   * WORK IN PROGRESS:
    *
    * Validate the new "add value" input field. By default, it is required to be non-empty. But you can add your own validation Regular Expression, to check for a minimum length, or a specific pattern like starting with "https?://" or email address or anything.
    *
    * Pass validation object, or a string that refers to the key of a built-in validation function. For example, "email" will refer to `theme.validations.email` the value of which will be `{ regExp: RegExp; errorMessage: string; }`. TODO: manage predefined regexps in the site theme, then convert this type to a "keyof" enum.
+   *
+   * Or, pass validation function which accepts the value. If it returns a non-empty string, then it will be shown as an error message.
    */
   validations?: Array<
     | {
@@ -41,15 +42,17 @@ export type Props = {
         errorMessage: string;
       }
     | string /* keyof predefined regexps in theme */
+    | ((value: string) => string | undefined)
   >;
 } & Omit<SelectProps, 'options'>;
 
 /**
  * Select component (includes multi-select and type tags functionality). Plus input to add a custom value. Powered by Ant Design component.
  */
-export const Component = (props: Props) => {
-  const { values, addPlaceholder, onAdd, onValuesRemove, ...rest } = props;
-  const [items, set_items] = useState(values);
+export const Component = (props: Props, ref: any) => {
+  const { values, addPlaceholder, onAdd, onRemove, validations, ...rest } =
+    props;
+  const [errorMessage, set_errorMessage] = useState('');
   const [addNewValue, set_addNewValue] = useState('');
 
   if (rest.showSearch) {
@@ -61,32 +64,47 @@ export const Component = (props: Props) => {
         (option?.label + '').toLowerCase().includes(input.toLowerCase());
     }
   }
-  const handleValuesRemove = (value) => {
-    if (onValuesRemove) {
-      onValuesRemove(value);
-    }
-  };
 
   const handleAddChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('event.target.value', event.target.value);
+    set_errorMessage('');
     set_addNewValue(event.target.value);
   };
 
   const handleAddSubmit = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation();
     e.preventDefault();
-    if (!addNewValue) {
+    if (validations) {
+      for (const val of validations) {
+        if (typeof val === 'string') {
+          // use predefined validation from library
+        } else if (typeof val === 'function') {
+          // call validation function
+          const errorMessage = val(addNewValue);
+          if (errorMessage) {
+            set_errorMessage(errorMessage);
+            return;
+          }
+        } else {
+          // execute custom passed reg exp
+          if (val.regExp) {
+            if (!val.regExp.test(addNewValue)) {
+              set_errorMessage(val.errorMessage);
+              return;
+            }
+          }
+        }
+      }
+    } else if (!addNewValue) {
+      set_errorMessage('Please enter a value');
       return;
     }
-    set_items([...items, addNewValue]);
-    set_addNewValue('');
     if (onAdd) {
       onAdd(addNewValue);
     }
+    set_addNewValue('');
   };
 
   // const Select = withSelect(rest);
-
   return (
     <Select
       {...rest}
@@ -101,35 +119,59 @@ export const Component = (props: Props) => {
             }}
           >
             <Input
+              size={props.size}
               placeholder={addPlaceholder || 'Add new item...'}
               value={addNewValue}
               onChange={handleAddChange}
               onPressEnter={handleAddSubmit}
             />
             <Button
-              variant="outlined"
-              icon={<PlusOutlined />}
+              size={props.size}
+              icon={<FontAwesomeIcon icon={faAdd} />}
               onClick={handleAddSubmit}
             />
           </InputGroup>
+          {!!errorMessage && (
+            <sup
+              style={{
+                padding: '0 0 0 4px',
+                fontSize: '0.85em',
+                opacity: '0.85',
+                color: 'var(--color-error, red)',
+              }}
+            >
+              {errorMessage}
+            </sup>
+          )}
         </>
       )}
     >
-      {items.map((value) => (
-        <Option key={value} value={value} label={value} ss={styles.option}>
-          {value}{' '}
-          <Button
-            size={props.size}
-            variant="outline"
-            ss={styles.optionRemove}
-            onClick={(e) => {
-              e.stopPropagation();
-              e.preventDefault();
-              handleValuesRemove(value);
-            }}
-          >
-            X
-          </Button>
+      {/*
+       * Unfortunately, Ant Select dropdown does not re-render when state changes, only when props change.
+       * This is because the dropdown is separated from the component.
+       * So, for Options to update, state hs to be managed externally to this component.
+       * That is usually how it's done, so no problem. But in Storybook we can't see a preview of X remove buttons.
+       */}
+      {values.map((value) => (
+        <Option key={value} value={value} ss={styles.option}>
+          {value}
+          {onRemove && (
+            <>
+              {' '}
+              <Button
+                size={props.size}
+                variant="outline"
+                ss={styles.optionRemove}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  e.preventDefault();
+                  onRemove(value);
+                }}
+              >
+                <FontAwesomeIcon icon={faClose} />
+              </Button>
+            </>
+          )}
         </Option>
       ))}
     </Select>
@@ -139,9 +181,13 @@ export const Component = (props: Props) => {
 /*
  * (1) default export is normal component ready to use (2) withSelect is HOC used to predefine common props
  */
-const Styled: React.FC<Props> = Component;
+const Styled: React.FC<Props> = withStyles(
+  forwardRef(Component),
+  'SelectAdd',
+  variants
+);
 
 export default memo(Styled);
 
-// export const withSelectAdd = (props: Props) =>
-//   memo(withCombinedProps(Styled, props));
+export const withSelectAdd = (props: Props) =>
+  memo(withCombinedProps(Styled, props));

@@ -12,6 +12,7 @@ SelectAdd.args = {
   placeholder: 'Select a person',
   addPlaceholder: 'Add new person',
   values: ['Jack', 'Lucy', 'Tom'],
+  value: undefined,
 };
 SelectAdd.argTypes = {
   size: {

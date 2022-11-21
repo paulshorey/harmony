@@ -10,9 +10,40 @@ const style = {
   width: '45%',
 };
 
-const DemoOne = (props: SelectAddProps) => (
-  <SelectAdd {...props} style={style} />
-);
+const DemoOne = (props: SelectAddProps) => {
+  const [values, setValues] = React.useState<string[]>(props.values);
+  const [value, setValue] = React.useState<string>(props.value);
+
+  const handleValuesRemove = (value: string) => {
+    setValues(values.filter((v) => v !== value));
+  };
+
+  const handleValuesAdd = (value: string) => {
+    setValues([...values, value]);
+  };
+
+  const handleValueSelect = (value: string) => {
+    setValue(value);
+  };
+
+  return (
+    <SelectAdd
+      onChange={(value) => {
+        handleValueSelect(value);
+      }}
+      onAdd={(value) => {
+        handleValuesAdd(value);
+      }}
+      onRemove={(value) => {
+        handleValuesRemove(value);
+      }}
+      {...props}
+      values={values}
+      value={value}
+      style={style}
+    />
+  );
+};
 export default (props) => {
   useShowStorybookCode();
   return (
@@ -29,10 +60,35 @@ export default (props) => {
 
 export const code = `import SelectAdd, { Props as SelectAddProps } from '@ps/ui/components/SelectAdd';
 
+const [values, setValues] = React.useState<string[]>(['Jack', 'Lucy', 'Tom']);
+const [value, setValue] = React.useState<string>(undefined);
+
+const handleValuesRemove = (value: string) => {
+  setValues(values.filter((v) => v !== value));
+};
+
+const handleValuesAdd = (value: string) => {
+  setValues([...values, value]);
+};
+
+const handleValueSelect = (value: string) => {
+  setValue(value);
+};
+
 <SelectAdd
   style={style}
   showSearch
   placeholder="Select a person"
   addPlaceholder="Add new person"
-  values={['Jack', 'Lucy', 'Tom']}
+  values={values}
+  value={value}
+  onChange={(value) => {
+    handleValueSelect(value);
+  }}
+  onAdd={(value) => {
+    handleValuesAdd(value);
+  }}
+  onRemove={(value) => {
+    handleValuesRemove(value);
+  }}
 />`;

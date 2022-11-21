@@ -1,21 +1,20 @@
 import React, { forwardRef, memo } from 'react';
 import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Select/styles';
-import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import { OptionProps as AntOptionProps } from 'antd/es/select';
-import { Select as AntSelect } from 'antd';
-import type { SelectProps as AntSelectProps } from 'antd';
+import { Select as AntSelect, SelectProps as AntSelectProps } from 'antd';
+import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import withStyles from '@ps/ui/hooks/withStyles';
-import Block from '@ps/ui/components/Block';
 
 // Select props
-export type Props = styleProps & {
+export type Props = {
   /**
    * Used to set padding/fontSize/height/line-height.
    * Used only in styles. Not passed to Ant component.
    */
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-} & Omit<AntSelectProps, 'size'>;
+} & styleProps &
+  Omit<AntSelectProps, 'size'>;
 
 /**
  * Select component (includes multi-select and type tags functionality) powered by Ant Design component.
@@ -35,29 +34,17 @@ const Styled: React.FC<Props> = withStyles(
   variants
 );
 
-export default Styled;
+export default memo(Styled);
 
-// export const withSelect = (props: Props) =>
-//   memo(withCombinedProps(Styled, props));
+export const withSelect = (props: Props) =>
+  memo(withCombinedProps(Styled, props));
 
 /*
  * ACCESSORY EXPORTS:
- * for convenience, export Option, so user doesn't have to import from antd
+ * For convenience, export Option, so user doesn't have to import from antd.
+ * Unfortunately, Ant Design options can not be styled. So, styleProps can not be added.
  */
-
-export type OptionProps = {
-  value: string;
-  /**
-   * What to show in the select box instead of the real value. Useful if capitalization is different.
-   */
-  label?: string;
-  /**
-   * What to show for each dropdown result item.
-   */
-  children?: React.ReactNode;
-} & styleProps &
-  AntOptionProps;
-
-export const Option: React.FC<Props> = withStyles(Block, 'Option', {
-  default: '',
-});
+export const Option = AntSelect.Option;
+export type OptionProps = AntOptionProps;
+// export const OptionGroup = AntSelect.OptGroup;
+// export type OptionGroupProps = typeof AntSelect.OptGroup;

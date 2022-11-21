@@ -10,6 +10,21 @@ const antd = (theme) => css`
     .rc-virtual-list-holder {
       max-height: 49.5vh !important;
     }
+    .ant-select-item-option {
+      .Button {
+        position: absolute;
+        top: 2px;
+        right: 0.1rem;
+        height: calc(100% - 4px);
+        line-height: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > span {
+          padding: 0 0.5rem 0 0.6rem;
+        }
+      }
+    }
   }
 `;
 export default antd;

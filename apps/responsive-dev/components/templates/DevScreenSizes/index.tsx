@@ -15,7 +15,7 @@ const DevTemplate = ({}: {}) => {
     <div css={styles.wrapper}>
       <div css={styles.controlsTop}>
         <ControlsUrl />
-        <span> | </span>
+        <span> &nbsp; </span>
         <ControlsSizes />
       </div>
       <ControlsBottom />

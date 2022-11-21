@@ -7,6 +7,11 @@ import style_string_from_variants from '@ps/ui/helpers/style_string_from_variant
 
 export default (Component: any, componentName: string, variants: any) =>
   forwardRef(({ ...props }: styleProps, ref: any) => {
+    /*
+     * TODO: Refactor! This logic is run every time the component or its children receives different props! Need to:
+      1) Manipulate component props only once on initial compile (add theme, data-component or className attribute based on component name so it can be found in dev tools, data-colorscheme, data-bggradient, etc.)
+      2) Wrap in styled() component outside the function so styled-components library can take care of restyling and rerendering.
+     */
     props.theme = useTheme();
     const inlineStyles = style_string_from_props({
       props,
@@ -22,21 +27,21 @@ export default (Component: any, componentName: string, variants: any) =>
       <ClassNames>
         {({ css, cx }) => (
           <Component
-            {...props}
-            {...colorScheme}
+            {...props} // all props, minus custom style props which were used and removed by functions above
+            {...colorScheme} // cascading foreground/background colors - dataset attributes
             ref={ref}
             className={cx(
-              css(`&.${componentName} {
-  ${variantStyles};
-}
-`), // first - less specific
               props.componentName || '', // custom className label passed to component instance from app
               componentName || '', // default className label from component constructor (in this library)
               props.className, // custom classNames passed to the component
               css(`&.${componentName} {
-  ${inlineStyles};
-}
-`) // last - more specific
+                ${variantStyles};
+              }
+              `), // less specificity than inlineStyles, but more than others here
+              css(`&.${componentName} {
+                ${inlineStyles};
+              }
+              `) // more specificity than any other styles here, but still does not beat nested (child) selectors!
             )}
           />
         )}

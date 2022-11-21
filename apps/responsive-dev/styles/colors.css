@@ -1,3 +1,11 @@
+:root {
+  --color-error: #e30000;
+  --color-warning: #e38935;
+  --color-success: #27b30d;
+  --color-info: #1ea7fd;
+  --color-notice: #c336e5;
+}
+
 /*
  * Default:
  * To set a different default, move `:root,` to another block. But then write alternatives for light mode instead of for dark mode as it is done now.

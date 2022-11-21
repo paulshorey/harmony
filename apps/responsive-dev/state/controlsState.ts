@@ -72,6 +72,13 @@ const controls = create(
         const state = get() as controlsStateType;
         const index = state.hosts.indexOf(host);
         if (isNaN(index) || index === -1) {
+          // validate host
+          if (!host.startsWith('http')) {
+            alert(
+              'Host must include protocol (must start with http:// or https://).'
+            );
+            return;
+          }
           // create new
           state.hosts.push(host);
           state.hostIndex = state.hosts.length - 1;
@@ -85,7 +92,18 @@ const controls = create(
         const state = get() as controlsStateType;
         const index = state.hosts.indexOf(host);
         if (!isNaN(index) && index !== -1) {
+          // validate
+          if (state.hosts.length < 2) {
+            alert(
+              'Can not delete the one remaining host. Please add another one first.'
+            );
+            return;
+          }
+          // remove host, fix index if affected
           state.hosts.splice(index, 1);
+          if (state.hostIndex <= index) {
+            state.hostIndex++;
+          }
           return set({ ...state });
         }
       },
@@ -95,6 +113,9 @@ const controls = create(
       paths: ['/'],
       pathIndex: 0,
       set_path: (path) => {
+        if (path[0] !== '/') {
+          path = '/' + path;
+        }
         const state = get() as controlsStateType;
         const index = state.paths.indexOf(path);
         if (isNaN(index) || index === -1) {
@@ -111,13 +132,17 @@ const controls = create(
         const state = get() as controlsStateType;
         const index = state.paths.indexOf(path);
         if (!isNaN(index) && index !== -1) {
+          // remove path, fix index if affected
           state.paths.splice(index, 1);
+          if (state.pathIndex <= index) {
+            state.pathIndex++;
+          }
           return set({ ...state });
         }
       },
     }),
     {
-      name: 'controls-cache7',
+      name: 'controls-cache8',
     }
   )
 );

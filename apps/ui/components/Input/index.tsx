@@ -1,11 +1,16 @@
-import React, { ReactNode, InputHTMLAttributes, forwardRef, memo } from 'react';
+import React, {
+  ReactNode,
+  InputHTMLAttributes,
+  forwardRef,
+  memo,
+  useEffect,
+} from 'react';
 import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Input/styles';
 import { Input as AntInput, InputProps as AntInputProps } from 'antd';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import withStyles from '@ps/ui/hooks/withStyles';
 
-type AntProps = Omit<AntInputProps, 'size'>;
 export type Props = {
   /**
    * Used to set padding/fontSize/height/line-height.
@@ -49,15 +54,20 @@ export type Props = {
       }
     | string /* keyof predefined regexps in theme */
   >;
-} & AntProps &
-  styleProps &
+} & styleProps &
   InputHTMLAttributes<HTMLElement & HTMLInputElement>;
 
 /**
  * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
 export const Component = (props: Props, ref: any) => {
+  /**
+   * Manage state here so this component can perform front-end validation before the form
+   */
   const [value, set_value] = React.useState(props.value || '');
+  useEffect(() => {
+    set_value(props.value || '');
+  }, [props.value]);
   return (
     <AntInput
       {...props}
@@ -92,5 +102,4 @@ const Styled: React.FC<Props> = withStyles(
 
 export default memo(Styled);
 
-export const withInput = (props: Props) =>
-  memo(withCombinedProps(Styled, props));
+export const withInput = (props: Props) => withCombinedProps(Styled, props);
