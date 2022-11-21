@@ -21,6 +21,12 @@ export default function (props) {
           <Code {...props}> as="&lt;code&gt;"</Code>, or as almost any other
           HTML element. By default, it's a span.
         </Block>
+        <Block>
+          But if you need to display inline code, use <code>CodeInline</code>{' '}
+          component, because that has more functionality. This{' '}
+          <code>Inline</code> component is mostly just used for custom
+          style-system props. See all available props below.
+        </Block>
       </CanvasStoryPadding>
     </CanvasContainer>
   );
@@ -28,5 +34,5 @@ export default function (props) {
 
 export const code = `import Inline from '@ps/ui/components/Inline';
 
-Text can be used <Inline as="h2" {...props}> as h2</Inline>, or <Inline as="code" {...props}> as &lt;code&gt;</Inline>, or as any other HTML container element. By default, it's a span.
+Text can be used <Inline as="h2" textgradient="purple"> as h2</Inline>, or <Inline as="code" textgradient="purple"> as &lt;code&gt;</Inline>, or as any other HTML container element. By default, it's a span.
 `;

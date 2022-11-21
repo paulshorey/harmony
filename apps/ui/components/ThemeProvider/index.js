@@ -12,7 +12,8 @@ import theme from '@ps/ui/styles/theme';
 // Optional - global styles:
 import fonts from '@ps/ui/styles/global/fonts';
 import html from '@ps/ui/styles/global/html';
-import classes from '../../styles/global/classes';
+import classes from '@ps/ui/styles/global/classes';
+import antd5 from '@ps/ui/styles/global/antd5';
 
 // Optional - MaterialUI Theme (required if using MUI components)
 import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material';
@@ -42,6 +43,7 @@ const ThemeProvider = ({ children }) => {
             ${fonts(theme)};
             ${html(theme)};
             ${classes(theme)};
+            ${antd5(theme)};
           `}
         />
         {children}

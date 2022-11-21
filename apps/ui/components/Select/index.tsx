@@ -3,24 +3,10 @@ import styleProps from '@ps/ui/types/styles';
 import variants from '@ps/ui/components/Select/styles';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import { OptionProps as AntOptionProps } from 'antd/es/select';
-import { Select as SelectAnt } from 'antd';
+import { Select as AntSelect } from 'antd';
 import type { SelectProps as AntSelectProps } from 'antd';
 import withStyles from '@ps/ui/hooks/withStyles';
-
-// for convenience, export Option, so user doesn't have to import from antd
-export type OptionProps = {
-  value: string;
-  /**
-   * What to show in the select box instead of the real value. Useful if capitalization is different.
-   */
-  label?: string;
-  /**
-   * What to show for each dropdown result item.
-   */
-  children?: React.ReactNode;
-} & AntOptionProps;
-const { Option: OptionAnt } = SelectAnt;
-export const Option = OptionAnt;
+import Block from '@ps/ui/components/Block';
 
 // Select props
 export type Props = styleProps & {
@@ -37,7 +23,7 @@ export type Props = styleProps & {
 export const Component = (props: Props, ref: any) => {
   // eslint-disable-next-line
   const { size, ...rest } = props;
-  return <SelectAnt {...rest} ref={ref} />;
+  return <AntSelect {...rest} ref={ref} />;
 };
 
 /*
@@ -49,7 +35,29 @@ const Styled: React.FC<Props> = withStyles(
   variants
 );
 
-export default memo(Styled);
+export default Styled;
 
-export const withSelect = (props: Props) =>
-  memo(withCombinedProps(Styled, props));
+// export const withSelect = (props: Props) =>
+//   memo(withCombinedProps(Styled, props));
+
+/*
+ * ACCESSORY EXPORTS:
+ * for convenience, export Option, so user doesn't have to import from antd
+ */
+
+export type OptionProps = {
+  value: string;
+  /**
+   * What to show in the select box instead of the real value. Useful if capitalization is different.
+   */
+  label?: string;
+  /**
+   * What to show for each dropdown result item.
+   */
+  children?: React.ReactNode;
+} & styleProps &
+  AntOptionProps;
+
+export const Option: React.FC<Props> = withStyles(Block, 'Option', {
+  default: '',
+});

@@ -13,6 +13,7 @@ import theme from 'styles/theme';
 import fonts from '@ps/ui/styles/global/fonts';
 import html from '@ps/ui/styles/global/html';
 import classes from '@ps/ui/styles/global/classes';
+import antd5 from '@ps/ui/styles/global/antd5';
 import global from 'styles/global';
 
 const ThemeProvider = ({ children }) => {
@@ -24,6 +25,7 @@ const ThemeProvider = ({ children }) => {
           ${html(theme)};
           ${classes(theme)};
           ${global(theme)};
+          ${antd5(theme)};
         `}
       />
       {children}

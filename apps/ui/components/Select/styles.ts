@@ -13,7 +13,9 @@ const borderRadius = (props) => `
 `;
 
 export default {
-  default: (props) => `
+  default: (props) => {
+    console.log('styled Select props', props);
+    return `
     box-sizing: border-box;
     background: white;
     &,
@@ -86,17 +88,16 @@ export default {
     .ant-select-selection-overflow-item,
     .ant-select-selection-item,
     .ant-select-selection-search-input,
-    .ant-select-selection-search-mirror {
+    .ant-select-selection-search-mirror,
+    :where(.ant-select-single):not(.ant-select-customize-input) .ant-select-selector  {
       height: ${height(props, 1)}rem !important;
     }
-    /* .ant-select-selection-item,
-    .ant-select-selection-overflow-item {
-      height: ${height(props, 0.7)}rem !important;
-    } */
-    .ant-select-selector,
-    .ant-select-selection-overflow {
-      height: auto !important;
-    }
+
+    // cssFix: Important for multi-select field where the selections (tags) wrap to multiple lines:
+    // .ant-select-selector,
+    // .ant-select-selection-overflow {
+    //   height: auto !important;
+    // }
 
     .ant-select-selector {
       width: 100%;
@@ -160,5 +161,6 @@ export default {
       flex-wrap: nowrap;
       justify-content: end;
     } */
-  `,
+  `;
+  },
 };

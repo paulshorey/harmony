@@ -13,17 +13,17 @@ export type Props = {
   /**
    * Used to set padding/fontSize/height/line-height.
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  // size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
    * If true, will have very rounded corners like a "pill" or "circle".
    */
-  round?: boolean;
+  // round?: boolean;
   /**
    * Pass true to use default loading animation. Or pass a custom loading animation component.
    * If button has children, loading animation will play on top of the children.
    * This way, if loading prop is dynamic (after user clicked submit), button size will not change.
    */
-  loading?: boolean | ReactElement;
+  // loading?: boolean | ReactElement;
   /**
    * React component to displayed to the left of the text.
    */

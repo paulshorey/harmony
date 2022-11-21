@@ -36,4 +36,11 @@ export default (props) => {
   );
 };
 
-export const code = ``;
+export const code = `import SelectMui from '@ps/ui/components/SelectMui';
+
+<SelectMui value={age} label="Age" onChange={handleChange}>
+  <MenuItem value={10}>Ten</MenuItem>
+  <MenuItem value={20}>Twenty</MenuItem>
+  <MenuItem value={30}>Thirty</MenuItem>
+</SelectMui>
+`;

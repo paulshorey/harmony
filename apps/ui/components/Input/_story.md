@@ -1,3 +1,3 @@
-This is a restyled Ant design component: <a href="https://ant.design/components/input/" target="_blank">https://ant.design/components/input</a>. In the future, this component should be refactored to not rely on 3rd party code. Fortunately, because it's abstracted in our own library, any apps that use this component will not need to change their implementations. 
+This is a restyled Ant design component: <a href="https://ant.design/components/input/" target="_blank">https://ant.design/components/input</a>. In the future, this component could be refactored to not rely on 3rd party code. Fortunately, because it's abstracted in our own library, any apps that use this component will not need to change their implementations. 
 
-So, in your app do not reference any classNames prefixed with "ant-" or "Mui". Instead, create a new variant here, then pass the variant prop to use your modified style and logic. 
+Same props as Ant Design Input component, except: `props.size` expects `xs/sm/md/lg/xl` instead of `small/medium/large`.

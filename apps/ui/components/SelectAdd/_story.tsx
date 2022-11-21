@@ -1,9 +1,7 @@
-import Select, { Props as SelectProps } from '.';
+import SelectAdd, { Props as SelectAddProps } from '.';
 import React from 'react';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 
 const style = {
@@ -12,16 +10,8 @@ const style = {
   width: '45%',
 };
 
-const DemoOne = (props: SelectProps) => (
-  <Select
-    {...props}
-    style={style}
-    showSearch
-    placeholder="Select a person"
-    addPlaceholder="Add new person"
-    values={['Jack', 'Lucy', 'Tom']}
-    defaultValue="Jack"
-  />
+const DemoOne = (props: SelectAddProps) => (
+  <SelectAdd {...props} style={style} />
 );
 export default (props) => {
   useShowStorybookCode();
@@ -37,4 +27,12 @@ export default (props) => {
   );
 };
 
-export const code = ``;
+export const code = `import SelectAdd, { Props as SelectAddProps } from '@ps/ui/components/SelectAdd';
+
+<SelectAdd
+  style={style}
+  showSearch
+  placeholder="Select a person"
+  addPlaceholder="Add new person"
+  values={['Jack', 'Lucy', 'Tom']}
+/>`;

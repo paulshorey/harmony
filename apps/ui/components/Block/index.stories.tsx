@@ -9,7 +9,7 @@ const variantKeys = Object.keys(variants);
 export const Block = _box.bind({});
 Block.argTypes = argTypes({ localVariants: variantKeys });
 Block.args = {
-  variant: 'card',
+  className: 'card articleX',
   textcolor: 'purple',
   bggradient: 'light',
   as: 'section',

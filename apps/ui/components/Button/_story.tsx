@@ -2,7 +2,7 @@ import React from 'react';
 import { withButton } from '.';
 import CanvasContainer from '@ps/ui/.storybook/components/CanvasContainer';
 import CanvasStoryPadding from '@ps/ui/.storybook/components/CanvasStoryPadding';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 
@@ -15,20 +15,16 @@ export const Buttons = (props) => {
   });
   return (
     <>
-      <Button
-        className="noWrap"
-        loading
-        icon={<FontAwesomeIcon icon={faUser} />}
-      >
+      <Button loading icon={<FA icon={faUser} />}>
         Loading
       </Button>
-      <Button variant="outlined" icon={<FontAwesomeIcon icon={faUser} />}>
+      <Button variant="outlined" icon={<FA icon={faUser} />}>
         Outlined
       </Button>
-      <Button variant="text" icon={<FontAwesomeIcon icon={faUser} />}>
+      <Button variant="text" icon={<FA icon={faUser} />}>
         Text
       </Button>
-      <Button round icon={<FontAwesomeIcon icon={faUser} />} />
+      <Button round icon={<FA icon={faUser} />} />
     </>
   );
 };
@@ -53,7 +49,7 @@ export default (props) => (
   </>
 );
 
-export const code = `import { withButton } from '@ps/ui/components/Button';
+export const code = `import { withButton } from '@ps/ui/components/Button'; // optional (you can also use default export as Button )
   
 const Button = withButton({
   size: 'lg',
@@ -62,16 +58,18 @@ const Button = withButton({
 });
 
 <Button
-  className="noWrap"
   loading
-  icon={<FontAwesomeIcon icon={faUser} />}
+  icon={<FA icon={faUser} />}
 >
   Loading
 </Button>
-<Button variant="outlined" icon={<FontAwesomeIcon icon={faUser} />}>
+
+<Button variant="outlined" icon={<FA icon={faUser} />}>
   Outlined
 </Button>
-<Button variant="text" icon={<FontAwesomeIcon icon={faUser} />}>
+
+<Button variant="text" icon={<FA icon={faUser} />}>
   Text
 </Button>
-<Button round icon={<FontAwesomeIcon icon={faUser} />} />`;
+
+<Button round icon={<FA icon={faUser} />} />`;

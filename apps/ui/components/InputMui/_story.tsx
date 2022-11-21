@@ -61,9 +61,30 @@ export default (props) => (
 export const code = `import Input from '@ps/ui/components/Input';
 
 <Input
-  {...props}
   ssAll={style}
   placeholder="Full name"
   allowClear={true}
   defaultValue="Click x to clear"
+/>
+
+<Input
+  ssAll={style}
+  label="Username with label"
+  placeholder="Username"
+  prefix={<UserOutlined />}
+  suffix={
+    <Popover content={<div className="noWrap">Hello tooltip!</div>}>
+      <InfoCircleOutlined />
+    </Popover>
+  }
+/>
+
+<Input
+  ssAll={style}
+  placeholder="your-website"
+  prefix={'http://'}
+  suffix={'.com'}
+  onPressEnter={() => {
+    /* console.log('pressed enter', e)*/
+  }}
 />`;

@@ -117,4 +117,59 @@ export default (props) => (
   </CanvasContainer>
 );
 
-export const code = ``;
+export const code = `import InputGroup from '@ps/ui/components/InputGroup';
+
+<InputGroup>
+
+  <Input
+    round={true}
+    prefix="http://"
+    placeholder="mysite"
+    suffix={
+      <Tooltip title="copy full url">
+        <CopyOutlined />
+      </Tooltip>
+    }
+  />
+
+  <Input
+    round={true}
+    style={{
+      width: '20%',
+      maxWidth: '15rem',
+    }}
+    placeholder=".com"
+  />
+
+  <Select
+    round={true}
+    style={{
+      width: '25%',
+      maxWidth: '20rem',
+    }}
+    placeholder="country"
+    optionLabelProp="label"
+  >
+    <Option value="usa" label="USA">
+      <h3>🇺🇸 USA (美国)</h3>
+    </Option>
+    <Option value="china" label="China">
+      <h3> 🇨🇳 China (中国)</h3>
+    </Option>
+    <Option value="japan" label="Japan">
+      <h3>🇯🇵 Japan (日本)</h3>
+    </Option>
+    <Option value="korea" label="Korea">
+      <h3>🇰🇷 Korea (韩国)</h3>
+    </Option>
+  </Select>
+  
+  <Button
+    round={true}
+    style={{ paddingRight: '1.5rem' }}
+    type="submit"
+  >
+    Go
+  </Button>
+  
+</InputGroup>`;

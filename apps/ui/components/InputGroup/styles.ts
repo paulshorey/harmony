@@ -16,6 +16,7 @@ export default {
       }
     }
     > *:not(:last-child) {
+      border-right: 0;
       &,
       .ant-select-selector {
         border-top-right-radius: 0;

@@ -3,7 +3,12 @@ import { css } from '@emotion/react';
  * Not used - for Antd version 4 which required a large default css file. This is so you can import a small css file that styles only the few things this library uses. (It's not finished though, needs more work for dropdowns.)
  * Antd version 5 uses css-in-js for each individual component, and does not require a global css file.
  */
-const html = (theme) => css`
+const antd = (theme) => css`
+  .ant-select-dropdown {
+    width: auto !important;
+    max-width: 20rem;
+  }
+
   /*
  * 
  * SELECT
@@ -275,4 +280,4 @@ const html = (theme) => css`
     background: var(--ant-primary-color);
   } */
 `;
-export default html;
+export default antd;

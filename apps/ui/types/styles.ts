@@ -17,7 +17,7 @@ export type uniqueStyleProps = {};
  */
 export type styleProps = {
   /**
-   * Each component has a `variants.ts` file in its folder - it sets the styles for the component. Variant is also used by the JS code to set logic/layout/markup of the component.
+   * Some components check the `props.variant` and apply a different style (Button), or render differently arranged markup (Grid4TitleTextImage), or perform different logic.
    */
   variant?: string;
   /**
@@ -37,7 +37,7 @@ export type styleProps = {
    */
   bggradient?: string;
   /**
-   * Styled string. Or a function that accepts theme and returns a string. Or array of either. Same as other ssXxx props below, but without any media queries or conditional logic.
+   * SCSS as a simple string type. Or pass a function that accepts props and returns a string if you want to refer to any component props, or your site's theme. Or array of either. Same for other ssXxx props below.
    */
   ss?: ssProp;
   /**
@@ -106,8 +106,9 @@ export type styleProps = {
   componentName?: string;
   className?: string;
   /**
-   * Your site theme is injected into props by hooks/withStyles.tsx so you can use it in your EmotionJS/StyledComponents css\`\` template literal: (1 - any component in this library) `<Block ss={(props) => \`padding:${props.theme.card.paddingX}\`} />` (2 - use styled components) `styled(Block)\`padding:${props => props.theme.card.paddingX}\`` (3 - emotion css prop) `<div css={css\`padding:${props => props.theme.card.paddingX}\`} />`.
+   * Your site theme is injected into component props by `hooks/withStyles.tsx`. You can read props by passing style as a function instead of a string/object:
+   * ```<Block ss={(props) => `padding: 1rem ${props.theme.card.paddingX} 2rem`} />```.
    */
-  theme?: any;
+  theme?: Record<string, any>;
 };
 export default styleProps;

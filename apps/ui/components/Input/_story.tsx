@@ -13,7 +13,7 @@ const InputStory = (props: InputProps) => {
     <>
       <Input
         {...props}
-        ssAll={style}
+        ss={style}
         placeholder="Full name"
         allowClear={true}
         value="Click x to clear"
@@ -21,7 +21,7 @@ const InputStory = (props: InputProps) => {
 
       <Input
         {...props}
-        ssAll={style}
+        ss={style}
         placeholder="Username"
         prefix={<UserOutlined />}
         suffix={
@@ -33,7 +33,7 @@ const InputStory = (props: InputProps) => {
 
       <Input
         {...props}
-        ssAll={style}
+        ss={style}
         placeholder="your-website"
         prefix={'http://'}
         suffix={'.com'}
@@ -59,9 +59,29 @@ export default (props) => (
 export const code = `import Input from '@ps/ui/components/Input';
 
 <Input
-  {...props}
-  ssAll={style}
+  ss={style}
   placeholder="Full name"
   allowClear={true}
   value="Click x to clear"
+/>
+
+<Input
+  ss={style}
+  placeholder="Username"
+  prefix={<UserOutlined />}
+  suffix={
+    <Popover content={<div className="noWrap">Hello tooltip!</div>}>
+      <InfoCircleOutlined />
+    </Popover>
+  }
+/>
+
+<Input
+  ss={style}
+  placeholder="your-website"
+  prefix={'http://'}
+  suffix={'.com'}
+  onPressEnter={(e) => {
+    /* console.log('pressed enter', e)*/
+  }}
 />`;

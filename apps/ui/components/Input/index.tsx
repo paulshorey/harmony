@@ -28,10 +28,6 @@ export type Props = {
    */
   maxLength?: number;
   /**
-   * Array of validations to run on the input value. Example: ['required', 'email']. You can also pass RegExp as a string. For example: ['required', '/^\\d+$/']
-   */
-  validations?: string[];
-  /**
    * The callback function that is triggered when Enter key is pressed
    */
   onPressEnter?: (e) => void;
@@ -39,6 +35,20 @@ export type Props = {
    * If allow to remove input content with clear icon
    */
   allowClear?: boolean | { clearIcon: ReactNode };
+  /**
+   * NOT SUPPORTED YET. Will be added soon.
+   *
+   * Validate the input value. Check for a minimum length, or a specific pattern like starting with "https?://" or email address or anything.
+   *
+   * Pass validation object, or a string that refers to the key of a built-in validation function. For example, "email" will refer to `theme.validations.email` the value of which will be `{ regExp: RegExp; errorMessage: string; }`. TODO: manage predefined regexps in the site theme, then convert this type to a "keyof" enum.
+   */
+  validations?: Array<
+    | {
+        regExp: RegExp;
+        errorMessage: string;
+      }
+    | string /* keyof predefined regexps in theme */
+  >;
 } & AntProps &
   styleProps &
   InputHTMLAttributes<HTMLElement & HTMLInputElement>;
