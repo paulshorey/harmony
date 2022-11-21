@@ -19,10 +19,7 @@ const style = css`
     line-height: 1rem;
   }
 `;
-
-type Props = {};
-
-const ControlsBottom = ({}: Props) => {
+const ControlsBottom = () => {
   // show current screen size, for context
   const [windowWidth, set_windowWidth] = React.useState(0);
   const [windowHeight, set_windowHeight] = React.useState(0);

@@ -55,12 +55,14 @@ export type Props = {
     | string /* keyof predefined regexps in theme */
   >;
 } & styleProps &
-  InputHTMLAttributes<HTMLElement & HTMLInputElement>;
+  Omit<InputHTMLAttributes<HTMLElement & HTMLInputElement>, 'size'>;
 
 /**
  * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"
  */
 export const Component = (props: Props, ref: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { size, ...rest } = props;
   /**
    * Manage state here so this component can perform front-end validation before the form
    */
@@ -70,7 +72,7 @@ export const Component = (props: Props, ref: any) => {
   }, [props.value]);
   return (
     <AntInput
-      {...props}
+      {...rest}
       value={value}
       onChange={(e) => {
         // console.log('onChange', e);

@@ -53,6 +53,7 @@ const DevTemplate = ({}: {}) => {
                 return 'Please use a port number with localhost';
               }
             }
+            return undefined;
           },
           {
             errorMessage: 'Invalid domain extension',
@@ -77,10 +78,11 @@ const DevTemplate = ({}: {}) => {
           controls.remove_path(value);
         }}
         validations={[
-          (value) => {
+          function (value) {
             if (controls.paths.length > 0 && !value) {
               return 'Please enter a value';
             }
+            return undefined;
           },
         ]}
       />

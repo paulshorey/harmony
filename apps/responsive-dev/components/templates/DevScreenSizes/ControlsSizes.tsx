@@ -41,7 +41,6 @@ const DevTemplate = ({}: {}) => {
         ss="min-width:12rem"
         size="xs"
         placeholder={'Size presets'}
-        values={Object.keys(controls.sizePresets)}
         value={controls.sizePresetKey}
         onChange={(value) => {
           controls.set_size(value);
