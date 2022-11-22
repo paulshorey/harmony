@@ -6,28 +6,28 @@ import CodeInline from '@ps/ui/components/CodeInline';
 import ThemeProvider from '@ps/ui/components/ThemeProvider';
 import Wrapper from '@ps/ui/.storybook/components/Wrapper';
 
-<Meta title="Why another UI library ?" />
+<Meta title="Get started/What Why How" />
 
 <ThemeProvider>
 
 <Wrapper ssAll="a { color: white; }">
 
 <Block as="h1" textgradient="rainbow">
-This is a development kit
+A development kit
 </Block>
 
 for bootstrapping and maintaining a <Inline as="b" textgradient="rainbow"> custom branded component library</Inline>. 
 
 <Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
-<Inline as="h2" textgradient="accent">1.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">pre-configured mono-repo apps and modules</Inline> <Inline ss="font-size:1rem;"> - even with TurboRepo, getting everything to work together is hard!</Inline>
+<Inline as="h2" textgradient="accent">1.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">mono-repo configuration files</Inline> <Inline ss="font-size:1rem;"> - Typescript, testing, prettier, eslint, and babel presets shared by interdependent apps</Inline>
 </Block>
 
 <Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
-<Inline as="h2" textgradient="accent">2.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">a styling system to make branding easier</Inline> - especially for different screen sizes! For both prototyping and longevity.
+<Inline as="h2" textgradient="accent">2.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">responsive styling system to make branding easier</Inline> - prototyping and long-term maintenance for different devices
 </Block>
 
 <Block ss="margin-bottom:0.75rem;line-height:1.33rem;">
-<Inline as="h2" textgradient="accent">3.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">and a few components to get started</Inline> - this isn't a finished library, but a system for maintaining custom components.
+<Inline as="h2" textgradient="accent">3.</Inline> <Inline textcolor="accent" ss="font-size:1.125rem;">and a few components to get started</Inline> - this isn't a finished library, but a system for maintaining custom components
 </Block>
 
 <br />
@@ -38,11 +38,11 @@ for bootstrapping and maintaining a <Inline as="b" textgradient="rainbow"> custo
 For better DX and UX
 </Block>
 
-Each component includes several useful features.
+These components offer several useful features.
 
 <Code
   variant="transparentDark"
-  code={`// Import the default component and use immediately. Optionally use a constructor:
+  code={`// Import the default component and use immediately. Or, optionally use a constructor to define reusable props and styles:
 import { withButton } from '@ps/ui/components/Button';
   
 // Predefine some props that will be used by all instances
@@ -108,7 +108,7 @@ const Demo = withBlock({ ss: 'display:none;' });
 
 ☝️ You don't have to use strings. All ss props also accept a function or (coming soon) JSS object.
 
-😱 The above ss props are just for convenience. Best practice is of course to separate styles from markup. Use media queries as `props.theme.mq...` anywhere you define the styles. <a href="/docs/get-started-media-queries--page">Read more</a>
+😱 The above ss props are just for convenience. Best practice is of course to separate styles from markup. Use media query <span className="noWrap">mixins such as</span> `props.theme.mq.tinyPhone` in any template literal.
 
 Pass a function that accepts the component props and returns a string of SCSS. Your site theme will be available as a prop.
 
@@ -116,11 +116,9 @@ Pass a function that accepts the component props and returns a string of SCSS. Y
   variant="transparentDark"
   code={`<Block ss={(props) => css\` padding: 1rem \${props.theme.sizes.card.paddingX}; \`}>`} />
 
-This compact format is available for all ss props. Call the function only once, then reference in multiple template literals. Alternatively, use the standard `@emotion/styled` or `@emotion/react` `css`&grave;&grave; and pass a function to any template literal to access props, theme variables, or media queries.  
+Access props/theme variables from your styles. Components in this library let you pass a function to any `ss` prop. That enables you to call `(props) =>` only once, then reference props/theme multiple times. All `ss` props accept this function format. Alternatively, use the standard `emotion/styled-components` way to wrap a string in `css`&grave;&grave; or `styled`&grave;` and pass a function to every template literal.  
 
-[Read more about theme and props](/docs/get-started-use-ss-props-or-styled-components-how-to-use--page) (styled components vs <CodeInline variant="text" code={`props.ss`} /> shortcuts). Also read about [cascading color schemes](/docs/core-@emotion/styled--page).  
-
-There are also hooks to help target specific devices and browsers and other utilites.
+There are also hooks to target specific devices and browsers.
 
 <br />
 <br />
@@ -138,10 +136,6 @@ There are also hooks to help target specific devices and browsers and other util
   Below each component's story is a documentation of all the props it accepts.
 </p>
 
-<p>
-  This is my latest experiment. Needs much more testing, unit tests, and visual regression tests. 
-  But it's already useful. This page and everything in this Storybook was built with this library. Currently building my new website with this library.
-</p>
 <p>
   If you like this approach then <a>checkout the Github repo</a>. Please contribute
   or open an issue to discuss. Thank you!

@@ -24,8 +24,8 @@ export default function (props) {
         <Block>
           But if you need to display inline code, use <code>CodeInline</code>{' '}
           component, because that has more functionality. This{' '}
-          <code>Inline</code> component is mostly just used for custom
-          style-system props. See all available props below.
+          <code>Inline</code> component is mostly just used for custom style
+          props. See all available props below.
         </Block>
       </CanvasStoryPadding>
     </CanvasContainer>

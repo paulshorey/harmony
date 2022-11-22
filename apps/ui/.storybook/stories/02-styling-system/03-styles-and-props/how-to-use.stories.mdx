@@ -15,35 +15,34 @@ import {
 } from '@ps/ui/.storybook/components/Components';
 import Code from '@ps/ui/components/Code';
 
-<Meta title="Get started/Styling system/SS Props vs. Styled Components" />
+<Meta title="Get started/Styling/How to style" />
 
 <ThemeProvider>
 <Wrapper>
 
-# There are a few ways to use these components:
+# There are multiple ways to style these components:
 
 <br />
 
 <Block as="h2" ss="margin-top: 1rem;">1. The default export is ready to use</Block>
 
-All components in this library accept `ss` props, which accept a string of SCSS or a function that returns a string.
+All components in this library accept `props.ss`, which accepts a string of SCSS or a function that takes props and returns a string.   
+Every component in this library gets the site `theme` object injected into its props.
 <Code
   ss="font-size: 0.85rem;"
-  code={`import { css } from '@emotion/react'; // optional
+  code={`import { css } from '@emotion/react'; // ⬅ optional, to add syntax highlighting
 import Button from "@ps/ui/components/content/Button";
   
 <Button 
   variant="outlined" 
   onClick={console.log} 
   ss={(props) => css\`
-      /* pass a function to any ss prop to access props and variables */
+      /* pass a function to any ss prop to access props and theme */
       \${props.theme.mq.desktopLarge} {
-          /* use props and theme variables, even inside media queries */
+          /* use variables and mixins from your theme */
           padding: 1rem \${props.theme.sizes.card.paddingX * 2};
       }
-      /* optionally: wrap it a css function to add syntax highlighting */
   \`}
-  ssDesktopLarge="/* See Media queries to learn about all ss props. */"
 >
   Click me
 </Button>`}
@@ -93,7 +92,7 @@ export const MyButton = withButton({
 
 <Block as="h2" ss="margin-top: 5rem;">3. Normal Styled Components</Block>
 
-This library uses `@emotion/styled` instead of `styled-components`. It's the same thing, but with extra features. Both are great libraries. You can literally pass anything to styled! Behind the scenes it simply adds a className to the component, then writes the CSS to a global stylesheet. That's also how this library's `ss` prop works.
+This library uses `@emotion/styled` instead of `styled-components`. It's the same thing but with extra features. Both are great. Behind the scenes it simply adds a className to the component, then writes the CSS to a global stylesheet.
 
 <Code
   ss="font-size: 0.85rem;"

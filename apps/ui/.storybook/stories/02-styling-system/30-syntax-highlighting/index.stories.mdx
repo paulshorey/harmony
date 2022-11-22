@@ -18,7 +18,7 @@ import Code from '@ps/ui/components/Code';
 // border-radius: 50%;
 // margin: 3px 5px 0 0;
 
-<Meta title="Get started/Styling system/Syntax Highlighting" />
+<Meta title="Get started/Styling/Syntax Highlighting" />
 
 <ThemeProvider>
 <Wrapper>
@@ -28,6 +28,8 @@ import Code from '@ps/ui/components/Code';
 **Install `vscode-@emotion/styled` extension** (or a similar one if you don't use VS Code).  Often an extension for `styled-components` will also work for `@emotion/styled`.  This library uses @emotion, but it's all the same concept.
 
 This library accepts `ss` props which are SCSS strings, but they work the same way as Emotion and StyledComponents. They all get compiled to a string. Pass a template literal to any `ss` prop to use variables and make it multi-line.
+
+Wrap any template literal in Emotion's <CodeInline code='css``' /> tag to get syntax highlighting:
 
 <Code 
   ss="font-size: 0.85rem;"

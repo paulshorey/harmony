@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Block from '../../components/Block';
 
-const Wrapper = ({ children, ...props }) => {
+const Wrapper = ({ children, ss, ...props }) => {
   /**
    * Inject a CSS string as a <style> tag into the DOM of the window.top frame
    */
@@ -137,7 +137,7 @@ const Wrapper = ({ children, ...props }) => {
   }, []);
 
   return (
-    <Block bgcolor="purple" textcolor="light" ss={containerCSS} {...props}>
+    <Block bgcolor="purple" textcolor="light" ss={[containerCSS, ss]} {...props}>
       <Block
         ss={`
         max-width: 1000px;
