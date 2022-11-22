@@ -44,7 +44,7 @@ export default {
     padding: 10px 5px 1px;
     font-size: 0.5em;
     > *:nth-child(2) {
-      padding: 0 1rem;
+      padding: 0 0.5rem;
     }
     > * {
       line-height: 1rem;

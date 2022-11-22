@@ -1,58 +1,62 @@
+[data-bgcolor] {
+  background-color: var(--color-bg);
+}
+[data-textcolor] {
+  color: var(--color-text);
+}
+[data-bggradient] {
+  color: var(--color-text);
+  background: var(--color-bg);
+  background-image: var(--color-bg-gradient);
+}
+[data-textgradient] {
+  background: initial;
+  background-color: var(--color-text);
+  background-image: var(--color-text-gradient);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 :root {
   --color-error: #e30000;
   --color-warning: #e38935;
   --color-success: #27b30d;
   --color-info: #1ea7fd;
   --color-notice: #c336e5;
-}
 
-/*
-Default scheme is light text on dark background.
-All colors defined here are by default intended to be used on dark background.
-An alternative can be set by prepending a light-mode parent selector. Example:
-```
-[data-bgcolor='rainbow'] { 
-  ... set default colors here ... 
+  --color-cta: hsl(176deg 54% 50%);
+  --color-accent: #fece5c;
+  --color-glow: hsla(0deg, 0%, 100%, 0.125);
 }
-[data-bgcolor='light'] [data-bgcolor='rainbow'] { 
-  ... set alternative colors here ... 
-}
-```
-To set a different default, move `:root,` to the top of the [data-bgcolor="light"] selector or whatever color you want to be default for the page. Then use that as the parent selector instead.
- */
 :root,
 [data-bgcolor='dark'] {
-  color-scheme: dark;
   --color-bg: #333;
   --color-bg-gradient: radial-gradient(75% 75% at top center, #222, #333, #222);
 }
 :root,
-[data-bgcolor='dark'],
 [data-textcolor='light'] {
-  /* This sets text color (not background color) */
   --color-text: hsl(95deg 9% 95%);
   --color-text-gradient: linear-gradient(
     120deg,
     hsl(95deg 9% 90%),
     hsl(95deg 9% 97%)
   );
-  /* Extra colors, not part of core functionality, but also have dark/light/color variants: */
-  --color-glow: hsla(0deg, 0%, 100%, 0.125);
-  --color-cta: hsl(176deg 54% 50%);
-  --color-accent: #fece5c;
 }
 
 /*
-Dark text on light background:
-```
-<div data-bgcolor="light" data-textcolor data-bgcolor> 
-  this text will be dark on light background 
-  (data-textcolor and data-bgcolor are set at the bottom of this file)
-</div>
-```
+ * 
+ * ⬆ ABOVE IS REQUIRED (but feel free to edit any of the values, or add your own)
+ * ⬇ BELOW IS OPTIONAL (ok to delete if you dont need more than one color scheme)
+ *
+ */
+
+/*
+ * Dark text on light background
+ * `<div data-bgcolor="light">` or `<div data-textcolor="dark">`
  */
 [data-bgcolor='light'] {
-  color-scheme: light;
   --color-bg: hsl(95deg 9% 95%);
   --color-bg-gradient: linear-gradient(
     120deg,
@@ -62,14 +66,12 @@ Dark text on light background:
 }
 [data-bgcolor='light'],
 [data-textcolor='dark'] {
-  /* This sets text color (not background color) */
   --color-text: hsla(0, 0%, 20%, 93%);
   --color-text-gradient: radial-gradient(
     75% 75% at top center,
     hsla(257, 42%, 28%, 75%),
     hsla(257, 42%, 28%, 85%)
   );
-  /* Extra colors, not part of core functionality, but also have dark/light/color variants: */
   --color-glow: hsla(272, 51%, 54%, 0.25);
   --color-cta: hsl(194deg 94% 46%);
   --color-accent: #ffa500;
@@ -101,11 +103,6 @@ Dark text on light background:
 [data-textcolor='accent'] {
   --color-text: var(--color-accent);
   --color-text-gradient: linear-gradient(#fece5c, #ffa500);
-}
-[data-bgcolor='accent'] {
-  /* Not defined, so will be ignored */
-  /* --color-bg: */
-  /* --color-bg-gradient: */
 }
 
 /*
@@ -175,16 +172,7 @@ Dark text on light background:
 }
 
 /*
- * CTA
-```
-<div data-bgcolor="cta">
-  Color is available to all children. Button uses var(--color-text) which is set by data-bgcolor:
-  <Button>Submit</Button>
-  <Button variant="text">Cancel</Button>
-</div>
-```
- * Special case: 
- * CTA has its own variable var(--color-cta), so don't even need to add data-bgcolor attribute which sets color-text and color-bg. Just refer to --color-cta in any stylesheet or css, like: `a { color: var(--color-cta); }` 
+ * CTA buttons and banners
  */
 [data-textcolor='cta'] {
   --color-text: var(--color-cta);
@@ -221,28 +209,4 @@ Dark text on light background:
     hsl(171, 76%, 39%),
     hsl(171, 60%, 34%)
   );
-}
-
-/*
- * Use the colors defined in this file.
- */
-[data-bgcolor] {
-  background-color: var(--color-bg);
-}
-[data-textcolor] {
-  color: var(--color-text);
-}
-[data-bggradient] {
-  color: var(--color-text);
-  background: var(--color-bg);
-  background-image: var(--color-bg-gradient);
-}
-[data-textgradient] {
-  background: initial;
-  background-color: var(--color-text);
-  background-image: var(--color-text-gradient);
-  background-size: 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }

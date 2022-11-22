@@ -28,13 +28,9 @@ export type Props = {
    */
   onRemove?: (value: string) => void;
   /**
-   * WORK IN PROGRESS:
+   * Pass validation object with regExp. Or a function which accepts the value. If it returns a non-empty string, then it will be shown as an error message.
    *
-   * Validate the new "add value" input field. By default, it is required to be non-empty. But you can add your own validation Regular Expression, to check for a minimum length, or a specific pattern like starting with "https?://" or email address or anything.
-   *
-   * Pass validation object, or a string that refers to the key of a built-in validation function. For example, "email" will refer to `theme.validations.email` the value of which will be `{ regExp: RegExp; errorMessage: string; }`. TODO: manage predefined regexps in the site theme, then convert this type to a "keyof" enum.
-   *
-   * Or, pass validation function which accepts the value. If it returns a non-empty string, then it will be shown as an error message.
+   * Or pass a string key referring to predefined validations in the theme. THIS IS NOT IMPLEMENTED YET.
    */
   validations?: Array<
     | {
@@ -47,10 +43,10 @@ export type Props = {
 } & Omit<SelectProps, 'options'>;
 
 /**
- * Select component (includes multi-select and type tags functionality). Plus input to add a custom value. Powered by Ant Design component.
+ * Select component (reused from this library) + type to add new item.
  */
 export const Component = (props: Props, ref: any) => {
-  const { values, addPlaceholder, onAdd, onRemove, validations, ...rest } =
+  const { ss, values, addPlaceholder, onAdd, onRemove, validations, ...rest } =
     props;
   const [errorMessage, set_errorMessage] = useState('');
   const [addNewValue, set_addNewValue] = useState('');
@@ -108,7 +104,7 @@ export const Component = (props: Props, ref: any) => {
   return (
     <Select
       {...rest}
-      ss={styles.wrapper}
+      ss={[styles.wrapper, ss]}
       dropdownRender={(menu) => (
         <>
           {menu}
@@ -147,10 +143,9 @@ export const Component = (props: Props, ref: any) => {
       )}
     >
       {/*
-       * Unfortunately, Ant Select dropdown does not re-render when state changes, only when props change.
+       * Ant Select dropdown options dont re-render when state changes, only when props change.
        * This is because the dropdown is separated from the component.
-       * So, for Options to update, state hs to be managed externally to this component.
-       * That is usually how it's done, so no problem. But in Storybook we can't see a preview of X remove buttons.
+       * So, for Options to update, state has to be managed externally to this component.
        */}
       {values.map((value) => (
         <Option key={value} value={value} ss={styles.option}>

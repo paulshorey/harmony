@@ -39,9 +39,13 @@ const style = ({ theme }) => css`
   label: ssLatestProjectsCarousel;
 `;
 
-const LatestProjectsCarousel = ({ title, subtitle }) => {
+const LatestProjectsCarousel = ({ slide }) => {
+  if (!slide) {
+    return null;
+  }
+  const { title, subtitle, href } = slide;
   return (
-    <Link href="/" target="_blank" ss="display:inline-block;">
+    <Link href={href} target="_blank" ss="display:inline-block;">
       <Block data-bgcolor="transparentCard" ss={style}>
         <Block data-textcolor="rainbow" data-textgradient>
           <h2>{title}</h2>
