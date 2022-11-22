@@ -14,6 +14,9 @@ Read discussion: https://github.com/TypeStrong/ts-node/discussions/1450#discussi
   "compilerOptions": {
     // paths do not work with ESM+Typescript Instead, refer to root by the name of this package @ps/nlp/
     "baseUrl": ".",
+    "paths": {
+      "@ps/nlp/*": ["./*"]
+    },
     "rootDirs": ["./api", "./cli", "./common"],
     /*
      * Common compiler options for shared packages in this monorepo
