@@ -10,7 +10,7 @@ img {
 .__next {
   transform: scale(0.5, 0.67) !important;
   color: white !important;
-  opacity: 0.5 !important;
+  opacity: 0.75;
 }
 `;
 

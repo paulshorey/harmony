@@ -42,7 +42,7 @@ function Home() {
           ss="margin: 5rem 1.25rem 1.5rem;"
           ssPhone="margin-top: 3.5rem;"
         >
-          Check out my latest experiments are focused on DX and UX:
+          My recent experiments focus on developer experience:
           {/* Most recently I've been working on tooling for software developers: */}
         </Block>
         <LatestProjectsCarousel />

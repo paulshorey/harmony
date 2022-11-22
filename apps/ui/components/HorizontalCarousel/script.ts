@@ -188,11 +188,9 @@ export default class HorizontalCarousel {
       /*
        * scrolled all the way left
        */
-      prev.style.opacity = 0;
-      prev.style.visibility = 'hidden';
+      prev.classList.add('__hidden');
     } else {
-      prev.style.opacity = 1;
-      prev.style.visibility = 'visible';
+      prev.classList.remove('__hidden');
     }
     if (
       slides.scrollLeft + slides.clientWidth >=
@@ -201,11 +199,9 @@ export default class HorizontalCarousel {
       /*
        * scrolled all the way right (allow last child to be half cut-off)
        */
-      next.style.opacity = 0;
-      next.style.visibility = 'hidden';
+      next.classList.add('__hidden');
     } else {
-      next.style.opacity = 1;
-      next.style.visibility = 'visible';
+      next.classList.remove('__hidden');
     }
   };
 }

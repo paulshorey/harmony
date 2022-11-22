@@ -1,5 +1,5 @@
 import Dropdown from '@ps/ui/components/Dropdown';
-import ColorSchemeToggle from './ColorSchemeToggle';
+// import ColorSchemeToggle from './ColorSchemeToggle';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Button from '@ps/ui/components/Button';
@@ -64,9 +64,9 @@ const LayoutNav = () => {
               // ss="svg { transform: rotate(-24deg) translate(0.09rem,-0.09rem) scale(0.9); }"
             >
               <span>say hello </span>
-              <FA icon={regular('envelope')} />
+              <FA icon={regular('message')} />
             </Button>
-            <ColorSchemeToggle />
+            {/* <ColorSchemeToggle /> */}
           </ToggleMenu>
         }
       >

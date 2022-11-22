@@ -47,6 +47,9 @@ export default {
       justify-content: center;
       text-decoration: none;
       cursor: pointer;
+      &.__hidden {
+        opacity: 0;
+      }
     }
     .__arrows .__prev {
       left: 0;

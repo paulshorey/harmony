@@ -28,17 +28,28 @@
 [data-textcolor='rainbow'] {
   --color-fg: #fff;
   --color-fg-gradient: linear-gradient(
-    145deg,
-    rgb(285, 139, 101),
-    rgb(245, 139, 101),
-    rgba(255, 154, 0, 1),
-    rgb(245, 208, 23),
-    rgb(255, 236, 95),
-    rgb(205, 235, 55),
-    rgb(121, 210, 191),
-    rgb(146, 147, 255)
+    75deg,
+    hsl(5, 95%, 65%),
+    hsl(50, 90%, 60%),
+    hsl(205, 95%, 65%)
   );
 }
+/* hsl(16, 88%, 68%),
+hsl(36, 100%, 50%),
+hsl(53, 100%, 69%),
+hsl(70, 82%, 57%),
+hsl(197, 50%, 65%) */
+/* --color-fg-gradient: linear-gradient(
+  75deg,
+  rgb(285, 139, 101),
+  rgb(245, 139, 101),
+  rgba(255, 154, 0, 1),
+  rgb(245, 208, 23),
+  rgb(255, 236, 95),
+  rgb(205, 235, 55),
+  rgb(121, 210, 191),
+  rgb(146, 147, 255)
+); */
 
 /*
  * Use the colors defined in this file.
