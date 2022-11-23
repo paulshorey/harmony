@@ -42,7 +42,8 @@ function Home() {
           ss="margin: 5rem 1.25rem 1.5rem;"
           ssPhone="margin-top: 3.5rem;"
         >
-          My recent experiments focus on developer experience:
+          My recent experiments have been focused on developer experience and
+          best practices.
           {/* Most recently I've been working on tooling for software developers: */}
         </Block>
         <LatestProjectsCarousel />

@@ -39,7 +39,7 @@ const slides = [
     subtitle: (
       <Fragment>
         Component library and styling system{' '}
-        <span className="noWrap">for micro front ends</span>
+        <span className="noWrap">for mono-repo front ends</span>
       </Fragment>
     ),
     href: 'https://ui.paulshorey.com',

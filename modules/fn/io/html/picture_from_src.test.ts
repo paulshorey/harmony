@@ -11,16 +11,16 @@ describe("picture_from_src", () => {
     ).toStrictEqual({
       height: 800,
       height_sm: 533,
-      src: "https://res.cloudinary.com/paulshorey/image/upload/ps/photos/me/ycheck.jpg",
-      src_preview: "",
-      src_preview_sm: "",
-      src_sm: "https://res.cloudinary.com/paulshorey/image/upload/ps/photos/me/_thumb-ycheck.jpg",
-      src_webp: "",
-      src_webp_sm: "",
-      type: "",
-      type_sm: "",
+      src: "https://res.cloudinary.com/paulshorey/image/upload/w_1600,h_1600,c_pad/ps/photos/me/ycheck.jpg",
+      src_preview: "https://res.cloudinary.com/paulshorey/image/upload/w_19,h_19,c_pad/ps/photos/me/ycheck.jpg",
+      src_preview_sm: "https://res.cloudinary.com/paulshorey/image/upload/w_19,h_19,c_pad/ps/photos/me/ycheck.jpg",
+      src_sm: "https://res.cloudinary.com/paulshorey/image/upload/w_1066,h_1066,c_pad/ps/photos/me/ycheck.jpg",
+      src_webp: "https://res.cloudinary.com/paulshorey/image/upload/w_1600,h_1600,c_pad/ps/photos/me/ycheck.webp",
+      src_webp_sm: "https://res.cloudinary.com/paulshorey/image/upload/w_1066,h_1066,c_pad/ps/photos/me/ycheck.webp",
+      type: "image/jpeg",
+      type_sm: "image/jpeg",
       width: 800,
-      width_sm: 400
+      width_sm: 533
     });
   });
   it("Cloudinary - width and height (801 mobile resize == 267 render size * 3 pixel density)", () => {
@@ -39,8 +39,8 @@ describe("picture_from_src", () => {
       src_sm: "https://res.cloudinary.com/paulshorey/image/upload/w_801,h_801,c_pad/ps/photos/me/ycheck.jpg",
       src_webp: "https://res.cloudinary.com/paulshorey/image/upload/w_800,h_800,c_pad/ps/photos/me/ycheck.webp",
       src_webp_sm: "https://res.cloudinary.com/paulshorey/image/upload/w_801,h_801,c_pad/ps/photos/me/ycheck.webp",
-      type: "image/png",
-      type_sm: "image/png",
+      type: "image/jpeg",
+      type_sm: "image/jpeg",
       width: 400,
       width_sm: 267
     });
@@ -66,8 +66,8 @@ describe("picture_from_src", () => {
       src_webp: "https://res.cloudinary.com/paulshorey/image/upload/w_800,h_1000,c_pad/ps/photos/me/ycheck.webp",
       src_webp_sm:
         "https://res.cloudinary.com/paulshorey/image/upload/w_750,h_750,c_pad/ps/photos/me/ycheck-small.webp",
-      type: "image/png",
-      type_sm: "image/png",
+      type: "image/jpeg",
+      type_sm: "image/jpeg",
       width: 400,
       width_sm: 250
     });
@@ -89,8 +89,8 @@ describe("picture_from_src", () => {
       src_sm: "https://res.cloudinary.com/paulshorey/image/upload/w_1000/ps/photos/me/ycheck-small.jpg",
       src_webp: "https://res.cloudinary.com/paulshorey/image/upload/w_2400/ps/photos/me/ycheck.webp",
       src_webp_sm: "https://res.cloudinary.com/paulshorey/image/upload/w_1000/ps/photos/me/ycheck-small.webp",
-      type: "image/png",
-      type_sm: "image/png",
+      type: "image/jpeg",
+      type_sm: "image/jpeg",
       width: 1200,
       width_sm: 500
     });
@@ -107,13 +107,13 @@ describe("picture_from_src", () => {
       height: 1200,
       height_sm: 1200,
       src: "https://res.cloudinary.com/paulshorey/image/upload/h_2400/ps/photos/me/ycheck.jpg",
-      src_preview: "https://res.cloudinary.com/paulshorey/image/upload/h_NaN/ps/photos/me/ycheck.jpg",
+      src_preview: "https://res.cloudinary.com/paulshorey/image/upload/h_19/ps/photos/me/ycheck.jpg",
       src_preview_sm: "",
       src_sm: "https://res.cloudinary.com/paulshorey/image/upload/h_1000/ps/photos/me/ycheck-small.jpg",
       src_webp: "https://res.cloudinary.com/paulshorey/image/upload/h_2400/ps/photos/me/ycheck.webp",
       src_webp_sm: "https://res.cloudinary.com/paulshorey/image/upload/h_1000/ps/photos/me/ycheck-small.webp",
-      type: "image/png",
-      type_sm: "image/png",
+      type: "image/jpeg",
+      type_sm: "image/jpeg",
       width: undefined,
       width_sm: undefined
     });

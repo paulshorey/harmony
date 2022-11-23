@@ -71,7 +71,10 @@ const LayoutNav = () => {
         }
       >
         <span>
-          <FA icon={solid('bars')} style={{ fontSize: '1.6rem' }} />
+          <FA
+            icon={solid('bars')}
+            style={{ fontSize: '1.6rem', marginTop: '-0.067rem' }}
+          />
           {/* <FA
             icon={regular('angle-down')}
             style={{ verticalAlign: '0.025rem', marginLeft: '0.33rem' }}

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@harmony/fn</title><meta name="description" content="Documentation for @harmony/fn"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script><style>
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@ps/fn</title><meta name="description" content="Documentation for @ps/fn"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script><style>
         body {
           font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
         }
@@ -252,12 +252,12 @@
 <div id="tsd-toolbar-links"></div></div>
 <ul class="results">
 <li class="state loading">Preparing search index...</li>
-<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@harmony/fn</a></div>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@ps/fn</a></div>
 <div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
 <div class="container container-main">
 <div class="col-8 col-content">
 <div class="tsd-page-title">
-<h2>@harmony/fn</h2></div>
+<h2>@ps/fn</h2></div>
 <div class="tsd-panel tsd-typography"><p>See the code: <a href="https://github.com/paulshorey/harmony/modules/fn">https://github.com/paulshorey/harmony/modules/fn</a>. Clone the whole monorepo.</p>
 
 <a href="#a-system-for-organizing-utility-functions---for-use-by-multiple-apps" id="a-system-for-organizing-utility-functions---for-use-by-multiple-apps" style="color: inherit; text-decoration: none;">
@@ -277,7 +277,8 @@
 <li><code>/server</code> - relies on server-side dependencies and variables like <code>process</code>, <code>env</code>, <code>fs</code></li>
 </ul>
 <blockquote>
-<p>This is currently a work in progress. May have bugs and edge cases.<br><code>/io</code> is universal, most mature, has unit tests. <code>/browser</code> is stable, but not finished. <code>/requests</code> is experimental. <code>/server</code> only has one function, but more bash/shell utilities will be added soon.</p>
+<p>This is currently a work in progress. May have bugs and edge cases.<br><code>/io</code> is universal, most mature, has 100% unit test coverage.
+<code>/browser</code> is stable but needs testing. <code>/requests</code> is experimental. <code>/server</code> only has one function but more bash/shell utilities will be added soon.</p>
 </blockquote>
 
 <a href="#how-to-use" id="how-to-use" style="color: inherit; text-decoration: none;">
@@ -286,6 +287,65 @@
 <p>Everything is tree-shakeable. Import only the function you need, not the entire collection.</p>
 <pre><code class="language-js"><span class="hl-0">import</span><span class="hl-1"> </span><span class="hl-2">is_ios</span><span class="hl-1"> </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;@ps/fn/browser/device/is_ios&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-4">is_ios</span><span class="hl-1">(); </span><span class="hl-5">// true if client is iPhone, iPod, iPad, or emulator</span>
 </code></pre>
+<br />
+
+
+<a href="#development" id="development" style="color: inherit; text-decoration: none;">
+  <h2>Development:</h2>
+</a>
+<p>This package is part of a monorepo. It relies on a couple sibling packages <code>@ps/constants</code> and <code>@ps/cconsole</code>.</p>
+<ol>
+<li>Clone the entire monorepo: <code>git clone git@github.com:paulshorey/harmony.git mono</code></li>
+</ol>
+
+<a href="#enter-the-root-directory-cd-mono" id="enter-the-root-directory-cd-mono" style="color: inherit; text-decoration: none;">
+  <h3>Enter the ROOT directory <code>cd ./mono</code>:</h3>
+</a>
+<ol start="2">
+<li>Install from the root monorepo directory. Yarn works better than npm: <code>yarn install</code></li>
+</ol>
+
+<a href="#to-edit-the-utility-functions-cd-modulesfn-to-enter-this-project" id="to-edit-the-utility-functions-cd-modulesfn-to-enter-this-project" style="color: inherit; text-decoration: none;">
+  <h3>To edit the utility functions, <code>cd ./modules/fn</code> to enter this project:</h3>
+</a>
+<ol start="3">
+<li><p>Develop: <code>yarn run dev</code></p>
+</li>
+<li><p>Run the tests in watch mode: <code>yarn run test:watch</code></p>
+</li>
+<li><p>Run the tests: <code>yarn run test</code></p>
+</li>
+<li><p>Build. Compile Typescript to ES6: <code>yarn run build</code></p>
+</li>
+</ol>
+
+<a href="#to-update-documentation-also-stay-in-the-project-directory" id="to-update-documentation-also-stay-in-the-project-directory" style="color: inherit; text-decoration: none;">
+  <h3>To update documentation, also stay in the project directory:</h3>
+</a>
+<ol start="7">
+<li><p>Build documentation to <code>_docs</code> folder: <code>yarn run docs:build</code></p>
+</li>
+<li><p>Open the documentation in a browser: <code>yarn run docs:serve</code></p>
+</li>
+</ol>
+<br />
+
+
+<a href="#maintenance" id="maintenance" style="color: inherit; text-decoration: none;">
+  <h2>Maintenance:</h2>
+</a>
+
+<a href="#install-new-npm-dependencies-in-the-project-directory-cd-modulesfn" id="install-new-npm-dependencies-in-the-project-directory-cd-modulesfn" style="color: inherit; text-decoration: none;">
+  <h3>Install new NPM dependencies in the project directory (<code>cd ./modules/fn</code>)</h3>
+</a>
+<p>Use the <code>-W</code> flag to install the new project dependency into the current project.</p>
+<pre><code><span class="hl-2">yarn</span><span class="hl-1"> </span><span class="hl-2">add</span><span class="hl-1"> -</span><span class="hl-6">W</span><span class="hl-1"> &lt;</span><span class="hl-0">package</span><span class="hl-1">&gt;</span>
+</code></pre>
+<p>Use the <code>-D</code> flag to install the NPM module as a dev dependency.</p>
+<pre><code><span class="hl-2">yarn</span><span class="hl-1"> </span><span class="hl-2">add</span><span class="hl-1"> -</span><span class="hl-6">W</span><span class="hl-1"> -</span><span class="hl-6">D</span><span class="hl-1"> &lt;</span><span class="hl-0">package</span><span class="hl-1">&gt;</span>
+</code></pre>
+<br />
+
 
 <a href="#notes" id="notes" style="color: inherit; text-decoration: none;">
   <h2>Notes</h2>
@@ -306,7 +366,6 @@
 <li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/browser.device.html">device</a></li>
 <li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/browser.request.html">request</a></li>
 <li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/browser.state.html">state</a></li>
-<li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/browser.style.html">style</a></li>
 <li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/browser.url.html">url</a></li></ul></li>
 <li class="tsd-kind-module"><span class="module-dot"></span><a href="modules/io.html">io</a>
 <ul>
@@ -325,21 +384,7 @@
 <li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/io.sort_strings.html">sort_<wbr/>strings</a></li>
 <li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/io.str.html">str</a></li>
 <li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/io.strings.html">strings</a></li>
-<li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/io.word.html">word</a></li></ul></li>
-<li class="tsd-kind-module"><span class="module-dot"></span><a href="modules/requests.html">requests</a>
-<ul>
-<li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/requests.airtable.html">airtable</a></li>
-<li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/requests.contentful.html">contentful</a></li>
-<li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/requests.fetcher.html">fetcher</a></li>
-<li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/requests.notion.html">notion</a>
-<ul>
-<li class="tsd-kind-namespace tsd-parent-kind-namespace"><a href="modules/requests.notion.twentyone.html">twentyone</a></li>
-<li class="tsd-kind-namespace tsd-parent-kind-namespace"><a href="modules/requests.notion.twentytwo.html">twentytwo</a></li></ul></li>
-<li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/requests.site_info.html">site_<wbr/>info</a>
-<ul>
-<li class="tsd-kind-namespace tsd-parent-kind-namespace"><a href="modules/requests.site_info.linkpreview.html">linkpreview</a></li>
-<li class="tsd-kind-namespace tsd-parent-kind-namespace"><a href="modules/requests.site_info.microlink.html">microlink</a></li></ul></li></ul></li>
-<li class="tsd-kind-module"><span class="module-dot"></span><a href="modules/server.html">server</a></li></ul></div></nav>
+<li class="tsd-kind-namespace tsd-parent-kind-module"><a href="modules/io.word.html">word</a></li></ul></li></ul></div></nav>
 <div class="tsd-navigation settings">
 <div class="tsd-theme-toggle">
 <h4 class="uppercase">Theme</h4><select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></div></div>

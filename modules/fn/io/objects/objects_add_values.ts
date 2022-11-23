@@ -14,12 +14,12 @@ export default function objects_add_values(
   key?: string
 ): any {
   // The order of each if statement is important.
-  if (!val1 && val2) return val2;
-  if (val1 && !val2) return val1;
-  if (val1 === val2) return val1;
+  if (val1 === undefined && val2 !== undefined) return val2;
+  if (val1 !== undefined && val2 === undefined) return val1;
   if (typeof val1 !== typeof val2) {
     return val2;
   }
+  if (val1 === val2 || typeof val2 === "boolean") return val2;
   if (typeof val1 === "number" || typeof val1 === "string" || typeof val2 === "string") {
     if (addKeys && key) {
       for (let addKey of addKeys) {
@@ -29,12 +29,6 @@ export default function objects_add_values(
       }
     }
     return val2;
-  }
-  if (typeof val1 !== typeof val2) {
-    return val2 || val1;
-  }
-  if (typeof val1 === "boolean") {
-    return val2 || val1;
   }
   if (Array.isArray(val1)) {
     return val1.concat(val2);

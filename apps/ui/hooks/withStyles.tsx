@@ -7,7 +7,6 @@ import style_string_from_variants from '@ps/ui/helpers/style_string_from_variant
 
 export default (Component: any, componentName: string, variants: any) =>
   forwardRef(({ ...props }: styleProps, ref: any) => {
-    console.warn('withStyles', componentName, props);
     /*
      * TODO: Refactor. This logic is run every time the component or its children receives different props.
      * Maybe it's ok. But needs more testing. To fix:
