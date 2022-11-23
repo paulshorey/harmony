@@ -1,29 +1,19 @@
-/*
-Most challenging thing about Node JS right now is 
-loading full ESM support like in Webpack including baseUrl paths and smart extension + Typescript + Tests
-Read discussion: https://github.com/TypeStrong/ts-node/discussions/1450#discussioncomment-1749469
- */
-/* Visit https://aka.ms/tsconfig to read more about this file */
 {
   "ts-node": {
-    // Do not forget to `npm i -D tsconfig-paths`
     "require": ["tsconfig-paths/register"]
   },
   "exclude": ["node_modules"],
   "include": ["./api/*", "./api/**/*", "common/global.ts", "common/global.ts"],
   "compilerOptions": {
-    // paths do not work with ESM+Typescript Instead, refer to root by the name of this package @ps/nlp/
     "baseUrl": ".",
     "paths": {
       "@ps/nlp/*": ["./*"]
     },
     "rootDirs": ["./api", "./cli", "./common"],
     /*
-     * Common compiler options for shared packages in this monorepo
+     * Overrides for this project only:
      */
-    "allowJs": true,
-    "checkJs": true,
-    "outDir": "./dist",
+    "outdir": "dist",
     "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "node",
@@ -31,6 +21,8 @@ Read discussion: https://github.com/TypeStrong/ts-node/discussions/1450#discussi
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": false,
+    "checkJs": true,
+    "allowJs": true,
     "strict": false
   }
 }

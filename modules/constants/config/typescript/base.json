@@ -2,6 +2,9 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
+    "module": "ESNext",
+    "target": "ESNext",
+    "downlevelIteration": true,
     "composite": false,
     "declaration": false,
     "declarationMap": false,
@@ -17,8 +20,6 @@
     "strict": false,
     "sourceMap": false,
     "strictNullChecks": true,
-    "checkJs": true,
-    "allowJs": true,
     "jsx": "preserve",
     "types": ["node"]
   }

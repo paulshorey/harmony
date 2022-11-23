@@ -17,7 +17,7 @@
   "scripts": {
     "node:dev": "bash _bash/_start_tsc_dev.sh && echo 'develop using Typescript (watch)'",
     "archived-umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && rm -rf umd && parcel build esm/*.js -d umd --public-url .",
-    "build": "tsc --downlevelIteration",
+    "build": "tsc",
     "dev": "tsc --watch",
     "mocha": "ts-mocha test/**/*.spec.ts -w --watch-files '**/*.ts'",
     "jest": "jest"

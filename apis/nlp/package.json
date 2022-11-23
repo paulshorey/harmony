@@ -6,13 +6,10 @@
   "private": true,
   "scripts": {
     "watch": "tsc --watch",
-    "tsc_dev": "bash _bash/_start_tsc_dev.sh && echo 'develop using Typescript (watch)'",
-    "tsc": "bash _bash/_start_tsc.sh && echo 'develop using Typescript (run node once)'",
-    "dev": "bash _bash/_start_dev.sh && echo 'this starts the server, and restarts on code change'",
+    "tsc": "bash _bash/_start_tsc.sh && echo 'starting Typescript server'",
+    "dev": "bash _bash/_start_tsc_dev.sh && echo 'developing using Typescript'",
     "mac": "bash _bash/_start_mac.sh && echo 'this is for development on APPLE MAC OS ONLY'",
-    "pro": "bash _bash/_start_pro.sh && echo 'this is a quick start, for staging production'",
-    "deploy": "bash _bash/_deploy.sh && echo 'this is the startup process, for production'",
-    "docs": "jsdoc2md pauls-pure-functions/functions/**.js > pauls-pure-functions/README.md"
+    "deploy": "bash _bash/_deploy.sh && echo 'this is the startup process in production'"
   },
   "dependencies": {
     "@airbrake/node": "^1.0.7",

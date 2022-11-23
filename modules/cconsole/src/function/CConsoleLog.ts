@@ -26,7 +26,7 @@ export default function (this: any) {
    */
   let trace = "";
   if (useTrace) {
-    let stack = [];
+    let stack: string[] = [];
     let err = new Error();
     if (err.stack) {
       stack = err.stack.split("\n");
