@@ -12,9 +12,13 @@
     "docs:serve": "http-server _docs",
     "build:umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && parcel build esm/*.js --dist-dir umd --public-url . --target default"
   },
+  "type": "module",
   "main": "./umd/index.js",
   "exports": {
-    "./*": "./esm/*"
+    ".": "./esm",
+    "./*": "./esm/*",
+    "./src": "./src",
+    "./src/*": "./src/*"
   },
   "targets": {
     "default": {

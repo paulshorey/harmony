@@ -36,6 +36,9 @@
   "type": "module",
   "main": "./umd/index.js",
   "exports": {
-    "./*": "./umd/*"
+    ".": "./esm",
+    "./*": "./esm/*",
+    "./src": "./src",
+    "./src/*": "./src/*"
   }
 }
