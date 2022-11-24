@@ -1,7 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
+  "exclude": ["**/node_modules"],
   "compilerOptions": {
+    "outDir": "./esm",
     "module": "ESNext",
     "target": "ESNext",
     "downlevelIteration": true,
@@ -21,6 +23,6 @@
     "sourceMap": false,
     "strictNullChecks": true,
     "jsx": "preserve",
-    "types": ["node"]
+    "types": ["node","jest"]
   }
 }

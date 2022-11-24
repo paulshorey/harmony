@@ -116,7 +116,7 @@ const cloudConsoleError = function () {
 //
 // log to console
 //
-import { cconsoleInit } from "cconsole";
+import { cconsoleInit } from "@ps/cconsole";
 // debug
 global["cconsole"] = cconsoleInit({
     useTrace: true,

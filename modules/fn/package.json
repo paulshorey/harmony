@@ -1,20 +1,29 @@
 {
   "name": "@ps/fn",
   "version": "0.0.2",
-  "type": "module",
-  "moduleResolution": "node",
   "description": "Universal utility functions for both browser and node (like @lodash, but with more dashes). Mostly \"pure\" functions (sorting ones use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc. See also platform specific functions twodashes-node and twodashes-browser.",
   "private": false,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && yarn run build:umd",
     "dev": "yarn run test:dev",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
     "test:dev": "NODE_OPTIONS=--experimental-vm-modules npx jest --watch",
     "docs:build": "typedoc --out _docs ./io ./browser --theme stacks && http-server _docs",
     "docs:serve": "http-server _docs",
-    "archived-not-working-build": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && rm -rf umd && parcel build esm/*.js -d umd --public-url ."
+    "build:umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && parcel build esm/*.js --dist-dir umd --public-url . --target default"
   },
-  "main": "./index.ts",
+  "main": "./umd/index.js",
+  "exports": {
+    "./*": "./esm/*"
+  },
+  "targets": {
+    "default": {
+      "includeNodeModules": true,
+      "engines": {
+        "browsers": "> 0.75%"
+      }
+    }
+  },
   "typedoc": {
     "entryPoint": "./index.ts",
     "readmeFile": "./README.md",
@@ -24,13 +33,6 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm version patch --no-git-tag-version && npm run test && git add ."
-    }
-  },
-  "targets": {
-    "app": {
-      "engines": {
-        "browsers": "> 0.75%"
-      }
     }
   },
   "repository": {
@@ -53,7 +55,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@janniks/typedoc-theme-stacks": "^1.2.3",
     "@ps/cconsole": "*",
-    "@types/jest": "^29.0.3",
+    "@types/jest": "^29.2.3",
     "airtable": "^0.11.5",
     "ava": "^4.3.3",
     "eslint": "^8.23.1",

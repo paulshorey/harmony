@@ -5,7 +5,7 @@
  * @params strs {array} - array of strings
  * @returns {array} - new array (immutable), of shuffled strs
  */
-export default function strings_shuffle_first2(input_strs = []): Array<string> {
+export default function strings_shuffle_first2(input_strs: string[] = []): Array<string> {
   let memory_strs = [];
   let unique_strs = [];
 

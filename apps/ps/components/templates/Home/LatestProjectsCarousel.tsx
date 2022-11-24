@@ -89,7 +89,7 @@ const slides = [
     subtitle: (
       <Fragment>
         Thesaurus API with sentiment analysis{' '}
-        <span className="noWrap">for natural language processing</span>
+        <span className="noWrap">for natural language processing</span>
       </Fragment>
     ),
     href: 'https://wordio.co',

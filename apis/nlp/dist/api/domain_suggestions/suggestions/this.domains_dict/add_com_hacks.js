@@ -1,3 +1,4 @@
+export {};
 // let DEBUG1 = false
 //
 // const add_dom = function (words, rating = 0) {

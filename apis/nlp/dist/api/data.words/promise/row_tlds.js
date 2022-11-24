@@ -1,6 +1,6 @@
 import key_tlds from "./key_tlds";
 import categories from "@ps/nlp/data/domains/categories";
-import all_preferences from "@ps/nlp/data/domains/all_preferences";
+import all_preferences from "@ps/nlp/data/domains/all_preferences.js";
 import all from "@ps/nlp/data/domains/all";
 import { sort_strings_by_rating_and_position } from "@ps/fn/io/sort_strings";
 import arr_remove_item from "@ps/fn/io/arr/arr_remove_item";

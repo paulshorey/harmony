@@ -17,3 +17,4 @@ function plusLength(word) {
     }
     return 0;
 }
+export {};

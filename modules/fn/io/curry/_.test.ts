@@ -14,8 +14,8 @@ describe("curry", () => {
   });
 
   it("throttle (supports multiple at the same time)", async () => {
-    let mA = [];
-    let mB = [];
+    let mA: string[] = [];
+    let mB: string[] = [];
     const fA = throttle((str: string) => {
       mA.push(str);
     }, 100);
@@ -34,8 +34,8 @@ describe("curry", () => {
   });
 
   it("debounce (supports multiple at the same time)", async () => {
-    let mA = [];
-    let mB = [];
+    let mA: string[] = [];
+    let mB: string[] = [];
     const fA = debounce((str: string) => {
       mA.push(str);
     }, 100);

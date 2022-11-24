@@ -29,6 +29,10 @@ export type Props = {
    */
   icon?: ReactElement;
   /**
+   * True to show deault loading spinner. Or pass a custom loading spinner component.
+   */
+  loading?: boolean | ReactElement;
+  /**
    * React component to displayed to the right of the text.
    */
   suffix?: ReactElement;

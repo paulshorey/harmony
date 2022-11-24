@@ -11,11 +11,22 @@
     "next.config.cjs",
     "pages/_document.backup"
   ],
-  "exclude": ["node_modules", "dist", "out", ".next", ".backup", "public"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "out",
+    ".next",
+    ".backup",
+    "public"
+  ],
   "plugins": [
     {
       "name": "typescript-styled-plugin",
-      "tags": ["styled", "css", "sty"]
+      "tags": [
+        "styled",
+        "css",
+        "sty"
+      ]
     }
   ],
   "compilerOptions": {
@@ -30,6 +41,7 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "allowJs": true
   }
 }

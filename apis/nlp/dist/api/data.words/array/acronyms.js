@@ -7,3 +7,4 @@ for (let tuple of acronyms_tuple) {
 }
 // convert to list (array)
 module.exports = [...acronyms];
+export {};

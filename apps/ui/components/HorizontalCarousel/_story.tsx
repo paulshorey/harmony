@@ -1,5 +1,4 @@
 import React from 'react';
-import Block from '@ps/ui/HorizontalCarousels/Block';
 import HorizontalCarousel from '.';
 import useShowStorybookCode from '@ps/ui/hooks/useShowStorybookCode';
 import CenterChildrenY from '../CenterChildrenY';

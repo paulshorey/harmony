@@ -55,7 +55,10 @@ export type Props = {
     | string /* keyof predefined regexps in theme */
   >;
 } & styleProps &
-  Omit<InputHTMLAttributes<HTMLElement & HTMLInputElement>, 'size'>;
+  Omit<
+    Omit<InputHTMLAttributes<HTMLElement & HTMLInputElement>, 'size'>,
+    'prefix'
+  >;
 
 /**
  * Input. Pass variant such as "primary", "outlined", "cancel", or "disabled"

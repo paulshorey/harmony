@@ -1,6 +1,6 @@
 {
   "name": "@ps/cconsole",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "No dependencies. No setup required. Easily integrate with Cloud logging (LogDNA, etc). Visually group similar types of logs in the terminal. Show a concise file/line trace for each message - so you can actually find where it's originating without looking through the entire codebase.",
   "private": true,
   "author": "Paul Shorey <paulshorey.com>",
@@ -15,12 +15,10 @@
     "typescript": "^4.8.4"
   },
   "scripts": {
-    "node:dev": "bash _bash/_start_tsc_dev.sh && echo 'develop using Typescript (watch)'",
-    "archived-umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && rm -rf umd && parcel build esm/*.js -d umd --public-url .",
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "mocha": "ts-mocha test/**/*.spec.ts -w --watch-files '**/*.ts'",
-    "jest": "jest"
+    "build": "tsc && yarn run build:umd",
+    "build:umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && parcel build esm/*.js --dist-dir umd --public-url . --target default",
+    "dev": "bash _bash/_start_tsc_dev.sh && echo 'develop using Typescript (watch)'",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -28,20 +26,16 @@
     }
   },
   "targets": {
-    "app": {
+    "default": {
+      "includeNodeModules": true,
       "engines": {
         "browsers": "> 0.75%"
       }
     }
   },
   "type": "module",
+  "main": "./umd/index.js",
   "exports": {
-    ".": "./dist/index.js",
-    "./cconsoleInit": "./dist/cconsoleInit.js",
-    "./cconsole": "./dist/cconsole.js",
-    "./src": "./src/index.js",
-    "./src/cconsoleInit": "./src/cconsoleInit.js",
-    "./src/cconsole": "./src/cconsole.js",
-    "./package.json": "./package.json"
+    "./*": "./umd/*"
   }
 }

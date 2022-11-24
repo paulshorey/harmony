@@ -5,6 +5,7 @@
   "description": "database, API, business logic, and algorithms for wordio.co and besta.domains",
   "private": true,
   "scripts": {
+    "build": "tsc",
     "watch": "tsc --watch",
     "tsc": "bash _bash/_start_tsc.sh && echo 'starting Typescript server'",
     "dev": "bash _bash/_start_tsc_dev.sh && echo 'developing using Typescript'",

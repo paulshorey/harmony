@@ -257,7 +257,7 @@ export const data_word_put = async function (row, REBUILD = false) {
     }
     // required parameters
     if (!row[primaryKey]) {
-        return;
+        return undefined;
     }
     // manually edited
     row.timestamp = Date.now();
@@ -278,7 +278,7 @@ export const data_word_put = async function (row, REBUILD = false) {
         global.cconsole.warn("pg pool failed", e);
         if (EXITONERROR)
             process.exit();
-        return;
+        return undefined;
     }
     // done, fixed row
     return true;
@@ -294,7 +294,7 @@ export const data_word_sentiment_of_synonym = function (key, synonym, sentiment)
         // prep
         let row = await data_word_get_parsed(key, "key,dict");
         if (!row || !row.dict) {
-            return;
+            return undefined;
         }
         /*
          * First, edit synonym's row .sentiment

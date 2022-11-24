@@ -10,10 +10,7 @@
       "@ps/nlp/*": ["./*"]
     },
     "rootDirs": ["./api", "./cli", "./common"],
-    /*
-     * Overrides for this project only:
-     */
-    "outdir": "dist",
+    "outDir": "dist",
     "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "node",

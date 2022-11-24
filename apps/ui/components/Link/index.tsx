@@ -1,7 +1,7 @@
 import React, { memo, AnchorHTMLAttributes, forwardRef } from 'react';
 // import PageContext from 'src/context/Page';
 // import ABTestContext from 'src/context/ABTest';
-import { analytics_track_link } from '@ps/fn/browser/analytics';
+// import { analytics_track_link } from '@ps/fn/browser/analytics';
 import variants from './styles';
 import styleProps from '@ps/ui/types/styles';
 import { useTheme } from '@emotion/react';
@@ -67,7 +67,7 @@ export const Component = (
       // experimentVariant: contextABTest.variant,
     };
     // track event
-    analytics_track_link(options);
+    // analytics_track_link(options);
   };
 
   // use router component?

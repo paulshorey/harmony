@@ -1,9 +1,9 @@
 {
   "extends": "@ps/constants/config/typescript/base.json",
-  "include": ["**/*.(ts|tsx|js|jsx|json|mdx)"],
-  "exclude": ["**/node_modules"],
-  "files": ["./browser/index.ts", "./io/index.ts", "./server/index.ts", "./requests/index.ts"],
+  "include": ["**/*"],
   "compilerOptions": {
+    "outDir": "./esm",
+    "module": "es6",
     "target": "es6",
     "baseUrl": ".",
     "paths": {}

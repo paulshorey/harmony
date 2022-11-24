@@ -1832,3 +1832,4 @@ module.exports = [
     ["AaaS", "Analytics as a Service"],
     ["IoT", "Internet of Things"],
 ];
+export {};
