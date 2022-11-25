@@ -1,4 +1,4 @@
-import CConsoleLog from "./function/CConsoleLog";
+import cConsoleLog from "./CConsoleLog";
 /**
  * Log to console, and optionally to your custom cloud functions
  *    In console, will color code each message:
@@ -32,15 +32,15 @@ const cconsoleInit = function (options = {}) {
             options.disabled = false;
         },
         // custom (colorful) loggers
-        log: CConsoleLog.bind({ action: "log", options, sharedContext }),
-        info: CConsoleLog.bind({ action: "info", options, sharedContext }),
-        debug: CConsoleLog.bind({ action: "debug", options, sharedContext }),
-        warn: CConsoleLog.bind({ action: "warn", options, sharedContext }),
-        error_message: CConsoleLog.bind({ action: "error_message", options, sharedContext }),
-        error: CConsoleLog.bind({ action: "error", options, sharedContext }),
-        trace: CConsoleLog.bind({ action: "trace", options, sharedContext }),
-        success: CConsoleLog.bind({ action: "success", options, sharedContext }),
-        subtle: CConsoleLog.bind({ action: "subtle", options, sharedContext }),
+        log: cConsoleLog.bind({ action: "log", options, sharedContext }),
+        info: cConsoleLog.bind({ action: "info", options, sharedContext }),
+        debug: cConsoleLog.bind({ action: "debug", options, sharedContext }),
+        warn: cConsoleLog.bind({ action: "warn", options, sharedContext }),
+        error_message: cConsoleLog.bind({ action: "error_message", options, sharedContext }),
+        error: cConsoleLog.bind({ action: "error", options, sharedContext }),
+        trace: cConsoleLog.bind({ action: "trace", options, sharedContext }),
+        success: cConsoleLog.bind({ action: "success", options, sharedContext }),
+        subtle: cConsoleLog.bind({ action: "subtle", options, sharedContext }),
         // pass-through system debugging loggers
         clear: console.clear,
         time: console.time,

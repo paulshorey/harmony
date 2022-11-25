@@ -23,6 +23,6 @@
     "sourceMap": false,
     "strictNullChecks": true,
     "jsx": "preserve",
-    "types": ["node","jest"]
+    "types": ["node"]
   }
 }

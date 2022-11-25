@@ -27,10 +27,9 @@
   },
   "targets": {
     "default": {
-      "includeNodeModules": true,
-      "engines": {
-        "browsers": "> 0.75%"
-      }
+      "distDir": "umd",
+      "isLibrary": true,
+      "includeNodeModules": true
     }
   },
   "type": "module",
