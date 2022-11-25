@@ -3,7 +3,6 @@
   "display": "Default",
   "exclude": ["**/node_modules"],
   "compilerOptions": {
-    "outDir": "./esm",
     "module": "ESNext",
     "target": "ESNext",
     "downlevelIteration": true,

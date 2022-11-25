@@ -2,7 +2,6 @@
   "extends": "@ps/constants/config/typescript/base.json",
   "include": ["src/**/*"],
   "compilerOptions": {
-    "outDir": "esm",
     "baseUrl": ".",
     "paths": {}
   }

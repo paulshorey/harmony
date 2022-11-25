@@ -8,3 +8,5 @@ thesaurus_data
 .env.local
 log/*
 tmp/*
+esm
+dist

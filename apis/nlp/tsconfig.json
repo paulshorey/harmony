@@ -1,25 +1,28 @@
 {
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  },
-  "exclude": ["node_modules"],
-  "include": ["./api/*", "./api/**/*", "common/global.ts", "common/global.ts"],
+  "exclude": ["node_modules", "dist", "umd", "out", ".next", ".backup", "public", "storybook-static"],
   "compilerOptions": {
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "esModuleInterop": true, // Eases ESM support
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+
+    "strictNullChecks": false,
+    "isolatedModules": false,
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
       "@ps/nlp/*": ["./*"]
     },
     "rootDirs": ["./api", "./cli", "./common"],
-    "outDir": "dist",
-    "module": "ESNext",
-    "target": "ESNext",
-    "moduleResolution": "node",
-    "moduleDetection": "force",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": false,
-    "checkJs": true,
-    "allowJs": true,
-    "strict": false
-  }
+    "outDir": "./esm"
+  },
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
+  "include": ["./api/*", "./api/**/*", "common/global.ts", "common/global.ts"]
 }
