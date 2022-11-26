@@ -1,13 +1,12 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
-  "exclude": ["**/node_modules"],
   "compilerOptions": {
     "module": "ESNext",
     "target": "ESNext",
     "downlevelIteration": true,
-    "composite": false,
-    "declaration": false,
+    "composite": true,
+    "declaration": true,
     "declarationMap": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

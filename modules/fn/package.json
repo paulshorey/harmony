@@ -1,25 +1,18 @@
 {
   "name": "@ps/fn",
   "version": "0.0.2",
-  "description": "Universal utility functions for both browser and node (like @lodash, but with more dashes). Mostly \"pure\" functions (sorting ones use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc. See also platform specific functions twodashes-node and twodashes-browser.",
+  "description": "Universal utility functions for both browser and node (like @lodash, but with more dashes). Mostly \"pure\" functions (sorting ones use [].sort()). Promises, filtering, sorting, combining, text analysis, math, curry, sleep, etc. See also platform specific functions twodashes-node and twodashes-browser. -- PLEASE NOTE -- This is meant to be imported from other Typescript ES6 modules in monorepo. It's not currently built/compiled/exported to be imported by CommonJS/ES5 modules.",
   "private": false,
   "scripts": {
-    "build": "tsc && yarn run build:umd",
     "dev": "yarn run test:dev",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
     "test:dev": "NODE_OPTIONS=--experimental-vm-modules npx jest --watch",
-    "docs:build": "typedoc --out _docs ./io ./browser --theme stacks && http-server _docs",
+    "docs:build": "typedoc --out _docs ./io ./browser ./requests ./server --theme stacks && http-server _docs",
     "docs:serve": "http-server _docs",
-    "build:umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && parcel build esm/*.js --dist-dir umd --public-url . --target default"
+    "build": "tsc",
+    "build:umd": "rm -rf .parcel-cache && rm -rf umd && mkdir umd && parcel build esm/*.js --dist-dir umd --target default"
   },
   "type": "module",
-  "main": "./umd/index.js",
-  "exports": {
-    ".": "./esm",
-    "./*": "./esm/*",
-    "./src": "./src",
-    "./src/*": "./src/*"
-  },
   "targets": {
     "default": {
       "includeNodeModules": true,

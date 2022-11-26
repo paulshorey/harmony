@@ -1,5 +1,19 @@
 {
-  "exclude": ["node_modules", "dist", "umd", "out", ".next", ".backup", "public", "storybook-static"],
+  "include": ["api/**/*"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "umd",
+    "esm",
+    "out",
+    "test",
+    ".next",
+    ".backup",
+    "public",
+    "storybook-static",
+    "**/*.test.ts",
+    "**/*.test.js"
+  ],
   "compilerOptions": {
     "lib": ["ESNext"],
     "target": "ESNext",
@@ -23,6 +37,5 @@
   },
   "ts-node": {
     "require": ["tsconfig-paths/register"]
-  },
-  "include": ["./api/*", "./api/**/*", "common/global.ts", "common/global.ts"]
+  }
 }

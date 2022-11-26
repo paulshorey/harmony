@@ -12,5 +12,5 @@ echo "$(date) ...... BEFORE CACHE ......" >> $rootdir/log/ECHO
 bash $rootdir/_bash/3_cache.sh &&
 
 echo "$(date) ...... BEFORE START PRODUCTION ......" >> $rootdir/log/ECHO
-bash $rootdir/_bash/_start_tsc.sh
+bash $rootdir/_bash/_start_production.sh
 

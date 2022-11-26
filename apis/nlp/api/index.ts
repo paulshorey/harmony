@@ -1,6 +1,6 @@
 import * as child_process from "child_process"
 import "dotenv/config"
-import "../common/global"
+import "./global"
 import * as fs from "fs"
 import * as http from "http"
 import * as https from "https"

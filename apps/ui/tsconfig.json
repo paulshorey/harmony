@@ -2,16 +2,20 @@
   // base config - common to all apps and modules in the repository:
   "extends": "@ps/constants/config/typescript/react-library.json",
   // specific overrides - for this project only:
+  "include": ["**/*"],
   "exclude": [
     "node_modules",
     "dist",
     "umd",
     "esm",
     "out",
+    "test",
     ".next",
     ".backup",
     "public",
-    "storybook-static"
+    "storybook-static",
+    "**/*.test.ts",
+    "**/*.test.js"
   ],
   "compilerOptions": {
     "strict": false,
@@ -24,6 +28,5 @@
     "noImplicitAny": false,
     "jsx": "preserve",
     "allowJs": true
-  },
-  "include": ["**/*"]
+  }
 }

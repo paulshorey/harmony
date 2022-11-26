@@ -32,12 +32,5 @@
       "includeNodeModules": true
     }
   },
-  "type": "module",
-  "main": "./umd/index.js",
-  "exports": {
-    ".": "./esm",
-    "./*": "./esm/*",
-    "./src": "./src",
-    "./src/*": "./src/*"
-  }
+  "type": "module"
 }

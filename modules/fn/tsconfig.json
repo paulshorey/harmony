@@ -1,6 +1,7 @@
 {
   "extends": "@ps/constants/config/typescript/base.json",
-  "include": ["**/*"],
+  "include": ["src/**/*"],
+  "exclude": ["**/*.test.ts", "**/*.test.js"],
   "compilerOptions": {
     "outDir": "./esm",
     "module": "es6",
