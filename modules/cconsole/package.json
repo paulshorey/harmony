@@ -32,5 +32,11 @@
       "includeNodeModules": true
     }
   },
-  "type": "module"
+  "type": "module",
+  "exports": {
+    ".": "./esm",
+    "./*": "./esm/*",
+    "./src": "./src",
+    "./src/*": "./src/*"
+  }
 }
