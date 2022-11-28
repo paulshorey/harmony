@@ -81,7 +81,7 @@ alias yname='git remote get-url origin'
 # GIT 
 #############################################################
 
-## Convert betweeb ssh<->https GIT connections
+## Convert between ssh<->https GIT connections
 alias git-url-ssh='git remote set-url origin "$(git remote get-url origin | sed -E '\''s,^https://([^/]*)/(.*)$,git@\1:\2,'\'')"'
 alias git-url-https='git remote set-url origin "$(git remote get-url origin | sed -E '\''s,^git@([^:]*):/*(.*)$,https://\1/\2,'\'')"'
 alias git-url='git remote get-url origin'
@@ -90,10 +90,9 @@ function git-force-ssh() {
   compare1=$(git remote get-url origin)
   compare2=$(git remote get-url origin | sed -E 's,^https://([^/]*)/(.*)$,git@\1:\2,')
   if [ $compare1 = $compare2 ]; then
-    # echo "Already using ssh"
+    echo "Already using ssh for Git"
   else
-    # echo "Forcing ssh for all git remotes..."
-    echo "Converting to use ssh..."
+    echo "Converting all Git https remotes to ssh..."
     git-url-ssh
   fi
 }
