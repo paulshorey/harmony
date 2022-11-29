@@ -2,7 +2,7 @@ See the code: https://github.com/paulshorey/harmony/modules/fn. Clone the whole 
 
 ## A system for organizing utility functions - for use by multiple apps
 
-> If something is missing, just add it to your mono-repo. Then use it in any app in the future.
+> If something is missing, just add it. Then use it in any app in the future.
 
 ## Categories
 
