@@ -1,1 +1,0 @@
-SELECT * FROM crawl.words WHERE attempts<3 AND (sources_count>1 OR sources_count IS NULL) AND (vrsn IS NULL OR vrsn<1007) ORDER BY vrsn ASC, timestamp ASC LIMIT 500;
