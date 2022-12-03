@@ -6,17 +6,24 @@ Multiple web apps, sites, and modules in one place. No more publishing individua
 
 ## What's inside?
 
-### Apps 📦
-`./apps` NextJS apps, built with TypeScript, styled using Emotion.
-TODO: Add unit and functinoal tests and checks. Otherwise, looking good.
+### Front-end 📦
+`./frontend` Next/React apps, built with TypeScript, styled with Emotion.
+- ps - `./frontend/ps` - [paulshorey.com](https://paulshorey.com) personal website
+- notion - `./frontend/notion` - [techy.tools](https://techy.tools) experimental documentation using notion.so API
+- responsive-dev - `./frontend/responsive-dev` - [responsive.paulshorey.com](https://responsive.paulshorey.com) a dev tool to help with responsive design and development
+- infinite-react-carousel - `./frontend/infinite-react-carousel` - a modified open-source NPM module of the same name - used to make horizontal slideshows in spiral.us
+- others are experimental, temporary
 
-### APIs 📦
-`./apis` NodeJS apps, written in Typescript. Served using `ts-node`.
-TODO: Not finished converting to Typescript (still uses many `any` types).
+### Back-end 📦
+`./backend` Node apps, written in Typescript. Served using `ts-node`.
+- nlp - `./backend/nlp` - API server powers wordio.co and besta.domains - simple narrow AI for sentiment analysis, semantic search, and generating short phrases
+- cli-migrate-wp-contentful - `./backend/cli-migrate-wp-contentful` - CLI tool to migrate content from WordPress to Contentful
 
-### Modules 📦
-`./modules` Imported by Apps or APIs. Most are universal (full-stack).
-TODO: Some are only for front-end. Still thinking how to best organize this.
+### Full-stack 📦
+`./fullstack` Helpers. Imported by other packages.
+- constants - `./fullstack/constants` - constants and data
+- fn - `./fullstack/fn` - utility functions (`./fullstack/fn/io` are universal pure functions like lodash, there's also `browser`, `server`, and `request`)
+- cconsole - `./fullstack/cconsole` - console logging with colors, cloud provider (LogDNA/DataDog) integration, and other useful features
 
 <br />
 
