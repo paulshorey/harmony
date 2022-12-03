@@ -55,7 +55,3 @@ jobs:
           cache: "yarn"
       - run: yarn
       - run: yarn test:ci
-        env:
-          API_BASE: https://staging-api.spiral.us
-          NONPROFIT_API_BASE: https://biz-stage-api.spiral.us
-          CMS_API_BASE: https://cms-staging-api.spiral.us

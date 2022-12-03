@@ -1,43 +1,37 @@
-# Spiral Web Monorepo
+# Web Monorepo
 
-This repo houses Spiral's web apps in one place to easily facilitate code sharing, global code standards, and a consistent developer experience.
+Multiple web apps, sites, and modules in one place. No more publishing individual packages, and figuring out which version numbers are compatible betwee packages/apps. Better code sharing, global code standards, and a consistent developer experience. 
 
-## Notes
-
-- **To install a new NPM package for one of the apps/packages, run `yarn add -W <package-name>` while inside the app/package directory.** _This will install the package in the root `node_modules` folder and symlink it to the app/package that needs it. This is a clever way to avoid duplicate packages in the `node_modules` folder._
+<br />
 
 ## What's inside?
 
-This [turborepo](https://turborepo.org) uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package manager. It includes the following packages/apps:
+### Apps 📦
+`./apps` NextJS apps, built with TypeScript, styled using Emotion.
+TODO: Add unit and functinoal tests and checks. Otherwise, looking good.
 
-### Apps ✨
+### APIs 📦
+`./apis` NodeJS apps, written in Typescript. Served using `ts-node`.
+TODO: Not finished converting to Typescript (still uses many `any` types).
 
-- `consumer`: a [Next.js](https://nextjs.org) consumer banking app [(View)](https://github.com/SpiralFinancial/WebMonorepo/tree/integration/apps/consumer)
-- `nonprofit`: a [Next.js](https://nextjs.org) nonprofit banking app [(View)](https://github.com/SpiralFinancial/WebMonorepo/tree/integration/apps/nonprofit)
-- `cms`: a [Next.js](https://nextjs.org) charity content management app [(View)](https://github.com/SpiralFinancial/WebMonorepo/tree/integration/apps/cms)
+### Modules 📦
+`./modules` Imported by Apps or APIs. Most are universal (full-stack).
+TODO: Some are only for front-end. Still thinking how to best organize this.
 
-### Packages 📦
+<br />
 
-- `ui`: Spiral web's React component library shared by all applications [(View)](https://github.com/SpiralFinancial/WebMonorepo/tree/integration/packages/ui)
-- `config`: `eslint` `prettier` `storybook` `jest` `typescript` configurations shared by all apps/packages [(View)](https://github.com/SpiralFinancial/WebMonorepo/tree/integration/packages/config)
-- `utils`: React hooks, helpers, and utilities shared by all apps/packages [(View)](https://github.com/SpiralFinancial/WebMonorepo/tree/integration/packages/utils)
+## Code quality:
+Still a work in progress for all modules. Here's the plan:
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities 🛠️
-
-This repo has some additional tools already setup for you:
-
-#### Testing
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
+### Testing
+- [TypeScript](https://www.typescriptlang.org/) for static type checking (compiled by Webpack on front-end, and [ts-node](https://typestrong.org/ts-node/docs/) on back-end)
 - [Storybook](https://storybook.com) for UI previews, code snapshot testing, and image snapshot testing
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) for testing React components in Jest
 - [React Hooks Testing Library](https://react-hooks-testing-library.com/) for testing React Hooks in Jest
-- [Apollo Mocked Provider](https://www.apollographql.com/docs/react/development-testing/testing/) for testing data fetching components with mock data
-- [Cypress](https://www.cypress.io/) for end-to-end testing in a headless browser
-- [BrowserStack](https://www.browserstack.com/) for testing in a variety of real browsers 
+- [TS Node Test](https://github.com/meyfa/ts-node-test) allows using the built-in Node test runner for Typescript
+- [Node built-in test runner](https://nodejs.org/dist/latest-v18.x/docs/api/test.html) is very new, runs unit tests with a familiar [assertion testing](https://nodejs.org/dist/latest-v18.x/docs/api/assert.html) syntax similar to Jest/Mocha. Built-in to NodeJS version 18.12, so does not require external packages! Works with [ts-node](https://typestrong.org/ts-node/docs/) which runs Typescript directly in NodeJS. No need to transpile to JS first. Resolves ES Modules more reliably with Typescript.
 
-#### Linting
+### Linting
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
 - [Husky](https://typicode.github.io/husky/#/) for linting/formatting/testing on commit
@@ -48,138 +42,81 @@ This repo has some additional tools already setup for you:
 - [Jenkins](https://www.jenkins.io/) for running automations with Cypress and BrowserStack
 - [Standard Version](https://github.com/conventional-changelog/standard-version) for managing deployment tags and generating a changelog
 
+<br />
 
-## Getting Started 🏃
+## Using local packages
+> after the Initial Setup (below) is done
 
-### Clone the repository
+#### Install new dependencies
 
-```sh
-$ git clone git@github.com:SpiralFinancial/WebMonorepo.git
+- **To install a new NPM package for one of the apps/packages, run `yarn add -W <package-name>` while inside the app/package directory.** _This will install the package in the root `node_modules` folder and symlink it to the app/package that needs it. 
 
-Cloning into 'WebMonorepo'
-Receiving objects, done
-Receiving deltas, done
-```
-
-### Install dependencies
-
-```sh
-$ yarn
-
-info No lockfile found.
-[1/4] 🔍  Resolving packages...
-[2/4] 🚚  Fetching packages...
-[3/4] 🔗  Linking dependencies...
-[4/4] 🔨  Building fresh packages...
-success Saved lockfile.
-✨  Done
-```
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd WebMonorepo
-yarn build
-```
-
-To build a single app or package, run the following command:
-
-```
-cd apps/*
-yarn build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd WebMonorepo
-yarn dev
-```
-
-To develop a single app or package, run the following command:
-
-```
-cd apps/*
-yarn dev
-```
-
-### Test
-
-To test all apps and packages including snapshot testing, run the following command:
-
-```
-cd WebMonorepo
-yarn test:ci
-```
-
-To test a single app or package, run the following command:
-
-```
-cd apps/*
-yarn test:ci
-```
-
-To perform image snapshot updates on a single app or package, run the following command:
-
-```
-cd apps/*
-yarn storybook
-yarn test -u
-```
-
-### Lint and Format
-
-To lint and form all apps and packages, run the following command:
-
-```
-cd WebMonorepo
-yarn lint
-```
-
-To lint and format a single app or package, run the following command:
-
-```
-cd apps/*
-yarn lint
-yarn format
-```
-
-### Using Spiral Packages
-
+#### Import a package to your app
 Packages may be shared between all apps/packages in the repo. It's important to note that any global package changes may affect other apps.
 
-All packages follow this naming syntax: `@ps/*package-name`
+All shared packages must follow this naming syntax: `@ps/*package-name`
 
-#### To include a package to your app, include it in your `package.json` dependencies like so:
 
+Include it in your `package.json`:
 ```
 "dependencies": {
     "@ps/ui": "*",
     ...
  }
 ```
-
-#### To use a Spiral package, simply import your needed file:
-
+Then import it like a normal NPM package. Local packages support (and encourage) tree shaking:
 ```
-import Button from 'src/components/common/atoms/Button'
-...
-
+import Button from '@ps/ui/component/Button'
 ```
 
-#### To use a Spiral config package:
-
+#### Sometimes, config files use CommonJS. It works there too:
 ```
 module.exports = require('@ps/constants/prettier-preset');
 ```
 
+<br />
+
+## Initial Setup:
+
+#### Clone the repository
+
+`git clone git@github.com:SpiralFinancial/WebMonorepo.git`
+
+#### Install dependencies
+
+`yarn` (or `yarn install`). It works better than `npm`.
+
+#### Build
+
+To build all apps and packages, run `yarn build` from the monorepo root.
+
+To build a single app or package, `cd` into the package directory, then run `yarn build`.
+
+### Develop
+
+To develop all apps and packages, run `yarn dev` from the monorepo root.
+
+To develop a single app or package, `cd` into the package directory, then run `yarn dev`.
+
+### Test
+
+To test all apps and packages, run `yarn test` from the monorepo root.
+
+To test a single app or package, `cd` into the package directory, then run `yarn test`.
+
+To perform image snapshot updates on a front-end package that supports it, run the following command:
+
+```
+cd apps/{your-app}
+yarn storybook
+yarn test -u
+```
+
+<br />
+
 ## Committing To The Repo
 
-This repo uses [Commit Lint](https://commitlint.js.org/#/) to enforce commit syntax in the following format:
+This repo will use [Commit Lint](https://commitlint.js.org/#/) to enforce commit syntax in the following format:
 
 ```
 type: build chore ci docs feat fix perf refactor revert style test
@@ -203,96 +140,30 @@ yarn commit
 
 ```
 
-## Core Branches 📍
-
-Each app has core branches used to facilitate moving code from integration to QA/Staging to production environments.
-
-### Summary
-
-Code needed for each app stage will flow like this:
-
-`integration` ➡️ `*app-staging` ➡️ `*app*-uat` ➡️ `*app*-production`
-
-Every time we merge from `integration` a "snapshot" of the repo at that time will be available on the next branch.
-
-This allows us to continually develop on integration as a team, while ensuring no unexpected code changes are made to a higher tier branch (staging/uat/prod).
-
-### Shared By All (Trunk Branch)
-
-- `integration`
-
-### Consumer Banking
-
-- `consumer-staging`
-- `consumer-uat`
-- `consumer-production-rollback`
-- `consumer-production`
-
-### Nonprofit Banking
-
-- `nonprofit-staging`
-- `nonprofit-uat`
-- `nonprofit-production-rollback`
-- `nonprofit-production`
-
-### CMS
-
-- `cms-staging`
-- `cms-uat`
-- `cms-production-rollback`
-- `cms-production`
+<br />
 
 ## Deployment 🚀
 
-Our deployment process involves generating a changelog, a unique version, and escalating those changes through our development stages/environments.
+All apps and APIs are set up to deploy themselves automatically whenever the monorepo codebase is pushed to Git.
+* staging - will deploy when new code pushed to the `staging` branch
+* production - will deploy when new code pushed to the `main` branch
 
-Note: Integration branch is our [trunk](https://trunkbaseddevelopment.com/branch-for-release/) branch which all code committed to the repository enters through. From there, code may be merged into any of the core branches or a feature branch as needed.
+Because of this, test and build scripts for ALL apps/apis must run successfully before deploying a change to any one package. Automation of this is still a work in progress.
 
-We should avoid making direct commits or PRs to any other branch and instead cherry-pick as needed.
+### Exceptions: submodules
+Some of these packages will be managed as submodules, not part of this repo, but linked to a folder in this repo. It will provide more control over deployment - allow some packages to be deployed to production without deploying all projects. This is still a work in progress. 
 
-For detailed deployment instructions, see [DEPLOYMENT](https://github.com/SpiralFinancial/WebMonorepo/DEPLOY.md)
+### Alternative: manual deployment
+A more advanced strategy for deployment than just automatically deploying everything for every change. Best for enterprise/teams (I'm just one person, so just keeping it simple). It is possible by having separate dev/staging/production branches for each project. Each team can merge their changes into each branch variant, essentially keeping the benefits of a monorepo architecture and also keeping the ability to deploy each project independently.
 
+<br />
 
-## Deploying To Amplify
-
-Below is an example build script used by Amplify.
-
-This includes Next JS build caching, as well as `node_modules` caching.
-
-To get started, replace all instances of "consumer" with the name of your app.
-
-```
-version: 1
-applications:
-  - frontend:
-      phases:
-        preBuild:
-          commands:
-            - yarn
-        build:
-          commands:
-            - cd ../..
-            - npx turbo run build --scope=consumer --include-dependencies --no-deps
-            - cd apps/consumer
-      artifacts:
-        baseDirectory: .next
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - apps/consumer/node_modules/**/*
-          - apps/consumer/.next/cache/**/*
-          - node_modules/**/*
-    appRoot: apps/consumer
-```
-
-## Useful Links 💪
-
-Learn more about the power of Turborepo:
+## Advanced setup 💪
 
 - [Pipelines](https://turborepo.org/docs/features/pipelines)
 - [Caching](https://turborepo.org/docs/features/caching)
-- [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/features/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
+- [Remote caching](https://turborepo.org/docs/features/remote-caching)
+- [Scoped tasks](https://turborepo.org/docs/features/scopes)
+- [Configuration options](https://turborepo.org/docs/reference/configuration)
+- [CLI usage](https://turborepo.org/docs/reference/command-line-reference)
+- [Build optimization](https://medium.com/@sppatel/maximizing-job-parallelization-in-ci-workflows-with-jest-and-turborepo-da86b9be0ee6j)

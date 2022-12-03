@@ -39,9 +39,9 @@ export const Component = (
     }
   } else if (
     href.substring(0, 4) === 'http' &&
-    // all other domains, including app.spiral.us
-    !href.substring(0, 22).includes('//spiral.us') &&
-    !href.substring(0, 22).includes('www.spiral.us')
+    // all other domains
+    !href.substring(0, 22).includes(`//${theme.host || 'localhost:3000'}`) &&
+    !href.substring(0, 22).includes(`www.${theme.host || 'localhost:3000'}`)
     // && !href.includes('1526316317')
   ) {
     target = target || '_blank';

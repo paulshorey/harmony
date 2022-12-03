@@ -19,7 +19,8 @@ export default function get_utm_source(): string {
        */
       let host = referer?.split("/")?.[2] || "";
       if (host) {
-        if (host.substring(0, 9) === "localhost" || host.substr(-9) === "spiral.us") {
+        if (host.substring(0, 9) === "localhost" || host.substr(-9) === "wordio.co") {
+          // fixMe - wordio.co needs to be generalized to server host or site theme.host
           out = "direct";
         } else {
           out = host;
