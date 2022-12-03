@@ -1,4 +1,4 @@
-import CConsoleLog from "./function/CConsoleLog";
+import CConsoleLog from "./function/CConsoleLog.js";
 
 type cconsole = {
   updateOptions: (newOptions?: options) => void;

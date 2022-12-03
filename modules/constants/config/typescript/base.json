@@ -2,7 +2,8 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
-    "module": "ESNext",
+  "moduleResolution": "Node",
+  "module": "ESNext",
     "target": "ESNext",
     "downlevelIteration": true,
     "composite": true,
@@ -12,7 +13,6 @@
     "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
     "isolatedModules": true,
-    "moduleResolution": "node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,

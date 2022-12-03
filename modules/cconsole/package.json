@@ -1,8 +1,11 @@
 {
   "name": "@ps/cconsole",
   "version": "0.0.9",
-  "description": "No dependencies. No setup required. Easily integrate with Cloud logging (LogDNA, etc). Visually group similar types of logs in the terminal. Show a concise file/line trace for each message - so you can actually find where it's originating without looking through the entire codebase.",
+  "type": "module",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "private": true,
+  "description": "No dependencies. No setup required. Easily integrate with Cloud logging (LogDNA, etc). Visually group similar types of logs in the terminal. Show a concise file/line trace for each message - so you can actually find where it's originating without looking through the entire codebase.",
   "author": "Paul Shorey <paulshorey.com>",
   "license": "ISC",
   "devDependencies": {
@@ -31,12 +34,5 @@
       "isLibrary": true,
       "includeNodeModules": true
     }
-  },
-  "type": "module",
-  "exports": {
-    ".": "./esm",
-    "./*": "./esm/*",
-    "./src": "./src",
-    "./src/*": "./src/*"
   }
 }
