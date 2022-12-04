@@ -10,15 +10,16 @@ import str_row from "./promise/str_row"
 import row_meta from "./function/row_meta"
 import key_sanitized from "./function/key_sanitized"
 import { makeSQLString } from "@ps/nlp/src/lib/pgdb"
-import secrets from "@ps/nlp/secrets/constants"
+import dotenv from "dotenv"
 
+dotenv.config()
 const { Pool } = import_pg
 const pool = new Pool({
-  user: secrets.PG_USER,
-  host: secrets.PG_HOST,
-  database: secrets.PG_DATABASE,
-  password: secrets.PG_PASSWORD,
-  port: secrets.PG_PORT
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT
 })
 
 /*

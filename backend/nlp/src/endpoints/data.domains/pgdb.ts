@@ -1,18 +1,16 @@
+/*
+ * Dependencies
+ */
 import import_pg from "pg"
 import json_parse from "@ps/fn/io/json/json_parse"
 import objects_merge from "@ps/fn/io/objects/objects_merge_keys"
 import sort_objects_by_property from "@ps/fn/io/sort_objects/sort_objects_by_property"
 import { performance } from "perf_hooks"
-import secrets from "@ps/nlp/secrets/constants"
+import dotenv from "dotenv"
 
+dotenv.config()
 const { Pool } = import_pg
-const pool = new Pool({
-  user: secrets.PG_USER,
-  host: secrets.PG_HOST,
-  database: secrets.PG_DATABASE,
-  password: secrets.PG_PASSWORD,
-  port: secrets.PG_PORT
-})
+const pool = new Pool()
 
 let DEBUG_TIME = false
 let debug_time_since

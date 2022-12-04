@@ -1,15 +1,16 @@
+/*
+ * Dependencies
+ */
 import json_parse from "@ps/fn/io/json/json_parse"
+// DB
 import { Pool } from "pg"
-import import_child_process from "child_process"
-import secrets from "@ps/nlp/secrets/constants"
+import dotenv from "dotenv"
 
-const pool = new Pool({
-  user: secrets.PG_USER,
-  host: secrets.PG_HOST,
-  database: secrets.PG_DATABASE,
-  password: secrets.PG_PASSWORD,
-  port: secrets.PG_PORT
-})
+dotenv.config()
+const pool = new Pool()
+// execute shell
+import import_child_process from "child_process"
+
 const exec = import_child_process.exec
 const execute = function (command, callback?: Function) {
   exec(command, function (error, stdout) {

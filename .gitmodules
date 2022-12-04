@@ -1,3 +1,0 @@
-[submodule "apis/nlp"]
-	path = apis/nlp
-	url = git@github.com:paulshorey/harmony-nlp.git
