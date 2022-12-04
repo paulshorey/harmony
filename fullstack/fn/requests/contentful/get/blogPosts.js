@@ -1,13 +1,13 @@
-import getEntries from 'src/fetch/contentful/api/getEntries';
-import decodeEntriesToStrings from 'src/fetch/contentful/lib/decodeEntriesToStrings';
+import getEntries from "src/fetch/contentful/api/getEntries";
+import decodeEntriesToStrings from "src/fetch/contentful/lib/decodeEntriesToStrings";
 
 /**
  * Get all partners, sorted
  */
 export default async () => {
   let items = await getEntries({
-    content_type: 'blogPost',
-    order: '-fields.publishDate',
+    content_type: "blogPost",
+    order: "-fields.publishDate"
   });
   if (!items || !items.length) {
     return [];
@@ -19,14 +19,14 @@ export default async () => {
 /*
 INPUT FROM CONTENTFUL
 {
-  id: '6oC0MYfNWEcY94oL8yRR5t',
-  title: 'Protecting Our Planet: Rainforest Trust Saves Nearly One Acre Every 10 Seconds, and Now They Need Your Help',
-  summary: '<p>Spiral allows you to donate to nonprofits that are working hard to preserve habitats, study and conserve endangered species, and protect our planet’s biodiversity. One of these leading nonprofits is Rainforest Trust.</p>\n',
-  featuredImage: 'https://res.cloudinary.com/spiral/images/v1657659785/wordpress-uploads/pexels-denise-2759315_2062accc7/pexels-denise-2759315_2062accc7.webp',
-  categoriesText: 'Do Good',
+  id: '123',
+  title: 'Article Title',
+  summary: '<p>...</p>\n',
+  featuredImage: 'https://res.cloudinary.com/fixMe/images/wordpress-uploads/demo/demo.webp',
+  categoriesText: 'Category Name',
   publishDate: '2022-05-04T17:29:00+00:00',
-  body: '<p>The <a href="https://www.iucnredlist.org/">International Union For Conservation of Nature (IUCN) Red List of Threatened Sp...</a></p>\n',
-  slug: 'debit-cards-the-easy-way-to-stay-debt-free'
+  body: '<p>The article text...</p>\n',
+  slug: 'article_title'
 },
 */
 
@@ -34,8 +34,8 @@ INPUT FROM CONTENTFUL
 OUTPUT TO PAGE (mimic Wordpress):
 {
   id: 11,
-  slug: 'the_article_title',
-  title: { rendered: 'The Article Title' },
+  slug: 'article_title',
+  title: { rendered: 'Article Title' },
   jetpack_featured_media_url: '',
   excerpt: {
     rendered:
@@ -43,7 +43,7 @@ OUTPUT TO PAGE (mimic Wordpress):
   },
   content: {
     rendered:
-      'This is the full text of the content. It contains HTML, so be careful! Display it like this: <pre><code><div className="excerpt" dangerouslySetInnerHTML={{ __html: postContent }} /></code></pre>',
+      'This is the full text of the content. It contains HTML.',
   },
   date_gmt: '2021-04-26T14:45:00',
   featured_media: this.images[0].id,

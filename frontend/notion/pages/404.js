@@ -5,7 +5,7 @@ const NotFoundPage = () => {
     socialTitle: `Page Not found (404 Error)`,
     path: ``,
   };
-  page.title = `${page.socialTitle} · Spiral`;
+  page.title = `${page.socialTitle} · Notion Docs`;
 
   return (
     <>

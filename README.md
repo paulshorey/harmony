@@ -7,21 +7,21 @@ Multiple web apps, sites, and modules in one place. No more publishing individua
 ## What's inside?
 
 ### Front-end 
-`./frontend` Next/React apps, built with TypeScript, styled with Emotion.
-📦 `ps` - [paulshorey.com](https://paulshorey.com) personal website
-📦 `ui` - [ui.paulshorey.com](https://ui.paulshorey.com) React component library + Storybook documentation
-📦 `notion` - [techy.tools](https://techy.tools) experimental documentation site builder using notion.so API
-📦 `responsive-dev` - [responsive.paulshorey.com](https://responsive.paulshorey.com) a dev tool to help with responsive design and development
+`./frontend` Next/React apps, built with TypeScript, styled with Emotion.  
+- 📦 `ps` - [paulshorey.com](https://paulshorey.com) personal website
+- 📦 `ui` - [ui.paulshorey.com](https://ui.paulshorey.com) React component library + Storybook documentation
+- 📦 `notion` - [techy.tools](https://techy.tools) experimental documentation site builder using notion.so API
+- 📦 `responsive-dev` - [responsive.paulshorey.com](https://responsive.paulshorey.com) a dev tool to help with responsive design and development
 
 ### Back-end 
-`./backend` Node apps, written in Typescript. Served using `ts-node`.
-📦 `nlp` - API server powers wordio.co and besta.domains - simple narrow AI for sentiment analysis, semantic search, and generating short phrases
+`./backend` Node apps, written in Typescript. Served using `ts-node`.  
+- 📦 `nlp` - API server powers wordio.co and besta.domains - simple narrow AI for sentiment analysis, semantic search, and generating short phrases
 
 ### Full-stack
-`./fullstack` Helpers. Imported by other packages.
-📦 `constants` - constants and data
-📦 `fn` - utility functions (`./fullstack/fn/io` are universal pure functions like lodash, there's also `browser`, `server`, and `request`)
-📦 `cconsole` - console logging with colors, cloud provider (LogDNA/DataDog) integration, and other useful features
+`./fullstack` Helpers. Imported by other packages.  
+- 📦 `constants` - constants and data
+- 📦 `fn` - utility functions (`./fullstack/fn/io` are universal pure functions like lodash, there's also `browser`, `server`, and `request`)
+- 📦 `cconsole` - console logging with colors, cloud provider (LogDNA/DataDog) integration, and other useful features
 
 <br />
 
@@ -83,13 +83,13 @@ module.exports = require('@ps/constants/prettier-preset');
 
 ## Initial Setup:
 
-#### Clone the repository
+### Clone the repository
 
-`git clone git@github.com:SpiralFinancial/WebMonorepo.git`
+`git clone git@github.com:paulshorey/harmony.git`
 
-#### Install dependencies
+### Install dependencies
 
-`yarn` (or `yarn install`). It works better than `npm`.
+`yarn` (or `yarn install`). It works better than `npm install`. **Run this from the root of the monorepo!**
 
 #### Build
 

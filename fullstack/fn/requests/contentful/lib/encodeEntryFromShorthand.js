@@ -11,48 +11,48 @@
 export default function (obj) {
   let data = {
     metadata: {
-      tags: [],
+      tags: []
     },
-    fields: {},
+    fields: {}
   };
   // fix/aggregate properties
   if (!obj.urlSlug) {
-    obj.urlSlug = (obj.displayName || obj.name || obj.title || obj.id || '')
+    obj.urlSlug = (obj.displayName || obj.name || obj.title || obj.id || "")
       .trim()
       .toLowerCase()
-      .replace(/\s/g, '-')
-      .replace(/[^\w-]+/g, '');
+      .replace(/\s/g, "-")
+      .replace(/[^\w-]+/g, "");
   }
   // build fields from properties
   for (let key in obj) {
     let value = obj[key];
-    if (typeof value === 'string') {
+    if (typeof value === "string") {
       data.fields[key] = {
-        'en-US': value.trim(),
+        "en-US": value.trim()
       };
-    } else if (typeof value === 'object' && value.name && value.ext) {
+    } else if (typeof value === "object" && value.name && value.ext) {
       data.fields[key] = {
-        'en-US': [
+        "en-US": [
           {
-            url: `https://res.cloudinary.com/spiral/image/upload/${value.name}.${value.ext}`,
+            url: `https://res.cloudinary.com/fixMe/image/upload/${value.name}.${value.ext}`,
             tags: [],
-            type: 'upload',
+            type: "upload",
             format: value.ext.trim(),
             duration: null,
             metadata: [],
             public_id: value.name.trim(),
             created_at: new Date().toISOString(),
-            secure_url: `https://res.cloudinary.com/spiral/image/upload/${value.name}.${value.ext}`,
-            original_url: `https://res.cloudinary.com/spiral/image/upload/${value.name}.${value.ext}`,
-            resource_type: 'image',
-            raw_transformation: 'f_auto/q_auto',
-            original_secure_url: `https://res.cloudinary.com/spiral/image/upload/${value.name}.${value.ext}`,
-          },
-        ],
+            secure_url: `https://res.cloudinary.com/fixMe/image/upload/${value.name}.${value.ext}`,
+            original_url: `https://res.cloudinary.com/fixMe/image/upload/${value.name}.${value.ext}`,
+            resource_type: "image",
+            raw_transformation: "f_auto/q_auto",
+            original_secure_url: `https://res.cloudinary.com/fixMe/image/upload/${value.name}.${value.ext}`
+          }
+        ]
       };
-    } else if (typeof value === 'object' && value.length) {
+    } else if (typeof value === "object" && value.length) {
       data.fields[key] = {
-        'en-US': {
+        "en-US": {
           data: {},
           content: value.map((item) => {
             return {
@@ -62,22 +62,22 @@ export default function (obj) {
                   data: {},
                   marks: [],
                   value: item.trim(),
-                  nodeType: 'text',
-                },
+                  nodeType: "text"
+                }
               ],
-              nodeType: 'paragraph',
+              nodeType: "paragraph"
             };
           }),
-          nodeType: 'document',
-        },
+          nodeType: "document"
+        }
       };
-    } else if (typeof value === 'boolean') {
+    } else if (typeof value === "boolean") {
       data.fields[key] = {
-        'en-US': value,
+        "en-US": value
       };
-    } else if (typeof value === 'number') {
+    } else if (typeof value === "number") {
       data.fields[key] = {
-        'en-US': value,
+        "en-US": value
       };
     }
   }
