@@ -1,7 +1,7 @@
 import json_parse from "@ps/fn/io/json/json_parse"
 import { Pool } from "pg"
 import import_child_process from "child_process"
-import secrets from "@ps/secrets/nlp"
+import secrets from "@ps/nlp/secrets/constants"
 
 const pool = new Pool({
   user: secrets.PG_USER,

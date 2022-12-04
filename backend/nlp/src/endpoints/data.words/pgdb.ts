@@ -10,7 +10,7 @@ import str_row from "./promise/str_row"
 import row_meta from "./function/row_meta"
 import key_sanitized from "./function/key_sanitized"
 import { makeSQLString } from "@ps/nlp/src/lib/pgdb"
-import secrets from "@ps/secrets/nlp"
+import secrets from "@ps/nlp/secrets/constants"
 
 const { Pool } = import_pg
 const pool = new Pool({

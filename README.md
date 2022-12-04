@@ -9,15 +9,13 @@ Multiple web apps, sites, and modules in one place. No more publishing individua
 ### Front-end 
 `./frontend` Next/React apps, built with TypeScript, styled with Emotion.
 📦 `ps` - [paulshorey.com](https://paulshorey.com) personal website
-📦 `notion` - [techy.tools](https://techy.tools) experimental documentation using notion.so API
+📦 `ui` - [ui.paulshorey.com](https://ui.paulshorey.com) React component library + Storybook documentation
+📦 `notion` - [techy.tools](https://techy.tools) experimental documentation site builder using notion.so API
 📦 `responsive-dev` - [responsive.paulshorey.com](https://responsive.paulshorey.com) a dev tool to help with responsive design and development
-📦 `infinite-react-carousel` - a modified open-source NPM module of the same name - used to make horizontal slideshows in spiral.us
-📦 others are experimental, temporary
 
 ### Back-end 
 `./backend` Node apps, written in Typescript. Served using `ts-node`.
 📦 `nlp` - API server powers wordio.co and besta.domains - simple narrow AI for sentiment analysis, semantic search, and generating short phrases
-📦 `cli-migrate-wp-contentful` - CLI tool to migrate content from WordPress to Contentful
 
 ### Full-stack
 `./fullstack` Helpers. Imported by other packages.
@@ -157,8 +155,8 @@ All apps and APIs are set up to deploy themselves automatically whenever the mon
 
 Because of this, test and build scripts for ALL apps/apis must run successfully before deploying a change to any one package. Automation of this is still a work in progress.
 
-### Exceptions: submodules
-Some of these packages will be managed as submodules, not part of this repo, but linked to a folder in this repo. It will provide more control over deployment - allow some packages to be deployed to production without deploying all projects. This is still a work in progress. 
+### Submodules
+Some of these packages could be managed as submodules, not part of this repo, but linked to a folder just like any other module. This can provide more control over deployment - allow some packages to be deployed to production without deploying all projects.  
 
 ### Alternative: manual deployment
 A more advanced strategy for deployment than just automatically deploying everything for every change. Best for enterprise/teams (I'm just one person, so just keeping it simple). It is possible by having separate dev/staging/production branches for each project. Each team can merge their changes into each branch variant, essentially keeping the benefits of a monorepo architecture and also keeping the ability to deploy each project independently.

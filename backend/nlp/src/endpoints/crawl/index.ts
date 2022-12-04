@@ -1,6 +1,6 @@
 import axios from "axios"
 import { http_response } from "@ps/nlp/src/lib/http"
-import secrets from "@ps/secrets/nlp"
+import secrets from "@ps/nlp/secrets/constants"
 
 /*
  * THIS IS DIFFERENT FROM OTHER API ENDPOINTS IN THIS PROJECT

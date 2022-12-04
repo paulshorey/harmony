@@ -4,4 +4,7 @@
  * @param {string} label - name of the event
  * @param {object} options - options properties
  */
-export declare const mixpanel_track: ({ label, options }: { label: any; options: any }) => void;
+export declare const mixpanel_track: ({ label, options }: {
+    label: any;
+    options: any;
+}) => void;

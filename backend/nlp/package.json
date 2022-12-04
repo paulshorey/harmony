@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@airbrake/node": "^1.0.7",
-    "@ps/secrets": "*",
     "@ps/cconsole": "*",
     "@ps/fn": "*",
     "@supercharge/request-ip": "^1.1.2",

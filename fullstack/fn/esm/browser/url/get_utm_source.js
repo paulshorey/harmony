@@ -20,7 +20,8 @@ export default function get_utm_source() {
              */
             let host = ((_d = referer === null || referer === void 0 ? void 0 : referer.split("/")) === null || _d === void 0 ? void 0 : _d[2]) || "";
             if (host) {
-                if (host.substring(0, 9) === "localhost" || host.substr(-9) === "spiral.us") {
+                if (host.substring(0, 9) === "localhost" || host.substr(-9) === "wordio.co") {
+                    // fixMe - wordio.co needs to be generalized to server host or site theme.host
                     out = "direct";
                 }
                 else {
