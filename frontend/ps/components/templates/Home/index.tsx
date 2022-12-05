@@ -11,6 +11,8 @@ import HeaderLayout from 'components/layout/Header';
 // import css from '@ps/ui/helpers/css';
 import LatestProjectsCarousel from './LatestProjectsCarousel';
 import { css } from '@emotion/react';
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
+import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const style = (props) => css`
   height: 100vh;
@@ -33,7 +35,19 @@ function Home() {
         ssPhone="margin-top: 7rem;"
       >
         Hi. Thanks for visiting! I love learning by trying new ideas. Really
-        appreciate your <a>feedback</a>.
+        appreciate your{' '}
+        <a
+          onClick={() => {
+            const el = window.document.querySelector(
+              '[class*="FloatingButton__FloatingButtonContainer"] button'
+            );
+            // @ts-ignore
+            if (el && el.click) el.click();
+          }}
+        >
+          feedback
+        </a>{' '}
+        <FA icon={regular('comment')} />.
       </Block>
       <HCarousel />
       <Block>

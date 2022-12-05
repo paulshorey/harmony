@@ -3,7 +3,7 @@ import Dropdown from '@ps/ui/components/Dropdown';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Button from '@ps/ui/components/Button';
-import { withBlock } from '@ps/ui/components/Block';
+import Block, { withBlock } from '@ps/ui/components/Block';
 import styles from './styles';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 
@@ -13,7 +13,7 @@ const ToggleMenu = withBlock({ ...styles.ToggleMenu });
 const LayoutNav = () => {
   return (
     <Nav>
-      <Dropdown
+      {/* <Dropdown
         right
         menu={
           <ToggleMenu>
@@ -66,7 +66,6 @@ const LayoutNav = () => {
               <span>say hello </span>
               <FA icon={regular('message')} />
             </Button>
-            {/* <ColorSchemeToggle /> */}
           </ToggleMenu>
         }
       >
@@ -75,22 +74,28 @@ const LayoutNav = () => {
             icon={solid('bars')}
             style={{ fontSize: '1.6rem', marginTop: '-0.067rem' }}
           />
-          {/* <FA
-            icon={regular('angle-down')}
-            style={{ verticalAlign: '0.025rem', marginLeft: '0.33rem' }}
-          /> */}
         </span>
-      </Dropdown>
+      </Dropdown> */}
 
-      {/* <Block as="span" ss="width:0.55rem;" />
-        <Button
-          onClick={() => {
-            // setIsOpen(true);
-          }}
-          variant="text"
-        >
-          Projects <FA icon={regular('angle-down')} />
-        </Button> */}
+      <Button
+        ss="margin-right:0; "
+        onClick={() => {
+          // setIsOpen(true);
+        }}
+        variant="text"
+      >
+        Resume <FA icon={regular('download')} />
+      </Button>
+
+      <Button
+        ss="margin-right:0;font-size:1.5rem; "
+        onClick={() => {
+          // setIsOpen(true);
+        }}
+        variant="text"
+      >
+        <FA icon={faGithub} />
+      </Button>
     </Nav>
   );
 };

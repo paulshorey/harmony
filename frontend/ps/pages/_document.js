@@ -7,6 +7,8 @@ export default function Document() {
       <body data-bgcolor="dark" data-textcolor="light" data-bggradient>
         <Main />
         <NextScript />
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-449dc901-7366-43df-b29a-84f77ee0f999"></div>
       </body>
     </Html>
   );
