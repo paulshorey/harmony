@@ -3,6 +3,7 @@ import Dropdown from '@ps/ui/components/Dropdown';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import Button from '@ps/ui/components/Button';
+import Link from '@ps/ui/components/Link';
 import Block, { withBlock } from '@ps/ui/components/Block';
 import styles from './styles';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
@@ -77,13 +78,13 @@ const LayoutNav = () => {
         </span>
       </Dropdown> */}
 
-      <a href="https://paulshorey.com/files/Resume--Paul-Shorey.pdf">
+      <Link href="https://paulshorey.com/files/Resume--Paul-Shorey.pdf">
         <Button ss="margin-right:0;" variant="text">
           Resume <FA icon={regular('download')} />
         </Button>
-      </a>
+      </Link>
 
-      <a
+      <Link
         href="https://github.com/paulshorey/harmony"
         target="_blank"
         rel="noopener noreferrer"
@@ -91,7 +92,7 @@ const LayoutNav = () => {
         <Button ss="margin-right:0;font-size:1.5rem;" variant="text">
           <FA icon={faGithub} />
         </Button>
-      </a>
+      </Link>
     </Nav>
   );
 };

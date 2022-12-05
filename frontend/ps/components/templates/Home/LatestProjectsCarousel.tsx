@@ -32,6 +32,10 @@ const style = ({ theme }) => css`
     padding: 2rem 1rem 2rem 3rem;
     right: 0;
   }
+  .__prev:hover,
+  .__next:hover {
+    opacity: 0.85;
+  }
 `;
 const slides = [
   {

@@ -1,17 +1,21 @@
-import React from 'react';
 import HCarousel from '@ps/ui/components/HorizontalCarousel';
+import { css } from '@emotion/react';
 
-const style = `
-margin: 2rem 0 3rem;
-img {
-  height: 15rem;
-}
-.__prev,
-.__next {
-  transform: scale(0.5, 0.67) !important;
-  color: white !important;
-  opacity: 0.75;
-}
+const style = css`
+  margin: 2rem 0 3rem;
+  img {
+    height: 15rem;
+  }
+  .__prev,
+  .__next {
+    transform: scale(0.5, 0.67) !important;
+    color: white !important;
+    opacity: 0.75;
+  }
+  .__prev:hover,
+  .__next:hover {
+    opacity: 1;
+  }
 `;
 
 function Home(props) {

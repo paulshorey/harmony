@@ -13,6 +13,7 @@ import LatestProjectsCarousel from './LatestProjectsCarousel';
 import { css } from '@emotion/react';
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
 import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+import Link from '@ps/ui/components/Link';
 
 const style = (props) => css`
   height: 100vh;
@@ -36,7 +37,8 @@ function Home() {
       >
         Hi. Thanks for visiting! I love learning by trying new ideas. Really
         appreciate your{' '}
-        <a
+        <Link
+          href="#"
           onClick={() => {
             const el = window.document.querySelector(
               '[class*="FloatingButton__FloatingButtonContainer"] button'
@@ -46,7 +48,7 @@ function Home() {
           }}
         >
           feedback
-        </a>{' '}
+        </Link>{' '}
         <FA icon={regular('comment')} />.
       </Block>
       <HCarousel />

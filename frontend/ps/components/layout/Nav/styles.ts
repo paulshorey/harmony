@@ -1,4 +1,4 @@
-import css from '@ps/ui/helpers/css';
+import { css } from '@emotion/react';
 
 export default {
   Nav: {
