@@ -2,7 +2,7 @@
   // base config - common to all apps and modules in the repository:
   "extends": "@ps/constants/config/typescript/react-library.json",
   // specific overrides - for this project only:
-  "include": ["**/*"],
+  "include": ["components/**/*", "helpers/**/*", "hooks/**/*", "styles/**/*"],
   "exclude": [
     "node_modules",
     "dist",
@@ -15,7 +15,8 @@
     "public",
     "storybook-static",
     "**/*.test.ts",
-    "**/*.test.js"
+    "**/*.test.js",
+    "**/*.stories.tsx"
   ],
   "compilerOptions": {
     "strict": false,
@@ -28,5 +29,7 @@
     "noImplicitAny": false,
     "jsx": "preserve",
     "allowJs": true
-  }
+  },
+  "typeRoots": ["node_modules/@types", "./types/typings.d.ts"],
+  "files": ["./types/typings.d.ts"]
 }

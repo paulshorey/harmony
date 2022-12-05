@@ -32,7 +32,6 @@ export default (Component: any, componentName: string, variants: any) =>
             {...colorScheme} // cascading foreground/background colors - dataset attributes
             ref={ref}
             className={cx(
-              props.componentName || '', // custom className label passed to component instance from app
               componentName || '', // default className label from component constructor (in this library)
               props.className, // custom classNames passed to the component
               css(`&.${componentName} {

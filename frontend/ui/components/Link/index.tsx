@@ -7,6 +7,7 @@ import styleProps from '@ps/ui/types/styles';
 import { useTheme } from '@emotion/react';
 import withCombinedProps from '@ps/ui/hooks/withCombinedProps';
 import withStyles from '@ps/ui/hooks/withStyles';
+import { Theme } from '@ps/ui/styles/theme';
 
 export type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href?: string;
@@ -29,7 +30,7 @@ export const Component = (
   }: Props,
   ref: any
 ) => {
-  const theme = useTheme();
+  const theme: Theme = useTheme();
   // const contextPage = useContext(PageContext) || {};
   // const contextABTest = useContext(ABTestContext) || {};
   // fix attributes

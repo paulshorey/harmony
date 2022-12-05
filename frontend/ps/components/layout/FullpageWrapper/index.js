@@ -16,7 +16,7 @@ import style from './style';
 const Fullpage = ({ children, ...props }) => {
   useEffect(() => {}, []);
   return (
-    <Block componentName="FullpageWrapper" ss={style} {...props}>
+    <Block data-component="FullpageWrapper" ss={style} {...props}>
       <ReactFullpage
         controlArrows={false}
         licenseKey={process.env.NEXT_PUBLIC_FULLPAGE_JS_KEY}

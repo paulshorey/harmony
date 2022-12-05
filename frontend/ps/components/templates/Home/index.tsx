@@ -32,7 +32,7 @@ function Home() {
         ss={(props) => `margin: ${props.theme.header.height} 1.25rem 1.25rem;`}
         ssPhone="margin-top: 7rem;"
       >
-        Hi. Thanks for visiting! This is my sandbox to try new ideas. Really
+        Hi. Thanks for visiting! I love learning by trying new ideas. Really
         appreciate your <a>feedback</a>.
       </Block>
       <HCarousel />
@@ -42,8 +42,8 @@ function Home() {
           ss="margin: 5rem 1.25rem 1.5rem;"
           ssPhone="margin-top: 3.5rem;"
         >
-          My recent experiments have been focused on developer experience and
-          best practices.
+          Here are some of my recent experiments (full-stack mono-repo of apps,
+          apis and dev-tools):
           {/* Most recently I've been working on tooling for software developers: */}
         </Block>
         <LatestProjectsCarousel />

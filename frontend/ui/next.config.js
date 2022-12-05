@@ -47,6 +47,11 @@ module.exports = withTM({
       config.resolve.alias.canvas = false;
     }
 
+    config.module.rules.push({
+      test: /\.md$/,
+      use: ['raw-loader'],
+    });
+
     // config.module.rules.push({
     //   test: /\.svg$/i,
     //   issuer: /\.[jt]sx?$/,

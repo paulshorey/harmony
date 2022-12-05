@@ -5,9 +5,9 @@
   "exclude": ["node_modules", "docs", "test"],
   "compilerOptions": {
     "lib": ["DOM"],
-    "moduleResolution": "NodeNext",
-    "module": "es6",
-    "target": "es6",
+    "moduleResolution": "Node",
+    "module": "ESNext",
+    "target": "ESNext",
     "esModuleInterop": true,
     "downlevelIteration": true,
     "composite": true,
