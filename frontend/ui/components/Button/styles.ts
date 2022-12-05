@@ -217,12 +217,12 @@ export default {
     text-shadow: none !important;
     box-shadow: none;
     color: var(--color-text);
-    &:not(:focus):not(:focus-within) {
-      box-shadow: none !important;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+    // :not(:focus):not(:focus-within) {
+    //   box-shadow: none !important;
+    //   &:hover {
+    //     text-decoration: underline;
+    //   }
+    // }
     .withRipple {
       background-color: var(--color-text);
     }

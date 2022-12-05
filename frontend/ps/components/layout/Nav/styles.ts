@@ -14,6 +14,13 @@ export default {
         display: inline-flex;
         margin-right: 1rem;
       }
+      a {
+        color: inherit;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
       .Dropdown {
         .Dropdown__menuContainer {
           margin-top: 1rem;

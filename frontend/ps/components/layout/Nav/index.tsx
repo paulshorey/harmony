@@ -77,25 +77,21 @@ const LayoutNav = () => {
         </span>
       </Dropdown> */}
 
-      <Button
-        ss="margin-right:0; "
-        onClick={() => {
-          // setIsOpen(true);
-        }}
-        variant="text"
-      >
-        Resume <FA icon={regular('download')} />
-      </Button>
+      <a href="https://paulshorey.com/files/Resume--Paul-Shorey.pdf">
+        <Button ss="margin-right:0;" variant="text">
+          Resume <FA icon={regular('download')} />
+        </Button>
+      </a>
 
-      <Button
-        ss="margin-right:0;font-size:1.5rem; "
-        onClick={() => {
-          // setIsOpen(true);
-        }}
-        variant="text"
+      <a
+        href="https://github.com/paulshorey/harmony"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <FA icon={faGithub} />
-      </Button>
+        <Button ss="margin-right:0;font-size:1.5rem;" variant="text">
+          <FA icon={faGithub} />
+        </Button>
+      </a>
     </Nav>
   );
 };

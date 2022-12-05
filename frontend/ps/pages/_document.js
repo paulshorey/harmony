@@ -3,7 +3,10 @@ import { Html, Head, Main, NextScript } from 'next/document';
 export default function Document() {
   return (
     <Html>
-      <Head />
+      <Head>
+        <title>Paul Shorey - Portfolio</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <body data-bgcolor="dark" data-textcolor="light" data-bggradient>
         <Main />
         <NextScript />
