@@ -1,5 +1,5 @@
-import destroyCircular from "./destroyCircular.js";
-import serializeError from "./serializeError.js";
+import destroyCircular from "./destroyCircular";
+import serializeError from "./serializeError";
 // use "browser" colors if in browser
 let NODEJSCOLORS = typeof window !== "object";
 // also use "browser" colors if in NodeJS with "--inspect" or "--inspect-brk" flag

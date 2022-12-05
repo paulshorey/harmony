@@ -1,4 +1,8 @@
-# Add color to your console messages
+TODO: 
+1. currently adding type checking
+2. bundle exports for CommonJS and browser (window)
+
+## Add color to your console messages
 
 No dependencies. No setup required. Easily integrate with Cloud logging (LogDNA, etc). Visually group similar types of logs in the terminal. Show a concise file/line trace for each message - so you can actually find where it's originating without looking through the entire codebase.
 
