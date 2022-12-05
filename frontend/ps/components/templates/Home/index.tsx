@@ -17,6 +17,15 @@ import Link from '@ps/ui/components/Link';
 
 const style = (props) => css`
   height: 100vh;
+  max-height: 1200px;
+  ${props.theme.mq.tablet} {
+    height: calc(100vh - 80px);
+    max-height: 1000px;
+  }
+  ${props.theme.mq.phone} {
+    height: calc(100vh - 120px);
+    max-height: 800px;
+  }
   p {
     letter-spacing: 0.1px;
     text-align: center;
