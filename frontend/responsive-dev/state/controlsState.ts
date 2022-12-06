@@ -32,8 +32,8 @@ const controls = create(
        */
       sizePresets: {
         'typical sizes': [
-          [375, 944, '375 x 875 (tall narrow phone)'],
-          [1280, 944, '1180 x 820 (small laptop, or horizontal iPad)'],
+          [375, 944, '375 x 850 (tall narrow phone)'],
+          [1180, 768, '1180 x 768 (small laptop)'],
           [768, 1024, '820 x 1180 (iPad air portrait orientation)'],
         ],
         'mobile devices': [
