@@ -1,11 +1,7 @@
 import { css } from '@emotion/react';
 
 export default ({ theme }) => css`
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  width: 100vw;
+  width: ${theme.header.height};
   height: ${theme.header.height};
   display: flex;
   flex-direction: column;

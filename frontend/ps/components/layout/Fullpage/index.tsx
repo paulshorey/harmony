@@ -1,7 +1,7 @@
 import React from 'react';
 import CenterChildrenY from '@ps/ui/components/CenterChildrenY';
 import Block from '@ps/ui/components/Block';
-import HeaderLayout from 'components/layout/Header';
+import HeaderLayout from 'components/layout/Logo';
 
 const FullpageLayout = ({ children }) => {
   const styles = {

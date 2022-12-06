@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import FeatureSlide from './FeatureSlide';
 
 const style = ({ theme }) => css`
-  margin: 2rem 0 3rem;
+  margin: 2rem 0 0;
   img {
     height: 15rem;
   }

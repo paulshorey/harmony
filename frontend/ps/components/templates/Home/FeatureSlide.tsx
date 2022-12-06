@@ -3,8 +3,8 @@ import Link from '@ps/ui/components/Link';
 import { css } from '@emotion/react';
 
 const style = ({ theme }) => css`
-  width: 400px;
-  max-width: 100vw;
+  max-width: 428px;
+  width: 100vw;
   background: linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.1),

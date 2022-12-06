@@ -1,16 +1,10 @@
 import Block from '@ps/ui/components/Block';
 import Link from '@ps/ui/components/Link';
 import style from './style';
-// import React, { useContext } from 'react';
-// import PageContext from 'context/Page';
-// import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome';
-// import { regular, solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 const HeaderLayout = () => {
-  // const pageContext = useContext(PageContext);
   return (
-    <Block as="header" ss={style}>
-      {/* Logo */}
+    <Block ss={style}>
       <Link href="/">
         <svg
           fill="currentColor"
