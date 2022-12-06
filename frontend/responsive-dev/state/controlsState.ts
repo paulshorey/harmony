@@ -66,7 +66,7 @@ const controls = create(
       /*
        * host
        */
-      hosts: ['https://example.com'],
+      hosts: ['https://paulshorey.com'],
       hostIndex: 0,
       set_host: (host) => {
         const state = get() as controlsStateType;
@@ -142,7 +142,7 @@ const controls = create(
       },
     }),
     {
-      name: 'controls-cache8',
+      name: 'controls-cache9',
     }
   )
 );
