@@ -3,6 +3,7 @@ import Link from '@ps/ui/components/Link';
 import CenterChildrenY from '@ps/ui/components/CenterChildrenY';
 import CenterChildrenX from '@ps/ui/components/CenterChildrenX';
 import { analytics_track_page } from '@ps/fn/browser/analytics';
+import { useEffect } from 'react';
 
 export default function Home() {
   useEffect(() => {
