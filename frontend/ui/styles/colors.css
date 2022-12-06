@@ -89,7 +89,7 @@
   );
 }
 [data-bgcolor='purple'] {
-  --color-bg: hsl(250, 40%, 45%); /* hsl(250, 60%, 60%);*/
+  --color-bg: hsl(245deg 55% 55%); /* hsl(250, 60%, 60%);*/
   --color-bg-gradient: linear-gradient(
     333deg,
     hsl(270 50% 50%),

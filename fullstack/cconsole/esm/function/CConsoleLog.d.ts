@@ -1,1 +1,1 @@
-export default function (this: any): string | undefined;
+export default function (this: any): void;

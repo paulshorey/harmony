@@ -3,13 +3,13 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev": "next dev",
-    "build": "build-storybook -s public && next build",
-    "start": "next start",
-    "lint": "next lint",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
-    "serve-storybook": "serve storybook-static"
+    "dev": "start-storybook -p 6006 -s public",
+    "build": "build-storybook -s public",
+    "start": "serve storybook-static",
+    "dev-app": "next dev",
+    "build-app": "build-storybook -s public && next build",
+    "start-app": "next start",
+    "lint-app": "next lint"
   },
   "--- PLEASE NOTE ---": "--- This project is experimental and unfinished. Still needs to be cleaned up and optimized. Many of these need to be deleted ---",
   "dependencies": {

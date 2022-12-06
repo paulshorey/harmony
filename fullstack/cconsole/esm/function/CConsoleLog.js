@@ -79,9 +79,8 @@ export default function () {
     /*
      * error - prepare message for output as string
      */
-    let error_message = "";
     if (this.action === "error_message") {
-        args[0] = error_message =
+        args[0] =
             args[0] && typeof args[0] === "string"
                 ? args[0]
                     .split("\n")
@@ -231,10 +230,4 @@ export default function () {
      * but no linebreak when same action
      */
     this.sharedContext.last_action = action + this.action;
-    /*
-     * return
-     */
-    if (error_message) {
-        return error_message;
-    }
 }

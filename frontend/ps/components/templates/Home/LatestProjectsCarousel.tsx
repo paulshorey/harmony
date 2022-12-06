@@ -59,16 +59,6 @@ const slides = [
     href: 'https://fn.paulshorey.com',
   },
   {
-    title: 'Colorful Cloud Logger',
-    subtitle: (
-      <Fragment>
-        Universal (NodeJS and browser){' '}
-        <span className="noWrap">console logging solution</span>
-      </Fragment>
-    ),
-    href: 'https://github.com/paulshorey/colorful-console-logger',
-  },
-  {
     title: 'Responsive development',
     subtitle: (
       <Fragment>
@@ -77,6 +67,16 @@ const slides = [
       </Fragment>
     ),
     href: 'https://responsive.paulshorey.com',
+  },
+  {
+    title: 'Colorful Cloud Logger',
+    subtitle: (
+      <Fragment>
+        Universal (NodeJS and browser){' '}
+        <span className="noWrap">console logging solution</span>
+      </Fragment>
+    ),
+    href: 'https://github.com/paulshorey/colorful-console-logger',
   },
   {
     title: 'Besta.domains',
