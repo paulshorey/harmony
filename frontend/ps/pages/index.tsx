@@ -1,12 +1,16 @@
-import React from 'react';
+import { useEffect } from 'react';
 import HomeTemplate from 'components/templates/Home';
-import Head from 'next/head';
 import PageContext from 'context/Page';
-import cconsole from '@ps/cconsole';
+import { analytics_track_page } from '@ps/fn/browser/analytics';
 
 export default function HomePage() {
   const pageContext = {};
-  cconsole.success('homepage loaded');
+  useEffect(() => {
+    analytics_track_page({
+      name: 'Home',
+      path: '/',
+    });
+  }, []);
   return (
     <PageContext.Provider value={pageContext}>
       <HomeTemplate />

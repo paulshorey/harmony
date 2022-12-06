@@ -20,7 +20,7 @@ export const analytics_track_page = function (
   if (options.path === "") options.path = "/";
 
   // label
-  let label = "PageView: " + options.name;
+  let label = "PageView";
   mixpanel_track({ label, options });
 
   // Google Analytics
@@ -53,7 +53,7 @@ export const analytics_track_page = function (
 export const analytics_track_cta = function (options: {
   from?: string; // where in the page/site this was displayed
 }): void {
-  let label = "CTA: " + options.from;
+  let label = "CTA";
   mixpanel_track({ label, options });
   // track Facebook
   // if (typeof window === "object" && window.fbq) {
