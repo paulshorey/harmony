@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <title>Paul Shorey - Portfolio</title>
+        <title>Paul Shorey - Web Software Developer</title>
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
