@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <title>Web Software Development by Paul Shorey</title>
+        <title>Search the web like a pro</title>
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -20,9 +20,6 @@ export default function Document() {
       <body data-bgcolor="dark" data-textcolor="light" data-bggradient>
         <Main />
         <NextScript />
-
-        {/* Contact form */}
-        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
 
         {/* Mixpanel */}
         {!!MIXPANEL_ID && (

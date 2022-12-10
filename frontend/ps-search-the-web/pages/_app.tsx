@@ -1,7 +1,6 @@
 import AppProvider from 'components/utils/AppProvider';
 import { AppProps } from 'next/app';
 import 'styles/html.css';
-import 'typeface-quicksand';
 import 'styles/fontAwesomeMinimal.css';
 import 'styles/colors.css'; // colors and fonts -- all other variables in theme.ts
 import { config } from '@fortawesome/fontawesome-svg-core';

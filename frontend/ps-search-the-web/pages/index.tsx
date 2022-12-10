@@ -14,10 +14,6 @@ export default function HomePage() {
   return (
     <PageContext.Provider value={pageContext}>
       <HomeTemplate />
-      <div
-        className="elfsight-app-449dc901-7366-43df-b29a-84f77ee0f999"
-        style={{ display: 'none' }}
-      ></div>
     </PageContext.Provider>
   );
 }
