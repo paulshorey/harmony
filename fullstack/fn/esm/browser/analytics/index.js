@@ -10,7 +10,7 @@ export const analytics_track_page = function (options) {
     if (options.path === "")
         options.path = "/";
     // label
-    let label = "PageView: " + options.name;
+    let label = "PageView";
     mixpanel_track({ label, options });
     // Google Analytics
     // GA4 may track SPA route changes automatically? See:
@@ -40,7 +40,7 @@ export const analytics_track_page = function (options) {
  * @param {string} opt.from - where in the site the button was clicked
  */
 export const analytics_track_cta = function (options) {
-    let label = "CTA: " + options.from;
+    let label = "CTA";
     mixpanel_track({ label, options });
     // track Facebook
     // if (typeof window === "object" && window.fbq) {
