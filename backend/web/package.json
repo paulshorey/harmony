@@ -7,6 +7,8 @@
   "author": "Adam Schwartz <adam.flynn.schwartz@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@airbrake/node": "^1.0.7",
+    "@logdna/logger": "^2.6.6",
     "@ps/cconsole": "*",
     "@ps/fn": "*",
     "itty-router": "^2.6.6"

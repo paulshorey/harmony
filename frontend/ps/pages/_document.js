@@ -8,10 +8,8 @@ export default function Document() {
       <body data-bgcolor="dark" data-textcolor="light" data-bggradient>
         <Main />
         <NextScript />
-
         {/* Contact form */}
         <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-
         {/* Mixpanel */}
         {!!MIXPANEL_ID && (
           <script
@@ -23,7 +21,6 @@ export default function Document() {
             }}
           />
         )}
-
         {/* OpenReplay Tracking Code for my first project */}
         <script
           dangerouslySetInnerHTML={{
@@ -52,6 +49,16 @@ export default function Document() {
         `,
           }}
         />
+        {/* Experimental CF CAPTCHA 
+        client-side code: 0x4AAAAAAABozpPwjOO9kwYb
+        back-end code: 0x4AAAAAAABozldcmsxI0Cbc-0Fp7kW8PW0
+        documentation: https://developers.cloudflare.com/turnstile/get-started/server-side-validation/
+         */}
+        {/* <script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          async
+          defer
+        ></script> */}
       </body>
     </Html>
   );

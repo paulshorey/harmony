@@ -5,7 +5,7 @@ import parse_error_message from "@ps/fn/io/err/parse_error_message";
 let BROWSER = typeof window === "object";
 let DEFAULT_USE_COLOR = true;
 // don't use colors if in NodeJS with "--inspect" or "--inspect-brk" flag
-if (!BROWSER && process.execArgv.join().includes("--inspect")) {
+if (!BROWSER && process?.execArgv?.join().includes("--inspect")) {
   DEFAULT_USE_COLOR = false;
 }
 
