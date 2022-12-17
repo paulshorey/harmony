@@ -1,21 +1,40 @@
 import destroyCircular from "./destroyCircular";
-import serializeError from "./serializeError";
+import parse_error_message from "@ps/fn/io/err/parse_error_message";
 
-// use "browser" colors if in browser
-let NODEJSCOLORS = typeof window !== "object";
-// also use "browser" colors if in NodeJS with "--inspect" or "--inspect-brk" flag
-// if (NODEJSCOLORS && process.execArgv.join().includes("--inspect")) {
-//   NODEJSCOLORS = false
-// }
+// use different syntax if in front-end (dev tools) or NodeJS (console)
+let BROWSER = typeof window === "object";
+let DEFAULT_USE_COLOR = true;
+// don't use colors if in NodeJS with "--inspect" or "--inspect-brk" flag
+if (!BROWSER && process.execArgv.join().includes("--inspect")) {
+  DEFAULT_USE_COLOR = false;
+}
 
-/*
- * Log to console
+type boundContext = {
+  sharedContext: {
+    last_action?: string;
+  };
+  action: string;
+  options: {
+    disabled?: boolean;
+    logToCloud?: {
+      log?: (str: string) => void;
+      info?: (str: string) => void;
+      warn?: (str: string) => void;
+      error?: (str: string) => void;
+    };
+    useTrace?: boolean;
+    useColor?: boolean;
+    separateTypes?: boolean;
+  };
+};
+
+/**
+ * Console logging with added features
  */
-export default function (this: any): void {
-  let args = [...arguments];
-  // optionally, pass log-To-Cloud versions of each log action (log,info,error,etc.)
+export default function (this: boundContext): void {
+  // optionally, pass log-To-Cloud functions to handle each log action (log,info,error,etc.)
   if (!this.options) this.options = {};
-  let { disabled, logToCloud = {}, useTrace = false, useColor = true, separateTypes = false } = this.options;
+  let { disabled, logToCloud, useTrace = false, useColor = DEFAULT_USE_COLOR, separateTypes = false } = this.options;
   if (disabled) {
     return;
   }
@@ -41,59 +60,25 @@ export default function (this: any): void {
   }
 
   /*
-   * optimize message view
+   * fix edge cases
    */
-  // let hasError = false
+  let args: any = [];
   let a = 0;
-  while (a < args.length) {
-    // if first argument is string, give it a colon ": "
-    if (a === 0 && typeof args[a] === "string") {
-      if (args.length > a + 1) {
-        args[a] += ": ";
+  while (a < arguments.length) {
+    if (typeof arguments[a] === "object") {
+      if (arguments[a] instanceof Error) {
+        args[a] = parse_error_message(arguments[a]);
       } else {
-        args[a] += " ";
+        args[a] = destroyCircular(arguments[a], []);
       }
-    }
-    // fix object from being printed as "[object Object]"
-    if (typeof args[a] === "object") {
-      if (args[a] instanceof Error) {
-        // error object
-        // hasError = true
-        try {
-          // going to assume this is an Error
-          args[a] = serializeError(args[a]);
-          if (typeof args[a] === "object") {
-            args[a] = serializeError(args[a].stack);
-          }
-        } catch (e) {
-          // console.error(e)
-        }
-      } else {
-        // regular object
-        // serialize so it does not display changes made after log has printed
-        args[a] = JSON.parse(JSON.stringify(destroyCircular(args[a], [])));
-      }
+    } else {
+      args[a] = arguments[a];
     }
     a++;
   }
 
   /*
-   * error - prepare message for output as string
-   */
-  if (this.action === "error_message") {
-    args[0] =
-      args[0] && typeof args[0] === "string"
-        ? args[0]
-            .split("\n")
-            .slice(0, 2)
-            .map((str) => str.replace(/\/.+\//g, ""))
-            .toString()
-        : "error";
-    this.action = "error";
-  }
-
-  /*
-   * color1 messages
+   * different color for each action
    *
    * on NODE JS
    * https://en.wikipedia.org/wiki/ANSI_escape_code#Colors <- use "FG Code" for text, "BG Code" for background
@@ -105,36 +90,36 @@ export default function (this: any): void {
    * light grey bg      black text     string    escape for next line
    */
   let action = this.action;
-  let color1 = "";
-  let color2 = "";
+  let addColor = "";
   if (useColor && typeof args[0] === "string") {
     /*
      * use by NODEJS in terminal
      */
-    if (NODEJSCOLORS) {
+    if (!BROWSER) {
       switch (this.action) {
         case "error":
-          color1 = "\x1b[41m\x1b[33m%s\x1b[0m";
+          addColor = "\x1b[41m\x1b[33m%s\x1b[0m";
           break;
         case "warn":
-          color1 = "\x1b[43m\x1b[30m%s\x1b[0m";
+          addColor = "\x1b[43m\x1b[30m%s\x1b[0m";
           break;
         case "info":
-          color1 = "\x1b[46m\x1b[30m%s\x1b[0m";
+          addColor = "\x1b[46m\x1b[30m%s\x1b[0m";
+          break;
+        case "log":
+          addColor = "\x1b[47m\x1b[30m%s\x1b[0m";
           break;
         case "debug":
-          color1 = "\x1b[45m\x1b[30m%s\x1b[0m";
+          addColor = "\x1b[45m\x1b[30m%s\x1b[0m";
           break;
         case "trace":
-          color1 = "\x1b[106m\x1b[30m%s\x1b[0m";
+          addColor = "\x1b[106m\x1b[30m%s\x1b[0m";
           break;
         case "success":
-          color1 = "\x1b[42m\x1b[30m%s\x1b[0m";
-          this.action = "log";
+          addColor = "\x1b[42m\x1b[30m%s\x1b[0m";
           break;
         case "subtle":
-          color1 = "\x1b[40m\x1b[90m%s\x1b[0m";
-          this.action = "log";
+          addColor = "\x1b[40m\x1b[90m%s\x1b[0m";
           break;
       }
     } else {
@@ -143,43 +128,35 @@ export default function (this: any): void {
        */
       switch (action) {
         case "error":
-          args[0] = "%c" + args[0];
-          args.splice(1, 0, "background:red; color:yellow");
+          addColor = "background:red; color:yellow";
           break;
         case "warn":
-          args[0] = "%c" + args[0];
-          args.splice(1, 0, "background:yellow; color:black");
+          addColor = "background:yellow; color:black";
           break;
         case "log":
-          args[0] = "%c" + args[0];
-          args.splice(1, 0, "background:cyan; color:black");
+          addColor = "background:lightgray; color:black";
           break;
         case "info":
-          args[0] = "%c" + args[0];
-          args.splice(1, 0, "background:teal; color:black");
+          addColor = "background:teal; color:black";
           break;
         case "debug":
-          args[0] = "%c" + args[0];
-          args.splice(1, 0, "background:magenta; color:black");
+          addColor = "background:magenta; color:black";
           break;
         case "trace":
-          args[0] = "%c" + args[0];
-          args.splice(1, 0, "background:cyan; color:black");
+          addColor = "background:cyan; color:black";
           break;
         case "success":
-          args[0] = "%c" + args[0];
-          args.splice(1, 0, "background:lawngreen; color:black");
+          addColor = "background:lawngreen; color:black";
           break;
         case "subtle":
-          args[0] = "%c" + args[0];
-          args.splice(1, 0, "color:grey");
+          addColor = "color:grey";
           break;
       }
     }
   }
 
   /*
-   * custom actions
+   * Fix actions
    */
   switch (action) {
     case "success":
@@ -201,33 +178,51 @@ export default function (this: any): void {
   }
 
   /*
-   * Add trace (file-name:line-number)
+   * Log message to console
+   * - Use colors
+   * - Use specified action (log, info, debug, warn, etc)
+   * - Add trace (file-name:line-number)
    */
-  // log color
-  if (color1) {
-    if (trace) {
-      // color1, trace
-      args = [color1, ...args, trace, color2];
+  let firstArg = "";
+  if (useColor) {
+    firstArg = args.shift();
+    if (!BROWSER) {
+      // NODE JS process logs in terminal
+      if (trace) {
+        console[action](addColor, firstArg, ...args.map((arg) => JSON.stringify(arg, null, 2)), trace);
+      } else {
+        console[action](addColor, firstArg, ...args.map((arg) => JSON.stringify(arg, null, 2)));
+      }
     } else {
-      // color1, no trace
-      args = [color1, ...args, color2];
+      // FRONT-END BROWSER logs in DevTools
+      if (trace) {
+        console[action]("%c" + firstArg, addColor, ...args, trace);
+      } else {
+        console[action]("%c" + firstArg, addColor, ...args);
+      }
     }
-  } else if (trace) {
-    // no color1, trace
-    args = [...args, trace];
+  } else {
+    if (!BROWSER) {
+      // NODE JS process logs in terminal
+      if (trace) {
+        console[action](JSON.stringify(args, null, 2), trace);
+      } else {
+        console[action](JSON.stringify(args, null, 2));
+      }
+    } else {
+      if (trace) {
+        console[action](...args, trace);
+      } else {
+        console[action](...args);
+      }
+    }
   }
 
   /*
-   * Log message to console
-   * use specified action (log, info, debug, warn, etc)
+   * Log messages to cloud
    */
-  console[action](...args);
-
-  /*
-   * Log original content to cloud
-   */
-  if (logToCloud[action]) {
-    logToCloud[action](...arguments, trace);
+  if (logToCloud && logToCloud[action]) {
+    logToCloud[action]((firstArg ? JSON.stringify(firstArg) : "") + " " + JSON.stringify(args), trace);
   }
 
   /*

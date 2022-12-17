@@ -1,12 +1,30 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   webpack: (config, { isServer }) => {
     if (isServer) {
-      // https://github.com/wojtekmaj/react-pdf/issues/799
-      // https://github.com/mozilla/pdf.js/issues/13373
       config.resolve.alias.canvas = false;
     }
     return config;
+  },
+  rewrites() {
+    const notakuDocsUrlWithBasePath = new URL(
+      `https://7773f212-60d9-41b1.docs-base-path.notaku.site`
+    ).origin;
+    return [
+      {
+        source: '/api',
+        destination: `https://documenter.getpostman.com/view/23360867/2s8YzXtewC`,
+      },
+      {
+        source: '/docs',
+        destination: `${notakuDocsUrlWithBasePath}/docs`,
+      },
+      {
+        source: '/docs/:path*',
+        destination: `${notakuDocsUrlWithBasePath}/docs/:path*`,
+      },
+    ];
   },
 };
 

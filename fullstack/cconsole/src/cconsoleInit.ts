@@ -8,7 +8,6 @@ type cconsole = {
   info: (message: string, ...args: any[]) => void;
   debug: (message: string, ...args: any[]) => void;
   warn: (message: string, ...args: any[]) => void;
-  error_message: (message: string, ...args: any[]) => void;
   error: (message: string, ...args: any[]) => void;
   trace: (message: string, ...args: any[]) => void;
   success: (message: string, ...args: any[]) => void;
@@ -76,7 +75,6 @@ const cconsoleInit = function (options: options = {}) {
     info: CConsoleLog.bind({ action: "info", options, sharedContext }),
     debug: CConsoleLog.bind({ action: "debug", options, sharedContext }),
     warn: CConsoleLog.bind({ action: "warn", options, sharedContext }),
-    error_message: CConsoleLog.bind({ action: "error_message", options, sharedContext }),
     error: CConsoleLog.bind({ action: "error", options, sharedContext }),
     trace: CConsoleLog.bind({ action: "trace", options, sharedContext }),
     success: CConsoleLog.bind({ action: "success", options, sharedContext }),

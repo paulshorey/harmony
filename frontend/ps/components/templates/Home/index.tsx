@@ -36,7 +36,7 @@ function Home() {
       <FlexHeader />
       <Block as="p">
         <span className="hideAwkwardPhoneSize">Hi. </span>Thanks for visiting! I
-        love learning by trying new ideas. Really appreciate your{' '}
+        love learning and collaborating. Lets work together!{' '}
         <Link
           href="#"
           onClick={() => {
@@ -47,9 +47,9 @@ function Home() {
             if (el && el.click) el.click();
           }}
         >
-          feedback
+          Resume
         </Link>{' '}
-        <FA icon={regular('comment')} />
+        <FA icon={regular('download')} />
       </Block>
       <HCarousel />
       <Block>

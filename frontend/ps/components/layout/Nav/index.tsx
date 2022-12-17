@@ -9,14 +9,14 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 const LayoutNav = () => {
   return (
     <Block as="nav" ss={styles}>
-      <Link
+      {/* <Link
         href="https://paulshorey.com/files/Resume--Paul-Shorey.pdf"
         ss="margin-right:1.3rem;text-align:right;"
       >
         <Button variant="text">
           Resume <FA icon={regular('download')} />
         </Button>
-      </Link>
+      </Link> */}
 
       <Link
         href="https://github.com/paulshorey/harmony"
