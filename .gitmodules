@@ -1,3 +1,4 @@
 [submodule "backend/nlp"]
 	path = backend/nlp
 	url = git@github.com:paulshorey/backend-nlp.git
+  branch = main
